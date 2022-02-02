@@ -3,14 +3,13 @@
 
 Dear potentially interested person,
 
-We are pleased that you are interested in this topic. We at foodsharing are an initiative to fight food waste: https://foodsharing.de/ueber-uns (link to page in German)
-Our homepage is the central tool of our initiative. This platform enables the entire networking among each other, the common work on different topics and last but not least the organisation of all our food rescues.
+We are pleased that you are interested in this topic. We at [foodsharing](https://foodsharing.de/ueber-uns) (link to page in German) are an initiative to fight food waste. Our homepage is the central tool of our initiative. This platform enables the entire networking among each other, the common work on different topics and last but not least the organisation of all our food rescues.
 
 Did you know that we currently have more than **400.000** registered accounts and send out hundreds of thousands of emails every month? Beyond **100.000** food savers are organised via the homepage, and several hundreds ambassadors (Botschafter) administer a wide variety of regions throughout the German-speaking world. A giant apparatus!
 **However, there are only about 5 programmers.** That's why we want to launch a new call with this refreshed post.
 
 ## Have we gotten you interested?
-Feel free to contact us on Slack (https://slackin.yunity.org) in the channel / group chat **#foodsharing-dev or send us an email to [it@foodsharing.network](mailto:it@foodsharing.network)** so that we can find together some possible tasks and fields of activity around the topics listed below for you. Should these two ways of contact keep you away, you can also write a message to [Jonathan](https://foodsharing.de/profile/132347 "Jonathan's profile") via the website. We are a great team and so far we have found a task for everyone who wanted to help.
+Feel free to contact us on [Slack](https://slackin.yunity.org) in the channel / group chat **#foodsharing-dev or send us an email to [it@foodsharing.network](mailto:it@foodsharing.network)** so that we can find together some possible tasks and fields of activity around the topics listed below for you. Should these two ways of contact keep you away, you can also write a message to [Jonathan](https://foodsharing.de/profile/132347 "Jonathan's profile") via the website. We are a great team and so far we have found a task for everyone who wanted to help.
 
 ## Where are all the volunteers with IT skills?
 
@@ -106,8 +105,8 @@ For sure:
 In order to work even more closely together, we meet regularly for Hackweeks. Here all participants are welcome to participate in the development.
 
 Here are some articles about the last Hackweek:
-- https://yunity.org/en/heartbeat/2019-02-24   
-- https://foodsharing.de/?page=blog&sub=read&id=236
+- [yunity heartbeat 2019-02-24](https://yunity.org/en/heartbeat/2019-02-24) (en)
+- [foodsharing ist endlich Open Source!](https://foodsharing.de/?page=blog&sub=read&id=236) (de)
 
 Announcements for Hackweeks can be found in the [Slack Channel #foodsharing-hackweek](https://slackin.yunity.org "Slack Channel") and on the [Foodsharing Blog](https://foodsharing.de/?page=blog) (German only).
 
