@@ -1255,7 +1255,8 @@ bell:
   new_quiz_comment: "{comment}"
 
   new_foodsaver_title: "{name} neu in {bezirk}"
-  new_foodsaver: "Braucht Einführungsabholungen"
+  new_foodsaver_needs_introduction: "Braucht Einführungsabholungen"
+  new_foodsaver_needs_verification: "Muss verifiziert werden"
   new_foodsaver_verified_title: "{name} neu in {bezirk}"
   new_foodsaver_verified: "Schon verifiziert - kann loslegen"
   betrieb_fetch_title: "{betrieb}"

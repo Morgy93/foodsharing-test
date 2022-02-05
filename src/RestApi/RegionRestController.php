@@ -12,6 +12,7 @@ use Foodsharing\Modules\Core\DBConstants\Region\WorkgroupFunction;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\Group\GroupFunctionGateway;
 use Foodsharing\Modules\Region\RegionGateway;
+use Foodsharing\Modules\Region\RegionTransactions;
 use Foodsharing\Modules\Settings\SettingsGateway;
 use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Permissions\RegionPermissions;
@@ -35,6 +36,7 @@ class RegionRestController extends AbstractFOSRestController
 	private ImageHelper $imageHelper;
 	private SettingsGateway $settingsGateway;
 	private GroupFunctionGateway $groupFunctionGateway;
+	private RegionTransactions $regionTransactions;
 
 	// literal constants
 	private const LAT = 'lat';
@@ -51,7 +53,8 @@ class RegionRestController extends AbstractFOSRestController
 		StoreGateway $storeGateway,
 		Session $session,
 		ImageHelper $imageHelper,
-		GroupFunctionGateway $groupFunctionGateway
+		GroupFunctionGateway $groupFunctionGateway,
+		RegionTransactions $regionTransactions
 	) {
 		$this->settingsGateway = $settingsGateway;
 		$this->bellGateway = $bellGateway;
@@ -62,6 +65,7 @@ class RegionRestController extends AbstractFOSRestController
 		$this->session = $session;
 		$this->imageHelper = $imageHelper;
 		$this->groupFunctionGateway = $groupFunctionGateway;
+		$this->regionTransactions = $regionTransactions;
 	}
 
 	/**
@@ -99,9 +103,10 @@ class RegionRestController extends AbstractFOSRestController
 		}
 
 		$foodsaver = $this->session->get('user');
+		$userData = array_merge($foodsaver, ['id' => $sessionId]);
 		$bellData = Bell::create(
 			'new_foodsaver_title',
-			$foodsaver['verified'] ? 'new_foodsaver_verified' : 'new_foodsaver',
+			$this->regionTransactions->getJoinMessage($userData),
 			$this->imageHelper->img($foodsaver['photo'], 50),
 			['href' => '/profile/' . (int)$sessionId . ''],
 			[

@@ -12,7 +12,7 @@ use Foodsharing\Modules\Region\ForumFollowerGateway;
 use Foodsharing\Utility\DataHelper;
 use Foodsharing\Utility\ImageHelper;
 
-final class FoodsaverGateway extends BaseGateway
+class FoodsaverGateway extends BaseGateway
 {
 	private DataHelper $dataHelper;
 	private ForumFollowerGateway $forumFollowerGateway;
@@ -958,5 +958,10 @@ final class FoodsaverGateway extends BaseGateway
 
 			$this->db->insert('fs_verify_history', $verificationChange);
 		}
+	}
+
+	public function foodsaverWasVerifiedBefore(int $userId): bool
+	{
+		return $this->db->exists('fs_verify_history', ['fs_id' => $userId]);
 	}
 }

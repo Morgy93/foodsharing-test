@@ -1,6 +1,7 @@
 # Release "H", unreleased
 
 ## Features
+- It is now differentiated between completely new foodsavers and foodsavers who were verified before. !1129
 
 ## Changes
 - Add E-Mail of reported user in overview !2120 @fs_k

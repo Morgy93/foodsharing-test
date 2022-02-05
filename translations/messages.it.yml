@@ -1438,7 +1438,7 @@ bell:
   passgen_failed_title: La tua tessera non può essere creato
   sharepoint_activate: '{nome} è stato inserito'
   sharepoint_activate_title: Nuovo divisore in {distretto}
-  new_foodsaver: Ha bisogno di un'introduzione ai pickup
+  new_foodsaver_needs_introduction: Ha bisogno di un'introduzione ai pickup
   fs_sleepmode_title: Nuovo dormiglione
   poll_new_title: Nuova votazione
 content:
