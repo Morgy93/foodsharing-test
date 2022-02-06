@@ -306,6 +306,7 @@ menu:
     dataprivacy: Data privacy
     changelog: Changelog
     stores: Stores
+    other_stores: Other stores #MapView
     fs: Foodsaver
     ids: Passports
     joinregion: Join a region

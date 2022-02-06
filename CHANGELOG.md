@@ -40,6 +40,7 @@
 - change german wordings in translate file !2080 @Jonathan_B
 - Replace picture upload for blog posts with the new upload API #45 !2089 @alex.simm
 - adds information on what gets deleted with the user profile !2106 @jonathan_b
+- Renamed last map filter option to "other stores" and added English translation for this !2153
 
 ## Bugfixes
 - Fixed the list of responsible store members in REST responses !2033 #1124 @alex.simm

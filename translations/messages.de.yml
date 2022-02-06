@@ -2016,7 +2016,7 @@ menu:
     stores: "Betriebe" #also in MapView
     helpwanted: "HelferInnen gesucht" #MapView
     helpneeded: "HelferInnen dringend gesucht" #MapView
-    in_negotiation: "In Verhandlung" #MapView
+    other_stores: "Andere Betriebe" #MapView
     fs: "Foodsaver"
     ids: "Ausweise"
     joinregion: "Einem Bezirk beitreten"
