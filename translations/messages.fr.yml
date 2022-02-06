@@ -1599,7 +1599,7 @@ storeedit:
       \ équipe.\nAjoute jusqu'à trois responsables magasin pour gérer cette équipe.\n"
     max-sm: Choisis au maximum 3 Responsables coopération (RC)
     need-sm: Il doit y avoir au minimum un(e) responsable pour ce magasin.
-    empty: L'équipe ne peut pas être vide.
+    empty: L'équipe ne peut pas être vide
     cannot-leave: Tu es encore responsable coopération pour ce magasin et ne peut
       donc pas le quitter.
     leave: Retirer de l'équipe

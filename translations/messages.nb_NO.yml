@@ -2236,3 +2236,19 @@ store_status_impact_explanation: 'Vennligst oppdater statusen (<a href="https://
 password:
   reset: Glemt passordet?
   insertmail: Skriv inn e-postadressen din her for å tilbakestille passordet ditt.
+edit_websites: Rediger offentlige nettsteder
+request_time: 'Forespørselstid:'
+fpcapital: FP
+fpko: feilpunktet (k. O.)
+nofp: ingen feilpunkter (spøk spørsmål)
+quiz:
+  questions: spørsmål
+  heavysigh: Laget!
+  question: spørre
+  congrats_details: Gratulerer! Bestått med {points} av maksimalt {max_points} straffepoeng!
+  not_passed_details: Dessverre besto du ikke. Du hadde {points} av maksimalt {max_points}
+    feilpoeng!
+  type: -quiz
+  finishnow:
+    fs: Fullfør registreringen som matredder nå.
+fpsingular: feilpunktet

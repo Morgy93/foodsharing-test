@@ -116,6 +116,7 @@ group:
     faehigkeit: What are your skills that you have in this area?
     motivation: What is your motivation to participate in the group {group}?
     summary: '{name} would like to participate in the {group} working group.'
+    accept: Accept the application
   show-all: Show all
   really_quit_district: Do you really want to leave the region %name%?
   really_quit_workgroup: Do you really want to leave the working group %name%?
@@ -154,6 +155,12 @@ group:
     add_member: add to team
     admin_mode_on: Activate view for administrators
     admin_mode_off: Back to the standard view
+  application_from: by
+  entermotivation: 'Motivation:'
+  enterskills: 'Skills:'
+  entertime: 'Available Time:'
+  application_region: 'Application for '
+  enterxp: 'Experience:'
 settings:
   header: Your data and settings
 
@@ -320,6 +327,9 @@ menu:
     selfservice: Self service
     fundraising: Fundraising
     pin: Description of district
+    helpwanted: Help wanted
+    helpneeded: Help wanted urgently
+    in_negotiation: In negotiation
 profile:
   banana:
     by: ' by '
@@ -402,6 +412,13 @@ profile:
       want to report an administrator of the report processing. This is not technically
       supported at the moment. You can always submit a report by email to your local
       responsible for this case.
+    view:
+      delivered: Delivered
+      newreport: New reports
+    control:
+      total: total
+      tot: total
+      newreports: New reports
   history:
     wasVerified: Verified
     lostVerification: De-verified
@@ -462,6 +479,9 @@ profile:
   no_common_workgroups: You are not in any common group with {name}.
   workgroups_member: You and {name} are in the following working groups
   workgroups_admin: '{name} is committed as a contact person for the working groups'
+  cantdeleteall: You can not delete all dates!
+  cantdeletethis: You can not delete individual events.
+  alldatesdeleted: All dates were deleted
 test:
   plain: This is a nice translation
   vars: 'My name is {NAME} and I am {AGE} years old'
@@ -504,6 +524,9 @@ mailbox:
   write: Compose email
   delete: move to trash
   empty: No messages in this mailbox yet
+  to: To
+  fromto: From/To
+  from: From
 events:
   description: Description
   create:
@@ -702,6 +725,7 @@ storeview:
   teamInfo: There are <strong> {active} </strong> actives and <strong> {jumper} </strong>
     jumpers in the team.
   pickupCount: At this store there have been {pickupCount} pickups.
+  status_notes: status notes
 day: Day
 time: Time
 select: Please select
@@ -1180,6 +1204,7 @@ blog:
   actions: Actions
   empty: There are no entries so far.
   header: News from the world of foodsharing
+  read: read
 region:
   type:
     workgroup: Working group
@@ -1252,6 +1277,7 @@ releases:
   "2020-05": Release 'Orange' (May 2020)
   "2021-03": Release "strawberry" 🍓 (March 2021)
   "2021-09": "Release \"fig\" \U0001F967 (September 2021)"
+  "2022-01": Release "Grapefruit" 🍋 (January 2022)
 footer:
   it_devdocs: by foodsharing IT
   donate_now: Donate now
@@ -1918,6 +1944,7 @@ chat:
   confirm_draft_discard: "You switch to a new conversation. The text in the answer\
     \ field is discarded.\n\nIf you cancel this dialogue, your draft will be carried\
     \ over into the new conversation instead.\n"
+  incorrect_address: This email address is not valid
 delete: Delete
 error_unexpected: An error has occurred
 register:
@@ -2320,6 +2347,8 @@ startpage:
   slogan_3: foodsharing is and remains free of charge.
   slogan_2: collaborative, sustainable & appreciative
   slogan_1: Together for more food appreciation
+  join: Join
+  registernow: Register now
 date_short:
   Sunday: Sun
   Saturday: Sat
@@ -2343,3 +2372,52 @@ numbers:
   thousands_separator: ","
   million_abbreviation: " mio."
   billion_abbreviation: " bn."
+edit_websites: Edit public pages
+fpcapital: EP
+fpko: Error points (k. o.)
+quiz:
+  question: Question
+  questions: Questions
+  not_passed_details: Unfortunately, you did not pass. You had {points} of {max_points}
+    maximum error points!
+  choice:
+    correcta: is correct!
+    wronga: would have been correct as well.
+    answer: Answer
+    send: Send
+    cresponses: Correct answers
+    nresponses: Neutral answers
+    wresponses: Wrong answers
+    writecomment: Write a comment to this question
+  waitxdays: You can try it again in
+  notfinishedyet: You have not finished the quiz yet.
+  continuenow: Continue the quiz now!
+  congrats_details: Congratulations! You passed with {points} of {max_points} maximum
+    error points!
+  type: -Quiz
+  threestrikes: You did not pass the quiz 3 times.
+  days: days
+  resultsbelow: You can find the results below.
+  heavysigh: Finished!
+  goodluck: Good luck!
+  regstart: Start the quiz with unlimited time and 20 questions
+  nownownow: Start the quiz now
+  timedstart: Start the quiz with limited time and 10 questions
+nofp: no error points (not a serious question)
+fpsingular: Error point
+request_time: 'Time of request:'
+deletefromregion: Really remove from the region?
+logincontrol:
+  nomorenewsletter: You won't receive any more newletters from us
+  success: Success!
+addreaction: Add a reaction
+sig:
+  buddies: People you know
+teamjs:
+  wrongmail: There is something wrong with your email address.
+contentmanagement: Content management
+activitypost:
+  showeverything: show everything
+  less: less
+  write: Write an answer ...
+deletelow: delete
