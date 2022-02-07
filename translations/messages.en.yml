@@ -889,6 +889,7 @@ bell:
   new_foodsaver_title: '{name} is new in {bezirk}'
   betrieb_fetch: '{count} unconfirmed pick-ups'
   new_foodsaver_verified: Already verified - ready to go
+  new_foodsaver: needs introductory pickups
   new_foodsaver_needs_introduction: needs introductory pickups
   new_foodsaver_needs_verification: needs to be verified
   new_quiz_comment_title: New quiz comment

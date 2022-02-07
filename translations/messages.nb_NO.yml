@@ -1001,6 +1001,7 @@ bell:
   workgroup_request_decline: Du ble ikke tatt opp i arbeidsgruppen.
   poll_new_title: Ny avstemning
   store_cr_times: Hentetidene er endret
+  new_foodsaver: trenger innledende pickuper
   new_foodsaver_needs_introduction: trenger innledende pickuper
   passgen_failed: Last opp et bilde, så fungerer det.
   new_quiz_comment_title: Ny quizkommentar
