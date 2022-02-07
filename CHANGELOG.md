@@ -1,4 +1,4 @@
-# Release "H", unreleased
+# Release "Heidelbeere", unreleased
 
 ## Features
 - It is now differentiated between completely new foodsavers and foodsavers who were verified before. !1129
@@ -8,6 +8,7 @@
 - Store-related conversations include a link to their store now !1807 !2134 !2147 @ChrisOelmueller
 
 ## Bugfixes
+- Fix the community marker map for regions that do not yet have a pin #1183 !2154 @alex.simm  
 
 ## Refactoring
 - move even more hardcoded language to language files !2109 @jonathan_b

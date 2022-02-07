@@ -3,6 +3,7 @@
 namespace Foodsharing\Modules\Region;
 
 use Foodsharing\Modules\Core\Control;
+use Foodsharing\Modules\Core\DBConstants\Map\MapConstants;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionOptionType;
 use Foodsharing\Modules\Core\DBConstants\Region\Type;
 use Foodsharing\Modules\Event\EventGateway;
@@ -16,7 +17,6 @@ use Foodsharing\Permissions\ReportPermissions;
 use Foodsharing\Permissions\VotingPermissions;
 use Foodsharing\Permissions\WorkGroupPermissions;
 use Foodsharing\Utility\ImageHelper;
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -502,8 +502,8 @@ final class RegionControl extends Control
 		$this->pageHelper->addTitle($this->translator->trans('terminology.pin'));
 		$viewdata = $this->regionViewData($region, $request->query->get('sub'));
 		$result = $this->gateway->getRegionPin($region['id']);
-		$viewdata['lat'] = $result['lat'] ?? null;
-		$viewdata['lon'] = $result['lon'] ?? null;
+		$viewdata['lat'] = $result['lat'] ?? MapConstants::CENTER_GERMANY_LAT;
+		$viewdata['lon'] = $result['lon'] ?? MapConstants::CENTER_GERMANY_LON;
 		$viewdata['desc'] = $result['desc'] ?? null;
 		$viewdata['status'] = $result['status'] ?? null;
 		$response->setContent($this->render('pages/Region/pin.twig', $viewdata));
