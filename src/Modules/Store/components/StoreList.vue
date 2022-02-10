@@ -14,7 +14,7 @@
         <div class="form-row p-1 ">
           <div class="col-2 text-center">
             <label class=" col-form-label col-form-label-sm">
-              Filtern nach...
+              {{ $i18n('store.filter') }}
             </label>
           </div>
           <div class="col-4">

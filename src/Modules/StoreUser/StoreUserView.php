@@ -68,9 +68,9 @@ class StoreUserView extends View
 
 		$out = $this->v_utils->v_form_select('team_status', [
 			'values' => [
-				['id' => 0, 'name' => 'Team ist voll'],
-				['id' => 1, 'name' => 'HelferInnen gesucht'],
-				['id' => 2, 'name' => 'Es werden dringend HelferInnen gesucht!']
+				['id' => 0, 'name' => $this->translator->trans('store.team.isfull')],
+				['id' => 1, 'name' => $this->translator->trans('menu.entry.helpwanted')],
+				['id' => 2, 'name' => $this->translator->trans('menu.entry.helpneeded')]
 			]
 		]);
 
@@ -90,13 +90,12 @@ class StoreUserView extends View
 		$this->pageHelper->addHidden('
 			<div id="disabledteamedit" class="popbox bootstrap">
 				<p>
-					Das Hinzufügen, Ändern oder Entfernen von Team-Mitgliedern,
+					' . $this->translator->trans('store.team.add_a') . '
 					<br>
-					ist über die BV-Ansicht (grünes Zahnrad in der Teamliste) möglich.
+					' . $this->translator->trans('store.team.add_b') . '
 				</p>
 				<p>
-					Mehr Infos unter
-					<a href="?page=content&sub=releaseNotes">Was ist neu?</a>.
+					' . $this->translator->trans('store.team.moreinfo') . '<a href="?page=content&sub=releaseNotes">' . $this->translator->trans('store.team.more_title') . '</a>
 				</p>
 			</div>
 		');
@@ -127,12 +126,12 @@ class StoreUserView extends View
 		}
 
 		$head = [
-			['name' => 'Name', 'width' => 180],
-			['name' => 'Anschrift'],
-			['name' => 'Postleitzahl', 'width' => 90],
-			['name' => 'Status', 'width' => 50]];
+			['name' => $this->translator->trans('storelist.name'), 'width' => 180],
+			['name' => $this->translator->trans('storelist.addressdata')],
+			['name' => $this->translator->trans('storelist.zipcode'), 'width' => 90],
+			['name' => $this->translator->trans('storelist.status'), 'width' => 50]];
 		if ($isRegion) {
-			$head[] = ['name' => 'Region'];
+			$head[] = ['name' => $this->translator->trans('region.type.region')];
 		}
 
 		$table = $this->v_utils->v_tablesorter($head, $storeRows);

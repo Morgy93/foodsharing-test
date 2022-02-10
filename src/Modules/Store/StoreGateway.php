@@ -917,19 +917,6 @@ class StoreGateway extends BaseGateway
 		]);
 	}
 
-	public function getStoreStateList(): array
-	{
-		return [
-			['id' => '1', 'name' => 'Es besteht noch kein Kontakt'],
-			['id' => '2', 'name' => 'Verhandlungen laufen'],
-			['id' => '3', 'name' => 'Betrieb ist bereit zu spenden :-)'],
-			['id' => '4', 'name' => 'Betrieb will nicht kooperieren'],
-			['id' => '5', 'name' => 'Betrieb spendet bereits'],
-			['id' => '6', 'name' => 'spendet an Tafel etc. & wirft nichts weg'],
-			['id' => '7', 'name' => 'Betrieb existiert nicht mehr :-('],
-		];
-	}
-
 	public function setStoreTeamStatus(int $storeId, int $teamStatus)
 	{
 		$this->db->update('fs_betrieb', ['team_status' => $teamStatus], ['id' => $storeId]);

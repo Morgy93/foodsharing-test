@@ -822,6 +822,38 @@ store:
     to-team: "Aufnehmen"
     to-jumper: "Springerliste"
     to-nowhere: "Ablehnen"
+#
+# Store and StoreUser
+# --
+  willgetcontacted: "Du bist momentan auf der Springerliste. Sobald Hilfe benötigt wird, wirst Du kontaktiert."
+  team:
+    isfull: "Team ist voll"
+    add_a: "Das Hinzufügen, Ändern oder Entfernen von Team-Mitgliedern"
+    add_b: "ist über die BV-Ansicht (grünes Zahnrad in der Teamliste) möglich."
+    moreinfo: "Mehr Infos unter" 
+    more_title: "Was ist neu?"
+  filter: "Filtern nach ..."
+  enterdate: "Abholtermin eintragen"
+  enternumber: "Du musst noch die Anzahl der Abholer*innen auswählen."
+  leaveinfo: "Hier kannst Du einige Infos für die Foodsaver angeben, die sich für das Team bewerben möchten."
+  maxchar: "(max. 180 Zeichen)"
+  important: "Wichtig:"
+  nodetails: "Gib hier keine genauen Abholzeiten an."
+  peoplecame: "Es ist des Öfteren vorgekommen, dass Leute unabgesprochen zum Laden gegangen sind."
+  nochains: "Bitte nur inhabergeführte Betriebe bis maximal 3 Filialen ansprechen, niemals Filialen einer größeren Kette ansprechen! Betriebskettenregeln beachten!"
+  nodeclaration: "Keine Angabe"
+  prefetchone: "1 Woche"
+  prefetchtwo: "2 Wochen"
+  prefetchthree: "3 Wochen"
+  prefetchfour: "4 Wochen"
+  convince:
+    none: "Überhaupt kein Problem, er*sie war/en sofort begeistert!"
+    some: "Nach Überzeugungsarbeit erklärte er*sie sich bereit mitzumachen."
+    much: "Ganz schwierig, aber am Ende hat er*sie eingewilligt."
+    final: "Zuerst sah es schlecht aus, dann hat er*sie sich aber doch gemeldet."
+  complete: "kompletter Datenbank"
+  smneeded: "Zum Anlegen eines Betriebes musst Du Betriebsverantwortliche*r sein."
+  locked: "Diesen Betrieb kannst Du nicht bearbeiten."
 
 storeedit:
   bread: "Betrieb bearbeiten"
@@ -2074,8 +2106,10 @@ storestatus:
   "1": "Es besteht noch kein Kontakt"
   "2": "Verhandlungen laufen"
   "3": "Betrieb ist bereit zu kooperieren"
+  "3a": "Betrieb ist bereit zu spenden. :-)"
   "4": "Will nicht kooperieren"
   "5": "Betrieb kooperiert mit uns"
+  "5a": "Betrieb spendet bereits"
   "6": "Spendet an Tafel etc. und wirft nichts weg"
   "7": "Betrieb existiert nicht mehr"
 

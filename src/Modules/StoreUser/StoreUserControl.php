@@ -225,7 +225,7 @@ class StoreUserControl extends Control
 						])
 					);
 				} else {
-					$this->pageHelper->addContent($this->v_utils->v_info('Du bist momentan auf der Springerliste. Sobald Hilfe benötigt wird, wirst Du kontaktiert.'));
+					$this->pageHelper->addContent($this->v_utils->v_info($this->translator->trans('store.willgetcontacted')));
 				}
 				/* end of pinboard */
 

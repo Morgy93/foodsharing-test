@@ -75,7 +75,7 @@ class StoreControl extends Control
 		if ($regionId > 0) {
 			$region = $this->regionGateway->getRegion($regionId);
 		} else {
-			$region = ['name' => 'kompletter Datenbank'];
+			$region = ['name' => $this->translator->trans('store.complete')];
 		}
 		if ($this->identificationHelper->getAction('new')) {
 			if ($this->storePermissions->mayCreateStore()) {
@@ -91,7 +91,7 @@ class StoreControl extends Control
 					$this->storeGateway->getBasics_groceries(),
 					$this->storeGateway->getBasics_chain(),
 					$this->storeGateway->getStoreCategories(),
-					$this->storeGateway->getStoreStateList(),
+					$this->getStoreStateList(),
 					$this->weightHelper->getWeightListEntries()
 				));
 
@@ -99,7 +99,7 @@ class StoreControl extends Control
 					['name' => $this->translator->trans('bread.backToOverview'), 'href' => '/?page=fsbetrieb&bid=' . $regionId]
 				]), $this->translator->trans('storeedit.actions')), CNT_RIGHT);
 			} else {
-				$this->flashMessageHelper->info('Zum Anlegen eines Betriebes musst Du Betriebsverantwortlicher sein');
+				$this->flashMessageHelper->info($this->translator->trans('store.smneeded'));
 				$this->routeHelper->go('?page=settings&sub=up_bip');
 			}
 		} elseif ($id = $this->identificationHelper->getActionId('delete')) {
@@ -125,11 +125,11 @@ class StoreControl extends Control
 					$this->storeGateway->getBasics_groceries(),
 					$this->storeGateway->getBasics_chain(),
 					$this->storeGateway->getStoreCategories(),
-					$this->storeGateway->getStoreStateList(),
+					$this->getStoreStateList(),
 					$this->weightHelper->getWeightListEntries()
 				));
 			} else {
-				$this->flashMessageHelper->info('Diesen Betrieb kannst Du nicht bearbeiten');
+				$this->flashMessageHelper->info($this->translator->trans('store.locked'));
 			}
 
 			$this->pageHelper->addContent($this->v_utils->v_field($this->v_utils->v_menu([
@@ -164,6 +164,19 @@ class StoreControl extends Control
 				'stores' => array_values($storesMapped),
 			]));
 		}
+	}
+
+	public function getStoreStateList(): array
+	{
+		return [
+			['id' => '1', 'name' => $this->translator->trans('storestatus.1')],
+			['id' => '2', 'name' => $this->translator->trans('storestatus.2')],
+			['id' => '3', 'name' => $this->translator->trans('storestatus.3a')],
+			['id' => '4', 'name' => $this->translator->trans('storestatus.4')],
+			['id' => '5', 'name' => $this->translator->trans('storestatus.5')],
+			['id' => '6', 'name' => $this->translator->trans('storestatus.6')],
+			['id' => '7', 'name' => $this->translator->trans('storestatus.7')],
+		];
 	}
 
 	private function handle_edit()

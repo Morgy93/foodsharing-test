@@ -71,12 +71,12 @@ class StoreXhr extends Control
 		}
 
 		$dia = new XhrDialog();
-		$dia->setTitle('Abholtermin eintragen');
+		$dia->setTitle($this->translator->trans('store.enterdate'));
 		$dia->addContent($this->view->dateForm());
 		$dia->addOpt('width', 280);
 		$dia->setResizeable(false);
 		$dia->addAbortButton();
-		$dia->addButton('Speichern', 'saveDate();');
+		$dia->addButton($this->translator->trans('button.save'), 'saveDate();');
 
 		$dia->addJs('
 
@@ -101,7 +101,7 @@ class StoreXhr extends Control
 				}
 				else
 				{
-					pulseError("Du musst noch die Anzahl der Abholer/innen auswählen");
+					pulseError("' . $this->translator->trans('store.enternumber') . '");
 				}
 			}
 
