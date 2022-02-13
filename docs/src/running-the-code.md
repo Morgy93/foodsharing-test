@@ -87,6 +87,11 @@ cd foodsharing
 
 ## Windows 
 
+It should be setup unter the wsl (Windows Subsystem for Linux) environment. The folder can be accessed with:
+'''
+\\wsl$
+'''
+
 ### New approach on WSL2
 
 * Install Ubuntu 20.xx via Windows AppStore (WSL2) (you need to start it once for step 3)
@@ -109,6 +114,8 @@ cd /foodsharing
 sudo ./scripts/start
 sudo ./scripts/seed
 ```
+
+
 
 ## On WSL1
 
@@ -307,6 +314,11 @@ cd foodsharing
 ```
 
 ## Windows 
+
+Wir empfehlen, es unter wsl (Windows Subsystem for Linux) zu installieren. Auf den Ordner kann mit dieser Zeile zugegriffen werden:
+'''
+\\wsl$
+'''
 
 ### Neuer Zugang bei WSL2
 
