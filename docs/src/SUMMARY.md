@@ -5,8 +5,9 @@
 - [Call for contribution (EN)](it-tasks_EN.md)
 
 # Getting started (homepage)
-- [Getting the code](getting-the-code.md)
-- [Running the code: Docker](running-the-code.md)
+- [Tools installation (EN)](tools-installation.md)
+- [Installation der nötigen Software (DE)](tools-installation_DE.md)
+- [Getting & running the code](running-the-code.md)
 - [Setting things up](setting-things-up.md)
   - [IDE setup](ide-setup.md)
   - [User roles](learn-user-roles.md)
