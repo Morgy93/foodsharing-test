@@ -133,20 +133,11 @@ class StoreUserControl extends Control
 					];
 				}
 				if ($this->storePermissions->mayEditStore($storeId)) {
-					$this->view->u_legacy_teamEdit();
 					$menu[] = [
 						'name' => $this->translator->trans('storeedit.bread'),
 						'href' => '/?page=betrieb&a=edit&id=' . $storeId,
 					];
-					// ToDO (Deprecated): may be removed in one of the next releases, as the function has been incorporated in a new place.
-					$menu[] = [
-						'name' => $this->translator->trans('storeedit.team.bread'),
-						'click' => '$(\'#disabledteamedit\').dialog({'
-							. 'modal: true,'
-							. 'width: $(window).width() / 1.5,'
-							. 'title: \'' . $this->translator->trans('storeedit.team.bread') . '\''
-							. '});',
-					];
+
 					$menu[] = [
 						'name' => $this->translator->trans('pickup.edit.bread'),
 						'click' => '$(\'#bid\').val(' . $storeId . ');'
@@ -165,7 +156,8 @@ class StoreUserControl extends Control
 
 				if (!empty($menu)) {
 					$this->pageHelper->addContent($this->v_utils->v_menu(
-						$menu, $this->translator->trans('store.actions')
+						$menu,
+						$this->translator->trans('store.actions')
 					), CNT_LEFT);
 				}
 
@@ -238,7 +230,8 @@ class StoreUserControl extends Control
 							'isCoordinator' => $store['verantwortlich'],
 							'teamConversationId' => $store['team_conversation_id'],
 						]),
-						CNT_RIGHT);
+						CNT_RIGHT
+					);
 				}
 
 				/* change regular fetchdates */
@@ -246,7 +239,8 @@ class StoreUserControl extends Control
 					$width = $this->session->isMob() ? '$(window).width() * 0.96' : '$(window).width() / 2';
 					$pickup_dates = $this->pickupGateway->getAbholzeiten($storeId);
 
-					$this->pageHelper->hiddenDialog('editpickups',
+					$this->pageHelper->hiddenDialog(
+						'editpickups',
 						[
 							$this->view->u_editPickups($pickup_dates),
 							$this->v_utils->v_form_hidden('bid', 0)
@@ -287,7 +281,8 @@ class StoreUserControl extends Control
 					[
 						['href' => '/?page=betrieb&a=new', 'name' => $this->translator->trans('storeedit.add-new')]
 					],
-					$this->translator->trans('storeedit.actions')), CNT_RIGHT);
+					$this->translator->trans('storeedit.actions')
+				), CNT_RIGHT);
 			}
 
 			$region = $this->regionGateway->getRegion($this->session->getCurrentRegionId());
@@ -335,9 +330,11 @@ class StoreUserControl extends Control
 
 	private function addStoreLeaveModal(): void
 	{
-		$this->pageHelper->addHidden('
+		$this->pageHelper->addHidden(
+			'
 		<div id="signout_shure" title="' . $this->translator->trans('pickup.signout_confirm') . '">
-			' . $this->v_utils->v_info('
+			' . $this->v_utils->v_info(
+				'
 				<strong>' . $this->translator->trans('pickup.signout_sure') . '</strong>
 				<p>' . $this->translator->trans('pickup.signout_info') . '</p>'
 			) . '
@@ -381,7 +378,8 @@ class StoreUserControl extends Control
 			$store['verantwortlich'] = true;
 			$this->flashMessageHelper->info(
 				'<strong>' . $this->translator->trans('storeedit.team.note') . '</strong> '
-				. $this->translator->trans($extraMessageKey));
+					. $this->translator->trans($extraMessageKey)
+			);
 		}
 
 		return $extraResponsibility;

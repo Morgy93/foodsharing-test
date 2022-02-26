@@ -828,10 +828,6 @@ store:
   willgetcontacted: "Du bist momentan auf der Springerliste. Sobald Hilfe benötigt wird, wirst Du kontaktiert."
   team:
     isfull: "Team ist voll"
-    add_a: "Das Hinzufügen, Ändern oder Entfernen von Team-Mitgliedern"
-    add_b: "ist über die BV-Ansicht (grünes Zahnrad in der Teamliste) möglich."
-    moreinfo: "Mehr Infos unter" 
-    more_title: "Was ist neu?"
   filter: "Filtern nach ..."
   enterdate: "Abholtermin eintragen"
   enternumber: "Du musst noch die Anzahl der Abholer*innen auswählen."

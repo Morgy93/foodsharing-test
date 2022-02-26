@@ -77,30 +77,6 @@ class StoreUserView extends View
 		return $out;
 	}
 
-	// ToDO (Deprecated): may be removed in one of the next releases, as the function has been incorporated in a new place.
-	public function u_legacy_teamEdit()
-	{
-		$this->pageHelper->addJs('
-			$("#disabledteamedit-link").fancybox({
-				closeClick: false,
-				closeBtn: true,
-			});
-		');
-
-		$this->pageHelper->addHidden('
-			<div id="disabledteamedit" class="popbox bootstrap">
-				<p>
-					' . $this->translator->trans('store.team.add_a') . '
-					<br>
-					' . $this->translator->trans('store.team.add_b') . '
-				</p>
-				<p>
-					' . $this->translator->trans('store.team.moreinfo') . '<a href="?page=content&sub=releaseNotes">' . $this->translator->trans('store.team.more_title') . '</a>
-				</p>
-			</div>
-		');
-	}
-
 	public function u_storeList($storeData, $title)
 	{
 		if (empty($storeData)) {
@@ -129,7 +105,8 @@ class StoreUserView extends View
 			['name' => $this->translator->trans('storelist.name'), 'width' => 180],
 			['name' => $this->translator->trans('storelist.addressdata')],
 			['name' => $this->translator->trans('storelist.zipcode'), 'width' => 90],
-			['name' => $this->translator->trans('storelist.status'), 'width' => 50]];
+			['name' => $this->translator->trans('storelist.status'), 'width' => 50]
+		];
 		if ($isRegion) {
 			$head[] = ['name' => $this->translator->trans('region.type.region')];
 		}
