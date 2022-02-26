@@ -935,6 +935,9 @@ class InitialMigration extends Phinx\Migration\AbstractMigration
 				'name' => 'expiration',
 				'unique' => false,
 			])
+			->addIndex(['identifier'], [
+				'name' => 'identifier'
+			])
 			->create();
 		$this->table('fs_faq', [
 			'id' => false,
