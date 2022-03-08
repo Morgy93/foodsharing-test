@@ -20,6 +20,7 @@ group:
     faehigkeit: Quali sono le tue capacità che hai in questo settore?
     motivation: Qual è la tua motivazione a partecipare al gruppo {group}?
     summary: '{name} partecipare al gruppo di lavoro {group}.'
+    accept: Accettare candidatura
   contact:
     send: Invia il messaggio
     admins: '{count} referente:'
@@ -156,6 +157,13 @@ group:
     add_member: Includere nel team
     admin_mode_on: Attiva vista per amministratori
     admin_mode_off: Torna alla visualizzazione standard
+  application_region: 'Candidatura per '
+  motivation: Testo motivazionale
+  entermotivation: 'Motivazione:'
+  enterskills: 'Capacità:'
+  enterxp: 'Esperienza:'
+  entertime: 'Tempo:'
+  application_from: di
 bcard:
   info:
     address_shortened: Il tuo indirizzo e / o codice postale + luogo verranno visualizzati
@@ -444,6 +452,7 @@ terminology:
     d: organizzatore
   community: Gruppo locale {name}
   pin: Descrizione del gruppo locale
+  homepage: Pagina iniziale
 register:
   woman: femmina
   signup_newsletter: Vorrei ricevere la newsletter di foodsharing circa una volta
@@ -583,6 +592,12 @@ legal:
   agree_privacy_notice: Sono stato informato dell'obbligo di riservatezza dei dati
     personali e del comportamento conseguente. Riceverò una conferma di ciò tramite
     e-mail per i miei documenti all'indirizzo che ho fornito.
+  if_delete:
+    this_gets_deleted_friendlist: <ul><li>La tua lista di amici viene eliminata.</ul></li>
+    this_doesnt_get_deleted_address: <ul><li>Il tuo indirizzo</ul></li>
+    this_gets_deleted_trustbananas: <ul><li>Le banane che hai distribuito vengono
+      eliminate.</ul></li>
+    this_doesnt_get_deleted_name: <ul><li>Il tuo nome</ul></li>
 fsp:
   followName: seguire il divisore {name}
   follow: Segui questo equo divisore
@@ -820,6 +835,8 @@ store:
   appliedFor: Richiesta effettuata
   isJumper: È sulla lista dei intervenisti.
   noPickup: Non ha mai ritirato qui.
+  team:
+    isfull: Il team è al completo
 storeview:
   want_to_fetch: Vorrei aiutare in questo team.
   specials: particolarità
@@ -2277,3 +2294,49 @@ regionPin:
   pin_visible: Pin visibile sulla mappa
   text_desc: Si prega di fornire una descrizione del gruppo locale o dell'opzione
     di contatto qui. Questo è mostrato nel popup del pin dalla …
+edit_websites: Modificare siti web pubblici
+request_time: 'Momento della richiesta:'
+quiz:
+  question: Domanda
+  questions: Domande
+  finished: Congratulazioni, ce l'hai fatta!
+  heavysigh: Ce l'hai fatta!
+  choice:
+    correcta: è corretto!
+    neut: è neutrale e quindi senza valutazione.
+    wronga: anche questo sarebbe stato corretto.
+    wrongb: così non è corretto!
+    answer: Risposta
+    fpsum: punti sbagliati raccolti
+    percentb: '% risposte corrette.'
+    responses: Risposte
+    nresponses: Risposte neutre
+    wresponses: Risposte sbagliate
+    writecomment: Scrivere un commento per questa domanda
+    send: Inviare
+    joke: era solo una domanda scherzosa e ovviamente non verrà valutata
+    whatisko: Domande come questa hanno un peso particolare sulla valutazione e se
+      vengono risposte in modo sbagliato comportano il non superamento del quiz.
+    correctb: non è corretto. L'hai riconosciuto correttamente!
+    cresponses: Risposte corrette
+    sadlywrong: purtroppo non è stata risposta correttamente.
+    koquestion: Questa domanda purtroppo era particolarmente importante e non l'hai
+      risposta correttamente.
+  threestrikes: Non hai superato il quiz per 3 volte.
+  waitxdays: Puoi ritentare tra
+  days: Giorni
+  learnbreak: Pausa studio
+  notfinishedyet: Non hai ancora terminato il quiz.
+  continuenow: Riprendere il quiz!
+  continuetype: -continua quiz
+  trynumber: Questo era il tentativo numero
+  failedbeforebut: ' volte non hai superato il quiz. Ti rimangono ancora questi tentativi:'
+  goodluck: Buona fortuna!
+  regstart: Iniziare il quiz senza limite di tempo e 20 domande
+  quizleft: ' - adesso conta superare il quiz!'
+  type: -Quiz
+  safeandsound: Ma nessun problema. La tua sessione è stata salvata. Puoi riprendere
+    la risposta alle domande in qualsiasi momento.
+  nownownow: Inizia il quiz adesso
+  timedstart: Iniziare il quiz con tempo limitato e 10 domande
+deletelow: elimina

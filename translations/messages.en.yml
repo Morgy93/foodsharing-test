@@ -419,6 +419,11 @@ profile:
       total: total
       tot: total
       newreports: New reports
+    inthisblog: in this blog post
+    xhr:
+      deleted: Report was deleted!
+      confirmed: Report was confirmed!
+    kindofreport: Please choose the type of report
   history:
     wasVerified: Verified
     lostVerification: De-verified
@@ -2350,6 +2355,12 @@ startpage:
   slogan_1: Together for more food appreciation
   join: Join
   registernow: Register now
+  forstores: For companies and stores
+  register: At the end of this page you can register as a foodsharer.
+  honest: Be honest
+  beresponsible: Be responsible
+  bedependable: Be dependable
+  makeproposals: Make proposals
 date_short:
   Sunday: Sun
   Saturday: Sat

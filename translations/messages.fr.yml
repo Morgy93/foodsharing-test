@@ -2007,19 +2007,19 @@ startpage:
     title: Faire un don
     link: Soutenir foodsharing
   towns:
-    text: "Les villes participantes diffèrent selon qu’elles sont en route vers la\
-      \ limitation du gaspillage alimentaire ou qu’elles l'ont déjà atteinte.\nCe\
-      \ dernier est le cas lorsqu’il y a, à côté d’une équipe foodsharing sur place,\
+    text: "« Les villes participantes diffèrent selon qu’elles sont en route vers\
+      \ la limitation du gaspillage alimentaire ou qu’elles l'ont déjà atteinte.\n\
+      Ce dernier est le cas lorsqu’il y a, à côté d’une équipe foodsharing sur place,\
       \ une déclaration de motivation, signée par la municipalité, symbolisant le\
-      \ partenariat entre foodsharing et les pouvoirs publics.\n"
+      \ partenariat entre foodsharing et les pouvoirs publics. »\n"
     title: Villes foodsharing
   demands:
-    text: "Plan d'action avec le centre d'action pour l'environnement allemand publié\
-      \ pour le 6ème anniversaire de foodsharing le 12.12.2018. \nPour que l’Allemagne\
+    text: "« Plan d'action avec le centre d'action pour l'environnement allemand publié\
+      \ pour le sixième anniversaire de foodsharing le 12/12/2018. \nPour que l’Allemagne\
       \ ne renonce pas à ses objectifs de protection du climat pour 2020, foodsharing\
       \ et le centre d'action allemande pour l’environnement montrent un plan d’action\
       \ présentant les mesures sans lesquelles l’objectif à mi-parcours ne peut être\
-      \ atteint.\n"
+      \ atteint. »\n"
     title: Revendications
   near_you:
     text3:
@@ -2339,3 +2339,27 @@ regionPin:
   text_desc: Veuillez saisir ici une description du groupe local ou ses coordonnées.
     Ceci sera affiché dans la fenêtre contextuelle de l'épingle de la carte…
   pin_visible: Épingle visible sur la carte
+numbers:
+  thousands_separator:  
+  decimal_separator: ','
+  million_abbreviation: ' M'
+  billion_abbreviation: ' Mrd'
+edit_websites: Modifier les pages web publiques
+request_time: 'Heure de la demande :'
+activitypost:
+  write: Écris une réponse…
+contentmanagement: Gestion du contenu
+logincontrol:
+  success: Réussite !
+  title: Désinscription à la lettre d'information
+  bread: Désinscription à la lettre d'information
+  nomorenewsletter: Tu ne recevras plus de lettre d'information de notre part
+addreaction: Ajouter une réaction
+savewithus: Aidez-nous !
+teamjs:
+  wrongmail: Il y a un problème avec ton adresse électronique.
+  entermail: Veuillez saisir une adresse électronique valide pour que nous puissions
+    vous répondre !
+sig:
+  buddies: Les gens que tu connais
+deletefromregion: Vraiment supprimer du secteur ?
