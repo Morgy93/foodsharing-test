@@ -59,6 +59,10 @@ class LoginControl extends Control
 	{
 		$fsId = $this->session->id();
 
+		if (is_null($fsId)) {
+			$this->routeHelper->goPage('login');
+		}
+
 		if ($this->loginService->newMailActivation($fsId)) {
 			$this->flashMessageHelper->info($this->translator->trans('dashboard.activation_mail_sent'));
 		} else {
