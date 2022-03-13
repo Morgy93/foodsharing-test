@@ -293,7 +293,15 @@ final class ProfileGateway extends BaseGateway
 		return $this->db->delete('fs_rating', ['foodsaver_id' => $userId, 'rater_id' => $raterId]) > 0;
 	}
 
-	public function getNextDates(int $fsId, int $limit = 10): array
+	/**
+	 * Returns the next dates which the foodsaver signed into.
+	 *
+	 * @param int $fsId ID of the foodsaver
+	 * @param int|null $limit if not null, the result will be limited to a number of dates
+	 *
+	 * @throws \Exception
+	 */
+	public function getNextDates(int $fsId, int $limit = null): array
 	{
 		$stm = '
 			SELECT 	a.`date`,
@@ -313,11 +321,16 @@ final class ProfileGateway extends BaseGateway
 			AND   a.`date` > NOW()
 
 			ORDER BY a.`date`
-
-			LIMIT :limit
 		';
 
-		return $this->db->fetchAll($stm, [':fs_id' => $fsId, ':limit' => $limit]);
+		$params = [':fs_id' => $fsId];
+
+		if (!is_null($limit)) {
+			$stm .= ' LIMIT :limit';
+			$params[':limit'] = $limit;
+		}
+
+		return $this->db->fetchAll($stm, $params);
 	}
 
 	public function getRecentPickups(int $fsId, \DateTime $from, \DateTime $to): array

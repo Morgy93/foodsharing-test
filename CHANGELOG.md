@@ -7,6 +7,8 @@
 - Add E-Mail of reported user in overview !2120 @fs_k
 - Store-related conversations include a link to their store now !1807 !2134 !2147 @ChrisOelmueller
 - Removed deprecated "Edit Team" button in the store view for store managers
+- Store-related conversations include a link to their store now !1807 @ChrisOelmueller
+- Removed the limit of calendar entries in iCal export #1167 !2131 @alex.simm
 
 ## Bugfixes
 - Fix the community marker map for regions that do not yet have a pin #1183 !2154 @alex.simm  
