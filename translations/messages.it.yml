@@ -1294,9 +1294,9 @@ forum:
   threads: Sogetti
   from: Di {name}
   markdown_description: 'Per la formattazione da *<i>corsivo</i>* o **<b>grassetto</b>**
-    Puoi usare il testo <a href="https://de.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a>
-    .<br />Attenzione: Se tu volessi utilizzare un *  nel testo, devi far precedere
-    un  . Per esempio nel genere della parola ambasciatore\*trice.'
+    Puoi usare il testo <a href="https://de.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a>.<br />
+    Attenzione: Se tu volessi utilizzare un * nel testo, devi far precedere
+    un &bsol;. Per esempio nel genere della parola ambasciatore&bsol;*trice.'
   hold_back_for_moderation: Il tema è stato salvato e verrà pubblicato in seguito
     a conferma da parte di un ambasciatore/moderatore.
 first_post: Primo inserimento nella bacheca

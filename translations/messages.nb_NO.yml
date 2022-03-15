@@ -1712,7 +1712,7 @@ forum:
   markdown_description: 'For å formatere tekst *<i>kursiv</i>* eller **<b>fet</b>**
     kan du bruke <a href="https://en.wikipedia.org/wiki/Markdown" target= "_blank">Markdown</a>.<br
     />Obs: Hvis du vil bruke en * i teksten, må du sette inn en omvendt skråstrek
-    (&bsol;) foran den, for eksempel som i han\*hun.'
+    (&bsol;) foran den, for eksempel som i han&bsol;*hun.'
 timepicker:
   labelNowButton: nå
   labelCloseButton: Lukk
