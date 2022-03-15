@@ -2415,6 +2415,8 @@ quiz:
   regstart: Start the quiz with unlimited time and 20 questions
   nownownow: Start the quiz now
   timedstart: Start the quiz with limited time and 10 questions
+  finished: Congratulations, you made it!
+  trynumber: This was attempt number
 nofp: no error points (not a serious question)
 fpsingular: Error point
 request_time: 'Time of request:'
