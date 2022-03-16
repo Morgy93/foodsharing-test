@@ -1383,7 +1383,7 @@ foodsaver:
   edit_success: "Änderungen wurden gespeichert"
   edit_failure: "Es wurde nichts verändert oder Änderungen wurden nicht gespeichert"
   profileBack: "Zurück zum Profil"
-  delete_account: "⚠️ Account löschen"
+  delete_account: "Account löschen"
   delete_account_sure: "Soll der Account von {name} wirklich gelöscht werden?"
   delete_account_now: "Account jetzt löschen"
   your_account: "dir"

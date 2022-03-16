@@ -1446,7 +1446,7 @@ foodsaver:
     needs_publicinfo: Your short description is empty
     amb_region: For which region would you like to become an ambassador?
     ad_fs: I now want to take the foodsaver quiz and become a foodsaver!
-  delete_account: ⚠️ Delete account
+  delete_account: Delete account
   profileBack: Back to the profile
   editName: Edit {name}
   edit: Edit foodsaver

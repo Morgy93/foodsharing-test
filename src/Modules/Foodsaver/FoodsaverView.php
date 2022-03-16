@@ -205,6 +205,6 @@ class FoodsaverView extends View
 	</div>
 	';
 
-		return $this->v_utils->v_field($content, $this->translator->trans('foodsaver.delete_account'), ['class' => 'ui-padding']);
+		return $this->v_utils->v_field($content, '⚠️ ' . $this->translator->trans('foodsaver.delete_account'), ['class' => 'ui-padding']);
 	}
 }

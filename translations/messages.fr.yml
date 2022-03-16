@@ -606,7 +606,7 @@ foodsaver:
   your_account: toi
   delete_account_now: Supprimer le compte maintenant
   delete_account_sure: Supprimer le compte de {name} ?
-  delete_account: ⚠️ Supprimer le compte
+  delete_account: Supprimer le compte
   profileBack: Retour au profil
   edit_failure: Aucune modification / les modifications n'ont pas pu être enregistrées
   edit_success: Les modifications ont été enregistrées

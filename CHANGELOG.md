@@ -9,6 +9,7 @@
 - Removed deprecated "Edit Team" button in the store view for store managers
 - Store-related conversations include a link to their store now !1807 @ChrisOelmueller
 - Removed the limit of calendar entries in iCal export #1167 !2131 @alex.simm
+- The too conspicuous attention mark before delete account menu entry in profile settings has been removed !2165 @NINI1988
 
 ## Bugfixes
 - Fix the community marker map for regions that do not yet have a pin #1183 !2154 @alex.simm  
