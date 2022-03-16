@@ -413,7 +413,10 @@ class SeedCommand extends Command implements CustomCommandInterface
 
 		// create users and collect their ids in a list
 		$this->output->writeln('Create some more users');
-		$this->foodsavers = [$user2['id'], $userbot['id'], $userorga['id']];
+		$this->foodsavers = array_column([$user2, $userbot, $userorga, $userbot2, $userStoreManager, $userStoreManager2], 'id');
+		foreach ($this->foodsavers as $user) {
+			$this->addVerificationAndPassHistory($I, $user, $userbot['id']);
+		}
 		foreach (range(0, 100) as $_) {
 			$user = $I->createFoodsaver($password, ['bezirk_id' => $region1]);
 			$this->foodsavers[] = $user['id'];
@@ -421,6 +424,7 @@ class SeedCommand extends Command implements CustomCommandInterface
 			$I->addCollector($user['id'], $store['id']);
 			$I->addStoreNotiz($user['id'], $store['id']);
 			$I->addForumThreadPost($thread['id'], $user['id']);
+			$this->addVerificationAndPassHistory($I, $user['id'], $userbot['id']);
 			$this->output->write('.');
 		}
 		$this->output->writeln(' done');
@@ -596,5 +600,22 @@ class SeedCommand extends Command implements CustomCommandInterface
 			$this->helper->createPollOption($poll['id'], $possibleValues);
 		}
 		$this->helper->addVoters($poll['id'], $voterIds);
+	}
+
+	/**
+	 * Adds some entries to the verification and pass history of a user.
+	 *
+	 * @param int $userId the user to be verified
+	 * @param int $verifierId the ambassador who verified the user
+	 */
+	private function addVerificationAndPassHistory(Foodsharing $I, int $userId, int $verifierId)
+	{
+		$I->addVerificationHistory($userId, $verifierId, true, Carbon::today()->sub('1 year'));
+		$I->addVerificationHistory($userId, $verifierId, false, Carbon::today()->sub('6 months'));
+		$I->addVerificationHistory($userId, $verifierId, true, Carbon::today()->sub('1 month'));
+
+		foreach (range(0, 3) as $_) {
+			$I->addPassHistory($userId, $verifierId);
+		}
 	}
 }

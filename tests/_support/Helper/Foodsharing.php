@@ -227,6 +227,31 @@ class Foodsharing extends \Codeception\Module\Db
 		return $params;
 	}
 
+	public function addVerificationHistory(int $userId, int $ambassadorId, bool $verified, ?DateTime $date = null)
+	{
+		if (is_null($date)) {
+			$date = $this->faker->dateTimeThisDecade();
+		}
+		$this->haveInDatabase('fs_verify_history', [
+			'fs_id' => $userId,
+			'date' => $date->format('Y-m-d H:i:s'),
+			'bot_id' => $ambassadorId,
+			'change_status' => intval($verified),
+		]);
+	}
+
+	public function addPassHistory(int $userId, int $ambassadorId, ?DateTime $date = null)
+	{
+		if (is_null($date)) {
+			$date = $this->faker->dateTimeThisDecade();
+		}
+		$this->haveInDatabase('fs_pass_gen', [
+			'foodsaver_id' => $userId,
+			'date' => $date->format('Y-m-d H:i:s'),
+			'bot_id' => $ambassadorId,
+		]);
+	}
+
 	public function createStoreCoordinator($pass = null, $extra_params = [])
 	{
 		if (!array_key_exists('bezirk_id', $extra_params)) {

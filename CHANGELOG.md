@@ -29,6 +29,7 @@
 - Removed old code that handled picture upload !2128 @alex.simm
 - Fixed markdown code in IT tasks documentation to actually render links as URLs !2150
 - added info to devdocs: !2146 @jonathan_b
+- Added verification and pass history to the seed data #738 !2127 @alex.simm
 
 # Release "Grapefruit", 2022-01-13
 
