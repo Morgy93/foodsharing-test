@@ -16,11 +16,11 @@
       </div>
       <div class="col-10">
         <div class="mt-1 d-flex w-100 justify-content-between">
-          <h5 class="mb-1 text-truncate">
+          <h5 class="mb-1 text-truncate chat-name">
             {{ title }}
           </h5>
           <small class="text-muted text-right nowrap">
-            {{ $dateDistanceInWords(conversation.lastMessage.sentAt) }}
+            {{ $dateDistanceInWords(conversation.lastMessage.sentAt, true) }}
           </small>
         </div>
         <p class="mb-1 text-truncate">
@@ -116,6 +116,13 @@ p {
 }
 .list-group-item {
     padding: 0.4em 1em;
+}
+
+.chat-name{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
 }
 
 .avatar {

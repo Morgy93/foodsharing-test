@@ -73,8 +73,18 @@ export function dateFormat (date, format = 'full-long') {
     console.error({ error, date })
   }
 }
-export function dateDistanceInWords (date) {
-  return dateFnsFormatDistance(date, new Date(), {
+
+export function dateDistanceInWords (date, short = false) {
+  const now = new Date()
+  if (short) {
+    if (dateFnsIsSameDay(date, now)) {
+      return dateFnsFormat(date, 'HH:mm')
+    }
+    if (dateFnsIsSameDay(date, dateFnsAddDays(now, -1))) {
+      return i18n('date.yesterday')
+    }
+  }
+  return dateFnsFormatDistance(date, now, {
     locale: dateFnsLocaleDE,
     addSuffix: true,
   })
