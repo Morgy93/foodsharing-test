@@ -161,6 +161,7 @@ group:
   entertime: 'Available Time:'
   application_region: 'Application for '
   enterxp: 'Experience:'
+  motivation: motivation text
 settings:
   header: Your data and settings
   name_change:
@@ -2405,6 +2406,21 @@ quiz:
     nresponses: Neutral answers
     wresponses: Wrong answers
     writecomment: Write a comment to this question
+    correctb: is wrong. You spotted that correctly!
+    neut: is neutral and therefore without weighting.
+    responses: Responses
+    joke: was meant as a joke and does not get weighted
+    koquestion: The question was especially important, and sadly you didn't answer
+      it correctly.
+    wrongb: isn't correct this way!
+    fpsum: error points in total
+    sadlywrong: was sadly answered incorrectly.
+    alsowrong: has sadly been evaluated as wrong, since you didn't choose anything
+      or the time ran out.
+    percenta: you just answered to
+    percentb: '% correctly.'
+    whatisko: Questions like these are especially heavily weighted and sadly if you
+      don't answer them correctly you fail the quiz.
   waitxdays: You can try it again in
   notfinishedyet: You have not finished the quiz yet.
   continuenow: Continue the quiz now!
@@ -2421,6 +2437,18 @@ quiz:
   timedstart: Start the quiz with limited time and 10 questions
   finished: Congratulations, you made it!
   trynumber: This was attempt number
+  finishnow:
+    fs: Finish the foodsaver signup process now.
+    bv: Finish the store manager signup process now.
+    bot: Finish the ambassador signup process now.
+  donecorrectly: you answered absolutely correct. Congrats!
+  wikilink: A wiki article to about this topic
+  learnbreak: learning break
+  safeandsound: No problem. Your session is saved. You can continue it at any time.
+  continuetype: '-quiz: continue now'
+  failedbeforebut: " times you didn't pass the quiz. This amount of tries are left\
+    \ for you:"
+  quizleft: " - now all that's left to do is pass the quiz!"
 nofp: no error points (not a serious question)
 fpsingular: Error point
 request_time: 'Time of request:'
