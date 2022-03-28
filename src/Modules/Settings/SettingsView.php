@@ -460,7 +460,7 @@ class SettingsView extends View
 				. $this->translator->trans('foodsaver.your_account') . '\')">'
 				. $this->translator->trans('foodsaver.delete_account_now')
 				. '</button>'
-			);
+		);
 
 		return $this->v_utils->v_field($content, '⚠️ ' . $this->translator->trans('foodsaver.delete_account'), ['class' => 'ui-padding bootstrap']);
 	}
@@ -492,6 +492,11 @@ class SettingsView extends View
 		$latLonOptions['location'] = ['lat' => $g_data['lat'], 'lon' => $g_data['lon']];
 
 		return $this->v_utils->v_quickform($this->translator->trans('settings.header'), [
+			$this->vueComponent('name-input', 'NameInput', [
+				'name' => $this->dataHelper->getValue('name'),
+				'lastName' => $this->dataHelper->getValue('nachname'),
+				'regionId' => $this->dataHelper->getValue('bezirk_id'),
+			]),
 			$regionPicker,
 			$this->latLonPicker('LatLng', $latLonOptions, '_profile'),
 			$this->v_utils->v_form_text('telefon', ['placeholder' => $this->translator->trans('register.landline_example')]),

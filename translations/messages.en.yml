@@ -163,7 +163,11 @@ group:
   enterxp: 'Experience:'
 settings:
   header: Your data and settings
-
+  name_change:
+    title: Name (first & last name)
+    desc: You cannot change your name yourself. You can however <a {link}">request a name change</a>.
+    request: Request name change
+    info: To get your name changed you have to contact an ambassador of your home region. He*She can change your name for you.<hr/>You can find out who the ambassadors of you region are in the left sidebar of your <a {link}>home regions forum page</a>.
   push:
     not-supported: Your browser does not support push notifications.
     title: Push notifications

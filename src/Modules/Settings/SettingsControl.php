@@ -112,7 +112,8 @@ class SettingsControl extends Control
 		];
 
 		$this->pageHelper->addContent($this->view->menu(
-			$menu, ['title' => $this->translator->trans('settings.account'), 'active' => $this->getSub()]
+			$menu,
+			['title' => $this->translator->trans('settings.account'), 'active' => $this->getSub()]
 		), CNT_LEFT);
 	}
 
@@ -177,7 +178,7 @@ class SettingsControl extends Control
 				$this->pageHelper->addContent(
 					$this->v_utils->v_info(
 						$this->translator->trans('foodsaver.upgrade.quiz_error')
-						. ' <a href=mailto:' . SUPPORT_EMAIL . '>' . SUPPORT_EMAIL . '</a>'
+							. ' <a href=mailto:' . SUPPORT_EMAIL . '>' . SUPPORT_EMAIL . '</a>'
 					)
 				);
 			}
@@ -373,9 +374,7 @@ class SettingsControl extends Control
 
 		$this->dataHelper->setEditData($data);
 
-		$this->pageHelper->addContent($this->view->foodsaver_form(
-			$this->translator->trans('foodsaver.title'))
-		);
+		$this->pageHelper->addContent($this->view->foodsaver_form());
 
 		$this->pageHelper->addContent($this->picture_box(), CNT_RIGHT);
 	}
