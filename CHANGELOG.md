@@ -17,6 +17,7 @@
 - Fix the community marker map for regions that do not yet have a pin #1183 !2154 @alex.simm  
 - Redirect to login for user that is not logged in at https://foodsharing.de/?page=login&a=resendActivationMail #1136 !2138 @ESchae
 - Fix typos in forum markdown hints. !2167 @NINI1988
+- Fixed the user search pointing to a non-existing path !2170 @alex.simm
 
 ## Refactoring
 - move even more hardcoded language to language files !2109 @jonathan_b
