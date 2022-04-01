@@ -12,6 +12,7 @@
 - Removed the limit of calendar entries in iCal export #1167 !2131 @alex.simm
 - The too conspicuous attention mark before delete account menu entry in profile settings has been removed !2165 @NINI1988
 - Long chat names are now better visible !2161 @AntonBallmaier
+- Reordered the input elements on the profile settings page !2174 @AntonBallmaier
 
 ## Bugfixes
 - Fix the community marker map for regions that do not yet have a pin #1183 !2154 @alex.simm  

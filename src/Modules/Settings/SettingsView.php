@@ -471,7 +471,6 @@ class SettingsView extends View
 
 		$regionPicker = '';
 		$position = '';
-		$communications = $this->v_utils->v_form_text('homepage');
 
 		if ($this->session->may('orga')) {
 			$bezirk = ['id' => 0, 'name' => false];
@@ -497,12 +496,11 @@ class SettingsView extends View
 				'lastName' => $this->dataHelper->getValue('nachname'),
 				'regionId' => $this->dataHelper->getValue('bezirk_id'),
 			]),
+			$this->v_utils->v_form_date('geb_datum', ['required' => true, 'yearRangeFrom' => (int)date('Y') - 120, 'yearRangeTo' => (int)date('Y') - 8]),
+			$this->v_utils->v_form_text('handy', ['placeholder' => $this->translator->trans('register.phone_example')]),
+			$this->v_utils->v_form_text('telefon', ['placeholder' => $this->translator->trans('register.landline_example')]),
 			$regionPicker,
 			$this->latLonPicker('LatLng', $latLonOptions, '_profile'),
-			$this->v_utils->v_form_text('telefon', ['placeholder' => $this->translator->trans('register.landline_example')]),
-			$this->v_utils->v_form_text('handy', ['placeholder' => $this->translator->trans('register.phone_example')]),
-			$this->v_utils->v_form_date('geb_datum', ['required' => true, 'yearRangeFrom' => (int)date('Y') - 120, 'yearRangeTo' => (int)date('Y') - 8]),
-			$communications,
 			$position,
 			$this->v_utils->v_form_textarea('about_me_intern', [
 				'desc' => $this->translator->trans('foodsaver.about_me_intern'),
@@ -510,6 +508,7 @@ class SettingsView extends View
 			$this->v_utils->v_form_textarea('about_me_public', [
 				'desc' => $this->translator->trans('foodsaver.about_me_public'),
 			]),
+			$this->v_utils->v_form_text('homepage'),
 		], ['submit' => $this->translator->trans('button.save')]);
 	}
 
