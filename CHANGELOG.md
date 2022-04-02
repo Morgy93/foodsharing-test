@@ -13,6 +13,8 @@
 - The too conspicuous attention mark before delete account menu entry in profile settings has been removed !2165 @NINI1988
 - Long chat names are now better visible !2161 @AntonBallmaier
 - Reordered the input elements on the profile settings page !2174 @AntonBallmaier
+- Make map legend colapsable !2166 @NINI1988
+- Make map legend collapsible !2166 @NINI1988
 
 ## Bugfixes
 - Fix the community marker map for regions that do not yet have a pin #1183 !2154 @alex.simm  
