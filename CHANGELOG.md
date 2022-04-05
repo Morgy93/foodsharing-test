@@ -21,6 +21,7 @@
 - Redirect to login for user that is not logged in at https://foodsharing.de/?page=login&a=resendActivationMail #1136 !2138 @ESchae
 - Fix typos in forum markdown hints. !2167 @NINI1988
 - Fixed the user search pointing to a non-existing path !2170 @alex.simm
+- The visibility of the StoreWall can be toggled again !2177 @nudin
 
 ## Refactoring
 - move even more hardcoded language to language files !2109 @jonathan_b
