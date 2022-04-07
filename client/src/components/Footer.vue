@@ -362,7 +362,7 @@ export default {
       return this.isFsDotAt ? 'https://www.facebook.com/oesterreichfoodsharing' : 'https://www.facebook.com/foodsharing.de'
     },
     instagramUrl () {
-      return this.isFsDotAt ? 'https://instagram.com/foodsharing.at' : 'https://www.instagram.com/foodsharing.de_offiziell'
+      return this.isFsDotAt ? 'https://instagram.com/foodsharing.at' : 'https://www.instagram.com/foodsharing_de'
     },
     twitterUrl () {
       return 'https://twitter.com/FoodsharingDE'

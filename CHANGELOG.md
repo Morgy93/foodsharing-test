@@ -15,6 +15,7 @@
 - Reordered the input elements on the profile settings page !2174 @AntonBallmaier
 - Make map legend colapsable !2166 @NINI1988
 - Make map legend collapsible !2166 @NINI1988
+- Updated the link to instagram on the startpage !2179 #1206 @alex.simm
 
 ## Bugfixes
 - Fix the community marker map for regions that do not yet have a pin #1183 !2154 @alex.simm  
