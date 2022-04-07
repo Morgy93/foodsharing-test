@@ -24,7 +24,7 @@
 - The visibility of the StoreWall can be toggled again !2177 @nudin
 
 ## Refactoring
-- move even more hardcoded language to language files !2109 @jonathan_b
+- move even more hardcoded language to language files !2109 !2183 @jonathan_b
 
 ## Dev/Test/CI stuff
 - removed the "request" package !2136 @peter.toennies
