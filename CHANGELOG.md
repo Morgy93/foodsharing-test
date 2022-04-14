@@ -39,6 +39,7 @@
 - Fixed markdown code in IT tasks documentation to actually render links as URLs !2150
 - added info to devdocs: !2146 @jonathan_b
 - Added verification and pass history to the seed data #738 !2127 @alex.simm
+- Add default values for several db table columns !2669 @Morgy93
 
 # Release "Grapefruit", 2022-01-13
 
