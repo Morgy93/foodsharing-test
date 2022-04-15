@@ -202,8 +202,8 @@ class StoreGateway extends BaseGateway
 			  AND	b.betrieb_status_id <> :permanentlyClosed
 			  AND	b.`lat` != ""
 		', [
-				':regionId' => $regionId,
-				':permanentlyClosed' => CooperationStatus::PERMANENTLY_CLOSED,
+			':regionId' => $regionId,
+			':permanentlyClosed' => CooperationStatus::PERMANENTLY_CLOSED,
 		]);
 	}
 
@@ -829,7 +829,8 @@ class StoreGateway extends BaseGateway
 	 */
 	public function getStoreWallpost(int $storeId, int $postId): array
 	{
-		return $this->db->fetchByCriteria('fs_betrieb_notiz',
+		return $this->db->fetchByCriteria(
+			'fs_betrieb_notiz',
 			['id', 'foodsaver_id', 'betrieb_id', 'text', 'zeit'],
 			['id' => $postId, 'betrieb_id' => $storeId]
 		);
@@ -901,7 +902,7 @@ class StoreGateway extends BaseGateway
 		int $store_id,
 		int $foodsaver_id,
 		?int $fs_id_p,
-		?\DateTimeInterface $dateReference,
+		?\DateTime $dateReference,
 		int $action,
 		?string $content = null,
 		?string $reason = null
@@ -911,7 +912,7 @@ class StoreGateway extends BaseGateway
 			'action' => $action,
 			'fs_id_a' => $foodsaver_id,
 			'fs_id_p' => $fs_id_p,
-			'date_reference' => $dateReference ? $dateReference->format('Y-m-d H:i:s') : null,
+			'date_reference' => $dateReference ? $this->db->date($dateReference) : null,
 			'content' => strip_tags($content),
 			'reason' => strip_tags($reason),
 		]);

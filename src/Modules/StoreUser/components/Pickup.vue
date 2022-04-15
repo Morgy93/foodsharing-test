@@ -45,6 +45,7 @@
             :allow-kick="isCoordinator && !isInPast"
             :allow-confirm="isCoordinator"
             :allow-chat="slot.profile.id !== user.id"
+            :sign-in="signInDates(slot.signIn)"
             @leave="$refs.modal_leave.show()"
             @kick="activeSlot = slot, $refs.modal_kick.show()"
             @confirm="$emit('confirm', {date: date, fsId: slot.profile.id})"
@@ -268,6 +269,9 @@ export default {
     async fetchSameDayPickups () {
       this.sameDayPickups = await listSameDayPickupsForUser(this.user.id, this.date)
       this.loadedUserPickups = true
+    },
+    signInDates (dates) {
+      return dates !== undefined ? dates.map((date) => this.$dateFormat(new Date(date), 'd.MMM, HH:mm')) : null
     },
   },
 }

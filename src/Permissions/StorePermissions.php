@@ -233,6 +233,11 @@ class StorePermissions
 		return $this->mayEditPickups($storeId);
 	}
 
+	public function maySeeSignInDate(int $storeId): bool
+	{
+		return $this->maySeePickups($storeId);
+	}
+
 	public function mayEditPickups(int $storeId): bool
 	{
 		return $this->mayEditStore($storeId);

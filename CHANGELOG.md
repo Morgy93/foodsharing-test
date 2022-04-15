@@ -7,12 +7,13 @@
 ## Changes
 - Add E-Mail of reported user in overview !2120 @fs_k
 - Store-related conversations include a link to their store now !1807 !2134 !2147 @ChrisOelmueller
-- Removed deprecated "Edit Team" button in the store view for store managers
+- Removed deprecated "Edit Team" button in the store view for store managers !2160 @AntonBallmaier
 - Store-related conversations include a link to their store now !1807 @ChrisOelmueller
 - Removed the limit of calendar entries in iCal export #1167 !2131 @alex.simm
 - The too conspicuous attention mark before delete account menu entry in profile settings has been removed !2165 @NINI1988
 - Long chat names are now better visible !2161 @AntonBallmaier
 - Reordered the input elements on the profile settings page !2174 @AntonBallmaier
+- Show the date someone signed in to a pickup slot in its tooltip !2173 @AntonBallmaier
 - Make map legend colapsable !2166 @NINI1988
 - Make map legend collapsible !2166 @NINI1988
 - Updated the link to instagram on the startpage !2179 #1206 @alex.simm
