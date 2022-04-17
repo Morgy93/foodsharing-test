@@ -271,7 +271,7 @@ export default {
       this.loadedUserPickups = true
     },
     signInDates (dates) {
-      return dates !== undefined ? dates.map((date) => this.$dateFormat(new Date(date), 'd.MMM, HH:mm')) : null
+      return dates ? dates.map((date) => this.$dateFormat(new Date(date), 'd.MMM, HH:mm')) : null
     },
   },
 }

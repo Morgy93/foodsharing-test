@@ -2,7 +2,7 @@
 
 ## Features
 - It is now differentiated between completely new foodsavers and foodsavers who were verified before. !1129
-- The settings page now contains information about requesting a name change. !2163 @AntonBallmaier
+- The settings page now contains information about requesting a name change. !2163 !2190 @AntonBallmaier
 
 ## Changes
 - Add E-Mail of reported user in overview !2120 @fs_k
