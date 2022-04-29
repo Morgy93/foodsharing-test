@@ -11,10 +11,7 @@
       <div>
         {{ profile.name }}
       </div>
-      <div v-if="signIn">
-        {{ signIn.map((date,i) => $i18n('pickup.' + (i ? 'again' : 'first'), {date})).join('') }}
-      </div>
-      <div v-if="!confirmed && !allowConfirm">
+      <div v-if="!confirmed">
         ({{ $i18n('pickup.to_be_confirmed') }})
       </div>
     </b-tooltip>
@@ -109,10 +106,6 @@ export default {
     allowChat: {
       type: Boolean,
       default: false,
-    },
-    signIn: {
-      type: Array,
-      default: null,
     },
   },
   data () {

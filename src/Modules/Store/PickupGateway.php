@@ -11,7 +11,6 @@ use Foodsharing\Modules\Bell\DTO\Bell;
 use Foodsharing\Modules\Core\BaseGateway;
 use Foodsharing\Modules\Core\Database;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
-use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
 
 class PickupGateway extends BaseGateway implements BellUpdaterInterface
 {
@@ -242,8 +241,7 @@ class PickupGateway extends BaseGateway implements BellUpdaterInterface
 
 	public function getRegularPickups(int $storeId)
 	{
-		return $this->db->fetchAllByCriteria(
-			'fs_abholzeiten',
+		return $this->db->fetchAllByCriteria('fs_abholzeiten',
 			['time', 'dow', 'fetcher'],
 			['betrieb_id' => $storeId]
 		);
@@ -284,8 +282,7 @@ class PickupGateway extends BaseGateway implements BellUpdaterInterface
 
 	public function updateOnetimePickupTotalSlots(int $storeId, \DateTime $date, int $slots): bool
 	{
-		return $this->db->update(
-			'fs_fetchdate',
+		return $this->db->update('fs_fetchdate',
 			['fetchercount' => $slots],
 			['betrieb_id' => $storeId, 'time' => $this->db->date($date)]
 		) === 1;
@@ -326,7 +323,7 @@ class PickupGateway extends BaseGateway implements BellUpdaterInterface
 	 * @param Carbon $to DateRange for regular slots - future pickup interval if empty
 	 * @param Carbon $oneTimeSlotTo DateRange for onetime slots to be taken into account
 	 */
-	public function getPickupSlots(int $storeId, ?Carbon $from = null, ?Carbon $to = null, ?Carbon $oneTimeSlotTo = null, ?bool $includeSignInDates = false): array
+	public function getPickupSlots(int $storeId, ?Carbon $from = null, ?Carbon $to = null, ?Carbon $oneTimeSlotTo = null): array
 	{
 		$intervalFuturePickupSignup = $this->getFutureRegularPickupInterval($storeId);
 		$from = $from ?? Carbon::now();
@@ -355,8 +352,7 @@ class PickupGateway extends BaseGateway implements BellUpdaterInterface
 						function ($e) {
 							return ['foodsaverId' => $e['foodsaver_id'], 'isConfirmed' => (bool)$e['confirmed']];
 						},
-						array_filter(
-							$signups,
+						array_filter($signups,
 							function ($e) use ($date) {
 								return $date == $e['date'];
 							}
@@ -382,8 +378,7 @@ class PickupGateway extends BaseGateway implements BellUpdaterInterface
 				function ($e) {
 					return ['foodsaverId' => $e['foodsaver_id'], 'isConfirmed' => (bool)$e['confirmed']];
 				},
-				array_filter(
-					$signups,
+				array_filter($signups,
 					function ($e) use ($slot) {
 						return $slot['date'] == $e['date'];
 					}
@@ -404,29 +399,6 @@ class PickupGateway extends BaseGateway implements BellUpdaterInterface
 				'occupiedSlots' => array_values($occupiedSlots),
 				'isAvailable' => $isInFuture && $hasFree,
 			];
-		}
-
-		if ($includeSignInDates) {
-			$signInDates = $this->getSignInDates($storeId, $from, $to);
-
-			$signInMap = [];
-
-			// Create Lookup-Table from (slot, fs_id) => entry_times
-			foreach ($signInDates as $sid) {
-				$signInMap[$this->db->parseDate($sid['slot_date']) . $sid['fs_id']] = $sid['entry_times'];
-			}
-
-			foreach ($slots as $slotKey => $slot) {
-				foreach ($slot['occupiedSlots'] as $occupierKey => $occupier) {
-					$key = $slot['date'] . $occupier['foodsaverId'];
-					$signInDates = array_key_exists($key, $signInMap) ? $signInMap[$key] : null;
-					if ($signInDates) {
-						$signInDates = explode(',', $signInDates);
-						$signInDates = array_map(fn ($date) => $this->db->parseDate($date), $signInDates);
-					}
-					$slots[$slotKey]['occupiedSlots'][$occupierKey]['signIn'] = $signInDates;
-				}
-			}
 		}
 
 		return $slots;
@@ -455,31 +427,6 @@ class PickupGateway extends BaseGateway implements BellUpdaterInterface
 		return $this->db->fetchAllValuesByCriteria('fs_betrieb_team', 'foodsaver_id', [
 			'betrieb_id' => $storeId,
 			'verantwortlich' => 1
-		]);
-	}
-
-	private function getSignInDates(int $storeId, Carbon $from, Carbon $to): array
-	{
-		return $this->db->fetchAll('
-		SELECT
-			GROUP_CONCAT(date_activity) AS entry_times,
-			fs_id_a AS fs_id,
-			date_reference AS slot_date
-		FROM
-			`fs_store_log`
-		WHERE
-			`action` = :sign_up_slot
-			AND store_id = :store_id
-			AND date_reference >= :from_date
-			AND date_reference <= :to_date
-		GROUP BY
-			fs_id_a,
-			date_reference
-		', [
-			'sign_up_slot' => StoreLogAction::SIGN_UP_SLOT,
-			'store_id' => $storeId,
-			'from_date' => $this->db->date($from),
-			'to_date' => $this->db->date($to),
 		]);
 	}
 }

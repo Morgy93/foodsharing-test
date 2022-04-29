@@ -563,7 +563,8 @@ class Database
 	{
 		return (clone $date)
 			->setTimezone(new \DateTimeZone('Europe/Berlin'))
-			->format($includeTime ? 'Y-m-d H:i:s' : 'Y-m-d');
+			->format($includeTime ? 'Y-m-d H:i:s' : 'Y-m-d')
+		;
 	}
 
 	public function parseDate(string $date): Carbon

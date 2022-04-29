@@ -211,12 +211,10 @@ final class PickupRestController extends AbstractFOSRestController
 			$fromTime = Carbon::today()->subHours(6);
 		}
 
-		$maySeeSignInDate = $this->storePermissions->maySeeSignInDate($storeId);
-
-		$pickups = $this->pickupGateway->getPickupSlots($storeId, $fromTime, null, null, $maySeeSignInDate);
+		$pickups = $this->pickupGateway->getPickupSlots($storeId, $fromTime);
 
 		return $this->handleView($this->view([
-			'pickups' => $this->enrichPickupSlots($pickups, $storeId),
+			'pickups' => $this->enrichPickupSlots($pickups, $storeId)
 		]));
 	}
 

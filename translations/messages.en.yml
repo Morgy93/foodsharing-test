@@ -707,8 +707,6 @@ pickup:
   delete_not_empty: At the moment there are still foodsavers enrolled. You can only
     delete this pickup date when all slots have been emptied before.
   to_be_confirmed: This pickup date still has to be confirmed by a store manager.
-  first: Sign in {date}
-  again: ", again {date}"
   delete_title: Delete pickup
   join_agree: yes absolutely
   join_cancel: rather not
