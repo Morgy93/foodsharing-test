@@ -297,7 +297,7 @@
         >
           <p>
             <a
-              v-if="isBeta || isDev"
+              v-if="!isBeta || isDev"
               :href="betaTestingIssues"
             >
               {{ $i18n('footer.beta_testing_issues') }}
@@ -306,8 +306,7 @@
               v-else
               :href="$url('releaseNotes')"
             >
-              {{ $i18n('releases.2021-09') }}
-              <i class="fas fa-magic social_icons" />
+              {{ $i18n('releases.2022-05') }}
             </a>
             <br>
             <a :href="$url('devdocs')">
