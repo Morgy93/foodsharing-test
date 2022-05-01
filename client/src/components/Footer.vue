@@ -118,7 +118,7 @@
         >
           <b-row>
             <b-col
-              v-if="isFsDotAt"
+              v-if="!isFsDotAt"
               xl="6"
               cols="12"
             >
@@ -153,7 +153,7 @@
                 :rel="externalLink"
               >
                 <img
-                  src="/img/footer/lebensministerium_Logo_2014_at.png"
+                  src="/img/footer/BMLRT_Logo.png"
                   :alt="$i18n('footer.lebensministerium_alt_text')"
                   class="pt-4"
                 >
