@@ -1,4 +1,4 @@
-# Release "Heidelbeere", unreleased
+# Release "Heidelbeere", 2022-05-01
 
 ## Features
 - It is now differentiated between completely new foodsavers and foodsavers who were verified before. !1129
