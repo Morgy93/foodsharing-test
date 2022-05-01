@@ -297,7 +297,7 @@
         >
           <p>
             <a
-              v-if="!isBeta || isDev"
+              v-if="isBeta || isDev"
               :href="betaTestingIssues"
             >
               {{ $i18n('footer.beta_testing_issues') }}
