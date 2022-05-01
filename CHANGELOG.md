@@ -1,3 +1,15 @@
+# Release "I", unreleased
+
+## Features
+
+## Changes
+
+## Bugfixes
+
+## Refactoring
+
+## Dev/Test/CI stuff
+
 # Release "Heidelbeere", 2022-05-01
 
 ## Features
