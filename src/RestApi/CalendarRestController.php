@@ -4,6 +4,8 @@ namespace Foodsharing\RestApi;
 
 use Carbon\Carbon;
 use Foodsharing\Lib\Session;
+use Foodsharing\Modules\Event\EventGateway;
+use Foodsharing\Modules\Event\InvitationStatus;
 use Foodsharing\Modules\Profile\ProfileGateway;
 use Foodsharing\Modules\Settings\SettingsGateway;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -13,18 +15,21 @@ use Jsvrcek\ICS\Model\Description\Location;
 use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Welp\IcalBundle\Factory\Factory;
 use Welp\IcalBundle\Response\CalendarResponse;
 
 /**
- * Provides endpoints for exporting pickup dates to iCal and managing access tokens.
+ * Provides endpoints for exporting pickup dates and other events to iCal and managing access tokens.
  */
 class CalendarRestController extends AbstractFOSRestController
 {
 	private Session $session;
 	private SettingsGateway $settingsGateway;
 	private ProfileGateway $profileGateway;
+	private EventGateway $eventGateway;
 	private Factory $icalFactory;
+	private TranslatorInterface $translator;
 
 	private const TOKEN_LENGTH_IN_BYTES = 10;
 
@@ -32,12 +37,16 @@ class CalendarRestController extends AbstractFOSRestController
 		Session $session,
 		SettingsGateway $settingsGateway,
 		ProfileGateway $profileGateway,
-		Factory $icalFactory
+		EventGateway $eventGateway,
+		Factory $icalFactory,
+		TranslatorInterface $translator
 	) {
 		$this->session = $session;
 		$this->settingsGateway = $settingsGateway;
 		$this->profileGateway = $profileGateway;
+		$this->eventGateway = $eventGateway;
 		$this->icalFactory = $icalFactory;
+		$this->translator = $translator;
 	}
 
 	/**
@@ -111,7 +120,9 @@ class CalendarRestController extends AbstractFOSRestController
 	}
 
 	/**
-	 * Returns the user's future pickup dates as iCal.
+	 * Returns the user's future foodsharing dates as iCal.
+	 *
+	 * This includes pickups and meetings / events.
 	 *
 	 * @OA\Parameter(name="token", in="path", @OA\Schema(type="string"), description="Access token")
 	 * @OA\Response(response="200", description="Success.")
@@ -120,7 +131,7 @@ class CalendarRestController extends AbstractFOSRestController
 	 *
 	 * @Rest\Get("calendar/{token}")
 	 */
-	public function listPickupDatesAction(string $token): Response
+	public function listAppointmentsAction(string $token): Response
 	{
 		// check access token
 		$userId = $this->settingsGateway->getUserForToken($token);
@@ -128,11 +139,22 @@ class CalendarRestController extends AbstractFOSRestController
 			throw new HttpException(403);
 		}
 
-		// create iCal of all future pickup dates
-		$dates = $this->profileGateway->getNextDates($userId);
+		// create iCal
 		$calendar = $this->icalFactory->createCalendar();
+
+		// add all future pickup dates
+		$dates = $this->profileGateway->getNextDates($userId);
 		foreach ($dates as $date) {
 			$calendar->addEvent($this->createPickupEvent($date, $userId));
+		}
+
+		// add all future meetings
+		$meetings = $this->eventGateway->getEventsByStatus(
+			$userId,
+			[InvitationStatus::INVITED, InvitationStatus::ACCEPTED, InvitationStatus::MAYBE]
+		);
+		foreach ($meetings as $meeting) {
+			$calendar->addEvent($this->createMeetingEvent($meeting, $userId));
 		}
 
 		return new CalendarResponse($calendar, 200, []);
@@ -142,26 +164,64 @@ class CalendarRestController extends AbstractFOSRestController
 	{
 		$start = Carbon::createFromTimestamp($pickup['date_ts']);
 
-		$summary = $pickup['betrieb_name'] . ' Abholung';
+		$summary = $this->translator->trans('calendar.export.pickup.name', ['{store}' => $pickup['betrieb_name']]);
 		$status = 'CONFIRMED';
 		if (!$pickup['confirmed']) {
-			$summary .= ' (unbestätigt)';
+			$summary .= ' (' . $this->translator->trans('calendar.export.pickup.unconfirmed') . ')';
 			$status = 'TENTATIVE';
 		}
 
 		$full_address = $pickup['betrieb_anschrift'] . ', '
 			. $pickup['betrieb_plz'] . ' ' . $pickup['betrieb_stadt'];
 		$location = (new Location())->setName($full_address);
+		$store_url = BASE_URL . '/?page=fsbetrieb&id=' . $pickup['betrieb_id'];
 
 		$event = $this->icalFactory->createCalendarEvent();
 		$event->setStart($start);
 		$event->setEnd($start->clone()->addMinutes(30));
 		$event->setSummary($summary);
-		$event->setUid($userId . $pickup['date_ts'] . '@fetch.foodsharing.de');
-		$event->setDescription('foodsharing Abholung bei ' . $pickup['betrieb_name']);
-		$event->setUrl(BASE_URL . '/?page=fsbetrieb&id=' . $pickup['betrieb_id']);
+		$event->setUid($userId . $pickup['betrieb_id'] . $pickup['date_ts'] . '@fetch.foodsharing.de');
+		$event->setDescription($this->translator->trans(
+			'calendar.export.pickup.description',
+			[
+				'{url}' => $store_url,
+				'{store}' => $pickup['betrieb_name'],
+			]
+		));
+		$event->setUrl($store_url);
 		$event->setStatus($status);
 		$event->addLocation($location);
+
+		return $event;
+	}
+
+	private function createMeetingEvent(array $meeting, int $userId): CalendarEvent
+	{
+		$url = BASE_URL . '/?page=event&id=' . $meeting['id'];
+
+		$descriptionHint = '';
+		if ($meeting['status'] == InvitationStatus::INVITED) {
+			$descriptionHint = '<i>' . $this->translator->trans('calendar.export.event.statusUnspecified') . '</i><br>';
+		}
+		$description = '<a href="' . $url . '">' . $this->translator->trans('calendar.export.event.linkTitle') . '</a><br>'
+			. $descriptionHint
+			. '<b>' . $this->translator->trans('calendar.export.event.description') . '</b>: '
+			. str_replace("\n", '<br>', $meeting['description']);
+
+		$event = $this->icalFactory->createCalendarEvent();
+		$event->setStart(Carbon::createFromTimestamp($meeting['start_ts']));
+		$event->setEnd(Carbon::createFromTimestamp($meeting['end_ts']));
+		$event->setSummary($meeting['name']);
+		$event->setUid($userId . $meeting['id'] . '@meeting.foodsharing.de');
+		$event->setDescription($description);
+		$event->setUrl($url);
+		$event->setStatus(['TENTATIVE', 'CONFIRMED', 'TENTATIVE'][$meeting['status']]);
+
+		if ($meeting['street']) {
+			$full_address = $meeting['street'] . ', ' . $meeting['zip'] . ' ' . $meeting['city'];
+			$location = (new Location())->setName($full_address);
+			$event->addLocation($location);
+		}
 
 		return $event;
 	}

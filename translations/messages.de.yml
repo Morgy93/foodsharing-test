@@ -966,6 +966,15 @@ calendar:
   labelCalendar: "Kalender"
   labelNav: "Kalendernavigation"
   labelHelp: "Navigation ist auch mit Pfeiltasten möglich"
+  export:
+    pickup:
+      name: "{store} Abholung"
+      unconfirmed: unbestätigt
+      description: 'Foodsharing Abholung bei <a href="{url}">{store}</a>'
+    event:
+      statusUnspecified: Du hast noch nicht angegeben, ob du an diesem Termin teilnimmst. Das kannst du auf der verlinkten Seite tun.
+      linkTitle: Foodsharing Veranstaltung
+      description: Beschreibung
 
 timepicker:
   labelHours: "Stunden"

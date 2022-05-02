@@ -658,6 +658,16 @@ calendar:
   locale: de
   labelNav: Calendar navigation
   labelHelp: Navigation is also possible with arrow keys
+  export:
+    pickup:
+      name: "{store} Pickup"
+      unconfirmed: (not confirmed)
+      description: 'Foodsharing pickup at <a href="{url}">{store}</a>'
+    event:
+      statusUnspecified: You have not stated whether you would like to participate in this event. You can do so on the linked page.
+      linkTitle: Foodsharing Event
+      description: Description
+
 pickup:
   signout_confirm: Are you sure?
   copyNumber: Copy phone number

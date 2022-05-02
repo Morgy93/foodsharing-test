@@ -109,8 +109,7 @@ final class ProfileGateway extends BaseGateway
 			AND 	b.foodsaver_id = :fs_id
 			AND 	bz.type != 7
 		';
-		if ($bot = $this->db->fetchAll($stm, [':fs_id' => $fsId])
-		) {
+		if ($bot = $this->db->fetchAll($stm, [':fs_id' => $fsId])) {
 			$data['botschafter'] = $bot;
 		}
 
@@ -124,8 +123,7 @@ final class ProfileGateway extends BaseGateway
 			AND 	b.foodsaver_id = :fs_id
 			AND		bz.type != :type
 		';
-		if ($fs = $this->db->fetchAll($stm, [':fs_id' => $fsId, ':type' => Type::WORKING_GROUP])
-		) {
+		if ($fs = $this->db->fetchAll($stm, [':fs_id' => $fsId, ':type' => Type::WORKING_GROUP])) {
 			$data['foodsaver'] = $fs;
 		}
 
@@ -161,8 +159,7 @@ final class ProfileGateway extends BaseGateway
 			AND 	b.foodsaver_id = :fs_id
 			AND 	bz.type = 7
 		';
-		if ($orga = $this->db->fetchAll($stm, [':fs_id' => $fsId])
-		) {
+		if ($orga = $this->db->fetchAll($stm, [':fs_id' => $fsId])) {
 			$data['orga'] = $orga;
 		}
 
@@ -294,7 +291,7 @@ final class ProfileGateway extends BaseGateway
 	}
 
 	/**
-	 * Returns the next dates which the foodsaver signed into.
+	 * Returns the next pickup dates which the foodsaver signed into.
 	 *
 	 * @param int $fsId ID of the foodsaver
 	 * @param int|null $limit if not null, the result will be limited to a number of dates
@@ -442,10 +439,10 @@ final class ProfileGateway extends BaseGateway
 	{
 		try {
 			if (($status = $this->db->fetchValueByCriteria(
-					'fs_buddy',
-					'confirmed',
-					['foodsaver_id' => $sessionId, 'buddy_id' => $fsId]
-				)) !== []) {
+				'fs_buddy',
+				'confirmed',
+				['foodsaver_id' => $sessionId, 'buddy_id' => $fsId]
+			)) !== []) {
 				return $status;
 			}
 		} catch (\Exception $e) {

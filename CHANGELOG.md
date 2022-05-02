@@ -1,6 +1,7 @@
 # Release "I", unreleased
 
 ## Features
+- Improved Calendar exports. Events are now included and pickup descriptions contain links. !2182 @AntonBallmaier
 
 ## Changes
 
