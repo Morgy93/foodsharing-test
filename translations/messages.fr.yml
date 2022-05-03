@@ -1466,6 +1466,7 @@ pickup:
   same_day_hint: 'Tu es inscrit·e le {day} pour les collectes suivantes :'
 events:
   bread: Évènements
+  past: Évènements passés
   rsvp:
     no: Tu seras noté·e comme « ne pouvant pas participer »
     maybe: Cool que tu puisses peut-être trouver le temps !

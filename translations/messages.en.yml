@@ -563,6 +563,7 @@ events:
     desc: What kind of event is that?
     inviteAll: Invite entire group / district?
   bread: Events
+  past: Past events
   menu:
     edit: Edit event
     yes: Accept invitation
@@ -754,6 +755,7 @@ validate:
 no: No
 yes: Yes
 are_you_sure: Are you sure?
+filter_by: filter by
 terminology:
   buddies: Buddies
   polls: Polls
@@ -1728,7 +1730,6 @@ polls:
   hint: The voting module can be tested in the transregional working group "Abstimmungen
     - Test".
   hint_2: You can find notes on using polls in the Wiki
-  filter_by: filter by
 storeedit:
   bread: Edit store
   team:

@@ -16,6 +16,11 @@ class EventGateway extends BaseGateway
 		$this->regionGateway = $regionGateway;
 	}
 
+	/**
+	 * Gets the current and upcoming events of a specified region and returns them as array.
+	 *
+	 * @param int $regionId The identifier of the region
+	 */
 	public function listForRegion(int $regionId): array
 	{
 		return $this->db->fetchAll('
@@ -30,7 +35,6 @@ class EventGateway extends BaseGateway
 				fs_event e
 			WHERE
 				e.bezirk_id = :regionId
-			AND e.start > NOW()
 			ORDER BY
 				e.start
 		', [':regionId' => $regionId]);

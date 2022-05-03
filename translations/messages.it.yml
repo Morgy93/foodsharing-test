@@ -1356,6 +1356,7 @@ events:
   add_event: Nuovo appuntamento
   add_new_event: Inserisci un nuovo appuntamento adesso
   bread: Appuntamento
+  past: Appuntamenti passati
 wall:
   error-delete: Non è possibile rimuovere questo post.
   info-logging: Si nota pregho, che per evitare conflitti, il contenuto e la persona
@@ -2170,7 +2171,6 @@ region:
   no-huge: Spiacente, non puoi selezionare un paese o uno stato come regione.
   change: Cambiare distretto
 polls:
-  filter_by: Filtrare per
   future: Votazioni futuri
   ended: Votazioni passati
   ongoing: Riconciliazioni in corso
@@ -2340,3 +2340,4 @@ quiz:
   nownownow: Inizia il quiz adesso
   timedstart: Iniziare il quiz con tempo limitato e 10 domande
 deletelow: elimina
+filter_by: Filtrare per

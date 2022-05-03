@@ -163,6 +163,8 @@ maxfp: "Maximale Anzahl von Fehlerpunkten um zu bestehen"
 questcount: "Wie viele Fragen sollen bei Klausur gestellt werden?"
 wikilink: "Link zur Wiki-Seite"
 
+filter_by: "Filtern nach"
+
 quiz:
   question: "Frage"
   questions: "Fragen"
@@ -1055,6 +1057,7 @@ wall:
 
 events:
   bread: "Termine"
+  past: "Vergangene Termine"
   add_new_event: "Jetzt neuen Termin eintragen"
   add_event: "Neuer Termin"
   created: "Event wurde erfolgreich eingetragen."
@@ -2333,7 +2336,6 @@ polls:
   ongoing: "Laufende Abstimmungen"
   ended: "Vergangene Abstimmungen"
   future: "Zukünftige Abstimmungen"
-  filter_by: "Filtern nach"
 
 poll:
   not_available: "Diese Abstimmung existiert nicht oder du kannst nicht darauf zugreifen."

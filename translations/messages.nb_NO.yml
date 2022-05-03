@@ -151,7 +151,6 @@ polls:
   end_date: Sluttdato
   start_date: Startdato
   title: Tittel
-  filter_by: filtrer etter
   hint_2: Du kan finne informasjon om hvordan du bruker stemmegivning i wikien
   new_poll: Opprett en ny avstemming
   hint: Stemmemodulen kan testes i den nasjonale arbeidsgruppen «Avstemming – Test».
@@ -1638,6 +1637,7 @@ events:
       \ å også vise avtalen på dashbordet til nykommere i mellomtiden,\nlagre den\
       \ igjen på et senere tidspunkt.\n"
   bread: Arrangementer
+  past: Tidligere arrangementer
   button:
     maybe: Kanskje
     yes: Jeg deltar
@@ -2253,3 +2253,4 @@ quiz:
   finishnow:
     fs: Fullfør registreringen som matredder nå.
 fpsingular: feilpunktet
+filter_by: filtrer etter

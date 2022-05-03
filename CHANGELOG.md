@@ -2,12 +2,15 @@
 
 ## Features
 - Improved Calendar exports. Events are now included and pickup descriptions contain links. !2182 @AntonBallmaier
+- Past events are shown now below current and upcoming events within the overview !2162 @merhoc
 
 ## Changes
 
 ## Bugfixes
 
 ## Refactoring
+- Currently running events are shown within the event overview until their end !2162 @merhoc
+- Use the same event panel view within the event overview as in other places !2162 @merhoc
 
 ## Dev/Test/CI stuff
 
