@@ -65,7 +65,7 @@ class FoodsaverGateway extends BaseGateway
 	}
 
 	/**
-	 * @return Profile[]
+	 * @return RegionGroupMemberEntry[]
 	 */
 	public function listActiveFoodsaversByRegion(int $regionId): array
 	{
@@ -73,11 +73,15 @@ class FoodsaverGateway extends BaseGateway
 			SELECT 	fs.`id`,
 					fs.`photo`,
 					fs.`name`,
-					fs.sleep_status
+					fs.sleep_status,
+					fs.rolle as role,
+                    if (isnull(fsbot.`bezirk_id`) , false, true) as isAdminOrAmbassadorOfRegion
 
 		    FROM	fs_foodsaver fs
 					INNER JOIN fs_foodsaver_has_bezirk fsreg
 					ON fs.id = fsreg.foodsaver_id
+				    left outer join fs_botschafter fsbot
+					on fsreg.foodsaver_id = fsbot.foodsaver_id and fsreg.bezirk_id = fsbot.bezirk_id
 
 			WHERE   fs.deleted_at IS NULL
 			AND 	fsreg.active = 1
@@ -89,7 +93,7 @@ class FoodsaverGateway extends BaseGateway
 		]);
 
 		return array_map(function ($fs) {
-			return new Profile($fs['id'], $fs['name'], $fs['photo'], $fs['sleep_status']);
+			return RegionGroupMemberEntry::create($fs['id'], $fs['name'], $fs['photo'], $fs['sleep_status'], $fs['role'], $fs['isAdminOrAmbassadorOfRegion']);
 		}, $res);
 	}
 

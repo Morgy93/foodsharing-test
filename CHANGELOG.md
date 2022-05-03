@@ -32,6 +32,8 @@
 - Make map legend collapsible !2166 @NINI1988
 - Updated the link to instagram on the startpage !2179 #1206 @alex.simm
 - Set a timeout on the sending chat messages to websockets !2167 #1069 @alex.simm 
+- Store-related conversations include a link to their store now !1807 !2134 @ChrisOelmueller
+- add/remove Admins over memberlist for groups and regions !2143 @fs_k 
 
 ## Bugfixes
 - Fix the community marker map for regions that do not yet have a pin #1183 !2154 @alex.simm  
