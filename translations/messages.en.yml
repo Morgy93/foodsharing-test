@@ -155,6 +155,10 @@ group:
     add_member: add to team
     admin_mode_on: Activate view for administrators
     admin_mode_off: Back to the standard view
+    set_admin_text: Do you really want to make {name} ({id}) an admin?
+    set_ambassador_title: Make ambassador
+    set_admin_title: Make administrator
+    set_ambassador_text: Do you really want to make {name} ({id}) an ambassador?
   application_from: by
   entermotivation: 'Motivation:'
   enterskills: 'Skills:'
@@ -166,9 +170,12 @@ settings:
   header: Your data and settings
   name_change:
     title: Name (first & last name)
-    desc: You cannot change your name yourself. You can however <a {link}">request a name change</a>.
+    desc: You cannot change your name yourself. You can however <a {link}">request
+      a name change</a>.
     request: Request name change
-    info: To get your name changed you have to contact an ambassador of your home region. He*She can change your name for you.<hr/>You can find out who the ambassadors of you region are in the left sidebar of your <a {link}>home regions forum page</a>.
+    info: To get your name changed you have to contact an ambassador of your home
+      region. He*She can change your name for you.<hr/>You can find out who the ambassadors
+      of you region are in the left sidebar of your <a {link}>home regions forum page</a>.
   push:
     not-supported: Your browser does not support push notifications.
     title: Push notifications
@@ -428,6 +435,8 @@ profile:
     xhr:
       deleted: Report was deleted!
       confirmed: Report was confirmed!
+      plsconfirm: Really delete this report?
+      reportee: Reported by
     kindofreport: Please choose the type of report
   history:
     wasVerified: Verified
@@ -665,7 +674,8 @@ calendar:
       unconfirmed: (not confirmed)
       description: 'Foodsharing pickup at <a href="{url}">{store}</a>'
     event:
-      statusUnspecified: You have not stated whether you would like to participate in this event. You can do so on the linked page.
+      statusUnspecified: You have not stated whether you would like to participate
+        in this event. You can do so on the linked page.
       linkTitle: Foodsharing Event
       description: Description
 
@@ -1301,6 +1311,7 @@ releases:
   "2021-03": Release "strawberry" 🍓 (March 2021)
   "2021-09": "Release \"fig\" \U0001F967 (September 2021)"
   "2022-01": Release "Grapefruit" 🍋 (January 2022)
+  "2022-05": Release "Blueberry" 🍇 (May 2022)
 footer:
   it_devdocs: by foodsharing IT
   donate_now: Donate now
@@ -1581,6 +1592,20 @@ store:
   pickup_slot_unavailable: This pick-up slot is further in the future than intended
     by the responsibles. So please try again at a later date.
   appliedFor: Request made
+  willgetcontacted: You are currently on the jumper list. You will be contacted if
+    help is needed.
+  team:
+    isfull: Team is full
+  filter: Filter by …
+  enterdate: Add pickup date
+  enternumber: You need to select the number of people who can pick up.
+  prefetchfour: 4 weeks
+  maxchar: (max. 180 characters)
+  important: 'Important:'
+  prefetchone: 1 week
+  prefetchtwo: 2 weeks
+  prefetchthree: 3 weeks
+  locked: You cannot edit this store.
 search:
   mygroups: My groups
   mybuddies: My buddies
@@ -2449,7 +2474,7 @@ quiz:
   finished: Congratulations, you made it!
   trynumber: This was attempt number
   finishnow:
-    fs: Finish the foodsaver signup process now.
+    fs: Finish your foodsaver registration now.
     bv: Finish the store manager signup process now.
     bot: Finish the ambassador signup process now.
   donecorrectly: you answered absolutely correct. Congrats!
@@ -2476,5 +2501,5 @@ contentmanagement: Content management
 activitypost:
   showeverything: show everything
   less: less
-  write: Write an answer ...
+  write: Write an answer …
 deletelow: delete

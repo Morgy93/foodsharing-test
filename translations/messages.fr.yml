@@ -953,8 +953,8 @@ legal:
       et ne pourront pas être récupérées :'
     this_gets_deleted_stores: <ul><li>Entreprises auxquelles tu avais adhéré.</ul></li>
     this_doesnt_get_deleted: 'Les informations suivantes ne sont plus disponibles
-      dans le système actif, mais sont archivées séparément sur la base du §17 du
-      RGPD :'
+      dans le système actif, mais sont archivées séparément sur la base du article
+      17, paragraphe 3 du RGPD :'
     this_doesnt_get_deleted_address: <ul><li>Ton adresse</ul></li>
     this_doesnt_get_deleted_history: <ul><li>Historique de ta vérification</ul></li>
     this_doesnt_get_deleted_name: <ul><li>Ton nom</ul></li>
@@ -1711,7 +1711,7 @@ formatting:
   md: Tu peux utiliser Markdown pour formater <a href="https://www.markdownguide.org/">Markdown</a>
     à utiliser.
 footer:
-  lebensministerium_alt_text: Lebensministerium autrichien
+  lebensministerium_alt_text: Ministère fédéral de l'Agriculture autrichien
   wiener_tafel_alt_text: Wiener Tafel
   it_devdocs: par le groupe informatique de foodsharing
   donate_now: Faire un don
