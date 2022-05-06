@@ -13,6 +13,7 @@
 - Use the same event panel view within the event overview as in other places !2162 @merhoc
 
 ## Dev/Test/CI stuff
+- bump node to version 16 !2135 @peter.toennies
 
 # Release "Heidelbeere", 2022-05-01
 
