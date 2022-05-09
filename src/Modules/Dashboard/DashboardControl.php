@@ -5,6 +5,7 @@ namespace Foodsharing\Modules\Dashboard;
 use Foodsharing\Modules\Basket\BasketGateway;
 use Foodsharing\Modules\Content\ContentGateway;
 use Foodsharing\Modules\Core\Control;
+use Foodsharing\Modules\Core\DBConstants\Content\ContentId;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Map\MapConstants;
 use Foodsharing\Modules\Core\DBConstants\Region\Type;
@@ -115,7 +116,7 @@ class DashboardControl extends Control
 		}
 
 		if ($check) {
-			$cnt = $this->contentGateway->get(33);
+			$cnt = $this->contentGateway->get(ContentId::QUIZ_REMARK_PAGE_33);
 
 			$cnt['body'] = str_replace([
 				'{NAME}',
@@ -196,7 +197,7 @@ class DashboardControl extends Control
 
 		$this->pageHelper->addContent($this->view->foodsharerMenu(), CNT_LEFT);
 
-		$cnt = $this->contentGateway->get(33);
+		$cnt = $this->contentGateway->get(ContentId::QUIZ_REMARK_PAGE_33);
 
 		$cnt['body'] = str_replace([
 			'{NAME}',

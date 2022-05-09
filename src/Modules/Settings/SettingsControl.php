@@ -236,7 +236,7 @@ class SettingsControl extends Control
 				break;
 
 			default:
-				$this->pageHelper->addContent($this->view->quizFailed($this->contentGateway->get(13)));
+				$this->pageHelper->addContent($this->view->quizFailed($this->contentGateway->get(ContentId::QUIZ_FAILED_PAGE_13)));
 		}
 	}
 
@@ -277,8 +277,8 @@ class SettingsControl extends Control
 					$this->routeHelper->go('/?page=relogin&url=' . urlencode('/?page=dashboard'));
 				}
 			}
-			$cnt = $this->contentGateway->get(14);
-			$rv = $this->contentGateway->get(30);
+			$cnt = $this->contentGateway->get(ContentId::QUIZ_CONFIRM_FS_PAGE_14);
+			$rv = $this->contentGateway->get(ContentId::QUIZ_LEGAL_FOODSAVER);
 			$this->pageHelper->addContent($this->view->confirmFs($cnt, $rv));
 		}
 	}
@@ -298,8 +298,8 @@ class SettingsControl extends Control
 					$this->routeHelper->go('/?page=dashboard');
 				}
 			}
-			$cnt = $this->contentGateway->get(15);
-			$rv = $this->contentGateway->get(31);
+			$cnt = $this->contentGateway->get(ContentId::QUIZ_CONFIRM_SM_PAGE_15);
+			$rv = $this->contentGateway->get(ContentId::QUIZ_LEGAL_STOREMANAGER);
 			$this->pageHelper->addContent($this->view->confirmBip($cnt, $rv));
 		}
 	}
