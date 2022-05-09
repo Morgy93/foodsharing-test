@@ -14,6 +14,7 @@
 
 ## Dev/Test/CI stuff
 - bump node to version 16 !2135 @peter.toennies
+- Update mdbook to 0.4.18 #1178 !2206 @alex.simm
 
 # Release "Heidelbeere", 2022-05-01
 

@@ -192,7 +192,7 @@ build:backend:
 build:docs:
   <<: *defaults
   image:
-    name: peaceiris/mdbook:v0.4.7
+    name: peaceiris/mdbook:v0.4.18
     entrypoint: [ "" ]
   stage: build
   script:
