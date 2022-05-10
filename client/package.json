@@ -130,6 +130,17 @@
       ],
       "vue/no-v-html": [
         "off"
+      ],
+      "vue/custom-event-name-casing": [
+        "error",
+        "kebab-case",
+        {
+          "ignores": ["bv::hide::tooltip"]
+        }
+      ],
+      "vue/v-on-event-hyphenation": [
+        "error",
+        "always"
       ]
     },
     "overrides": [
