@@ -10,14 +10,16 @@ use Foodsharing\Modules\Profile\ProfileGateway;
 use Foodsharing\Modules\Settings\SettingsGateway;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Jsvrcek\ICS\CalendarExport;
+use Jsvrcek\ICS\CalendarStream;
+use Jsvrcek\ICS\Model\Calendar;
 use Jsvrcek\ICS\Model\CalendarEvent;
 use Jsvrcek\ICS\Model\Description\Location;
+use Jsvrcek\ICS\Utility\Formatter;
 use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Welp\IcalBundle\Factory\Factory;
-use Welp\IcalBundle\Response\CalendarResponse;
 
 /**
  * Provides endpoints for exporting pickup dates and other events to iCal and managing access tokens.
@@ -28,7 +30,6 @@ class CalendarRestController extends AbstractFOSRestController
 	private SettingsGateway $settingsGateway;
 	private ProfileGateway $profileGateway;
 	private EventGateway $eventGateway;
-	private Factory $icalFactory;
 	private TranslatorInterface $translator;
 
 	private const TOKEN_LENGTH_IN_BYTES = 10;
@@ -38,14 +39,12 @@ class CalendarRestController extends AbstractFOSRestController
 		SettingsGateway $settingsGateway,
 		ProfileGateway $profileGateway,
 		EventGateway $eventGateway,
-		Factory $icalFactory,
 		TranslatorInterface $translator
 	) {
 		$this->session = $session;
 		$this->settingsGateway = $settingsGateway;
 		$this->profileGateway = $profileGateway;
 		$this->eventGateway = $eventGateway;
-		$this->icalFactory = $icalFactory;
 		$this->translator = $translator;
 	}
 
@@ -139,25 +138,25 @@ class CalendarRestController extends AbstractFOSRestController
 			throw new HttpException(403);
 		}
 
-		// create iCal
-		$calendar = $this->icalFactory->createCalendar();
-
 		// add all future pickup dates
 		$dates = $this->profileGateway->getNextDates($userId);
-		foreach ($dates as $date) {
-			$calendar->addEvent($this->createPickupEvent($date, $userId));
-		}
+		$pickups = array_map(function ($date) use ($userId) {
+			return $this->createPickupEvent($date, $userId);
+		}, $dates);
 
 		// add all future meetings
 		$meetings = $this->eventGateway->getEventsByStatus(
 			$userId,
 			[InvitationStatus::INVITED, InvitationStatus::ACCEPTED, InvitationStatus::MAYBE]
 		);
-		foreach ($meetings as $meeting) {
-			$calendar->addEvent($this->createMeetingEvent($meeting, $userId));
-		}
+		$events = array_map(function ($meeting) use ($userId) {
+			return $this->createMeetingEvent($meeting, $userId);
+		}, $meetings);
 
-		return new CalendarResponse($calendar, 200, []);
+		return new Response($this->formatCalendarResponse(array_merge($pickups, $events)), 200, [
+			'content-type' => 'text/calendar',
+			'content-disposition' => 'attachment; filename="calendar.ics"'
+		]);
 	}
 
 	private function createPickupEvent(array $pickup, int $userId): CalendarEvent
@@ -176,7 +175,7 @@ class CalendarRestController extends AbstractFOSRestController
 		$location = (new Location())->setName($full_address);
 		$store_url = BASE_URL . '/?page=fsbetrieb&id=' . $pickup['betrieb_id'];
 
-		$event = $this->icalFactory->createCalendarEvent();
+		$event = new CalendarEvent();
 		$event->setStart($start);
 		$event->setEnd($start->clone()->addMinutes(30));
 		$event->setSummary($summary);
@@ -208,7 +207,7 @@ class CalendarRestController extends AbstractFOSRestController
 			. '<b>' . $this->translator->trans('calendar.export.event.description') . '</b>: '
 			. str_replace("\n", '<br>', $meeting['description']);
 
-		$event = $this->icalFactory->createCalendarEvent();
+		$event = new CalendarEvent();
 		$event->setStart(Carbon::createFromTimestamp($meeting['start_ts']));
 		$event->setEnd(Carbon::createFromTimestamp($meeting['end_ts']));
 		$event->setSummary($meeting['name']);
@@ -224,5 +223,26 @@ class CalendarRestController extends AbstractFOSRestController
 		}
 
 		return $event;
+	}
+
+	/**
+	 * Formats a list of events into an iCal calendar string.
+	 *
+	 * @param CalendarEvent[] $events
+	 */
+	private function formatCalendarResponse(array $events): string
+	{
+		$calendar = new Calendar();
+		$calendar->setTimezone(new \DateTimeZone('Europe/Berlin'));
+		$calendar->setProdId('-//Foodsharing//Calendar//DE');
+
+		foreach ($events as $e) {
+			$calendar->addEvent($e);
+		}
+
+		$calendarExport = new CalendarExport(new CalendarStream(), new Formatter());
+		$calendarExport->addCalendar($calendar);
+
+		return $calendarExport->getStream();
 	}
 }

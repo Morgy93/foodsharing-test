@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e95e8f2d75e212c3879e86c81c5d9d0e",
+    "content-hash": "710cfe621bd740d34ff2ef8e138e16ed",
     "packages": [
         {
             "name": "brick/math",
@@ -1942,23 +1942,23 @@
         },
         {
             "name": "jsvrcek/ics",
-            "version": "0.4",
+            "version": "0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jasvrcek/ICS.git",
-                "reference": "5ba8a478766f9a2faeda0003b187605555d1b1c3"
+                "reference": "fce6d1f1af977b0650bfa630f2252d2b8ec1f0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jasvrcek/ICS/zipball/5ba8a478766f9a2faeda0003b187605555d1b1c3",
-                "reference": "5ba8a478766f9a2faeda0003b187605555d1b1c3",
+                "url": "https://api.github.com/repos/jasvrcek/ICS/zipball/fce6d1f1af977b0650bfa630f2252d2b8ec1f0dc",
+                "reference": "fce6d1f1af977b0650bfa630f2252d2b8ec1f0dc",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3 || ^7.0"
+                "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8 || ^5.5"
+                "phpunit/phpunit": "^4.8 || ^5.5 || >=6.0"
             },
             "type": "library",
             "autoload": {
@@ -1988,9 +1988,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jasvrcek/ICS/issues",
-                "source": "https://github.com/jasvrcek/ICS/tree/master"
+                "source": "https://github.com/jasvrcek/ICS/tree/0.8"
             },
-            "time": "2016-10-11T18:46:27+00:00"
+            "time": "2021-01-12T15:30:40+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -8819,61 +8819,6 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
-        },
-        {
-            "name": "welp/ical-bundle",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/welpdev/icalBundle.git",
-                "reference": "b1e0d8adab396a54dae745c070fb99bb18778f49"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/welpdev/icalBundle/zipball/b1e0d8adab396a54dae745c070fb99bb18778f49",
-                "reference": "b1e0d8adab396a54dae745c070fb99bb18778f49",
-                "shasum": ""
-            },
-            "require": {
-                "jsvrcek/ics": "^0.4",
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~5",
-                "swiftmailer/swiftmailer": "@stable",
-                "symfony/symfony": "~2.7 | ~3.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Welp\\IcalBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Titouan BENOIT",
-                    "email": "titouan@welp.today"
-                }
-            ],
-            "description": "Symfony Bundle to manage .ics iCal file (creating and eventually reading)",
-            "homepage": "https://github.com/welpdev/icalBundle",
-            "keywords": [
-                "calendar",
-                "iCalendar",
-                "ical",
-                "ics",
-                "symfony",
-                "welp"
-            ],
-            "support": {
-                "issues": "https://github.com/welpdev/icalBundle/issues",
-                "source": "https://github.com/welpdev/icalBundle/tree/master"
-            },
-            "time": "2020-03-25T10:13:18+00:00"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
