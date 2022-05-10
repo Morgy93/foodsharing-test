@@ -8,6 +8,7 @@
 ## Changes
 
 ## Bugfixes
+- When going back during registration, email and password are unchanged. !1114 @AntonBallmaier
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
