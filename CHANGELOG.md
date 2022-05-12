@@ -5,8 +5,13 @@
 - Improved Calendar exports. Events are now included and pickup descriptions contain links. !2182 @AntonBallmaier
 - Past events are shown now below current and upcoming events within the overview !2162 @merhoc
 - Pickup statistics on profile !2208 @fs_k
+- Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 #chriswalg
 
 ## Changes
+-Checks in the id card creation function if only one foodsaver is selected and then reduces the 
+size to the area for a single id card. If more than one foodsaver is selected, then the old logic takes effect 
+and an A4 sheet is used. !2198 #chriswalg
+- Send a bell notification and email, if a foodsaver was verified. !2198 #chriswalg
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !1114 @AntonBallmaier

@@ -11,6 +11,7 @@ use Foodsharing\Modules\Core\DBConstants\Quiz\QuizStatus;
 use Foodsharing\Modules\Core\DBConstants\Quiz\SessionStatus;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\FoodSharePoint\FoodSharePointGateway;
+use Foodsharing\Modules\PassportGenerator\PassportGeneratorTransaction;
 use Foodsharing\Modules\Quiz\QuizGateway;
 use Foodsharing\Modules\Quiz\QuizSessionGateway;
 use Foodsharing\Modules\Region\ForumFollowerGateway;
@@ -31,6 +32,7 @@ class SettingsControl extends Control
 	private ForumFollowerGateway $forumFollowerGateway;
 	private RegionGateway $regionGateway;
 	private SettingsPermissions $settingsPermissions;
+	private PassportGeneratorTransaction $passportGeneratorTransaction;
 
 	public function __construct(
 		SettingsView $view,
@@ -43,7 +45,8 @@ class SettingsControl extends Control
 		DataHelper $dataHelper,
 		ForumFollowerGateway $forumFollowerGateway,
 		RegionGateway $regionGateway,
-		SettingsPermissions $settingsPermissions
+		SettingsPermissions $settingsPermissions,
+		PassportGeneratorTransaction $passportGeneratorTransaction
 	) {
 		$this->view = $view;
 		$this->settingsGateway = $settingsGateway;
@@ -56,6 +59,7 @@ class SettingsControl extends Control
 		$this->forumFollowerGateway = $forumFollowerGateway;
 		$this->regionGateway = $regionGateway;
 		$this->settingsPermissions = $settingsPermissions;
+		$this->passportGeneratorTransaction = $passportGeneratorTransaction;
 
 		parent::__construct();
 
@@ -88,6 +92,10 @@ class SettingsControl extends Control
 
 		if ($this->settingsPermissions->mayUseCalendarExport()) {
 			$menu[] = ['name' => $this->translator->trans('settings.calendar.menu'), 'href' => '/?page=settings&sub=calendar'];
+		}
+
+		if ($this->settingsPermissions->mayUsePassportGeneration()) {
+			$menu[] = ['name' => $this->translator->trans('settings.passport.menu'), 'href' => '/?page=settings&sub=passport'];
 		}
 
 		$this->pageHelper->addContent($this->view->menu($menu, [
@@ -377,6 +385,15 @@ class SettingsControl extends Control
 		$this->pageHelper->addContent($this->view->foodsaver_form());
 
 		$this->pageHelper->addContent($this->picture_box(), CNT_RIGHT);
+	}
+
+	public function passport()
+	{
+		if ($this->settingsPermissions->mayUsePassportGeneration()) {
+			$this->passportGeneratorTransaction->generate([$this->session->id()], false);
+		} else {
+			$this->routeHelper->go('/?page=settings');
+		}
 	}
 
 	public function calendar()

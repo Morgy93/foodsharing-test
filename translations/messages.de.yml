@@ -1308,6 +1308,8 @@ bell:
   new_foodsaver_needs_verification: "Muss verifiziert werden"
   new_foodsaver_verified_title: "{name} neu in {bezirk}"
   new_foodsaver_verified: "Schon verifiziert - kann loslegen"
+  foodsaver_verified_title: "Du bist jetzt verifiziert!"
+  foodsaver_verified: "Rufe deinen Ausweis unter..."
   betrieb_fetch_title: "{betrieb}"
   betrieb_fetch: "{count} unbestätigte Abholzeiten"
 
@@ -1565,6 +1567,8 @@ settings:
     sent: "Gehe jetzt zu deinem <strong>neuen</strong> E-Mail-Postfach, um die Adresse zu bestätigen."
     done: "Deine E-Mail-Adresse wurde geändert."
   saved: "Änderungen wurden gespeichert."
+  passport:
+    menu: "Ausweis"
   calendar:
     menu: "Kalender"
     title: "Dein Abholkalender"
