@@ -159,6 +159,10 @@ group:
     set_ambassador_title: Make ambassador
     set_admin_title: Make administrator
     set_ambassador_text: Do you really want to make {name} ({id}) an ambassador?
+    remove_ambassador_title: remove as ambassador
+    remove_ambassador_text: Are you sure you want to remove {name} ({id}) as an ambassador?
+    remove_admin_text: Are you sure you want to remove {name} ({id}) as an admin?
+    remove_admin_title: remove as admin
   application_from: by
   entermotivation: 'Motivation:'
   enterskills: 'Skills:'
@@ -256,6 +260,7 @@ settings:
     passcheck: Please confirm the change with your password
     sent: Now go to your <strong>new</strong> email inbox to confirm the address.
     passfail: Your password is wrong, you made a mistake?
+    question: 'Do you really want us to change your email address to this:'
   chatmail: "If you receive an internal message on the foodsharing homepage,\nbut\
     \ you are not logged in at the moment, we can inform you by mail.\nDo you want\
     \ that?\n"
@@ -427,10 +432,18 @@ profile:
     view:
       delivered: Delivered
       newreport: New reports
+      why: Why are you reporting this person?
+      tardy: was late for a pickup
+      noshow: Did not come to the pickup
+      respect: Behaved impolite or disrespectful
+      dirty: Did not leave the pickup place tidy
     control:
       total: total
       tot: total
       newreports: New reports
+      delivered: Delivered Complaints
+      from: Reports by
+      notes: notes and decisions
     inthisblog: in this blog post
     xhr:
       deleted: Report was deleted!
@@ -438,6 +451,10 @@ profile:
       plsconfirm: Really delete this report?
       reportee: Reported by
     kindofreport: Please choose the type of report
+    sells: Person sells rescued food
+    noshow: The person didn't come
+    late: The person was late
+    cancellation: Frequent late cancellation of appointments without finding a replacement
   history:
     wasVerified: Verified
     lostVerification: De-verified
@@ -501,6 +518,11 @@ profile:
   cantdeleteall: You can not delete all dates!
   cantdeletethis: You can not delete individual events.
   alldatesdeleted: All dates were deleted
+  pickups_stat:
+    districtName: Region
+    pickupCount: Number of pickups
+    calenderWeek: Week number
+    categorieName: Category
 test:
   plain: This is a nice translation
   vars: 'My name is {NAME} and I am {AGE} years old'
@@ -831,6 +853,7 @@ terminology:
   reports: Reporting View (local reporting group)
   arbitration: Reporting View (LS)
   pin: Description of the district
+  homepage: Homepage
 login:
   pwreset:
     bread: Reset password
@@ -956,6 +979,7 @@ reports:
     of the incident !! <br> Please check if you have tried the available communication
     channels to address the incident directly with the person and to clarify the facts.
     Please indicate how you can best be reached for queries during processing.'
+  about_email: via email
 recipients:
   test: Test the newsletter
   done: All e-mails have been sent
@@ -1434,6 +1458,7 @@ basket:
   my_list_empty: You have not entered any food baskets
 map:
   title: Map
+  donates: company donates
 content:
   content: Content
   name: Unique name
@@ -1606,6 +1631,20 @@ store:
   prefetchtwo: 2 weeks
   prefetchthree: 3 weeks
   locked: You cannot edit this store.
+  leaveinfo: Here you can provide some information for the foodsavers who want to
+    apply for the team.
+  nodetails: Do not provide exact pick-up times here.
+  nodeclaration: not specified
+  nochains: Please only address owner-managed businesses with a maximum of 3 branches,
+    never address branches of a larger chain! Please note the chain rules!
+  convince:
+    much: Difficult negotiations, but in the end he*she agreed.
+    final: At first it looked bad, but then he*she got in touch.
+    none: No problem at all, he*she was immediately enthusiastic!
+    some: After some persuasion, he*she agreed to participate.
+  complete: complete database
+  peoplecame: It has often happened that people went to a store unsolicited.
+  smneeded: To set up a business, you must be a store manager.
 search:
   mygroups: My groups
   mybuddies: My buddies
@@ -1832,6 +1871,9 @@ legal:
     this_doesnt_get_deleted_history: <ul><li>Your verification history</ul></li>
     this_gets_deleted_verify: <ul><li>Your verification will be removed.</ul></li>
     this_gets_deleted_friendlist: <ul><li>Your friends list will be removed.</ul></li>
+    this_doesnt_get_deleted: 'The following information is no longer available in
+      the active system, but is archived separately based on Article 17 paragraph
+      3 sentence 1 letter b GDPR:'
 answers: Which answers are correct?
 name: Name
 bcard:
@@ -1992,6 +2034,7 @@ chat:
     \ field is discarded.\n\nIf you cancel this dialogue, your draft will be carried\
     \ over into the new conversation instead.\n"
   incorrect_address: This email address is not valid
+  receivermissing: Please enter a recipient
 delete: Delete
 error_unexpected: An error has occurred
 register:
