@@ -1637,6 +1637,13 @@ profile:
     warning_4: "diesem Support-Artikel."
     warning_others: "Die E-Mail-Adresse {email} diese*r Benutzer*in ist für foodsharing-Mails und -Kommunikation gesperrt. Über den Button kannst du diese Sperre entfernen."
     remove_button: "Von der Bounce-Liste entfernen"
+  pickups_stat:
+    title: "Engagementstatistik (ab letzten 4 Wochen)"
+    calenderWeek: "Kalenderwoche"
+    districtName: "Bezirk"
+    categorieName: "Kategorie"
+    pickupAmount: "Abholmenge"
+    pickupCount: "Abholanzahl"
   banana:
     title: "{count} Vertrauensbananen"
     none: "{name} hat bislang noch keine Vertrauensbanane erhalten."

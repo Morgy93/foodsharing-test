@@ -83,7 +83,7 @@ class ProfileView extends View
 		$this->groupGateway = $groupGateway;
 	}
 
-	public function profile(string $wallPosts, array $userStores = [], array $fetchDates = []): void
+	public function profile(string $wallPosts, array $userStores = [], array $fetchDates = [], array $pickupsStat = []): void
 	{
 		$page = new vPage($this->foodsaver['name'], $this->infos());
 		$fsId = $this->foodsaver['id'];
@@ -95,6 +95,7 @@ class ProfileView extends View
 		$maySeeBounceWarning = $this->profilePermissions->maySeeBounceWarning($fsId);
 		$maySeePickups = $this->profilePermissions->maySeePickups($fsId);
 		$maySeeStores = $this->profilePermissions->maySeeStores($fsId);
+		$maySeePickupsStat = $this->profilePermissions->maySeePickupsStat($fsId);
 
 		if ($maySeeBounceWarning && $this->foodsaver['emailIsBouncing']) {
 			$mayRemove = $this->profilePermissions->mayRemoveFromBounceList($this->foodsaver['id']);
@@ -103,6 +104,12 @@ class ProfileView extends View
 				'emailAddress' => $this->foodsaver['email'],
 				'mayRemove' => $mayRemove,
 				'bounceEvents' => $mayRemove ? $this->foodsaver['emailBounceCategories'] : []
+			]));
+		}
+
+		if ($maySeePickupsStat && $pickupsStat) {
+			$page->addSection($this->vueComponent('profile-pickups-stat', 'ProfilePickupsStat', [
+				'pickupsStatData' => $pickupsStat
 			]));
 		}
 
@@ -835,6 +842,14 @@ class ProfileView extends View
 
 	// widget to query history of recent pickups
 	private function pastPickups(): string
+	{
+		return $this->vueComponent('vue-pickup-history', 'PickupHistory', [
+			'fsId' => $this->foodsaver['id'],
+			'collapsedAtFirst' => false,
+		]);
+	}
+
+	private function statPickups(): string
 	{
 		return $this->vueComponent('vue-pickup-history', 'PickupHistory', [
 			'fsId' => $this->foodsaver['id'],
