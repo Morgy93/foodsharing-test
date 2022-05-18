@@ -456,8 +456,7 @@ class SettingsView extends View
 				. $this->translator->trans('legal.if_delete.this_doesnt_get_deleted_address')
 				. $this->translator->trans('legal.if_delete.this_doesnt_get_deleted_history')
 				. '<button type="button" id="delete-account" class="btn btn-sm btn-danger"'
-				. ' onclick="confirmDeleteUser(' . $fsId . ',\''
-				. $this->translator->trans('foodsaver.your_account') . '\')">'
+				. ' onclick="confirmDeleteSelf(' . $fsId . ')">'
 				. $this->translator->trans('foodsaver.delete_account_now')
 				. '</button>'
 		);
