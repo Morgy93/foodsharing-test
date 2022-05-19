@@ -28,14 +28,11 @@ if (GET('sub') === 'calendar') {
 } else if (GET('sub') === 'general') {
   vueRegister({
     ProfilePicture,
+    NameInput,
   })
   vueApply('#image-upload')
+  vueApply('#name-input')
 }
-
-vueRegister({
-  NameInput,
-})
-vueApply('#name-input')
 
 expose({
   confirmDeleteUser,
