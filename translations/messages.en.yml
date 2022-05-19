@@ -1531,7 +1531,7 @@ foodsaver:
   restricted: Unfortunately, you are not authorised to view this data.
   mailchange_error: Activation of your new email address has failed. Please try again.
   url_error: Something is wrong with your homepage URL
-  delete_account_sure: Are you sure you want to delete {name}'s account?
+  delete_account_sure: Are you sure you want to delete your account?
   edit_failure: Nothing was changed or changes were not saved
   edit_success: Changes have been saved
 store:
