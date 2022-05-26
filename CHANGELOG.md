@@ -16,6 +16,7 @@ and an A4 sheet is used. !2198 #chriswalg
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !1114 @AntonBallmaier
 - Push notifications can be (de-)activated in the settings again #1239 @alex.simm
+- Show the region name in the updates overview on the dashboard even when the titel is long #1207 @Caroline Fischer
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc

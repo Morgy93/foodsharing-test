@@ -16,14 +16,19 @@
 
       <a :href="dashboardContentLink">
         <span v-if="type != 'friendWall'">
-          {{ title }}
+          {{
+            title | truncate(80, '...')
+          }}
         </span>
       </a>
+    </span>
 
+    <span class="n">
       <small v-if="source">
         {{ $i18n(translationKey, [source]) }}
       </small>
     </span>
+
     <span class="i">
       <a :href="fs_id ? $url('profile', fs_id) : null">
         <img :src="icon" width="50">
@@ -90,6 +95,12 @@ import Markdown from '@/components/Markdown/Markdown'
 
 export default {
   components: { Markdown },
+  filters: {
+    truncate: function (text, maxLength, clamp) {
+      clamp = clamp || '...'
+      return text.length > maxLength ? text.slice(0, maxLength) + clamp : text
+    },
+  },
   /* eslint-disable vue/prop-name-casing */
   props: {
     // Shared properties
@@ -247,7 +258,6 @@ export default {
     }
 
     small {
-      float: right;
       font-size: 0.875rem;
       opacity: 0.5;
     }
@@ -295,9 +305,6 @@ export default {
   }
 }
 @media (max-width: 400px) {
-  .activity-item .n {
-    height: 55px;
-  }
   .activity-item .qr textarea,
   .activity-item .qr .loader {
     width: 82%;
