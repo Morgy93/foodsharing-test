@@ -22,6 +22,7 @@ and an A4 sheet is used. !2198 #chriswalg
 - Currently running events are shown within the event overview until their end !2162 @merhoc
 - Use the same event panel view within the event overview as in other places !2162 @merhoc
 - Simplify code in the content module @alex.simm
+- Use a REST endpoint for quickreplying to forum threads #798 @alex.simm
 
 ## Dev/Test/CI stuff
 - bump node to version 16 !2135 @peter.toennies

@@ -62,7 +62,7 @@
       </span>
     </span>
 
-    <div v-if="quickreply" class="qr mt-2">
+    <div v-if="canQuickreply" class="qr mt-2">
       <img :src="user_avatar">
       <textarea
         v-if="!qrLoading"
@@ -92,6 +92,7 @@ import { sendQuickreply } from '@/api/dashboard'
 import { pulseInfo } from '@/script'
 import { url } from '@/urls'
 import Markdown from '@/components/Markdown/Markdown'
+import { createPost } from '@/api/forum'
 
 export default {
   components: { Markdown },
@@ -170,15 +171,32 @@ export default {
     translationKey () {
       return 'dashboard.source_' + this.type + this.source_suffix
     },
+    canQuickreply () {
+      // old endpoints use the 'quickreply' variable, new endpoints are distinguishable by the activity's type
+      return (this.quickreply !== null && this.quickreply.length > 0) || this.type === 'forum'
+    },
   },
   methods: {
     async sendQuickreply (txt) {
       if (this.quickreplyValue !== null && this.quickreplyValue.trim().length !== 0) {
         console.log('sending reply', this.quickreplyValue)
         this.qrLoading = true
-        await sendQuickreply(this.quickreply, this.quickreplyValue).then((x) => {
-          pulseInfo(x.message)
-        })
+
+        if (this.type === 'forum') {
+          // forum posts already use the REST API for quickreplies
+          try {
+            await createPost(this.entity_id, this.quickreplyValue)
+            pulseInfo(this.$i18n('forum.quickreply.success'))
+          } catch (e) {
+            pulseInfo(this.$i18n('forum.quickreply.error'))
+          }
+        } else {
+          // quickreplies to emails and wall posts (events, buddies, and stores) still use old XHR requests
+          await sendQuickreply(this.quickreply, this.quickreplyValue).then((x) => {
+            pulseInfo(x.message)
+          })
+        }
+
         this.qrLoading = false
       }
       return true
