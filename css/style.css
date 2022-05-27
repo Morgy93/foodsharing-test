@@ -1087,16 +1087,23 @@ ul.linklist li > a:hover .avatar span.bubble {
   padding-top: 7px;
 }
 
-div.bottom_bar .float_right {
+div.bottom_bar .button-interactions {
   float: right;
   display: block;
 }
 
 @media (max-width: 1025px) {
-  div.bottom_bar .float_right {
-    float: none !important;
-    display: block;
+  div.bottom_bar .button-interactions {
+    float: none;
     text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  div.bottom_bar .button-interactions a:not(:last-child) {
+    margin-bottom: 5px;
   }
 
   .inside {
