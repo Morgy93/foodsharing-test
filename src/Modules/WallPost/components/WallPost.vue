@@ -37,7 +37,6 @@
           <Avatar
             :url="post.author.avatar"
             :size="50"
-            :rounded="true"
             class="member-pic img"
             :sleep-status="post.author.sleepStatus"
           />

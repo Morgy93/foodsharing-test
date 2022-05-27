@@ -39,6 +39,11 @@ class ProfilePermissions
 		return $this->session->isAmbassadorForRegion($regionIds, false, true);
 	}
 
+	public function mayCancelSlotsFromProfile(int $userId): bool
+	{
+		return $this->session->id() != $userId && $this->mayAdministrateUserProfile($userId);
+	}
+
 	public function mayChangeUserVerification(int $userId): bool
 	{
 		return $this->mayAdministrateUserProfile($userId);
@@ -56,7 +61,12 @@ class ProfilePermissions
 
 	public function maySeePickups(int $fsId): bool
 	{
-		return $this->session->id() == $fsId || $this->mayAdministrateUserProfile($fsId);
+		return $this->maySeeAllPickups($fsId) || $this->mayAdministrateUserProfile($fsId);
+	}
+
+	public function maySeeAllPickups(int $fsId): bool
+	{
+		return $this->session->id() == $fsId;
 	}
 
 	public function maySeeStores(int $fsId): bool

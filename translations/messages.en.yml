@@ -377,8 +377,6 @@ profile:
     cta: 'The complete profile of {name} is available after registration:'
     textMayNot: and is therefore not allowed to accept any food on behalf of foodsharing.
     textMay: and is therefore allowed to accept food on behalf of foodsharing.
-  signoutAll: Sign out of all
-  signoutPickup: sign out
   regions: '{name} is a foodsaver in'
   stats:
     baskets: Food baskets
@@ -478,8 +476,6 @@ profile:
   title: Profile
   pinboard: Status updates from {name}
   about_me_intern: About me
-  signoutAllConfirmation: Do you really want to unsubscribe {name} from all upcoming
-    pickup dates?
   go: Go to profile page
   mediation:
     no_group: Unfortunately there is no local mediation group for the home district
@@ -759,6 +755,50 @@ pickup:
     \ on {date}?\n{name} will receive the following message about this:\n"
   same_day_entry: '[{when}] {name}'
   same_day_hint: 'On the {day} you have signed into the following pickups:'
+  overview:
+    header: Pickups
+    tab:
+      registered:
+        name: Registered Pickups
+        tooltip: 
+          own: Future pickups, for which you signed up
+          other: Future pickups the user signed up for
+        empty: Currenly no pickups are registered.
+      options:
+        name: Pickup Options
+        tooltip: 
+          own: Future pickups, for which you could sign up
+        empty: Currently there are now free pickups slots in any of your teams.
+      history:
+        name: History
+        tooltip:
+          own: Past pickups in which you participated
+          other: Pickups in the last Month in which the user participated
+        empty: There have been no pickups yet.
+    cols:
+      time: Date
+      store: Store
+      slots: Slots
+    status:
+      confirmed: Confirmed
+      pending: Pending
+      option: Slot available
+    menu:
+      refresh: Refresh
+      signOffAll: Sign all off
+      signOff: Sign off
+      registeredSwitch: Show registered Slots
+      loadMore: Load more
+    modals:
+      signOffAll:
+        title: Sign all slots off?
+        message: Do you really want to sign off all registered slots of this user?
+      signOff:
+        title: Sign off slot?
+        message: Do you really want to sign this user off a registered slot?
+    allLoaded: All entries are shown.
+    freeSlots: "{slots} free"
+
 storeview:
   cooperation: Cooperation since {startTime}.
   store: Store

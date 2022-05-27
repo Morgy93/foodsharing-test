@@ -962,6 +962,49 @@ pickup:
       Zusätzlich benötigte Helfer*innen können mit Fahrradanhänger oder ähnlichem
       außer Sichtweite des Betriebes warten.
     added: "Abholtermin wurde eingetragen."
+  overview:
+    header: Abholtermine
+    tab:
+      registered:
+        name: Eingetragene Abholtermine
+        tooltip: 
+          own: Zukünftige Abholtermine, für die du dich eingetragen hast
+          other: Eingetragene zukünftige Abholtermine
+        empty: Momentan sind keine Abholungen eingetragen.
+      options:
+        name: Abholoptionen
+        tooltip: 
+          own: Zukünftige Abholtermine, für die du dich noch eintragen könntest
+        empty: Momentan sind in deinen Betrieben keine Slots frei.
+      history:
+        name: Abholhistorie
+        tooltip:
+          own: Vergangene Abholtermine, an denen du teilgenommen hast
+          other: Vergangene Abholtermine des letzten Monats, an denen teilgenommen wurde
+        empty: Es wurde noch an keinen Abholungen teilgenommen.
+    cols:
+      time: Zeitpunkt
+      store: Betrieb
+      slots: Slots
+    status:
+      confirmed: Bestätigt
+      pending: Unbestätigt
+      option: Slot verfügbar
+    menu:
+      refresh: Aktualisieren
+      signOffAll: Aus allen austragen
+      signOff: Austragen
+      registeredSwitch: Eingetragene Abholungen
+      loadMore: Weitere laden
+    modals:
+      signOffAll:
+        title: Aus allen Slots austragen?
+        message: Willst du den/die Nutzer*in wirklich aus allen eingetragenen Slots austragen?
+      signOff:
+        title: Aus Slot austragen?
+        message: Willst du/die den Nutzer*in wirklich aus diesem Slot austragen?
+    allLoaded: Es werden bereits alle Einträge angezeigt.
+    freeSlots: "{slots} frei"
 
 calendar:
   locale: "de"
@@ -1716,9 +1759,6 @@ profile:
   sleepinfo: "{name} hat eine Schlafmütze auf vom {from} bis {until}"
   about_me_intern: "Über sich selbst"
   pinboard: "Status-Updates von {name}"
-  signoutPickup: "austragen"
-  signoutAll: "Aus allen austragen"
-  signoutAllConfirmation: "Wirklich {name} aus allen kommenden Abholterminen austragen?"
   reportRequest: "Meldung einreichen"
   mediationRequest: "Mediation anfragen"
   public:

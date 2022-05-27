@@ -33,9 +33,9 @@ export default {
       type: String,
       default: '',
     },
-    rounded: {
+    round: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     autoScale: {
       type: Boolean,
@@ -71,9 +71,7 @@ export default {
     },
     imgStyle () {
       const styles = {}
-      if (this.rounded) {
-        styles['border-radius'] = '5px'
-      }
+      styles['border-radius'] = this.round ? '50%' : '5px'
       return styles
     },
   },

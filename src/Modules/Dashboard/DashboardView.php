@@ -79,9 +79,9 @@ class DashboardView extends View
 			$confirmSymbol = $d['confirmed'] == 1 ? '✓ ' : '? ';
 			$out .= '
 				<li>
-					<a href="/?page=fsbetrieb&id=' . $d['betrieb_id'] . '" class="ui-corner-all">
-						<span class="title">' . $confirmSymbol . $this->timeHelper->niceDate($d['date_ts']) . '</span>
-						<span>' . $d['betrieb_name'] . '</span>
+					<a href="/?page=fsbetrieb&id=' . $d['store_id'] . '" class="ui-corner-all">
+						<span class="title">' . $confirmSymbol . $this->timeHelper->niceDate($d['timestamp']) . '</span>
+						<span>' . $d['store_name'] . '</span>
 					</a>
 				</li>';
 		}

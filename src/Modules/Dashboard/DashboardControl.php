@@ -13,8 +13,8 @@ use Foodsharing\Modules\Event\EventGateway;
 use Foodsharing\Modules\Event\EventView;
 use Foodsharing\Modules\Event\InvitationStatus;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
-use Foodsharing\Modules\Profile\ProfileGateway;
 use Foodsharing\Modules\Quiz\QuizSessionGateway;
+use Foodsharing\Modules\Store\PickupGateway;
 use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Utility\ImageHelper;
 use Foodsharing\Utility\NumberHelper;
@@ -31,7 +31,7 @@ class DashboardControl extends Control
 	private EventGateway $eventGateway;
 	private EventView $eventView;
 	private \Twig\Environment $twig;
-	private ProfileGateway $profileGateway;
+	private PickupGateway $pickupGateway;
 	private Sanitizer $sanitizerService;
 	private ImageHelper $imageService;
 	private NumberHelper $numberHelper;
@@ -46,7 +46,7 @@ class DashboardControl extends Control
 		FoodsaverGateway $foodsaverGateway,
 		EventGateway $eventGateway,
 		EventView $eventView,
-		ProfileGateway $profileGateway,
+		PickupGateway $pickupGateway,
 		\Twig\Environment $twig,
 		Sanitizer $sanitizerService,
 		ImageHelper $imageService,
@@ -62,7 +62,7 @@ class DashboardControl extends Control
 		$this->eventGateway = $eventGateway;
 		$this->eventView = $eventView;
 		$this->twig = $twig;
-		$this->profileGateway = $profileGateway;
+		$this->pickupGateway = $pickupGateway;
 		$this->sanitizerService = $sanitizerService;
 		$this->imageService = $imageService;
 		$this->numberHelper = $numberHelper;
@@ -308,7 +308,7 @@ class DashboardControl extends Control
 		);
 
 		// Next pickup dates
-		if ($dates = $this->profileGateway->getNextDates($this->session->id(), 10)) {
+		if ($dates = $this->pickupGateway->getNextPickups($this->session->id(), 10)) {
 			$this->pageHelper->addContent($this->view->u_nextDates($dates), CNT_RIGHT);
 		}
 
