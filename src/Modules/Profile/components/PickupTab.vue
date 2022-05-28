@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable vue/max-attributes-per-line -->
-  <b-tab ref="tab" title-link-class="tab-link" title-item-class="tab-item" @click="fetchData()">
+  <b-tab ref="tab" title-link-class="tab-link" title-item-class="tab-item" @click="initialize()">
     <template #title>
       <div
         v-b-tooltip:hover.window="$i18n(`pickup.overview.tab.${tabName}.tooltip.${isOwnProfile ? 'own' : 'other'}`)"
@@ -71,10 +71,6 @@
               {{ $i18n('pickup.overview.menu.registeredSwitch') }}
             </b-form-checkbox>
           </b-dropdown-form>
-
-          <b-dropdown-item-button v-if="tabName=='history'" @click="fetchData">
-            {{ $i18n('pickup.overview.menu.loadMore') }}
-          </b-dropdown-item-button>
         </b-dropdown>
       </div>
     </div>
@@ -158,10 +154,15 @@ export default {
    */
   mounted: function () {
     if (this.init) {
-      this.fetchData()
+      this.initialize()
     }
   },
   methods: {
+    initialize () {
+      if (!this.tableData) {
+        this.fetchData()
+      }
+    },
     /**
      * Fetches the tabs data from the defined api endpoint.
      * Also handles pagination and makes sure only one request is made at a time.

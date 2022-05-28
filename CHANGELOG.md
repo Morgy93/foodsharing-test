@@ -4,7 +4,7 @@
 - The number of unread mails is now displayed as a red badge. !2188 @AntonBallmaier
 - Improved Calendar exports. Events are now included and pickup descriptions contain links. !2182 @AntonBallmaier
 - Past events are shown now below current and upcoming events within the overview !2162 @merhoc
-- The profile page now contains one unified pickup section. Future pickup options are now visible in that section. !2211 @AntonBallmaier
+- The profile page now contains one unified pickup section. Future pickup options are now visible in that section. !2211 !2226 @AntonBallmaier
 - Pickup statistics on profile !2208 @fs_k
 - Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 #chriswalg
 

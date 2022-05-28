@@ -61,6 +61,10 @@ class ProfilePermissions
 
 	public function maySeePickups(int $fsId): bool
 	{
+		if (!$this->session->may('fs')) {
+			return false;
+		}
+
 		return $this->maySeeAllPickups($fsId) || $this->mayAdministrateUserProfile($fsId);
 	}
 

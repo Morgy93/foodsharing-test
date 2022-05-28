@@ -415,9 +415,13 @@ final class PickupRestController extends AbstractFOSRestController
 	 * @OA\Tag(name="pickup")
 	 *
 	 * @Rest\Get("pickup/options")
+	 * @Rest\QueryParam(name="page", nullable=false, default=0)
+	 * @Rest\QueryParam(name="pageSize", nullable=false, default=50)
 	 */
-	public function listPickupOptionsAction(): Response
+	public function listPickupOptionsAction(ParamFetcher $paramFetcher): Response
 	{
+		$page = (int)$paramFetcher->get('page');
+		$pageSize = (int)$paramFetcher->get('pageSize');
 		$id = $this->session->id();
 		if (!$this->session->may() || !$this->storePermissions->maySeePickupOptions($id)) {
 			throw new HttpException(403);
@@ -443,7 +447,7 @@ final class PickupRestController extends AbstractFOSRestController
 				$store['id']
 			);
 
-			$pickupOptions += array_map(
+			$pickupOptions = array_merge($pickupOptions, array_map(
 				fn ($slot) => [
 					'date' => RestNormalization::normalizeDate(strtotime($slot['date'])),
 					'store' => $store,
@@ -462,7 +466,7 @@ final class PickupRestController extends AbstractFOSRestController
 					],
 				],
 				$pickupSlots
-			);
+			));
 		}
 
 		// Filtering (exclude completely filled slots without the user in them)
@@ -472,6 +476,10 @@ final class PickupRestController extends AbstractFOSRestController
 		));
 
 		usort($pickupOptions, fn ($a, $b) => strtotime($a['date']) <=> strtotime($b['date']));
+
+		if ($page != -1 && $pageSize != -1) {
+			$pickupOptions = array_slice($pickupOptions, $page * $pageSize, $pageSize);
+		}
 
 		return $this->handleView($this->view($pickupOptions));
 	}

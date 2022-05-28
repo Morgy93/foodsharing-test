@@ -108,10 +108,7 @@ final class ProfileControl extends Control
 	public function profile(): void
 	{
 		$fsId = $this->foodsaver['id'];
-		$regionId = $this->foodsaver['bezirk_id'];
 
-		$mayAdmin = $this->profilePermissions->mayAdministrateUserProfile($fsId, $regionId);
-		$maySeePickups = $this->profilePermissions->maySeePickups($fsId);
 		$maySeeStores = $this->profilePermissions->maySeeStores($fsId);
 		$maySeePickupsStat = $this->profilePermissions->maySeePickupsStat($fsId);
 
