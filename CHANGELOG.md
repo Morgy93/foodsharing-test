@@ -31,6 +31,7 @@ and an A4 sheet is used. !2198 #chriswalg
 - Update mdbook to 0.4.18 #1178 !2206 @alex.simm
 - Change all emitted Vue events to kebab-case and add linter rules #996 !2163 @alex.simm
 - Switch to an iCal package that is PHP8 compatible #1065 !2151 @alex.simm
+- replace tap-spec by tap-arc and bump superagent to V7 !2129 @peter.toennies
 
 # Release "Heidelbeere", 2022-05-01
 
