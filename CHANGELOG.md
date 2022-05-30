@@ -32,6 +32,7 @@ and an A4 sheet is used. !2198 #chriswalg
 - Change all emitted Vue events to kebab-case and add linter rules #996 !2163 @alex.simm
 - Switch to an iCal package that is PHP8 compatible #1065 !2151 @alex.simm
 - replace tap-spec by tap-arc and bump superagent to V7 !2129 @peter.toennies
+- Added an Index to speed up the pickup slots. !2193 @AntonBallmaier
 
 # Release "Heidelbeere", 2022-05-01
 
