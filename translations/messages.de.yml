@@ -967,13 +967,13 @@ pickup:
     tab:
       registered:
         name: Eingetragene Abholtermine
-        tooltip: 
+        tooltip:
           own: Zukünftige Abholtermine, für die du dich eingetragen hast
           other: Eingetragene zukünftige Abholtermine
         empty: Momentan sind keine Abholungen eingetragen.
       options:
         name: Abholoptionen
-        tooltip: 
+        tooltip:
           own: Zukünftige Abholtermine, für die du dich noch eintragen könntest
         empty: Momentan sind in deinen Betrieben keine Slots frei.
       history:
@@ -2297,7 +2297,7 @@ stats:
     fsp: "Fairteiler werden zum Tausch von Lebensmitteln genutzt."
   avg:
     pickups: "Rettungseinsätze gibt es derzeit durchschnittlich pro Tag."
-    baskets: "Essenskörbe werden derzeit durschnittlich pro Woche online gestellt."
+    baskets: "Essenskörbe werden derzeit durchschnittlich pro Woche online gestellt."
   leader:
     regions: "Aktivste Bezirke"
     users: "Aktivste Foodsaver"
