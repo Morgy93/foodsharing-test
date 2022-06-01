@@ -246,7 +246,7 @@ button:
   save: "Speichern"
   next: "Weiter"
   change_picture: "Bild ändern"
-  attach_image: "Bild anhängen"
+  attach_image: "Bild hochladen (png- oder jpg-Format)"
   rotate_right: "im Uhrzeigersinn drehen"
   upload: "Hochladen"
   new: "Neu"
