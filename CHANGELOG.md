@@ -20,6 +20,7 @@ and an A4 sheet is used. !2198 @chriswalg
 - Push notifications can be (de-)activated in the settings again #1239 @alex.simm
 - Show the region name in the updates overview on the dashboard even when the titel is long #1207 @Caroline Fischer
 - Using the sleeping function on the translated website is working again #1133 !2225 @alex.simm
+- Prevent "Payload to large" errors due to padding in web push #1213 !2212 @alex.simm  
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
