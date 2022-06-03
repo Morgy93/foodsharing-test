@@ -1,7 +1,7 @@
 # Release "I", unreleased
 
 ## Features
-- The number of unread mails is now displayed as a red badge. !2188 @AntonBallmaier
+- The number of unread mails is now displayed as a red badge. !2188 !2230 @AntonBallmaier
 - Improved Calendar exports. Events are now included and pickup descriptions contain links. !2182 @AntonBallmaier
 - Past events are shown now below current and upcoming events within the overview !2162 @merhoc
 - The profile page now contains one unified pickup section. Future pickup options are now visible in that section. !2211 !2226 @AntonBallmaier

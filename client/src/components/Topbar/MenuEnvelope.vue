@@ -5,20 +5,20 @@
     icon="fa-envelope"
     right
   >
-    <template #heading-text>
+    <template
+      v-if="unread && displayMailbox"
+      #heading-text
+    >
       <span
-        v-if="unread"
         class="badge badge-danger"
-      >
-        {{ unread }}
-      </span>
-      <span v-else />
+        v-html="unread"
+      />
     </template>
   </fs-dropdown-menu>
 </template>
 
 <script>
-import { get } from '@/api/base'
+import { getMailUnreadCount } from '@/api/mailbox'
 import FsDropdownMenu from './FsDropdownMenu'
 
 export default {
@@ -64,7 +64,9 @@ export default {
     }
   },
   async mounted () {
-    this.unread = await get('/emails/unread-count')
+    if (this.displayMailbox) {
+      this.unread = await getMailUnreadCount()
+    }
   },
 }
 
