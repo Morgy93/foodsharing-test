@@ -38,6 +38,8 @@ and an A4 sheet is used. !2198 @chriswalg
 - replace tap-spec by tap-arc and bump superagent to V7 !2129 @peter.toennies
 - Added an Index to speed up the pickup slots. !2193 @AntonBallmaier
 - Updated symfony backend dependencies !2214 @alex.simm
+- Remove questions from quiz sessions after the session is finished or aborted #1030 @alex.simm
+- Results of quiz sessions will be removed two weeks after the session is finished or aborted #1030 @alex.simm
 
 # Release "Heidelbeere", 2022-05-01
 

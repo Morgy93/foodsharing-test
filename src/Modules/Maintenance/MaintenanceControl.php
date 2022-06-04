@@ -116,6 +116,8 @@ class MaintenanceControl extends ConsoleControl
 		 * updates outdated bells with passed expiration date
 		 */
 		$this->bellUpdateTrigger->triggerUpdate();
+
+		$this->updateFinishedQuizSessions();
 	}
 
 	public function rebuildRegionClosure()
@@ -287,5 +289,12 @@ class MaintenanceControl extends ConsoleControl
 		self::info('deleting old blocked IPs...');
 		$count = $this->maintenanceGateway->deleteOldIpBlocks();
 		self::success($count . ' entries deleted');
+	}
+
+	private function updateFinishedQuizSessions()
+	{
+		self::info('removing questions from finished quiz sessions...');
+		$count = $this->maintenanceGateway->updateFinishedQuizSessions();
+		self::success($count . ' sessions updated');
 	}
 }
