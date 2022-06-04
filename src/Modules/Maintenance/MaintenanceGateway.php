@@ -20,7 +20,8 @@ class MaintenanceGateway extends BaseGateway
 		return $this->db->update(
 			'fs_basket',
 			['status' => Status::DELETED_OTHER_REASON],
-			['status' => Status::REQUESTED_MESSAGE_READ, 'until <' => $this->db->now()]);
+			['status' => Status::REQUESTED_MESSAGE_READ, 'until <' => $this->db->now()]
+		);
 	}
 
 	/**
@@ -34,7 +35,7 @@ class MaintenanceGateway extends BaseGateway
 	}
 
 	/**
-	 * Removes the temporary sleep status from users if it is outdated.
+	 * Removes the temporary sleep status including dates from users if it is outdated.
 	 *
 	 * @return int the number of users that were changed
 	 */
@@ -42,8 +43,23 @@ class MaintenanceGateway extends BaseGateway
 	{
 		return $this->db->update(
 			'fs_foodsaver',
-			['sleep_status' => SleepStatus::NONE],
-			['sleep_status' => SleepStatus::TEMP, 'sleep_until >' => 0, 'sleep_until <' => $this->db->now()]);
+			['sleep_status' => SleepStatus::NONE, 'sleep_from' => null, 'sleep_until' => null],
+			['sleep_status' => SleepStatus::TEMP, 'sleep_until >' => 0, 'sleep_until <' => $this->db->curdate()]
+		);
+	}
+
+	/**
+	 * Removes the temporary sleep status from users if it is outdated.
+	 *
+	 * @return int the number of users that were changed
+	 */
+	public function putUsersToSleep(): int
+	{
+		return $this->db->update(
+			'fs_foodsaver',
+			['sleep_status' => SleepStatus::TEMP],
+			['sleep_status' => SleepStatus::NONE, 'sleep_from <=' => $this->db->curdate()]
+		);
 	}
 
 	/**

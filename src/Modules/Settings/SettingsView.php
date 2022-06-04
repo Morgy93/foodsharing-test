@@ -64,6 +64,9 @@ class SettingsView extends View
 
 	public function sleepMode($sleep)
 	{
+		if ($sleep['sleep_status'] == SleepStatus::NONE && $sleep['sleep_from'] != null) {
+			$sleep['sleep_status'] = SleepStatus::TEMP;
+		}
 		$this->dataHelper->setEditData($sleep);
 
 		if ($sleep['sleep_status'] != SleepStatus::TEMP) {

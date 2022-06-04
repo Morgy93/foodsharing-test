@@ -17,11 +17,13 @@ and an A4 sheet is used. !2198 @chriswalg
 - Removed the possibility to edit the member list on a working group's edit page !2228 @alex.simm
 
 ## Bugfixes
-- When going back during registration, email and password are unchanged. !1114 @AntonBallmaier
+- When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
 - Push notifications can be (de-)activated in the settings again #1239 @alex.simm
 - Show the region name in the updates overview on the dashboard even when the titel is long #1207 @Caroline Fischer
 - Using the sleeping function on the translated website is working again #1133 !2225 @alex.simm
 - Prevent "Payload to large" errors due to padding in web push #1213 !2212 @alex.simm  
+- When setting a sleeping interval starting in the future, you no longer get a sleeping hat right away. !2215 @AntonBallmaier
+- When setting a sleep interval it does no longer a end one day to early. !2215 @AntonBallmaier
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
@@ -38,6 +40,7 @@ and an A4 sheet is used. !2198 @chriswalg
 - replace tap-spec by tap-arc and bump superagent to V7 !2129 @peter.toennies
 - Added an Index to speed up the pickup slots. !2193 @AntonBallmaier
 - Updated symfony backend dependencies !2214 @alex.simm
+- Added instructions to run nightly maintenance to dev docs. !2215 @AntonBallmaier
 - Remove questions from quiz sessions after the session is finished or aborted #1030 @alex.simm
 - Results of quiz sessions will be removed two weeks after the session is finished or aborted #1030 @alex.simm
 
