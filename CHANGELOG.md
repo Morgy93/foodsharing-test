@@ -36,6 +36,7 @@ and an A4 sheet is used. !2198 @chriswalg
 - Switch to an iCal package that is PHP8 compatible #1065 !2151 @alex.simm
 - replace tap-spec by tap-arc and bump superagent to V7 !2129 @peter.toennies
 - Added an Index to speed up the pickup slots. !2193 @AntonBallmaier
+- Updated symfony backend dependencies !2214 @alex.simm
 
 # Release "Heidelbeere", 2022-05-01
 
