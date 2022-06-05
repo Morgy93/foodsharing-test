@@ -44,6 +44,7 @@ and an A4 sheet is used. !2198 @chriswalg
 - Added instructions to run nightly maintenance to dev docs. !2215 @AntonBallmaier
 - Remove questions from quiz sessions after the session is finished or aborted #1030 @alex.simm
 - Results of quiz sessions will be removed two weeks after the session is finished or aborted #1030 @alex.simm
+- Add a workaround to upload files to the startpage. #1245 !2233 @stcz 
 
 # Release "Heidelbeere", 2022-05-01
 
