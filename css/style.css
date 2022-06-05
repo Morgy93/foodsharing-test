@@ -260,9 +260,8 @@ div#main {
   line-height: 1.6em;
   margin: 0 auto;
   max-width: 1100px;
-  padding: 0;
+  padding: 2rem 0;
   min-height: calc(83vh);
-  padding-bottom: 30px;
 }
 
 .inside {

@@ -37,6 +37,11 @@ export default {
       this.getWindowWidth()
     })
   },
+  computed: {
+    viewIsSM () {
+      return (this.windowWidth <= mediaQuery.sm.max)
+    },
+  },
   methods: {
     getWindowWidth (event) {
       const w = window.innerWidth

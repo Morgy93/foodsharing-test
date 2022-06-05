@@ -10,7 +10,7 @@
       type="custom"
     >
       <b-container fluid="xl">
-        <b-navbar-brand>
+        <b-navbar-brand class="text-center">
           <Logo :link-url="loggedIn ? $url('dashboard') : $url('home')" />
         </b-navbar-brand>
 
@@ -23,14 +23,14 @@
             :url="$url('joininfo')"
             icon="fa-hands-helping"
             :title="$i18n('register.topbar')"
-            :show-title-always="true"
+            :show-title="true"
           />
           <menu-item
             id="login"
             :url="$url('login')+'&ref='+encodeURIComponent(loginReferrer)"
             icon="fa-sign-in-alt"
             :title="$i18n('login.topbar')"
-            :show-title-always="true"
+            :show-title="true"
           />
         </b-navbar-nav>
 
@@ -46,11 +46,6 @@
           @open-search="searchOpen = !searchOpen"
         />
 
-        <search
-          v-if="hasFsRole"
-          :show-on-mobile="searchOpen"
-        />
-
         <b-navbar-toggle target="nav-collapse">
           <i class="fa fa-bars" />
         </b-navbar-toggle>
@@ -58,7 +53,11 @@
         <b-collapse
           id="nav-collapse"
           is-nav
+          class="pt-2 pt-md-0 justify-content-end"
         >
+          <search
+            v-if="hasFsRole"
+          />
           <menu-loggedout v-if="!loggedIn" />
           <menu-loggedin
             v-if="loggedIn"
@@ -75,12 +74,14 @@
 
 <script>
 import { BNavbarBrand, BNavbarToggle, BCollapse } from 'bootstrap-vue'
-import Logo from './Logo'
-import MenuLoggedout from './MenuLoggedout'
-import MenuLoggedin from './MenuLoggedin'
-import MenuItem from './MenuItem'
-import LoggedInFixedNav from './LoggedInFixedNav'
-import Search from './Search/Search'
+import Logo from './Items/Logo'
+import MenuLoggedout from './_States/NavLoggedout'
+import MenuLoggedin from './_States/NavLoggedin'
+import MenuItem from './Items/MenuItem'
+import LoggedInFixedNav from './_States/NavFixed'
+import Search from './Items/Search/Search'
+
+import MediaQueryMixin from '../../utils/VueMediaQueryMixin'
 
 export default {
   components: {
@@ -94,6 +95,7 @@ export default {
     MenuLoggedin,
     Search,
   },
+  mixins: [MediaQueryMixin],
   props: {
     userId: {
       type: Number,
@@ -113,7 +115,7 @@ export default {
     },
     hasFsRole: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     may: {
       type: Object,
@@ -143,33 +145,44 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-#topbar {
-  height: 50px;
-  nav {
+#topbar,
+nav,
+.nav-row {
+  min-height: 45px;
+}
+
+#topbar nav {
     box-shadow: 0em 0em 5px 0px black;
     background-color: var(--fs-beige);
     color: var(--primary);
-  }
 }
-  .bootstrap .navbar-brand {
+
+.bootstrap .navbar-brand {
     padding: 0;
     margin-right: 3px;
-  }
- .nav-row {
+}
+
+.nav-row {
   margin:0;
   display: flex;
   flex-grow: 1;
   align-items: center;
   justify-content: space-evenly;
-  ::v-deep .nav-item {
-    padding-right: 6px;
+}
+
+::v-deep .nav-item {
+  min-width: 40px;
+  text-align: center;
+
+  .collapse.show & {
+    text-align: unset;
+    display: inline-block !important;
+    & .nav-link i,
+    &.show .nav-link img {
+      width: 20px;
+      margin-right: 10px;
+      text-align: center;
   }
-  .login-popover {
-    background-color: --var(beige);
-    border: 1px solid rgb(83, 58, 32);
-    .arrow {
-      display: none;
-    }
   }
 }
 
@@ -183,14 +196,10 @@ export default {
     max-height: 70vh;
     overflow: auto;
     border-top: 1px solid var(--primary);
+
     .dropdown-menu .scroll-container  {
       max-height: initial;
     }
-  }
-  &.show .nav-link i, &.collapsing .nav-link i {
-      width: 20px;
-      margin-right: 10px;
-      text-align: center;
   }
   order: 2;
 }
