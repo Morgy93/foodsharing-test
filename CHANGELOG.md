@@ -16,6 +16,7 @@ and an A4 sheet is used. !2198 @chriswalg
 - Send a bell notification and email, if a foodsaver was verified. !2198 @chriswalg
 - Set fileformat jpg / png for wallposts !2229 @chriswalg
 - Removed the possibility to edit the member list on a working group's edit page !2228 @alex.simm
+- Info for foodsharer how can change the name !2240 @chriswalg
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
