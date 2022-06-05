@@ -24,7 +24,7 @@
         <span
           v-if="menuTitle"
           class="headline"
-          :class="{'d-inline-block': showTitle}"
+          :class="{'d-sm-inline-block': showTitle}"
           v-html="$i18n(menuTitle)"
         />
       </slot>

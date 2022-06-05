@@ -7,6 +7,7 @@
 - The profile page now contains one unified pickup section. Future pickup options are now visible in that section. !2211 !2226 @AntonBallmaier
 - Pickup statistics on profile !2208 @fs_k
 - Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 @chriswalg
+- Dashboard revamped, shines in a new style and new features !2227 @sefn
 - In the footer of the website, "For developers" is added under "Participate" to create an easier way to IT. !2241 @NINI1988
 
 ## Changes

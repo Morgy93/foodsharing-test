@@ -1,5 +1,6 @@
 :root {
   --border: #e3ded3;
+  --border-radius: 6px;
 
   --warning-rgb: 255, 193,  7; /* bootstrap default, #ffc107 */
   --danger-rgb:  220,  53, 69; /* bootstrap default, #dc3545 */
@@ -201,8 +202,8 @@ blockquote:after {
 }
 /* RESET END */
 
-body {
-  background-color: var(--fs-beige);
+body{
+  background-color: var(--fs-white);
 }
 
 .odd {
@@ -983,7 +984,7 @@ td.load {
   text-decoration: none !important;
 }
 
-ul.bread {
+/* ul.bread {
   display: block;
   list-style: none;
   float: left;
@@ -991,6 +992,7 @@ ul.bread {
   padding: 0;
   background-color: transparent !important;
 }
+*/
 
 ul.bread li,
 ul.bread li a {
@@ -1007,6 +1009,10 @@ ul.bread li:before {
   margin-right: 10px;
   position: relative;
   top: 1px;
+}
+
+ul.bread li.last {
+  color: unset;
 }
 
 ul.bread li {

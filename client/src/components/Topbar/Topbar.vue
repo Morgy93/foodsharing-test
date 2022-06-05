@@ -152,14 +152,15 @@ nav,
 }
 
 #topbar nav {
-    box-shadow: 0em 0em 5px 0px black;
+    // box-shadow: 0em 0em 5px 0px black;
+    border-bottom: 1px solid var(--border);
     background-color: var(--fs-beige);
     color: var(--primary);
 }
 
 .bootstrap .navbar-brand {
-    padding: 0;
-    margin-right: 3px;
+  padding: 0;
+  margin-right: 3px;
 }
 
 .nav-row {

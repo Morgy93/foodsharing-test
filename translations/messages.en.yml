@@ -760,13 +760,13 @@ pickup:
     tab:
       registered:
         name: Registered Pickups
-        tooltip: 
+        tooltip:
           own: Future pickups, for which you signed up
           other: Future pickups the user signed up for
         empty: Currenly no pickups are registered.
       options:
         name: Pickup Options
-        tooltip: 
+        tooltip:
           own: Future pickups, for which you could sign up
         empty: Currently there are now free pickups slots in any of your teams.
       history:
@@ -2206,6 +2206,8 @@ dashboard:
     buddies: People you know
     users: foodsavers
   source_event: Appointment {0}
+  showmore: Show more
+  showless: Show less
   source_forum_bot: Ambassador forum {0}
   source_forum: Forum {0}
   source_friendWall_own: Your pinboard
@@ -2240,7 +2242,7 @@ dashboard:
     part_2: request a new activation email here
     part_1: Please confirm your email address by clicking on the link in the activation
       email. Alternatively, you can
-  source_mailbox: '{o}'
+  source_mailbox: '{0}'
   quiz:
     read: continue reading
     go: Go to the quiz
@@ -2587,3 +2589,33 @@ activitypost:
   less: less
   write: Write an answer …
 deletelow: delete
+
+error:
+  mail_bounce:
+    title: "Blocked email address!"
+    description: "Your email address is blocked for foodsharing emails and communication."
+    link_1: "Change email address"
+    link_2: "I need help"
+  mail_activation:
+    title: "Email address not confirmed!"
+    description: "Please confirm your email address by clicking on the link in the activation email."
+    link_1: "Request a new activation email"
+    link_2: "Change email address"
+  adress:
+    title: "There was a mistake with your address."
+    info: "Please check your address. The coordinates could not be determined."
+    link: "To the address input"
+  choose_home_region:
+    title: "Select a root district."
+    info: "In order for you to continue, a root district is required."
+    link: "Select root district now"
+
+information:
+  push:
+    title: "You can now receive push notifications from foodsharing."
+    info: "If you no longer want to receive push notifications, you can deactivate them at any time in the settings."
+    link: "To the settings"
+  calendar_sync:
+    title: "Do you know the calendar synchronization for your pickups?"
+    info: "This will allow you to see your next pickup dates using a calendar program of your choice."
+    link: "Subscribe now"

@@ -9,7 +9,7 @@
     <i :class="`fas ${icon}`" />
     <span
       class="headline"
-      :class="{'d-inline-block': showTitle}"
+      :class="{'d-sm-inline-block': showTitle}"
     >
       {{ title }}
     </span>

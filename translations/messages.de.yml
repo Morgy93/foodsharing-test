@@ -688,7 +688,7 @@ time: "Uhrzeit"
 day: "Tag"
 
 formatting:
-  md: "Du kannst zur Formatierung <a href=\"http://markdown.de/\">Markdown</a> verwenden."
+  md: "Du kannst zur Formatierung <a href=\"https://markdown.de/\">Markdown</a> verwenden."
 
 fsp:
   yours: "Fairteiler in deinen Bezirken"
@@ -1907,7 +1907,6 @@ dashboard:
     part_3: "oder"
     part_4: "deine E-Mail-Adresse ändern"
   mail_activation_error_title: "E-Mail-Adresse nicht bestätigt"
-  checkAddress: "Bitte überprüfe deine Adresse. Die Koordinaten konnten nicht ermittelt werden."
   homeRegion: "Dein Stammbezirk ist {region}."
   chooseHomeRegion: "Bitte wähle einen Stammbezirk aus."
   greeting: "Hallo {name}! Schön, dass du hier bist."
@@ -1919,13 +1918,14 @@ dashboard:
   my:
     regions: "Deine Bezirke" #also in searchindexgenerator
     groups: "Deine Gruppen" #also in searchindexgenerator
-    stores: "Du holst Lebensmittel ab bei"
+    stores: "Deine Betriebe"
     pending: "Anfragen gestellt bei"
     waiting: "Du bist auf der Springerliste bei"
-    managing: "Du bist verantwortlich für"
     no-stores: "Du bist bis jetzt in keinem Betriebsteam."
     users: "Foodsaver*innen"
     buddies: "Menschen, die Du kennst"
+  showmore: "Mehr anzeigen"
+  showless: "Weniger anzeigen"
   invitations: "Du wurdest eingeladen"
   event: "Nächstes Event"
   events: "Nächste Events ({count})"
@@ -1934,10 +1934,6 @@ dashboard:
     ack: "Hinweis gelesen und nicht mehr anzeigen"
     read: "weiterlesen"
     go: "Weiter zum Quiz"
-  push:
-    title: "Du kannst jetzt Push-Benachrichtigungen von foodsharing empfangen."
-    info: "Wenn du keine Push-Benachrichtigungen mehr empfangen willst, kannst du sie jederzeit in den Einstellungen wieder deaktivieren."
-    button: "Push-Benachrichtigungen aktivieren"
   deleted_user: "abgemeldete*r Benutzer*in"
 
 home:
@@ -2592,3 +2588,33 @@ numbers:
   thousands_separator: "."
   million_abbreviation: " Mio."
   billion_abbreviation: " Mrd."
+
+error:
+  mail_bounce:
+    title: "Gesperrte E-Mail-Adresse!"
+    description: "Deine E-Mail-Adresse ist für foodsharing-Mails und -Kommunikation gesperrt."
+    link_1: "E-Mail-Adresse ändern"
+    link_2: "Ich benötige Hilfe"
+  mail_activation:
+    title: "E-Mail-Adresse nicht bestätigt!"
+    description: "Bitte bestätige deine E-Mail-Adresse, indem du auf den Link in der Aktivierungsmail klickst."
+    link_1: "Eine neue Aktivierungsmail anfordern"
+    link_2: "E-Mail-Adresse ändern"
+  adress:
+    title: "Es gab einen Fehler mit deiner Adresse."
+    info: "Bitte überprüfe deine Adresse. Die Koordinaten konnten nicht ermittelt werden."
+    link: "Zur Adressen Eingabe"
+  choose_home_region:
+    title: "Wähle einen Stammbezirk aus."
+    info: "Damit du Weitermachen kannst, wird ein Stammbezirk benötigt."
+    link: "Jetzt Stammbezirk auswählen"
+
+information:
+  push:
+    title: "Du kannst jetzt Push-Benachrichtigungen von foodsharing empfangen."
+    info: "Wenn du keine Push-Benachrichtigungen mehr empfangen willst, kannst du sie jederzeit in den Einstellungen wieder deaktivieren."
+    link: "Zu den Einstellungen"
+  calendar_sync:
+    title: "Kennst du die Kalender Synchronisation für deine Abholungen?"
+    info: "Damit kannst du deine nächsten Abholtermine mit einem Kalenderprogramm deiner Wahl sehen."
+    link: "Jetzt abonnieren"
