@@ -73,7 +73,10 @@ export default {
       )
     },
     unread () {
-      return conversationStore.unreadCount
+      if (conversationStore.unreadCount) {
+        return conversationStore.unreadCount < 99 ? conversationStore.unreadCount : '99+'
+      }
+      return null
     },
   },
   created () {

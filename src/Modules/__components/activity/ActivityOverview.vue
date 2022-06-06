@@ -118,7 +118,7 @@ export default {
   },
   computed: {
     activeFilters () {
-      if (this.isFoodsaver) {
+      if (!this.isFoodsaver) {
         return this.filters.filter(filter => filter.onlyForFoodsharer)
       }
       return this.filters
@@ -129,7 +129,7 @@ export default {
   },
   created () {
     const type = localStorage.getItem('activity-selected-type')
-    if (!this.isFoodsaver && type !== null && type !== 'null') {
+    if (this.isFoodsaver && type !== null && type !== 'null') {
       this.filtering(type)
     } else {
       this.filtering(this.activeFilters[0].type)

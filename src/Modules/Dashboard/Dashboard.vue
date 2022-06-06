@@ -1,47 +1,45 @@
 <template>
   <section>
-    <Information
-      v-if="release"
-      type="info"
-      tag="release"
-      :title="$i18n(`releases.${release.body}`)"
-      :time="release.last_mod"
-      :links="release.links"
-      :is-time-based="true"
-      :is-closeable="true"
-    />
-    <Information
-      v-if="broadcast"
-      type="broadcast"
-      tag="broadcast"
-      :title="broadcast.title"
-      :description="broadcast.body"
-      :time="broadcast.last_mod"
-      :is-time-based="true"
-      :is-closeable="true"
-    />
-    <Informations
-      v-if="errors"
-      :all-visible="true"
-      :list="errors"
-    />
-    <Intro :user="user" />
-    <Informations
-      v-if="informations"
-      :list="informations"
-    />
-    <Information
-      v-if="quiz"
-      tag="foodsaver.upgrade.ad_fs"
-      :title="$i18n('foodsaver.upgrade.ad_fs')"
-      :description="quiz.body"
-      :is-closeable="quiz.closeable"
-      :links="quiz.links"
-    />
+    <div class="mb-1 mb-sm-5">
+      <Information
+        v-if="broadcast.body.length > 0"
+        type="broadcast"
+        tag="broadcast"
+        :title="broadcast.title"
+        :description="broadcast.body"
+        :time="broadcast.last_mod"
+        :is-time-based="true"
+        :is-closeable="true"
+      />
+      <Informations
+        v-if="errors"
+        :all-visible="true"
+        :list="errors"
+      />
+      <Intro :user="user" />
+      <Informations
+        v-if="informations"
+        :list="informations"
+      />
+      <Information
+        v-if="quiz"
+        tag="foodsaver.upgrade.ad_fs"
+        :title="$i18n('foodsaver.upgrade.ad_fs')"
+        :description="quiz.body"
+        :is-closeable="quiz.closeable"
+        :links="quiz.links"
+      />
+    </div>
     <div class="content row">
-      <div class="col order-2 order-xl-1 mb-3">
+      <div
+        class="col order-2 order-xl-1 mb-3"
+        :class="{
+          'col-md-6': !isFoodsaver(),
+          'col-md-6 col-xl-3': isFoodsaver(),
+        }"
+      >
         <BasketList
-          v-if="baskets.nearby"
+          v-if="baskets.nearby.length > 0"
           title="basket.nearby"
           :list="baskets.nearby"
         />
@@ -62,7 +60,13 @@
         />
       </div>
 
-      <div class="col-xl-5 order-3 order-xl-2">
+      <div
+        class="col order-3 order-xl-2"
+        :class="{
+          'col-md-6': !isFoodsaver(),
+          'col-md-12 col-xl-6 ': isFoodsaver(),
+        }"
+      >
         <EventList
           title="dashboard.invitations"
           :list="events.invites"
@@ -74,8 +78,8 @@
         <Activity :is-foodsaver="isFoodsaver()" />
       </div>
       <div
-        v-if="!isFoodsaver() && (pickups || stores)"
-        class="col order-1 order-xl-3 mb-3"
+        v-if="isFoodsaver() && (pickups || stores)"
+        class="col col-md-6 col-xl-3 order-1 order-xl-3 mb-3"
       >
         <PickupList :list="pickups" />
         <StoreList :list="stores" />
@@ -123,7 +127,7 @@ export default {
   },
   methods: {
     isFoodsaver () {
-      return this.user.rolle === 0
+      return this.user.rolle !== 0
     },
   },
 }

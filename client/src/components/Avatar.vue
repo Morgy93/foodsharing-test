@@ -84,6 +84,7 @@ export default {
   display: inline-block;
   background-size: cover;
 }
+
 .sleeping::after {
   content: '';
   display: block;
@@ -92,16 +93,25 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  top: -10%;
-  left: -10%;
+  top: 0;
+  left: 0;
 }
+
 .sleep35::after {
   background-image: url('/img/sleep35x35.png');
+  top: -10px;
+  left: -10px;
 }
+
 .sleep50::after {
   background-image: url('/img/sleep50x50.png');
+  top: -10px;
+  left: -20px;
 }
+
 .sleep130::after {
   background-image: url('/img/sleep130x130.png');
+  top: -10px;
+  left: -20px;
 }
 </style>

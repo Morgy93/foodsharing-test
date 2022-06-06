@@ -10,7 +10,7 @@
     <a
       v-for="(entry, key) in filteredList"
       :key="key"
-      class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+      class="list-group-item list-group-item-action d-flex align-items-center"
       :href="getUrl(entry.id)"
     >
       <div class="img-thumbnail mr-2">
@@ -21,22 +21,19 @@
           height="30"
         >
       </div>
-      <div
-        class="flex-grow-1"
-      >
+      <div class="d-flex flex-column mb-auto justify-content-between text-truncate">
         <p
+          v-b-tooltip="entry.description.length > 30 ? entry.description : ''"
+          class="mb-0 text-truncate"
+          v-html="entry.description"
+        />
+        <small
           v-b-tooltip.hover.html="$i18n('basket.expires', {date: new Date(entry.until).toLocaleString('de-DE', {
             month: 'long',
             day: 'numeric',
           })})"
-          class="font-weight-bold mb-0"
-        >
-          {{ $i18n('basket.by', {name: entry.fs_name}) }}
-        </p>
-        <small
-          class="text-black-50 d-inline-block text-truncate"
-          style="max-width: 200px;"
-          v-html="entry.description"
+          class="text-truncate"
+          v-html="$i18n('basket.by', {name: entry.fs_name})"
         />
       </div>
     </a>
@@ -44,6 +41,7 @@
 </template>
 
 <script>
+
 import List from './_List.vue'
 export default {
   components: {

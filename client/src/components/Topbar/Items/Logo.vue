@@ -4,16 +4,25 @@
     :aria-label="$i18n('home.title')"
     class="navbar-brand brand"
   >
-    <span class="logo-text d-none d-lg-inline-block">
+    <span
+      v-if="!viewIsSMmin"
+      class="logo-text"
+    >
       food<span class="green">shar<span class="apple">i</span>ng</span>
     </span>
-    <span class="logo-text d-lg-none">
+    <span
+      v-else
+      class="logo-text"
+    >
       f<span class="green">s</span>
     </span>
   </a>
 </template>
 <script>
+import MediaQueryMixin from '@/utils/MediaQueryMixin'
+
 export default {
+  mixins: [MediaQueryMixin],
   props: {
     linkUrl: {
       type: String,
@@ -24,11 +33,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 .brand {
+    min-width: 45px;
+    margin: 0;
     font-family: 'Alfa Slab One',serif;
     color: var(--primary);
-    margin-right: 0;
-    margin-left: 5px;
     font-size: 1.1rem;
+
+    @media (max-width: 330px) {
+      min-width: auto;
+    }
+
     span.green {
         color: #64ae25;
         position: relative;

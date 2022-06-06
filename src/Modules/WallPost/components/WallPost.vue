@@ -111,7 +111,7 @@ import differenceInCalendarYears from 'date-fns/differenceInCalendarYears'
 import serverData from '@/server-data'
 import Avatar from '@/components/Avatar'
 import Markdown from '@/components/Markdown/Markdown'
-import MediaQueryMixin from '@/utils/VueMediaQueryMixin'
+import MediaQueryMixin from '@/utils/MediaQueryMixin'
 
 export default {
   components: { Avatar, Markdown },

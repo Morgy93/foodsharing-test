@@ -15,6 +15,66 @@
     </template>
     <template #content>
       <a
+        v-if="may.administrateBlog"
+        :href="$url('blogList')"
+        role="menuitem"
+        class="dropdown-item"
+      >
+        <i class="fas fa-newspaper" /> {{ $i18n('menu.blog') }}
+      </a>
+      <a
+        v-if="may.editQuiz"
+        :href="$url('quizEdit')"
+        role="menuitem"
+        class="dropdown-item"
+      >
+        <i class="fas fa-question-circle" /> {{ $i18n('menu.quiz') }}
+      </a>
+      <a
+        v-if="may.handleReports"
+        :href="$url('reports')"
+        role="menuitem"
+        class="dropdown-item"
+      >
+        <i class="fas fa-exclamation" /> {{ $i18n('menu.reports') }}
+      </a>
+      <a
+        v-if="may.administrateRegions"
+        :href="$url('region')"
+        role="menuitem"
+        class="dropdown-item"
+      >
+        <i class="fas fa-map" /> {{ $i18n('menu.manage_regions') }}
+      </a>
+      <a
+        v-if="may.administrateNewsletterEmail"
+        :href="$url('email')"
+        role="menuitem"
+        class="dropdown-item"
+      >
+        <i class="fas fa-envelope" /> {{ $i18n('menu.email') }}
+      </a>
+      <a
+        v-if="may.manageMailboxes"
+        :href="$url('email')"
+        role="menuitem"
+        class="dropdown-item"
+      >
+        <i class="fas fa-envelope" /> {{ $i18n('menu.manage_mailboxes') }}
+      </a>
+      <a
+        v-if="may.editContent"
+        :href="$url('contentEdit')"
+        role="menuitem"
+        class="dropdown-item"
+      >
+        <i class="fas fa-file-alt" /> {{ $i18n('menu.content') }}
+      </a>
+      <div
+        v-if="hasAdminRights()"
+        class="dropdown-divider"
+      />
+      <a
         :href="$url('profile', userId)"
         role="menuitem"
         class="dropdown-item"
@@ -66,7 +126,16 @@ export default {
       type: String,
       default: null,
     },
+    may: {
+      type: Object,
+      default: () => {},
+    },
     showTitle: { type: Boolean, default: false },
+  },
+  methods: {
+    hasAdminRights () {
+      return this.may.administrateBlog || this.may.editQuiz || this.may.handleReports || this.may.editContent || this.may.manageMailboxes || this.may.administrateNewsletterEmail || this.may.administrateRegions
+    },
   },
 }
 </script>

@@ -7,34 +7,46 @@
       style="width: 5rem"
     >
       <span
-        class="font-weight-bold text-white"
-        style="text-shadow: 0 1px 1px rgb(0 0 0 / 70%)"
+        class="font-weight-bold"
         v-html="getMonth()"
       />
       <div
         class="d-flex flex-column bg-white justify-content-center rounded text-dark"
         style="min-height: 4rem; font-size: 1.25rem; font-family: 'Alfa Slab One', serif;"
       >
-        <span v-if="isToday()">
-          {{ $i18n('date.Today') }}
-        </span>
-        <span v-else-if="isSoon()">
-          {{ getWeekDayString() }}
-        </span>
-        <span v-else>
-          {{ getDayString() }}
-        </span>
+        <span
+          v-if="isToday()"
+          v-html="$i18n('date.Today')"
+        />
+        <span
+          v-else-if="isSoon() === 1"
+          class="small"
+          v-html="$i18n('date.tomorrow')"
+        />
+        <span
+          v-else-if="isSoon() < 3"
+          v-html="getWeekDayString()"
+        />
+        <span
+          v-else
+          class="small"
+          v-html="getDayString()"
+        />
       </div>
     </div>
     <div class="d-flex flex-column flex-grow-1">
       <div class="d-flex flex-column mb-auto">
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-sm-center">
           <a
+            v-b-tooltip.hover="entry.name.length > 30 ? entry.name : null"
             :href="$url('event', entry.id)"
             class="event-item-headline font-weight-bold d-inline-block text-truncate"
             v-html="entry.name"
           />
-          <small class="text-muted">
+          <small
+            v-b-tooltip.hover="entry.regionName.length > 20 ? entry.regionName : null"
+            class="event-item-region text-muted text-truncate"
+          >
             {{ entry.regionName }}
           </small>
         </div>
@@ -104,7 +116,7 @@ export default {
       return differenceInDays(time, Date.now()) === 0
     },
     isSoon (time = this.startDate) {
-      return differenceInDays(time, Date.now()) < 3
+      return differenceInDays(time, Date.now())
     },
     getMonth (time = this.startDate) {
       const opt = {
@@ -150,11 +162,19 @@ export default {
 
 <style lang="scss" scoped>
 .event-item-headline {
-  max-width: 250px;
+  max-width: 200px;
   font-size:1rem;
 
   @media (max-width: 500px) {
-    max-width: 150px;
+    max-width: auto;
+  }
+}
+
+.event-item-region {
+  max-width: 150px;
+
+  @media (max-width: 500px) {
+    display: none;
   }
 }
 

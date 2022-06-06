@@ -1,21 +1,15 @@
 <template>
-  <div class="intro alert alert-secondary d-flex align-items-center">
+  <div class="intro alert alert-primary d-flex align-items-center">
     <a
       :href="'profile/' + id"
       class="img-thumbnail position-relative"
     >
-      <img
-        v-if="sleep_status"
-        alt="zZzZzz..."
-        class="position-absolute"
-        style="top:-5px;left:-8px"
-        src="/img/sleep35x35.png"
-      >
-      <img
-        :alt="name"
-        width="45px"
-        :src="image"
-      >
+      <Avatar
+        :url="image"
+        :sleep-status="sleep_status"
+        :size="50"
+        class="rounded-circle"
+      />
     </a>
     <div class="ml-3 d-flex flex-column">
       <h3
@@ -42,7 +36,11 @@
 </template>
 
 <script>
+import Avatar from '@/components/Avatar'
 export default {
+  components: {
+    Avatar,
+  },
   props: {
     user: { type: Object, required: true },
   },
@@ -63,7 +61,7 @@ export default {
     },
 
     image () {
-      return this.user.photo || '/img/50_q_avatar.png'
+      return this.user.photo
     },
 
     region () {

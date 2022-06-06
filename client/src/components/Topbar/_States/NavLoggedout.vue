@@ -11,7 +11,6 @@
     />
     <MenuBullhorn />
     <MenuInformation />
-    <MenuEnvelope />
   </b-navbar-nav>
 </template>
 
@@ -20,11 +19,10 @@
 import { VBTooltip, BNavbarNav } from 'bootstrap-vue'
 import MenuBullhorn from '../Items/Bullhorn/MenuBullhorn'
 import MenuInformation from '../Items/Information/MenuInformation'
-import MenuEnvelope from '../Items/Contact/MenuEnvelope'
 import MenuItem from '../Items/MenuItem'
 
 export default {
-  components: { MenuBullhorn, MenuInformation, MenuEnvelope, BNavbarNav, MenuItem },
+  components: { MenuBullhorn, MenuInformation, BNavbarNav, MenuItem },
   directives: { VBTooltip },
 }
 </script>

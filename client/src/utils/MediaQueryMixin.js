@@ -39,11 +39,17 @@ export default {
   },
   computed: {
     viewIsSM () {
-      return (this.windowWidth <= mediaQuery.sm.max)
+      return this.windowWidth <= mediaQuery.sm.max
+    },
+    viewIsSMmin () {
+      return this.windowWidth <= mediaQuery.sm.min
+    },
+    viewIsMD () {
+      return this.windowWidth >= mediaQuery.md.min && this.windowWidth <= mediaQuery.md.max
     },
   },
   methods: {
-    getWindowWidth (event) {
+    getWindowWidth () {
       const w = window.innerWidth
       this.windowWidth = w
       this.wXS = w <= mediaQuery.xs.max

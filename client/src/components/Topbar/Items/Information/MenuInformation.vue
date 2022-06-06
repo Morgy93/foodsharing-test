@@ -50,6 +50,24 @@ export default {
             { url: 'releaseNotes', menuTitle: 'menu.entry.release-notes' },
           ],
         },
+        {
+          heading: 'menu.entry.regionalgroups',
+          menuItems: [
+            { url: 'communitiesGermany', menuTitle: 'menu.entry.Germany' },
+            { url: 'communitiesAustria', menuTitle: 'menu.entry.Austria' },
+            { url: 'communitiesSwitzerland', menuTitle: 'menu.entry.Swiss' },
+            { url: 'international', menuTitle: 'menu.entry.international' },
+          ],
+        },
+        {
+          heading: 'menu.entry.contact',
+          menuItems: [
+            { url: 'contact', menuTitle: 'menu.entry.contact' },
+            { url: 'press', menuTitle: 'menu.entry.press' },
+            { url: 'infosCompany', menuTitle: 'menu.entry.forcompanies' },
+            { url: 'imprint', menuTitle: 'menu.entry.imprint' },
+          ],
+        },
       ],
     }
   },

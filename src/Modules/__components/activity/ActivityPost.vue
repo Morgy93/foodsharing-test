@@ -1,6 +1,6 @@
 <template>
   <li class="list-group-item activity-item">
-    <div class="d-flex align-items-center mb-2 small">
+    <div class="d-flex align-items-center mb-2">
       <a
         v-if="fs_id && fs_name"
         :href="$url('profile', fs_id)"
@@ -33,15 +33,14 @@
       />
       <a
         v-if="type !== 'friendWall'"
-        v-b-tooltip="title.length > 30 ? title : null"
+        v-b-tooltip="title.length > 100 ? title : null"
         :href="dashboardContentLink"
         class="d-inline-block text-truncate"
-        style="max-width: 200px;"
         v-html="title"
       />
     </div>
 
-    <div class="d-flex mt-3">
+    <div class="d-flex mt-3 text-break">
       <div
         v-if="gallery.length > 0"
         class="img-thumbnail d-inline-block mr-3 mb-3 h-100"
@@ -93,14 +92,17 @@
       </span>
     </div>
 
-    <div class="d-flex justify-content-between align-items-center mt-2">
-      <small class="text-muted">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mt-2">
+      <small class="text-muted order-2 order-sm-1">
         <i class="far fa-fw fa-clock" />
         <span v-b-tooltip="$dateFormat(time, 'full-short')"> {{ $dateDistanceInWords(time) }} </span>
       </small>
-      <small v-if="source">
-        {{ $i18n(translationKey, [source]) }}
-      </small>
+      <p
+        v-if="source"
+        v-b-tooltip="source.length > 40 ? source : null"
+        class="text-truncate order-1 order-sm-2 mb-0"
+        v-html="$i18n(translationKey, [source])"
+      />
     </div>
   </li>
 </template>
@@ -225,11 +227,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.activity-item .markdown p:last-child {
-  margin-bottom: 0;
+.activity-item:first-child {
+  border-bottom-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  margin-bottom: .5rem;
 }
 
-.list-group-item:not(:last-child) {
-  border-bottom: 0;
+.activity-item:not(:first-child) {
+  border-radius: var(--border-radius);
+  margin-bottom: .5rem;
+}
+
+.activity-item .markdown p:last-child {
+  margin-bottom: 0;
 }
 </style>

@@ -39,6 +39,7 @@
           v-if="loggedIn"
           :has-fs-role="hasFsRole"
           :regions="regions"
+          :display-mailbox="mailbox"
           :working-groups="workingGroups"
           :may-add-store="may.addStore"
           :avatar="avatar"
@@ -53,14 +54,18 @@
         <b-collapse
           id="nav-collapse"
           is-nav
-          class="pt-2 pt-md-0 justify-content-end"
+          class="justify-content-end mb-3 mb-sm-0"
         >
           <search
             v-if="hasFsRole"
+            class="my-3 my-sm-0"
           />
           <menu-loggedout v-if="!loggedIn" />
           <menu-loggedin
             v-if="loggedIn"
+            :has-fs-role="hasFsRole"
+            :regions="regions"
+            :working-groups="workingGroups"
             :display-mailbox="mailbox"
             :user-id="userId"
             :avatar="avatar"
@@ -81,7 +86,7 @@ import MenuItem from './Items/MenuItem'
 import LoggedInFixedNav from './_States/NavFixed'
 import Search from './Items/Search/Search'
 
-import MediaQueryMixin from '../../utils/VueMediaQueryMixin'
+import MediaQueryMixin from '../../utils/MediaQueryMixin'
 
 export default {
   components: {
@@ -152,7 +157,7 @@ nav,
 }
 
 #topbar nav {
-    // box-shadow: 0em 0em 5px 0px black;
+    box-shadow: 0em 0em 5px 0px rgba(0, 0, 0, 0.35);
     border-bottom: 1px solid var(--border);
     background-color: var(--fs-beige);
     color: var(--primary);
@@ -166,13 +171,27 @@ nav,
 .nav-row {
   margin:0;
   display: flex;
-  flex-grow: 1;
   align-items: center;
   justify-content: space-evenly;
 }
 
+::v-deep .nav-item,
+::v-deep .navbar-brand,
+.navbar-toggler {
+  min-width: 25px;
+  color: var(--primary);
+  padding: .25rem;
+
+  @media (min-width: 321px) {
+    min-width: 35px;
+  }
+
+  @media (min-width: 450px) {
+    min-width: 45px;
+  }
+}
+
 ::v-deep .nav-item {
-  min-width: 40px;
   text-align: center;
 
   .collapse.show & {
@@ -183,12 +202,8 @@ nav,
       width: 20px;
       margin-right: 10px;
       text-align: center;
+    }
   }
-  }
-}
-
-.navbar-toggler {
-  color: var(--primary);
 }
 
 ::v-deep .navbar-collapse {
@@ -196,7 +211,6 @@ nav,
     // Only when menu is shown. Fixes problem that list of dropdown items is to long.
     max-height: 70vh;
     overflow: auto;
-    border-top: 1px solid var(--primary);
 
     .dropdown-menu .scroll-container  {
       max-height: initial;

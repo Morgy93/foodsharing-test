@@ -22,7 +22,7 @@
         v-b-tooltip="$i18n('store.tooltip_managing')"
         class="text-muted is-managing flex-grow-0 flex-shrink-0"
       >
-        <i class="fas fa-fw fa-cog text-right" />
+        <i class="fas fa-fw fa-users-cog text-right" />
       </span>
     </a>
   </div>

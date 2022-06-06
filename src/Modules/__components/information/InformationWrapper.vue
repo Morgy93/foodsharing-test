@@ -1,6 +1,6 @@
 <template>
   <div
-    class="informations-wrapper position-relative mb-4 "
+    class="informations-wrapper position-relative"
     :class="{'multiply': count > 1 && !allVisible, 'single': allVisible}"
   >
     <InformationField
@@ -46,6 +46,10 @@ export default {
 
 .single * {
   margin-bottom: 1rem;
+}
+
+.multiply {
+  margin-bottom: 2rem;
 }
 
 .multiply *:nth-child(n+2) {

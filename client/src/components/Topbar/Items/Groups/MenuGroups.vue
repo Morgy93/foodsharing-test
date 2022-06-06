@@ -1,7 +1,7 @@
 <template>
   <div>
     <fs-dropdown-menu
-      v-if="workingGroups.length"
+      v-if="workingGroups.length > 0"
       id="dropdown-groups"
       menu-title="menu.entry.your_groups"
       :show-menu-title="false"

@@ -10,11 +10,11 @@
       :show-title="true"
     />
     <menu-region
-      v-if="hasFsRole && !viewIsSM"
+      v-if="hasFsRole"
       :regions="regions"
     />
     <menu-groups
-      v-if="hasFsRole && !viewIsSM"
+      v-if="hasFsRole"
       :working-groups="workingGroups"
     />
     <menu-stores
@@ -31,16 +31,9 @@
       :title="$i18n('storelist.map')"
       :show-title="!hasFsRole"
     />
-    <menu-messages
-      v-if="viewIsSM"
-    />
-    <menu-envelope
-      v-if="viewIsSM"
-      :display-mailbox="hasFsRole"
-    />
-    <menu-bells
-      v-if="viewIsSM"
-    />
+    <menu-mailbox v-if="viewIsSM && displayMailbox" />
+    <menu-messages v-if="viewIsSM" />
+    <menu-bells v-if="viewIsSM" />
   </b-navbar-nav>
 </template>
 
@@ -51,10 +44,10 @@ import MenuStores from '../Items/Stores/MenuStores'
 import MenuGroups from '../Items/Groups/MenuGroups'
 import MenuBaskets from '../Items/Baskets/MenuBaskets'
 import MenuMessages from '../Items/Messages/MenuMessages'
+import MenuMailbox from '../Items/Mailbox/MenuMailbox'
 import MenuBells from '../Items/Bells/MenuBells'
-import MenuEnvelope from '../Items/Contact/MenuEnvelope'
 
-import MediaQueryMixin from '../../../utils/VueMediaQueryMixin'
+import MediaQueryMixin from '../../../utils/MediaQueryMixin'
 
 export default {
   components: {
@@ -64,13 +57,16 @@ export default {
     MenuGroups,
     MenuBaskets,
     MenuMessages,
+    MenuMailbox,
     MenuBells,
-    MenuEnvelope,
-    // MenuUser,
   },
   mixins: [MediaQueryMixin],
   props: {
     hasFsRole: {
+      type: Boolean,
+      default: true,
+    },
+    displayMailbox: {
       type: Boolean,
       default: true,
     },

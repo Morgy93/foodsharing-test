@@ -7,8 +7,11 @@
     icon="fa-globe"
   >
     <template #heading-text>
-      <span class="regionName text-truncate d-none d-sm-inline-block">
-        {{ activeRegion ? activeRegion.name : $i18n('terminology.regions') }}
+      <span
+        class="regionName d-none d-sm-inline-block"
+        style="font-family: 'Alfa Slab One',serif;"
+      >
+        {{ activeRegion ? truncate(activeRegion.name, !viewIsSM ? 15 : 30) : $i18n('terminology.regions') }}
       </span>
     </template>
 
@@ -19,7 +22,7 @@
       <div
         v-for="region in regionsSorted"
         :key="region.id"
-        class="group"
+        class="group d-flex flex-column align-items-baseline"
       >
         <a
           v-if="region.id !== activeRegionId || regions.length !== 1"
@@ -27,9 +30,11 @@
           role="menuitem"
           href="#"
           target="_self"
-          class="dropdown-item text-truncate dropdown-header"
+          class="dropdown-item dropdown-header"
         >
-          {{ region.name }}
+          <span
+            v-html="truncate(region.name)"
+          />
         </a>
         <b-collapse
           :id="`topbarregion_${region.id}`"
@@ -37,125 +42,18 @@
           accordion="regions"
         >
           <a
-            :href="$url('forum', region.id)"
+            v-for="(entry,key) in generateMenu(region)"
+            :key="key"
+            :href="entry.href ? $url(entry.href, region.id, entry.special) : '#'"
             role="menuitem"
             class="dropdown-item sub"
+            @click="setActiveRegion(region.id), entry.func ? entry.func() : null"
           >
-            <i class="far fa-comment-alt" />{{ $i18n('menu.entry.forum') }}
-          </a>
-          <a
-            v-if="region.isAdmin"
-            :href="$url('forum', region.id, 1)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="far fa-comment-dots" />{{ $i18n('menu.entry.BOTforum') }}
-          </a>
-          <a
-            :href="$url('stores', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-cart-plus" />{{ $i18n('menu.entry.stores') }}
-          </a>
-          <a
-            :href="$url('workingGroups', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-users" />{{ $i18n('terminology.groups') }}
-          </a>
-          <a
-            :href="$url('events', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="far fa-calendar-alt" />{{ $i18n('menu.entry.events') }}
-          </a>
-          <a
-            :href="$url('foodsharepoints', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-recycle" />{{ $i18n('terminology.fsp') }}
-          </a>
-          <a
-            v-if="region.hasConference"
-            href="#"
-            role="menuitem"
-            class="dropdown-item sub"
-            @click="showConferencePopup(region.id)"
-          >
-            <i class="fas fa-users" />{{ $i18n('menu.entry.conference') }}
-          </a>
-          <a
-            :href="$url('polls', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-poll-h" />{{ $i18n('terminology.polls') }}
-          </a>
-          <a
-            :href="$url('members', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-user" />{{ $i18n('menu.entry.members') }}
-          </a>
-          <a
-            :href="$url('statistic', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-chart-bar" />{{ $i18n('terminology.statistic') }}
-          </a>
-          <a
-            v-if="region.mayHandleFoodsaverRegionMenu"
-            :href="$url('foodsaverList', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-user" />{{ $i18n('menu.entry.fs') }}
-          </a>
-          <a
-            v-if="region.isAdmin"
-            :href="$url('passports', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-address-card" />{{ $i18n('menu.entry.ids') }}
-          </a>
-          <a
-            v-if="region.maySetRegionOptions"
-            :href="$url('options', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-tools" />{{ $i18n('menu.entry.options') }}
-          </a>
-          <a
-            v-if="region.maySetRegionPin"
-            :href="$url('pin', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-users" />{{ $i18n('menu.entry.pin') }}
-          </a>
-          <a
-            v-if="region.mayAccessReportGroupReports"
-            :href="$url('reports', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-poo" />{{ $i18n('terminology.reports') }}
-          </a>
-          <a
-            v-if="region.mayAccessArbitrationGroupReports"
-            :href="$url('reports', region.id)"
-            role="menuitem"
-            class="dropdown-item sub"
-          >
-            <i class="fas fa-poo" />{{ $i18n('terminology.arbitration') }}
+            <i
+              class="fas"
+              :class="entry.icon"
+            />
+            {{ $i18n(entry.text) }}
           </a>
         </b-collapse>
       </div>
@@ -191,11 +89,13 @@ import FsDropdownMenu from '../FsDropdownMenu'
 import { becomeBezirk } from '@/script'
 import ConferenceOpener from '@/utils/ConferenceOpener'
 import RegionUpdater from '@/utils/RegionUpdater'
+import Truncate from '@/utils/Truncate'
+import MediaQueryMixin from '@/utils/MediaQueryMixin'
 
 export default {
   components: { BCollapse, FsDropdownMenu },
   directives: { VBToggle },
-  mixins: [ConferenceOpener, RegionUpdater],
+  mixins: [ConferenceOpener, RegionUpdater, Truncate, MediaQueryMixin],
   props: {
     regions: {
       type: Array,
@@ -219,28 +119,72 @@ export default {
       this.$refs.dropdown.visible = false
       becomeBezirk()
     },
+    generateMenu (region) {
+      const menu = [
+        {
+          href: 'forum', icon: 'fa-comments', text: 'menu.entry.forum',
+        },
+        {
+          href: 'stores', icon: 'fa-cart-plus', text: 'menu.entry.stores',
+        },
+        {
+          href: 'workingGroups', icon: 'fa-users', text: 'terminology.groups',
+        },
+        {
+          href: 'events', icon: 'fa-calendar-alt', text: 'menu.entry.events',
+        },
+        {
+          href: 'polls', icon: 'fa-poll-h', text: 'terminology.polls',
+        },
+        {
+          href: 'statistic', icon: 'fa-chart-bar', text: 'terminology.statistic',
+        },
+      ]
+
+      if (region.conference) {
+        menu.push({
+          icon: 'fa-users', text: 'menu.entry.conference', func: () => this.showConferencePopup(region.id),
+        })
+      }
+
+      if (region.mayHandleFoodsaverRegionMenu) {
+        menu.push({
+          href: 'foodsaverList', icon: 'fa-user', text: 'menu.entry.fs',
+        })
+      }
+
+      if (region.maySetRegionOptions) {
+        menu.push({
+          href: 'options', icon: 'fa-tools', text: 'menu.entry.options',
+        })
+      }
+      if (region.maySetRegionPin) {
+        menu.push({
+          href: 'pin', icon: 'fa-users', text: 'menu.entry.pin',
+        })
+      }
+      if (region.mayAccessReportGroupReports) {
+        menu.push({
+          href: 'reports', icon: 'fa-poo', text: 'terminology.reports',
+        })
+      }
+      if (region.mayAccessArbitrationGroupReports) {
+        menu.push({
+          href: 'reports', icon: 'fa-poo', text: 'terminology.arbitration',
+        })
+      }
+
+      if (region.isAdmin) {
+        menu.push({
+          href: 'forum', special: 1, icon: 'fa-comment-dots', text: 'menu.entry.BOTforum',
+        })
+        menu.push({
+          href: 'passports', icon: 'fa-address-card', text: 'menu.entry.ids',
+        })
+      }
+
+      return menu
+    },
   },
 }
 </script>
-
-<style lang="scss">
-.regionMenu {
-    margin-top: 0.1em;
-
-    @media (max-width: 350px) {
-        .dropdown-toggle::after {
-            content: none;
-        }
-    }
-}
-.regionMenu > a.nav-link {
-    font-family: 'Alfa Slab One',serif;
-    font-size: 1em !important;
-}
-</style>
-<style lang="scss" scoped>
-.regionName {
-    max-width: 110px;
-    margin-bottom: -0.35em;
-}
-</style>

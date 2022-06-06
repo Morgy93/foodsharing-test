@@ -10,63 +10,59 @@
     <a
       v-for="(entry, key) in filteredList"
       :key="key"
-      class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+      class="list-group-item list-group-item-action d-flex flex-column"
       :href="$url('store', entry.store_id)"
+      style="min-height: 65px;"
     >
-      <div
-        class="flex-grow-1"
+      <div class="d-flex mb-auto justify-content-between align-items-center">
+        <small
+          v-b-tooltip="entry.store_name.length > 30 ? entry.store_name : ''"
+          class="mb-0 d-inline-block text-truncate"
+          v-html="entry.store_name"
+        />
+        <span
+          v-b-tooltip="!entry.confirmed ? $i18n('pickup.to_be_confirmed') : ''"
+          class="badge badge-pill d-flex p-1 align-items-center"
+          :class="{
+            'badge-danger': !entry.confirmed,
+            'badge-success': entry.confirmed,
+          }"
+        >
+          <i
+            class="fas"
+            :class="{
+              'fa-check-circle': entry.confirmed,
+              'fa-clock': !entry.confirmed,
+            }"
+          />
+          <span
+            v-if="entry.max_fetchers > 1"
+            class="ml-1 mr-1"
+          >
+            {{ entry.slot_confimations.split(",").filter(e=>e==='1').length }} / {{ entry.max_fetchers }}
+          </span>
+        </span>
+      </div>
+      <h5
+        class="d-flex align-items-center font-weight-bold"
         :class="{
           'text-danger': getPickupIsSoon(entry.timestamp),
           'text-black-50': !getPickupIsSoon(entry.timestamp)
         }"
       >
-        <small
-          v-b-tooltip="`${entry.store_name}, ${entry.address}`"
-          class="d-inline-block text-truncate"
-          style="max-width: 200px;"
-          v-html="entry.store_name"
-        />
-        <p
-          class="font-weight-bold mb-0"
-        >
-          <i
-            class="fas fa-clock"
-          />
-          <span
-            v-if="getPickupIsSoon(entry.timestamp)"
-            v-b-tooltip="getStringTime(entry.timestamp)"
-            v-html="getRelativeTime(entry.timestamp)"
-          />
-          <span
-            v-else
-            v-html="getStringTime(entry.timestamp)"
-          />
-        </p>
-      </div>
-      <span
-        v-b-tooltip="!entry.confirmed ? $i18n('pickup.to_be_confirmed') : ''"
-        class="badge badge-pill d-flex p-1 align-items-center"
-        :class="{
-          'badge-danger': !entry.confirmed,
-          'badge-success': entry.confirmed,
-        }"
-      >
-        <i
-          class="fas"
-          :class="{
-            'fa-check-circle': entry.confirmed,
-            'fa-clock': !entry.confirmed,
-          }"
+        <i class="fas fa-clock mr-2" />
+        <span
+          v-if="getPickupIsSoon(entry.timestamp)"
+          v-b-tooltip="getStringTime(entry.timestamp)"
+          v-html="getRelativeTime(entry.timestamp)"
         />
         <span
-          v-if="entry.max_fetchers > 1"
-          class="ml-1 mr-1"
-        >
-          {{ entry.slot_confimations.split(",").filter(e=>e==='1').length }} / {{ entry.max_fetchers }}
-        </span>
-      </span>
+          v-else
+          v-html="getStringTime(entry.timestamp)"
+        />
+      </h5>
     </a>
-  </List>
+  </list>
 </template>
 
 <script>

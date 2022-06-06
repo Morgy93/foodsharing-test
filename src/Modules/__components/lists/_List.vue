@@ -103,7 +103,7 @@ export default {
   justify-content: center;
 }
 
-.list-group-item:not(:last-child) {
+.list-group-item:not(:last-child):not(.list-group-header) {
   border-bottom: 0;
 }
 </style>

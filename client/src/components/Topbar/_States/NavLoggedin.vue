@@ -9,19 +9,13 @@
       icon="fa-map-marker-alt"
       :title="$i18n('storelist.map')"
     />
-    <menu-admin
-      v-if="hasAdminRights"
-      :may="may"
-    />
-    <MenuBullhorn />
-    <MenuInformation />
-    <MenuEnvelope
-      v-if="!viewIsSM"
-      :display-mailbox="displayMailbox"
-    />
+    <menu-mailbox v-if="!viewIsSM && displayMailbox" />
     <menu-messages v-if="!viewIsSM" />
     <menu-bells v-if="!viewIsSM" />
+    <MenuBullhorn />
+    <MenuInformation />
     <menu-user
+      :may="may"
       :user-id="userId"
       :avatar="avatar"
       :show-title="true"
@@ -34,20 +28,30 @@
 import { VBTooltip, BNavbarNav } from 'bootstrap-vue'
 import MenuBullhorn from '../Items/Bullhorn/MenuBullhorn'
 import MenuInformation from '../Items/Information/MenuInformation'
-import MenuEnvelope from '../Items/Contact/MenuEnvelope'
 import MenuItem from '../Items/MenuItem'
 import MenuMessages from '../Items/Messages/MenuMessages'
+import MenuMailbox from '../Items/Mailbox/MenuMailbox'
 import MenuBells from '../Items/Bells/MenuBells'
 import MenuUser from '../Items/User/MenuUser'
-import MenuAdmin from '../Items/Admin/MenuAdmin'
-
-import MediaQueryMixin from '../../../utils/VueMediaQueryMixin'
+import MediaQueryMixin from '../../../utils/MediaQueryMixin'
 
 export default {
-  components: { MenuAdmin, MenuBullhorn, MenuInformation, MenuEnvelope, BNavbarNav, MenuItem, MenuMessages, MenuBells, MenuUser },
+  components: { MenuBullhorn, MenuInformation, MenuMailbox, BNavbarNav, MenuItem, MenuMessages, MenuBells, MenuUser },
   directives: { VBTooltip },
   mixins: [MediaQueryMixin],
   props: {
+    hasFsRole: {
+      type: Boolean,
+      default: true,
+    },
+    regions: {
+      type: Array,
+      default: () => [],
+    },
+    workingGroups: {
+      type: Array,
+      default: () => [],
+    },
     displayMailbox: {
       type: Boolean,
       default: false,
@@ -63,11 +67,6 @@ export default {
     may: {
       type: Object,
       default: () => ({}),
-    },
-  },
-  computed: {
-    hasAdminRights () {
-      return this.may.administrateBlog || this.may.editQuiz || this.may.handleReports || this.may.editContent || this.may.manageMailboxes || this.may.administrateNewsletterEmail || this.may.administrateRegions
     },
   },
 }

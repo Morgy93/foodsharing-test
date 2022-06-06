@@ -70,10 +70,6 @@ class DashboardControl extends Control
 	 */
 	public function index(): void
 	{
-		if (!strpos($_SERVER['HTTP_HOST'] ?? BASE_URL, 'beta.foodsharing')) {
-			$this->params['release'] = $this->getRelease();
-		}
-
 		$this->params['user'] = $this->user;
 		$this->params['broadcast'] = $this->getBroadcast();
 		$this->params['errors'] = $this->getErrors();
@@ -123,6 +119,17 @@ class DashboardControl extends Control
 	private function getInformations(): array
 	{
 		$arr = [];
+
+		if (strpos($_SERVER['HTTP_HOST'] ?? BASE_URL, 'beta.foodsharing') === false) {
+			$rel = $this->getRelease();
+			$arr[] = (object)[
+				'tag' => 'release',
+				'title' => $this->translator->trans('releases.' . $rel['body']),
+				'links' => $rel['links'],
+				'isTimeBased' => true,
+				'isCloseable' => true,
+			];
+		}
 
 		// Calendar sync hint
 		if ($this->session->may('fs')) {
@@ -267,7 +274,7 @@ class DashboardControl extends Control
 	{
 		return (object)[
 			'recent' => $this->basketGateway->listNewestBaskets(),
-			'nearby' => $this->user['lat'] && $this->basketGateway->listNearbyBasketsByDistance($this->session->id(), $this->getUserLocationOrDefault()),
+			'nearby' => $this->basketGateway->listNearbyBasketsByDistance($this->session->id(), $this->getUserLocationOrDefault()),
 		];
 	}
 

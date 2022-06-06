@@ -68,7 +68,10 @@ export default {
       })
     },
     unread () {
-      return bellStore.unreadCount
+      if (bellStore.unreadCount) {
+        return bellStore.unreadCount < 99 ? bellStore.unreadCount : '99+'
+      }
+      return null
     },
   },
   created () {

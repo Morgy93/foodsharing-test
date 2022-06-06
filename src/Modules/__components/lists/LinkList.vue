@@ -16,7 +16,6 @@
       <strong
         v-b-tooltip="entry.name.length > 30 ? entry.name : ''"
         class="mb-0 d-inline-block text-truncate"
-        style="max-width: 200px;"
         v-html="entry.name"
       />
     </a>

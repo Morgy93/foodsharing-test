@@ -17,28 +17,34 @@
       <div class="d-flex mb-auto justify-content-between align-items-center">
         <strong
           v-b-tooltip="entry.name.length > 30 ? entry.name : ''"
-          class="mb-0 d-inline-block text-truncate"
-          style="max-width: 200px;"
+          class="mb-0 mr-2 d-inline-block text-truncate"
           v-html="entry.name"
         />
         <i
           v-if="entry.isManaging"
           v-b-tooltip="$i18n('store.tooltip_managing')"
-          class="fas fa-cog text-muted"
+          class="fas fa-users-cog text-muted"
           style="cursor: help;"
         />
       </div>
-      <small
+      <div
         v-if="entry.pickupStatus > 0"
-        class="badge badge-pill align-self-start d-inline-block text-truncate"
-        style="max-width: 250px;"
-        :class="{
-          'badge-primary': entry.pickupStatus === 1,
-          'badge-warning': entry.pickupStatus === 2,
-          'badge-danger': entry.pickupStatus === 3
-        }"
-        v-html="$i18n('store.tooltip_'+['yellow', 'orange', 'red'][entry.pickupStatus - 1])"
-      />
+        v-b-tooltip="$i18n('store.tooltip_'+['yellow', 'orange', 'red'][entry.pickupStatus - 1])"
+        class="d-flex align-items-center"
+      >
+        <i
+          class="fas fa-circle mr-1"
+          :class="{
+            'text-primary': entry.pickupStatus === 1,
+            'text-warning': entry.pickupStatus === 2,
+            'text-danger': entry.pickupStatus === 3
+          }"
+        />
+        <small
+          class="align-self-start d-inline-block text-truncate"
+          v-html="$i18n('store.tooltip_'+['yellow', 'orange', 'red'][entry.pickupStatus - 1])"
+        />
+      </div>
     </a>
   </list>
 </template>

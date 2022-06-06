@@ -38,7 +38,6 @@
     <div
       v-if="isOpen"
       id="search-results"
-      :style="resultsStyle"
       class="dropdown-menu"
     >
       <search-results
@@ -73,8 +72,6 @@ export default {
   },
   data () {
     return {
-      posX: 0,
-      width: 0,
       query: '',
       isOpen: false,
       isLoading: false,
@@ -91,13 +88,6 @@ export default {
         myBuddies: [],
       },
     }
-  },
-  computed: {
-    resultsStyle () {
-      return {
-        left: `${this.posX}px`,
-      }
-    },
   },
   watch: {
     query (query, oldQuery) {
@@ -124,8 +114,6 @@ export default {
   },
   methods: {
     open () {
-      this.posX = this.$refs.inputgroup.getBoundingClientRect().left
-      this.width = this.$refs.inputgroup.getBoundingClientRect().width
       this.isOpen = true
     },
     delayedFetch () {
@@ -165,10 +153,13 @@ export default {
 <style lang="scss" scoped>
   #search-results {
     display: block;
-    width: 250px;
+    max-width: 500px;
     max-height: 80vh;
     overflow-y: auto;
-    box-shadow: 0 2px 3px 1px var(--border);
+    box-shadow: 0em 0em 5px 0px rgba(0, 0, 0, 0.35);
+    left: 50%;
+    top: 45px;
+    transform: translateX(-40%);
   }
   #topbar-search {
     .input-group {
@@ -183,9 +174,10 @@ export default {
       order: 2;
     }
     #search-results {
-      top: 5em;
+      top: 89px;
       width: 100%;
-      left: 0 !important;
+      left: 0;
+      transform: translateX(0);
     }
   }
 </style>
