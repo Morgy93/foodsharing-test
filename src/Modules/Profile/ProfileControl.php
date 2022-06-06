@@ -122,7 +122,7 @@ final class ProfileControl extends Control
 	private function profilePublic(array $profileData): void
 	{
 		$isVerified = $profileData['verified'] ?? 0;
-		$initials = ($profileData['name'] ?? '?')[0] . '.';
+		$initials = mb_substr($profileData['name'] ?? '?', 0, 1) . '.';
 		$regionId = $profileData['bezirk_id'] ?? null;
 		$regionName = ($regionId === null) ? '?' : $this->regionGateway->getRegionName($regionId);
 		$this->pageHelper->addContent(

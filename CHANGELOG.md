@@ -27,6 +27,8 @@ and an A4 sheet is used. !2198 @chriswalg
 - Prevent "Payload to large" errors due to padding in web push #1213 !2212 @alex.simm  
 - When setting a sleeping interval starting in the future, you no longer get a sleeping hat right away. !2215 @AntonBallmaier
 - When setting a sleep interval it does no longer a end one day to early. !2215 @AntonBallmaier
+- Prevent "Payload to large" errors due to padding in web push #1213 !2212 @alex.simm
+- The public profile page can handle names with unicode characters #1265 !2239 @alex.simm
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
