@@ -554,7 +554,7 @@ class ProfileView extends View
 			});
 		');
 
-		$isReportButtonEnabled = intval($this->regionGateway->getRegionOption($this->foodsaver['bezirk_id'], RegionOptionType::ENABLE_REPORT_BUTTON));
+		$isReportButtonEnabled = intval($this->regionGateway->getRegionOption($this->foodsaver['bezirk_id'], RegionOptionType::ENABLE_REPORT_BUTTON)) === 1;
 
 		$this->pageHelper->addHidden(
 			$this->vueComponent('report-Request', 'ReportRequest', [
