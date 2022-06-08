@@ -2082,6 +2082,7 @@ startpage:
 language_chooser:
   content: Choisis une langue
   title: Choisir la langue
+  choose_button: Actualiser
 poll:
   cancel:
     question: Souhaites-tu vraiment annuler ce vote ? Tu ne pourras pas revenir à

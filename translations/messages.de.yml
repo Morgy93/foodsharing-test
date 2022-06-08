@@ -2469,6 +2469,7 @@ poll:
 language_chooser:
   title: "Sprache wählen"
   content: "Bitte wähle eine Sprache aus"
+  choose_button: "Aktualisieren"
 
 startpage:
   welcome_text: "Willkommen bei foodsharing"

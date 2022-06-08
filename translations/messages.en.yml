@@ -1956,6 +1956,7 @@ storemanagers: Store managers
 language_chooser:
   title: "Choose language"
   content: "Please choose a language"
+  choose_button: "Update"
 plz: Post code (automatically filled by the map above)
 fsp:
   twig:

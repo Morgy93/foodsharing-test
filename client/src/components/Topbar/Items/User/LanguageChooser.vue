@@ -3,7 +3,7 @@
     ref="languageChooserModal"
     :title="$i18n('language_chooser.title')"
     :cancel-title="$i18n('button.cancel')"
-    :ok-title="$i18n('button.send')"
+    :ok-title="$i18n('language_chooser.choose_button')"
     modal-class="bootstrap"
     header-class="d-flex"
     content-class="pr-3 pt-3"

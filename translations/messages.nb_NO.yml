@@ -73,6 +73,7 @@ startpage:
 language_chooser:
   title: Velg språk
   content: Vennligst velg et språk
+  choose_button: Aktualisere
 poll:
   results:
     sum: Total

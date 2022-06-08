@@ -1020,6 +1020,7 @@ poll:
 language_chooser:
   content: Scegli una lingua
   title: Scegli la lingua
+  choose_button: Aggiornamento
 email_template:
   login: Accedi per rispondere
   foodbasket_request: Il tuo cesto di cibo è stato richiesto da %SENDER%
