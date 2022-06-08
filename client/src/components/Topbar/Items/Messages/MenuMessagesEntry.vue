@@ -1,49 +1,53 @@
 <template>
   <a
+    class="d-flex"
     :class="classes"
     href="#"
     @click="openChat"
   >
-    <div class="d-flex">
-      <div class="w-20 mr-1">
-        <div :class="['avatar', `avatar_${avatars.length}`]">
-          <div
-            v-for="avatar in avatars"
-            :key="avatar"
-            :style="{backgroundImage: `url('${avatar || '/img/130_q_avatar.png'}')`}"
-          />
-        </div>
+    <div
+      class="icon w-20 mr-2 d-flex text-center justifiy-content-center align-items-center"
+    >
+      <div
+        class="avatars img-thumbnail"
+        :class="[`avatars_${avatars.length}`]"
+      >
+        <Avatar
+          v-for="(avatar) in avatars"
+          :key="avatar"
+          :url="avatar"
+          :size="35"
+        />
       </div>
-      <div class="w-100">
-        <div class="mt-1 d-flex justify-content-between">
-          <h5
-            class="mb-1 text-truncate chat-name"
-            style="max-width: 150px"
-          >
-            {{ title }}
-          </h5>
-          <small class="text-muted text-right nowrap">
-            {{ $dateDistanceInWords(conversation.lastMessage.sentAt, true) }}
-          </small>
-        </div>
-        <p
+    </div>
+    <div class="d-flex flex-column justify-content-between truncated">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5
           class="mb-1 text-truncate"
-          style="max-width: 200px"
         >
-          {{ conversation.lastMessage.body }}
-        </p>
+          {{ title }}
+        </h5>
+        <small class="text-muted text-right nowrap">
+          {{ $dateDistanceInWords(conversation.lastMessage.sentAt) }}
+        </small>
       </div>
+      <p class="mb-0 text-truncate">
+        {{ conversation.lastMessage.body }}
+      </p>
     </div>
   </a>
 </template>
 <script>
 import serverData from '@/server-data'
 import conv from '@/conv'
-import { AVATAR_DEFAULT, GROUP_PICTURE_DEFAULT } from '@/consts'
 import profileStore from '@/stores/profiles'
-import { img } from '@/script'
+
+import Avatar from '@/components/Avatar'
 
 export default {
+  components: {
+    Avatar,
+  },
   props: {
     conversation: {
       type: Object,
@@ -55,50 +59,29 @@ export default {
       return [
         'list-group-item',
         'list-group-item-action',
-        'flex-column',
         'align-items-start',
         this.conversation.hasUnreadMessages ? 'list-group-item-warning' : null,
       ]
     },
     title () {
       if (this.conversation.title) return this.conversation.title
-      const members = this.conversation.members
-      // without ourselve
-        .filter(m => m !== this.loggedinUser.id)
-
-      return members.map(m => profileStore.profiles[m].name).join(', ')
+      return this.filteredMemberList()
+        .map(m => profileStore.profiles[m].name)
+        .join(', ')
     },
     avatars () {
       const lastId = this.conversation.lastMessage.authorId
-      let members = this.conversation.members
-
-      // without ourselve
-        .filter(m => m !== this.loggedinUser.id)
-
-      // bring last participant to the top
+      return this.filteredMemberList()
+        // bring last participant to the top
         .sort((a, b) => {
           /* eslint-disable eqeqeq */
           if (a == lastId) return -1
           if (b == lastId) return 1
           return 0
         })
-
-      members = members.filter(m => profileStore.profiles[m].avatar)
-
-      // we dont need more then 4
-      members = members.slice(0, 4)
-
-      if (members.length) {
-        return members.map(m => img(profileStore.profiles[m].avatar, 'mini'))
-      } else {
-        if (this.conversation.members.length !== 2) {
-          // default group picture
-          return [GROUP_PICTURE_DEFAULT]
-        } else {
-          // default user picture
-          return [AVATAR_DEFAULT]
-        }
-      }
+        // we dont need more then 4
+        .slice(0, 4)
+        .map(m => profileStore.profiles[m].avatar)
     },
     loggedinUser () {
       return serverData.user
@@ -108,47 +91,121 @@ export default {
     openChat () {
       conv.chat(this.conversation.id)
     },
+    filteredMemberList () {
+      return this.conversation.members
+        // without ourselve
+        .filter(m => m !== this.loggedinUser.id)
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-h5 {
-    font-weight: bold;
-    font-size: 0.9em;
-}
-p {
-    font-size: 0.8em;
-}
 .list-group-item {
     padding: 0.4em 1em;
     border: unset;
-}
 
-.avatar {
-    height: 3em;
-    width: 3em;
-    line-height: 0.7em;
-    margin-left: -0.5em;
-    div {
-        background-size: cover;
-        background-position: center;
-        display: inline-block;
+    h5 {
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    p {
+        font-size: 0.8em;
     }
 }
-.avatar_1 div {
-    height: 3em;
-    width: 3em;
+
+::v-deep.avatars {
+  &.avatars_2,
+  &.avatars_3,
+  &.avatars_4 {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    & .avatar {
+      display: inline-flex;
+      border-radius: 0;
+      overflow: hidden;
+
+      & img {
+        border-radius: 0 !important;
+      }
+    }
+  }
 }
-.avatar_2 div {
-    height: 3em;
-    width: 1.5em;
+
+::v-deep.avatars_2 {
+  .avatar {
+    &:nth-child(1) {
+      grid-area: 1 / 1;
+      border-top-left-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
+    }
+
+    &:nth-child(2) {
+      grid-area: 1 / 2;
+      // border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+      // border-bottom-left-radius: var(--border-radius);
+    }
+
+    & img {
+      transform: translateX(-25%);
+    }
+  }
 }
-.avatar_3 div, .avatar_4 div {
-    height: 1.5em;
-    width: 1.5em;
+
+::v-deep.avatars_3 .avatar {
+  &:nth-child(1) {
+    grid-area: 1 / 1;
+    border-top-left-radius: var(--border-radius);
+  }
+
+   &:nth-child(2) {
+    grid-area: 1 / 2;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  &:nth-child(3) {
+    grid-area: 2 / 1;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
 }
+
+::v-deep.avatars_4 .avatar {
+  &:nth-child(1) {
+    grid-area: 1 / 1;
+    border-top-left-radius: var(--border-radius);
+  }
+
+   &:nth-child(2) {
+     grid-area: 1 / 2;
+    border-top-right-radius: var(--border-radius);
+  }
+
+  &:nth-child(3) {
+    grid-area: 2 / 1;
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+    &:nth-child(4) {
+    grid-area: 2 / 2;
+    border-bottom-right-radius: var(--border-radius);
+  }
+}
+
 .nowrap {
     white-space: nowrap;
+}
+
+.truncated {
+  flex: 1;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

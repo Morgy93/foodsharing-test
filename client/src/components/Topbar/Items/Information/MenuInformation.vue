@@ -4,6 +4,7 @@
     :items="headings"
     icon="fa-info"
     right
+    full-size
   />
 </template>
 <script>

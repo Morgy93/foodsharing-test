@@ -91,7 +91,7 @@ $I->waitForElementNotVisible('#fancybox-loading');
 $I->waitForText('Anfragen (1)');
 $I->click('.topbar-baskets > a');
 $I->waitForText('angefragt von');
-$I->click('.topbar-baskets .requests > a');
+$I->click('.topbar-baskets .requests');
 $I->waitForText('Hi friend, can I have');
 $I->click('.topbar-baskets > a');
 $I->waitForText('angefragt von');

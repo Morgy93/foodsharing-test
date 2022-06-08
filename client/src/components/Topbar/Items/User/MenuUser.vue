@@ -1,17 +1,19 @@
 <template>
   <fs-dropdown-menu
     v-b-tooltip="$i18n('menu.entry.your_account')"
-    no-caret
+    menu-title="menu.entry.your_account"
     class="user"
     right
-    menu-title="menu.entry.your_account"
+    full-size
   >
     <template #heading-icon>
-      <img
-        width="22px"
-        :src="avatar"
-        class="rounded-circle border border-primary mr-2"
-      >
+      <span class="img-thumbnail d-inline-flex mr-1 mr-lg-0">
+        <Avatar
+          :url="avatar"
+          :size="16"
+          :auto-scale="false"
+        />
+      </span>
     </template>
     <template #content>
       <a
@@ -114,9 +116,10 @@
 <script>
 import FsDropdownMenu from '../FsDropdownMenu'
 import LanguageChooser from './LanguageChooser'
+import Avatar from '@/components/Avatar'
 
 export default {
-  components: { LanguageChooser, FsDropdownMenu },
+  components: { LanguageChooser, FsDropdownMenu, Avatar },
   props: {
     userId: {
       type: Number,
@@ -139,3 +142,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+::v-deep.user a {
+ display: flex;
+ align-items: center;
+}
+</style>

@@ -29,7 +29,9 @@
         />
       </slot>
     </template>
-    <div class="scroll-container">
+    <div
+      :class="{'scroll-container': !fullSize}"
+    >
       <slot name="content">
         <template v-for="heading in items">
           <h3
@@ -82,6 +84,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    fullSize: {
+      type: Boolean,
+      default: false,
+    },
     right: {
       type: Boolean,
       default: false,
@@ -108,7 +114,11 @@ export default {
 .badge {
   position: absolute;
   top: 0;
-  left: 20px;
+  left: 15px;
+
+  @media (min-width: 456px) {
+    left: 20px;
+  }
 
   .collapse.show & {
     left: 10px;
@@ -119,14 +129,6 @@ export default {
   content: unset;
 }
 
-@media(max-width: 767px) {
-  .collapse {
-    .dropdown ::v-deep .dropdown-menu {
-      // Margin to have an indent in the burger menu.
-      margin-left: 30px;
-    }
-  }
-}
 .dropdown {
   &.list-with-actions ::v-deep .dropdown-menu {
     padding: 0;
@@ -174,8 +176,9 @@ export default {
       color: black;
     }
   }
-  @media (max-width: 575px) {
+  @media (max-width: 576px) {
     position: initial;
+
     ::v-deep .dropdown-menu {
       width: 100%;
       max-width: initial;

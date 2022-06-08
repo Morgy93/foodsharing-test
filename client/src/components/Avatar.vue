@@ -45,10 +45,12 @@ export default {
   computed: {
     avatarUrl () {
       const prefix = {
+        16: 'mini_q_',
         35: 'mini_q_',
         50: '50_q_',
         130: '130_q_',
       }[this.size] || ''
+
       if (this.url) {
         if (this.url.startsWith('/api/uploads/')) {
           // path for pictures uploaded with the new API
@@ -62,16 +64,21 @@ export default {
       }
     },
     wrapperStyle () {
-      const styles = {}
+      const styles = {
+        height: `${this.size}px`,
+        width: `${this.size}px`,
+        display: this.size === 16 ? 'inline-flex' : null,
+      }
       if (this.autoScale) {
         styles.height = '100%'
         styles.width = 'auto'
       }
+
       return styles
     },
     imgStyle () {
       const styles = {}
-      styles['border-radius'] = this.round ? '50%' : '5px'
+      styles['border-radius'] = this.round ? '50%' : 'var(--border-radius)'
       return styles
     },
   },

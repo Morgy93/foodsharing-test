@@ -4,6 +4,7 @@
     :items="headings"
     icon="fa-bullhorn"
     right
+    full-size
   />
 </template>
 

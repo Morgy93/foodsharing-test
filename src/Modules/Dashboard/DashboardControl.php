@@ -22,7 +22,6 @@ class DashboardControl extends Control
 {
 	private ?array $user;
 	private array $params;
-	private DashboardGateway $dashboardGateway;
 	private ContentGateway $contentGateway;
 	private BasketGateway $basketGateway;
 	private StoreTransactions $storeTransactions;
@@ -36,7 +35,6 @@ class DashboardControl extends Control
 	 */
 	public function __construct(
 		DashboardView $view,
-		DashboardGateway $dashboardGateway,
 		ContentGateway $contentGateway,
 		BasketGateway $basketGateway,
 		StoreTransactions $storeTransactions,
@@ -46,7 +44,6 @@ class DashboardControl extends Control
 		QuizSessionGateway $quizSessionGateway
 	) {
 		$this->view = $view;
-		$this->dashboardGateway = $dashboardGateway;
 		$this->contentGateway = $contentGateway;
 		$this->basketGateway = $basketGateway;
 		$this->storeTransactions = $storeTransactions;
@@ -61,7 +58,7 @@ class DashboardControl extends Control
 			$this->routeHelper->go('/');
 		}
 
-		$this->user = $this->dashboardGateway->getUser($this->session->id());
+		$this->user = $this->foodsaverGateway->getFoodsaverBasics($this->session->id());
 		$this->params = [];
 	}
 

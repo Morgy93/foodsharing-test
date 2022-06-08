@@ -601,6 +601,7 @@ events:
   goto: Go to the event
   edited: Event was changed successfully.
   button:
+    change: Change RSVP
     maybe: Maybe
     yes: I will join
     no: I can not
@@ -1481,7 +1482,7 @@ basket:
   request-fs: Request food basket on our foodsharing homepage
   request: Request food basket
   request_close: Close food basket request
-  requested_by: requested by
+  requested_by: requested by {name}
   no_requests: No inquiries so far
   requests: Requests ({count})
   provider: Provider
@@ -1644,6 +1645,11 @@ store:
   tooltip_managing: You are responsible for this store
   not-in-team: You are not a member of this store's team yet.
   tooltip_yellow: Open collections in the next five days
+  tooltip_orange: Vacant pick-ups in the next three days
+  tooltip_red: Vacant pick-ups today or tomorrow
+  short_tooltip_yellow: Open pickups in 5 days
+  short_tooltip_orange: Open pickups in 3 days
+  short_tooltip_red: Open pickups today or tomorrow
   springer_conversation_name: Jumper {name}
   my_last_pickup: My last pick-up
   average_collection_quantity: Pick-up quantity on average
@@ -1653,8 +1659,6 @@ store:
   isJumper: Is on the jumper list.
   noPickup: Has never picked up here.
   go: To the team page
-  tooltip_red: Vacant pick-ups today or tomorrow
-  tooltip_orange: Vacant pick-ups in the next three days
   pickup_slot_unavailable: This pick-up slot is further in the future than intended
     by the responsibles. So please try again at a later date.
   appliedFor: Request made
@@ -2195,7 +2199,6 @@ addresspicker:
   infobox: Please enter the address in the text field between this message and the
     map and then confirm this by selecting it on the map.
 dashboard:
-  invitations: You were invited
   my:
     groups: Your groups
     regions: Your regions
@@ -2251,8 +2254,10 @@ dashboard:
   greeting: Hello {name}! Nice to have you there.
   source_store: Stores {0}
   pickupdates: Next pickups
-  events: Next events ({count})
+  invitation: You were invited
+  invitationCount: You were invited ({count})
   event: Next event
+  eventCount: Next events ({count})
   foodsaver_amount: "You have picked up groceries <strong style=\"white-space:nowrap\"\
     >{pickups}&thinsp;&times;</strong>\nand saved <strong style=\"white-space:nowrap\"\
     >{weight}&thinsp;kg</strong>.\n"
@@ -2586,9 +2591,10 @@ teamjs:
   wrongmail: There is something wrong with your email address.
 contentmanagement: Content management
 activitypost:
-  showeverything: show everything
-  less: less
+  Response: "Answer"
+  response: "answer"
   write: Write an answer …
+  quickreply_info: Jump to a new line with <code>Shift + Enter</code> and submit with <code>Enter</code>.
 deletelow: delete
 
 error:

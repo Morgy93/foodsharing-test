@@ -53,7 +53,11 @@ export default {
 .badge {
   position: absolute;
   top: 0;
-  left: 20px;
+  left: 15px;
+
+  @media (min-width: 456px) {
+    left: 20px;
+  }
 
   .collapse.show & {
     left: 10px;

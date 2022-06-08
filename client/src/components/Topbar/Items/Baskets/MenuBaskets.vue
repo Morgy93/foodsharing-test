@@ -32,7 +32,7 @@
       <a
         href="#"
         role="menuitem"
-        class="dropdown-item dropdown-action"
+        class="food-basket-create-test-class dropdown-item dropdown-action"
         @click="openBasketCreationForm"
       >
         <small>

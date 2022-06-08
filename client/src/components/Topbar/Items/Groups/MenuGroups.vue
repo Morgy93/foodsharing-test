@@ -20,71 +20,32 @@
             class="dropdown-header dropdown-item text-truncate"
             href="#"
             target="_self"
-          >
-            {{ group.name }}
-          </a>
+            v-html="group.name"
+          />
           <h3
             v-if="alwaysOpen"
             role="menuitem"
             class="dropdown-header text-truncate"
-          >
-            {{ group.name }}
-          </h3>
+            v-html="group.name"
+          />
           <b-collapse
             :id="`topbargroup_${group.id}`"
             :visible="alwaysOpen"
             :accordion="alwaysOpen ? null : 'groups'"
           >
             <a
-              :href="$url('wall', group.id)"
+              v-for="(entry,key) in generateMenu(group)"
+              :key="key"
+              :href="entry.href ? $url(entry.href, group.id, entry.special) : '#'"
               role="menuitem"
               class="dropdown-item sub"
+              @click="entry.func ? entry.func() : null"
             >
-              <i class="fas fa-bullhorn" /> {{ $i18n('menu.entry.wall') }}
-            </a>
-            <a
-              :href="$url('forum', group.id)"
-              role="menuitem"
-              class="dropdown-item sub"
-            >
-              <i class="far fa-comment-alt" /> {{ $i18n('menu.entry.forum') }}
-            </a>
-            <a
-              :href="$url('events', group.id)"
-              role="menuitem"
-              class="dropdown-item sub"
-            >
-              <i class="far fa-calendar-alt" /> {{ $i18n('menu.entry.events') }}
-            </a>
-            <a
-              href="#"
-              role="menuitem"
-              class="dropdown-item sub"
-              @click="showConferencePopup(group.id)"
-            >
-              <i class="fas fa-users" /> {{ $i18n('menu.entry.conference') }}
-            </a>
-            <a
-              :href="$url('polls', group.id)"
-              role="menuitem"
-              class="dropdown-item sub"
-            >
-              <i class="fas fa-poll-h" /> {{ $i18n('terminology.polls') }}
-            </a>
-            <a
-              :href="$url('members', group.id)"
-              role="menuitem"
-              class="dropdown-item sub"
-            >
-              <i class="fas fa-user" /> {{ $i18n('menu.entry.members') }}
-            </a>
-            <a
-              v-if="group.isAdmin"
-              :href="$url('workingGroupEdit', group.id)"
-              role="menuitem"
-              class="dropdown-item sub"
-            >
-              <i class="fas fa-cog" /> {{ $i18n('menu.entry.workingGroupEdit') }}
+              <i
+                class="fas"
+                :class="entry.icon"
+              />
+              {{ $i18n(entry.text) }}
             </a>
           </b-collapse>
         </div>
@@ -113,9 +74,10 @@
 </template>
 <script>
 import { BCollapse, VBToggle } from 'bootstrap-vue'
-import ConferenceOpener from '@/utils/ConferenceOpener'
 import FsDropdownMenu from '../FsDropdownMenu'
 import MenuItem from '../MenuItem'
+
+import ConferenceOpener from '@/mixins/ConferenceOpenerMixin'
 
 export default {
   components: { BCollapse, FsDropdownMenu, MenuItem },
@@ -130,6 +92,42 @@ export default {
   computed: {
     alwaysOpen () {
       return this.workingGroups.length <= 2
+    },
+  },
+  methods: {
+    generateMenu (group) {
+      const menu = [
+        {
+          href: 'wall', icon: 'fa-bullhorn', text: 'menu.entry.wall',
+        },
+        {
+          href: 'forum', icon: 'fa-comment-alt', text: 'menu.entry.forum',
+        },
+        {
+          href: 'events', icon: 'fa-calendar-alt', text: 'menu.entry.events',
+        },
+        {
+          href: 'polls', icon: 'fa-poll-h', text: 'terminology.polls',
+        },
+        {
+          href: 'members', icon: 'fa-user', text: 'menu.entry.members',
+        },
+
+      ]
+
+      if (group.hasConference) {
+        menu.push({
+          icon: 'fa-users', text: 'menu.entry.conference', func: () => this.showConferencePopup(group.id),
+        })
+      }
+
+      if (group.isAdmin) {
+        menu.push({
+          href: 'workingGroupEdit', icon: 'fa-cog', text: 'menu.entry.workingGroupEdit',
+        })
+      }
+
+      return menu
     },
   },
 }

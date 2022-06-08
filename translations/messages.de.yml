@@ -770,6 +770,9 @@ store:
   tooltip_yellow: "Offene Abholungen in den nächsten fünf Tagen"
   tooltip_orange: "Offene Abholungen in den nächsten drei Tagen"
   tooltip_red: "Offene Abholungen heute oder morgen"
+  short_tooltip_yellow: "Offene Abholungen in 5 Tagen"
+  short_tooltip_orange: "Offene Abholungen in 3 Tagen"
+  short_tooltip_red: "Offene Abholungen heute oder morgen"
   tooltip_managing: "Du bist verantwortlich für diesen Betrieb"
   allStoresOfRegion: "Alle Betriebe aus dem Bezirk"
   addNewStoresButton: "Neuen Betrieb eintragen"
@@ -1158,6 +1161,7 @@ events:
   invitedCount: "{count} Einladungen"
   morePeople: "… und {count} weitere"
   button:
+    change: "Antwort ändern"
     yes: "Bin dabei"
     maybe: "Vielleicht"
     no: "Kann nicht"
@@ -1926,9 +1930,10 @@ dashboard:
     buddies: "Menschen, die Du kennst"
   showmore: "Mehr anzeigen"
   showless: "Weniger anzeigen"
-  invitations: "Du wurdest eingeladen"
+  invitation: "Du wurdest eingeladen"
+  invitationCount: "Du wurdest eingeladen ({count})"
   event: "Nächstes Event"
-  events: "Nächste Events ({count})"
+  eventCount: "Nächste Events ({count})"
   pickupdates: "Nächste Abholtermine"
   quiz:
     ack: "Hinweis gelesen und nicht mehr anzeigen"
@@ -1992,7 +1997,7 @@ basket:
     <br><br>
     Auf unserer Karte findest du gegebenenfalls weitere Essenskörbe in deiner Gegend.
   no_requests: "Bisher keine Anfragen"
-  requested_by: "angefragt von"
+  requested_by: "angefragt von {name}"
   request_close: "Essenskorbanfrage abschließen"
   request: "Essenskorb anfragen"
   request-fs: "Essenskorb anfragen auf unserer foodsharing-Homepage"
@@ -2563,9 +2568,10 @@ startpage:
 
 contentmanagement: "Inhaltsverwaltung" #contentControl
 activitypost:
-  showeverything: "alles zeigen"
-  less: "weniger"
+  Response: "Antworten"
+  response: "antworten"
   write: "Schreibe eine Antwort …"
+  quickreply_info: "Mit <code>Shift + Enter</code> in eine neue Zeile springen und mit <code>Enter</code> abschicken."
 deletefromregion: "Wirklich aus dem Bezirk löschen?"
 savewithus: "Rette mit!"
 logincontrol:

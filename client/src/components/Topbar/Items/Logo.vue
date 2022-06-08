@@ -5,7 +5,7 @@
     class="navbar-brand brand"
   >
     <span
-      v-if="!viewIsSMmin"
+      v-if="viewIsMD"
       class="logo-text"
     >
       food<span class="green">shar<span class="apple">i</span>ng</span>
@@ -19,7 +19,7 @@
   </a>
 </template>
 <script>
-import MediaQueryMixin from '@/utils/MediaQueryMixin'
+import MediaQueryMixin from '@/mixins/MediaQueryMixin'
 
 export default {
   mixins: [MediaQueryMixin],

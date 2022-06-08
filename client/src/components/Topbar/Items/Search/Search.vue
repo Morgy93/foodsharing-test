@@ -151,33 +151,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  #topbar-search,
+  #search-results {
+    max-width: 500px;
+  }
+  #search-results {
+    min-width: 500px;
+  }
+
   #search-results {
     display: block;
-    max-width: 500px;
     max-height: 80vh;
     overflow-y: auto;
     box-shadow: 0em 0em 5px 0px rgba(0, 0, 0, 0.35);
-    left: 50%;
-    top: 45px;
-    transform: translateX(-40%);
+    left: 0;
+    top: 30px;
+
+    @media (max-width: 1000px) {
+      transform: translateX(-50%);
+    }
   }
   #topbar-search {
+    position: relative;
+    margin: 0 auto;
     .input-group {
       align-items: unset;
       flex-wrap: nowrap;
     }
   }
+
   @media (max-width: 767px) {
     #topbar-search {
+      position: unset;
       width: 100%;
       max-width: unset;
       order: 2;
     }
+
     #search-results {
       top: 89px;
       width: 100%;
-      left: 0;
-      transform: translateX(0);
+      left: 50%;
+      min-width: 100%;
     }
   }
 </style>

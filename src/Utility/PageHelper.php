@@ -246,7 +246,7 @@ final class PageHelper
 			[
 				'loggedIn' => $loggedIn,
 				'userId' => $this->session->id(),
-				'avatar' => $loggedIn ? $this->imageService->img() : '',
+				'avatar' => $loggedIn ? $_SESSION['client']['photo'] : '',
 				'mailbox' => $this->session->get('mailbox'),
 				'hasFsRole' => $this->session->may('fs'),
 				'may' => [

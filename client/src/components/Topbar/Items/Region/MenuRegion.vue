@@ -8,10 +8,10 @@
   >
     <template #heading-text>
       <span
-        class="regionName d-none d-sm-inline-block"
+        class="regionName d-none d-md-inline-block"
         style="font-family: 'Alfa Slab One',serif;"
       >
-        {{ activeRegion ? truncate(activeRegion.name, !viewIsSM ? 15 : 30) : $i18n('terminology.regions') }}
+        {{ activeRegion ? truncate(activeRegion.name, viewIsMD ? 15 : 30) : $i18n('terminology.regions') }}
       </span>
     </template>
 
@@ -87,10 +87,11 @@
 import { BCollapse, VBToggle } from 'bootstrap-vue'
 import FsDropdownMenu from '../FsDropdownMenu'
 import { becomeBezirk } from '@/script'
-import ConferenceOpener from '@/utils/ConferenceOpener'
-import RegionUpdater from '@/utils/RegionUpdater'
-import Truncate from '@/utils/Truncate'
-import MediaQueryMixin from '@/utils/MediaQueryMixin'
+
+import ConferenceOpener from '@/mixins/ConferenceOpenerMixin'
+import RegionUpdater from '@/mixins/RegionUpdaterMixin'
+import Truncate from '@/mixins/TruncateMixin'
+import MediaQueryMixin from '@/mixins/MediaQueryMixin'
 
 export default {
   components: { BCollapse, FsDropdownMenu },
@@ -134,14 +135,20 @@ export default {
           href: 'events', icon: 'fa-calendar-alt', text: 'menu.entry.events',
         },
         {
+          href: 'foodsharepoints', icon: 'fa-recycle', text: 'terminology.fsp',
+        },
+        {
           href: 'polls', icon: 'fa-poll-h', text: 'terminology.polls',
+        },
+        {
+          href: 'members', icon: 'fa-user', text: 'menu.entry.members',
         },
         {
           href: 'statistic', icon: 'fa-chart-bar', text: 'terminology.statistic',
         },
       ]
 
-      if (region.conference) {
+      if (region.hasConference) {
         menu.push({
           icon: 'fa-users', text: 'menu.entry.conference', func: () => this.showConferencePopup(region.id),
         })
