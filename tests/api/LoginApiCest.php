@@ -1,6 +1,6 @@
 <?php
 
-class LoginCest
+class LoginApiCest
 {
 	/**
 	 * @example ["createFoodsaver", "Wähle den Bezirk aus"]

@@ -1,6 +1,6 @@
 <?php
 
-class LoginApiCest
+class LoginApiFuncCest
 {
 	public function checkLogin(FunctionalTester $I)
 	{
