@@ -1,13 +1,16 @@
 <template>
   <b-nav-item
-    v-b-tooltip.hover.bottom
-    class="menu-item"
+    v-b-tooltip="!showTitle ? title : ''"
+    class="item"
     :href="url"
     :title="title"
     :aria-label="title"
     @click="$emit('click')"
   >
-    <i :class="`fas ${icon}`" />
+    <i
+      class="icon"
+      :class="`fas ${icon}`"
+    />
     <span
       v-if="badge"
       class="badge badge-danger"
@@ -15,52 +18,60 @@
     />
     <span
       class="headline"
-      :class="{'d-sm-inline-block': showTitle}"
-    >
-      {{ title }}
-    </span>
+      :class="{'show': showTitle}"
+      v-html="title"
+    />
   </b-nav-item>
 </template>
 
 <script>
-import { VBTooltip } from 'bootstrap-vue'
 
 export default {
-  directives: { VBTooltip },
   props: {
-    url: { type: String, default: undefined },
-    icon: { type: String, default: undefined },
-    title: { type: String, default: undefined },
-    showTitle: { type: Boolean, default: false },
-    badge: { type: [String, Number], default: undefined },
+    url: {
+      type: String,
+      default: undefined,
+    },
+    icon: {
+      type: String,
+      default: undefined,
+    },
+    title: {
+      type: String,
+      default: undefined,
+    },
+    badge: {
+      type: [String, Number],
+      default: undefined,
+    },
+    showTitle: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-::v-deep.menu-item a {
+.item {
+  text-align: center;
+}
+
+::v-deep .nav-link{
   position: relative;
+}
+
+.headline,
+.icon {
+  color: var(--primary);
 }
 
 .headline {
   display: none;
 
-  .collapse.show & {
+  .collapse.show &,
+  &.show {
     display: inline-block;
-  }
-}
-
-.badge {
-  position: absolute;
-  top: 0;
-  left: 15px;
-
-  @media (min-width: 456px) {
-    left: 20px;
-  }
-
-  .collapse.show & {
-    left: 10px;
   }
 }
 </style>

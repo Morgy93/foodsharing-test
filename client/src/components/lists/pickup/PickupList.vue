@@ -3,7 +3,7 @@
     v-if="list.length > 0"
     :tag="title"
     :title="$i18n(title)"
-    :hide="defaultAmount > list.length - 1"
+    :hide="defaultAmount >= list.length"
     @show-full-list="showFullList"
     @reduce-list="reduceList"
   >

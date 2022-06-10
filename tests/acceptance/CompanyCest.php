@@ -58,6 +58,7 @@ class CompanyCest
 		$I->see('Deine Betriebe', '.list-group-header');
 		$I->see($this->store['name'], 'strong');
 		$I->seeElement('.fas.fa-cog');
+		$I->logMeOut();
 	}
 
 	public function MemberCanSeeCompanyOnDashboard(AcceptanceTester $I)
@@ -65,6 +66,7 @@ class CompanyCest
 		$this->loginAsMember();
 		$I->see('Deine Betriebe', '.list-group-header');
 		$I->see($this->store['name'], 'strong');
+		$I->logMeOut();
 	}
 
 	/**

@@ -1,11 +1,12 @@
 <template>
   <fs-dropdown-menu
     id="dropdown-messages"
-    menu-title="menu.entry.messages"
+    title="menu.entry.messages"
     icon="fa-comments"
     class="topbar-messages"
     :badge="unread"
     :show-title="showTitle"
+    scrollbar
     right
   >
     <template
@@ -59,11 +60,11 @@ import MenuMessagesEntry from './MenuMessagesEntry'
 import conversationStore from '@/stores/conversations'
 import FsDropdownMenu from '../FsDropdownMenu'
 
+import TopBarMixin from '@/mixins/TopBarMixin'
+
 export default {
   components: { MenuMessagesEntry, FsDropdownMenu },
-  props: {
-    showTitle: { type: Boolean, default: false },
-  },
+  mixins: [TopBarMixin],
   computed: {
     conversations () {
       /* let res = Array.from(conversationStore.conversations) // .filter(c => c.lastMessage || c.messages)

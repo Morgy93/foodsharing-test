@@ -1,11 +1,10 @@
 <template>
   <a
-    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+    class="list-group-item list-group-item-action field"
     :href="$url(type, entry.id)"
   >
     <strong
-      v-b-tooltip="entry.name.length > 35 ? entry.name : ''"
-      class="mb-0 d-inline-block text-truncate"
+      class="field-headline"
       v-html="entry.name"
     />
   </a>

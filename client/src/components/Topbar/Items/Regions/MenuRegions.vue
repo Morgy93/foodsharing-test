@@ -2,16 +2,18 @@
   <fs-dropdown-menu
     id="dropdown-region"
     ref="dropdown"
-    menu-title="terminology.regions"
+    title="terminology.regions"
     class="regionMenu"
     icon="fa-globe"
+    :show-title="showTitle"
+    scrollbar
   >
+    {{ regions }}
     <template #heading-text>
       <span
         class="regionName d-none d-md-inline-block"
-        style="font-family: 'Alfa Slab One',serif;"
       >
-        {{ activeRegion ? truncate(activeRegion.name, viewIsMD ? 15 : 30) : $i18n('terminology.regions') }}
+        {{ activeRegion ? truncate(activeRegion.name, isVisibleOnMobile ? 15 : 30) : $i18n('terminology.regions') }}
       </span>
     </template>
 
@@ -26,7 +28,7 @@
       >
         <a
           v-if="region.id !== activeRegionId || regions.length !== 1"
-          v-b-toggle="`topbarregion_${region.id}`"
+          v-b-toggle="toggleId(region.id)"
           role="menuitem"
           href="#"
           target="_self"
@@ -37,9 +39,10 @@
           />
         </a>
         <b-collapse
-          :id="`topbarregion_${region.id}`"
+          :id="toggleId(region.id)"
+          class="dropdown-submenu"
           :visible="region.id === activeRegionId"
-          accordion="regions"
+          :accordion="$options.name"
         >
           <a
             v-for="(entry,key) in generateMenu(region)"
@@ -62,6 +65,7 @@
       v-else
       #content
     >
+      {{ regions }}
       <small
         role="menuitem"
         class="disabled dropdown-item"
@@ -84,25 +88,19 @@
   </fs-dropdown-menu>
 </template>
 <script>
-import { BCollapse, VBToggle } from 'bootstrap-vue'
 import FsDropdownMenu from '../FsDropdownMenu'
 import { becomeBezirk } from '@/script'
 
 import ConferenceOpener from '@/mixins/ConferenceOpenerMixin'
 import RegionUpdater from '@/mixins/RegionUpdaterMixin'
 import Truncate from '@/mixins/TruncateMixin'
-import MediaQueryMixin from '@/mixins/MediaQueryMixin'
+
+import TopBarMixin from '@/mixins/TopBarMixin'
 
 export default {
-  components: { BCollapse, FsDropdownMenu },
-  directives: { VBToggle },
-  mixins: [ConferenceOpener, RegionUpdater, Truncate, MediaQueryMixin],
-  props: {
-    regions: {
-      type: Array,
-      default: () => [],
-    },
-  },
+  name: 'MenuGroups',
+  components: { FsDropdownMenu },
+  mixins: [ConferenceOpener, RegionUpdater, Truncate, TopBarMixin],
   computed: {
     activeRegion () {
       return this.regions.find(r => r.id === this.activeRegionId)
@@ -192,6 +190,17 @@ export default {
 
       return menu
     },
+    toggleId (id) {
+      return this.$options.name + '_' + id
+    },
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.regionName {
+  line-height: 0;
+  margin-left: .5rem;
+  font-family: 'Alfa Slab One',serif;
+}
+</style>

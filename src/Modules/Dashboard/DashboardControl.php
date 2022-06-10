@@ -267,12 +267,13 @@ class DashboardControl extends Control
 		];
 	}
 
-	private function getBaskets(): object
+	private function getBaskets(): array
 	{
-		return (object)[
-			'recent' => $this->basketGateway->listNewestBaskets(),
-			'nearby' => $this->basketGateway->listNearbyBasketsByDistance($this->session->id(), $this->getUserLocationOrDefault()),
-		];
+		if ($this->session->may('fs')) {
+			return $this->basketGateway->listNearbyBasketsByDistance($this->session->id(), $this->getUserLocationOrDefault());
+		} else {
+			return $this->basketGateway->listNewestBaskets();
+		}
 	}
 
 	private function getRegions(): array

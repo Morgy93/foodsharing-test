@@ -3,21 +3,21 @@
     class="d-flex"
     :class="classes"
     :href="bell.href"
-    @click="$emit('bell-read', bell)"
-    @click.middle="$emit('bell-read', bell)"
+    @click="$emit('read', bell)"
+    @mouseover="viewIsMD && toggleState()"
+    @mouseout="viewIsMD && toggleState()"
   >
     <div
       class="icon w-20 mr-2 d-flex text-center justifiy-content-center align-items-center"
-      @mouseover="hover = bell.isCloseable"
-      @mouseout="hover = false"
+      @click.stop.prevent="toggleState()"
     >
       <i
-        v-if="bell.icon && !hover"
+        v-if="bell.icon && !state"
         class="d-flex img-thumbnail w-100 h-100 align-items-center justify-content-center"
         :class="[bell.icon]"
       />
       <Avatar
-        v-else-if="bell.image && !hover"
+        v-else-if="bell.image && !state"
         class="img-thumbnail"
         style="min-width: 42px;"
         :url="bell.image"
@@ -27,7 +27,7 @@
         v-else
         class="d-flex img-thumbnail w-100 h-100 align-items-center justify-content-center"
         :class="'fas fa-times'"
-        @click.stop.prevent="bell.isCloseable && $emit('remove', bell.id)"
+        @click.stop.prevent="closeBell()"
       />
     </div>
     <div class="d-flex flex-column justify-content-between truncated">
@@ -51,16 +51,19 @@
 </template>
 
 <script>
-import Avatar from '@/components/Avatar.vue'
+import Avatar from '@/components/Avatar'
+import StateTogglerMixin from '@/mixins/StateTogglerMixin'
+import MediaQueryMixin from '@/mixins/MediaQueryMixin'
 
 export default {
   components: {
     Avatar,
   },
+  mixins: [StateTogglerMixin, MediaQueryMixin],
   props: {
     bell: {
       type: Object,
-      default: () => ({}),
+      default: () => {},
     },
   },
   data () {
@@ -76,6 +79,13 @@ export default {
         !this.bell.isRead ? 'list-group-item-warning' : null,
         this.bell.isDeleting ? 'disabledLoading' : null,
       ]
+    },
+  },
+  methods: {
+    closeBell () {
+      if (this.bell.isCloseable) {
+        this.$emit('remove', this.bell.id)
+      }
     },
   },
 }

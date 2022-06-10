@@ -7,7 +7,7 @@
 - The profile page now contains one unified pickup section. Future pickup options are now visible in that section. !2211 !2226 @AntonBallmaier
 - Pickup statistics on profile !2208 @fs_k
 - Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 @chriswalg
-- Dashboard revamped, shines in a new style and new features !2227 !2245 !2248  @sefn
+- Dashboard revamped, shines in a new style and new features !2227 !2245 !2248 !2252 @sefn
 - In the footer of the website, "For developers" is added under "Participate" to create an easier way to IT. !2241 @NINI1988
 - On the login page, "Stay logged in for one day" is saved in local storage for the next logins. !2249 @NINI1988
 
@@ -42,7 +42,7 @@
 - Simplify code in the content module @alex.simm
 - Use a REST endpoint for quickreplying to forum threads #798 @alex.simm
 - Extract some redundant permission checks into one function. !2203 @AntonBallmaier
-- The TopBarNavigation is now unified !2238 !2245 !2248 @sefn
+- The TopBarNavigation is now unified !2238 !2245 !2248 !2252 @sefn
 
 ## Dev/Test/CI stuff
 - bump node to version 16 !2135 @peter.toennies

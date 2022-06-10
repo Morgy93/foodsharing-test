@@ -1,35 +1,40 @@
 <template>
   <a
-    class="list-group-item list-group-item-action d-flex align-items-center"
+    class="list-group-item list-group-item-action field"
     :href="$url('basket', entry.id)"
   >
     <div class="img-thumbnail mr-2">
       <img
         :alt="$i18n('basket.by', {name: entry.fs_name})"
         :src="getImageUrl(entry.picture)"
-        width="30"
-        height="30"
+        class="rounded"
+        width="35"
+        height="35"
       >
     </div>
-    <div class="flex flex-column truncated">
-      <div class="d-flex justify-content-between align-items-center">
-        <strong
-          v-b-tooltip="entry.description.length > 30 ? entry.description : ''"
-          class="mr-2 text-truncate"
-          v-html="entry.description"
+    <div class="field-container field-container--stack">
+      <strong
+        v-b-tooltip="entry.description.length > 30 ? entry.description : ''"
+        class="field-headline"
+        v-html="entry.description"
+      />
+      <div class="field-container">
+        <small
+          v-b-tooltip.html="$i18n('basket.by', {name: entry.fs_name})"
+          class="field-subline field-subline--muted"
+          v-html="$i18n('basket.expires', {date: dateFormat(new Date(entry.until), 'full-short')})"
         />
         <span
-          v-if="distanceNumber(entry.distance) > 0"
-          class="badge list-group-item-dark badge-pill"
+          v-if="entry.distance"
+          class="ml-2 badge list-group-item-dark badge-pill"
         >
-          <i class="fas fa-directions" />
+          <i
+            v-if="distanceNumber(entry.distance) > 0"
+            class="fas fa-directions"
+          />
           {{ distanceString(entry.distance) }}
         </span>
       </div>
-      <small
-        v-b-tooltip.hover.html="$i18n('basket.expires', {date: dateFormat(new Date(entry.until), 'full-short')})"
-        v-html="$i18n('basket.by', {name: entry.fs_name})"
-      />
     </div>
   </a>
 </template>
@@ -44,14 +49,16 @@ export default {
   },
   methods: {
     distanceNumber (num) {
-      return Math.round(num * 10) / 10
+      return Math.round(num * 1000) / 1000
     },
     distanceString (num) {
       num = this.distanceNumber(num)
-      if (num < 1) {
+      if (num === 0) {
+        return '💑'
+      } else if (num < 1) {
         return `${(num * 1000).toLocaleString()} m`
       } else {
-        return `${(num).toFixed(2).toLocaleString()} km`
+        return `${(num).toFixed(1).toLocaleString()} km`
       }
     },
     getImageUrl (picture) {
@@ -64,13 +71,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.truncated {
-  flex: 1;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-</style>

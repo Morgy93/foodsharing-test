@@ -285,6 +285,7 @@ menu:
     all_messages: All messages
     messages: Messages
     your_groups: Your groups
+    your_baskets: Your baskets
     groups: Group overview
     your_account: Your account
     your_stores: Your stores
@@ -1432,6 +1433,8 @@ basket:
   nearby-short: Nearby
   mapsearch: Search for an address…
   nearby: Food baskets nearby
+  no_nearby: There are no food baskets within {radius} kilometer
+
   recent: Newest food baskets
   all: All food baskets
   title: Food baskets
@@ -2197,6 +2200,8 @@ dashboard:
   my:
     groups: Your groups
     regions: Your regions
+    events: Events
+    baskets: Foodbaskets
     no-stores: You are not in any team yet.
     managing: You are responsible for
     pending: Requests have been made to
@@ -2204,6 +2209,14 @@ dashboard:
     waiting: You are on the jumper list at
     buddies: People you know
     users: foodsavers
+  options:
+    hide:
+      text: Hide
+      tooltip: Here can you hide information on the dashboard
+    reset: Reset
+    grid_toggle:
+      2_columns: Go to 2 columns view
+      3_columns: Go to 2 columns view
   source_event: Appointment {0}
   showmore: Show more
   showless: Show less
@@ -2589,7 +2602,8 @@ activitypost:
   Response: "Answer"
   response: "answer"
   write: Write an answer …
-  quickreply_info: Jump to a new line with <code>Shift + Enter</code> and submit with <code>Enter</code>.
+  quickreply_info: <b>Shift + Return</b> to add a new line.
+  quickreply_button: Send now<br>or press<b>Return</b>.
 deletelow: delete
 
 error:

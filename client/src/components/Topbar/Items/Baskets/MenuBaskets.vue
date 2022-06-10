@@ -1,11 +1,12 @@
 <template>
   <fs-dropdown-menu
     ref="dropdown"
-    menu-title="basket.title"
-    :badge="basketsSorted.length "
-    icon="fa-shopping-basket"
     class="topbar-baskets"
+    title="menu.entry.your_baskets"
+    icon="fa-shopping-basket"
+    :badge="basketsSorted.length "
     :show-title="showTitle"
+    scrollbar
   >
     <template
       v-if="basketsSorted.length > 0"
@@ -61,14 +62,11 @@ import FsDropdownMenu from '../FsDropdownMenu'
 import { ajreq } from '@/script'
 import dateFnsCompareDesc from 'date-fns/compareDesc'
 
+import TopBarMixin from '@/mixins/TopBarMixin'
+
 export default {
   components: { MenuBasketsEntry, FsDropdownMenu },
-  props: {
-    showTitle: {
-      type: Boolean,
-      default: true,
-    },
-  },
+  mixins: [TopBarMixin],
   computed: {
     baskets () {
       return basketStore.baskets

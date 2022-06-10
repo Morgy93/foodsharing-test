@@ -1,13 +1,12 @@
 <template>
   <a
-    class="list-group-item list-group-item-action d-flex flex-column"
+    class="list-group-item list-group-item-action field field--stack"
     :href="$url('store', entry.store_id)"
-    style="min-height: 65px;"
   >
-    <div class="d-flex mb-auto justify-content-between align-items-center">
+    <div class="field-container">
       <small
         v-b-tooltip="entry.store_name.length > 30 ? entry.store_name : ''"
-        class="mb-0 mr-2 d-inline-block text-truncate"
+        class="field-subline"
         v-html="entry.store_name"
       />
       <span
@@ -33,8 +32,8 @@
         </span>
       </span>
     </div>
-    <h5
-      class="d-flex align-items-center font-weight-bold"
+    <strong
+      class="field-headline field-headline--big"
       :class="{
         'text-danger': getHourDifferenceToNow(entry.timestamp * 1000) < 24,
         'text-black-50': !getHourDifferenceToNow(entry.timestamp * 1000) > 24
@@ -50,7 +49,7 @@
         v-else
         v-html="dateFormat(entry.timestamp * 1000, 'full-short')"
       />
-    </h5>
+    </strong>
   </a>
 </template>
 

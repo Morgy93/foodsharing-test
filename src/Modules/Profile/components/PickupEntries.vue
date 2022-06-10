@@ -1,41 +1,46 @@
 <template>
   <!-- eslint-disable vue/max-attributes-per-line -->
-  <div :style="{minWidth: minWidth+'px', maxWidth: width+'px'}">
-    <div class="pickup-entries">
-      <!-- Flex container reverses elements for correct draw order without z-index -->
-      <div v-if="freeSlots" class="free-slots">
-        <span>
-          {{ $i18n(`pickup.overview.freeSlots`, {slots: freeSlots}) }}
-        </span>
-      </div>
-
-      <div v-if="hiddenUsersNum" :id="'hidden-fetchers-'+uniqueId" class="hidden-users">
-        <span>
-          +{{ hiddenUsersNum }}
-        </span>
-      </div>
-      <b-tooltip v-if="hiddenUsersNum" :target="'hidden-fetchers-'+uniqueId" triggers="hover">
-        <span v-for="(user, index) in hiddenUsers" :key="user.id">
-          <span v-if="index != 0">, </span>
-          <a :href="'/profile/' + user.id" class="tooltip-link">{{ user.name }}</a>
-        </span>
-      </b-tooltip>
-
-      <a
-        v-for="(user, index) in shownUsers"
-        :key="user.url+' '+index"
-        :href="`/profile/${user.id}`"
-      >
-        <Avatar
-          v-b-tooltip.hover="user.name"
-          :url="user.avatar"
-          round
-          img-class="content"
-          :class="index?'':'last-avatar'"
-          :auto-scale="false"
-        />
-      </a>
+  <div class="pickup-entries">
+    <!-- Flex container reverses elements for correct draw order without z-index -->
+    <div
+      v-if="freeSlots"
+      class="free-slots"
+      :class="{
+        'free-slots--users': shownUsersNum > 0,
+      }"
+    >
+      <span>
+        {{ $i18n(`pickup.overview.freeSlots`, {slots: freeSlots}) }}
+      </span>
     </div>
+
+    <div v-if="hiddenUsersNum" :id="'hidden-fetchers-'+uniqueId" class="hidden-users">
+      <span>
+        +{{ hiddenUsersNum }}
+      </span>
+    </div>
+    <b-tooltip v-if="hiddenUsersNum" :target="'hidden-fetchers-'+uniqueId" triggers="hover">
+      <span v-for="(user, index) in hiddenUsers" :key="user.id">
+        <span v-if="index != 0">, </span>
+        <a :href="'/profile/' + user.id" class="tooltip-link">{{ user.name }}</a>
+      </span>
+    </b-tooltip>
+
+    <a
+      v-for="(user, index) in shownUsers"
+      :key="index"
+      :href="$url('profile', user.id)"
+    >
+      <Avatar
+        v-b-tooltip="user.name"
+        :url="user.avatar"
+        :size="35"
+        round
+        img-class="content"
+        :class="index?'':'last-avatar'"
+        :auto-scale="false"
+      />
+    </a>
   </div>
 </template>
 
@@ -99,54 +104,55 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .pickup-entries {
   display: inline-flex;
   flex-direction: row-reverse;
   width: max-content;
-  .avatar {
-    width: 20px;
-    img {
-      border: 2px solid white;
-      border-width: 1px 2px 1px 0;
-    }
+
+  & *:not(:last-child) {
+    margin-left: -15px;
   }
-  a:first-child .avatar {
-    width: auto;
+}
+
+::v-deep .avatar {
+  width: 1rem;
+
+  img {
+    border: 1px solid white;
+    border-width: 1px 2px 1px 0;
   }
-  .hidden-users, .free-slots {
-    height: 37px;
-    line-height: 33px;
-    border-radius: 37px;
-    text-align: center;
+}
+
+.hidden-users, .free-slots {
+    align-items: center;
+    border-radius: 35px;
+    border: 1px solid;
+    display: flex;
     font-weight: bold;
-    padding-left: 12px;
-    border: 2px solid;
+    height: 35px;
+    padding: 0 .75rem;
 
-    span {
-      font-size: 12px;
+    &--users {
+      padding: 0 .75rem 0 1.5rem;
     }
   }
+
   .free-slots {
-    width: 58px;
-    border-color: #4e871c;
     background-color: var(--fs-green);
-    color: white;
-
-    &:last-child {
-      padding-left: 0;
-    }
+    border-color: #4e871c;
+    color: var(--white);
   }
+
   .hidden-users {
-    width: 37px;
-    border-color: var(--fs-beige);
     background-color: #fcfaee;
+    border-color: var(--fs-beige);
     color: rgba(var(--fs-brown-rgb), 0.75);
   }
+
   .free-slots + .hidden-users {
     margin-right: -15px;
   }
-}
 
 </style>

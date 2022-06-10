@@ -1,7 +1,8 @@
 <template>
   <b-nav-item-dropdown
     ref="dropdown-menu"
-    v-b-tooltip="$i18n(menuTitle)"
+    v-b-tooltip="!showTitle ? $i18n(title) : ''"
+    class="item"
     :right="right"
     :lazy="lazy"
   >
@@ -9,6 +10,7 @@
       <slot name="heading-icon">
         <i
           v-if="icon"
+          class="icon"
           :class="`fas ${icon}`"
         />
       </slot>
@@ -22,15 +24,15 @@
       </slot>
       <slot name="heading-text">
         <span
-          v-if="menuTitle"
+          v-if="title"
           class="headline"
-          :class="{'d-sm-inline-block': showTitle}"
-          v-html="$i18n(menuTitle)"
+          :class="{'show': showTitle}"
+          v-html="$i18n(title)"
         />
       </slot>
     </template>
     <div
-      :class="{'scroll-container': !fullSize}"
+      :class="{'scroll-container': scrollbar}"
     >
       <slot name="content">
         <template v-for="heading in items">
@@ -54,7 +56,7 @@
         </template>
       </slot>
     </div>
-    <div class="d-flex flex-column actions">
+    <div class="actions">
       <!-- eslint-disable-next-line vue/max-attributes-per-line -->
       <slot name="actions" :hide="closeDropdownMenu" />
     </div>
@@ -64,7 +66,7 @@
 
 export default {
   props: {
-    menuTitle: {
+    title: {
       type: String,
       default: undefined,
     },
@@ -84,15 +86,18 @@ export default {
       type: Boolean,
       default: false,
     },
-    fullSize: {
-      type: Boolean,
-      default: false,
-    },
     right: {
       type: Boolean,
       default: false,
     },
-    showTitle: { type: Boolean, default: false },
+    scrollbar: {
+      type: Boolean,
+      default: false,
+    },
+    showTitle: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     closeDropdownMenu () {
@@ -103,95 +108,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.item {
+  text-align: center;
+}
+
+::v-deep .nav-link{
+  position: relative;
+}
+
+.headline,
+.icon {
+  color: var(--primary);
+}
+
 .headline {
   display: none;
 
-  .collapse.show & {
+  .collapse.show &,
+  &.show {
     display: inline-block;
   }
 }
 
-.badge {
-  position: absolute;
-  top: 0;
-  left: 15px;
-
-  @media (min-width: 456px) {
-    left: 20px;
-  }
-
-  .collapse.show & {
-    left: 10px;
-  }
+.scroll-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 64vh;
 }
 
-::v-deep .dropdown-toggle::after {
-  content: unset;
+::v-deep.item a::after {
+  // @media (max-width: 576px) {
+     display: none;
+  // }
 }
 
-.dropdown {
-  &.list-with-actions ::v-deep .dropdown-menu {
-    padding: 0;
-  }
-  ::v-deep .dropdown-menu {
-    overflow: hidden;
-    // Bug of chrome: https://bugs.chromium.org/p/chromium/issues/detail?id=957946
-    background-clip: unset;
+.actions {
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--border);
 
-    min-width: 300px;
-    max-width: 300px;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
-
-    .scroll-container {
-      // LibSass is deprecated: https://github.com/sass/libsass/issues/2701
-      max-height: unquote("min(340px, 70vh)");
-      overflow: auto;
-    }
-    .dropdown-item {
-        i {
-        display: inline-block;
-        width: 1.7em;
-        text-align: center;
-        margin-left: -0.4em;
-      }
-    }
-
-    .actions:not(:empty){
-      padding-top: 0.5rem;
-      border-top: 1px solid #e9ecef;
-    }
-
-    .actions .btn{
-      flex: 1 1 auto;
-      margin: 0 1px;
-    }
-    .sub {
-      padding-left: 2.2rem;
-      font-size: 0.9rem;
-    }
-    .dropdown-header {
-     font-weight: bold;
-    }
-    .group .dropdown-header {
-      color: black;
-    }
-  }
-  @media (max-width: 576px) {
-    position: initial;
-
-    ::v-deep .dropdown-menu {
-      width: 100%;
-      max-width: initial;
-      top: 45px;
-
-      .scroll-container {
-        width: 100%;
-      }
-    }
-  }
-
-  ::v-deep .dropdown-toggle {
-    position: relative;
+  &:empty {
+    display: none;
   }
 }
 </style>

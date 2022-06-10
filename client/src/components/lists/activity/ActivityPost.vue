@@ -1,10 +1,16 @@
 <template>
-  <li class="list-group-item activity-item">
+  <li
+    class="list-group-item activity-item"
+    :class="{
+      'list-group-item-action clickable': canQuickreply || isTruncatable,
+    }"
+    @click.once="toggleState"
+  >
     <div class="d-flex align-items-center mb-2 font-weight-bold">
       <a
         v-if="fs_id && fs_name"
         :href="$url('profile', fs_id)"
-        class="d-flex align-items-center text-secondary"
+        class="d-flex align-items-center"
       >
         <span>{{ fs_name }}</span>
       </a>
@@ -15,7 +21,7 @@
         v-else-if="sender_email"
         v-b-tooltip="sender_email.length > 25 ? sender_email : null"
         :href="dashboardContentLink"
-        class="d-inline-block text-truncate text-secondary"
+        class="d-inline-block text-truncate"
         style="max-width: 125px;"
         v-html="sender_email"
       />
@@ -27,7 +33,7 @@
         v-if="type !== 'friendWall'"
         v-b-tooltip="title.length > 100 ? title : null"
         :href="dashboardContentLink"
-        class="d-inline-block text-truncate text-secondary"
+        class="d-inline-block text-truncate"
         v-html="title"
       />
     </div>
@@ -69,7 +75,7 @@
           </a>
         </div>
         <Markdown
-          :source="!state ? truncate(desc, 100) : desc"
+          :source="!state ? truncate(desc, truncatedLength) : desc"
         />
         <button
           v-if="isTruncatable || canQuickreply"
@@ -106,29 +112,45 @@
       <div
         v-if="!qrLoading"
       >
-        <textarea
-          v-model="quickreplyValue"
-          name="quickreply"
-          class="form-control"
-          :placeholder="$i18n('activitypost.write')"
-          rows="1"
-          @keyup="resizeTextarea"
-          @keydown.enter.exact.prevent="send()"
-        />
+        <div class="position-relative">
+          <textarea
+            v-model="quickreplyValue"
+            name="quickreply"
+            class="form-control"
+            :placeholder="$i18n('activitypost.write')"
+            rows="1"
+            @keyup="resizeTextarea"
+            @keydown.enter.exact.prevent="send()"
+            @keydown.alt.enter.exact.prevent="newLine()"
+            @keydown.shift.enter.exact.prevent="newLine()"
+            @keydown.ctrl.enter.exact.prevent="newLine()"
+          />
+          <button
+            v-b-tooltip.html="$i18n('activitypost.quickreply_button')"
+            class="btn mt-2 btn-primary"
+            :class="{
+              'position-absolute btn-sm': !viewIsMobile,
+              'btn-block': viewIsMobile,
+              'btn-outline-primary': !quickreplyValue
+            }"
+            style="bottom:1rem; right:1rem;"
+            :disabled="!quickreplyValue"
+            @click="send(true)"
+          >
+            <i class="fas fa-paper-plane" />
+            <span
+              v-if="viewIsMobile"
+              v-html="$i18n('activitypost.Response')"
+            />
+          </button>
+        </div>
         <small
-          v-if="viewIsMD"
-          class="mt-2 text-muted"
+          v-if="!viewIsMobile"
+          class="d-inline-block mt-2 text-muted"
         >
           <i class="fas fa-info-circle" />
           <span v-html="$i18n('activitypost.quickreply_info')" />
         </small>
-        <button
-          v-else
-          class="btn mt-2 btn-primary btn-block"
-          :disabled="!quickreplyValue"
-          @click="send(true)"
-          v-html="$i18n('activitypost.Response')"
-        />
       </div>
       <span
         v-else
@@ -143,7 +165,7 @@
         <i class="far fa-fw fa-clock" />
         <span v-b-tooltip="dateFormat(time, 'full-short')"> {{ dateDistanceInWords(time) }} </span>
       </small>
-      <p
+      <small
         v-if="source"
         v-b-tooltip="source.length > 40 ? source : null"
         class="text-truncate order-1 order-sm-2 mb-0"
@@ -202,13 +224,12 @@ export default {
   /* eslint-enable */
   data () {
     return {
+      truncatedLength: 280,
       isTruncatedText: true,
       qrLoading: false,
       user_id: serverData.user.id,
       user_avatar: serverData.user.avatar.mini,
-      quickreplyValue: null,
-      isAutoClose: false,
-
+      quickreplyValue: '',
     }
   },
   computed: {
@@ -231,7 +252,7 @@ export default {
       }
     },
     isTruncatable () {
-      return this.desc.split(' ').length > 30
+      return this.desc.length > this.truncatedLength
     },
     translationKey () {
       return 'dashboard.source_' + this.type + this.source_suffix
@@ -240,33 +261,36 @@ export default {
       // old endpoints use the 'quickreply' variable, new endpoints are distinguishable by the activity's type
       return (this.quickreply !== null && this.quickreply.length > 0) || this.type === 'forum'
     },
+    isReplyEmpty () {
+      return (this.quickreplyValue === null && this.quickreplyValue.length === 0)
+    },
   },
   methods: {
+    newLine () {
+      this.quickreplyValue += '\n'
+    },
     async send (forced = false) {
-      if (this.quickreplyValue !== null && this.quickreplyValue.trim().length !== 0) {
-        if ((this.viewIsMD && !forced) || forced) {
-          this.qrLoading = true
-          try {
-            if (this.type === 'forum') {
-              // forum posts already use the REST API for quickreplies
-              await createPost(this.entity_id, this.quickreplyValue)
-              pulseInfo(this.$i18n('forum.quickreply.success'))
-            } else {
-              // quickreplies to emails and wall posts (events, buddies, and stores) still use old XHR requests
-              const { message } = await sendQuickreply(this.quickreply, this.quickreplyValue)
-              pulseInfo(message)
-            }
-            this.quickreplyValue = ''
-          } catch (e) {
-            pulseInfo(this.$i18n('forum.quickreply.error'))
-          } finally {
-            this.qrLoading = false
+      if ((this.viewIsMD && !this.isReplyEmpty) || (forced && !this.isReplyEmpty)) {
+        this.qrLoading = true
+        try {
+          if (this.type === 'forum') {
+            // forum posts already use the REST API for quickreplies
+            await createPost(this.entity_id, this.quickreplyValue)
+            pulseInfo(this.$i18n('forum.quickreply.success'))
+          } else {
+            // quickreplies to emails and wall posts (events, buddies, and stores) still use old XHR requests
+            const { message } = await sendQuickreply(this.quickreply, this.quickreplyValue)
+            pulseInfo(message)
           }
-        } else {
-          this.quickreplyValue += '\n'
+          this.quickreplyValue = ''
+        } catch (e) {
+          pulseInfo(this.$i18n('forum.quickreply.error'))
+        } finally {
+          this.qrLoading = false
         }
+      } else {
+        this.newLine()
       }
-      return true
     },
   },
 }
@@ -277,6 +301,10 @@ export default {
   border-bottom-right-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
   margin-bottom: .5rem;
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 .activity-item:not(:first-child) {
@@ -306,5 +334,16 @@ export default {
       background-color: var(--light);
     }
   }
+}
+
+::v-deep.markdown p {
+  font-size: 15px;
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+::v-deep.markdown a[href]{
+ font-weight: bold;
+//  text-decoration: underline;
 }
 </style>

@@ -1,9 +1,8 @@
 <template>
   <List
-    v-if="list.length > 0"
     :tag="title"
     :title="$i18n(title)"
-    :hide="defaultAmount > list.length"
+    :hide="defaultAmount >= list.length"
     @show-full-list="showFullList"
     @reduce-list="reduceList"
   >
@@ -12,10 +11,16 @@
       :key="key"
       :entry="entry"
     />
+    <small
+      v-if="filteredList.length === 0"
+      class="list-group-item text-muted"
+      v-html="$i18n('basket.no_nearby', {radius: 30})"
+    />
   </List>
 </template>
-
 <script>
+// Radius is in the DashboardController.php defined.
+
 import ListToggleMixin from '@/mixins/ListToggleMixin'
 
 import List from '../_List.vue'
@@ -32,13 +37,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.truncated {
-  flex: 1;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-</style>

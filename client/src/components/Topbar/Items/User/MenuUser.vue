@@ -1,23 +1,23 @@
 <template>
   <fs-dropdown-menu
-    v-b-tooltip="$i18n('menu.entry.your_account')"
-    menu-title="menu.entry.your_account"
+    title="menu.entry.your_account"
     class="user"
     right
     full-size
   >
     <template #heading-icon>
-      <span class="img-thumbnail d-inline-flex mr-1 mr-lg-0">
+      <span class="icon img-thumbnail d-inline-flex">
         <Avatar
-          :url="avatar"
+          :url="user.photo"
           :size="16"
           :auto-scale="false"
+          style="min-width: 24px;min-height: 24px;"
         />
       </span>
     </template>
     <template #content>
       <a
-        v-if="may.administrateBlog"
+        v-if="permissions.administrateBlog"
         :href="$url('blogList')"
         role="menuitem"
         class="dropdown-item"
@@ -25,7 +25,7 @@
         <i class="fas fa-newspaper" /> {{ $i18n('menu.blog') }}
       </a>
       <a
-        v-if="may.editQuiz"
+        v-if="permissions.editQuiz"
         :href="$url('quizEdit')"
         role="menuitem"
         class="dropdown-item"
@@ -33,7 +33,7 @@
         <i class="fas fa-question-circle" /> {{ $i18n('menu.quiz') }}
       </a>
       <a
-        v-if="may.handleReports"
+        v-if="permissions.handleReports"
         :href="$url('reports')"
         role="menuitem"
         class="dropdown-item"
@@ -41,7 +41,7 @@
         <i class="fas fa-exclamation" /> {{ $i18n('menu.reports') }}
       </a>
       <a
-        v-if="may.administrateRegions"
+        v-if="permissions.administrateRegions"
         :href="$url('region')"
         role="menuitem"
         class="dropdown-item"
@@ -49,7 +49,7 @@
         <i class="fas fa-map" /> {{ $i18n('menu.manage_regions') }}
       </a>
       <a
-        v-if="may.administrateNewsletterEmail"
+        v-if="permissions.administrateNewsletterEmail"
         :href="$url('email')"
         role="menuitem"
         class="dropdown-item"
@@ -57,7 +57,7 @@
         <i class="fas fa-envelope" /> {{ $i18n('menu.email') }}
       </a>
       <a
-        v-if="may.manageMailboxes"
+        v-if="permissions.manageMailboxes"
         :href="$url('email')"
         role="menuitem"
         class="dropdown-item"
@@ -65,7 +65,7 @@
         <i class="fas fa-envelope" /> {{ $i18n('menu.manage_mailboxes') }}
       </a>
       <a
-        v-if="may.editContent"
+        v-if="permissions.editContent"
         :href="$url('contentEdit')"
         role="menuitem"
         class="dropdown-item"
@@ -73,11 +73,11 @@
         <i class="fas fa-file-alt" /> {{ $i18n('menu.content') }}
       </a>
       <div
-        v-if="hasAdminRights()"
+        v-if="hasAdminRights"
         class="dropdown-divider"
       />
       <a
-        :href="$url('profile', userId)"
+        :href="$url('profile', user.id)"
         role="menuitem"
         class="dropdown-item"
       >
@@ -99,7 +99,8 @@
       >
         <i class="fas fa-language" /> {{ $i18n('menu.entry.language') }}
       </a>
-      <div class="dropdown-divider" />
+    </template>
+    <template #actions>
       <a
         :href="$url('logout')"
         role="menuitem"
@@ -107,8 +108,6 @@
       >
         <i class="fas fa-power-off" /> {{ $i18n('login.logout') }}
       </a>
-    </template>
-    <template #actions>
       <language-chooser ref="languageChooser" />
     </template>
   </fs-dropdown-menu>
@@ -118,34 +117,24 @@ import FsDropdownMenu from '../FsDropdownMenu'
 import LanguageChooser from './LanguageChooser'
 import Avatar from '@/components/Avatar'
 
+import TopBarMixin from '@/mixins/TopBarMixin'
+
 export default {
   components: { LanguageChooser, FsDropdownMenu, Avatar },
-  props: {
-    userId: {
-      type: Number,
-      default: null,
+  mixins: [TopBarMixin],
+  computed: {
+    permissions () {
+      return this.user.permissions || {}
     },
-    avatar: {
-      type: String,
-      default: null,
-    },
-    may: {
-      type: Object,
-      default: () => {},
-    },
-    showTitle: { type: Boolean, default: false },
-  },
-  methods: {
     hasAdminRights () {
-      return this.may.administrateBlog || this.may.editQuiz || this.may.handleReports || this.may.editContent || this.may.manageMailboxes || this.may.administrateNewsletterEmail || this.may.administrateRegions
+      return (this.permissions.administrateBlog ||
+              this.permissions.editQuiz ||
+              this.permissions.handleReports ||
+              this.permissions.editContent ||
+              this.permissions.manageMailboxes ||
+              this.permissions.administrateNewsletterEmail ||
+              this.permissions.administrateRegions)
     },
   },
 }
 </script>
-
-<style lang="scss" scoped>
-::v-deep.user a {
- display: flex;
- align-items: center;
-}
-</style>

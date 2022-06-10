@@ -1920,11 +1920,21 @@ dashboard:
     regions: "Deine Bezirke" #also in searchindexgenerator
     groups: "Deine Gruppen" #also in searchindexgenerator
     stores: "Deine Betriebe"
+    events: "Events"
+    baskets: "Essenskörbe"
     pending: "Anfragen gestellt bei"
     waiting: "Du bist auf der Springerliste bei"
     no-stores: "Du bist bis jetzt in keinem Betriebsteam."
     users: "Foodsaver*innen"
     buddies: "Menschen, die Du kennst"
+  options:
+    hide:
+      text: "Ausblenden"
+      tooltip: "Hier kannst du Informationen auf dem Dashboard ausblenden"
+    reset: Zurücksetzen
+    grid_toggle:
+      2_columns: "Zur 2-Spalten-Ansicht wechseln"
+      3_columns: "Zur 3-Spalten-Ansicht wechseln"
   showmore: "Mehr anzeigen"
   showless: "Weniger anzeigen"
   invitation: "Du wurdest eingeladen"
@@ -1961,6 +1971,7 @@ basket:
   recent: "Neueste Essenskörbe"
   nearby: "Essenskörbe in deiner Nähe"
   nearby-short: "In deiner Nähe"
+  no_nearby: "Es gibt keine Essenskörbe im Umkreis von {radius} Kilometer"
   mapsearch: "Adresssuche…"
   go: "zum Essenskorb"
   by: "Essenskorb von {name}"
@@ -2076,6 +2087,7 @@ menu:
     all_messages: "Alle Nachrichten"
     messages: "Nachrichten"
     your_groups: "Deine Gruppen"
+    your_baskets: "Deine Essenskörbe"
     groups: "Gruppenübersicht"
     your_account: "Dein Account"
     your_stores: "Deine Betriebe" #also in searchindexgenerator
@@ -2568,7 +2580,8 @@ activitypost:
   Response: "Antworten"
   response: "antworten"
   write: "Schreibe eine Antwort …"
-  quickreply_info: "Mit <code>Shift + Enter</code> in eine neue Zeile springen und mit <code>Enter</code> abschicken."
+  quickreply_info: "<b>Umschalttaste + Eingabetaste</b> zum Hinzufügen einer neuen Zeile."
+  quickreply_button: Jetzt Senden<br>oder <b>Eingabetaste</b> drücken.
 deletefromregion: "Wirklich aus dem Bezirk löschen?"
 savewithus: "Rette mit!"
 logincontrol:

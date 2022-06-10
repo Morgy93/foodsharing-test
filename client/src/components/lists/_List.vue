@@ -97,7 +97,56 @@ export default {
   justify-content: space-between;
 }
 
-::v-deep .list-group-item:not(:last-child):not(.list-group-header):not(.list-row-item) {
+.list-group-item:not(:last-child):not(.list-group-header):not(.list-row-item) {
   border-bottom: 0;
+}
+
+::v-deep .field {
+  display: flex;
+  min-height: 70px;
+
+  &--stack {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+::v-deep .field-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &--stack {
+    flex-direction: column;
+  }
+}
+
+::v-deep .field-headline {
+  // flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  // white-space: nowrap;
+  // display: flex;
+  // align-items: center;
+
+  &--big {
+    font-size: 1rem;
+  }
+}
+
+::v-deep .field-subline {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 0.5rem;
+
+  &--muted {
+    color: var(--gray);
+  }
 }
 </style>

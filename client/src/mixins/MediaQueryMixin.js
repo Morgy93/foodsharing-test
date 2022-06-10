@@ -39,6 +39,9 @@ export default {
   },
   // https://getbootstrap.com/docs/5.0/layout/breakpoints/
   computed: {
+    viewIsMobile () {
+      return (this.viewIsXS || this.viewIsSM) && !this.viewIsMD
+    },
     viewIsXS () {
       return this.windowWidth < 576
     },

@@ -1,13 +1,12 @@
 <template>
   <a
-    class="list-group-item list-group-item-action d-flex flex-column"
+    class="list-group-item list-group-item-action field field--stack"
     :href="$url('store', entry.id)"
-    style="min-height: 65px;"
   >
-    <div class="d-flex mb-auto justify-content-between align-items-center">
+    <div class="field-container">
       <strong
         v-b-tooltip="entry.name.length > 30 ? entry.name : ''"
-        class="mb-0 mr-2 d-inline-block text-truncate"
+        class="field-headline"
         v-html="entry.name"
       />
       <i
@@ -19,7 +18,6 @@
     </div>
     <div
       v-if="entry.pickupStatus > 0"
-      v-b-tooltip="$i18n('store.tooltip_'+['yellow', 'orange', 'red'][entry.pickupStatus - 1])"
       class="d-flex align-items-center"
     >
       <i
@@ -31,7 +29,7 @@
         }"
       />
       <small
-        class="align-self-start d-inline-block text-truncate"
+        class="field-subline"
         v-html="$i18n('store.short_tooltip_'+['yellow', 'orange', 'red'][entry.pickupStatus - 1])"
       />
     </div>

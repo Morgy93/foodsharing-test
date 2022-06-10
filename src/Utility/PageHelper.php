@@ -240,27 +240,27 @@ final class PageHelper
 			}
 		}
 
-		$loggedIn = $this->session->may();
+		if ($user = $this->session->get('user')) {
+			$user['id'] = $this->session->id();
+			$user['permissions'] = [
+				'administrateBlog' => $this->blogPermissions->mayAdministrateBlog(),
+				'editQuiz' => $this->quizPermissions->mayEditQuiz(),
+				'handleReports' => $this->reportPermissions->mayHandleReports(),
+				'addStore' => $this->storePermissions->mayCreateStore(),
+				'manageMailboxes' => $this->mailboxPermissions->mayManageMailboxes(),
+				'editContent' => $this->contentPermissions->mayEditContent(),
+				'administrateNewsletterEmail' => $this->newsletterEmailPermissions->mayAdministrateNewsletterEmail(),
+				'administrateRegions' => $this->regionPermissions->mayAdministrateRegions()
+			];
+		} else {
+			$user = null;
+		}
 
 		$params = array_merge(
 			[
-				'loggedIn' => $loggedIn,
-				'userId' => $this->session->id(),
-				'avatar' => $loggedIn ? $_SESSION['client']['photo'] : '',
-				'mailbox' => $this->session->get('mailbox'),
-				'hasFsRole' => $this->session->may('fs'),
-				'may' => [
-					'administrateBlog' => $this->blogPermissions->mayAdministrateBlog(),
-					'editQuiz' => $this->quizPermissions->mayEditQuiz(),
-					'handleReports' => $this->reportPermissions->mayHandleReports(),
-					'addStore' => $this->storePermissions->mayCreateStore(),
-					'manageMailboxes' => $this->mailboxPermissions->mayManageMailboxes(),
-					'editContent' => $this->contentPermissions->mayEditContent(),
-					'administrateNewsletterEmail' => $this->newsletterEmailPermissions->mayAdministrateNewsletterEmail(),
-					'administrateRegions' => $this->regionPermissions->mayAdministrateRegions()
-				],
+				'user' => $user,
 				'regions' => $regions,
-				'workingGroups' => $workingGroups,
+				'groups' => $workingGroups,
 			]
 		);
 

@@ -1,11 +1,12 @@
 <template>
   <fs-dropdown-menu
     id="dropdown-bells"
-    menu-title="menu.entry.notifications"
+    class="topbar-bells"
+    title="menu.entry.notifications"
     icon="fa-bell"
     :badge="unread"
-    class="topbar-bells"
     :show-title="showTitle"
+    scrollbar
     right
   >
     <template
@@ -17,7 +18,7 @@
         :key="bell.id"
         :bell="bell"
         @remove="onBellDelete"
-        @bell-read="onBellRead"
+        @read="onBellRead"
       />
     </template>
     <template
@@ -49,16 +50,16 @@
 <script>
 import FsDropdownMenu from '../FsDropdownMenu'
 import MenuBellsEntry from './MenuBellsEntry'
+
 import bellStore from '@/stores/bells'
-import i18n from '@/i18n'
 import { pulseError } from '@/script'
 import dateFnsParseISO from 'date-fns/parseISO'
 
+import TopBarMixin from '@/mixins/TopBarMixin'
+
 export default {
   components: { MenuBellsEntry, FsDropdownMenu },
-  props: {
-    showTitle: { type: Boolean, default: false },
-  },
+  mixins: [TopBarMixin],
   computed: {
     bells () {
       return bellStore.bells.map(bell => {
@@ -82,7 +83,7 @@ export default {
       try {
         await bellStore.delete(id)
       } catch (err) {
-        pulseError(i18n('error_unexpected'))
+        pulseError(this.$i18n('error_unexpected'))
       }
     },
     async onBellRead (bell) {
@@ -90,7 +91,7 @@ export default {
         try {
           await bellStore.markAsRead(bell)
         } catch (err) {
-          pulseError(i18n('error_unexpected'))
+          pulseError(this.$i18n('error_unexpected'))
         }
       }
     },
@@ -98,7 +99,7 @@ export default {
       try {
         bellStore.markNewBellsAsRead()
       } catch {
-        pulseError(i18n('error_unexpected'))
+        pulseError(this.$i18n('error_unexpected'))
       }
     },
   },

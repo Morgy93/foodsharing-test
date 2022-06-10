@@ -2,8 +2,8 @@
   <MenuItem
     :title="$i18n('menu.entry.mailbox')"
     :url="$url('mailbox')"
-    icon="fa-envelope"
     :badge="unread"
+    icon="fa-envelope"
   />
 </template>
 

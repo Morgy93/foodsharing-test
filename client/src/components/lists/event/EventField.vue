@@ -25,7 +25,7 @@
           />
           <span
             v-else-if="getDayDifferenceToNow(startDate) < 3"
-            v-html="getWeekDayString(startDate)"
+            v-html="dateFormat(startDate, 'weekday-short')"
           />
           <span
             v-else
@@ -35,17 +35,19 @@
         </div>
       </div>
       <div class="d-flex justify-content-between flex-column truncated">
-        <h5
-          v-b-tooltip.hover="entry.name.length > 30 ? entry.name : null"
-          class="m-0 text-truncate"
-          v-html="entry.name"
-        />
-        <span
-          :href="$url('forum', entry.region_id)"
-          class="d-block text-muted text-truncate"
-          v-html="entry.regionName"
-        />
-        <div class="d-flex justify-content-between">
+        <div>
+          <strong
+            v-b-tooltip.hover="entry.name.length > 30 ? entry.name : null"
+            class="m-0 text-truncate"
+            v-html="entry.name"
+          />
+          <span
+            :href="$url('forum', entry.region_id)"
+            class="d-block small text-muted text-truncate"
+            v-html="entry.regionName"
+          />
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
           <div class="text-muted mt-auto">
             <i class="fas fa-clock" />
             <span

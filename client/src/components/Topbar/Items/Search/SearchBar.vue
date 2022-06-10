@@ -1,40 +1,14 @@
 <template>
-  <div
-    id="topbar-search"
-    class="d-flex form flex-grow-1"
-  >
-    <div
-      ref="inputgroup"
-      class="input-group input-group-sm"
+  <div id="search-bar">
+    <b-input-group
+      :prepend-html="prependHtml"
     >
-      <div class="input-group-prepend">
-        <label
-          id="searchfield-label"
-          :aria-label="$i18n('search.title')"
-          class="input-group-text text-primary"
-          for="searchfield"
-        >
-          <img
-            v-if="isLoading"
-            width="14px"
-            src="/img/469.gif"
-          >
-          <i
-            v-else
-            class="fas fa-search"
-          />
-        </label>
-      </div>
-      <input
+      <b-form-input
         id="searchfield"
         v-model="query"
         :placeholder="$i18n('search.placeholder')"
-        type="text"
-        class="form-control text-primary"
-        aria-labelledby="searchfield-label"
-        aria-placeholder=""
-      >
-    </div>
+      />
+    </b-input-group>
     <div
       v-if="isOpen"
       id="search-results"
@@ -88,6 +62,14 @@ export default {
         myBuddies: [],
       },
     }
+  },
+  computed: {
+    prependHtml () {
+      if (this.isLoading) {
+        return '<i class="fas fa-spinner fa-spin"/>'
+      }
+      return '<i class="fas fa-search"/>'
+    },
   },
   watch: {
     query (query, oldQuery) {
@@ -151,48 +133,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  #topbar-search,
-  #search-results {
-    max-width: 500px;
+#search-bar {
+  position: relative;
+}
+
+#search-bar,
+#search-results {
+  max-width: 320px;
+  min-width: 320px;
+
+  .collapse.show & {
+    max-width: initial;
   }
-  #search-results {
+
+  @media (min-width: 1280px) {
+    max-width: 500px;
     min-width: 500px;
   }
+}
 
-  #search-results {
-    display: block;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0em 0em 5px 0px rgba(0, 0, 0, 0.35);
-    left: 0;
-    top: 30px;
-
-    @media (max-width: 1000px) {
-      transform: translateX(-50%);
-    }
-  }
-  #topbar-search {
-    position: relative;
-    margin: 0 auto;
-    .input-group {
-      align-items: unset;
-      flex-wrap: nowrap;
-    }
-  }
-
-  @media (max-width: 767px) {
-    #topbar-search {
-      position: unset;
-      width: 100%;
-      max-width: unset;
-      order: 2;
-    }
-
-    #search-results {
-      top: 89px;
-      width: 100%;
-      left: 50%;
-      min-width: 100%;
-    }
-  }
+#search-results {
+  display: block;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0em 0em 5px 0px rgba(0, 0, 0, 0.35);
+  left: 0;
+  top: 30px;
+}
 </style>

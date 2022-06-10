@@ -30,14 +30,11 @@
 </template>
 
 <script>
-import { BModal, BFormSelect, BImg } from 'bootstrap-vue'
 import { pulseError } from '@/script'
-import i18n from '@/i18n'
 import { getLocale, setLocale } from '@/api/locale'
 
 export default {
   name: 'LanguageChooser',
-  components: { BModal, BFormSelect, BImg },
   data () {
     return {
       language: null,
@@ -62,7 +59,7 @@ export default {
       try {
         this.language = await getLocale()
       } catch (e) {
-        pulseError(i18n('error_unexpected'))
+        pulseError(this.$i18n('error_unexpected'))
       }
 
       this.loading = false
@@ -72,13 +69,9 @@ export default {
         await setLocale(this.language)
         location.reload()
       } catch (e) {
-        pulseError(i18n('error_unexpected'))
+        pulseError(this.$i18n('error_unexpected'))
       }
     },
   },
 }
 </script>
-
-<style scoped>
-
-</style>

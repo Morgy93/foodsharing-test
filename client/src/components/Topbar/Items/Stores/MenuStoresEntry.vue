@@ -1,81 +1,84 @@
 <template>
-  <div
-    :key="store.id"
-    class="store-list-dropdown"
+  <a
+    :href="$url('store', entry.id)"
+    role="menuitem"
+    class="dropdown-item"
+    :clss="classes"
   >
-    <a
-      :href="$url('store', store.id)"
-      role="menuitem"
-      class="dropdown-item d-inline-flex align-items-baseline"
-    >
+    <div class="d-flex mb-auto justify-content-between align-items-center">
+      <div class="d-flex text-truncate">
+        <div
+          v-if="entry.pickupStatus > 0"
+          class="d-flex align-items-center"
+        >
+          <i
+            class="fas fa-circle mr-1"
+            :class="{
+              'text-primary': entry.pickupStatus === 1,
+              'text-warning': entry.pickupStatus === 2,
+              'text-danger': entry.pickupStatus === 3
+            }"
+          />
+        </div>
+        <h5
+          v-b-tooltip="entry.name.length > 30 ? entry.name : ''"
+          class="d-inline-block text-truncate"
+          v-html="entry.name"
+        />
+      </div>
       <i
-        :id="`store_marker_${store.id}`"
-        v-b-tooltip="store.pickupStatus === 0 ? '' : $i18n(tooltipId(store.pickupStatus))"
-        class="store-status fas fa-fw fa-circle flex-grow-0 flex-shrink-0"
-        :class="statusClass(store.pickupStatus)"
+        v-if="entry.isManaging"
+        class="fas fa-users-cog text-muted"
+        style="cursor: help;"
       />
-      <span class="store-name flex-grow-1 flex-shrink-1 text-truncate">
-        {{ store.name }}
-      </span>
-      <span
-        v-if="store.isManaging"
-        v-b-tooltip="$i18n('store.tooltip_managing')"
-        class="text-muted is-managing flex-grow-0 flex-shrink-0"
-      >
-        <i class="fas fa-fw fa-users-cog text-right" />
-      </span>
-    </a>
-  </div>
+    </div>
+  </a>
 </template>
 
 <script>
 
 export default {
   props: {
-    store: {
+    entry: {
       type: Object,
       default: () => ({}),
     },
   },
-  methods: {
-    badgeClass (pickupStatus) {
-      const classes = ['badge-info', 'badge-info', 'badge-warning', 'badge-danger']
-      return classes[pickupStatus]
+  computed: {
+    classes () {
+      return [
+        'list-group-item',
+        'list-group-item-action',
+      ]
     },
-    statusClass (pickupStatus) {
-      const classes = ['invisible', 'status-info', 'status-warning', 'status-danger']
-      return classes[pickupStatus]
-    },
-    tooltipId (pickupStatus) {
-      const ids = ['', 'store.tooltip_yellow', 'store.tooltip_orange', 'store.tooltip_red']
-      return ids[pickupStatus]
+    pickupStringStatus () {
+      return 'store.tooltip_' + ['yellow', 'orange', 'red'][this.entry.pickupStatus - 1]
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.store-list-dropdown .store-status {
-  margin-left: -1.25rem !important; // needs !important thanks to the `#topbar .dropdown-item i` rule
-  margin-right: .25rem;
+.dropdown-item {
+    padding: 0.8em 1em;
+    border: unset;
 
-  &.status-info {
-    color: var(--fs-beige);
-  }
-  &.status-warning {
-    color: var(--warning);
-  }
-  &.status-danger {
-    color: var(--danger);
-  }
+    h5 {
+      font-weight: bold;
+      font-size: 0.9em;
+          margin: 0;
+    }
+
+    p {
+        font-size: 0.8em;
+    }
 }
 
-.is-managing {
-  margin-right: -1rem;
-  padding-left: .25rem;
-}
+.truncated {
+  flex: 1;
 
-.loader-container {
-  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

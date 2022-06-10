@@ -1,6 +1,6 @@
 <template>
   <a
-    :href="linkUrl"
+    :href="href"
     :aria-label="$i18n('home.title')"
     class="navbar-brand brand"
   >
@@ -24,7 +24,7 @@ import MediaQueryMixin from '@/mixins/MediaQueryMixin'
 export default {
   mixins: [MediaQueryMixin],
   props: {
-    linkUrl: {
+    href: {
       type: String,
       default: '',
     },
@@ -33,7 +33,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .brand {
-    min-width: 45px;
     margin: 0;
     font-family: 'Alfa Slab One',serif;
     color: var(--primary);

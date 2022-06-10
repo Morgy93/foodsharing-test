@@ -3,7 +3,7 @@
     v-if="count > 0"
     :tag="title"
     :title="count > 1 ? $i18n(`${title}Count`, { count }) : $i18n(title)"
-    :hide="defaultAmount > count - 1"
+    :hide="defaultAmount >= count"
     @show-full-list="showFullList"
     @reduce-list="reduceList"
   >

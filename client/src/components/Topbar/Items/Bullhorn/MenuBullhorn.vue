@@ -1,50 +1,94 @@
 <template>
   <fs-dropdown-menu
-    menu-title="menu.entry.activities"
-    :items="headings"
+    title="menu.entry.activities"
     icon="fa-bullhorn"
+    :show-title="showTitle"
     right
-    full-size
-  />
+  >
+    <template #content>
+      <div
+        v-for="(heading, idx) in headings"
+        :key="idx"
+        class="group"
+      >
+        <a
+          v-b-toggle="toggleId(idx)"
+          role="menuitem"
+          class="dropdown-header dropdown-item text-truncate"
+          href="#"
+          target="_self"
+          :class="{ 'disabled': collapsed }"
+          v-html="$i18n(heading.name)"
+        />
+        <b-collapse
+          :id="toggleId(idx)"
+          :visible="collapsed ? collapsed : idx === 0"
+          :accordion="collapsed ? heading.name : $options.name"
+        >
+          <a
+            v-for="(entry, key) in heading.items"
+            :key="key"
+            :href="$url(entry.url)"
+            :target="entry.target"
+            role="menuitem"
+            class="dropdown-item sub"
+            v-html="$i18n(entry.title)"
+          />
+        </b-collapse>
+      </div>
+    </template>
+  </fs-dropdown-menu>
 </template>
-
 <script>
 import FsDropdownMenu from '../FsDropdownMenu'
 
+import TopBarMixin from '@/mixins/TopBarMixin'
+
 export default {
-  components: {
-    FsDropdownMenu,
+  name: 'MenuBullhorn',
+  components: { FsDropdownMenu },
+  mixins: [TopBarMixin],
+  props: {
+    collapsed: {
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
       headings: [
         {
-          heading: 'menu.entry.fundraising',
-          menuItems: [
-            { url: 'donations', menuTitle: 'menu.entry.donations' },
-            { url: 'circle_of_friends', menuTitle: 'menu.entry.friendcircle' },
-            { url: 'selfservice', menuTitle: 'menu.entry.selfservice' },
-            { url: 'transparency', menuTitle: 'menu.entry.transparency' },
+          name: 'menu.entry.fundraising',
+          items: [
+            { url: 'donations', title: 'menu.entry.donations' },
+            { url: 'circle_of_friends', title: 'menu.entry.friendcircle' },
+            { url: 'selfservice', title: 'menu.entry.selfservice' },
+            { url: 'transparency', title: 'menu.entry.transparency' },
           ],
         },
         {
-          heading: 'menu.entry.politics',
-          menuItems: [
-            { url: 'fsstaedte', menuTitle: 'menu.entry.fscities' },
-            { url: 'claims', menuTitle: 'menu.entry.demands' },
-            { url: 'leeretonne', menuTitle: 'menu.entry.pastcampaigns' },
+          name: 'menu.entry.politics',
+          items: [
+            { url: 'fsstaedte', title: 'menu.entry.fscities' },
+            { url: 'claims', title: 'menu.entry.demands' },
+            { url: 'leeretonne', title: 'menu.entry.pastcampaigns' },
           ],
         },
         {
-          heading: 'menu.entry.education',
-          menuItems: [
-            { url: 'academy', menuTitle: 'menu.entry.academy' },
-            { url: 'workshops', menuTitle: 'menu.entry.talksandworkshops' },
-            { url: 'festival', menuTitle: 'menu.entry.fsfestival' },
+          name: 'menu.entry.education',
+          items: [
+            { url: 'academy', title: 'menu.entry.academy' },
+            { url: 'workshops', title: 'menu.entry.talksandworkshops' },
+            { url: 'festival', title: 'menu.entry.fsfestival' },
           ],
         },
       ],
     }
+  },
+  methods: {
+    toggleId (id) {
+      return this.$options.name + '_' + id
+    },
   },
 }
 </script>

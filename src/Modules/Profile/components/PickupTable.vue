@@ -238,7 +238,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .slotstatus-icon {
   font-size: 14px;
   &.pending {
@@ -281,10 +281,6 @@ export default {
   text-align: center;
 }
 
-.pickup-entries {
-  margin: -9px 0;
-}
-
 .store-name {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -300,6 +296,10 @@ export default {
 
 .no-wrap {
   white-space: nowrap;
+}
+
+::v-deep *[aria-colindex="4"] {
+  min-width: 200px
 }
 
 </style>

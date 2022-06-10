@@ -1,16 +1,16 @@
 <template>
   <fs-dropdown-menu
     id="dropdown-stores"
-    menu-title="menu.entry.your_stores"
+    title="menu.entry.your_stores"
     icon="fa-shopping-cart"
-    :show-menu-title="false"
+    scrollbar
     lazy
   >
     <template
       v-if="!loaded"
       #content
     >
-      <img src="/img/469.gif">
+      <i class="fas fa-spinner fa-spin" />
     </template>
     <template
       v-else-if="stores.length > 0"
@@ -19,7 +19,7 @@
       <menu-stores-entry
         v-for="store in stores"
         :key="store.id"
-        :store="store"
+        :entry="store"
       />
     </template>
     <template
@@ -63,8 +63,11 @@ import MenuStoresEntry from './MenuStoresEntry'
 import FsDropdownMenu from '../FsDropdownMenu'
 import vueStore from '@/stores/stores'
 
+import TopBarMixin from '@/mixins/TopBarMixin'
+
 export default {
   components: { MenuStoresEntry, FsDropdownMenu },
+  mixins: [TopBarMixin],
   props: {
     mayAddStore: {
       type: Boolean,
@@ -94,9 +97,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-  .bootstrap .badge-info {
-    background-color: #f5f5b5;
-  }
-</style>
