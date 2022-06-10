@@ -1122,11 +1122,6 @@ foodsaver:
   actions: Azioni
   title: Foodsaver
   bread: Tutti i Foodsaver
-  addresschange:
-    text: Un indirizzo cambiato qui non aggiorna le geo-coordinate, che sono necessarie
-      per i cesti alimentari, per esempio. Perciò è fortemente raccomandato che l'utente
-      cambi l'indirizzo da solo nelle {impostazioni}.
-    title: Avviso di cambio di indirizzo
   restricted: Spiacente, non hai il permesso di visualizzare questi dati.
   about_me_intern: "Questa breve descrizione sarà visualizzata sulla pagina del tuo\
     \ profilo\ne sarà visibile a tutti nella comunità del foodsharing.\n"

@@ -559,11 +559,6 @@ foodsaver:
   list:
     inactive: ', inactifs durant les 6 derniers mois :'
     summary: '{count} Collecteur.ice.s à {region}'
-  addresschange:
-    text: En changeant d'adresse ici, les coordonnées géographiques ne seront pas
-      actualisées. Elles sont pourtant nécessaire pour les paniers solidaires. Penser
-      à actualiser l'adresse dans {settings}.
-    title: "Attention : changement d'adresse"
   restricted: Droits manquants pour accéder à ces informations.
   upgrade:
     amb_success: Merci de ton engagement et de ta motivation ! Ta demande sera traitée

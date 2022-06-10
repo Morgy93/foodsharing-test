@@ -12,10 +12,11 @@
 - On the login page, "Stay logged in for one day" is saved in local storage for the next logins. !2249 @NINI1988
 
 ## Changes
--Checks in the id card creation function if only one foodsaver is selected and then reduces the 
-size to the area for a single id card. If more than one foodsaver is selected, then the old logic takes effect 
-and an A4 sheet is used. !2198 @chriswalg
-- Send a bell notification and email, if a foodsaver was verified. !2198 @chriswalg
+- Checks in the id card creation function if only one foodsaver is selected and then reduces the 
+  size to the area for a single id card. If more than one foodsaver is selected, then the old logic takes effect 
+  and an A4 sheet is used. !2198 #chriswalg
+- Send a bell notification and email, if a foodsaver was verified. !2198 #chriswalg
+- Unifiying the foodsaver adress change page and adress change page for ambassadors !2171 @NINI1988
 - Set fileformat jpg / png for wallposts !2229 @chriswalg
 - Removed the possibility to edit the member list on a working group's edit page !2228 @alex.simm
 - Info for foodsharer how can change the name !2240 @chriswalg

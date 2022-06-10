@@ -11,6 +11,7 @@ use Foodsharing\Modules\Foodsaver\FoodsaverTransactions;
 use Foodsharing\Modules\Login\LoginGateway;
 use Foodsharing\Modules\Profile\ProfileGateway;
 use Foodsharing\Modules\Profile\ProfileTransactions;
+use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Register\DTO\RegisterData;
 use Foodsharing\Modules\Register\RegisterTransactions;
 use Foodsharing\Modules\Store\PickupGateway;
@@ -34,6 +35,7 @@ class UserRestController extends AbstractFOSRestController
 	private FoodsaverGateway $foodsaverGateway;
 	private ProfileGateway $profileGateway;
 	private UploadsGateway $uploadsGateway;
+	private RegionGateway $regionGateway;
 	private PickupGateway $pickupGateway;
 	private ReportPermissions $reportPermissions;
 	private UserPermissions $userPermissions;
@@ -54,6 +56,7 @@ class UserRestController extends AbstractFOSRestController
 		FoodsaverGateway $foodsaverGateway,
 		ProfileGateway $profileGateway,
 		UploadsGateway $uploadsGateway,
+		RegionGateway $regionGateway,
 		ReportPermissions $reportPermissions,
 		UserPermissions $userPermissions,
 		ProfilePermissions $profilePermissions,
@@ -68,6 +71,7 @@ class UserRestController extends AbstractFOSRestController
 		$this->foodsaverGateway = $foodsaverGateway;
 		$this->profileGateway = $profileGateway;
 		$this->uploadsGateway = $uploadsGateway;
+		$this->regionGateway = $regionGateway;
 		$this->reportPermissions = $reportPermissions;
 		$this->userPermissions = $userPermissions;
 		$this->profilePermissions = $profilePermissions;
@@ -118,6 +122,57 @@ class UserRestController extends AbstractFOSRestController
 	}
 
 	/**
+	 * Normalizes the detailed profile of a user.
+	 *
+	 * @param array $data user profile data
+	 */
+	private function normalizeUserDetails(array $data): array
+	{
+		$loggedIn = $this->session->may();
+		$mayEditUserProfile = $this->profilePermissions->mayEditUserProfile($data['id']);
+		$mayAdministrateUserProfile = $this->profilePermissions->mayAdministrateUserProfile($data['id'], $data['bezirk_id']);
+
+		$response = [];
+		$response['id'] = $data['id'];
+		$response['verified'] = ($data['verified'] === 1) ? true : false;
+		$response['region_id'] = $data['bezirk_id'];
+		$response['region_name'] = ($data['bezirk_id'] === null) ? null : $this->regionGateway->getRegionName($data['bezirk_id']);
+
+		if ($loggedIn) {
+			$response['firstname'] = $data['name'];
+			$response['lastname'] = $data['nachname'];
+			$response['about_me_public'] = $data['about_me_public'];
+			$response['homepage'] = $data['homepage'];
+		} else {
+			$response['firstname'] = ($data['name'] === null) ? null : $data['name'][0]; // Only return first character
+		}
+
+		if ($mayEditUserProfile) {
+			$response['address'] = $data['anschrift'];
+			$response['city'] = $data['stadt'];
+			$response['postcode'] = $data['plz'];
+			$response['lat'] = $data['lat'];
+			$response['lon'] = $data['lon'];
+			$response['email'] = $data['email'];
+			$response['landline'] = $data['telefon'];
+			$response['mobile'] = $data['handy'];
+			$response['geb_datum'] = $data['geb_datum'];
+			$response['about_me_intern'] = $data['about_me_intern'];
+		}
+
+		if ($mayAdministrateUserProfile) {
+			$response['rolle'] = $data['rolle'];
+			$response['position'] = $data['position'];
+			$response['geschlecht'] = $data['geschlecht'];
+		}
+
+		$response['mayEditUserProfile'] = $mayEditUserProfile;
+		$response['mayAdministrateUserProfile'] = $mayAdministrateUserProfile;
+
+		return $response;
+	}
+
+	/**
 	 * Lists the detailed profile of a user. Returns 403 if not allowed or 200 and the data.
 	 *
 	 * @OA\Tag(name="user")
@@ -126,16 +181,12 @@ class UserRestController extends AbstractFOSRestController
 	 */
 	public function userDetailsAction(int $id): Response
 	{
-		if (!$this->userPermissions->maySeeUserDetails($id)) {
-			throw new HttpException(403);
-		}
-
 		$data = $this->profileGateway->getData($id, -1, $this->reportPermissions->mayHandleReports());
 		if (!$data || empty($data)) {
 			throw new HttpException(404, 'User does not exist.');
 		}
 
-		return $this->handleView($this->view(RestNormalization::normaliseUserDetails($data), 200));
+		return $this->handleView($this->view($this->normalizeUserDetails($data), 200));
 	}
 
 	/**

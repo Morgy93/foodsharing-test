@@ -1559,11 +1559,6 @@ foodsaver:
   delete_own_account: You are about to delete your own account. Are you sure?
   delete_account_now: Delete account now
   actions: Activities
-  addresschange:
-    title: Warning regarding change of address
-    text: An address changed here does not update the geographic coordinates that
-      are required for food baskets, for example. It is therefore strongly recommended
-      that the user change the address himself in the {settings}.
   about_me_intern: "This short description will be displayed on your profile page\n\
     and is visible there for everyone in the foodsharing community.\n"
   about_me_public: "This short description will be displayed on the <a href=\"https://foodsharing.de/team\"\

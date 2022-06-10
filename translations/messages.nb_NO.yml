@@ -892,11 +892,6 @@ foodsaver:
   delete_account_sure: Er du sikker på at du vil slette kontoen til {name}?
   restricted: Du er ikke autorisert til å se disse dataene.
   your_account: din
-  addresschange:
-    title: Advarsel om adresseendring
-    text: En adresse endret her oppdaterer ikke de geografiske koordinatene som kreves
-      for for eksempel matkurver. Det anbefales derfor sterkt at brukeren selv endrer
-      adressen i {settings}.
   delete_own_account: Du er i ferd med å slette din egen konto. Er du sikker?
   about_me_intern: "Denne korte beskrivelsen vil vises på profilsiden din\nog er synlig\
     \ der for alle i matdelingssamfunnet.\n"

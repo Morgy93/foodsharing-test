@@ -39,6 +39,11 @@ class ProfilePermissions
 		return $this->session->isAmbassadorForRegion($regionIds, false, true);
 	}
 
+	public function mayEditUserProfile(int $userId): bool
+	{
+		return $this->session->id() === $userId || $this->mayAdministrateUserProfile($userId);
+	}
+
 	public function mayCancelSlotsFromProfile(int $userId): bool
 	{
 		return $this->session->id() != $userId && $this->mayAdministrateUserProfile($userId);

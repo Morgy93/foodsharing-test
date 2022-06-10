@@ -1496,9 +1496,6 @@ foodsaver:
     amb_requested: "Anfrage erfolgreich versendet."
     amb_success: "Danke dir für deine Motivation, mehr Verantwortung zu übernehmen. Die Anfrage wird schnellstmöglich vom globalen Orga-Team bearbeitet."
   restricted: "Du hast leider keine Berechtigung, diese Daten einzusehen."
-  addresschange:
-    title: "Warnung bzgl. Adressänderung"
-    text: "Eine hier geänderte Adresse aktualisiert nicht die Geokoordinaten, welche etwa für Essenskörbe benötigt werden. Daher wird dringend empfohlen, dass der Nutzer die Adresse selbst in den {settings} ändert."
   list:
     summary: "{count} Foodsaver in {region}"
     inactive: ", die sich 6 Monate nicht eingeloggt haben:"

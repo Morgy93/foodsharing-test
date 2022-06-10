@@ -30,6 +30,7 @@ final class ProfileGateway extends BaseGateway
 		$stm = '
 			SELECT 	fs.`id`,
 					fs.`bezirk_id`,
+					fs.`position`,
 					fs.`plz`,
 					fs.`stadt`,
 					fs.`lat`,
@@ -39,6 +40,7 @@ final class ProfileGateway extends BaseGateway
 					fs.`nachname`,
 					fs.`anschrift`,
 					fs.`telefon`,
+					fs.`homepage`,
 					fs.`handy`,
 					fs.`geschlecht`,
 					fs.`geb_datum`,
