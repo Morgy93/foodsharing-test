@@ -56,6 +56,7 @@
 - Remove questions from quiz sessions after the session is finished or aborted #1030 @alex.simm
 - Results of quiz sessions will be removed two weeks after the session is finished or aborted #1030 @alex.simm
 - Add a workaround to upload files to the startpage. #1245 !2233 @stcz 
+- Added missing indices to the store database table !2232 @alex.simm 
 
 # Release "Heidelbeere", 2022-05-01
 
