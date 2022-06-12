@@ -21,6 +21,7 @@
 - Removed the possibility to edit the member list on a working group's edit page !2228 @alex.simm
 - Info for foodsharer how can change the name !2240 @chriswalg
 - Renamed the button to update displayed language !1232 @martincodes-de
+- Improved nightly maintenance runtime !2176 @AntonBallmaier
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
@@ -82,6 +83,7 @@
 - Store-related conversations include a link to their store now !1807 !2134 @ChrisOelmueller
 - add/remove Admins over memberlist for groups and regions !2143 @fs_k 
 - It will be logged who deleted a user profile @alex.simm
+- Improved nightly maintenance runtime !2176 @AntonBallmaier
 
 ## Bugfixes
 - Fix the community marker map for regions that do not yet have a pin #1183 !2154 @alex.simm  
