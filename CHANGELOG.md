@@ -36,6 +36,7 @@
 - Fix a type error for the report button on profile !2246 #1271 @alex.simm
 - Prevent "Payload to large" errors due to padding in web push #1213 !2212 @alex.simm
 - Fixed a bug where iOS devices zoom into an input field !2235 @sefan
+- iOS users should now open the adresses with maps.app !2236 @sefan 
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
