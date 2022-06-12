@@ -43,6 +43,8 @@
 - Use a REST endpoint for quickreplying to forum threads #798 @alex.simm
 - Extract some redundant permission checks into one function. !2203 @AntonBallmaier
 - The TopBarNavigation is now unified !2238 !2245 !2248 !2252 @sefn
+- The TopBarNavigation is now unified !2238 !2245 !2248 @sefn
+- Rebuild store options to vue #2231 @chriswalg
 
 ## Dev/Test/CI stuff
 - bump node to version 16 !2135 @peter.toennies

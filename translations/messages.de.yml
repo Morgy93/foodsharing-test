@@ -876,6 +876,7 @@ storeedit:
     bread: "Team bearbeiten"
     foodsaver: "Foodsaver"
     leave: "Aus Betrieb austragen"
+    leave_myself: "Dich selbst"
     cannot-leave: "Du bist noch verantwortlich für diesen Betrieb und kannst ihn daher nicht verlassen."
     empty: "Das Team darf nicht leer sein"
     need-sm: "Es muss mindestens eine verantwortliche Person für den Betrieb geben."

@@ -85,6 +85,7 @@ const urls = {
   storeAdd: (regionId = null) => regionId ? `/?page=betrieb&a=new&bid=${regionId}` : '/?page=betrieb&a=new',
   storeList: () => '/?page=fsbetrieb',
   stores: (regionId) => `/?page=betrieb&bid=${regionId}`,
+  storeEdit: (storeId) => `/?page=betrieb&a=edit&id=${storeId}`,
   team: () => '/team',
   transparency: () => '/?page=content&sub=transparency',
   wall: (regionId) => `/?page=bezirk&bid=${regionId}&sub=wall`,
