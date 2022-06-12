@@ -62,6 +62,7 @@
 - Add a workaround to upload files to the startpage. #1245 !2233 @stcz 
 - Added missing indices to the store database table !2232 @alex.simm 
 - bump mocha to versio 10 !2255 @peter.toennies
+- Add how to connect other device with local development website to dev docs !2259 @NINI1988
 
 # Release "Heidelbeere", 2022-05-01
 
