@@ -49,6 +49,7 @@
 - The TopBarNavigation is now unified !2238 !2245 !2248 !2252 @sefn
 - The TopBarNavigation is now unified !2238 !2245 !2248 @sefn
 - Rebuild store options to vue #2231 @chriswalg
+- Changed deleting wall posts to the API #798 !2253 @alex.simm  
 
 ## Dev/Test/CI stuff
 - bump node to version 16 !2135 @peter.toennies
