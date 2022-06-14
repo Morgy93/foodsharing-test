@@ -37,6 +37,7 @@
 - Prevent "Payload to large" errors due to padding in web push #1213 !2212 @alex.simm
 - Fixed a bug where iOS devices zoom into an input field !2235 @sefan
 - iOS users should now open the adresses with maps.app !2236 @sefan 
+- The lifetime of baskets are now really in days, before the hours and minutes wasn't compared. It was possible to add a basket at 11pm with the lifetime of 1 day, but it would be deleted 12am. !1243 @martincodes-de
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
