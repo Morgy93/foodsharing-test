@@ -1,37 +1,29 @@
+// Stores
+import DataUser from '@/stores/user'
+// Mixins
 import MediaQueryMixin from '@/mixins/MediaQueryMixin'
 
 export default {
   mixins: [MediaQueryMixin],
   props: {
-    user: {
-      type: Object,
-      default: () => {},
-    },
-    regions: {
-      type: Array,
-      default: () => [],
-    },
-    groups: {
-      type: Array,
-      default: () => [],
-    },
     showTitle: {
       type: Boolean,
       default: false,
     },
   },
   watch: {
-    isVisibleOnMobile (newVal, oldVal) {
-      if (this.state && newVal === false) {
+    viewIsLG (newVal, _) {
+      if (this.state && newVal === true) {
         this.state = false
         this.toggleBody()
       }
     },
   },
   computed: {
-    isFoodsaver () {
-      return this.user?.rolle !== 0 || false
-    },
+    user: () => DataUser.getters.getUser(),
+    isFoodsaver: () => DataUser.getters.isFoodsaver(),
+    hasMailBox: () => DataUser.getters.getMailBox() > 0,
+    getUnreadCount: () => DataUser.getters.getMailUnreadCount(),
     isVisibleOnMobile () {
       return !this.viewIsXL
     },

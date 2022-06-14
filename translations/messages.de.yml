@@ -1479,6 +1479,7 @@ foodsaver:
     Diese Kurzbeschreibung wird auf deiner Profilseite angezeigt
     und ist dort für alle in der foodsharing-Community sichtbar.
   upgrade:
+    learning: "Jetzt Erklärvideo anschauen"
     ad_fs: "Ich möchte jetzt das Foodsaver-Quiz machen und Foodsaver*in werden!"
     to_fs: "Werde Foodsaver*in"
     needs_fs: "Du musst erst Foodsaver werden"
@@ -1881,6 +1882,7 @@ dashboard:
   updates_title_all: "Updates-Übersicht"
   updates_title_some: "Updates-Übersicht ({0})"
   display_all: "Alle"
+  settings: "Einstellungen"
   settings_tooltip: "Übersichts-Einstellungen"
   no_updates: "Keine Updates"
   no_more_updates_all: "Das war's!"

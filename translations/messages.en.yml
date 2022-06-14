@@ -1524,6 +1524,7 @@ foodsaver:
     summary: '{count} foodsavers in {region}'
     inactive: 'who have not logged in for 6 months:'
   upgrade:
+    learning: "Watch now explanation video"
     to_sm: Become a store manager
     needs_sm: You need to become a store manager first
     needs_fs: You need to become a foodsaver first
@@ -2238,6 +2239,7 @@ dashboard:
   no_more_updates_all: That's it!
   no_updates: No updates
   settings_tooltip: Overview settings
+  settings: Settings
   display_all: All
   updates_title_some: Updates overview ({0})
   updates_title_all: Updates overview

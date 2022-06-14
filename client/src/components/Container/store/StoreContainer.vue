@@ -1,0 +1,44 @@
+<template>
+  <Container
+    :tag="title"
+    :title="$i18n(title)"
+    :hide="defaultAmount >= data.length"
+    @show-full-list="showFullList"
+    @reduce-list="reduceList"
+  >
+    <StoreField
+      v-for="(entry, key) in filteredList"
+      :key="key"
+      :entry="entry"
+    />
+  </Container>
+</template>
+
+<script>
+// Stores
+import { getters } from '@/stores/stores'
+// Components
+import Container from '../Container.vue'
+import StoreField from './StoreField'
+// Mixin
+import ListToggleMixin from '@/mixins/ContainerToggleMixin'
+
+export default {
+  name: 'StoreList',
+  components: {
+    Container,
+    StoreField,
+  },
+  mixins: [ListToggleMixin],
+  props: {
+    title: { type: String, default: 'dashboard.my.stores' },
+  },
+  computed: {
+    data () {
+      const data = getters.get()
+      this.setList(data)
+      return data
+    },
+  },
+}
+</script>
