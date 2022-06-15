@@ -32,6 +32,7 @@
         :users="results.users || []"
         :regions="results.regions || []"
         :stores="results.stores || []"
+        :food-share-points="results.foodSharePoints || []"
         :my-groups="index.myGroups"
         :my-regions="index.myRegions"
         :my-stores="index.myStores"
@@ -68,6 +69,7 @@ export default {
         stores: [],
         users: [],
         regions: [],
+        foodSharePoints: [],
       },
       index: {
         myStores: [],

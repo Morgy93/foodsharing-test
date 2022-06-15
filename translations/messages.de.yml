@@ -638,6 +638,7 @@ terminology:
   reports: "Meldungsansicht (LMG)"
   arbitration: "Meldungsansicht (LS)"
   fsp: "Fairteiler" #also in MapView
+  fsps: "Fairteiler"
   basket: "Essenskorb"
   baskets: "Essenskörbe" #also in MapView
   community: "Ortsgruppe {name}"

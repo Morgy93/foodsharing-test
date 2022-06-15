@@ -242,7 +242,7 @@ export default {
         case 'event':
           return url('event', this.entity_id)
         case 'foodsharepoint':
-          return url('foodsharepoint', this.region_id, this.entity_id)
+          return url('foodsharepoint', this.entity_id)
         case 'friendWall':
           return url('profile', this.fs_id)
         case 'forum':
