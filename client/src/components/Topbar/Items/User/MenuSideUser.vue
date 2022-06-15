@@ -1,6 +1,9 @@
 <template>
   <div class="menusideuser nav-item dropdown dropdown-menu show">
-    <div class="nav-link mb-2">
+    <div
+      class="nav-link mb-2"
+      @click.prevent.stop
+    >
       <span class="icon img-thumbnail d-inline-flex">
         <Avatar
           :url="user.photo"
@@ -12,11 +15,11 @@
       </span>
       <span
         class="headline"
-        v-html="$i18n('menu.entry.your_account')"
+        v-html="$i18n('dashboard.greeting_short', { name: user.firstname })"
       />
       <span
         class="hide-for-users"
-        v-html="$i18n('menu.entry.your_account')"
+        v-html="$i18n('dashboard.greeting_short', { name: user.firstname })"
       />
     </div>
     <a
@@ -132,7 +135,7 @@
     <button
       role="menuitem"
       class="dropdown-item dropdown-action"
-      @click="$refs.languageChooser.show()"
+      @click.prevent="showLanguageChooser()"
     >
       <i class="fas fa-language" /> {{ $i18n('menu.entry.language') }}
     </button>
@@ -144,27 +147,32 @@
     >
       <i class="fas fa-power-off" /> {{ $i18n('login.logout') }}
     </a>
-    <language-chooser ref="languageChooser" />
   </div>
 </template>
 <script>
-import { getters } from '@/stores/user'
-
-import LanguageChooser from './LanguageChooser'
+// Stores
+import DataUser from '@/stores/user'
+import DataLanguageChooser from '@/stores/languageChooser'
+// Components
 import Avatar from '@/components/Avatar'
-
+// Mixins
 import TopBarMixin from '@/mixins/TopBarMixin'
 import RouteCheckMixin from '@/mixins/RouteAndDeviceCheckMixin'
 
 export default {
-  components: { LanguageChooser, Avatar },
+  components: { Avatar },
   mixins: [TopBarMixin, RouteCheckMixin],
   computed: {
     permissions () {
-      return getters.getPermissions()
+      return DataUser.getters.getPermissions()
     },
     hasPermissions () {
-      return getters.hasPermissions()
+      return DataUser.getters.hasPermissions()
+    },
+  },
+  methods: {
+    showLanguageChooser () {
+      DataLanguageChooser.mutations.show()
     },
   },
 }

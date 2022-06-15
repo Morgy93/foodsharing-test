@@ -32,6 +32,7 @@
 <script>
 import { pulseError } from '@/script'
 import { getLocale, setLocale } from '@/api/locale'
+import { getters, mutations } from '@/stores/languageChooser'
 
 export default {
   name: 'LanguageChooser',
@@ -48,6 +49,18 @@ export default {
       loading: true,
     }
   },
+  computed: {
+    isShown () {
+      return getters.get()
+    },
+  },
+  watch: {
+    isShown (isShown) {
+      if (isShown) {
+        this.show()
+      }
+    },
+  },
   methods: {
     show () {
       this.$refs.languageChooserModal.show()
@@ -58,6 +71,7 @@ export default {
 
       try {
         this.language = await getLocale()
+        mutations.hide()
       } catch (e) {
         pulseError(this.$i18n('error_unexpected'))
       }
@@ -66,6 +80,7 @@ export default {
     },
     async changeLanguage () {
       try {
+        mutations.hide()
         await setLocale(this.language)
         location.reload()
       } catch (e) {

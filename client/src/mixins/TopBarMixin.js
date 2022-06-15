@@ -11,14 +11,6 @@ export default {
       default: false,
     },
   },
-  watch: {
-    viewIsLG (newVal, _) {
-      if (this.state && newVal === true) {
-        this.state = false
-        this.toggleBody()
-      }
-    },
-  },
   computed: {
     user: () => DataUser.getters.getUser(),
     isFoodsaver: () => DataUser.getters.isFoodsaver(),
@@ -39,19 +31,6 @@ export default {
       const url = new URL(window.location.href)
       const path = url.pathname + url.search
       return (path === '/') ? this.$url('dashboard') : path
-    },
-    toggleMenu () {
-      this.toggleState()
-      this.toggleBody()
-    },
-    toggleBody () {
-      if (this.state) {
-        document.querySelector('#main').style = 'opacity: 0.25; pointer-events: none;'
-        document.body.classList.add('overflow-hidden')
-      } else {
-        document.body.classList.remove('overflow-hidden')
-        document.querySelector('#main').style = ''
-      }
     },
   },
 }

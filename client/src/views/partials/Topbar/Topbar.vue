@@ -16,12 +16,11 @@
           />
           <NavMainLoggedOut v-else/>
         </div>
-
         <b-navbar-toggle
           target="nav_sidebar"
           class="ml-1 position-relative"
-          @click.stop="toggleMenu()"
         >
+          <template #default="{ expanded }">
           <div
             v-if="hasMailBox"
             class="badge badge-danger badge-navbar-toggler"
@@ -30,8 +29,9 @@
           <i
             class="fa"
             style="min-width: 1.25rem;"
-            :class="{ 'fa-bars': !state,'fa-times': state }"
+            :class="{ 'fa-bars': !expanded,'fa-times': expanded }"
           />
+          </template>
         </b-navbar-toggle>
         <b-collapse :class="{'nav_sidebar': viewIsLG}" id="nav_sidebar" is-nav>
             <NavSideLoggedIn
@@ -41,6 +41,7 @@
         </b-collapse>
       </b-container>
     </b-navbar>
+    <language-chooser />
   </div>
 </template>
 
@@ -60,12 +61,17 @@ import NavSideLoggedOut from '@/components/Topbar/States/LoggedOut/NavSide'
 import NavMainLoggedIn from '@/components/Topbar/States/LoggedIn/NavMain'
 import NavSideLoggedIn from '@/components/Topbar/States/LoggedIn/NavSide'
 
+// Hidden Elements
+import LanguageChooser from '@/components/Topbar/Items/LanguageChooser'
+
+// Mixins
 import TopBarMixin from '@/mixins/TopBarMixin'
 import StateTogglerMixin from '@/mixins/StateTogglerMixin'
 
 export default {
   components: {
     Logo,
+    LanguageChooser,
     NavMainLoggedOut,
     NavSideLoggedOut,
     NavMainLoggedIn,

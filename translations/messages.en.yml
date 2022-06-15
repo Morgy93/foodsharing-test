@@ -2261,6 +2261,7 @@ dashboard:
     read: continue reading
     go: Go to the quiz
     ack: I have read the notice, do not show again
+  greeting_short: "Hallo {name}!"
   greeting: Hello {name}! Nice to have you there.
   source_store: Stores {0}
   pickupdates: Next pickups

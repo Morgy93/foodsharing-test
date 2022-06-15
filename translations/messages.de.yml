@@ -1913,6 +1913,7 @@ dashboard:
   mail_activation_error_title: "E-Mail-Adresse nicht bestätigt"
   homeRegion: "Dein Stammbezirk ist {region}."
   chooseHomeRegion: "Bitte wähle einen Stammbezirk aus."
+  greeting_short: "Hallo {name}!"
   greeting: "Hallo {name}! Schön, dass du hier bist."
   foodsharer: "Viel Spaß beim Retten!"
   foodsharer_amount: "Du hast schon {weight} Kilos gerettet!"

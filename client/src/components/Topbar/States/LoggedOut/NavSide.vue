@@ -13,7 +13,7 @@
       :title="$i18n('login.topbar')"
       :show-title="true"
     />
-    <div v-if="viewIsMobile">
+    <div v-if="!viewIsLG">
       <div class="mb-3" />
       <MenuLogin />
     </div>

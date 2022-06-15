@@ -134,7 +134,7 @@
       <button
         role="menuitem"
         class="dropdown-item dropdown-action"
-        @click="$refs.languageChooser.show()"
+        @click.prevent="showLanguageChooser()"
       >
         <i class="fas fa-language" /> {{ $i18n('menu.entry.language') }}
       </button>
@@ -147,29 +147,34 @@
       >
         <i class="fas fa-power-off" /> {{ $i18n('login.logout') }}
       </a>
-      <language-chooser ref="languageChooser" />
     </template>
   </fs-dropdown-menu>
 </template>
 <script>
-import { getters } from '@/stores/user'
-
+// Stores
+import DataUser from '@/stores/user'
+import DataLanguageChooser from '@/stores/languageChooser'
+// Components
 import FsDropdownMenu from '../FsDropdownMenu'
-import LanguageChooser from './LanguageChooser'
 import Avatar from '@/components/Avatar'
-
+// Mixins
 import TopBarMixin from '@/mixins/TopBarMixin'
 import RouteCheckMixin from '@/mixins/RouteAndDeviceCheckMixin'
 
 export default {
-  components: { LanguageChooser, FsDropdownMenu, Avatar },
+  components: { FsDropdownMenu, Avatar },
   mixins: [TopBarMixin, RouteCheckMixin],
   computed: {
     permissions () {
-      return getters.getPermissions()
+      return DataUser.getters.getPermissions()
     },
     hasPermissions () {
-      return getters.hasPermissions()
+      return DataUser.getters.hasPermissions()
+    },
+  },
+  methods: {
+    showLanguageChooser () {
+      DataLanguageChooser.mutations.show()
     },
   },
 }
