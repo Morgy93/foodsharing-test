@@ -5,6 +5,7 @@
   >
     <div class="mb-1 mb-sm-3">
       <Release
+        :v-if="!isBeta"
         :version="release.version"
         :time="release.time"
       />
@@ -148,6 +149,7 @@ import GroupContainer from '@/components/Container/group/GroupContainer.vue'
 // Mixins
 import MediaQueryMixin from '@/mixins/MediaQueryMixin'
 import StateTogglerMixin from '@/mixins/StateTogglerMixin'
+import RouteAndDeviceCheckMixin from '@/mixins/RouteAndDeviceCheckMixin'
 
 export default {
   components: {
@@ -165,7 +167,7 @@ export default {
     RegionContainer,
     GroupContainer,
   },
-  mixins: [MediaQueryMixin, StateTogglerMixin],
+  mixins: [MediaQueryMixin, StateTogglerMixin, RouteAndDeviceCheckMixin],
   props: {
     broadcast: { type: Object, default: () => null },
     quiz: { type: Object, default: () => null },
