@@ -14,11 +14,13 @@
       >
     </div>
     <div class="field-container field-container--stack">
-      <h6
-        v-b-tooltip="entry.description.length > 30 ? entry.description : ''"
-        class="field-headline"
-        v-html="entry.description"
-      />
+      <div class="field-container">
+        <h6
+          v-b-tooltip="entry.description.length > 30 ? entry.description : ''"
+          class="field-headline"
+          v-html="entry.description"
+        />
+      </div>
       <div class="field-container">
         <small
           v-b-tooltip.html="$i18n('basket.by', { name: entry.creator.name })"
