@@ -7,7 +7,7 @@ export const store = Vue.observable({
 
 export const getters = {
   get () {
-    return store.stores
+    return store.stores.length > 0 ? store.stores : []
   },
 
   has (id) {

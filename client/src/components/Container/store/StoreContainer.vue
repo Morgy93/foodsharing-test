@@ -11,6 +11,11 @@
       :key="key"
       :entry="entry"
     />
+    <small
+      v-if="filteredList.length === 0"
+      class="list-group-item text-muted"
+      v-html="$i18n('store.noStores')"
+    />
   </Container>
 </template>
 
