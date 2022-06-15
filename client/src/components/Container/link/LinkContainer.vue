@@ -1,9 +1,8 @@
 <template>
   <Container
-    v-if="list.length > 0"
     :tag="title"
     :title="$i18n(title)"
-    :hide="defaultAmount >= list.length"
+    :toggle-visiblity="data.length > defaultAmount"
     @show-full-list="showFullList"
     @reduce-list="reduceList"
   >

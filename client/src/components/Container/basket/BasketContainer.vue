@@ -2,7 +2,7 @@
   <Container
     :tag="hasCoords ? 'basket.nearby' : 'basket.recent'"
     :title="$i18n(hasCoords ? 'basket.nearby' : 'basket.recent')"
-    :hide="defaultAmount >= data.length"
+    :toggle-visiblity="data.length > defaultAmount"
     @show-full-list="showFullList"
     @reduce-list="reduceList"
   >

@@ -5,24 +5,24 @@
       @click="toggleExpanded"
     >
       <h5
-        :class="{ 'expanded': expanded }"
+        :class="{ 'expanded': isExpanded }"
         v-html="title"
       />
       <i
-        :alt="expanded ? $i18n('dashboard.showmore') : $i18n('dashboard.showless')"
+        :alt="isExpanded ? $i18n('dashboard.showmore') : $i18n('dashboard.showless')"
         class="fas fa-angle-down"
-        :class="{ 'fa-rotate-180': expanded }"
+        :class="{ 'fa-rotate-180': isExpanded }"
       />
     </div>
-    <slot v-if="expanded" />
+    <slot v-if="isExpanded" />
     <button
-      v-if="expanded && !hidden && !toggled"
+      v-if="isExpanded && isToggleVisible && !isToggled"
       class="list-group-item list-group-item-secondary small font-weight-bold list-group-item-action text-center"
       @click="showFullList"
       v-html="$i18n('dashboard.showmore')"
     />
     <button
-      v-else-if="expanded && toggled"
+      v-else-if="isExpanded && isToggled"
       class="list-group-item small list-group-item-action font-weight-bold text-center"
       @click="reduceList"
       v-html="$i18n('dashboard.showless')"
@@ -36,14 +36,18 @@ export default {
   props: {
     tag: { type: String, default: 'tag' },
     title: { type: String, default: 'title' },
-    hide: { type: Boolean, default: false },
+    toggleVisiblity: { type: Boolean, default: false },
   },
   data () {
     return {
-      toggled: false,
-      hidden: this.hide,
-      expanded: true,
+      isToggled: false,
+      isExpanded: true,
     }
+  },
+  computed: {
+    isToggleVisible () {
+      return this.toggleVisiblity
+    },
   },
   created () {
     const state = this.getExpanded()
@@ -53,21 +57,21 @@ export default {
   },
   methods: {
     toggleExpanded () {
-      this.setExpanded(!this.expanded)
+      this.setExpanded(!this.isExpanded)
     },
     getExpanded () {
       return JSON.parse(localStorage.getItem(`expanded_${this.tag}`))
     },
     setExpanded (state) {
-      this.expanded = state
+      this.isExpanded = state
       localStorage.setItem(`expanded_${this.tag}`, JSON.stringify(state))
     },
     showFullList () {
-      this.toggled = true
+      this.isToggled = true
       this.$emit('show-full-list')
     },
     reduceList () {
-      this.toggled = false
+      this.isToggled = false
       this.$emit('reduce-list')
     },
   },

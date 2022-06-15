@@ -2,7 +2,7 @@
   <Container
     tag="dashboard.activity_overview"
     :title="selectedFilter ? $i18n('dashboard.updates_title_some', [$i18n(selectedFilter.text)]) : $i18n('dashboard.updates_title_all')"
-    :hide="true"
+    :toggle-visiblity="false"
   >
     <div
       v-if="activeFilters.length > 1"

@@ -3,7 +3,7 @@
     v-if="data.length > 0"
     :tag="title"
     :title="data.length > 1 ? $i18n(`${title}Count`, { count: data.length }) : $i18n(title)"
-    :hide="defaultAmount >= data.length"
+    :toggle-visiblity="data.length > defaultAmount"
     @show-full-list="showFullList"
     @reduce-list="reduceList"
   >
