@@ -12,6 +12,7 @@
 - Dashboard revamped, shines in a new style and new features !2227 !2245 !2248 !2252 !2254 !2263 @sefn
 - Dashboard revamped, shines in a new style and new features !2227 !2245 !2248 !2252 !2254 !2264 @sefn
 - Dashboard revamped, shines in a new style and new features !2227 !2245 !2248 !2252 !2254 !2265 @sefn
+- Dashboard revamped, shines in a new style and new features !2227 !2245 !2248 !2252 !2254 !2261 !2262 !2263 !2267 @sefn
 - In the footer of the website, "For developers" is added under "Participate" to create an easier way to IT. !2241 @NINI1988
 - On the login page, "Stay logged in for one day" is saved in local storage for the next logins. !2249 @NINI1988
 
@@ -51,8 +52,6 @@
 - Use a REST endpoint for quickreplying to forum threads #798 @alex.simm
 - Extract some redundant permission checks into one function. !2203 @AntonBallmaier
 - The TopBarNavigation is now unified !2238 !2245 !2248 !2252 !2254 @sefn
-- The TopBarNavigation is now unified !2238 !2245 !2248 !2252 @sefn
-- The TopBarNavigation is now unified !2238 !2245 !2248 @sefn
 - Rebuild store options to vue #2231 @chriswalg
 - Changed deleting wall posts to the API #798 !2253 @alex.simm  
 

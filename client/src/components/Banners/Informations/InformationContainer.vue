@@ -39,7 +39,7 @@ export default {
   computed: {
     filteredList () {
       return this.list.filter(prompt =>
-        (prompt.type === 'calendar' && !this.hasCalendarToken) ||
+        (prompt.type === 'calendar' && getters.isFoodsaver() && !this.hasCalendarToken) ||
         (prompt.type === 'push' && !this.isSafari))
     },
     count () {
