@@ -18,14 +18,14 @@
     <div class="ml-3 d-flex flex-column">
       <h1 v-html="$i18n('dashboard.greeting', {name: user.firstname})" />
       <p
-        v-if="!user.foodsaver || !user.regionName"
+        v-if="!isFoodsaver || !user.regionName"
         class="mb-0"
         v-html="$i18n('dashboard.foodsharer')"
       />
       <p
-        v-else-if="stats.pickups > 0 && stats.weight > 0"
+        v-else-if="stats.count > 0 && stats.weight > 0"
         class="mb-0"
-        v-html="$i18n('dashboard.foodsaver_amount', {pickups: stats.pickups, weight: stats.weight})"
+        v-html="$i18n('dashboard.foodsaver_amount', {pickups: stats.count, weight: stats.weight})"
       />
       <p
         v-else
