@@ -5,7 +5,7 @@
   >
     <div class="mb-1 mb-sm-3">
       <Release
-        :v-if="!isBeta"
+        v-if="!isBeta"
         :version="release.version"
         :time="release.time"
       />
