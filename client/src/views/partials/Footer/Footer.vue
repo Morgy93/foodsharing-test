@@ -427,7 +427,6 @@ export default {
             { url: 'wiki', title: 'menu.entry.wiki' },
             { url: 'guide', title: 'menu.entry.guide', target: '_blank' },
             { url: 'statistics', title: 'menu.entry.statistics' },
-            { url: 'dataprivacy', title: 'menu.entry.dataprivacy' },
             { url: 'releaseNotes', title: 'menu.entry.release-notes' },
           ],
         },
