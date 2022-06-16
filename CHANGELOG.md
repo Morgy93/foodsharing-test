@@ -70,7 +70,7 @@
 # Release "Heidelbeere", 2022-05-01
 
 ## Features
-- It is now differentiated between completely new foodsavers and foodsavers who were verified before. !1129
+- It is now differentiated between completely new foodsavers and foodsavers who were verified before. #1129 !2149
 - The settings page now contains information about requesting a name change. !2163 @AntonBallmaier
 
 ## Changes
