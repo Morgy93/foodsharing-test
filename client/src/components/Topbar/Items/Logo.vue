@@ -2,7 +2,7 @@
   <a
     :href="href"
     aria-label="foodsharing"
-    class="navbar-brand brand"
+    class="brand"
   >
     <span
       v-if="viewIsMD"
@@ -47,6 +47,10 @@ export default {
       color: red;
       position: absolute;
       font-size: 0.5em;
+    }
+
+    &:hover {
+      text-decoration: none;
     }
 }
 </style>
