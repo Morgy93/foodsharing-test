@@ -83,18 +83,27 @@ class ProfilePermissions
 		return $this->session->id() == $fsId || $this->mayAdministrateUserProfile($fsId);
 	}
 
-	public function maySeePickupsStat(int $fsId): bool
+	public function maySeeCommitmentsStat(int $fsId): bool
 	{
+		if ($this->session->id() == $fsId) {
+			return true;
+		}
+
 		if ($this->mayAdministrateUserProfile($fsId)) {
 			return true;
 		}
 
-		$getFsID = $this->foodsaverGateway->getFoodsaverBasics($fsId);
-		if ($getFsID['bezirk_id'] != $this->session->getCurrentRegionId()) {
-			return false;
+		if ($this->session->may('bieb')) {
+			if ($this->foodsaverGateway->getCountCommonStores($this->session->id(), $fsId) > 0) {
+				return true;
+			}
+			$getFsID = $this->foodsaverGateway->getFoodsaverBasics($fsId);
+			if ($getFsID['bezirk_id'] == $this->session->getCurrentRegionId()) {
+				return true;
+			}
 		}
 
-		return $this->session->id() == $fsId || $this->session->may('bieb');
+		return false;
 	}
 
 	public function maySeeEmailAddress(int $fsId): bool

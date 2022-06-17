@@ -87,7 +87,7 @@ class ProfileView extends View
 		$this->groupGateway = $groupGateway;
 	}
 
-	public function profile(string $wallPosts, array $userStores = [], array $pickupsStat = []): void
+	public function profile(string $wallPosts, array $userStores = [], array $commitmentsStats = []): void
 	{
 		$page = new vPage($this->foodsaver['name'], $this->infos());
 		$fsId = $this->foodsaver['id'];
@@ -99,7 +99,7 @@ class ProfileView extends View
 		$maySeeBounceWarning = $this->profilePermissions->maySeeBounceWarning($fsId);
 		$maySeePickups = $this->profilePermissions->maySeePickups($fsId);
 		$maySeeStores = $this->profilePermissions->maySeeStores($fsId);
-		$maySeePickupsStat = $this->profilePermissions->maySeePickupsStat($fsId);
+		$maySeeCommitmentsStat = $this->profilePermissions->maySeeCommitmentsStat($fsId);
 
 		if ($maySeeBounceWarning && $this->foodsaver['emailIsBouncing']) {
 			$mayRemove = $this->profilePermissions->mayRemoveFromBounceList($this->foodsaver['id']);
@@ -124,10 +124,13 @@ class ProfileView extends View
 				$this->translator->trans('pickup.overview.header')
 			);
 		}
-		if ($maySeePickupsStat && $pickupsStat) {
-			$page->addSection($this->vueComponent('profile-pickups-stat', 'ProfilePickupsStat', [
-				'pickupsStatData' => $pickupsStat
-			]));
+
+		if ($maySeeCommitmentsStat && $commitmentsStats) {
+			$page->addSection($this->vueComponent('profile-commitments-stat', 'ProfileCommitmentsStat', [
+				'commitmentsStats' => $commitmentsStats,
+			]),
+				$this->translator->trans('profile.commitments_stat.title')
+			);
 		}
 
 		$wallTitle = $this->translator->trans('profile.pinboard', ['{name}' => $this->foodsaver['name']]);

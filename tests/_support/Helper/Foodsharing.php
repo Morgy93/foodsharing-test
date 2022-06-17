@@ -134,12 +134,27 @@ class Foodsharing extends \Codeception\Module\Db
 
 	public function createStoreCategories()
 	{
-		for ($i = 1; $i <= 10; ++$i) {
-			$params = [
-				'id' => $i,
-				'name' => 'Supermarkt_' . $i,
-			];
-			$this->haveInDatabase('fs_betrieb_kategorie', $params);
+		$Categories = [
+							 'Bäckerei',
+							 'Bio-Bäckerei',
+							 'Bio-Supermarkt',
+							 'Getränkemarkt',
+							 'Metzgerei',
+							 'Organisation - Einführungsabholungen',
+							 'Organisation - Botschaftertätigkeit',
+							 'Organisation - Fairteiler',
+							 'Organisation - Vorstandsarbeit',
+							 'Organisation - Meldebearbeitung',
+							 'Öffentlichkeitsarbeit',
+							 'Restaurant',
+							 'Schnellimbiss',
+							 'Supermarkt',
+							 'Wochenmarkt'
+							];
+		$entryId = 1;
+		foreach ($Categories as $catEntry) {
+			$this->haveInDatabase('fs_betrieb_kategorie', ['id' => $entryId, 'name' => $catEntry]);
+			++$entryId;
 		}
 	}
 
@@ -846,6 +861,55 @@ class Foodsharing extends \Codeception\Module\Db
 		], $extra_params);
 
 		$id = $this->haveInDatabase('fs_region_pin', $params);
+
+		$params['id'] = $id;
+
+		return $params;
+	}
+
+	public function createEvents($region_id, $foodsaver_id, $extra_params = [])
+	{
+		$paramsLocation = [
+			'name' => $this->faker->text,
+			'lat' => $this->faker->latitude(),
+			'lon' => $this->faker->longitude(),
+		];
+
+		$location_id = $this->haveInDatabase('fs_location', $paramsLocation);
+
+		$params = array_merge([
+			'bezirk_id' => $region_id,
+			'foodsaver_id' => $foodsaver_id,
+			'public' => $this->faker->numberBetween(0, 2),
+			'location_id' => $location_id,
+			'name' => $this->faker->text(100),
+			'start' => $this->faker->dateTimeBetween('-1 hour', 'now')->format('Y-m-d H:i:s'),
+			'end' => $this->faker->dateTimeBetween('now', '+2 hour')->format('Y-m-d H:i:s'),
+			'description' => $this->faker->realText(200),
+		], $extra_params);
+
+		$id = $this->haveInDatabase('fs_event', $params);
+
+		$params['id'] = $id;
+
+		$paramsFsEvent = [
+			'foodsaver_id' => $foodsaver_id,
+			'event_id' => $id,
+		];
+
+		$this->haveInDatabase('fs_foodsaver_has_event', $paramsFsEvent);
+
+		return $params;
+	}
+
+	public function addEventInvitation($event_id, $foodsaver_id, $extra_params = [])
+	{
+		$params = array_merge([
+			'foodsaver_id' => $foodsaver_id,
+			'event_id' => $event_id,
+		], $extra_params);
+
+		$id = $this->haveInDatabase('fs_foodsaver_has_event', $params);
 
 		$params['id'] = $id;
 
