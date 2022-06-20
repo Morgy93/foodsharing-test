@@ -4,62 +4,57 @@
       v-html="$i18n('login.form_title')"
     />
     <form
+      class="mt-3"
       @submit.prevent
     >
-      <div class="input-group-prepend mt-3">
-        <label for="login-email">
-          <i class="fas fa-user" />
+      <label class="d-block">
+        <div class="mb-1">
+          <i class="fas fa-user mr-1" />
           {{ $i18n('login.email_address') }}
-        </label>
-      </div>
-      <input
-        id="login-email"
-        ref="email"
-        v-model="email"
-        :placeholder="$i18n('login.email_address')"
-        :aria-label="$i18n('login.email_address')"
-        type="email"
-        name="login-email"
-        class="form-control"
-        autocomplete="email"
-        autofocus
-        @keydown.enter="submit"
-        @focus="focusLogin=true"
-      >
-      <div class="input-group-prepend mt-3">
-        <label
-          for="login-password"
+        </div>
+        <input
+          ref="email"
+          v-model="email"
+          :placeholder="$i18n('login.email_address')"
+          :aria-label="$i18n('login.email_address')"
+          type="email"
+          name="login-email"
+          class="form-control"
+          autocomplete="email"
+          autofocus
+          @keydown.enter="submit"
+          @focus="focusLogin=true"
         >
-          <i class="fas fa-key" />
+      </label>
+      <label class="d-block">
+        <div class="mb-1">
+          <i class="fas fa-key mr-1" />
           {{ $i18n('login.password') }}
-        </label>
-      </div>
-      <input
-        id="login-password"
-        v-model="password"
-        :placeholder="$i18n('login.password')"
-        :aria-label="$i18n('login.password')"
-        type="password"
-        name="login-password"
-        class="form-control"
-        autocomplete="current-password"
-        @keydown.enter="submit"
-      >
-      <b-checkbox
-        id="login-rememberme"
-        v-model="rememberMe"
-        switch
-        size="sm"
-        class="mt-3"
-      >
-        <small>{{ $i18n('login.steady_login') }}</small>
-      </b-checkbox>
-      <b-overlay
-        :show="isLoading"
-        class="mt-3"
-      >
+        </div>
+        <input
+          v-model="password"
+          :placeholder="$i18n('login.password')"
+          :aria-label="$i18n('login.password')"
+          type="password"
+          name="login-password"
+          class="form-control"
+          autocomplete="current-password"
+          @keydown.enter="submit"
+        >
+      </label>
+      <label class="d-flex align-items-center mt-3 mb-3">
+        <input
+          v-model="rememberMe"
+          class="mr-2"
+          type="checkbox"
+          name="login-remember"
+          @keydown.enter="submit"
+        >
+        {{ $i18n('login.steady_login') }}
+      </label>
+      <b-overlay :show="isLoading">
         <template #overlay>
-          <i class="fa-spinner fa-spin" />
+          <i class="fas fa-spinner fa-spin" />
         </template>
         <b-button
           id="login-btn"
