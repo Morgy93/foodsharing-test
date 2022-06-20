@@ -84,7 +84,7 @@
         />
         <button
           v-if="isTruncatable || canQuickreply"
-          class="btn btn-sm btn-link pl-0 mt-n3 mb-1"
+          class="btn btn-sm btn-link pl-0 mb-1"
           @click.stop.prevent="toggleState"
         >
           <span
@@ -315,14 +315,6 @@ export default {
   margin-bottom: .5rem;
 }
 
-.activity-item .markdown a {
-  text-decoration: underline;
-}
-
-.activity-item .markdown p:last-child {
-  margin-bottom: 0;
-}
-
 .clickable {
   cursor: pointer;
 }
@@ -348,14 +340,22 @@ export default {
   }
 }
 
-::v-deep.markdown p {
-  font-size: 15px;
-  color: var(--dark);
-  line-height: 1.5;
+::v-deep.markdown {
+
+  p {
+    font-size: 15px;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  a[href]{
+    font-weight: bold;
+    text-decoration: underline;
+  }
 }
 
-::v-deep.markdown a[href]{
- font-weight: bold;
-//  text-decoration: underline;
-}
 </style>

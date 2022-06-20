@@ -41,6 +41,7 @@
 - iOS users should now open the adresses with maps.app !2236 @sefn 
 - The lifetime of baskets are now really in days, before the hours and minutes wasn't compared. It was possible to add a basket at 11pm with the lifetime of 1 day, but it would be deleted 12am. !1243 @martincodes-de
 - Email attachment icon is no longer shown on all emails. !2242 @AntonBallmaier
+- Fix: On dashboard activity post with a markdown list has no margin to the respond button. !2278 @NINI1988
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
