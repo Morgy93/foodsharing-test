@@ -45,6 +45,7 @@
 - Fixed a bug where iOS devices zoom into an input field !2235 @sefan
 - iOS users should now open the adresses with maps.app !2236 @sefan 
 - Force content which is too broad to scroll, so the the Topbar will never leave the screen width !2258 @NINI1988
+- A wall post with multiple lines will use the complete available size to display its text !2277 @NINI1988
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc

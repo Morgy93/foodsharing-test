@@ -43,7 +43,7 @@
         </a>
       </div>
 
-      <div class="msg ml-1">
+      <div class="msg ml-1 flex-grow-1">
         <Markdown :source="post.body" />
       </div>
     </div>
