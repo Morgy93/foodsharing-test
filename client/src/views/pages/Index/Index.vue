@@ -716,9 +716,4 @@ Bootstrap 4 breakpoints
   max-width: 55%;
   height: auto;
 }
-
-div#main {
-  min-height: unset !important;
-  padding-bottom: unset !important;
-}
 </style>
