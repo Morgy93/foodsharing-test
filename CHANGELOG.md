@@ -8,7 +8,7 @@
 - Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 #chriswalg
 - The profile page now contains one unified pickup section. Future pickup options are now visible in that section. !2211 !2226 @AntonBallmaier
 - Pickup statistics on profile !2208 @fs_k
-- Dashboard revamped, shines in a new style and new features !2227 !2245 !2248 !2252 !2254 !2261 !2262 !2263 !2264 !2265 !2267 !2266 @sefn
+- Dashboard revamped, shines in a new style and new features !2227 !2245 !2248 !2252 !2254 !2261 !2262 !2263 !2264 !2265 !2267 !2266 !2268 @sefn
 - In the footer of the website, "For developers" is added under "Participate" to create an easier way to IT. !2241 @NINI1988
 - On the login page, "Stay logged in for one day" is saved in local storage for the next logins. !2249 @NINI1988
 - Food-share-points are listed in the topbar search #1251 !2260 @alex.simm 
@@ -39,6 +39,7 @@
 - Prevent "Payload to large" errors due to padding in web push #1213 !2212 @alex.simm
 - Fixed a bug where iOS devices zoom into an input field !2235 @sefn
 - iOS users should now open the adresses with maps.app !2236 @sefn 
+- Fixed a bug where the avatar sleeping status is not visible !2268 @sefan
 - The lifetime of baskets are now really in days, before the hours and minutes wasn't compared. It was possible to add a basket at 11pm with the lifetime of 1 day, but it would be deleted 12am. !1243 @martincodes-de
 - Email attachment icon is no longer shown on all emails. !2242 @AntonBallmaier
 - Fix: On dashboard activity post with a markdown list has no margin to the respond button. !2278 @NINI1988

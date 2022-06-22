@@ -38,7 +38,7 @@
             :url="post.author.avatar"
             :size="50"
             class="member-pic img"
-            :sleep-status="post.author.sleepStatus"
+            :is-sleeping="post.author.sleepStatus"
           />
         </a>
       </div>

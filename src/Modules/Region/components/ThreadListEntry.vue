@@ -5,7 +5,7 @@
       <span class="user-picture mr-2">
         <Avatar
           :url="thread.lastPost.author.avatar"
-          :sleep-status="thread.lastPost.author.sleepStatus"
+          :is-sleeping="thread.lastPost.author.sleepStatus"
           :size="50"
         />
       </span>

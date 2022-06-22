@@ -102,7 +102,7 @@
             <div>
               <avatar
                 :url="row.item.avatar"
-                :sleep-status="row.item.sleepStatus"
+                :is-sleeping="row.item.sleepStatus"
                 :size="50"
               />
             </div>

@@ -100,27 +100,33 @@ export default {
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   position: absolute;
   top: 0;
   left: 0;
 }
 
+.sleep16::after {
+  background-image: url('/img/sleep35x35.png');
+  top: -4px;
+  left: -7px;
+}
+
 .sleep35::after {
   background-image: url('/img/sleep35x35.png');
-  top: -10px;
-  left: -10px;
+  top: -8px;
+  left: -12px;
 }
 
 .sleep50::after {
   background-image: url('/img/sleep50x50.png');
   top: -10px;
-  left: -20px;
+  left: -22px;
 }
 
 .sleep130::after {
   background-image: url('/img/sleep130x130.png');
-  top: -10px;
-  left: -20px;
+  top: -15px;
+  left: -25px;
 }
 </style>

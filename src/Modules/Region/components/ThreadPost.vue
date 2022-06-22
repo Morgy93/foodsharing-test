@@ -20,7 +20,7 @@
           <a :href="$url('profile', author.id)">
             <Avatar
               :url="author.avatar"
-              :sleep-status="author.sleepStatus"
+              :is-sleeping="author.sleepStatus"
               :size="130"
               class="mb-2"
               :auto-scale="false"

@@ -25,7 +25,7 @@
             :url="r.photo"
             :size="50"
             class="member-pic"
-            :sleep-status="r.sleep_status"
+            :is-sleeping="r.sleep_status"
           />
         </a>
 

@@ -9,7 +9,7 @@
         :size="50"
         class="member-pic"
         :class="{'jumper': user.isJumper}"
-        :sleep-status="user.sleepStatus"
+        :is-sleeping="user.sleepStatus"
       />
     </a>
 

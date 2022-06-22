@@ -56,7 +56,7 @@
           class="mx-2"
           :url="entry.user.avatar"
           :size="16"
-          :sleep-status="entry.user.sleepStatus"
+          :is-sleeping="entry.user.sleepStatus"
           :auto-scale="false"
         />
         <small
