@@ -108,6 +108,7 @@ const urls = {
   bmlfuw: () => 'https://www.bmlrt.gv.at',
   denns: () => 'https://www.denns-biomarkt.at',
   devdocs: () => 'https://devdocs.foodsharing.network',
+  devdocsItTasks: () => 'https://devdocs.foodsharing.network/it-tasks.html',
 
   // Beta Testing
   beta: () => 'https://beta.foodsharing.de',

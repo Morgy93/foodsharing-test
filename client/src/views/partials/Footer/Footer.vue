@@ -30,7 +30,7 @@
             </li>
             <li class="nav-item">
               <a
-                :href="$url('devdocs')"
+                :href="$url('devdocsItTasks')"
                 :aria-label="$i18n('footer.infosDeveloper')"
               >
                 {{ $i18n('footer.infosDeveloper') }}

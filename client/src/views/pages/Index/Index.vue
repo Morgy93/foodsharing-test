@@ -265,7 +265,7 @@
         <p>
           <b-link
             class="link"
-            href="https://devdocs.foodsharing.network"
+            :href="$url('devdocsItTasks')"
           >
             {{ $i18n('startpage.more_infos') }}
           </b-link>
