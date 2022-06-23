@@ -80,6 +80,10 @@ class ProfilePermissions
 
 	public function maySeeStores(int $fsId): bool
 	{
+		if (!$this->session->may('fs')) {
+			return false;
+		}
+
 		return $this->session->id() == $fsId || $this->mayAdministrateUserProfile($fsId);
 	}
 

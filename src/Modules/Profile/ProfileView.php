@@ -146,7 +146,7 @@ class ProfileView extends View
 
 		$page->addSectionLeft($this->sideInfos(), $this->translator->trans('profile.infos.title'));
 
-		if ($maySeeStores) {
+		if ($maySeeStores && count($userStores) > 0) {
 			$page->addSectionLeft(
 				$this->vueComponent('vue-profile-storelist', 'ProfileStoreList', [
 					'stores' => $userStores,
@@ -357,18 +357,9 @@ class ProfileView extends View
 
 		$mayAdmin = $this->profilePermissions->mayAdministrateUserProfile($fsId, $regionId);
 		$maySeeHistory = $this->profilePermissions->maySeeHistory($fsId);
-		$maySeeStores = $this->profilePermissions->maySeeStores($fsId);
 
 		$page->addSectionLeft($this->photo($mayAdmin, $maySeeHistory));
 		$page->addSectionLeft($this->sideInfos(), $this->translator->trans('profile.infos.title'));
-
-		if ($maySeeStores) {
-			$page->addSectionLeft(
-				$this->vueComponent('vue-profile-storelist', 'ProfileStoreList', [
-					'stores' => $userStores,
-				])
-			);
-		}
 
 		$page->render();
 	}
