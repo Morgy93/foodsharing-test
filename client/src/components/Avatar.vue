@@ -71,7 +71,7 @@ export default {
         width: `${this.size}px`,
         display: this.size === 16 ? 'inline-flex' : null,
       }
-      if (this.autoScale) {
+      if (this.autoScale && this.size !== 16) {
         styles.height = '100%'
         styles.width = 'auto'
       }
