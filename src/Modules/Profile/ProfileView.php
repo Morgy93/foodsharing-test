@@ -144,7 +144,20 @@ class ProfileView extends View
 			$this->photo($mayAdmin, $maySeeHistory, $userStores)
 		);
 
-		$page->addSectionLeft($this->sideInfos(), $this->translator->trans('profile.infos.title'));
+		$page->addSectionLeft(
+			$this->vueComponent('vue-profile-infos', 'ProfileInfos', [
+				'isfoodsaver' => $this->foodsaver['rolle'] > Role::FOODSHARER,
+				'fsMail' => isset($this->foodsaver['mailbox']) ?? $this->profilePermissions->maySeeEmailAddress($fsId) ? $this->foodsaver['mailbox'] : '',
+				'privateMail' => $this->profilePermissions->maySeePrivateEmail($fsId) ? $this->foodsaver['email'] : '',
+				'registrationDate' => $this->profilePermissions->maySeeRegistrationDate($fsId) ? Carbon::parse($this->foodsaver['anmeldedatum'])->format('d.m.Y') : '',
+				'lastLogin' => $this->profilePermissions->maySeeLastLogin($fsId) ? Carbon::parse($this->foodsaver['last_login'])->format('d.m.Y') : '',
+				'buddyCount' => $this->foodsaver['stat_buddycount'],
+				'name' => $this->foodsaver['name'],
+				'fsId' => $this->foodsaver['id'],
+				'fsIdSession' => $this->session->id()
+			]),
+			$this->translator->trans('profile.infos.title')
+		);
 
 		if ($maySeeStores && count($userStores) > 0) {
 			$page->addSectionLeft(
@@ -256,93 +269,6 @@ class ProfileView extends View
 		</ul>';
 	}
 
-	private function sideInfos(): string
-	{
-		$fsId = $this->foodsaver['id'];
-		$infos = [];
-
-		if ($this->profilePermissions->maySeeLastLogin($fsId)) {
-			if (isset($this->foodsaver['last_login'])) {
-				$last_login = Carbon::parse($this->foodsaver['last_login'])->format('d.m.Y');
-			} else {
-				$last_login = $this->translator->trans('profile.infos.never');
-			}
-			$infos[] = [
-				'name' => $this->translator->trans('profile.infos.lastLogin'),
-				'val' => $last_login,
-			];
-		}
-
-		if ($this->profilePermissions->maySeeRegistrationDate($fsId)) {
-			if (isset($this->foodsaver['anmeldedatum'])) {
-				$registration_date = Carbon::parse($this->foodsaver['anmeldedatum'])->format('d.m.Y');
-			} else {
-				$registration_date = $this->translator->trans('profile.infos.never');
-			}
-			$infos[] = [
-				'name' => $this->translator->trans('profile.infos.registrationDate'),
-				'val' => $registration_date,
-			];
-		}
-
-		$privateMail = $this->foodsaver['email'] ?? '';
-		if ($privateMail && $this->profilePermissions->maySeePrivateEmail($fsId)) {
-			$url = '/?page=mailbox&mailto=' . urlencode($privateMail);
-			$splitMail = implode('<wbr>@', explode('@', $privateMail));
-			$infos[] = [
-				'name' => $this->translator->trans('profile.infos.privateMail'),
-				'val' => '<a href="' . $url . '">' . $splitMail . '</a>',
-			];
-		}
-
-		$fsMail = $this->foodsaver['mailbox'] ?? '';
-		if ($fsMail && $this->profilePermissions->maySeeEmailAddress($fsId)) {
-			if ($this->session->id() == $fsId) {
-				$url = '/?page=mailbox';
-			} else {
-				$url = '/?page=mailbox&mailto=' . urlencode($fsMail);
-			}
-			$splitMail = implode('<wbr>@', explode('@', $fsMail));
-			$infos[] = [
-				'name' => $this->translator->trans('profile.infos.fsMail'),
-				'val' => '<a href="' . $url . '">' . $splitMail . '</a>',
-			];
-		}
-
-		$buddycount = $this->foodsaver['stat_buddycount'];
-		if ($buddycount > 0) {
-			$infos[] = [
-				'name' => $this->translator->trans('profile.infos.buddies'),
-				'val' => $this->translator->trans('profile.infos.buddycount' . ($buddycount == 1 ? '1' : ''), [
-					'{count}' => $buddycount,
-					'{name}' => $this->foodsaver['name'],
-				]),
-			];
-		}
-
-		if ($this->foodsaver['stat_fetchcount'] > 0 && $this->profilePermissions->maySeeFetchRate($fsId)) {
-			$infos[] = [
-				'name' => $this->translator->trans('profile.infos.fetchrate'),
-				'val' => $this->foodsaver['stat_fetchrate'] . '&thinsp;%',
-			];
-		}
-
-		$isFoodsaver = $this->foodsaver['rolle'] > Role::FOODSHARER;
-		$infos[] = [
-			'name' => $this->translator->trans($isFoodsaver ? 'profile.infos.foodsaverId' : 'profile.infos.foodsharerId'),
-			'val' => $fsId,
-		];
-
-		$out = '<dl class="profile-infos profile-side">';
-		foreach ($infos as $info) {
-			$out .= '<dt>' . $info['name'] . ':</dt>';
-			$out .= '<dd>' . $info['val'] . '</dd>';
-		}
-		$out .= '</dl>';
-
-		return $out;
-	}
-
 	public function userNotes(string $notes, array $userStores): void
 	{
 		$fsId = $this->foodsaver['id'];
@@ -357,9 +283,17 @@ class ProfileView extends View
 
 		$mayAdmin = $this->profilePermissions->mayAdministrateUserProfile($fsId, $regionId);
 		$maySeeHistory = $this->profilePermissions->maySeeHistory($fsId);
+		$maySeeStores = $this->profilePermissions->maySeeStores($fsId);
 
 		$page->addSectionLeft($this->photo($mayAdmin, $maySeeHistory));
-		$page->addSectionLeft($this->sideInfos(), $this->translator->trans('profile.infos.title'));
+
+		if ($maySeeStores) {
+			$page->addSectionLeft(
+				$this->vueComponent('vue-profile-storelist', 'ProfileStoreList', [
+					'stores' => $userStores,
+				])
+			);
+		}
 
 		$page->render();
 	}

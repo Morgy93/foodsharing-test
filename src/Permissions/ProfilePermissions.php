@@ -134,11 +134,6 @@ class ProfilePermissions
 		return $this->session->id() === $userId || $this->session->may('orga');
 	}
 
-	public function maySeeFetchRate(int $fsId): bool
-	{
-		return false;
-	}
-
 	public function mayDeleteUser(int $userId): bool
 	{
 		return $this->session->id() == $userId || $this->session->may('orga');

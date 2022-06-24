@@ -15,6 +15,7 @@ import ProfileStoreList from './components/ProfileStoreList'
 import EmailBounceList from './components/EmailBounceList'
 import PickupsSection from './components/PickupsSection'
 import ProfileCommitmentsStat from './components/ProfileCommitmentsStat'
+import ProfileInfos from './components/ProfileInfos'
 // Wallpost
 import { URL_PART } from '@/browser'
 import '../WallPost/WallPost.css'
@@ -41,6 +42,7 @@ vueRegister({
   EmailBounceList,
   PickupsSection,
   ProfileCommitmentsStat,
+  ProfileInfos,
 })
 
 vueApply('#vue-profile-bananalist', true) // BananaList
@@ -51,6 +53,7 @@ vueApply('#report-Request', true) // ReportRequest
 vueApply('#email-bounce-list', true)
 vueApply('#profile-commitments-stat', true)
 vueApply('#pickups-section', true)
+vueApply('#vue-profile-infos', true)
 
 if (URL_PART(0) === 'profile') {
   const wallpostTable = (URL_PART(2) === 'notes') ? 'usernotes' : 'foodsaver'

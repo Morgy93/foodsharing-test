@@ -55,6 +55,7 @@ const urls = {
   logout: () => '/?page=logout',
   mailbox: (mailboxId = null) => `/?page=mailbox${mailboxId ? `&show=${mailboxId}` : ''}`,
   mailboxManage: () => '/?page=mailbox&a=manage',
+  mailboxMailto: (email) => `/?page=mailbox&mailto=${email}`,
   map: () => '/karte',
   members: (regionId) => `/?page=bezirk&bid=${regionId}&sub=members`,
   mission: () => '/ueber-uns',
