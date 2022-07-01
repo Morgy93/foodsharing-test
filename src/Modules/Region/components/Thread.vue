@@ -64,6 +64,8 @@
       </div>
     </div>
 
+    <ThreadFastnavigationButton v-if="isFastNavigationVisible" :label="$i18n('forum.thread.navigate_to_newest_post')" @navigate="navigateToNewestPost" />
+
     <div
       v-for="post in posts"
       :key="post.id"
@@ -87,6 +89,8 @@
         @scroll="scrollToPost(post.id)"
       />
     </div>
+
+    <ThreadFastnavigationButton v-if="isFastNavigationVisible" :label="$i18n('forum.thread.navigate_to_oldest_post')" @navigate="navigateToOldestPost" />
 
     <div
       v-if="regionId"
@@ -148,6 +152,7 @@ import { BModal } from 'bootstrap-vue'
 import ThreadActions from './ThreadActions'
 import ThreadForm from './ThreadForm'
 import ThreadPost from './ThreadPost'
+import ThreadFastnavigationButton from './ThreadFastnavigationButton'
 import * as api from '@/api/forum'
 import { pulseError } from '@/script'
 import i18n from '@/i18n'
@@ -157,7 +162,7 @@ import { setThreadStatus } from '@/api/forum'
 import ThreadStatus from './ThreadStatus'
 
 export default {
-  components: { BModal, ThreadActions, ThreadForm, ThreadPost },
+  components: { BModal, ThreadActions, ThreadForm, ThreadPost, ThreadFastnavigationButton },
   props: {
     id: {
       type: Number,
@@ -192,6 +197,15 @@ export default {
     isOpen () {
       return this.status === ThreadStatus.THREAD_OPEN
     },
+    newestPostId () {
+      return this.posts[this.posts.length - 1].id
+    },
+    oldestPostId () {
+      return this.posts[0].id
+    },
+    isFastNavigationVisible () {
+      return this.posts.length > 2
+    },
   },
   async created () {
     this.isLoading = true
@@ -210,6 +224,12 @@ export default {
       if (p) {
         p.scrollIntoView({ behavior: 'smooth', block: 'center' })
       }
+    },
+    navigateToNewestPost () {
+      this.scrollToPost(this.newestPostId)
+    },
+    navigateToOldestPost () {
+      this.scrollToPost(this.oldestPostId)
     },
     reply (body) {
       // this.$refs.form.text = `> ${body.split('\n').join('\n> ')}\n\n${this.$refs.form.text}`

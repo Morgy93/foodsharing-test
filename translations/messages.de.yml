@@ -1073,6 +1073,8 @@ forum:
     close: "Thema schließen"
     open: "Thema wieder öffnen"
     closed: "geschlossenes Thema"
+    navigate_to_newest_post: "zum neuesten Beitrag springen"
+    navigate_to_oldest_post: "zum ersten Beitrag springen"
   hold_back_for_moderation: "Das Thema wurde gespeichert und wird veröffentlicht sobald ein*e Botschafter*in/Moderator*in es bestätigt."
   no_posts: "Bisher keine Beiträge vorhanden"
   no_threads: "Noch keine Themen gepostet"

@@ -645,6 +645,8 @@ forum:
     close: "Close thread"
     open: "Reopen thread"
     closed: Closed thread
+    navigate_to_newest_post: "jump to latest post"
+    navigate_to_oldest_post: "jump to first post"
   post:
     delete: Delete post
     body: Message
