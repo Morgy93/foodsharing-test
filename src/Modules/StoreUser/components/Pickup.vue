@@ -350,8 +350,8 @@ export default {
       margin-left: 1px;
       width: 50px;
       height: 50px;
-      color: var(--fs-color-primary-alpha-70);
-      background-color: var(--fs-color-primary-alpha-50);
+      color: var(--fs-color-primary-500);
+      background-color: var(--fs-color-primary-200);
       border-color: var(--fs-color-primary-300);
       border-width: 2px;
 

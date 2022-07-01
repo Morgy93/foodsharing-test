@@ -11,7 +11,7 @@
           cols="6"
         >
           <h2>{{ $i18n('footer.call_to_action') }}</h2>
-          <ul class="nav flex-column">
+          <ul class="flex-column">
             <li class="nav-item">
               <a
                 :href="$url('infosCompany')"
@@ -30,7 +30,7 @@
             </li>
             <li class="nav-item">
               <a
-                :href="$url('devdocsItTasks')"
+                :href="$url('devdocs_it_tasks')"
                 :aria-label="$i18n('footer.infosDeveloper')"
               >
                 {{ $i18n('footer.infosDeveloper') }}
@@ -44,7 +44,7 @@
           class="mb-5 pt-sm-0"
         >
           <h2>{{ $i18n(informationen[0].name) }}</h2>
-          <ul class="nav flex-column">
+          <ul class="flex-column">
             <li
               v-for="(information, index) in informationen[0].items"
               :key="index"
@@ -176,7 +176,7 @@
           class="mb-5 mb-xl-0"
         >
           <h2>{{ $i18n(informationen[1].name) }}</h2>
-          <ul class="nav flex-column">
+          <ul class="flex-column">
             <li
               v-for="(information, index) in informationen[1].items"
               :key="index"
@@ -196,7 +196,7 @@
           class="mb-5 mb-xl-0"
         >
           <h2>{{ $i18n(informationen[2].name) }}</h2>
-          <ul class="nav flex-column">
+          <ul class="flex-column">
             <li
               v-for="(information, index) in informationen[2].items"
               :key="index"
@@ -217,7 +217,7 @@
           class="mb-5 mb-xl-0"
         >
           <h2>{{ $i18n(informationen[3].name) }}</h2>
-          <ul class="nav flex-column">
+          <ul class="flex-column">
             <li
               v-for="(information, index) in informationen[3].items"
               :key="index"
@@ -238,7 +238,7 @@
           class="mb-5 mb-xl-0"
         >
           <h2>{{ $i18n(informationen[4].name) }}</h2>
-          <ul class="nav flex-column">
+          <ul class="flex-column">
             <li
               v-for="(information, index) in informationen[4].items"
               :key="index"
@@ -259,7 +259,7 @@
           class="mb-5 mb-xl-0"
         >
           <h2>{{ $i18n(informationen[5].name) }}</h2>
-          <ul class="nav flex-column">
+          <ul class="flex-column">
             <li
               v-for="(information, index) in informationen[5].items"
               :key="index"
@@ -320,6 +320,10 @@
               :rel="externalLink"
             >
               <i :class="social.icon" />
+              <span
+                class="sr-only"
+                v-html="social.name"
+              />
             </a>
           </b-row>
         </b-col>
@@ -469,7 +473,7 @@ export default {
 }
 
 .social_icons {
-  color: var(--fs-color-dark);
+  color: var(--fs-color-gray-500);
   font-size: 1.2rem;
   padding: .25rem;
 
@@ -488,17 +492,17 @@ h2 {
   font-style: normal;
   font-weight: normal;
   font-size: 1.1rem;
-  color: var(--fs-color-dark);
+  color: var(--fs-color-gray-600);
 }
 
 .line {
-  border-bottom: 1px solid var(--fs-color-dark);
+  border-bottom: 1px solid var(--fs-color-gray-600);
 }
 
 a, p, li {
-  font-size: 1rem;
-  line-height: 2rem;
-  color: var(--fs-color-dark);
+  font-size: .8rem;
+  line-height: 1.8em;
+  color: var(--fs-color-gray-900);
 }
 
 p {

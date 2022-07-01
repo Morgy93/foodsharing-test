@@ -170,17 +170,6 @@ p {
   margin-top: 5px;
 }
 
-.text,
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=number] {
-  width: 90%;
-  border: 1px solid var(--fs-color-border);
-  padding: 7px;
-  border-radius: 6px;
-}
-
 select {
   border: 1px solid var(--fs-color-border);
   border-radius: 6px;

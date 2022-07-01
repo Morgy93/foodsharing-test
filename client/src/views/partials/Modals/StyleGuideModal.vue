@@ -3,7 +3,7 @@
     id="styleGuideModal"
     ref="styleGuideModal"
     size="xl"
-    title="styleGuideModal"
+    title="Styleguide"
   >
     <div class="flex">
       <div class="mb-5">
@@ -84,7 +84,9 @@
               />
             </li>
           </ul>
-          <mark>Please only use Bootstrap-VUE, when using vanilla Bootstrap interactiv comoponents like you will break old components which uses jQuery UI</mark>
+          <div class="alert alert-info">
+            Please only use <b>Bootstrap-VUE</b>, when using vanilla Bootstrap interactiv comoponents like you will break old components which uses jQuery UI.
+          </div>
         </div>
       </div>
       <div class="col-12 col-sm-6">
@@ -214,6 +216,9 @@ export default {
     mix-blend-mode: difference;
     color: white;
     font-size: 0.7rem;
+    @media (max-width: 576px) {
+      display: none;
+    }
   }
 
   &:hover {

@@ -35,7 +35,7 @@
 export default {
   props: {
     type: { type: String, default: 'error' },
-    tag: { type: String, default: 'releaseNotes' },
+    tag: { type: String, default: 'release_notes' },
     version: { type: String, default: '' },
     isTimeBased: { type: Boolean, default: true },
     time: { type: String, default: '' },

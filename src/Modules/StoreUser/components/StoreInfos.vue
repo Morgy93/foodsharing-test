@@ -193,7 +193,8 @@ export default {
   }
 
   .desc-block-title {
-    background-color: var(--fs-color-primary-300);
+    background-color: var(--fs-color-primary-200);
+    border-radius: var(--border-radius);
     color: var(--fs-color-primary-500);
     font-weight: bolder;
     text-align: center;

@@ -8,13 +8,13 @@
     >{{ $i18n('settings.name_change.title') }}</label>
     <div
       v-b-modal.name-change-info-modal
-      class="desc"
+      class="alert alert-light border mb-2"
       v-html="$i18n('settings.name_change.desc', {link:'href=\'#\''})"
     />
-    <div class="element-wrapper">
+    <div class="row container m-0 p-0 ">
       <input
         id="name"
-        class="input text value"
+        class="form-control col mr-2"
         type="text"
         name="name"
         :value="name"
@@ -22,7 +22,7 @@
       >
       <input
         id="nachname"
-        class="input text value"
+        class="form-control col"
         type="text"
         name="nachname"
         :value="lastName"
@@ -70,18 +70,3 @@ export default {
 
 }
 </script>
-
-<style lang="scss">
-.element-wrapper{
-  --first-input-width: 35%;
-  #name{
-    width: var(--first-input-width);
-  }
-  #nachname{
-    width: calc(90% - var(--first-input-width) - 1em);
-    margin-left: 1em;
-    box-sizing: border-box;
-  }
-}
-
-</style>

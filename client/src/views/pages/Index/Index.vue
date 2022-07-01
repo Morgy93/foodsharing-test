@@ -269,7 +269,7 @@
         <p>
           <b-link
             class="link"
-            :href="$url('devdocsItTasks')"
+            :href="$url('devdocs_it_tasks')"
           >
             {{ $i18n('startpage.more_infos') }}
           </b-link>
@@ -504,7 +504,7 @@ export default {
 }
 
 .line {
-  border-bottom: 1px solid var(--fs-color-dark);
+  border-bottom: 1px solid var(--fs-color-gray-500);
   width: 90%;
   margin: 0 auto;
 }
@@ -524,7 +524,7 @@ svg {
 }
 
 .teaser-background {
-  background-color: var(--fs-color-primary-300);
+  background-color: var(--fs-color-primary-200);
   max-width: 805px;
   max-height: 451px;
 }

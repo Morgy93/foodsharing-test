@@ -26,7 +26,6 @@ const urls = {
   festival: () => '/?page=content&sub=festival',
   foodsharepoint: (fspId) => `/?page=fairteiler&sub=ft&id=${fspId}`,
   fsstaedte: () => '/?page=content&sub=fsstaedte',
-
   home: () => '/',
   imprint: () => '/impressum',
   infos: () => '/?page=content&sub=infohub',
@@ -64,6 +63,9 @@ const urls = {
   circle_of_friends: () => 'https://spenden.foodsharing.de/freundeskreis',
   selfservice: () => 'https://spenden.foodsharing.de/selfservice',
   resendActivationMail: () => '/?page=login&a=resendActivationMail',
+
+  // javascript
+  javascript: (js) => `javascript:${js}`,
 
   // Relogin
   relogin_and_redirect_to_url: (url) => '/?page=relogin&url=' + encodeURIComponent(url),
@@ -126,19 +128,22 @@ const urls = {
   wiki_grundsaetze: () => 'https://wiki.foodsharing.de/Grundsätze',
   wiki_legal_agreement: () => 'https://wiki.foodsharing.de/Rechtsvereinbarung',
 
-  quizEdit: () => '/?page=quiz',
-  quizLearning: () => 'https://youtu.be/9Fk6MHC-M1o',
-  quizFs: () => '/?page=settings&sub=up_fs',
-  quizBip: () => '/?page=settings&sub=up_bip',
-  quizBot: () => '/?page=settings&sub=up_bot',
+  //
+  quiz_admin_edit: () => '/?page=quiz',
+  quiz_learning_video: () => 'https://youtu.be/9Fk6MHC-M1o',
+  quiz_foodsaver: () => '/?page=settings&sub=up_fs',
+  quiz_store_manager: () => '/?page=settings&sub=up_bip',
+  quiz_ambassador: () => '/?page=settings&sub=up_bot',
 
   // Footer Links
   hosting: () => 'https://manitu.de',
   wiener_tafel: () => 'https://www.wienertafel.at',
   bmlfuw: () => 'https://www.bmlrt.gv.at',
   denns: () => 'https://www.denns-biomarkt.at',
+
+  // Devdocs
   devdocs: () => 'https://devdocs.foodsharing.network',
-  devdocsItTasks: () => 'https://devdocs.foodsharing.network/it-tasks.html',
+  devdocs_it_tasks: () => 'https://devdocs.foodsharing.network/it-tasks.html',
 
   // Beta Testing
   beta: () => 'https://beta.foodsharing.de',

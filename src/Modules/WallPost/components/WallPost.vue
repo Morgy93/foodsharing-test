@@ -108,7 +108,7 @@
 <script>
 import differenceInMonths from 'date-fns/differenceInMonths'
 import differenceInCalendarYears from 'date-fns/differenceInCalendarYears'
-import serverData from '@/server-data'
+import serverData from '@/scripts/server-data'
 import Avatar from '@/components/Avatar'
 import Markdown from '@/components/Markdown/Markdown'
 import MediaQueryMixin from '@/mixins/MediaQueryMixin'

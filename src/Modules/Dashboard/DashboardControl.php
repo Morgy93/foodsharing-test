@@ -168,11 +168,11 @@ class DashboardControl extends Control
 			$cnt['closeable'] = false;
 			$cnt['links'] = [
 				(object)[
-					'urlShortHand' => 'quizFs',
+					'urlShortHand' => 'quiz_foodsaver',
 					'text' => 'foodsaver.upgrade.to_fs',
 				],
 				(object)[
-					'urlShortHand' => 'quizLearning',
+					'urlShortHand' => 'quiz_learning_video',
 					'text' => 'foodsaver.upgrade.learning',
 				]
 			];

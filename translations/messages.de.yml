@@ -42,6 +42,8 @@ photo: "Foto"
 ort: "Stadt/Gemeinde (automatisch aus Karte oben)"
 daterange: "Zeitraum"
 regions: "Bezirke" # TODO check if used anywhere else
+groups:
+  empty: "Du bist noch in keinen Arbeitsgruppen"
 message_text_to_group_admin_workgroup: "Die Region/Arbeitsgruppe <b>{groupName}</b> hat <b>keine*n</b> Botschafter*in/Administrator*in mehr.<br><br><br>Sie besitzt folgende ID-Struktur:<br>{idStructureList}<br><br>Die ID lautet: {groupId}<br><br>URL: \"<a href=\"https://foodsharing.de/?page=bezirk&bid={groupId}&sub=forum\" target=\"_blank\">Klicke hier um zur Region/Arbeitsgruppe zu gehen</a>"
 #
 # FORM DATA KEYS: SettingsView
@@ -775,6 +777,7 @@ store:
   short_tooltip_orange: "Offene Abholungen in 3 Tagen"
   short_tooltip_red: "Offene Abholungen heute oder morgen"
   tooltip_managing: "Du bist verantwortlich für diesen Betrieb"
+  tooltip_jumping: "Du bist Springer für diesen Betrieb"
   allStoresOfRegion: "Alle Betriebe aus dem Bezirk"
   addNewStoresButton: "Neuen Betrieb eintragen"
   noStores: "Es sind noch keine Betriebe eingetragen"
@@ -1877,21 +1880,6 @@ profile:
   cantdeletethis: "Du kannst keine Einzeltermine löschen!"
   choosestore: "Bitte den betroffenen Betrieb auswählen" #in ProfileView
 
-search:
-  title: "Suche"
-  placeholder: "Suche Personen, Gruppen, Betriebe, …"
-  forum: "Nach Titel suchen…"
-  thread-title-only: "Es werden nur Titel durchsucht, nicht der Text von Beiträgen."
-  noresults: "Es konnten keine Ergebnisse gefunden werden"
-  mybuddies: "Meine Buddies"
-  mygroups: "Meine Gruppen"
-  mystores: "Meine Betriebe"
-  myregions: "Meine Bezirke"
-  groups: "Gruppen"
-  persons: "Personen"
-  user_search:
-    placeholder: "Name oder ID"
-
 dashboard:
   title: "Dashboard"
   updates_title_all: "Updates-Übersicht"
@@ -1939,10 +1927,11 @@ dashboard:
     regions: "Deine Bezirke" #also in searchindexgenerator
     groups: "Deine Gruppen" #also in searchindexgenerator
     stores: "Deine Betriebe"
+    managing_stores: "Deine verantwortlichen Betriebe"
+    jumping_stores: "Deine Springer Betriebe"
     events: "Events"
     baskets: "Essenskörbe"
     pending: "Anfragen gestellt bei"
-    waiting: "Du bist auf der Springerliste bei"
     no-stores: "Du bist bis jetzt in keinem Betriebsteam."
     users: "Foodsaver*innen"
     buddies: "Menschen, die Du kennst"
@@ -2092,22 +2081,17 @@ personal_data:
   landline: "Festnetztelefon"
 
 menu:
-  manage_regions: "Bezirke verwalten"
-  blog: "Blogbeiträge bearbeiten"
-  quiz: "Quiz verwalten"
-  reports: "Meldungen" #also in ReportControl
-  email: "Newsletter versenden"
-  manage_mailboxes: "Mailboxen verwalten"
-  content: "Inhalte bearbeiten"
   entry:
     activities: "Aktionen"
-    infos: "Infos"
+    infos: "Informationen"
     mark_as_read: "Alle als gelesen markieren"
     all_messages: "Alle Nachrichten"
     messages: "Nachrichten"
     your_groups: "Deine Gruppen"
     your_baskets: "Deine Essenskörbe"
-    groups: "Gruppenübersicht"
+    baskets: "Essenskörbe"
+    groups: "Gruppen"
+    group_overview: "Gruppenübersicht"
     your_account: "Dein Account"
     your_stores: "Deine Betriebe" #also in searchindexgenerator
     administration: "Administration"
@@ -2357,15 +2341,6 @@ sidenav:
   countryspecific: "Länderspezifische Gruppen"
   yourgroups: "Deine Gruppen"
 
-becomeregion:
-  chooseregion: "Wähle den Bezirk aus, in dem du aktiv werden möchtest."
-  enterregion:
-    main: "Deinem ersten Bezirk kannst du beitreten, indem du dich über die Auswahl 'Europa' bis zu deinem Bezirk durchklickst.<br> Solltest du keinen Bezirk für dich finden, wähle ein Level höher oder tritt dem nächstgelegenen Bezirk bei. Solltest du keine Möglichkeit haben, dich in der Umgebung zum Foodsaver ausbilden zu lassen, dann kannst du dir überlegen einen eigenen Bezirk zu starten. Lies dir in diesem Fall bitte das Wiki und insbesondere den Artikel zu"
-    region_link_text: "Bezirke gründen oder reaktivieren"
-    text1: "gut durch. Wenn du den Bezirk starten möchtest oder explizite Fragen hast, die das Wiki nicht beantwortet, schreib uns eine E-Mail an"
-    text2: "Wir sind nicht die zentrale Anlaufstelle für allgemeine Fragen, können dir aber bei Fragen zu Bezirken weiterhelfen."
-  save: "Speichern"
-
 base:
   whatfor: "Auf foodsharing.de kannst du deine Lebensmittel vor dem Verfall an soziale Einrichtungen oder andere Personen abgeben"
   keywords: "foodsharing, essen, lebensmittel, ablaufdatum, Lebensmittelverschwendung, essen wegschmeissen, spenden, lebensmitteltausch"
@@ -2595,12 +2570,7 @@ startpage:
     link: foodsharing unterstützen
 
 contentmanagement: "Inhaltsverwaltung" #contentControl
-activitypost:
-  Response: "Antworten"
-  response: "antworten"
-  write: "Schreibe eine Antwort …"
-  quickreply_info: "<b>Umschalttaste + Eingabetaste</b> zum Hinzufügen einer neuen Zeile."
-  quickreply_button: Jetzt Senden<br>oder <b>Eingabetaste</b> drücken.
+
 deletefromregion: "Wirklich aus dem Bezirk löschen?"
 savewithus: "Rette mit!"
 logincontrol:
@@ -2655,6 +2625,35 @@ information:
     info: "Damit kannst du deine nächsten Abholtermine mit einem Kalenderprogramm deiner Wahl sehen."
     link: "Jetzt abonnieren"
 
+system_administration:
+  regions: "Bezirke verwalten"
+  blog: "Blogbeiträge bearbeiten"
+  quiz: "Quiz verwalten"
+  reports: "Meldungen einsehen"
+  email: "Newsletter versenden"
+  mailboxes: "Mailboxen verwalten"
+  content: "Inhalte bearbeiten"
+
+navigation:
+  map: Karte
+  promotion: In der IT? Wir brauchen dich!
+  contact: Kontakt
+  whats_new: Was ist neu?
+  styleguide: Styleguide
+  support: Support
+  help_needed: Hilfe nötig?
+  help: Hilfe
+  help_and_support: Hilfe & Support
+  wiki: Wiki
+  regions: Bezirke
+  groups: Gruppen
+  stores: Betriebe
+  basket: Essenskörbe
+  search: Suche
+  conversations: Nachrichten
+  notifications: Benachrichtigungen
+  profil: 👋 Hallo {name}!
+  system_administration: System Administration
 
 join_region:
   headline: Wähle den Bezirk aus, in dem du aktiv werden möchtest.
@@ -2673,8 +2672,6 @@ globals:
   save: Speichern
   close: Schließen
   select: Bitte auswählen...
-  modal:
-    close: Schließen oder <code class="key">ESC</code> benutzen
   type:
     mailboxes: Mailboxen
     my_mailboxes: Meine Mailboxen
@@ -2690,3 +2687,20 @@ globals:
     my_groups: Meine Gruppen
     persons: Personen
     my_persons: Meine Personen
+
+search:
+  title: Suche
+  placeholder: Jetzt suche starten ...
+  informations: Du kannst nach Personen, Gruppen, Betriebe, Bezirke und Fairteiler suchen.
+  forum: Nach Titel suchen…
+  noresults: Es konnten keine Ergebnisse gefunden werden
+  thread-title-only: Es werden nur Titel durchsucht, nicht der Text von Beiträgen.
+  user_search:
+    placeholder: Name oder ID
+
+activitypost:
+  Response: Antworten
+  response: antworten
+  write: Schreibe eine Antwort …
+  quickreply_info: <code class="key">Umschalttaste + Eingabetaste</code> zum Hinzufügen einer neuen Zeile.
+  quickreply_button: Jetzt Senden<br>oder <code class="key">Eingabetaste</code> drücken.

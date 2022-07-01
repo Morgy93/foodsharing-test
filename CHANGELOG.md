@@ -60,7 +60,7 @@
 - Simplify code in the content module @alex.simm
 - Use a REST endpoint for quickreplying to forum threads #798 @alex.simm
 - Extract some redundant permission checks into one function. !2203 @AntonBallmaier
-- The TopBarNavigation is now unified !2238 !2245 !2248 !2252 !2254 !2279 @sefn
+- The Navigation is reworked !2296 @sefn
 - Rebuild store options to vue #2231 @chriswalg
 - Changed deleting wall posts to the API #798 !2253 @alex.simm
 - Rebuild profile infos to vue !2276 !2287 @chriswalg

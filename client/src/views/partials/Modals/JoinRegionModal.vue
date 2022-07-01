@@ -102,9 +102,6 @@ export default {
     isLoggedIn () {
       return DataUser.getters.isLoggedIn()
     },
-    hasRegion () {
-      return DataUser.getters.hasRegion()
-    },
     regionIsInValid () {
       return ![1, 9, 2, 3].includes(this.selectedRegionType)
     },
@@ -128,7 +125,6 @@ export default {
   watch: {
     isShown: {
       handler: function (val) {
-        console.log(val)
         if (val) {
           this.showModal()
         }

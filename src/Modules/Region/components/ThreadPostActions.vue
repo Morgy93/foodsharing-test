@@ -97,7 +97,7 @@ import { BDropdown, BModal, VBTooltip, BLink } from 'bootstrap-vue'
 
 import Emoji from '@/components/Emoji'
 import emojiList from '@/emojiList.json'
-import { user } from '@/server-data'
+import { user } from '@/scripts/server-data'
 
 export default {
   components: { BDropdown, Emoji, BModal, BLink },

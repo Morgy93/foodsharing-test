@@ -65,3 +65,10 @@
     --size: 1rem;
     margin-right: 0.5rem;
 }
+
+.dropdown-item:focus .icon,
+.dropdown-item:active .icon {
+    & .img-thumbnail {
+        color: var(--fs-color-primary-500);
+    }
+}

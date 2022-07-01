@@ -10,7 +10,7 @@
         {{ $i18n('pickup.history.title') }}
       </span>
       <a
-        class="float-right pl-2 pr-1"
+        class="text-light float-right pl-2 pr-1"
         href="#"
         @click.prevent.stop="toggleDisplay"
       >

@@ -7,7 +7,7 @@
 import $ from 'jquery'
 import conv from '@/conv'
 import i18n from '@/i18n'
-import serverData from '@/server-data'
+import serverData from '@/scripts/server-data'
 import autosize from 'autosize'
 import timeformat from '@/timeformat'
 import * as api from '@/api/conversations'

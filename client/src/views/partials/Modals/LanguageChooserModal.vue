@@ -1,9 +1,12 @@
 <template>
   <b-modal
+    id="languageChooserModal"
     ref="languageChooserModal"
     :title="$i18n('language_chooser.title')"
     :cancel-title="$i18n('button.cancel')"
     :ok-title="$i18n('language_chooser.choose_button')"
+
+    @show="fetchLanguages"
     @ok="changeLanguage"
   >
     {{ $i18n('language_chooser.content') }}
@@ -11,10 +14,7 @@
       v-if="loading"
       class="loader-container mx-auto"
     >
-      <b-img
-        center
-        src="/img/469.gif"
-      />
+      <i class="fas fa-spinner fa-spin" />
     </div>
     <b-form-select
       v-else
@@ -28,10 +28,9 @@
 <script>
 import { pulseError } from '@/script'
 import { getLocale, setLocale } from '@/api/locale'
-import { getters, mutations } from '@/stores/languageChooser'
 
 export default {
-  name: 'LanguageChooser',
+  name: 'LanguageChooserModal',
   data () {
     return {
       language: null,
@@ -45,29 +44,11 @@ export default {
       loading: true,
     }
   },
-  computed: {
-    isShown () {
-      return getters.get()
-    },
-  },
-  watch: {
-    isShown (isShown) {
-      if (isShown) {
-        this.show()
-      }
-    },
-  },
   methods: {
-    show () {
-      this.$refs.languageChooserModal.show()
-      this.getLanguage()
-    },
-    async getLanguage () {
+    async fetchLanguages () {
       this.loading = true
-
       try {
         this.language = await getLocale()
-        mutations.hide()
       } catch (e) {
         pulseError(this.$i18n('error_unexpected'))
       }
@@ -76,7 +57,6 @@ export default {
     },
     async changeLanguage () {
       try {
-        mutations.hide()
         await setLocale(this.language)
         location.reload()
       } catch (e) {

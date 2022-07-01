@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="!hasRegion && isFoodsaver"
+    v-if="!hasHomeRegion && isFoodsaver"
     class="information-field alert alert-danger d-flex justify-content-between"
   >
     <i
@@ -36,15 +36,15 @@ import DataRegions from '@/stores/regions'
 
 export default {
   computed: {
-    hasRegion () {
-      return DataUser.getters.hasRegion()
+    hasHomeRegion () {
+      return DataUser.getters.hasHomeRegion()
     },
     isFoodsaver () {
       return DataUser.getters.isFoodsaver()
     },
   },
   watch: {
-    hasRegion: {
+    hasHomeRegion: {
       handler (val) {
         if (!val && this.isFoodsaver) {
           this.open()

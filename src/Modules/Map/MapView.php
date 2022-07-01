@@ -28,7 +28,7 @@ class MapView extends View
 
 		if ($this->session->may('fs')) {
 			$betriebe = '<li>
-				<a name="betriebe" class="map-legend-entry stores active">
+				<a name="betriebe" class="map-legend-entry stores">
 					<i class="fas fa-shopping-cart"></i>'
 					. $this->translator->trans('menu.entry.stores') .
 				'</a>

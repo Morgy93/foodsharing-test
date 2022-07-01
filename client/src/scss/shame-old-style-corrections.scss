@@ -84,9 +84,16 @@ html a.trafficlight,
     }
 }
 
+/*
+    All text inputs should now imitate the Bootstrap input Style
+*/
+textarea,
+input[type="text"] {
+    @extend .form-control;
+}
+
 .comment.textarea,
 .comment textarea {
-    @extend .form-control;
     display: block;
     min-height: 3rem;
     margin-bottom: 1rem;
@@ -96,10 +103,30 @@ html a.trafficlight,
 /**
     Map
 */
+
+#map {
+    width: 100%;
+    height: calc(100vh - 112px);
+    position: relative;
+}
+
 #map-control-colapse {
     cursor: pointer;
     background-color: var(--fs-color-secondary-500);
     color: var(--fs-color-light);
+}
+
+#map-control-wrapper {
+    height: 0;
+    margin: 0;
+    position: absolute;
+    right: 16px;
+    top: 160px;
+    z-index: 450;
+
+    @media (max-width: 575px) {
+        top: 94px;
+    }
 }
 
 #map-legend {
@@ -120,31 +147,44 @@ html a.trafficlight,
         font-weight: 600;
         font-size: 1rem;
 
+        i {
+            color: var(--fs-color-light);
+        }
+
+        &.baskets {
+            i::after {
+                background-color: var(--fs-color-type-baskets);
+            }
+        }
+        &.stores {
+            i::after {
+                background-color: var(--fs-color-type-stores);
+            }
+        }
+        &.foodshare-points {
+            i::after {
+                background-color: var(--fs-color-type-foodshare-points);
+            }
+        }
+        &.communities {
+            i::after {
+                background-color: var(--fs-color-type-communities);
+            }
+        }
+
         &:hover {
             background-color: var(--fs-color-primary-100);
             &.baskets {
                 color: var(--fs-color-type-baskets);
-                i {
-                    color: var(--fs-color-type-baskets);
-                }
             }
             &.stores {
                 color: var(--fs-color-type-stores);
-                i {
-                    color: var(--fs-color-type-stores);
-                }
             }
             &.foodshare-points {
                 color: var(--fs-color-type-foodshare-points);
-                i {
-                    color: var(--fs-color-type-foodshare-points);
-                }
             }
             &.communities {
                 color: var(--fs-color-type-communities);
-                i {
-                    color: var(--fs-color-type-communities);
-                }
             }
         }
 
@@ -173,7 +213,14 @@ html a.trafficlight,
             }
         }
 
+        &:not(.active) + .map-legend-selection {
+            display: none;
+        }
+
         &.active {
+            i::after {
+                background-color: var(--fs-color-white);
+            }
             &.baskets {
                 color: var(--fs-color-light);
                 background-color: var(--fs-color-type-baskets);

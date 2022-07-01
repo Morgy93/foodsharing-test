@@ -62,6 +62,7 @@ $colorlist: (
         Others
         var\(--(?!fs-color|border|size)(.+)
     */
+    --fs-color-background: #{tint($secondary, 89%)};
     --fs-color-white: white;
     --fs-color-light: var(--fs-color-gray-100);
     --fs-color-dark: var(--fs-color-gray-600);
