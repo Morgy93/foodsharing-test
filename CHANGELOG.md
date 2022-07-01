@@ -78,6 +78,8 @@
 - bump mocha to versio 10 !2255 @peter.toennies
 - Add how to connect other device with local development website to dev docs !2259 @NINI1988
 - Fix the url to api doc for dev env !2290 @chriswalg
+- Add a workaround to upload files to the startpage. #1245 !2233 @stcz
+- Replace SwiftMailer with Symfony mailer #1188 !2247 @alex.simm
 
 # Release "Heidelbeere", 2022-05-01
 
