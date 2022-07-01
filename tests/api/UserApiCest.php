@@ -174,12 +174,7 @@ class UserApiCest
 			]
 		]);
 
-		$I->seeResponseMatchesJsonType([
-			'coordinates' => [
-				'lat' => 'string|float|integer',
-				'lon' => 'string|float|integer',
-			]
-		]);
+		$I->dontSeeResponseContains('coordinates');
 
 		$I->seeResponseMatchesJsonType([
 			'permissions' => [
@@ -190,7 +185,7 @@ class UserApiCest
 	}
 
 	/**
-	 * Check that only allowed fields of the current user are return in the response.
+	 * Check that only allowed fields of the current user are returned in the response.
 	 */
 	public function getUserDetailsFromCurrentUser(ApiTester $I)
 	{
