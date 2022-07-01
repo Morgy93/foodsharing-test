@@ -35,7 +35,7 @@
       {{ $i18n('register.signup_newsletter') }}
     </b-form-checkbox>
     <button
-      class="btn btn-secondary ml-3 mt-3"
+      class="btn btn-primary ml-3 mt-3"
       type="button"
       @click="$emit('prev')"
     >
@@ -44,7 +44,7 @@
     <button
       :disabled="$v.$invalid"
       type="submit"
-      class="btn btn-secondary mt-3"
+      class="btn btn-primary mt-3"
       @click.prevent="$emit('submit')"
     >
       {{ $i18n('register.finish') }}

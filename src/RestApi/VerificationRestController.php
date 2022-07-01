@@ -80,7 +80,7 @@ class VerificationRestController extends AbstractFOSRestController
 		$this->foodsaverGateway->changeUserVerification($userId, $sessionId, true);
 		$this->bellGateway->delBellsByIdentifier(BellType::createIdentifier(BellType::NEW_FOODSAVER_IN_REGION, $userId));
 
-		$passportGenLink = '?page=settings&sub=passport';
+		$passportGenLink = '/?page=settings&sub=passport';
 		$bellData = Bell::create(
 			'foodsaver_verified_title',
 			'foodsaver_verified',

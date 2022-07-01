@@ -33,7 +33,7 @@
             v-b-tooltip.hover
             :title="concatUsers(users)"
             class="btn btn-sm"
-            :class="[gaveIThisReaction(key) ? 'btn-primary' : 'btn-secondary']"
+            :class="[gaveIThisReaction(key) ? 'btn-primary' : 'btn-primary']"
             :disabled="!canGiveEmoji"
             @click="toggleReaction(key)"
           >
@@ -49,7 +49,7 @@
     />
     <a
       v-if="mayReply"
-      class="btn btn-sm btn-secondary"
+      class="btn btn-sm btn-primary"
       @click="$emit('reply')"
     >
       {{ $i18n('button.answer') }}
@@ -68,7 +68,7 @@
       v-if="mayEdit"
       v-b-tooltip.hover
       title="Beitrag bearbeiten"
-      class="btn btn-sm btn-secondary"
+      class="btn btn-sm btn-primary"
       @click="$emit('edit')">
       <i class="fas fa-pencil-alt" />
     </a> -->

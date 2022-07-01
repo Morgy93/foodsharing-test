@@ -154,7 +154,7 @@ const msg = {
       $itemLink.children('.time').text(dateDistanceInWords(message.message.sentAt))
       $item.hide()
       $item.prependTo('#conversation-list ul:first')
-      $item.show('highlight', { color: '#F5F5B5' })
+      $item.show('highlight', { color: 'var(--fs-color-warning-200)' })
     }
   },
 
@@ -199,7 +199,7 @@ const msg = {
 
     msg.$conversation.children('ul:first').prepend($el)
 
-    $el.show('highlight', { color: '#F5F5B5' })
+    $el.show('highlight', { color: 'var(--fs-color-warning-200)' })
   },
 
   appendMsg: function (message) {
@@ -211,7 +211,7 @@ const msg = {
 
     msg.$conversation.children('ul:first').append($el)
 
-    $el.show('highlight', { color: '#F5F5B5' })
+    $el.show('highlight', { color: 'var(--fs-color-warning-200)' })
 
     this.last_message_id = message.id
   },
@@ -424,7 +424,7 @@ const msg = {
       msg.$convs.append($el)
     }
 
-    $el.show('highlight', { color: '#F5F5B5' })
+    $el.show('highlight', { color: 'var(--fs-color-warning-200)' })
 
     msg.$convs.children('.noconv').remove()
   },

@@ -25,8 +25,9 @@
 - Info for foodsharer how can change the name !2240 @chriswalg
 - Renamed the button to update displayed language !1232 @martincodes-de
 - Improved nightly maintenance runtime !2176 @AntonBallmaier
-
 - On mobile devices the forum profile image is smaller !2237 @sefn
+- Color set is unified and removed vanilla bootstrap !2293 @sefn
+
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
 - Push notifications can be (de-)activated in the settings again #1239 @alex.simm

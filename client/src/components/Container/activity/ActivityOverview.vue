@@ -36,7 +36,7 @@
       <button
         id="activity-option"
         v-b-tooltip="$i18n('dashboard.settings_tooltip')"
-        :class="{'btn-secondary': showListings}"
+        :class="{'btn-primary': showListings}"
         class="btn btn-sm btn-icon"
         @click="toggleOptionListings"
       >

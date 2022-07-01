@@ -113,10 +113,6 @@ final class PageHelper
 
 		$bodyClasses[] = 'page-' . $this->routeHelper->getPage();
 
-		if (in_array($this->routeHelper->getPage(), ['dashboard', 'index'])) {
-			$bodyClasses[] = 'bootstrap';
-		}
-
 		$footer = $this->getFooter();
 
 		return [

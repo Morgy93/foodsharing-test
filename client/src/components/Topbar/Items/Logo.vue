@@ -35,7 +35,7 @@ export default {
 .brand {
     margin: 0;
     font-family: 'Alfa Slab One',serif;
-    color: var(--primary);
+    color: var(--fs-color-primary-500);
     font-size: 1.1rem;
 
     @media (max-width: 330px) {
@@ -44,7 +44,7 @@ export default {
 
     span.logo-text:hover .apple::before {
       content: '♥';
-      color: red;
+      color: var(--fs-color-danger-500);
       position: absolute;
       font-size: 0.5em;
     }

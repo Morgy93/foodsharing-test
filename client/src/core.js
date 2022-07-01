@@ -11,7 +11,10 @@ import { initialize } from '@/script'
 
 import 'jquery-ui'
 import registerServiceWorker from '@/registerServiceWorker'
-import './scss/bootstrap-theme.scss'
+
+/*
+  Loads a lot of CSS stylings
+*/
 import './scss/index.scss'
 
 import '@/becomeBezirk'

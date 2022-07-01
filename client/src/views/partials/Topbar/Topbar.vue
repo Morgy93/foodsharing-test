@@ -41,7 +41,8 @@
         </b-collapse>
       </b-container>
     </b-navbar>
-    <language-chooser />
+    <LanguageChooserModal />
+    <StyleGuideModal />
   </div>
 </template>
 
@@ -62,7 +63,8 @@ import NavMainLoggedIn from '@/components/Topbar/States/LoggedIn/NavMain'
 import NavSideLoggedIn from '@/components/Topbar/States/LoggedIn/NavSide'
 
 // Hidden Elements
-import LanguageChooser from '@/components/Topbar/Items/LanguageChooser'
+import LanguageChooserModal from '@/views/partials/Modals/LanguageChooserModal.vue'
+import StyleGuideModal from '@/views/partials/Modals/StyleGuideModal.vue'
 
 // Mixins
 import TopBarMixin from '@/mixins/TopBarMixin'
@@ -71,7 +73,8 @@ import StateTogglerMixin from '@/mixins/StateTogglerMixin'
 export default {
   components: {
     Logo,
-    LanguageChooser,
+    LanguageChooserModal,
+    StyleGuideModal,
     NavMainLoggedOut,
     NavSideLoggedOut,
     NavMainLoggedIn,
@@ -120,9 +123,9 @@ export default {
 }
 
 .nav {
-  box-shadow: 0em 0em 5px 0px rgba(0, 0, 0, 0.35);
-  background-color: var(--fs-beige);
-  color: var(--primary);
+  box-shadow: var(--fs-shadow);
+  background-color: var(--fs-color-primary-200);
+  color: var(--fs-color-primary-500);
 }
 
 ::v-deep .navbar-light .nav_mainbar,
@@ -156,7 +159,7 @@ export default {
 
   .dropdown-menu {
     position: absolute;
-    box-shadow: 0em 1em 5px -10px rgba(0, 0, 0, 0.35);
+    box-shadow: var(--fs-shadow);
 
     @media(min-width: 768px) and (max-width: 1024px) {
       transform: translateX(-35%);
@@ -204,7 +207,7 @@ export default {
   & .nav-item {
     margin-top: .5rem;
     border-radius: var(--border-radius);
-    background-color: var(--white);
+    background-color: var(--fs-color-light);
     align-items: center;
   }
 
@@ -244,10 +247,10 @@ export default {
 
   .dropdown-header,
   .list-group-item-action {
-    color: var(--dark);
+    color: var(--fs-color-dark);
 
     &:active {
-      color: var(--white);
+      color: var(--fs-color-light);
     }
   }
 

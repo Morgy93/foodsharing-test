@@ -39,7 +39,7 @@ div#main {
 }
 
 .ajax-loader {
-  background-color: #ffffff;
+  background-color: var(--fs-color-light);
   border-radius: 10px 10px 10px 10px;
   left: 50%;
   margin-left: -21px;
@@ -79,10 +79,6 @@ div#main {
 
 #map-control ul.linklist a:hover span.icon, #map-control ul.linklist a.active span.icon {
   opacity: 1;
-}
-
-#map-control-wrapper .ui-dialog-content {
-  max-width: 10em;
 }
 
 #map-options {

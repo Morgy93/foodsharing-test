@@ -53,7 +53,6 @@
         <i
           v-else
           class="d-flex text-secondary img-thumbnail w-100 h-100 align-items-center justify-content-center"
-          style="min-width: 50px;"
           :class="[icon]"
         />
         <span
@@ -313,6 +312,7 @@ export default {
 .activity-item:not(:first-child) {
   border-radius: var(--border-radius);
   margin-bottom: .5rem;
+  border-top-width: 1px;
 }
 
 .clickable {
@@ -326,35 +326,24 @@ export default {
 }
 
 .icon {
-  height: 50px;
-  width: 50px;
-  line-height: 0.7em;
-  font-size: 1.5rem;
-
   &:hover {
     text-decoration: none;
 
     & .img-thumbnail {
-      background-color: var(--light);
+      background-color: var(--fs-color-light);
     }
   }
 }
 
 ::v-deep.markdown {
-
   p {
     font-size: 15px;
-    color: var(--dark);
+    color: var(--fs-color-dark);
     line-height: 1.5;
   }
 
   p:last-child {
     margin-bottom: 0;
-  }
-
-  a[href]{
-    font-weight: bold;
-    text-decoration: underline;
   }
 }
 

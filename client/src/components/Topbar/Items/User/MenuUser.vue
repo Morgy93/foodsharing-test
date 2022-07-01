@@ -37,6 +37,15 @@
       >
         <i class="fas fa-info-circle" /> {{ $i18n('content.changelog') }}
       </a>
+      <button
+        v-if="isBeta || isDev"
+        :href="$url('changelog')"
+        role="menuitem"
+        class="dropdown-item dropdown-action list-group-item-danger"
+        @click="$bvModal.show('styleGuideModal')"
+      >
+        <i class="fas fa-brush" /> Styleguide
+      </button>
       <div
         v-if="isBeta || isDev"
         class="dropdown-divider"

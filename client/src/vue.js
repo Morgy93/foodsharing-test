@@ -3,7 +3,6 @@ import i18n from '@/i18n'
 import { url } from '@/urls'
 import { dateFormat, dateDistanceInWords } from '@/utils'
 import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Vuelidate from 'vuelidate'
 
 Vue.use(BootstrapVue)

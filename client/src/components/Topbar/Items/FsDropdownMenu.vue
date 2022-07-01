@@ -150,7 +150,7 @@ export default {
 .actions {
   padding-top: 0.5rem;
   margin-top: 0.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--fs-color-border);
 
   &:empty {
     display: none;

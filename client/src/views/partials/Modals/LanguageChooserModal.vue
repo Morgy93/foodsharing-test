@@ -4,9 +4,6 @@
     :title="$i18n('language_chooser.title')"
     :cancel-title="$i18n('button.cancel')"
     :ok-title="$i18n('language_chooser.choose_button')"
-    modal-class="bootstrap"
-    header-class="d-flex"
-    content-class="pr-3 pt-3"
     @ok="changeLanguage"
   >
     {{ $i18n('language_chooser.content') }}
@@ -24,7 +21,6 @@
       v-model="language"
       :options="languages"
       text="Dropdown Button"
-      class="m-md-2"
     />
   </b-modal>
 </template>

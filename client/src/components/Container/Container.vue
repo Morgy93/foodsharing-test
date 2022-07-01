@@ -17,13 +17,13 @@
     <slot v-if="isExpanded" />
     <button
       v-if="isExpanded && isToggleVisible && !isToggled"
-      class="list-group-item list-group-item-secondary small font-weight-bold list-group-item-action text-center"
+      class="list-group-item small list-group-item-secondary list-group-item-action list-group-item-action-toggle font-weight-bold text-center"
       @click="showFullList"
       v-html="$i18n('dashboard.showmore')"
     />
     <button
       v-else-if="isExpanded && isToggled"
-      class="list-group-item small list-group-item-action font-weight-bold text-center"
+      class="list-group-item small list-group-item-action list-group-item-action-toggle font-weight-bold text-center"
       @click="reduceList"
       v-html="$i18n('dashboard.showless')"
     />
@@ -98,8 +98,8 @@ export default {
 }
 
 .list-group-header {
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--fs-color-primary-500);
+  color: var(--fs-color-light);
   justify-content: space-between;
 
   h5 {
@@ -138,14 +138,10 @@ export default {
 }
 
 ::v-deep .field-headline {
-  // flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: bold;
   font-size: 0.9rem;
-  // white-space: nowrap;
-  // display: flex;
-  // align-items: center;
 
   &--big {
     font-size: 1rem;
@@ -160,7 +156,11 @@ export default {
   margin-right: 0.5rem;
 
   &--muted {
-    color: var(--gray);
+    color: var(--fs-color-gray-500);
   }
+}
+
+.list-group-item-action-toggle {
+  border-top-width: 1px;
 }
 </style>

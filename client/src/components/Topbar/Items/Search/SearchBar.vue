@@ -164,7 +164,7 @@ export default {
   display: block;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0em 1em 5px -10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0em 1em 5px -10px var(--fs-color-gray-alpha-40);
   left: 0;
   top: 30px;
 }

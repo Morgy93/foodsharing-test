@@ -15,7 +15,7 @@
                 v-if="isCoordinator"
                 v-b-tooltip
                 :title="$i18n('pickup.edit_recurring_pickups')"
-                class="btn btn-secondary btn-sm"
+                class="btn btn-primary btn-sm"
                 @click="loadEditRecurringPickupModal"
               >
                 <i class="fas fa-pen" />
@@ -24,7 +24,7 @@
                 v-if="isCoordinator"
                 v-b-tooltip
                 :title="$i18n('pickup.add_onetime_pickup')"
-                class="btn btn-secondary btn-sm"
+                class="btn btn-primary btn-sm"
                 @click="loadAddPickupModal"
               >
                 <i class="fas fa-plus" />

@@ -49,7 +49,7 @@
         </div>
         <div>
           <button
-            class="btn btn-secondary btn-sm"
+            class="btn btn-primary btn-sm"
             @click="activateThread"
           >
             <i class="fas fa-check" /> {{ $i18n('forum.thread.activate') }}
