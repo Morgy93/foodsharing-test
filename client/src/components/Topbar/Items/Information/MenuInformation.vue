@@ -59,7 +59,7 @@ export default {
           name: 'menu.entry.aboutUs',
           items: [
             { url: 'mission', title: 'menu.entry.mission' },
-            { url: 'grundsaetze', title: 'menu.entry.fundamentals' },
+            { url: 'wiki_grundsaetze', title: 'menu.entry.fundamentals' },
             { url: 'blog', title: 'menu.entry.blog' },
             { url: 'team', title: 'menu.entry.team' },
             { url: 'partner', title: 'menu.entry.partners' },
@@ -68,12 +68,12 @@ export default {
         {
           name: 'menu.entry.background',
           items: [
-            { url: 'support', title: 'menu.entry.support', target: '_blank' },
+            { url: 'freshdesk', title: 'menu.entry.support', target: '_blank' },
             { url: 'wiki', title: 'menu.entry.wiki' },
-            { url: 'guide', title: 'menu.entry.guide', target: '_blank' },
+            { url: 'wiki_guide', title: 'menu.entry.guide', target: '_blank' },
             { url: 'statistics', title: 'menu.entry.statistics' },
             { url: 'dataprivacy', title: 'menu.entry.dataprivacy' },
-            { url: 'releaseNotes', title: 'menu.entry.release-notes' },
+            { url: 'release_notes', title: 'menu.entry.release-notes' },
           ],
         },
         {

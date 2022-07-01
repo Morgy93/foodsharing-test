@@ -79,7 +79,7 @@
       <button
         role="menuitem"
         class="dropdown-item dropdown-action"
-        @click="joinRegionDialog"
+        @click="$bvModal.show('joinRegionModal')"
       >
         <i class="fas fa-plus" />
         {{ $i18n('menu.entry.joinregion') }}
@@ -92,7 +92,6 @@
 import { getters } from '@/stores/regions'
 // Components
 import FsDropdownMenu from '../FsDropdownMenu'
-import { becomeBezirk } from '@/script'
 // Mixins
 import ConferenceOpener from '@/mixins/ConferenceOpenerMixin'
 import RegionUpdater from '@/mixins/RegionUpdaterMixin'
@@ -119,10 +118,6 @@ export default {
     },
   },
   methods: {
-    joinRegionDialog () {
-      this.$refs.dropdown.visible = false
-      becomeBezirk()
-    },
     generateMenu (region) {
       const menu = [
         {

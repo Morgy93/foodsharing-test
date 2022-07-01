@@ -24,7 +24,7 @@
     </div>
     <a
       v-if="isBeta"
-      :href="$url('releaseNotes')"
+      :href="$url('release_notes')"
       role="menuitem"
       class="dropdown-item dropdown-action list-group-item-warning"
     >

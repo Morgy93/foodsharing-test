@@ -17,7 +17,6 @@ import registerServiceWorker from '@/registerServiceWorker'
 */
 import './scss/index.scss'
 
-import '@/becomeBezirk'
 import '@/views/views'
 
 import serverData from '@/server-data'

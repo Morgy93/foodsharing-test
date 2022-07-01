@@ -52,6 +52,9 @@ export const getters = {
     }
     return null
   },
+  hasRegion () {
+    return store.user?.regionId > 0 && store.user?.regionName.length > 0
+  },
 }
 
 export const mutations = {

@@ -41,6 +41,7 @@
         </b-collapse>
       </b-container>
     </b-navbar>
+    <JoinRegionModal />
     <LanguageChooserModal />
     <StyleGuideModal />
   </div>
@@ -63,6 +64,7 @@ import NavMainLoggedIn from '@/components/Topbar/States/LoggedIn/NavMain'
 import NavSideLoggedIn from '@/components/Topbar/States/LoggedIn/NavSide'
 
 // Hidden Elements
+import JoinRegionModal from '@/views/partials/Modals/JoinRegionModal.vue'
 import LanguageChooserModal from '@/views/partials/Modals/LanguageChooserModal.vue'
 import StyleGuideModal from '@/views/partials/Modals/StyleGuideModal.vue'
 
@@ -73,6 +75,7 @@ import StateTogglerMixin from '@/mixins/StateTogglerMixin'
 export default {
   components: {
     Logo,
+    JoinRegionModal,
     LanguageChooserModal,
     StyleGuideModal,
     NavMainLoggedOut,
