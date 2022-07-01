@@ -80,6 +80,7 @@
 - Fix the url to api doc for dev env !2290 @chriswalg
 - Add a workaround to upload files to the startpage. #1245 !2233 @stcz
 - Replace SwiftMailer with Symfony mailer #1188 !2247 @alex.simm
+- Updated php-cs-fixer to 3.8 !2274 @alex.simm
 
 # Release "Heidelbeere", 2022-05-01
 

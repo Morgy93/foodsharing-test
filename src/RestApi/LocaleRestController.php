@@ -2,7 +2,7 @@
 
 namespace Foodsharing\RestApi;
 
-use Foodsharing\Lib\Session as Session;
+use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\UserOptionType;
 use Foodsharing\Modules\Settings\SettingsGateway;
 use FOS\RestBundle\Controller\AbstractFOSRestController;

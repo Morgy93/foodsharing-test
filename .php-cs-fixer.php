@@ -19,19 +19,22 @@ $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
 ;
 
-return PhpCsFixer\Config::create()
-    ->setRules([
-        '@Symfony' => true,
-        'concat_space' => ['spacing' => 'one'],
-        'cast_spaces' => ['space' => 'none'],
-        'phpdoc_align' => ['tags' => []],
-        'trailing_comma_in_multiline_array' => false,
-        'yoda_style' => null
-    ])
-    ->setIndent("\t")
-    ->setFinder($finder)
-;
-
+$config = new PhpCsFixer\Config();
+$config->setRules([
+	'@Symfony' => true,
+	'concat_space' => ['spacing' => 'one'],
+	'cast_spaces' => ['space' => 'none'],
+	'phpdoc_align' => ['tags' => []],
+	'trailing_comma_in_multiline' => false,
+	'yoda_style' => [
+		'equal' => null,
+		'identical' => null,
+	],
+	'single_line_comment_spacing' => [],
+])
+	->setIndent("\t")
+	->setFinder($finder);
+return $config;
 ?>
 
 
