@@ -71,9 +71,6 @@ export const getters = {
     const permissions = Object.entries(store.permissions)
     return permissions.some(([key, value]) => key !== 'mayEditUserProfile' && value)
   },
-  hasRegion () {
-    return store.user?.regionId > 0 && store.user?.regionName.length > 0
-  },
 }
 
 export const mutations = {
