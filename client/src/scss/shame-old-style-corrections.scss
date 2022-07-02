@@ -17,6 +17,13 @@
 }
 
 /*
+    Fontawesome forced to solid
+*/
+.btn.fas {
+    font-weight: 900 !important;
+}
+
+/*
     Overflow on main div
 */
 div#main {
@@ -263,4 +270,31 @@ input[type="text"] {
     }
 }
 
+
+/**
+    pure-g adjustments for the message area on mobile
+*/
+
+#msg-control form {
+    display: flex;
+}
+
+#msg-control .input-wrapper {
+    border: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+@media (min-width: 575px) {
+
+    .slimScrollDiv,
+    #msg-conversation {
+        max-height: 50vh;
+    }
+
+    .slimScrollDiv {
+        margin-bottom: 0.25rem;
+    }
+}
 
