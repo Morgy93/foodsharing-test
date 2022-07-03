@@ -7,7 +7,7 @@
 import $ from 'jquery'
 import conv from '@/conv'
 import i18n from '@/i18n'
-import serverData from '@/scripts/server-data'
+import DataUser from '@/stores/user'
 import autosize from 'autosize'
 import timeformat from '@/timeformat'
 import * as api from '@/api/conversations'
@@ -222,7 +222,7 @@ const msg = {
 
   msgTpl: function (message) {
     const author = profileStore.profiles[message.authorId]
-    const ownMessageClass = (message.authorId === serverData.user.id) ? 'my-message' : ''
+    const ownMessageClass = (message.authorId === DataUser.getters.getUserId()) ? 'my-message' : ''
 
     return $(`
       <li id="msg-${message.id}" class="${ownMessageClass}" style="display: none;">

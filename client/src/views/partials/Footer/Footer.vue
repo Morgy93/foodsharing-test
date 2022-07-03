@@ -54,6 +54,7 @@
           :key="data.title"
           md="3"
           cols="6"
+          class="links"
         >
           <h2>{{ $i18n(data.title) }}</h2>
           <ul>
@@ -238,7 +239,9 @@ h2 {
 }
 
 footer {
-
+  .links:hover {
+    text-decoration: underline;
+  }
   a, p, li {
     font-size: .8rem;
     line-height: 1.8em;

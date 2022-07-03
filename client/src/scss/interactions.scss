@@ -2,7 +2,7 @@
 // and override .bootstrap a
 html a[href]:not(:where(
     /* exclude */
-    .brand,
+    .navbar-brand,
     .nav-link,
     .btn,
     .dropdown-action,
