@@ -87,14 +87,14 @@
         xl="3"
         class="text-xl-right"
       >
-        <h2>{{ $i18n('startpage.mission.title') }}</h2>
+        <h2>{{ $i18n('startpage.vision.title') }}</h2>
       </b-col>
       <b-col
         cols="12"
         xl="6"
       >
         <p>
-          {{ $i18n('startpage.mission.text') }}
+          {{ $i18n('startpage.vision.text') }}
         </p>
         <p>
           <b-link

@@ -39,7 +39,7 @@ const urls = {
   mailboxManage: () => '/?page=mailbox&a=manage',
   mailboxMailto: (email) => `/?page=mailbox&mailto=${email}`,
   map: () => '/karte',
-  mission: () => '/ueber-uns',
+  vision: () => '/ueber-uns',
   partner: () => '/partner',
   passwordReset: () => '/?page=login&sub=passwordReset',
   poll: (pollId) => `/?page=poll&id=${pollId}`,

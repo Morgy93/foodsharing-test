@@ -2115,7 +2115,6 @@ menu:
     members: "Mitglieder"
     workingGroupEdit: "Gruppe verwalten"
     aboutUs: "Über uns"
-    mission: "Mission"
     fundamentals: "Grundsätze"
     blog: "Blog"
     team: "Team"
@@ -2503,11 +2502,12 @@ startpage:
   registernow: "Jetzt registrieren"
   more_infos: Erfahre mehr
   this_is_how_it_works: So funktioniert's
-  mission:
-    title: "Mission"
-    text: "Unser langfristiges Ziel ist es, die Wegwerfkultur von Lebensmitteln und anderen Ressourcen zu vermindern.
-      Wir retten Lebensmittel in privaten Haushalten sowie von Betrieben - gemeinschaftlich, nachhaltig & wertschätzend.
-      Wir verstehen uns als bildungspolitische Bewegung."
+  vision:
+    title: "Vision"
+    text: "Wir verstehen uns als umwelt- und bildungspolitische Bewegung, die sich gegen den achtlosen Umgang mit
+     Ressourcen und für ein nachhaltiges Ernährungssystem einsetzt. Unser langfristiges Ziel ist es, die Verschwendung
+     von genießbaren Lebensmitteln zu beenden. Darum werden wir vor Ort aktiv: Wir retten Lebensmittel in privaten
+     Haushalten sowie von Betrieben, stehen im Dialog mit der Politik und tragen unsere Vision in die Welt hinaus."
   call_to_action:
     title: "Mach mit"
     text: "Wir entstanden 2012, mittlerweile sind wir eine internationale Bewegung  mit über 200.000 Nutzer*innen
