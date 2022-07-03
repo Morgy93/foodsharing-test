@@ -1750,11 +1750,7 @@ profile:
   notes:
     bread: "Notizen"
     title: "Notizen über {name}"
-    info: |
-      Bitte gehe gewissenhaft mit dieser Funktion um.
-      Sie soll helfen, Vorgänge sichbar zu machen um uns Arbeit zu ersparen.
-      Persönliches oder Wertendes zu einer Person hat hier nichts verloren.
-      Bleibe sachlich."
+    info: Bitte gehe gewissenhaft mit dieser Funktion um. Sie soll helfen, Vorgänge sichbar zu machen um uns Arbeit zu ersparen. Persönliches oder Wertendes zu einer Person hat hier nichts verloren. Bleibe sachlich.
   online: "{name} ist online."
   infos:
     title: "Infos"
@@ -1937,8 +1933,8 @@ dashboard:
     buddies: "Menschen, die Du kennst"
   options:
     hide:
-      text: "Ausblenden"
-      tooltip: "Hier kannst du Informationen auf dem Dashboard ausblenden"
+      text: "Anzeige verwalten"
+      tooltip: "Hier kannst du einzelne Bereiche auf dem Dashboard aus und einblenden."
     reset: Zurücksetzen
     grid_toggle:
       2_columns: "Zur 2-Spalten-Ansicht wechseln"
