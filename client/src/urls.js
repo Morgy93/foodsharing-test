@@ -137,7 +137,7 @@ const urls = {
   quiz_ambassador: () => '/?page=settings&sub=up_bot',
 
   // Footer Links
-  hosting: () => 'https://manitu.de',
+  hosting: () => 'https://www.manitu.de/webhosting/',
   wiener_tafel: () => 'https://www.wienertafel.at',
   bmlfuw: () => 'https://www.bmlrt.gv.at',
   denns: () => 'https://www.denns-biomarkt.at',

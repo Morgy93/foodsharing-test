@@ -2168,8 +2168,8 @@ footer:
     call_to: Du möchtest foodsharing unterstützen?
     cta: Jetzt spenden
   hosting:
-    info: CO2-neutral gehostet
-    tooltip: CO2-neutral gehostet auf manitu
+    info: CO2-neutral <a href="https://www.manitu.de/webhosting/" title="Webhosting">gehostet</a>
+    tooltip: CO2-neutral <a href="https://www.manitu.de/webhosting/" title="Webhosting">gehostet</a> auf manitu
   partner_names:
     wiener_tafel: Wiener Tafel
     lebensministerium: Bundesministerium für Landwirtschaft, Regionen und Tourismus
