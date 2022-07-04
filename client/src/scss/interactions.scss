@@ -40,6 +40,15 @@ html input:disabled {
 
 
 /*
+
+    button-variant(
+        $background,
+        $border,
+        $hover-background: darken($background, 7.5%),
+        $hover-border: darken($border, 10%),
+        $active-background: darken($background, 10%),
+        $active-border: darken($border, 12.5%)
+    )
     Overrides the bootstrap-vue's default button styles
 */
 .btn.btn-primary {
@@ -51,11 +60,11 @@ html input:disabled {
 }
 
 .btn.btn-light {
-    @include button-variant($gray, white);
+
+    @include button-variant(white,lighten($gray, 40%), #e6e6e6, lighten($gray, 40%), #e6e6e6, $gray);
 }
 
 .modal-footer {
-    /*button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%))*/
     & .btn.btn-secondary {
         @include button-variant(white,lighten($gray, 40%), #e6e6e6, lighten($gray, 40%), #e6e6e6, $gray);
     }

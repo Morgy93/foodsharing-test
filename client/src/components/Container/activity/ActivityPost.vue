@@ -1,6 +1,6 @@
 <template>
   <li
-    class="list-group-item activity-item"
+    class="list-group-item activity-post"
     :class="{
       'list-group-item-action clickable': canQuickreply || isTruncatable,
     }"
@@ -88,7 +88,7 @@
         >
           <span
             v-if="isTruncatable"
-            v-html="!state ? $i18n('dashboard.showmore') : $i18n('dashboard.showless')"
+            v-html="!state ? $i18n('globals.show_more') : $i18n('globals.show_less')"
           />
           <span
             v-if="isTruncatable && canQuickreply"
@@ -100,7 +100,7 @@
           />
           <span
             v-if="canQuickreply && !isTruncatable"
-            v-html="!state ? $i18n('activitypost.Response') : $i18n('dashboard.showless')"
+            v-html="!state ? $i18n('activitypost.Response') : $i18n('globals.show_less')"
           />
           <i
             :class="{ 'fa-rotate-180': state }"
@@ -300,22 +300,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.activity-item:first-child {
-  border-bottom-right-radius: var(--border-radius);
-  border-bottom-left-radius: var(--border-radius);
-  margin-bottom: .5rem;
-}
-
-.activity-item:not(:first-child) {
-  border-radius: var(--border-radius);
-  margin-bottom: .5rem;
-  border-top-width: 1px;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
 .form-control {
   min-height: 6rem;
   overflow: hidden;

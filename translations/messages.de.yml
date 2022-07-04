@@ -1939,8 +1939,6 @@ dashboard:
     grid_toggle:
       2_columns: "Zur 2-Spalten-Ansicht wechseln"
       3_columns: "Zur 3-Spalten-Ansicht wechseln"
-  showmore: "Mehr anzeigen"
-  showless: "Weniger anzeigen"
   invitation: "Du wurdest eingeladen"
   invitationCount: "Du wurdest eingeladen ({count})"
   event: "Nächstes Event"
@@ -2669,6 +2667,8 @@ globals:
   save: Speichern
   close: Schließen
   select: Bitte auswählen...
+  show_more: Mehr anzeigen
+  show_less: Weniger anzeigen
   type:
     mailboxes: Mailboxen
     my_mailboxes: Meine Mailboxen
