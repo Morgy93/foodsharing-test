@@ -5,14 +5,14 @@
       v-html="$i18n('store.actions')"
     />
     <button
-      v-if="teamConversionId != null"
+      v-if="teamConversionId != null && userIsInStore"
       type="button"
       class="list-group-item list-group-item-action"
       @click="openChat(teamConversionId)"
       v-html="$i18n('store.chat.team')"
     />
     <button
-      v-if="springerConversationId != null"
+      v-if="springerConversationId != null && userIsInStore"
       type="button"
       class="list-group-item list-group-item-action"
       @click="openChat(springerConversationId)"
@@ -69,6 +69,7 @@ export default {
       type: Number,
       default: null,
     },
+    userIsInStore: { type: Boolean, default: false },
   },
   methods: {
     openChat (fsId) {

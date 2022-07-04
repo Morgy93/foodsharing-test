@@ -139,6 +139,7 @@ class StoreUserControl extends Control
 							'teamConversionId' => $teamConversionId,
 							'springerConversationId' => $springerConversationId,
 							'mayEditStore' => $this->storePermissions->mayEditStore($storeId),
+							'userIsInStore' => $userIsInStore,
 							'mayLeaveStoreTeam' => $userIsInStore && $this->storePermissions->mayLeaveStoreTeam($storeId, $this->session->id()),
 							'storeId' => $storeId,
 							'fsId' => $this->session->id()
