@@ -14,7 +14,7 @@ import i18n from '@/i18n'
 // this last call imports the text in the respective languages
 
 export function getBrowserLocation (success) {
-  if (DataUser.getters.getLocation()) return success(DataUser.getters.getLocation())
+  if (DataUser.getters?.getLocation()) return success(DataUser.getters.getLocation())
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(pos => {
       ajreq('savebpos', {
