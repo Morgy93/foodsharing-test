@@ -154,9 +154,8 @@ export default {
         pulseSuccess(i18n('login.success', { user_name: user.name }))
 
         const urlParams = new URLSearchParams(window.location.search)
-
         if (urlParams.has('ref')) {
-          window.location.href = this.$url('redirect_to_url', { ref: urlParams.get('ref') })
+          window.location.href = urlParams.get('ref')
         } else {
           window.location.href = this.$url('dashboard')
         }

@@ -53,7 +53,6 @@
           <i class="fas fa-spinner fa-spin" />
         </template>
         <b-button
-          id="login-btn"
           :aria-label="$i18n('login.login_button_label')"
           type="submit"
           variant="primary"
@@ -74,7 +73,7 @@
 import { isDev } from '@/scripts/server-data'
 import { login } from '@/api/user'
 
-import { pulseError, pulseSuccess } from '@/script'
+import { pulseError } from '@/script'
 
 export default {
   name: 'MenuLogin',
@@ -119,22 +118,12 @@ export default {
       }
       this.isLoading = true
       try {
-        const user = await login(this.email, this.password, this.rememberMe)
-        pulseSuccess(this.$i18n('login.success', { user_name: user.name }))
-
-        const urlParams = new URLSearchParams(window.location.search)
-
-        if (urlParams.has('ref')) {
-          window.location.href = decodeURIComponent(urlParams.get('ref'))
-        } else {
-          window.location.href = this.$url('dashboard')
-        }
+        await login(this.email, this.password, this.rememberMe)
+        window.location.href = this.$url('dashboard')
       } catch (err) {
         this.isLoading = false
         if (err.code && err.code === 401) {
           pulseError(this.$i18n('login.error_no_auth'))
-          setTimeout(() => {
-          }, 2000)
         } else {
           pulseError(this.$i18n('error_unexpected'))
           throw err
