@@ -92,7 +92,9 @@
       />
       <b-alert variant="info" show>
         <div>{{ $i18n('profile.report.mail') }}</div>
-        <a :href="'mailto:' + emailAddress">{{ emailAddress }}</a>
+        <a :href="$url('mailto_mail_foodsharing_network', mailboxName)">
+          {{ $url('mail_foodsharing_network', mailboxName) }}
+        </a>
       </b-alert>
       <b-button
         class="text-right"
@@ -127,7 +129,7 @@ export default {
     isReporterIdArbitrationAdmin: { type: Boolean, required: true },
     isReportButtonEnabled: { type: Boolean, required: true },
     reporterHasReportGroup: { type: Boolean, required: true },
-    mbName: { type: String, required: true },
+    mailboxName: { type: String, required: true },
   },
   data () {
     return {
@@ -142,11 +144,6 @@ export default {
         { value: '15', text: this.$i18n('profile.report.sells') },
       ],
     }
-  },
-  computed: {
-    emailAddress () {
-      return this.mbName + '@foodsharing.network'
-    },
   },
   methods: {
     async trySendReport () {

@@ -1576,7 +1576,7 @@ mailbox:
   fromto: "Von/An"
 settings:
   title: "Einstellungen"
-  header: "Deine Daten/Einstellungen"
+  header: "Profil Einstellungen"
   notifications: "Benachrichtigungen"
   follow:
     thread: "Über das Forenthema \"{thread}\" auf dem Laufenden bleiben?"
@@ -1737,7 +1737,7 @@ profile:
   nav:
     edit: "Profil bearbeiten"
     buddy: "Ich kenne {name}"
-    history: "Passhistorie" #also in ProfileXhr
+    history: "Ausweishistorie" #also in ProfileXhr
     verificationHistory: "Verifizierungshistorie" #also in ProfileXhr
     notes: "Notizen <strong>({count})</strong>"
     violations: "Meldungen <strong>({count})</strong>"

@@ -67,6 +67,7 @@
 - Changed deleting wall posts to the API #798 !2253 @alex.simm
 - Rebuild profile infos to vue !2276 !2287 @chriswalg
 - Rebuild join region to vue !2294 @sefn
+- Rebuild profile menu to vue !2281 @chriswalg
 
 ## Dev/Test/CI stuff
 - bump node to version 16 !2135 @peter.toennies

@@ -3,6 +3,7 @@
 
 const urls = {
   profile: (id) => `/profile/${id}`,
+  profileNotes: (fsId) => `/profile/${fsId}/notes`,
   academy: () => '/?page=content&sub=academy',
   basket: (basketId) => `/essenskoerbe/${basketId}`,
   baskets: () => '/essenskoerbe',
@@ -25,6 +26,7 @@ const urls = {
   eventEdit: (eventId) => `/?page=event&id=${eventId}&sub=edit`,
   festival: () => '/?page=content&sub=festival',
   foodsharepoint: (fspId) => `/?page=fairteiler&sub=ft&id=${fspId}`,
+  foodsaverEdit: (fsId) => `/?page=foodsaver&a=edit&id=${fsId}`,
   fsstaedte: () => '/?page=content&sub=fsstaedte',
   home: () => '/',
   imprint: () => '/impressum',
@@ -46,6 +48,8 @@ const urls = {
   pollEdit: (pollId) => `/?page=poll&id=${pollId}&sub=edit`,
   press: () => '/?page=content&sub=presse',
   region: () => '/?page=region',
+  releaseNotes: () => '/?page=content&sub=releaseNotes',
+  violations: (fsId) => `?page=report&sub=foodsaver&id=${fsId}`,
   settings: () => '/?page=settings',
   settingsCalendar: () => '/?page=settings&sub=calendar',
   settingsNotifications: () => '/?page=settings&sub=info',
