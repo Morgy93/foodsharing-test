@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable vue/max-attributes-per-line -->
-  <div id="report_request" class="popbox bootstrap m-2">
+  <div id="report_request" class="popbox m-2">
     <div
       v-if="!isReportButtonEnabled"
     >

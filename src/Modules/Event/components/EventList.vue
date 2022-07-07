@@ -1,5 +1,5 @@
 <template>
-  <div class="container bootstrap">
+  <div>
     <div class="card mb-3">
       <div class="card-header text-white bg-primary">
         {{ $i18n('events.bread') }}

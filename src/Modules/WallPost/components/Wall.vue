@@ -1,5 +1,5 @@
 <template>
-  <div class="container bootstrap">
+  <div>
     <div v-if="mayPost">
       <div class="form-group">
         <textarea

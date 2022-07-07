@@ -5,7 +5,7 @@
     hover
     thead-tr-class="unlined"
     sort-icon-left
-    sticky-header="30rem"
+    sticky-header
     no-border-collapse
     class="pickup-table"
     :items="data"
@@ -52,7 +52,6 @@
       <b-modal
         :id="'cancelSlotModal-'+entry.index+tableId"
         :title="$i18n('pickup.overview.modals.signOff.title')"
-        modal-class="bootstrap"
         header-class="d-flex"
         content-class="pr-3 pt-3"
         centered
@@ -125,6 +124,7 @@ export default {
       {
         key: 'confirmed',
         label: '',
+        sortable: false,
         class: 'status-col',
       },
       {
@@ -140,6 +140,7 @@ export default {
       },
       {
         key: 'slots',
+        sortable: false,
         label: i18n('pickup.overview.cols.slots'),
       },
     ]
