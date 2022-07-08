@@ -415,7 +415,7 @@ export default {
       if (!fs) {
         return {}
       }
-
+      const validPhoneNumber = phoneNumber.callableNumber(fs.handy || fs.telefon)
       return {
         id: fs.id,
         isActive: fs.team_active === 1, // MembershipStatus::MEMBER
@@ -429,8 +429,8 @@ export default {
         isWaiting: fs.team_active === 2 || fs.verified < 1, // MembershipStatus::JUMPER or unverified
         sleepStatus: fs.sleep_status,
         name: fs.name,
-        phoneNumber: fs.handy || fs.telefon,
-        phoneNumberIsValid: phoneNumber.isValid(fs.handy || fs.telefon),
+        phoneNumber: validPhoneNumber,
+        phoneNumberIsValid: !!validPhoneNumber,
         joinDate: fs.add_date ? new Date(fs.add_date * 1000) : null, // unix time
         lastPickup: fs.last_fetch ? new Date(fs.last_fetch * 1000) : null, // unix time
         fetchCount: fs.stat_fetchcount,
