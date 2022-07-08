@@ -81,7 +81,7 @@
 <script>
 import { BTable } from 'bootstrap-vue'
 import PickupEntries from './PickupEntries.vue'
-import i18n from '@/i18n'
+import i18n from '@/helper/i18n'
 
 const MIN_WIDTH_FOR_WIDE_LAYOUT = 600
 
@@ -189,9 +189,7 @@ export default {
      * Used strings are translated.
      */
     formatDate (date) {
-      date = new Date(date)
-      const type = this.narrow ? 'full-short' : 'full-long'
-      return this.$dateFormat(date, type)
+      return this.$dateFormatter.date(date)
     },
     /**
      * Returns the correct icon tooltip text based on the slot status.

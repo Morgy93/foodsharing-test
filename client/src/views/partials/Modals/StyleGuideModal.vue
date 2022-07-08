@@ -51,7 +51,7 @@
               <li>
                 <strong>Body:</strong>
                 <span>
-                  Helvetica, Arial, "lucida grande", tahoma, verdana, arial, sans-serif
+                  sans-serif
                 </span>
               </li>
             </ul>

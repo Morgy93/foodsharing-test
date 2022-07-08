@@ -36,7 +36,6 @@
 <script>
 import DataUpdates from '@/stores/updates'
 import ActivityPost from './ActivityPost'
-import { parseISO, compareDesc } from 'date-fns'
 
 export default {
   components: { ActivityPost },
@@ -74,10 +73,10 @@ export default {
         this.loading = true
         const updates = await DataUpdates.mutations.fetch(this.page)
         updates.forEach(update => {
-          update.time = parseISO(update.time)
+          update.time = new Date(Date.parse(update.time))
         })
         updates.sort((a, b) => {
-          return compareDesc(a.time, b.time)
+          return b.time > a.time ? 1 : -1
         })
 
         if (updates.length > 0) {

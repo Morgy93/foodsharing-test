@@ -11,7 +11,7 @@ import {
   GET,
 } from '@/script'
 import { expose } from '@/utils'
-import i18n from '@/i18n'
+import i18n from '@/helper/i18n'
 import { subscribeForPushNotifications, unsubscribeFromPushNotifications } from '@/pushNotifications'
 import { confirmDeleteUser } from '../Foodsaver/Foodsaver'
 import { vueApply, vueRegister } from '@/vue'

@@ -113,7 +113,7 @@ import $ from 'jquery'
 
 import { addReport } from '@/api/report'
 import { pulseError, pulseInfo } from '@/script'
-import i18n from '@/i18n'
+import i18n from '@/helper/i18n'
 
 export default {
   props: {

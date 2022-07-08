@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { isDev } from '@/scripts/server-data'
+import { isDev } from '@/helper/server-data'
 import { login } from '@/api/user'
 
 import { pulseError } from '@/script'

@@ -1,6 +1,6 @@
 import assert from 'assert'
 
-import i18n from '@/i18n'
+import i18n from '@/helper/i18n'
 // FIXME find a way of mocking this import
 // right now the test strings are in there and i18n is importing
 // import en from '@translations/messages.en.yml'

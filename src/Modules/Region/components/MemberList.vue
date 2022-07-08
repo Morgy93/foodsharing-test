@@ -178,7 +178,7 @@ import { BButton, BTable, BPagination, VBTooltip } from 'bootstrap-vue'
 import { addMember } from '@/api/groups'
 import { removeMember, listRegionMembers, setAdminOrAmbassador, removeAdminOrAmbassador } from '@/api/regions'
 import { hideLoader, pulseError, showLoader } from '@/script'
-import i18n from '@/i18n'
+import i18n from '@/helper/i18n'
 import UserSearchInput from '@/components/UserSearchInput'
 import Avatar from '@/components/Avatar'
 

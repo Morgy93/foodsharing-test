@@ -146,7 +146,7 @@ import conv from '@/conv'
 import MediationRequest from './MediationRequest'
 import ReportRequest from './ReportRequest'
 import { sendBuddyRequest } from '@/api/buddy'
-import i18n from '@/i18n'
+import i18n from '@/helper/i18n'
 
 export default {
   components: { ReportRequest, MediationRequest },
@@ -184,7 +184,7 @@ export default {
   },
   methods: {
     openChat (fsId) {
-      conv.chat(fsId)
+      conv.userChat(fsId)
     },
     async trySendBuddyRequest (userId) {
       try {

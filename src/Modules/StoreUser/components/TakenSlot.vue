@@ -74,9 +74,8 @@
 import Avatar from '@/components/Avatar'
 import { BDropdown, BDropdownItem } from 'bootstrap-vue'
 import { pulseSuccess } from '@/script'
-import { callableNumber } from '@/utils'
+import PhoneNumbers from '@/helper/phone-numbers'
 import conv from '@/conv'
-import i18n from '@/i18n'
 import DataUser from '@/stores/user'
 
 import { v4 as uuidv4 } from 'uuid'
@@ -116,11 +115,11 @@ export default {
   },
   computed: {
     callLink () {
-      const number = callableNumber(this.profile.mobile) || callableNumber(this.profile.landline)
+      const number = PhoneNumbers.callableNumber(this.profile.mobile) || PhoneNumbers.callableNumber(this.profile.landline)
       return number || ''
     },
     callText () {
-      const number = callableNumber(this.profile.mobile, true) || callableNumber(this.profile.landline, true)
+      const number = PhoneNumbers.callableNumber(this.profile.mobile, true) || PhoneNumbers.callableNumber(this.profile.landline, true)
       return number || ''
     },
     canCopy () {
@@ -137,7 +136,7 @@ export default {
     copyIntoClipboard (text) {
       if (navigator.clipboard) {
         navigator.clipboard.writeText(text).then(() => {
-          pulseSuccess(i18n('pickup.copiedNumber', { number: text }))
+          pulseSuccess(this.$i18n('pickup.copiedNumber', { number: text }))
         })
       }
     },

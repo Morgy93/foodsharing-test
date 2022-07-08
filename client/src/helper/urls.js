@@ -1,3 +1,4 @@
+import phoneNumbers from './phone-numbers'
 // these are used for generating link-paths inside vue
 // e.g. $url('profile', 15)
 
@@ -115,6 +116,8 @@ const urls = {
   changelog: () => '/?page=content&sub=changelog',
   release_notes: () => '/?page=content&sub=releaseNotes',
 
+  // phone
+  phone_number: (phoneNumber, allowInvalid) => `tel:${phoneNumbers.callableNumber(phoneNumber, allowInvalid)}`,
   // mailto
   mail_foodsharing_network: (mail) => `${mail}@foodsharing.network`,
   mailto_mail_foodsharing_network: (mail) => `mailto:${mail}@foodsharing.network`,

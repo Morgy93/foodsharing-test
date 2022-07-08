@@ -11,7 +11,7 @@ import 'corejs-typeahead'
 import 'typeahead-address-photon'
 
 import { initMap } from '@/mapUtils'
-import { locale } from '@/i18n'
+import { locale } from '@/helper/i18n'
 
 export let map
 export let clusterGroup

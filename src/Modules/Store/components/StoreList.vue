@@ -158,7 +158,7 @@ import {
   BCard,
 } from 'bootstrap-vue'
 import StoreStatusIcon from './StoreStatusIcon.vue'
-import i18n from '@/i18n'
+import i18n from '@/helper/i18n'
 
 export default {
   components: { BCard, BTable, BButton, BPagination, BFormSelect, StoreStatusIcon },

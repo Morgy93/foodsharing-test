@@ -47,7 +47,9 @@
 <script>
 import conv from '@/conv'
 import $ from 'jquery'
-import { removeFromTeam } from '../../Store/Store'
+import { pulseError } from '@/script'
+import DataUser from '@/stores/user'
+import { removeStoreMember } from '@/api/stores'
 
 export default {
   props: {
@@ -79,7 +81,24 @@ export default {
       $('#bid').val(this.storeId)
       $('#editpickups').dialog('open')
     },
-    removeFromTeam,
+    async removeFromTeam (fsId, fsName) {
+      if (!fsId) {
+        return
+      }
+      if (!confirm(this.$i18n('store.sm.reallyRemove', { name: fsName }))) {
+        return
+      }
+      this.isBusy = true
+      try {
+        await removeStoreMember(this.storeId, DataUser.getters.getUserId())
+        window.location.href = this.$url('dashboard')
+      } catch (e) {
+        pulseError(this.$i18n('error_unexpected'))
+        this.isBusy = false
+        return
+      }
+      this.isBusy = false
+    },
   },
 }
 </script>

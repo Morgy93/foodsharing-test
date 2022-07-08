@@ -10,14 +10,10 @@
           class="pickup-date"
           :class="{'today': isToday, 'past': isInPast, 'soon': isSoon, 'empty': emptySlots > 0, 'coord': isCoordinator}"
         >
-          <span>
-            {{ $dateFormat(date, 'full-long') }}
-          </span>
           <span
-            v-if="showRelativeDate"
-            class="text-muted"
+            v-b-tooltip="$dateFormatter.dateTimeTooltip(date, { isShown: isInFewHours })"
           >
-            ({{ $dateDistanceInWords(date) }})
+            {{ $dateFormatter.base(date, { isRelativeTime: isInFewHours }) }}
           </span>
           <div
             v-if="isCoordinator && !isInPast"
@@ -74,7 +70,7 @@
     <b-modal
       ref="modal_join"
       v-model="showJoinModal"
-      :title="$i18n('pickup.join_title_date', slotDate)"
+      :title="$i18n('pickup.join_title_date', $dateFormatter.dateTime(date))"
       :cancel-title="$i18n('pickup.join_cancel')"
       :ok-title="$i18n('pickup.join_agree')"
       :ok-disabled="!loadedUserPickups"
@@ -88,7 +84,7 @@
 
       <div v-if="loadedUserPickups && sameDayPickups && sameDayPickups.length">
         <b-alert variant="warning" show>
-          {{ $i18n('pickup.same_day_hint', { day: $dateFormat(date, 'day') } ) }}
+          {{ $i18n('pickup.same_day_hint', { day: $dateFormatter.date(date) } ) }}
         </b-alert>
         <b-list-group>
           <b-list-group-item
@@ -101,7 +97,7 @@
             <i class="fas fa-fw" :class="[pickup.isConfirmed ? 'fa-check-circle text-secondary' : 'fa-clock text-danger']" />
             {{
               $i18n('pickup.same_day_entry', {
-                when: $dateFormat(pickup.date, 'time'),
+                when: $dateFormatter.time(date),
                 name: pickup.storeName,
               })
             }}
@@ -117,7 +113,7 @@
 
     <b-modal
       ref="modal_leave"
-      :title="$i18n('pickup.really_leave_date_title', slotDate)"
+      :title="$i18n('pickup.really_leave_date_title', { date: $dateFormatter.dateTime(date) })"
       :cancel-title="$i18n('pickup.leave_pickup_message_team')"
       :ok-title="$i18n('pickup.leave_pickup_ok')"
       :hide-header-close="true"
@@ -126,7 +122,7 @@
       @ok="$emit('leave', date)"
       @cancel="$refs.modal_team_message.show()"
     >
-      <p>{{ $i18n('pickup.really_leave_date', slotDate) }}</p>
+      <p>{{ $i18n('pickup.really_leave_date', { date: $dateFormatter.dateTime(date) }) }}</p>
     </b-modal>
 
     <b-modal
@@ -194,9 +190,6 @@
 <script>
 
 import { BFormTextarea, BModal, VBTooltip } from 'bootstrap-vue'
-import differenceInDays from 'date-fns/differenceInDays'
-import differenceInHours from 'date-fns/differenceInHours'
-import isPast from 'date-fns/isPast'
 
 import { listSameDayPickupsForUser } from '@/api/pickups'
 
@@ -229,19 +222,19 @@ export default {
       loadedUserPickups: false,
       sameDayPickups: [],
       // cannot use slotDate here since it's computed and needs to avoid circular data references:
-      teamMessage: this.$i18n('pickup.leave_team_message_template', { date: this.$dateFormat(this.date, 'full-long') }),
+      teamMessage: this.$i18n('pickup.leave_team_message_template', { date: this.$dateFormatter.dateTime(this.date) }),
       kickMessage: '',
     }
   },
   computed: {
     slotDate () {
       return {
-        date: this.$dateFormat(this.date, 'full-long'),
+        date: this.$dateFormatter.dateTime(this.date),
       }
     },
     slotInfo () {
       return {
-        date: this.$dateFormat(this.date, 'full-long'),
+        date: this.$dateFormatter.dateTime(this.date),
         storeName: this.storeTitle,
         name: this.activeSlot.profile.name,
       }
@@ -252,13 +245,16 @@ export default {
       }) !== -1
     },
     isInPast () {
-      return isPast(this.date)
+      return this.$dateFormatter.isPast(this.date)
+    },
+    isInFewHours () {
+      return this.$dateFormatter.getDifferenceToNowInHours(this.date) <= 4
     },
     isSoon () {
-      return differenceInDays(this.date, new Date()) <= 3
+      return this.$dateFormatter.getDifferenceToNowInDays(this.date) <= 3
     },
     isToday () {
-      return differenceInHours(this.date, new Date()) <= 24
+      return this.$dateFormatter.isToday(this.date)
     },
     emptySlots () {
       return Math.max(this.totalSlots - this.occupiedSlots.length, 0)

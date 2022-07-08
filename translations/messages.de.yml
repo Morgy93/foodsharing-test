@@ -2666,6 +2666,7 @@ globals:
     signout: Abmelden
   save: Speichern
   close: Schließen
+  reset: Zurücksetzen
   select: Bitte auswählen...
   show_more: Mehr anzeigen
   show_less: Weniger anzeigen
@@ -2684,6 +2685,7 @@ globals:
     my_groups: Meine Gruppen
     persons: Personen
     my_persons: Meine Personen
+  you: Du
 
 search:
   title: Suche
@@ -2701,3 +2703,18 @@ activitypost:
   write: Schreibe eine Antwort …
   quickreply_info: <code class="key">Umschalttaste + Eingabetaste</code> zum Hinzufügen einer neuen Zeile.
   quickreply_button: Jetzt Senden<br>oder <code class="key">Eingabetaste</code> drücken.
+
+bootstrap-datepicker:
+  labelPrevDecade: 'Vorheriges Jahrzehnt'
+  labelPrevYear: 'Vorheriges Jahr'
+  labelPrevMonth: 'Vorheriger Monat'
+  labelCurrentMonth: 'Aktueller Monat'
+  labelNextMonth: 'Nächster Monat'
+  labelNextYear: 'Nächstes Jahr'
+  labelNextDecade: 'Nächstes Jahrzehnt'
+  labelToday: 'Heute'
+  labelSelected: 'Ausgewähltes Datum'
+  labelNoDateSelected: 'Kein Datum gewählt'
+  labelCalendar: 'Kalender'
+  labelNav: 'Kalendernavigation'
+  labelHelp: 'Mit den Pfeiltasten durch den Kalender navigieren'

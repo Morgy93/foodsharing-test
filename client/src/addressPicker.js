@@ -6,7 +6,7 @@ import 'leaflet.awesome-markers'
 import 'mapbox-gl-leaflet'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { initMap } from '@/mapUtils'
-import { locale } from '@/i18n'
+import { locale } from '@/helper/i18n'
 
 const fsIcon = L.AwesomeMarkers.icon({
   icon: 'smile',
