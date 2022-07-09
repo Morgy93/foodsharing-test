@@ -68,14 +68,22 @@
     <h6
       class="field-headline field-headline--big"
       :class="{
-        'text-danger': isNow
+        'text-danger': isSoon
       }"
     >
       <i class="fas fa-clock mr-2" />
       <span
-        v-b-tooltip="$dateFormatter.dateTimeTooltip(date, { isShown: isNow })"
-        v-html="$dateFormatter.base(date, { isRelativeTime: isNow })"
-      />
+        v-b-tooltip="$dateFormatter.dateTimeTooltip(date, { isShown: isSoon })"
+      >
+        {{ $dateFormatter.base(date, { isRelativeTime: isSoon }) }}
+
+      </span>
+      <span
+        v-if="isSoon"
+        class="pickup-status-time"
+      >
+        ({{ $dateFormatter.time(date) }})
+      </span>
     </h6>
   </a>
 </template>
@@ -93,7 +101,7 @@ export default {
     entry: { type: Object, default: () => {} },
   },
   computed: {
-    isNow () {
+    isSoon () {
       return this.$dateFormatter.getDifferenceToNowInHours(this.date) < 4
     },
     team () {
@@ -113,6 +121,11 @@ export default {
 .pickup-status {
   font-size: 1rem;
 }
+
+.pickup-status-time {
+  font-size: 0.9rem;
+}
+
 .slots {
   margin: 0 0.25rem;
   display: inline-flex;

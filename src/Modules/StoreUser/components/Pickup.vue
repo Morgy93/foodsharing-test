@@ -11,10 +11,8 @@
           :class="{'today': isToday, 'past': isInPast, 'soon': isSoon, 'empty': emptySlots > 0, 'coord': isCoordinator}"
         >
           <span
-            v-b-tooltip="$dateFormatter.dateTimeTooltip(date, { isShown: isInFewHours })"
-          >
-            {{ $dateFormatter.base(date, { isRelativeTime: isInFewHours }) }}
-          </span>
+            v-html="$dateFormatter.dateTime(date)"
+          />
           <div
             v-if="isCoordinator && !isInPast"
             class="delete-pickup"
@@ -97,7 +95,7 @@
             <i class="fas fa-fw" :class="[pickup.isConfirmed ? 'fa-check-circle text-secondary' : 'fa-clock text-danger']" />
             {{
               $i18n('pickup.same_day_entry', {
-                when: $dateFormatter.time(date),
+                when: $dateFormatter.time(pickup.date),
                 name: pickup.storeName,
               })
             }}
@@ -248,7 +246,7 @@ export default {
       return this.$dateFormatter.isPast(this.date)
     },
     isInFewHours () {
-      return this.$dateFormatter.getDifferenceToNowInHours(this.date) <= 4
+      return this.$dateFormatter.getDifferenceToNowInHours(this.date) < 4
     },
     isSoon () {
       return this.$dateFormatter.getDifferenceToNowInDays(this.date) <= 3

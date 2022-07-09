@@ -63,7 +63,7 @@ export default {
    * @returns {Number} milliseconds
    */
   YearsToMs (years = 1) {
-    return this.MonthsToMs(years * 12)
+    return years * 31556952000
   },
 
   /**
@@ -197,9 +197,11 @@ export default {
   relativeTime (date = new Date(), { short = false } = {}) {
     let diffInMs = new Date() - new Date(date)
     const isInFuture = diffInMs < 0
+
     if (isInFuture) {
       diffInMs = new Date(date) - new Date()
     }
+
     const intervalCalc = (dur) => diffInMs / dur
     const rtf = new Intl.RelativeTimeFormat(locale, {
       localeMatcher: 'best fit',
@@ -207,7 +209,8 @@ export default {
       style: short ? 'narrow' : 'long',
     })
 
-    const format = (unit) => rtf.format(Math.floor(isInFuture ? step : -step), unit)
+    const format = (unit) => rtf.format(Math.round(isInFuture ? step : -step), unit)
+
     // Time years step
     let step = intervalCalc(this.YearsToMs())
     if (step > 1) {

@@ -35,19 +35,19 @@
       <i class="fas fa-fw fa-comment" /> {{ $i18n('chat.open_chat') }}
     </b-dropdown-item>
     <b-dropdown-item
-      v-if="callLink && !isMe"
-      :href="callLink"
+      v-if="phoneNumber && !isMe"
+      :href="$url('phone_number', phoneNumber)"
     >
       <i class="fas fa-fw fa-phone" /> {{ $i18n('pickup.call') }}
     </b-dropdown-item>
     <b-dropdown-item
-      v-else-if="callText && !isMe"
-      @click="copyIntoClipboard(callText)"
+      v-if="phoneNumber && !isMe"
+      @click="copyIntoClipboard(phoneNumber)"
     >
       <!-- eslint-disable-next-line vue/max-attributes-per-line -->
       <i class="fas fa-fw" :class="[canCopy ? 'fa-clone' : 'fa-phone-slash']" />
       <span v-if="canCopy">{{ $i18n('pickup.copyNumber') }}</span>
-      <span v-else>{{ callText }}</span>
+      <span v-else>{{ phoneNumber }}</span>
     </b-dropdown-item>
     <b-dropdown-item
       v-if="!confirmed && allowConfirm"
@@ -114,13 +114,8 @@ export default {
     }
   },
   computed: {
-    callLink () {
-      const number = PhoneNumbers.callableNumber(this.profile.mobile) || PhoneNumbers.callableNumber(this.profile.landline)
-      return number || ''
-    },
-    callText () {
-      const number = PhoneNumbers.callableNumber(this.profile.mobile, true) || PhoneNumbers.callableNumber(this.profile.landline, true)
-      return number || ''
+    phoneNumber () {
+      return PhoneNumbers.callableNumber(this.profile.mobile || this.profile.landline)
     },
     canCopy () {
       return !!navigator.clipboard
