@@ -73,7 +73,8 @@
         class="list-group-item list-group-item-action"
         :href="$url('profileNotes', fsId)"
       >
-        <i class="far fa-file-alt fa-fw" /> {{ $i18n('profile.nav.notes', { count: noteCount }) }}
+        <i class="far fa-file-alt fa-fw" />
+        <span v-html="$i18n('profile.nav.notes', { count: noteCount })" />
       </b-list-group-item>
       <b-list-group-item
         v-if="mayViolation && violationCount > 0"
@@ -81,7 +82,8 @@
         class="list-group-item list-group-item-action"
         :href="$url('violations', fsId)"
       >
-        <i class="far fa-meh fa-fw" /> {{ $i18n('profile.nav.violations', { count: violationCount }) }}
+        <i class="far fa-meh fa-fw" />
+        <span v-html="$i18n('profile.nav.violations', { count: violationCount })" />
       </b-list-group-item>
       <b-list-group-item
         v-if="fsId !== fsIdSession && buttonNameReportRequest"

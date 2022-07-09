@@ -50,7 +50,7 @@ const urls = {
   press: () => '/?page=content&sub=presse',
   region: () => '/?page=region',
   releaseNotes: () => '/?page=content&sub=releaseNotes',
-  violations: (fsId) => `?page=report&sub=foodsaver&id=${fsId}`,
+  violations: (fsId) => `/?page=report&sub=foodsaver&id=${fsId}`,
   settings: () => '/?page=settings',
   settingsCalendar: () => '/?page=settings&sub=calendar',
   settingsNotifications: () => '/?page=settings&sub=info',
