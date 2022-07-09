@@ -12,13 +12,13 @@
       v-html="$i18n('store.chat.team')"
     />
     <button
-      v-if="springerConversationId != null && userIsInStore"
+      v-if="springerConversationId != null && userIsInStore || isJumper"
       type="button"
       class="list-group-item list-group-item-action"
       @click="openChat(springerConversationId)"
       v-html="$i18n('store.chat.jumper')"
     />
-    <a
+    <button
       v-if="mayEditStore"
       type="button"
       class="list-group-item list-group-item-action"
@@ -34,7 +34,7 @@
       v-html="$i18n('pickup.edit.bread')"
     />
     <button
-      v-if="mayLeaveStoreTeam"
+      v-if="mayLeaveStoreTeam && userIsInStore || isJumper"
       type="button"
       class="list-group-item list-group-item-action"
       href="#"
@@ -72,6 +72,7 @@ export default {
       default: null,
     },
     userIsInStore: { type: Boolean, default: false },
+    isJumper: { type: Boolean, default: false },
   },
   methods: {
     openChat (fsId) {
