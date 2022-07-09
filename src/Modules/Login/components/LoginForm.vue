@@ -32,7 +32,6 @@
             class="form-control text-primary"
             autocomplete="email"
             autofocus
-            @keydown.enter="submit"
             @focus="focusLogin=true"
           >
         </div>
@@ -57,7 +56,6 @@
             name="login-password"
             class="form-control text-primary"
             autocomplete="current-password"
-            @keydown.enter="submit"
           >
         </div>
         <div>
@@ -84,6 +82,7 @@
             variant="primary"
             class="login-btn"
             @click="submit"
+            @keydown.enter="submit"
           >
             <span>
               {{ $i18n('login.submit_btn') }}

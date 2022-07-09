@@ -18,7 +18,6 @@
           class="testing-login-input-email form-control"
           autocomplete="email"
           autofocus
-          @keydown.enter="submit"
           @focus="focusLogin=true"
         >
       </label>
@@ -35,7 +34,6 @@
           name="login-password"
           class="testing-login-input-password form-control"
           autocomplete="current-password"
-          @keydown.enter="submit"
         >
       </label>
       <label class="d-flex align-items-center mt-3 mb-3">
@@ -44,7 +42,6 @@
           class="testing-login-input-remember mr-2"
           type="checkbox"
           name="login-remember"
-          @keydown.enter="submit"
         >
         {{ $i18n('login.steady_login') }}
       </label>
@@ -58,6 +55,7 @@
           variant="primary"
           class="testing-login-click-submit btn btn-block"
           @click="submit"
+          @keydown.enter="submit"
         >
           <span>
             {{ $i18n('login.submit_btn') }}
