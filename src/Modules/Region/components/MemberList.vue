@@ -119,7 +119,7 @@
           #cell(removeAdminButton)="row"
         >
           <b-button
-            v-if="row.item.isAdminOrAmbassadorOfRegion === true"
+            v-if="rowItemisAdminOrAmbassadorOfRegion(row.item)"
             v-b-tooltip="$i18n(isWorkGroup ? 'group.member_list.remove_admin_title' : 'group.member_list.remove_ambassador_title')"
             size="sm"
             variant="danger"
@@ -134,7 +134,7 @@
           #cell(setAdminButton)="row"
         >
           <b-button
-            v-if="userId !== row.item.id && row.item.isAdminOrAmbassadorOfRegion !== true && (isWorkGroup ? row.item.role === 2: row.item.role === 3)"
+            v-if="rowItemNotqualUserid(userId,row.item.id) && roleCheckForRegionAndWorkGroup(isWorkGroup,row.item.role) && !rowItemisAdminOrAmbassadorOfRegion(row.item)"
             v-b-tooltip="$i18n(isWorkGroup ? 'group.member_list.set_admin_title' : 'group.member_list.set_ambassador_title')"
             size="sm"
             variant="warning"
@@ -149,7 +149,7 @@
           #cell(removeButton)="row"
         >
           <b-button
-            v-if="userId !== row.item.id && row.item.isAdminOrAmbassadorOfRegion !== true"
+            v-if="rowItemNotqualUserid(userId,row.item.id) && !rowItemisAdminOrAmbassadorOfRegion(row.item)"
             v-b-tooltip="$i18n('group.member_list.remove_title')"
             size="sm"
             variant="danger"
@@ -277,6 +277,15 @@ export default {
     clearFilter () {
       this.filterStatus = null
       this.filterText = ''
+    },
+    rowItemisAdminOrAmbassadorOfRegion (value) {
+      return value.isAdminOrAmbassadorOfRegion === true
+    },
+    rowItemNotqualUserid (user, value) {
+      return user !== value
+    },
+    roleCheckForRegionAndWorkGroup (isGroup, itemRole) {
+      return isGroup ? itemRole >= 2 : itemRole === 3
     },
     async tryRemoveAdminMember (memberId) {
       showLoader()
