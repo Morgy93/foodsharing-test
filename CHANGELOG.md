@@ -68,6 +68,7 @@
 - Rebuild profile infos to vue !2276 !2287 @chriswalg
 - Rebuild join region to vue !2294 @sefn
 - Rebuild profile menu to vue !2281 @chriswalg
+- Let the community bubble on the map fetch its own content !2311 @alex.simm
 
 ## Dev/Test/CI stuff
 - bump node to version 16 !2135 @peter.toennies
