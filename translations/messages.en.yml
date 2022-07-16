@@ -163,6 +163,7 @@ group:
     remove_ambassador_text: Are you sure you want to remove {name} ({id}) as an ambassador?
     remove_admin_text: Are you sure you want to remove {name} ({id}) as an admin?
     remove_admin_title: remove as admin
+    old_edit_hint_link: Members
   application_from: by
   entermotivation: 'Motivation:'
   enterskills: 'Skills:'
@@ -347,6 +348,8 @@ menu:
     helpwanted: Help wanted
     helpneeded: Help wanted urgently
     in_negotiation: In negotiation
+    group_overview: Group overview
+    baskets: Baskets
 profile:
   banana:
     by: ' by '
@@ -519,6 +522,14 @@ profile:
     pickupCount: Number of pickups
     calenderWeek: Week number
     categorieName: Category
+  commitments_stat:
+    pickupAmount: Amount
+    week_1: Next week
+    districtName: Region
+    categorieName: Category
+    week_2: This week
+    week_3: Last week
+    week_4: Two weeks ago
 test:
   plain: This is a nice translation
   vars: 'My name is {NAME} and I am {AGE} years old'
@@ -1000,6 +1011,7 @@ bell:
   store_request_accept_wait: You were added to the jumper/waiting list.
   store_request_imposed: You were added to the store team.
   store_request_imposed_title: '{name}'
+  foodsaver_verified_title: You are now verified!
 reports:
   time: Time
   region: Home region
@@ -1384,7 +1396,8 @@ footer:
   it_devdocs: by foodsharing IT
   donate_now: Donate now
   version: 'Version: {version}'
-  donate: Donate
+  donate:
+    cta: Donate now
   statistics: Statistics
   blog: Blog
   wiki: Wiki
@@ -1408,6 +1421,9 @@ footer:
   hosting_info: hosted carbon-neutral at
   call_to_action: Participate
   beta_testing_issues: Testing tasks of the beta version
+  meta:
+    it_devdocs: by foodsharint IT
+    version: 'Version: {version}'
 basket:
   is:
     gf: are gluten-free
@@ -1705,6 +1721,7 @@ search:
   thread-title-only: Only titles are searched, not the content of the threads.
   user_search:
     placeholder: Name or ID
+  informations: You can search for people, groups, stores, regions, and FoodSharePoints.
 month:
   short:
     "12": Dec.
@@ -2622,7 +2639,8 @@ error:
     link_2: "I need help"
   mail_activation:
     title: "Email address not confirmed!"
-    description: "Please confirm your email address by clicking on the link in the activation email."
+    description: "Please confirm your email address by clicking on the link in the\
+      \ activation email."
     link_1: "Request a new activation email"
     link_2: "Change email address"
   adress:
@@ -2637,9 +2655,49 @@ error:
 information:
   push:
     title: "You can now receive push notifications from foodsharing."
-    info: "If you no longer want to receive push notifications, you can deactivate them at any time in the settings."
+    info: "If you no longer want to receive push notifications, you can deactivate\
+      \ them at any time in the settings."
     link: "To the settings"
   calendar_sync:
     title: "Do you know the calendar synchronization for your pickups?"
-    info: "This will allow you to see your next pickup dates using a calendar program of your choice."
+    info: "This will allow you to see your next pickup dates using a calendar program\
+      \ of your choice."
     link: "Subscribe now"
+globals:
+  reset: Reset
+  you: You
+  type:
+    mailboxes: Mailboxes
+    my_mailboxes: My mailboxes
+    buddies: Buddies
+    my_buddies: My buddies
+    stores: Stores
+    my_stores: My stores
+    regions: Regions
+    my_regions: My regions
+    foodshare_points: FoodSharePoints
+    my_foodshare_points: My FoodSharePoints
+    groups: Groups
+    my_groups: My groups
+  save: Save
+  close: Close
+  select: Please select...
+  show_more: Show more
+  show_less: Show less
+bootstrap-datepicker:
+  labelPrevDecade: Previous decade
+  labelPrevYear: Previous year
+  labelNextYear: Next year
+  labelCalendar: Calendar
+  labelCurrentMonth: Current month
+  labelNoDateSelected: No date selected
+  labelNextDecade: Next decade
+  labelPrevMonth: Previous month
+  labelNextMonth: Next month
+  labelToday: Today
+  labelSelected: Selected date
+system_administration:
+  regions: Administrate regions
+  email: Send newsletter
+  blog: Administrate blog entries
+  quiz: Administrate quiz
