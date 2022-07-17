@@ -30,6 +30,7 @@
 - On mobile devices the forum profile image is smaller !2237 @sefn
 - Color set is unified and removed vanilla bootstrap !2293 !2303 @sefn
 - The content of the footer is now dynamic !2297 @sefn
+- RestAPI `/api/user/current/stores` Provides memberstatus and all related stores of user !2318 @KoeMai
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
