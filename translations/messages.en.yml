@@ -172,7 +172,7 @@ group:
   enterxp: 'Experience:'
   motivation: motivation text
 settings:
-  header: Your data and settings
+  header: Profile settings
   name_change:
     title: Name (first & last name)
     desc: You cannot change your name yourself. You can however <a {link}">request
@@ -287,7 +287,7 @@ menu:
     messages: Messages
     your_groups: Your groups
     your_baskets: Your baskets
-    groups: Group overview
+    groups: Groups
     your_account: Your account
     your_stores: Your stores
     administration: Administration
@@ -473,7 +473,7 @@ profile:
     bread: Notes
     info: "Please use this function carefully.\nIt should help to make processes visible\
       \ in order to save us work.\nPersonal or judgmental about a person has no place\
-      \ here.\nBe factual.\"\n"
+      \ here.\nBe factual.\""
     title: Notes about {name}
   warning: Warning
   title: Profile
@@ -952,7 +952,7 @@ button:
   edit: Edit
   upload: Upload
   rotate_right: rotate clockwise
-  attach_image: Attach picture
+  attach_image: Attach picture (png or jpg-format)
   change_picture: Change picture
   next: Next
   save: Save
@@ -1519,6 +1519,7 @@ basket:
   on: food basket from {platform}
   go: to the food basket
   my_list_empty: You have not entered any food baskets
+  not_withdrawn: 'The request for the food basket could not be withdrawn: '
 map:
   title: Map
   donates: company donates
@@ -1712,7 +1713,7 @@ search:
   mybuddies: My buddies
   title: Search
   forum: Search for a title…
-  placeholder: Search persons, groups, companies, …
+  placeholder: Search now ...
   persons: Persons
   groups: Groups
   myregions: My regions
@@ -2235,7 +2236,7 @@ dashboard:
   options:
     hide:
       text: Hide
-      tooltip: Here can you hide information on the dashboard
+      tooltip: Here can you hide information on the dashboard.
     reset: Reset
     grid_toggle:
       2_columns: Go to 2 columns view
@@ -2283,7 +2284,7 @@ dashboard:
     read: continue reading
     go: Go to the quiz
     ack: I have read the notice, do not show again
-  greeting_short: "Hallo {name}!"
+  greeting_short: "Hello {name}!"
   greeting: Hello {name}! Nice to have you there.
   source_store: Stores {0}
   pickupdates: Next pickups
@@ -2291,9 +2292,8 @@ dashboard:
   invitationCount: You were invited ({count})
   event: Next event
   eventCount: Next events ({count})
-  foodsaver_amount: "You have picked up groceries <strong style=\"white-space:nowrap\"\
-    >{pickups}&thinsp;&times;</strong>\nand saved <strong style=\"white-space:nowrap\"\
-    >{weight}&thinsp;kg</strong>.\n"
+  foodsaver_amount: "You have picked up groceries <b>{pickups} x</b> and saved <b>{weight}\
+    \ kg</b>."
   foodsharer_amount: You have already saved {weight} kilos!
   foodsharer: Have fun saving!
   chooseHomeRegion: Please select a home district.
@@ -2610,6 +2610,8 @@ quiz:
   failedbeforebut: " times you didn't pass the quiz. This amount of tries are left\
     \ for you:"
   quizleft: " - now all that's left to do is pass the quiz!"
+  session_deleted: The results of this quiz were deleted because the quiz was finished
+    more than two weeks ago.
 nofp: no error points (not a serious question)
 fpsingular: Error point
 request_time: 'Time of request:'
@@ -2627,8 +2629,8 @@ activitypost:
   Response: "Answer"
   response: "answer"
   write: Write an answer …
-  quickreply_info: <b>Shift + Return</b> to add a new line.
-  quickreply_button: Send now<br>or press<b>Return</b>.
+  quickreply_info: <code class="key">Shift + Return</code> to add a new line.
+  quickreply_button: Send now<br>or press<code class="key">Return</code>.
 deletelow: delete
 
 error:
@@ -2701,3 +2703,24 @@ system_administration:
   email: Send newsletter
   blog: Administrate blog entries
   quiz: Administrate quiz
+  mailboxes: Administrate mailboxes
+  content: Administrate content
+join_region:
+  error:
+    is_country: <strong>This is a country.</strong><br> Please choose a city or region.
+    is_state: <strong>This is a state.</strong><br> Please choose a city or a region.
+navigation:
+  map: Map
+  contact: Contact
+  whats_new: What is new?
+  support: Support
+  help: Help
+  wiki: Wiki
+  regions: Regions
+  groups: Groups
+  stores: Stores
+  basket: Food baskets
+  search: Search
+  conversations: ''
+  notifications: Notifications
+  system_administration: System administration
