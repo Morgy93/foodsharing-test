@@ -181,6 +181,7 @@ settings:
     info: To get your name changed you have to contact an ambassador of your home
       region. He*She can change your name for you.<hr/>You can find out who the ambassadors
       of you region are in the left sidebar of your <a {link}>home regions forum page</a>.
+    foodsharer_info: For changing your name, please create a request in our <a {link}>support-form<a>.
   push:
     not-supported: Your browser does not support push notifications.
     title: Push notifications
@@ -399,6 +400,8 @@ profile:
     privateMail: Private email address
     buddycount1: '{name} is buddy with {count} foodsavers'
     buddycount: '{count} foodsavers are buddies with {name}'
+    buddycount_followed: '{name} is known by {count} foodsavers'
+    buddycount_known: '{name} knows {count} foodsavers'
   report:
     sent: Report was sent
     send: Send report
@@ -530,6 +533,7 @@ profile:
     week_2: This week
     week_3: Last week
     week_4: Two weeks ago
+    calenderWeek: CW
 test:
   plain: This is a nice translation
   vars: 'My name is {NAME} and I am {AGE} years old'
@@ -1424,6 +1428,14 @@ footer:
   meta:
     it_devdocs: by foodsharint IT
     version: 'Version: {version}'
+  hosting:
+    info: Carbon-neutrally <a href="https://www.manitu.de/webhosting/" title="Webhosting">hosted</a>
+    tooltip: Carbon-neutrally <a href="https://www.manitu.de/webhosting/" title="Webhosting">hosted</a>
+      at manitu
+  partner_names:
+    wiener_tafel: Food bank Wien
+    denns: Denn’s Biomarkt
+    lebensministerium: Ministry of Agriculture, Regions and Tourism
 basket:
   is:
     gf: are gluten-free
@@ -1708,6 +1720,7 @@ store:
   complete: complete database
   peoplecame: It has often happened that people went to a store unsolicited.
   smneeded: To set up a business, you must be a store manager.
+  tooltip_jumping: ''
 search:
   mygroups: My groups
   mybuddies: My buddies
@@ -2235,7 +2248,7 @@ dashboard:
     users: foodsavers
   options:
     hide:
-      text: Hide
+      text: Change view
       tooltip: Here can you hide information on the dashboard.
     reset: Reset
     grid_toggle:
@@ -2303,6 +2316,8 @@ dashboard:
   mail_activation_error_title: Email address not confirmed
   activation_mail_failure: A new activation link could not be sent
   activation_mail_sent: Activation link sent - please check your emails
+  full_subline: You have picked up food <b>{pickups} </b> times and saved <b>{weight}
+    kg</b>. Your home region is <b>{region}</b>.
 pronoun:
   "3": he*she
   "2": she
@@ -2436,9 +2451,9 @@ mail:
   noreply_addresses_not_allowed: Emails to "noreply@…" cannot be delivered.<br Please
     check the recipient address.
 regionOptions:
-  enableMediationButton: Enable mediation request button on the profiles of the home
+  enableMediationButton: Enable mediation request link on the profiles of the home
     users of this district.
-  enableReportButton: Enable report button on the profiles of the home users of this
+  enableReportButton: Enable report link on the profiles of the home users of this
     district.
   save: Save options
   success: Options saved successfully
@@ -2619,6 +2634,8 @@ deletefromregion: Really remove from the region?
 logincontrol:
   nomorenewsletter: You won't receive any more newletters from us
   success: Success!
+  title: Newsletter sign-out
+  bread: Newsletter sign-out
 addreaction: Add a reaction
 sig:
   buddies: People you know
@@ -2698,6 +2715,8 @@ bootstrap-datepicker:
   labelNextMonth: Next month
   labelToday: Today
   labelSelected: Selected date
+  labelNav: Calendar navigation
+  labelHelp: Navigate the calendar using arrow keys
 system_administration:
   regions: Administrate regions
   email: Send newsletter
@@ -2705,10 +2724,15 @@ system_administration:
   quiz: Administrate quiz
   mailboxes: Administrate mailboxes
   content: Administrate content
+  reports: Show reports
 join_region:
   error:
     is_country: <strong>This is a country.</strong><br> Please choose a city or region.
     is_state: <strong>This is a state.</strong><br> Please choose a city or a region.
+    not_allowed: You cannot join this region.
+    is_big_city: <strong>This is a large city.</strong><br> Please choose a city or
+      a region.
+  headline: Please choose the region in which you want to become active.
 navigation:
   map: Map
   contact: Contact
@@ -2721,6 +2745,8 @@ navigation:
   stores: Stores
   basket: Food baskets
   search: Search
-  conversations: ''
+  conversations: 'Conversations'
   notifications: Notifications
   system_administration: System administration
+  help_needed: Help needed?
+  profil: 👋 Hello {name}!
