@@ -144,7 +144,7 @@ class ProfileView extends View
 			$this->vueComponent('vue-profile-menu', 'ProfileMenu', [
 				'isOnline' => $this->foodsaver['online'],
 				'foodSaverName' => $this->foodsaver['name'],
-				'photo' => $this->imageService->img($this->foodsaver['photo'], 130),
+				'photo' => $this->foodsaver['photo'],
 				'fsId' => $this->foodsaver['id'],
 				'fsIdSession' => $this->session->id(),
 				'isSleeping' => $this->foodsaver['sleep_status'],
