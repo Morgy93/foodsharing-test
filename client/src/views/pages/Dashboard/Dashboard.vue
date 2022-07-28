@@ -4,31 +4,10 @@
     class="container my-3 my-sm-5"
   >
     <div class="mb-1 mb-sm-3">
-      <Release
-        v-if="!isBeta"
-        :version="release.version"
-        :time="release.time"
-      />
-      <Error
-        v-if="broadcast.body.length > 0"
-        type="broadcast"
-        tag="broadcast"
-        :title="broadcast.title"
-        :description="broadcast.body"
-        :time="broadcast.last_mod"
-        :is-time-based="true"
-        :is-closeable="true"
-      />
-      <ErrorContainer
-        v-if="errors"
-        :all-visible="true"
-        :list="errors"
-      />
+      <Release v-if="!isBeta" />
+      <ErrorContainer />
       <Intro />
-      <Informations
-        v-if="informations"
-        :list="informations"
-      />
+      <InformationsContainer />
       <Quiz
         v-if="quiz"
         tag="foodsaver.upgrade.ad_fs"
@@ -135,14 +114,12 @@ import DataPickups from '@/stores/pickups.js'
 import DataBaskets from '@/stores/baskets.js'
 import DataUser from '@/stores/user.js'
 import DataEvents from '@/stores/events.js'
-import DataBanners from './Banners.json'
 // Components
 import Intro from '@/components/Banners/Intro/IntroField.vue'
 import Release from '@/components/Banners/Release/ReleaseField.vue'
 import Quiz from '@/components/Banners/Quiz/QuizField.vue'
-import Error from '@/components/Banners/Errors/ErrorField.vue'
 import ErrorContainer from '@/components/Banners/Errors/ErrorContainer.vue'
-import Informations from '@/components/Banners/Informations/InformationContainer.vue'
+import InformationsContainer from '@/components/Banners/Informations/InformationContainer.vue'
 import ActivityContainer from '@/components/Container/activity/ActivityOverview.vue'
 import StoreContainer from '@/components/Container/store/StoreContainer.vue'
 import ManagingStoreContainer from '@/components/Container/store/ManagingStoreContainer.vue'
@@ -162,9 +139,8 @@ export default {
     Intro,
     Release,
     Quiz,
-    Error,
     ErrorContainer,
-    Informations,
+    InformationsContainer,
     ActivityContainer,
     StoreContainer,
     ManagingStoreContainer,
@@ -179,13 +155,10 @@ export default {
   props: {
     broadcast: { type: Object, default: () => null },
     quiz: { type: Object, default: () => null },
-    errors: { type: Array, default: () => null },
     events: { type: Object, default: () => ({ accepted: null, invites: null }) },
   },
   data () {
     return {
-      release: DataBanners.release,
-      informations: DataBanners.informations,
       stateHasAutoSave: true,
       stateTag: 'dashboard.grid',
       visible: {
