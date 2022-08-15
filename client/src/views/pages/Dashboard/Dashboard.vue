@@ -4,6 +4,7 @@
     class="container my-3 my-sm-5"
   >
     <div class="mb-1 mb-sm-3">
+      <Broadcast :entry="broadcast" />
       <Release v-if="!isBeta" />
       <ErrorContainer />
       <Intro />
@@ -115,6 +116,7 @@ import DataBaskets from '@/stores/baskets.js'
 import DataUser from '@/stores/user.js'
 import DataEvents from '@/stores/events.js'
 // Components
+import Broadcast from '@/components/Banners/Broadcast/BroadcastField.vue'
 import Intro from '@/components/Banners/Intro/IntroField.vue'
 import Release from '@/components/Banners/Release/ReleaseField.vue'
 import Quiz from '@/components/Banners/Quiz/QuizField.vue'
@@ -136,6 +138,7 @@ import RouteAndDeviceCheckMixin from '@/mixins/RouteAndDeviceCheckMixin'
 
 export default {
   components: {
+    Broadcast,
     Intro,
     Release,
     Quiz,
