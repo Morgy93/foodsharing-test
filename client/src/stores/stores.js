@@ -11,17 +11,17 @@ export const getters = {
   },
 
   getOthers () {
-    const others = store.stores.filter(s => !s.isManaging && s.membershipStatus === 1)
+    const others = Array.from(store.stores).filter(s => !s.isManaging && s.membershipStatus === 1)
     return others.length > 0 ? others : []
   },
 
   getManaging () {
-    const managing = store.stores.filter(s => s.isManaging)
+    const managing = Array.from(store.stores).filter(s => s.isManaging)
     return managing.length > 0 ? managing : []
   },
 
   getJumping () {
-    const jumping = store.stores.filter(s => s.membershipStatus === 2)
+    const jumping = Array.from(store.stores).filter(s => s.membershipStatus === 2)
     return jumping.length > 0 ? jumping : []
   },
 

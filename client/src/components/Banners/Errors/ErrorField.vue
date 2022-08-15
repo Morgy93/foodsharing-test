@@ -11,7 +11,7 @@
         />
         <p
           class="errorfield__description"
-          v-html="$i18n(`error.${entry.field}.description`)"
+          v-html="$i18n(`error.${entry.field}.description`, { link: entry.link })"
         />
       </div>
       <div

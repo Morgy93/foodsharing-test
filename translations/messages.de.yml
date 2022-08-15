@@ -2611,7 +2611,7 @@ error:
     link: "Jetzt Mobile Telefonnummer korrigieren"
   old_user_avatar:
     title: "Es gibt ein Problem, mit deinem Profilbild."
-    description: "Dein Profilbild scheint sehr alt zu sein, bitte aktualisiere es."
+    description: "Im September 2021 haben wir eine technische Umstellung vorgenommen, welche die Profilbilder betrifft. Daher bitten wir dich dein Profilbild erneut hochzuladen oder zu erneuern. Wenn du dein aktuelles Bild wiederverwenden willst, kannst du es <a href=\"{link}\" download>hier</a> herunterladen. Entschuldige bitte die Umstände."
     link: "Jetzt Profilbild erneuern"
   missing_user_avatar:
     title: "Du hast noch kein Profilbild hochgeladen."
