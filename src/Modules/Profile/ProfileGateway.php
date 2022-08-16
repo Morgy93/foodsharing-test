@@ -262,7 +262,7 @@ final class ProfileGateway extends BaseGateway
 		return (int)$this->db->fetchValue($stm, [':fs_id' => $fsId]);
 	}
 
-	public function giveBanana(int $fsId, string $message = '', ?int $sessionId): int
+	public function giveBanana(int $fsId, ?int $sessionId, string $message = ''): int
 	{
 		if ($sessionId === null) {
 			throw new \UnexpectedValueException('Must be logged in to give banana.');
