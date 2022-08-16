@@ -779,7 +779,7 @@ class Foodsharing extends \Codeception\Module\Db
 	public function createFoodSharePoint($user, $bezirk = null, $extra_params = [])
 	{
 		if ($bezirk === null) {
-			$bezirk = ($this->createRegion())['id'];
+			$bezirk = $this->createRegion()['id'];
 		}
 		$params = array_merge([
 			'bezirk_id' => $bezirk,

@@ -266,7 +266,7 @@ class SettingsControl extends Control
 				break;
 
 			default:
-		}
+			}
 	}
 
 	private function confirm_fs()

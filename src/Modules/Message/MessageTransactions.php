@@ -80,9 +80,9 @@ class MessageTransactions
 
 		return implode(', ',
 			array_column(array_filter($members ?? [],
-					function ($m) use ($foodsaverId) {
-						return $m['id'] != $foodsaverId;
-					}),
+				function ($m) use ($foodsaverId) {
+					return $m['id'] != $foodsaverId;
+				}),
 				'name'
 			));
 	}
@@ -180,9 +180,9 @@ class MessageTransactions
 		of a synchronized user group".
 		When a user gets removed, check if the whole conversation can be removed. */
 		if (!$this->messageGateway->isConversationLocked(
-				$conversationId
-			) && $this->messageGateway->deleteUserFromConversation($conversationId, $userId)) {
-			if (!$this->messageGateway->conversationHasRealMembers(($conversationId))) {
+			$conversationId
+		) && $this->messageGateway->deleteUserFromConversation($conversationId, $userId)) {
+			if (!$this->messageGateway->conversationHasRealMembers($conversationId)) {
 				$this->messageGateway->deleteConversation($conversationId);
 			}
 

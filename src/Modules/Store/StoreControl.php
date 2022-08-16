@@ -232,7 +232,7 @@ class StoreControl extends Control
 			'foodsaver_id' => $this->session->id(),
 			'betrieb_id' => $storeId,
 			'text' => '{BETRIEB_ADDED}', // TODO Do we want to keep this?
-			'zeit' => date('Y-m-d H:i:s', (time() - 10)),
+			'zeit' => date('Y-m-d H:i:s', time() - 10),
 			'milestone' => Milestone::CREATED,
 		]);
 
