@@ -94,6 +94,7 @@
 - Replace SwiftMailer with Symfony mailer #1188 !2247 @alex.simm
 - Updated php-cs-fixer to 3.8 !2274 @alex.simm
 - Add a variable to set the connection method for bounce mail processing !2350 @stcz
+- Some small code cleanup surrounding `Mem` @\_fridtjof_ !2357
 
 ## Development documetation
 - Add generator for database documentation !2275 @KoeMai

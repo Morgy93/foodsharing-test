@@ -3,7 +3,6 @@
 namespace Foodsharing\Modules\Message;
 
 use Carbon\Carbon;
-use Foodsharing\Lib\Db\Mem;
 use Foodsharing\Lib\WebSocketConnection;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\SleepStatus;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
@@ -18,7 +17,6 @@ class MessageTransactions
 {
 	private EmailHelper $emailHelper;
 	private FoodsaverGateway $foodsaverGateway;
-	private Mem $mem;
 	private MessageGateway $messageGateway;
 	private StoreGateway $storeGateway;
 	private TranslatorInterface $translator;
@@ -28,7 +26,6 @@ class MessageTransactions
 	public function __construct(
 		EmailHelper $emailHelper,
 		FoodsaverGateway $foodsaverGateway,
-		Mem $mem,
 		MessageGateway $messageGateway,
 		StoreGateway $storeGateway,
 		TranslatorInterface $translator,
@@ -37,7 +34,6 @@ class MessageTransactions
 	) {
 		$this->emailHelper = $emailHelper;
 		$this->foodsaverGateway = $foodsaverGateway;
-		$this->mem = $mem;
 		$this->messageGateway = $messageGateway;
 		$this->storeGateway = $storeGateway;
 		$this->translator = $translator;
