@@ -57,6 +57,7 @@
 - Restrictions on the view of the store list in profile !2273 @chriswalg
 - Show only chat link if user is member in store !2304 @chriswalg
 - Fix XSS Vulnerability at login page !2351 #1252 @stcz
+- Commitmentstat correctly counts short term sign ups and shows handshake symbol for shared food baskets !2353 @fs_k 
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
