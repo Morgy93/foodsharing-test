@@ -957,6 +957,14 @@ pickup:
   history:
     title: "Abholungshistorie"
     search: "Abholungen anzeigen"
+  signout_history:
+    title: "Historie ausgetragener Foodsaver der letzten 7 Tage"
+    reload: "Neuladen"
+    no_signouts_found: "Es wurden keine Austragungen gefunden."
+    slot: "Abholung"
+    signout_via_responsible_person:
+      via: "durch"
+      remove_reason: "(Grund: {reason})"
   edit:
     bread: "Abholzeiten bearbeiten"
     add: "Abholzeiten eintragen"

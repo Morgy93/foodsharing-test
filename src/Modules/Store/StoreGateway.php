@@ -1066,4 +1066,32 @@ class StoreGateway extends BaseGateway
 			AND ( bezirk_id = 0 OR bezirk_id IS NULL)'
 		);
 	}
+
+	public function getStoreLogsByActionType(int $storeId, array $storeActions): array
+	{
+		$logEntries = $this->db->fetchAll('
+			SELECT
+				date_activity as performed_at,
+				action as action_id,
+				fs_id_a as affected_foodsaver_id,
+				fs_id_p as performed_foodsaver_id,
+				date_reference,
+				content,
+				reason
+
+			FROM
+				fs_store_log
+
+			WHERE
+				store_id = :storeId
+		', [
+			'storeId' => $storeId,
+		]);
+
+		$logEntriesWithRequiredStoreActions = array_filter($logEntries, function ($logEntry) use ($storeActions) {
+			return in_array($logEntry['action_id'], $storeActions);
+		});
+
+		return $logEntriesWithRequiredStoreActions;
+	}
 }
