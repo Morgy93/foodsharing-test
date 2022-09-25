@@ -113,7 +113,6 @@ class StoreUserControl extends Control
 					'particularitiesDescription' => $store['besonderheiten'] ?? '',
 					'lastFetchDate' => $lastFetchDate,
 					'street' => $store['str'],
-					'housenumber' => $store['hsnr'],
 					'postcode' => $store['plz'],
 					'city' => $store['stadt'],
 					'storeTitle' => $store['name'],

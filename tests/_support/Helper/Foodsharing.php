@@ -333,7 +333,6 @@ class Foodsharing extends \Codeception\Module\Db
 			'plz' => $this->faker->postcode(),
 			'stadt' => $this->faker->city(),
 			'str' => $this->faker->streetAddress(),
-			'hsnr' => $this->faker->numberBetween(0, 1000),
 			'lat' => $this->faker->latitude(55, 46),
 			'lon' => $this->faker->longitude(4, 16),
 			'name' => 'betrieb_' . $this->faker->company(),

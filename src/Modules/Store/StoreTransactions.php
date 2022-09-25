@@ -92,9 +92,6 @@ class StoreTransactions
 		$store->regionId = intval($legacyGlobalData['bezirk_id']);
 
 		$address = $legacyGlobalData['str'];
-		if ($legacyGlobalData['hsnr'] ?? '') {
-			$address .= ' ' . $legacyGlobalData['hsnr'];
-		}
 		$store->lat = floatval($legacyGlobalData['lat']);
 		$store->lon = floatval($legacyGlobalData['lon']);
 		$store->str = $address;

@@ -2,6 +2,8 @@
 
 ## Features
 - The number of unread mails is now displayed as a red badge. !2188 !2230 @AntonBallmaier
+- The housenumber of companys shouldn't be saved seperately anymore. !1146 @martincodes-de
+- The number of unread mails is now displayed as a red badge. !2188 @AntonBallmaier
 - Improved Calendar exports. Events are now included and pickup descriptions contain links. !2182 @AntonBallmaier
 - Past events are shown now below current and upcoming events within the overview !2162 @merhoc
 - Commitment statistics on profile !2208 !2217 @fs_k

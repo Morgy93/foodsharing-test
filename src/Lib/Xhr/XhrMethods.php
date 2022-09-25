@@ -567,7 +567,7 @@ class XhrMethods
 						. $this->sanitizerService->jsSafe($b['name'])
 						. '</a>'
 					. '</h1>'
-					. '<p>' . $this->sanitizerService->jsSafe($b['str'] . ' ' . $b['hsnr']) . '</p>'
+					. '<p>' . $this->sanitizerService->jsSafe($b['str']) . '</p>'
 					. '<p>' . $this->sanitizerService->jsSafe($b['plz'] . ' ' . $b['stadt']) . '</p>'
 				. '</div><div class="clear"></div>';
 			}
