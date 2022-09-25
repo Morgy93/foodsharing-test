@@ -32,6 +32,8 @@
 - Color set is unified and removed vanilla bootstrap !2293 !2303 @sefn
 - The content of the footer is now dynamic !2297 @sefn
 - RestAPI `/api/user/current/stores` Provides memberstatus and all related stores of user !2318 @KoeMai
+- RestAPI `​/api​/user​/{id}​/details` extended with regions and groups !2352 @KoeMai user/current/groups
+- RestAPI `​/api​/user/current/groups` & `​/api​/user/current/regions` add endpoint for regions and groups !2352 @KoeMai 
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
@@ -76,6 +78,7 @@
 - Let the community bubble on the map fetch its own content !2311 @alex.simm
 - Changed deleting wall posts to the API #798 !2253 @alex.simm  
 - Use REST API for setting the user's sleep status #798 !2282 @alex.simm
+- Renmae Region\Type -> Unit\UnitType to make it search able and clear !2352 @KoeMai
 
 ## Dev/Test/CI stuff
 - bump node to version 16 !2135 @peter.toennies
