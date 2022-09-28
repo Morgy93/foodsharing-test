@@ -64,6 +64,7 @@
 - Fix XSS Vulnerability at login page !2351 #1252 @stcz
 - Commitmentstat correctly counts short term sign ups and shows handshake symbol for shared food baskets. Fix Speed. !2353 !2359 @fs_k 
 - Logging from removal of store managers. Corrected logging use for appointing store manager. !2365 @fs_k
+- The tooltip from foodbasked enquiry edit button blocked the clicking if only 1 enquiry was active. !2368 @martincodes-de
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
