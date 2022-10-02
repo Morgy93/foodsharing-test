@@ -1095,6 +1095,7 @@ poll:
     votes: Votes
     number_of_votes: Submitted votes
     option_text: Option
+    percentage_of_votes: Voter turnout
   new_poll:
     submit_question: The poll can be changed within one hour (until {date}). Do you
       really want to create it now?

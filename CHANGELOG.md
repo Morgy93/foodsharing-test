@@ -18,6 +18,7 @@
 - Food-share-points are listed in the topbar search #1251 !2260 @alex.simm
 - On all external links is now a visible indicator !2280 @sefn
 - At stores under pickup history, storemanagers can now see the signed out foodsavers from pickup slots from past 7 days with the signout date. !2363 @martincodes-de
+- Voter Turnout Percentage can be seen if the poll has completed !2377 @viveknshah
 
 ## Changes
 - Checks in the id card creation function if only one foodsaver is selected and then reduces the 
