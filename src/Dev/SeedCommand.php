@@ -81,8 +81,6 @@ class SeedCommand extends Command implements CustomCommandInterface
 		$this->output->writeln('Seeding ' . FS_ENV . ' database');
 		$this->seed();
 
-		$this->output->writeln('All done!');
-
 		return 0;
 	}
 

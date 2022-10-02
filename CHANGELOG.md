@@ -105,6 +105,7 @@
 - Updated php-cs-fixer to 3.8 !2274 @alex.simm
 - Add a variable to set the connection method for bounce mail processing !2350 @stcz
 - Some small code cleanup surrounding `Mem` @\_fridtjof_ !2357
+- Run maintenance daily and generate stats in new stats script and added them to seed script !2379 @chriswalg
 
 ## Development documetation
 - Add generator for database documentation !2275 @KoeMai
