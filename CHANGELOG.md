@@ -36,6 +36,8 @@
 - The content of the footer is now dynamic !2297 @sefn
 - RestAPI `/api/user/current/stores` Provides memberstatus and all related stores of user !2318 @KoeMai
 - RestAPI `​/api​/user​/{id}​/details` extended with regions and groups !2352 @KoeMai user/current/groups
+- RestAPI `​/api​/user/current/groups` & `​/api​/user/current/regions` add endpoint for regions and groups !2352 @KoeMai 
+- Display of the number of members in the header for working groups adjusted analogously to the districts !2374 @BibaltiK
 - RestAPI `​/api​/user/current/groups` & `​/api​/user/current/regions` add endpoint for regions and groups !2352 @KoeMai
 - Display "No pickup slots available" if there are no pickup slots !2375 @BlackScorp
 - Fix Console error !2376 @BlackScorp
