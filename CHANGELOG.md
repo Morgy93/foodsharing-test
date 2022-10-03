@@ -36,8 +36,9 @@
 - The content of the footer is now dynamic !2297 @sefn
 - RestAPI `/api/user/current/stores` Provides memberstatus and all related stores of user !2318 @KoeMai
 - RestAPI `​/api​/user​/{id}​/details` extended with regions and groups !2352 @KoeMai user/current/groups
-- RestAPI `​/api​/user/current/groups` & `​/api​/user/current/regions` add endpoint for regions and groups !2352 @KoeMai 
+- RestAPI `​/api​/user/current/groups` & `​/api​/user/current/regions` add endpoint for regions and groups !2352 @KoeMai
 - Display "No pickup slots available" if there are no pickup slots !2375 @BlackScorp
+- Fix Console error !2376 @BlackScorp
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
