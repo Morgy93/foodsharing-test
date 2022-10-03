@@ -954,6 +954,7 @@ pickup:
   add_onetime_pickup: "Zusatztermin eintragen"
   slot_add: "Slot hinzufügen"
   slot_remove: "Slot entfernen"
+  no_slots_available: "Keine Slots verfügbar"
   history:
     title: "Abholungshistorie"
     search: "Abholungen anzeigen"

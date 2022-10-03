@@ -758,6 +758,7 @@ pickup:
     added: Pickup date was added.
   slot_remove: Delete slot
   slot_add: Add slot
+  no_slots_available: No pickup slots available
   add_onetime_pickup: Add additional date
   edit_recurring_pickups: Edit regular pickup dates
   really_delete_date: Do you really want to delete the pickup on {date}?
