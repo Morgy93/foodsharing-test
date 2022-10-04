@@ -71,6 +71,7 @@
 - Logging from removal of store managers. Corrected logging use for appointing store manager. !2365 @fs_k
 - The tooltip from foodbasked enquiry edit button blocked the clicking if only 1 enquiry was active. !2368 @martincodes-de
 - Reaction button hasn't different color if already reacted !2373 @martincodes-de
+- polyfill added @sefn
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
