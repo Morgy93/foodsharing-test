@@ -353,7 +353,7 @@ menu:
     contact: Kontakt
     administration: Administrasjon
     your_account: Kontoen din
-    groups: Gruppeoversikt
+    groups: Grupper
     all_messages: Alle meldinger
     mark_as_read: Marker alle som lest
     infos: Informasjon
@@ -521,7 +521,7 @@ dashboard:
   my:
     regions: Dine distrikter
     groups: Dine grupper
-    stores: Du henter dagligvarer fra
+    stores: Dine bedrifter
     pending: Forespørsler gjort kl
     managing: Du er ansvarlig for
     waiting: Du er på hoppelisten på
@@ -565,7 +565,7 @@ search:
   persons: personer
   groups: grupper
   forum: Søk etter tittel…
-  placeholder: Søk etter personer, grupper, selskaper, …
+  placeholder: Søk nå …
   title: Søk
   myregions: Mine distrikter
   mybuddies: Mine kompiser
@@ -604,6 +604,8 @@ profile:
     foodsharerId: Matdeler-ID
     foodsaverId: Matredder-ID
     fetchrate: Hentetakst
+    buddycount_followed: '{name} kjenner {count} matreddere'
+    buddycount_known: '{name} kjenner til {count} matreddere'
   online: '{name} er online.'
   notes:
     title: Notater om {name}
@@ -699,11 +701,95 @@ profile:
       en administrator i rapportbehandlingen/krenkelsesgruppen. Dette støttes ikke
       teknisk for øyeblikket. Du kan når som helst sende inn en rapport på e-post
       til den som er ansvarlig for deg lokalt i denne saken.
+    control:
+      from: Meldinger fra
+      newreports: Nye rapporter
+      delivered: Leverte klager
+      total: alt i alt
+      tot: total
+      notes: Notater og vedtak
+    view:
+      nearstore: overfor ansatte
+      what:
+        brutal: vold og trusler
+        hurtful: krenkende bemerkninger
+        other: Andre upassende uttalelser og oppførsel
+        racist: rasistiske kommentarer
+        sexist: sexistiske ytringer
+        homophobe: homofobiske utsagn
+      bossy: Opptrådte på en krevende/fornærmende måte
+      complaints: Han:hun kom med påstander
+      returned: Har ikke returnert returflasker/kasser osv
+      sells: Selger redde dagligvarer
+      other: Brudd andre oppførselsregler (alt annet)
+      vsfs: mot matsparere
+      offs: fra matsparere
+      vsstore: mot ansatte
+      ofclients: fra kunder
+      dirty: Hentested ikke etterlatt rent
+      social: Oppførte seg ikke hensiktsmessig og sosialt ved henting
+      thief: Har tatt ting som ikke var ment for ham:henne
+      unreliable: Hyppige kanselleringer av samlinger på kort varsel uten å lete etter
+        en erstatning
+      trasher: Han:hun kaster spart mat
+      picky: Tar ikke alle dagligvarer som er beregnet på henting
+      additional: Har tatt eller bedt om å spare mat fra bedriften utenom hans/hennes
+        hentetid
+      nearfs: foran matsparere
+      ofstore: fra ansatte
+      nearclients: overfor kunder
+      residence: Bolig
+      why: Hvorfor rapporterer du denne personen?
+      tardy: Personen kom for sent
+      noshow: Personen kom ikke
+      vsclients: mot kunder
+    xhr:
+      allofthem: Alle rapporter mot
+      delivered: Rapport levert
+      reporting: Rapport om
+      plsconfirm: Vil du virkelig slette denne rapporten?
+      confirmed: Rapporten ble bekreftet!
+      deleted: Rapporten er slettet!
+      reportee: Rapportert av
+      reportID: Rapport-ID
+    noshow: Personen kom ikke
+    kindofreport: Vennligst velg type melding
+    late: Personen kom for sent
+    readup: "Du kan lese om hvordan du behandler en klage her: <a href='https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.\
+      \ 29_Bearbeitung_einer_Meldung'>Behandling av rapport</a>"
+    inthisblog: i dette blogginnlegget
+    cancellation: Hyppige kanselleringer av samlinger på kort varsel uten å lete etter
+      en erstatning
+    sells: Personen selger berget mat
   notFound: Denne brukerprofilen eksisterer ikke eller eksisterer ikke lenger
   go: Gå til profilsiden
   workgroups_member: Du og {name} er i følgende arbeidsgrupper
   sleepinfo: '{name} er inaktiv fra {from} til {til}'
   sleeping: '{name} er inaktiv på ubestemt tid'
+  commitments_stat:
+    eventsCreatedWeek: 'Takk for at du opprettet arrangementer {count} ganger denne
+      uken. '
+    calenderWeek: uke
+    respActStores: 'Takk for at du koordinerte {count} aktive '
+    basketsSharedWeek: 'Matkurvene ble delt med {count} personer. '
+    pickupAmount: Beløp
+    title: Engasjementsstatistikk
+    basketsOfferedWeek: Takk for at du tilbyr matkurver {count} ganger denne uken.
+      Totalt ble det delt {weight} kg.
+    eventsParticipatedWeek: 'Takk for at du deltok på {count} arrangementer denne
+      uken. Total tid: {time}:{minutt} '
+    pickupCount: Frekvens
+    week_3: forrige uke
+    weekDesc: Kalenderuke {week}, fra {weekStart} til {weekEnd}
+    districtName: Distrikt
+    week_2: denne uka
+    categorieName: Kategori
+    week_4: før forrige uke
+    week_1: neste uke
+    week_0: uken etter neste
+    securePickupWeek: Takk for at du trådte inn på kort varsel {count} ganger og sørget
+      for henting!
+  alldatesdeleted: Alle avtaler er slettet
 settings:
   photo:
     title: Bildet ditt
@@ -751,7 +837,7 @@ settings:
     show: "Ved å bruke denne funksjonen godtar du at statusen din, fraværsperioden\
       \ din\nog bortemeldingen vises på profilsiden din og et natthetteikon plasseres\n\
       over profilbildet ditt.\n"
-  header: Dine data / innstillinger
+  header: Profilinnstillinger
   follow:
     thread: Bli varslet når det er noe nytt om «{thread}»?
     mail: Ja, jeg vil gjerne bli informert om nye bidrag på e-post.
@@ -768,6 +854,7 @@ settings:
     occupied: E-postadressen kunne ikke endres fordi den allerede er i bruk.
     domain: Vennligst velg en annen e-postadresse, slik at du alltid vil kunne gjenopprette
       passordet ditt.
+    question: 'Vil du virkelig at vi skal endre e-postadressen din til denne:'
   saved: Endringene ble lagret.
   push:
     disabled: Push-varsler er deaktivert
@@ -790,6 +877,18 @@ settings:
   businesscard: Personlig visittkort
   chatmail: "Hvis du mottar en intern melding på foodsharing, men du er\nikke pålogget\
     \ for øyeblikket, kan vi informere deg via e-post.\nVil du det?\n"
+  name_change:
+    request: Be om navneendring
+    foodsharer_info: For å endre navnet ditt, vennligst opprett en forespørsel i vårt
+      <a {link}>støtteskjema<a>.
+    foodsaver_info: For å endre navn må du kontakte en ambassadør fra ditt hjemdistrikt.
+      Denne personen kan deretter endre navnet for deg.<hr/>Du kan se hvem som er
+      ambassadør i ditt hjemdistrikt i <a {link}>forumet til distriktet ditt</a> i
+      venstre sidefelt.
+    desc: Du kan ikke endre ditt eget navn selv. Du kan imidlertid be om en <a {link}">navneendring</a>.
+    title: Navn (for- og etternavn)
+  passport:
+    menu: Medlemskort
 mailbox:
   date: Dato
   recipient: Mottaker
@@ -829,6 +928,9 @@ mailbox:
   not-allowed: Du har ikke den nødvendige autorisasjonen.
   okay: E-post ble sendt.
   failed: E-posten kunne ikke sendes.
+  fromto: Fra/på
+  from: Fra
+  to: På
 map:
   title: Kart
 content:
@@ -877,6 +979,7 @@ foodsaver:
     amb_success: Takk for at du vil ta mer ansvar. Forespørselen vil bli behandlet
       av det globale orga-laget så raskt som mulig.
     ad_fs: Jeg vil ta matredder-quiz-en og bli en matredder!
+    learning: Se forklaringsvideoen nå
   kicked: Matredder er fjernet
   bread: Alle matreddere
   actions: Handlinger
@@ -887,7 +990,7 @@ foodsaver:
   list:
     summary: '{count} matreddere i distrikt {region}'
     inactive: 'som ikke har logget på de siste seks månedene:'
-  delete_account_sure: Er du sikker på at du vil slette kontoen til {name}?
+  delete_account_sure: Er du sikker på at du vil slette kontoen din?
   restricted: Du er ikke autorisert til å se disse dataene.
   your_account: din
   delete_own_account: Du er i ferd med å slette din egen konto. Er du sikker?
@@ -900,6 +1003,9 @@ foodsaver:
     >teamsiden</a>\neller på <a href=\"https://foodsharing.de/team/ehemalige\">siden\
     \ til de tidligere teammedlemmene</a>, hvis du tilhører en av disse gruppene.\n\
     Personer som er oppført der kan sees av alle på internett.\n"
+  delete_account_sure_reason: 'Er du sikker på at du vil slette kontoen til {name}?
+    Hvis du vil, kan du gi en grunn her slik at du senere kan forstå hvorfor kontoen
+    ble slettet:'
 ageBandList:
   NumberOfAgeband: nummer
   ageBand: Aldersgruppe
@@ -997,6 +1103,9 @@ bell:
   store_new_title: Nytt selskap
   store_wallpost: Nytt innlegg på oppslagstavlen.
   fs_sleepmode_title: Ny nattlue
+  foodsaver_verified_title: Du er nå verifisert!
+  new_foodsaver_needs_verification: må verifiseres
+  foodsaver_verified: Hent ID-en din under...
 reports:
   when: Tid
   time: Tid
@@ -1019,6 +1128,7 @@ reports:
   info: ' <br> <br>Vennligst skriv inn <b>dato</b>, <b>plassering</b> og <b>klokkeslett</b>
     for hendelsen! <br> Prøvde du å snakke direkte med personen om hendelsen og avklare
     saken? Vennligst angi hvordan du best kan nås for videre behandling av spørsmål.'
+  about_email: via epost
 month:
   short:
     "12": des
@@ -1191,6 +1301,10 @@ legal:
     this_gets_deleted_verify: <ul><li>Bekreftelsen din vil bli fjernet.</ul></li>
     this_gets_deleted_quiz: <ul><li>Din matsparingsquiz vil bli fjernet.</ul></li>
     this_doesnt_get_deleted_history: <ul><li>Bekreftelsesloggen din</ul></li>
+    this_gets_deleted_stores: <ul><li>Bedrifter du har sluttet deg til.</ul></li>
+    this_doesnt_get_deleted: 'Følgende informasjon er ikke lenger tilgjengelig i det
+      aktive systemet, men arkiveres separat på grunn av artikkel 17, paragraf 3 GDPR:'
+    legal_2: Hei Verden
 group:
   show-all: Vis alt
   function:
@@ -1279,6 +1393,7 @@ group:
     erfahrung: "Kan du i gruppen trekke på erfaringer du har fått andre steder?\n\
       Hvis ja, hvor eller hva?\n"
     motivation: Hva er din motivasjon for å delta i gruppen {group}?
+    accept: Godta søknaden
   contact:
     send: Sende melding
     sent: Meldingen ble sendt.
@@ -1320,6 +1435,17 @@ group:
     admin_mode_off: Tilbake til standardvisningen
     remove_title: Fjern medlem
     remove_text: Er du sikker på at du vil fjerne {name} ({id}) fra arbeidsgruppen?
+    remove_admin_text: Er du sikker på at du vil avregistrere {name} ({id}) som administrator?
+    set_admin_title: Registrer medlem som administrator
+    set_ambassador_text: Er du sikker på at du vil legge til {name} ({id}) som ambassadør?
+    old_edit_hint: Du finner nå medlemsadministrasjonen i menypunktet
+    old_edit_hint_link: Medlemmer
+    remove_admin_title: fjern som admin
+    remove_ambassador_title: fjerne som ambassadør
+    remove_ambassador_text: Er du sikker på at du vil avregistrere {name} ({id}) som
+      ambassadør?
+    set_admin_text: Er du sikker på at du vil legge til {name} ({id}) som administrator?
+    set_ambassador_title: Registrer medlem som ambassadør
   saved: Endringene har blitt lagret
   subtitle: her kan du finne hjelp og mye å gjøre…
   member_count: '{0} ingen bidragsytere|{1} en bidragsyter| [2, Inf[ %count% bidragsytere'
@@ -1345,6 +1471,13 @@ group:
       e-postadresser fra returlisten
     tooltip_function_region327: Administratorer av denne arbeidsgruppen kan redigere
       blogginnlegg
+  entertime: 'Tilgjengelig tid:'
+  application_region: 'Søknad for '
+  motivation: Motivasjonstekst
+  entermotivation: 'Motivasjon:'
+  enterskills: 'Ferdigheter:'
+  enterxp: 'Erfaring:'
+  application_from: fra
 bcard:
   generate: Lag visittkort
   actions: Alternativer
@@ -1408,7 +1541,7 @@ button:
   yes_i_am_sure: Ja, jeg er sikker
   permadelete: Slett for godt
   rotate_right: roter med klokken
-  attach_image: Legg ved bilde
+  attach_image: Legg ved bilde (png eller jpg-format)
   change_picture: Endre bilde
   next: Neste
   save: Lagre
@@ -1552,6 +1685,7 @@ date:
   to: til
   from: fra
   time: '{time}'
+  clock: klokka
 recipients:
   unknown: ukjent
   confirm: Send e-post?
@@ -1632,6 +1766,7 @@ events:
     maybe: Kanskje
     yes: Jeg deltar
     no: Jeg kan ikke
+    change: endre tilbakemelding
   add_new_event: Legg til en ny hendelse
   notFound: Enten eksisterer ikke denne hendelsen, eller så har du ikke tilgang til
     den.
@@ -1663,6 +1798,8 @@ chat:
   confirm_draft_discard: "Du bytter til en ny tråd. Teksten i svarfeltet forkastes.\n\
     \nHvis du avbryter denne dialogen, vil utkastet ditt bli overført til den nye\
     \ tråden i stedet.\n"
+  receivermissing: Du må spesifisere en mottaker
+  incorrect_address: Denne e-postadressen er feil
 forum:
   thread:
     title: Tittel
@@ -1678,6 +1815,8 @@ forum:
     with_mail: Temaet ble åpnet og alle deltakere ble informert om det på mail
     too_big_to_mail: Ingen e-poster ble sendt for emnet fordi det er et land eller
       en stat.
+    navigate_to_newest_post: gå til siste innlegg
+    navigate_to_oldest_post: gå til første innlegg
   post:
     body: Beskjed
     delete: Slett innlegget
@@ -1726,6 +1865,16 @@ calendar:
   labelNoDateSelected: Velg dato
   labelSelected: Valgt dato
   labelHelp: Navigering er også mulig med piltastene
+  export:
+    pickup:
+      name: '{store} henting'
+      unconfirmed: ubekreftet
+      description: Matdeling hentes i <a href="{url}">{store}</a>
+    event:
+      statusUnspecified: Du har ennå ikke angitt om du vil møte på denne avtalen.
+        Du kan gjøre det på den koblede siden.
+      linkTitle: Matdelingsarrangement
+      description: Beskrivelse
 pickup:
   edit:
     bread: 'Rediger hentetider'
@@ -1784,6 +1933,59 @@ pickup:
     hentedatoen når alle har kansellert.
   to_be_confirmed: Denne hentedatoen må bekreftes av en person som er ansvarlig for
     dette selskapet.
+  overview:
+    tab:
+      registered:
+        name: Registrerte innsamlingsdatoer
+        tooltip:
+          other: Planlagte fremtidige hentedatoer
+          own: Fremtidige innsamlingsdatoer som du har meldt deg på
+        empty: Det er for øyeblikket ingen pickuper oppført.
+      options:
+        empty: For øyeblikket er det ingen tilgjengelige pickup-plasser i noen av
+          lagene dine.
+        tooltip:
+          own: Fremtidige innsamlingsdatoer som du fortsatt kan melde deg på
+        name: Alternativer for henting
+      history:
+        name: Samlingshistorie
+        tooltip:
+          own: Tidligere hentinger du har deltatt på
+          other: Tidligere samlinger fra siste måned som har blitt deltatt
+        empty: Ingen hentinger er tatt ennå.
+    header: Innsamlingsdatoer
+    cols:
+      slots: Plasser
+      time: Tid
+      store: Selskapet
+    menu:
+      signOff: Fjerne
+      registeredSwitch: Vis egne henting
+      loadMore: Last mer
+      refresh: Forfriske
+      signOffAll: Fjern fra alle pickuper
+    modals:
+      signOff:
+        title: Vil du fjerne dette?
+        message: Vil du virkelig fjerne brukeren fra denne hentingen?
+      signOffAll:
+        title: Fjerne fra alle plasser?
+        message: Vil du virkelig fjerne brukeren fra alle plasser?
+    status:
+      pending: ubekreftet
+      confirmed: bekreftet
+      option: Plass tilgjengelig
+    allLoaded: Alle oppføringer er allerede vist.
+    freeSlots: '{slots} tilgjengelig'
+  signout_history:
+    title: Historikk over lossede matsparere de siste 7 dagene
+    reload: last på nytt
+    no_signouts_found: Ingen hendelser ble funnet.
+    slot: Plukke opp
+    signout_via_responsible_person:
+      via: gjennom
+      remove_reason: '(Årsak: {reason})'
+  no_slots_available: Ingen henteplasser tilgjengelig
 storeedit:
   fetch:
     teamStatus: lagstatus
@@ -1810,6 +2012,7 @@ storeedit:
       \ rettigheter som ambassadør.\n"
     coordinator: "Du er ikke ansvarlig for dette selskapet.\nDu har imidlertid omfattende\
       \ rettigheter som del av samarbeidskoordineringsteamet.\n"
+    leave_myself: selv
   actions: Alternativer
   edit_success: Endringene ble lagret
   milestone:
@@ -1899,6 +2102,37 @@ store:
   tooltip_managing: Du er ansvarlig for samarbeidet med dette selskapet
   error: Selskapet kunne ikke lastes.
   noStores: Ingen selskaper er lagt inn ennå
+  filter: Filtrer etter …
+  short_tooltip_orange: Åpne henting om 3 dager
+  short_tooltip_red: Åpne henting i dag eller i morgen
+  leaveinfo: Her kan du gi litt informasjon til Matsparerne som ønsker å søke på laget.
+  tooltip_jumping: Du er en jumper for dette selskapet
+  team:
+    isfull: Laget er fullt
+  enterdate: Skriv inn hentedato
+  maxchar: (maks. 180 tegn)
+  nodetails: Ikke oppgi nøyaktige hentetider her.
+  nodeclaration: ikke spesifisert
+  enternumber: Du må velge antall personer som kan hente.
+  important: 'Viktig:'
+  prefetchone: 1 uke
+  prefetchtwo: 2 uker
+  prefetchthree: 3 uker
+  prefetchfour: 4 uker
+  convince:
+    none: Ikke noe problem i det hele tatt, han*hun ble umiddelbart entusiastisk!
+    some: Etter litt overtalelse sa han ja til å delta.
+    much: Vanskelige forhandlinger, men til slutt ble han*hun enig.
+    final: Først så det dårlig ut, men så tok han*hun kontakt.
+  complete: komplett database
+  smneeded: For å etablere en bedrift må du være samarbeidsansvarlig.
+  short_tooltip_yellow: Åpne henting om 5 dager
+  willgetcontacted: Du er for øyeblikket på jumperlisten. Så snart det er behov for
+    hjelp, vil du bli kontaktet.
+  nochains: Ta kun til eierstyrte virksomheter med maksimalt 3 filialer, aldri adresser
+    filialer til en større kjede! Følg driftskjedens regler!
+  peoplecame: Det hendte ofte at folk gikk uoppfordret til bedriften.
+  locked: Du kan ikke redigere dette selskapet.
 storeview:
   status: Nåværende status
   frequency4: om natten
@@ -1917,6 +2151,7 @@ storeview:
     i laget.
   pickupCount: På denne selskapet har det vært {pickupCount} pickuper.
   managers: Ansvarlige matreddere
+  status_notes: Statusnotater
 fsp:
   info:
     none: ikke mer
@@ -2052,6 +2287,8 @@ terminology:
     f: Samarbeidsoffiser
     d: Samarbeidsoffiser
   n_sleeping: E nattlue|%count% nattlue
+  homepage: Hjemmeside
+  fsps: Matdelingspunkt
 gender:
   d: mangfoldig
   f: Fru
@@ -2242,5 +2479,57 @@ quiz:
   type: -quiz
   finishnow:
     fs: Fullfør registreringen som matredder nå.
+    bv: Fullfør registreringsprosessen for Samarbeidsoffiser nå.
+    bot: Fullfør ambassadørregistreringsprosessen nå.
+  choice:
+    answer: Svar
+    fpsum: akkumulerte feilpoeng
+    sadlywrong: ble dessverre feil besvart.
+    alsowrong: ble dessverre vurdert som feil fordi du ikke valgte noe eller tiden
+      gikk ut.
+    cresponses: Riktige svar
+    wresponses: Feil svar
+    responses: Svarene
+    nresponses: Nøytrale svar
+    correcta: er riktig!
+    correctb: er feil. Du skjønte det riktig!
+    neut: er nøytral og derfor uten verdi.
+    wronga: ville også vært riktig.
+    wrongb: er ikke riktig!
+    percenta: svarte du bare på
+    percentb: '% riktig.'
+    writecomment: Skriv en kommentar til dette spørsmålet
+    send: Send
+    joke: var kun ment som en spøk og vil selvfølgelig ikke bli vurdert
+    koquestion: Dessverre var dette spørsmålet spesielt viktig, og du svarte ikke
+      riktig på det.
+    whatisko: Spørsmål som disse vektes spesielt høyt og fører dessverre til feil
+      hvis du svarer feil.
+  finished: Gratulerer, du klarte det!
+  resultsbelow: Du finner resultatene nedenfor.
+  donecorrectly: du svarte helt riktig. Flott!
+  wikilink: Matchende wikiartikkel om dette emnet
+  threestrikes: Du mislyktes i quizen tre ganger.
+  waitxdays: Du kan prøve igjen om
+  days: dager
+  learnbreak: læringspause
+  notfinishedyet: Du har ikke fullført quizen ennå.
+  safeandsound: Men ikke noe problem. Økten din er lagret. Du kan fortsette å svare
+    når som helst.
+  continuenow: Fortsett quizen nå!
+  continuetype: -Quiz fortsett
+  trynumber: Dette var forsøk nummer
+  failedbeforebut: ' ganger du har mislyktes i quizen så langt. Men du har fortsatt
+    så mange forsøk igjen:'
+  goodluck: Lykke til!
+  timedstart: Start quiz med tidsbegrensning og 10 spørsmål
+  regstart: Start quizen uten tidsbegrensning og 20 spørsmål
+  quizleft: ' - nå gjenstår det bare å bestå quizen!'
+  nownownow: Start quizen nå
+  session_deleted: Resultatene for denne quizen er slettet fordi quizen ble fullført
+    for mer enn to uker siden.
 fpsingular: feilpunktet
 filter_by: filtrer etter
+groups:
+  empty: Du er ikke i en arbeidsgruppe ennå
+deletelow: slette
