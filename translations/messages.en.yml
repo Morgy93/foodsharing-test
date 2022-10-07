@@ -707,7 +707,7 @@ calendar:
   export:
     pickup:
       name: "{store} Pickup"
-      unconfirmed: (not confirmed)
+      unconfirmed: not confirmed
       description: 'Foodsharing pickup at <a href="{url}">{store}</a>'
     event:
       statusUnspecified: You have not stated whether you would like to participate
@@ -795,7 +795,7 @@ pickup:
         name: Pickup Options
         tooltip:
           own: Future pickups, for which you could sign up
-        empty: Currently there are now free pickups slots in any of your teams.
+        empty: Currently there are no available pickup slots in any of your teams.
       history:
         name: History
         tooltip:
