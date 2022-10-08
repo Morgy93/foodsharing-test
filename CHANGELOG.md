@@ -43,16 +43,6 @@
 - Fix Console error !2376 @BlackScorp
 - Phone Numbers are displayed even if they are invalid (e.g. do not start with +49) !2378 @BlackScorp
 
-- Phone Numbers are displayed even if they are invalid (e.g. do not start with +49)
-- Phone numbers are validated in profile settings 
-
-- Phone Numbers are displayed even if they are invalid (e.g. do not start with +49)
-
-- Phone Numbers are displayed even if they are invalid (e.g. do not start with +49)
-- Phone numbers are validated in profile settings 
-
-- Phone Numbers are displayed even if they are invalid (e.g. do not start with +49)
-
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
 - Push notifications can be (de-)activated in the settings again #1239 @alex.simm
