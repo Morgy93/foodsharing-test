@@ -73,6 +73,34 @@ startpage:
   bedependable: Vær pålitelig
   join: Ta del
   beresponsible: Vær ansvarlig
+  join_rules: Delta - Våre regler
+  followrules_c: Alle detaljer finner du i <a href='https://wiki.foodsharing.de/Hygieneregeln'
+    target='_blank' rel='noopener noreferrer nofollow'>hygieneregler for matdeling</a>.
+    Merknader kan også finnes i <a href='https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel'
+    target='_blank' rel='noopener noreferrer nofollow'>Guide</a>.
+  forstores: For bedrifter og virksomheter
+  registernow: Registrer deg nå
+  register: Nederst på denne siden kan du registrere deg som matdeler.
+  followrules_b: Vi påpeker uttrykkelig at vi av juridiske årsaker kun tillater tilbud
+    og deling av visse matvarer og andre varer under visse betingelser. Dette gjelder
+    spesielt lett bedervelige matvarer som rå fisk, rått kjøtt, rå eggeretter og ferdigmat.
+    Generelt bruker vi alle sansene våre for å sikre at maten fortsatt er spiselig.
+  join_welcome: Fint at du vil være med på matdeling!
+  makeproposals: Kom med forslag
+  telltruth: Alle vi som utviklet matdeling og driver nettstedet tar jobben vår veldig
+    seriøst. Vi følger en rekke lover og forskrifter. Vær også ærlig når du fyller
+    ut dataene dine og i alle andre bidrag du gir på plattformen, for eksempel matkurver
+    og foruminnlegg.
+  honest: Vær ærlig
+  respect: 'Siden mat holder oss i live, ønsker vi også å behandle den med respekt.
+    For å sikre at alt går optimalt for oss, har vi definert en rekke oppførselsregler
+    opp gjennom årene. Å gi mat videre til andre er en veldig human, men også ansvarlig
+    ting. Grunnprinsippet er alltid: «Ikke gi noe videre til andre som du ikke lenger
+    ville spist selv». Les matdelingsetiketten en gang!'
+  followrules_a: Følg reglene og <a href='https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel'
+    target='_blank' rel='noopener noreferrer nofollow'>Guide</a> for å gi mat videre
+  together: Sammen med matdeling kan du jobbe for at utsortert og uselgbar mat kommer
+    til god nytte i stedet for å kastes. Mer informasjon finner du <a href='/fuer-unternehmen'>her.</a>
 language_chooser:
   title: Velg språk
   content: Vennligst velg et språk
@@ -83,6 +111,7 @@ poll:
     option_text: Alternativ
     votes: Stemmer
     number_of_votes: Avgitte stemmer
+    percentage_of_votes: Valgdeltakelse
   new_poll:
     option: Alternativ
     time: Tid
@@ -275,6 +304,7 @@ blog:
   last-editor: Sist redigert av
   header: Nyheter fra matdelingens verden
   confirmDelete: Vil du virkelig slette {name} ugjenkallelig?
+  read: fortsett å lese
 region:
   cancel: Nei egentlig ikke
   save: Ja, spar
@@ -384,6 +414,9 @@ menu:
     other_stores: Andre butikker
     group_overview: Gruppeoversikt
     baskets: Kurver
+    helpwanted: Hjelpere søkes
+    helpneeded: Hjelpere er akutt nødvendig
+    your_baskets: Matkurvene dine
   content: Rediger innhold
   email: Send nyhetsbrev
   reports: Overtredelsesrapporter
@@ -488,6 +521,8 @@ basket:
     \ en matkurv via nettsiden.\n<br><br>\nDette er nødvendig for å vise matkurven\
     \ din på kartet ved hjelp av en nål.\n<br><br>\nPostadressen til adressen din\
     \ er ikke synlig for matkurvbrukere.\n"
+  not_withdrawn: 'Forespørselen om matkurven kunne ikke trekkes tilbake: '
+  no_nearby: Det er ingen matkurver innenfor {radius} kilometer
 team:
   contacted: Meldingen din ble sendt.
   email: Epostadresse
@@ -534,6 +569,10 @@ dashboard:
     no-stores: Du er ikke i noe lag ennå.
     users: Matreddere
     buddies: Folk du kjenner
+    events: Arrangementer
+    baskets: Matkurver
+    managing_stores: Ditt bedriftsansvar
+    jumping_stores: Springer-selskapene dine
   homeRegion: Ditt hjemdistrikt er {region}.
   chooseHomeRegion: Velg et hjemdistrikt.
   updates_title_some: Oppdateringsoversikt ({0})
@@ -570,9 +609,18 @@ dashboard:
   settings: Innstillinger
   options:
     reset: Tilbakestill
-  greeting_short: Hei ({name})
+    hide:
+      text: Endre visning
+      tooltip: Her kan du skjule og vise enkeltområder på dashbordet.
+    grid_toggle:
+      2_columns: Bytt til to-kolonne visning
+      3_columns: Bytt til visning med tre kolonner
+  greeting_short: Hei {name}!
   invitation: Du ble invitert
   invitationCount: Du ble invitert ({count})
+  full_subline: Du hentet dagligvarer <b>{pickups} ganger</b>, og sparte <b>{weight}
+    kg</b>. Hjemmedistriktet ditt er <b>{region}</b>.
+  eventCount: Neste hendelser ({count})
 search:
   persons: personer
   groups: grupper
@@ -587,6 +635,7 @@ search:
     placeholder: Navn eller ID
   noresults: Ingen resultater ble funnet
   thread-title-only: Det søkes kun i titler, ikke teksten til artikler.
+  informations: Du kan søke etter personer, grupper, selskaper, distrikter og distribusjonsstasjoner.
 profile:
   public:
     mayNot: ikke aktiv
@@ -805,7 +854,10 @@ profile:
     securePickupWeek: Takk for at du trådte inn på kort varsel {count} ganger og sørget
       for henting!
   alldatesdeleted: Alle avtaler er slettet
-  cantdeleteall: Du kan ikke slette alle datoene.
+  cantdeleteall: Du kan ikke slette alle avtaler!
+  cantdeletethis: Du kan ikke slette individuelle avtaler!
+  deletesuccess: Enkeltavtale slettet
+  choosestore: Velg det aktuelle selskapet
 settings:
   photo:
     title: Bildet ditt
@@ -949,6 +1001,7 @@ mailbox:
   to: På
 map:
   title: Kart
+  donates: Selskapet donerer
 content:
   content: innhold
   bread: alle sider
@@ -1672,6 +1725,7 @@ footer:
   guide: Hygieneguide
   donate:
     cta: Doner nå
+    call_to: Vil du støtte matdeling?
   partner: Partnere
   imprint: Impressum
   infosCompany: For bedrifter
@@ -1688,7 +1742,16 @@ footer:
   meta:
     it_devdocs: av foodsharing IT
     version: 'Versjon: ({version})'
+    beta_testing_issues: Testoppgaver for betaversjonen
   infosDeveloper: For utviklere
+  hosting:
+    info: CO2-nøytral <a href="https://www.manitu.de/webhosting/" title="Webhosting">hosted</a>
+    tooltip: CO2-nøytral <a href="https://www.manitu.de/webhosting/" title="Webhosting">hosted</a>
+      på manitu
+  partner_names:
+    lebensministerium: Det føderale departementet for jordbruk, regioner og turisme
+    denns: Denn’s Biomarkt
+    wiener_tafel: Wiener Tafel (Matbank Wien)
 date:
   sunday: søndag
   saturday: lørdag
@@ -2309,7 +2372,7 @@ terminology:
     d: Samarbeidsoffiser
   n_sleeping: E nattlue|%count% nattlue
   homepage: Hjemmeside
-  fsps: Matdelingspunkt
+  fsps: Distribusjonsstasjoner
 gender:
   d: mangfoldig
   f: Fru
@@ -2452,6 +2515,8 @@ releases:
   "2020-08": Versjon «pære» (august 2020)
   "2020-05": Versjon «appelsin» (mai 2020)
   "2020-10": Versjon «cranberry» (oktober 2020)
+  "2022-05": Versjon "Blåbær" 🍇 (Mai 2022)
+  "2022-01": Versjon "Grapefrukt" 🍋 (Januar 2022)
 push_notifications:
   test_notification_title: Push-varsler er aktivert
   test_notification_body: Flott, det ser ut til å ha fungert :)
@@ -2475,6 +2540,8 @@ storestatus:
   "5": Drift samarbeider med oss
   "7": Selskapet eksisterer ikke lenger
   "6": Gi til matbank etc. eller ikke kast noe
+  "5a": Selskapet donerer allerede
+  "3a": Selskapet er villig til å donere. :-)
 ansprechpartner: Kontaktperson i bedriften
 store_status_impact_explanation: 'Vennligst oppdater statusen (<a href="https://wiki.foodsharing.de/Betrieb"
   target="_blank">Wiki: Selskap</a>) til selskapet etter hver bedriftskontakt (<a
@@ -2567,23 +2634,37 @@ bootstrap-datepicker:
   labelPrevMonth: Forrige måned
   labelNextMonth: Neste måned
   labelCurrentMonth: Nåværende måned
+  labelHelp: Bruk piltastene for å navigere gjennom kalenderen
 sig:
   buddies: Folk du kjenner
 teamjs:
   wrongmail: Det er noe galt med e-postadressen din.
+  entermail: Vennligst skriv inn en gyldig e-postadresse slik at vi kan svare deg!
 activitypost:
   Response: Svar
   response: svar
   write: Skriv et svar …
+  quickreply_info: <code class="key">Shift + Enter</code> for å legge til en ny linje.
+  quickreply_button: Send inn<br>eller Trykk på <code class="key">Enter</code>-tasten.
 information:
   calendar_sync:
     link: Abonner nå
+    description: Dette lar deg se dine neste hentedatoer med et kalenderprogram du
+      velger.
+    title: Kjenner du kalendersynkroniseringen for pickupene dine?
   push:
     link: Gå til innstillingene
+    description: Hvis du ikke lenger ønsker å motta push-varsler, kan du når som helst
+      deaktivere dem i innstillingene.
+    title: Du kan nå motta push-varsler fra foodsharing.
 system_administration:
   email: Send nyhetsbrev
   content: Administrer innhold
   reports: Vis rapporter
+  mailboxes: Administrer postkasser
+  quiz: Administrer quizer
+  blog: Rediger blogginnlegg
+  regions: Administrere distrikter
 navigation:
   search: Søk
   basket: Matkurver
@@ -2595,13 +2676,44 @@ navigation:
   map: Kart
   contact: Kontakt
   help: Hjelp
+  notifications: Varsler
+  conversations: Beskjed
+  whats_new: Hva er nytt?
+  styleguide: Stilguide
+  help_needed: Trenger hjelp?
+  regions: Distrikter
+  promotion: Innen IT trenger vi deg!
+  profil: 👋 Hei {name}!
 error:
   mail_bounce:
     link_2: Jeg trenger hjelp
     link_1: Endre e-postadresse
-    title: Blokkert e-postadresse.
+    title: Blokkert e-postadresse!
+    description: E-postadressen din er blokkert fra e-post og kommunikasjon med matdeling.
   mail_activation:
     link_2: Endre e-postadresse
+    title: E-postadresse er ikke bekreftet!
+    description: Vennligst bekreft e-postadressen din ved å klikke på lenken i aktiverings-e-posten.
+    link_1: Be om en ny aktiverings-e-post
+  invalid_mobile_phonenumber:
+    description: Dessverre er mobilnummeret i et format som ikke kan ringes.
+    link: Korriger mobilnummeret ditt nå
+    title: Det er et problem med mobilnummeret ditt.
+  missing_user_avatar:
+    title: Du har ikke lastet opp et profilbilde ennå.
+    description: Vis medlemmene i Foodsharing hvem du er!
+    link: Last opp profilbildet ditt nå
+  old_user_avatar:
+    link: Oppdater profilbildet ditt nå
+    title: Det er et problem med profilbildet ditt.
+  missing_home_region:
+    description: For at du skal kunne fortsette, er det nødvendig med et hjemdistrikt.
+    title: Velg et hjemdistrikt.
+    link: Velg ditt hjemdistrikt nå
+  missing_geolocation:
+    title: Det oppsto en feil med adressen din.
+    description: Vennligst sjekk adressen din. Koordinatene kunne ikke bestemmes.
+    link: for adresseoppføring
 addreaction: Legg til en reaksjon
 contentmanagement: Innholdshåndtering
 globals:
@@ -2614,5 +2726,39 @@ globals:
     my_stores: Mine butikker
     stores: Butikker
     groups: Grupper
+    my_regions: Mine distrikter
+    my_buddies: Vennene mine
+    regions: Distrikter
+    foodshare_points: Distribusjonsstasjoner
+    persons: Personer
+    my_persons: Mine personer
+    mailboxes: Postkasser
+    my_mailboxes: Mine postkasser
+    buddies: Venner
+    my_foodshare_points: Mine distribusjonsstasjoner
   show_more: Vis mer
   reset: Tilbakestill
+  show_less: Vis mindre
+  account:
+    signup: Delta
+    signout: Logg ut
+    signin: Logg inn
+savewithus: Spar hos oss!
+logincontrol:
+  title: Avslutt abonnement på nyhetsbrev
+  nomorenewsletter: Du vil ikke lenger motta flere nyhetsbrev fra oss
+  bread: Avslutt abonnement på nyhetsbrev
+  success: Suksess!
+numbers:
+  decimal_separator: ','
+  million_abbreviation: ' mio.'
+  billion_abbreviation: ' mrd.'
+  thousands_separator: ' '
+deletefromregion: Virkelig slette fra distriktet?
+join_region:
+  error:
+    is_state: <strong>Dette er en føderal stat.</strong><br> Velg en by, region eller
+      distrikt!
+    is_big_city: <strong>Dette er en storby.</strong> <br> Velg en by, region eller
+      distrikt!
+    is_country: <strong>Dette er et land.</strong><br> Velg en by, region eller distrikt!
