@@ -1436,7 +1436,7 @@ footer:
   call_to_action: Participate
   beta_testing_issues: Testing tasks of the beta version
   meta:
-    it_devdocs: by foodsharint IT
+    it_devdocs: by foodsharing IT
     version: 'Version: {version}'
   hosting:
     info: Carbon-neutrally <a href="https://www.manitu.de/webhosting/" title="Webhosting">hosted</a>
