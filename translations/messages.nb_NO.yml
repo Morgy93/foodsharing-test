@@ -70,6 +70,9 @@ startpage:
       \ når det er et matdelingsteam på stedet også en\nmotivasjonserklæring signert\
       \ av byadministrasjonen som et symbol på partnerskapet mellom\nfoodsharing og\
       \ offentlig sektor.\"\n"
+  bedependable: Vær pålitelig
+  join: Ta del
+  beresponsible: Vær ansvarlig
 language_chooser:
   title: Velg språk
   content: Vennligst velg et språk
@@ -378,6 +381,9 @@ menu:
     your_groups: Dine grupper
     pastcampaigns: Tidligere kampanjer
     workingGroupEdit: Administrer gruppe
+    other_stores: Andre butikker
+    group_overview: Gruppeoversikt
+    baskets: Kurver
   content: Rediger innhold
   email: Send nyhetsbrev
   reports: Overtredelsesrapporter
@@ -561,6 +567,12 @@ dashboard:
   invitations: Du ble invitert
   events: Neste hendelser ({count})
   activation_mail_sent: Aktiveringslenke sendt - vennligst sjekk e-postene dine
+  settings: Innstillinger
+  options:
+    reset: Tilbakestill
+  greeting_short: Hei ({name})
+  invitation: Du ble invitert
+  invitationCount: Du ble invitert ({count})
 search:
   persons: personer
   groups: grupper
@@ -743,6 +755,9 @@ profile:
       tardy: Personen kom for sent
       noshow: Personen kom ikke
       vsclients: mot kunder
+      respect: Oppførte seg frekt eller respektløst
+      newreport: Nye rapporter
+      delivered: Levert
     xhr:
       allofthem: Alle rapporter mot
       delivered: Rapport levert
@@ -790,6 +805,7 @@ profile:
     securePickupWeek: Takk for at du trådte inn på kort varsel {count} ganger og sørget
       for henting!
   alldatesdeleted: Alle avtaler er slettet
+  cantdeleteall: Du kan ikke slette alle datoene.
 settings:
   photo:
     title: Bildet ditt
@@ -1654,7 +1670,8 @@ footer:
   call_to_action: Delta
   dataprivacy: Personvern
   guide: Hygieneguide
-  donate: Doner
+  donate:
+    cta: Doner nå
   partner: Partnere
   imprint: Impressum
   infosCompany: For bedrifter
@@ -1668,6 +1685,10 @@ footer:
   it_devdocs: av foodsharing IT
   hosting_tooltip: Klimanøytral serverhosting fra manitu.
   call_to_donate: "Du ville likt å\nstøtte foodsharing?\n"
+  meta:
+    it_devdocs: av foodsharing IT
+    version: 'Versjon: ({version})'
+  infosDeveloper: For utviklere
 date:
   sunday: søndag
   saturday: lørdag
@@ -2533,3 +2554,65 @@ filter_by: filtrer etter
 groups:
   empty: Du er ikke i en arbeidsgruppe ennå
 deletelow: slette
+bootstrap-datepicker:
+  labelSelected: Valgt dato
+  labelPrevYear: Forrige år
+  labelPrevDecade: Forrige tiår
+  labelNoDateSelected: Ingen dato valgt
+  labelToday: I dag
+  labelNextYear: Neste år
+  labelNav: Kalendernavigasjon
+  labelCalendar: Kalender
+  labelNextDecade: Neste tiår
+  labelPrevMonth: Forrige måned
+  labelNextMonth: Neste måned
+  labelCurrentMonth: Nåværende måned
+sig:
+  buddies: Folk du kjenner
+teamjs:
+  wrongmail: Det er noe galt med e-postadressen din.
+activitypost:
+  Response: Svar
+  response: svar
+  write: Skriv et svar …
+information:
+  calendar_sync:
+    link: Abonner nå
+  push:
+    link: Gå til innstillingene
+system_administration:
+  email: Send nyhetsbrev
+  content: Administrer innhold
+  reports: Vis rapporter
+navigation:
+  search: Søk
+  basket: Matkurver
+  stores: Butikker
+  groups: Grupper
+  wiki: Wiki
+  help_and_support: Hjelp og støtte
+  support: Støtte
+  map: Kart
+  contact: Kontakt
+  help: Hjelp
+error:
+  mail_bounce:
+    link_2: Jeg trenger hjelp
+    link_1: Endre e-postadresse
+    title: Blokkert e-postadresse.
+  mail_activation:
+    link_2: Endre e-postadresse
+addreaction: Legg til en reaksjon
+contentmanagement: Innholdshåndtering
+globals:
+  select: Velg …
+  close: Lukk
+  save: Lagre
+  you: Deg
+  type:
+    my_groups: Mine grupper
+    my_stores: Mine butikker
+    stores: Butikker
+    groups: Grupper
+  show_more: Vis mer
+  reset: Tilbakestill
