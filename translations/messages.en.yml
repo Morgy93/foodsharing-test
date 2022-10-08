@@ -272,6 +272,8 @@ settings:
     mail: Yes, I would like to be informed about new posts by email.
   newsletter: "About once a month we send out current information\nabout the food\
     \ saving movement in a newsletter.\nDo you want to receive these emails?\n"
+  passport:
+    menu: ID card
 menu:
   manage_regions: Manage regions
   blog: Manage blog content
@@ -534,6 +536,11 @@ profile:
     week_3: Last week
     week_4: Two weeks ago
     calenderWeek: CW
+    title: Engagement stats
+    securePickupWeek: Thanks for {count} stepping in and securing pickups on short
+      notice!
+    pickupCount: Frequency
+    week_0: The week after next
 test:
   plain: This is a nice translation
   vars: 'My name is {NAME} and I am {AGE} years old'
@@ -1616,6 +1623,9 @@ foodsaver:
   delete_account_sure: Are you sure you want to delete your account?
   edit_failure: Nothing was changed or changes were not saved
   edit_success: Changes have been saved
+  delete_account_sure_reason: "Do you really want to delete {name}'s account? You\
+    \ can optionally enter a reason here that can later be used to understand why\
+    \ the account was deleted:"
 store:
   addNewStoresButton: Add new store
   allStoresOfRegion: All stores in the region
@@ -1730,7 +1740,7 @@ store:
   complete: complete database
   peoplecame: It has often happened that people went to a store unsolicited.
   smneeded: To set up a business, you must be a store manager.
-  tooltip_jumping: ''
+  tooltip_jumping: 'You are a jumper in this store'
 search:
   mygroups: My groups
   mybuddies: My buddies
@@ -1900,6 +1910,7 @@ storeedit:
       \ extensive rights.\n"
     coordinator: "You are not responsible for this store.\nHowever, as part of the\
       \ store management team you have extensive rights.\n"
+    leave_myself: Yourself
   add-new: Add new store
   milestone:
     dropped: '{user} is not part of the team anymore'
@@ -1961,6 +1972,7 @@ legal:
     this_doesnt_get_deleted: 'The following information is no longer available in
       the active system, but is archived separately based on Article 17 paragraph
       3 sentence 1 letter b GDPR:'
+    legal_2: Thank you.
 answers: Which answers are correct?
 name: Name
 bcard:
