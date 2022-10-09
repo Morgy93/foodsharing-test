@@ -32,7 +32,7 @@ class StoreTransactions
 	private FoodsaverGateway $foodsaverGateway;
 	private RegionGateway $regionGateway;
 	private Session $session;
-	private const MAX_SLOTS_PER_PICKUP = 10;
+	public const MAX_SLOTS_PER_PICKUP = 10;
 	// status constants for getAvailablePickupStatus
 	private const STATUS_RED_TODAY_TOMORROW = 3;
 	private const STATUS_ORANGE_3_DAYS = 2;
