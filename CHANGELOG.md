@@ -149,6 +149,8 @@
 - Fixed the user search pointing to a non-existing path !2170 @alex.simm
 - The visibility of the StoreWall can be toggled again !2177 @nudin
 - Prevent text-overflow in thread posts in forum !2392 @FlorianMaak 
+- The visibility of mobile submit-button on fairteiler page !1392 @FlorianMaakg
+- The visibility of mobile submit-button on fairteiler page !1392 @FlorianMaak 
 
 ## Refactoring
 - move even more hardcoded language to language files !2109 !2183 @jonathan_b
