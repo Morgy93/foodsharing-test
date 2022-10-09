@@ -42,6 +42,7 @@
 - Display "No pickup slots available" if there are no pickup slots !2375 @BlackScorp
 - Fix Console error !2376 @BlackScorp
 - Phone Numbers are displayed even if they are invalid (e.g. do not start with +49) !2378 @BlackScorp
+- After logging out, you remain on the current web page, if it is publicly accessible. !2388 @BibaltiK
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
