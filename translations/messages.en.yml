@@ -164,6 +164,7 @@ group:
     remove_admin_text: Are you sure you want to remove {name} ({id}) as an admin?
     remove_admin_title: remove as admin
     old_edit_hint_link: Members
+    old_edit_hint: You can now find the member administration on the tab
   application_from: by
   entermotivation: 'Motivation:'
   enterskills: 'Skills:'
@@ -182,6 +183,10 @@ settings:
       region. He*She can change your name for you.<hr/>You can find out who the ambassadors
       of you region are in the left sidebar of your <a {link}>home regions forum page</a>.
     foodsharer_info: For changing your name, please create a request in our <a {link}>support-form<a>.
+    foodsaver_info: To change your name, you must contact an ambassador from your
+      home district. This person can then change the name for you.<hr/>You can see
+      who is the ambassador in your home district in the <a {link}>forum of your district</a>
+      in the left sidebar.
   push:
     not-supported: Your browser does not support push notifications.
     title: Push notifications
@@ -541,6 +546,12 @@ profile:
       notice!
     pickupCount: Frequency
     week_0: The week after next
+    eventsCreatedWeek: 'Thanks for creating events {count} times this week. '
+    eventsParticipatedWeek: 'Thanks for participating in {count} events this week.
+      Total time: {hour}:{minute} '
+    basketsOfferedWeek: Thanks for offering food baskets {count} times this week.
+      A total of {weight} kg was shared.
+    respActStores: 'Thanks for coordinating {count} active '
 test:
   plain: This is a nice translation
   vars: 'My name is {NAME} and I am {AGE} years old'
@@ -1032,6 +1043,7 @@ bell:
   store_request_imposed: You were added to the store team.
   store_request_imposed_title: '{name}'
   foodsaver_verified_title: You are now verified!
+  foodsaver_verified: check your ID at...
 reports:
   time: Time
   region: Home region
@@ -1799,12 +1811,13 @@ date:
   to: to
   from: from
   time: "{time} o'clock"
+  clock: clock
 wall:
   error-create: Your wall post could not be saved.
   created: Great! Your wall post was saved.
   error-delete: You can not remove this post.
   delete: Delete post
-  see-more: Show more posts
+  see-more: Show all posts
   message_placeholder: Write a message…
   name: Wall
   info-somebody-else: This entry is older than a month. As a store manager you can
