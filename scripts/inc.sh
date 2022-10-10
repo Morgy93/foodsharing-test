@@ -136,12 +136,26 @@ function wait-for-assets() {
 }
 
 function output-message() {
-  echo " To visit the Webpage: http://localhost:18090"
-  echo "  * API-DOCS: http://localhost:18090/api/doc/"
-  echo "  * DEV-DOCS: http://localhost:3000"
-  echo "  * DEV-WIKI: https://gitlab.com/foodsharing-dev/foodsharing/-/wikis/home"
+if [ $USER == "gitpod" ]
+  then
+    page_url=`gp url 18090`
+    api_url="$page_url/api/doc/"
+    devdocs_url=`gp url 3000`
+    phpmyadmin_url=`gp url 18081`
+  else
+    page_url="http://localhost:18090"
+    api_url="http://localhost:18090/api/doc/"
+    devdocs_url="http://localhost:3000"
+    phpmyadmin_url="http://localhost:18081"
+fi
+
   echo
-  echo " ? For the Gitpod users, check the PORTS-Tab."
+  echo
+  echo " To visit the Webpage: $page_url"
+  echo "  * PHPMyAdmin: $phpmyadmin_url"
+  echo "  * API-DOCS: $api_url"
+  echo "  * DEV-DOCS: $devdocs_url"
+  echo "  * DEV-WIKI: https://gitlab.com/foodsharing-dev/foodsharing/-/wikis/home"
   echo
   echo
   echo " Want to discuss with us, or help with some translations?"
@@ -150,3 +164,4 @@ function output-message() {
   echo
   echo
 }
+
