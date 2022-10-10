@@ -193,7 +193,7 @@ class RegionRestController extends AbstractFOSRestController
 		if (!$this->session->may()) {
 			throw new UnauthorizedHttpException('');
 		}
-		/** @var int $session */
+		/** @var int $sessionId */
 		$sessionId = $this->session->id();
 		if (empty($this->regionGateway->getRegion($regionId))) {
 			throw new BadRequestHttpException('region does not exist or is root region.');
