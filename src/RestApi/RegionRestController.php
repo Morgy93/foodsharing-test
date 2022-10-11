@@ -18,6 +18,7 @@ use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Region\RegionTransactions;
 use Foodsharing\Modules\Settings\SettingsGateway;
 use Foodsharing\Modules\Store\StoreGateway;
+use Foodsharing\Modules\Unit\DTO\UserUnit;
 use Foodsharing\Modules\WorkGroup\WorkGroupTransactions;
 use Foodsharing\Permissions\RegionPermissions;
 use Foodsharing\Permissions\WorkGroupPermissions;
@@ -37,20 +38,6 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class RegionRestController extends AbstractFOSRestController
 {
-	private BellGateway $bellGateway;
-	private FoodsaverGateway $foodsaverGateway;
-	private RegionGateway $regionGateway;
-	private StoreGateway $storeGateway;
-	private RegionPermissions $regionPermissions;
-	private Session $session;
-	private ImageHelper $imageHelper;
-	private SettingsGateway $settingsGateway;
-	private GroupFunctionGateway $groupFunctionGateway;
-	private RegionTransactions $regionTransactions;
-	private WorkGroupPermissions $workGroupPermissions;
-	private WorkGroupTransactions $workGroupTransactions;
-	private EventGateway $eventGateway;
-
 	// literal constants
 	private const LAT = 'lat';
 	private const LON = 'lon';
@@ -58,33 +45,20 @@ class RegionRestController extends AbstractFOSRestController
 	private const STATUS = 'status';
 
 	public function __construct(
-		SettingsGateway $settingsGateway,
-		BellGateway $bellGateway,
-		FoodsaverGateway $foodsaverGateway,
-		RegionPermissions $regionPermissions,
-		RegionGateway $regionGateway,
-		StoreGateway $storeGateway,
-		Session $session,
-		ImageHelper $imageHelper,
-		GroupFunctionGateway $groupFunctionGateway,
-		RegionTransactions $regionTransactions,
-		WorkGroupPermissions $workGroupPermissions,
-		WorkGroupTransactions $workGroupTransactions,
-		EventGateway $eventGateway
+		private SettingsGateway $settingsGateway,
+		private BellGateway $bellGateway,
+		private FoodsaverGateway $foodsaverGateway,
+		private RegionPermissions $regionPermissions,
+		private RegionGateway $regionGateway,
+		private StoreGateway $storeGateway,
+		private Session $session,
+		private ImageHelper $imageHelper,
+		private GroupFunctionGateway $groupFunctionGateway,
+		private RegionTransactions $regionTransactions,
+		private WorkGroupPermissions $workGroupPermissions,
+		private WorkGroupTransactions $workGroupTransactions,
+		private EventGateway $eventGateway
 	) {
-		$this->settingsGateway = $settingsGateway;
-		$this->bellGateway = $bellGateway;
-		$this->foodsaverGateway = $foodsaverGateway;
-		$this->regionPermissions = $regionPermissions;
-		$this->regionGateway = $regionGateway;
-		$this->storeGateway = $storeGateway;
-		$this->session = $session;
-		$this->imageHelper = $imageHelper;
-		$this->groupFunctionGateway = $groupFunctionGateway;
-		$this->regionTransactions = $regionTransactions;
-		$this->workGroupPermissions = $workGroupPermissions;
-		$this->workGroupTransactions = $workGroupTransactions;
-		$this->eventGateway = $eventGateway;
 	}
 
 	/**
@@ -162,16 +136,13 @@ class RegionRestController extends AbstractFOSRestController
 		if (!$this->session->may()) {
 			throw new UnauthorizedHttpException('');
 		}
-		$fs_id = $this->session->id();
+		$fsId = $this->session->id();
 
-		$regions = $this->regionTransactions->getUserRegions($fs_id);
+		$regions = $this->regionTransactions->getUserRegions($fsId);
 
-		$rsp_regions = [];
-		foreach ($regions as $region) {
-			$rsp_regions[] = UserRegionModel::createFrom($region);
-		}
+		$rspRegions = array_map(fn (UserUnit $region): UserRegionModel => UserRegionModel::createFrom($region), $regions);
 
-		return $this->handleView($this->view($rsp_regions, 200));
+		return $this->handleView($this->view($rspRegions, 200));
 	}
 
 	/**

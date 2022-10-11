@@ -92,6 +92,8 @@
 - Let the community bubble on the map fetch its own content !2311 @alex.simm
 - Changed deleting wall posts to the API #798 !2253 @alex.simm  
 - Use REST API for setting the user's sleep status #798 !2282 @alex.simm
+- Rename Region\Type -> Unit\UnitType to make it search able and clear !2352 @KoeMai
+- Improve quality/tests of manual pickup RestAPI !2369 @KoeMai
 - Renmae Region\Type -> Unit\UnitType to make it search able and clear !2352 @KoeMai
 - Added Gitpod and refactored permissions !2386 !2399 @sefn @chriswalg
 
