@@ -77,6 +77,7 @@
 - Reaction button hasn't different color if already reacted !2373 @martincodes-de
 - polyfill added @sefn
 - The excerpt from the operating pinwall is displayed again on Mobile. !2393 @martincodes-de
+- Reduced the show-more functionality on activity posts !2401 @sefn
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
