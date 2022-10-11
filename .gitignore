@@ -46,3 +46,4 @@ builds
 docs/build
 docs/src/database-tables-columns.md
 docs/src/mdbook-plantuml-img/
+config/gitpod

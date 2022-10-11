@@ -135,20 +135,24 @@ function wait-for-assets() {
   echo
 }
 
-function output-message() {
-if [ $USER == "gitpod" ]
-  then
-    page_url=`gp url 18090`
-    api_url="$page_url/api/doc/"
-    devdocs_url=`gp url 3000`
-    phpmyadmin_url=`gp url 18081`
-  else
-    page_url="http://localhost:18090"
-    api_url="http://localhost:18090/api/doc/"
-    devdocs_url="http://localhost:3000"
-    phpmyadmin_url="http://localhost:18081"
-fi
+function getEnvUrls() {
+  if [ $USER == "gitpod" ]
+    then
+      page_url=`gp url 18090`
+      api_url="$page_url/api/doc/"
+      devdocs_url=`gp url 3000`
+      phpmyadmin_url=`gp url 18081`
+      gitpod_config=$page_url":18080"
+      echo $gitpod_config > config/gitpod
+    else
+      page_url="http://localhost:18090"
+      api_url="http://localhost:18090/api/doc/"
+      devdocs_url="http://localhost:3000"
+      phpmyadmin_url="http://localhost:18081"
+  fi
+}
 
+function output-message() {
   echo
   echo
   echo " To visit the Webpage: $page_url"

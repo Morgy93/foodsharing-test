@@ -11,6 +11,13 @@ class ContentSecurityPolicy
 		$webpack = 'http://localhost:18080';
 		$unsafeInline = "'unsafe-inline'";
 		$unsafeEval = "'unsafe-eval'";
+		$gitpod_config = 'config/gitpod';
+		$gitpod_url = '';
+		if (file_exists($gitpod_config)) {
+			$gitpod_file = file_get_contents($gitpod_config, true);
+			$gitpod_explode = explode(PHP_EOL, $gitpod_file);
+			$gitpod_url = $gitpod_explode[0];
+		}
 
 		$policy = [
 			'default-src' => [
@@ -26,6 +33,7 @@ class ContentSecurityPolicy
 				$self,
 				$this->websocketUrlFor($httpHost),
 				$webpack,
+				$gitpod_url,
 				'https://sentry.io',
 				'https://photon.komoot.io',
 				'https://maps.geoapify.com',

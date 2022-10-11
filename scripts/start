@@ -61,4 +61,5 @@ echo
 echo
 echo " Before you run the full Webpage, run ./scripts/seed to initialize the database with some fake data."
 echo
+getEnvUrls
 output-message
