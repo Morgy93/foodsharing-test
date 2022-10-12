@@ -2781,5 +2781,14 @@ join_region:
     is_big_city: <strong>Dette er en storby.</strong> <br> Velg en by, region eller
       distrikt!
     is_country: <strong>Dette er et land.</strong><br> Velg en by, region eller distrikt!
+    not_allowed: Du kan ikke registrere deg i dette området.
   headline: Velg området du vil være aktiv i.
+  description: Du kan bli med i ditt første område ved å klikke deg gjennom <em>Europa</em>
+    og finne ditt sted. Hvis du ikke finner et område, velger du et nivå høyere eller
+    blir med i nærmeste område. Hvis du ikke har mulighet til å tjene som matsparer
+    i området, kan du vurdere å starte ditt eget område. I sådant fall kan du lese
+    wiki-en, og da spesielt <a href="{href}"> artikkelen om å opprette eller reaktivere
+    områder<a>. Hvis du vil starte et område eller har spørsmål som wiki-en ikke gir
+    deg svaret på kan skrive oss <a href="{mail}">en e-post</a>. Vi er ikke førstelinjestøtte
+    for generelle spørsmål, men vi kan hjelpe deg med spørsmål om områder.
 timefrom: Fra klokken
