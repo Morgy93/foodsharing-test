@@ -101,6 +101,20 @@ startpage:
     target='_blank' rel='noopener noreferrer nofollow'>Guide</a> for å gi mat videre
   together: Sammen med matdeling kan du jobbe for at utsortert og uselgbar mat kommer
     til god nytte i stedet for å kastes. Mer informasjon finner du <a href='/fuer-unternehmen'>her.</a>
+  dependability: I mange byer er det lagt opp til at mat deles på visse steder. Du
+    kan møtes der eller på andre nøytrale steder for å dele. Hvis du ønsker å overlevere
+    eller overta dagligvarer, vær pålitelig og punktlig, ikke la noen bli stående
+    ute i regnet.
+  notallowed: Formidling av medisiner (inkludert homøopatiske medisiner) er utelukket
+    med foodsharing. Klær, kosmetikk, husholdningskjemikalier, leker og andre ikke-matvarer
+    kan ikke byttes eller deles via matdeling. Plattformen forbeholder seg retten
+    til å slette slike tilbud.
+  responsibility: av all mat havner i søpla. Dette bør det bli en slutt på. Vi vil
+    bekjempe matsvinnet totalt. Vi ønsker å håndtere mat på en ansvarlig måte og er
+    glade for at du deltar.
+  proposals: Vi ønsker å fortsette å utvikle oss, for å bli bedre og bedre. Til dette
+    trenger vi dine gode idéer og tips. Send dem til <a href='mailto:info@foodsharing.de'>info@foodsharing.de</a>
+  etiquette: etikette for matdeling
 language_chooser:
   title: Velg språk
   content: Vennligst velg et språk
@@ -2684,6 +2698,7 @@ navigation:
   regions: Distrikter
   promotion: Innen IT trenger vi deg!
   profil: 👋 Hei {name}!
+  system_administration: Systemadministrasjon
 error:
   mail_bounce:
     link_2: Jeg trenger hjelp
@@ -2706,6 +2721,10 @@ error:
   old_user_avatar:
     link: Oppdater profilbildet ditt nå
     title: Det er et problem med profilbildet ditt.
+    description: I september 2021 gjorde vi en teknisk endring, som påvirker profilbildene.
+      Du må derfor laste opp profilbildet ditt på nytt. Hvis du vil bruke det gjeldende
+      bildet på nytt, kan du laste det ned <a href="{link}" nedlasting>her</a>. Beklager
+      dette.
   missing_home_region:
     description: For at du skal kunne fortsette, er det nødvendig med et hjemdistrikt.
     title: Velg et hjemdistrikt.
@@ -2762,3 +2781,5 @@ join_region:
     is_big_city: <strong>Dette er en storby.</strong> <br> Velg en by, region eller
       distrikt!
     is_country: <strong>Dette er et land.</strong><br> Velg en by, region eller distrikt!
+  headline: Velg området du vil være aktiv i.
+timefrom: Fra klokken
