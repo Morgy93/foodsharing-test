@@ -69,6 +69,7 @@ class StoreTransactions
 		$store->str = $legacyGlobalData['str'];
 		$store->zip = $legacyGlobalData['plz'];
 		$store->city = $legacyGlobalData['stadt'];
+		$store->publicInfo = $legacyGlobalData['public_info'];
 		$store->createdAt = Carbon::now();
 		$store->updatedAt = $store->createdAt;
 

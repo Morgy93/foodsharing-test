@@ -76,6 +76,7 @@
 - The tooltip from foodbasked enquiry edit button blocked the clicking if only 1 enquiry was active. !2368 @martincodes-de
 - Reaction button hasn't different color if already reacted !2373 @martincodes-de
 - polyfill added @sefn
+- add public information when creating a new store !2397 @BibaltiK
 - The excerpt from the operating pinwall is displayed again on Mobile. !2393 @martincodes-de
 - Reduced the show-more functionality on activity posts !2401 @sefn
 

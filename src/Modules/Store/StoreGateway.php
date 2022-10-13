@@ -38,6 +38,7 @@ class StoreGateway extends BaseGateway
 			'str' => $store->str,
 			'plz' => $store->zip,
 			'stadt' => $store->city,
+			'public_info' => $store->publicInfo,
 			'added' => $store->createdAt,
 			'status_date' => $store->updatedAt,
 		]);
