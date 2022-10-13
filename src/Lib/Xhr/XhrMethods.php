@@ -10,7 +10,6 @@ use Foodsharing\Modules\Bell\DTO\Bell;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
 use Foodsharing\Modules\Core\DBConstants\Email\EmailStatus;
 use Foodsharing\Modules\Core\DBConstants\Region\WorkgroupFunction;
-use Foodsharing\Modules\Core\DBConstants\Store\TeamStatus;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Email\EmailGateway;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
@@ -383,18 +382,6 @@ class XhrMethods
 				];
 			}
 		}
-
-		return json_encode($out);
-	}
-
-	public function xhr_bteamstatus($data)
-	{
-		$teamStatus = (int)$_GET['status'];
-		$storeId = (int)$_GET['bid'];
-		if ($this->storePermissions->mayEditStore($storeId) && TeamStatus::isValidStatus($teamStatus)) {
-			$this->storeGateway->setStoreTeamStatus($storeId, $teamStatus);
-		}
-		$out = ['status' => 0];
 
 		return json_encode($out);
 	}

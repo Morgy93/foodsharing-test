@@ -9,6 +9,7 @@ use Foodsharing\Modules\Bell\DTO\Bell;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
+use Foodsharing\Modules\Core\DBConstants\Store\TeamStatus;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Modules\Store\StoreTransactions;
@@ -23,6 +24,7 @@ use Nelmio\ApiDocBundle\Annotation\Model;
 use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
@@ -110,6 +112,48 @@ class StoreRestController extends AbstractFOSRestController
 		$store = RestNormalization::normalizeStore($store, $maySeeDetails);
 
 		return $this->handleView($this->view(['store' => $store], 200));
+	}
+
+	/**
+	 * Allows to patch the store with information like the store team status.
+	 *
+	 * - CLOSED = 0 No new members accepted
+	 * - OPEN = 1 Open for members
+	 * - OPEN_SEARCHING = 2 Requires new members
+	 *
+	 * @OA\Tag(name="stores")
+	 *
+	 * @Rest\Patch("stores/{storeId}", requirements={"storeId" = "\d+"})
+	 * @Rest\RequestParam(name="teamStatus", requirements="\d+")
+	 * @OA\Response(response="400", description="Invalid request data")
+	 * @OA\Response(response="401", description="Not logged in")
+	 * @OA\Response(response="403", description="No permission to store")
+	 * @OA\Response(response="404", description="Store not found")
+	 * @OA\Response(response="200", description="Store information")
+	 */
+	public function setStoreTeamStatus(int $storeId, ParamFetcher $paramFetcher)
+	{
+		if (!$this->session->id()) {
+			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
+		}
+
+		if (!$this->storePermissions->mayEditStore($storeId)) {
+			if ($this->storeGateway->storeExists($storeId)) {
+				throw new AccessDeniedHttpException('invalid permissions');
+			} else {
+				throw new NotFoundHttpException('Store not found');
+			}
+		}
+
+		$teamStatus = $paramFetcher->get('teamStatus');
+
+		if (!TeamStatus::isValidStatus($teamStatus)) {
+			throw new BadRequestHttpException('Team status is invalid');
+		}
+
+		$this->storeGateway->setStoreTeamStatus($storeId, $teamStatus);
+
+		return $this->getStoreAction($storeId);
 	}
 
 	/**
