@@ -189,7 +189,6 @@ class StoreGateway extends BaseGateway
 					b.kette_id,
 					b.betrieb_kategorie_id,
 					b.name,
-					`b.str` AS anschrift,
 					b.str,
 					b.`betrieb_status_id`,
 					k.logo
