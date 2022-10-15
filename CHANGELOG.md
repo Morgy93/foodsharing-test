@@ -47,6 +47,7 @@
 - After logging out, you remain on the current web page, if it is publicly accessible. !2388 @BibaltiK
 - Use pagination in the list of past polls #975 !2385 @alex.simm
 - Change show pickup time from date to datetime !2412 @BibaltiK
+- Added a link to translation progress page in language selection modal @Nickthenerd93
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
