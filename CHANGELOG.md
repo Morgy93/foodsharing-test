@@ -82,6 +82,7 @@
 - add public information when creating a new store !2397 @BibaltiK
 - The excerpt from the operating pinwall is displayed again on Mobile. !2393 @martincodes-de
 - Reduced the show-more functionality on activity posts !2401 @sefn
+- Fix the list of nearby baskets based on the user's home location !1908 @alex.simm
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
