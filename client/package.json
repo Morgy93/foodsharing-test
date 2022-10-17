@@ -33,7 +33,7 @@
     "leaflet.markercluster": "^1.5.0",
     "libphonenumber-js": "^1.10.7",
     "markdown-it": "^12.3.2",
-    "node-sass": "~6.0.1",
+    "sass": "~1.55.0",
     "serviceworker-webpack-plugin": "^1.0.1",
     "socket.io-client": "^2.3.1",
     "typeahead-address-photon": "^1.1.0",
