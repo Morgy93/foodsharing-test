@@ -48,6 +48,7 @@
 - Use pagination in the list of past polls #975 !2385 @alex.simm
 - Change show pickup time from date to datetime !2412 @BibaltiK
 - Added a link to translation progress page in language selection modal @Nickthenerd93
+- Fixed sending warnings to store managers about unoccupied pick-up slots !969 @rnoennig
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
