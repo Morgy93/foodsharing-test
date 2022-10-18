@@ -603,15 +603,18 @@ class StoreRestController extends AbstractFOSRestController
 			return $performedAtTimestamp >= $dateBeforeSevenDaysTimestamp;
 		});
 
-		$storeLogEntriesFromLastSevenDays = array_map(function ($logEntry) {
-			$correctedDate = new DateTime($logEntry['date_reference']);
-			$correctedDate->add(new \DateInterval('PT2H'));
-			$logEntry['date_reference'] = $correctedDate->format('Y-m-d H:i:s');
+		$storeLogEntriesFromLastSevenDaysWithCorrectedDateFormat = array_map(function ($logEntry) {
+			$correctedSlotDate = new DateTime($logEntry['date_reference']);
+			$correctedSlotDate->add(new \DateInterval('PT2H'));
+			$logEntry['date_reference'] = $correctedSlotDate->format(DATE_ATOM);
+
+			$correctedPerformedAtDate = new DateTime($logEntry['performed_at']);
+			$logEntry['performed_at'] = $correctedPerformedAtDate->format(DATE_ATOM);
 
 			return $logEntry;
 		}, $storeLogEntriesFromLastSevenDays);
 
-		$extendedLogEntries = $this->extendStoreLogWithFoodsaverProfilData($storeId, $storeLogEntriesFromLastSevenDays);
+		$extendedLogEntries = $this->extendStoreLogWithFoodsaverProfilData($storeId, $storeLogEntriesFromLastSevenDaysWithCorrectedDateFormat);
 
 		return $this->handleView($this->view($extendedLogEntries, 200));
 	}
