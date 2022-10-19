@@ -4,6 +4,7 @@ namespace Foodsharing\Utility;
 
 use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
+use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Permissions\BlogPermissions;
 use Foodsharing\Permissions\ContentPermissions;
 use Foodsharing\Permissions\MailboxPermissions;
@@ -54,6 +55,7 @@ final class PageHelper
 	private WorkGroupPermissions $workGroupPermissions;
 	private ProfilePermissions $profilePermissions;
 	private Environment $twig;
+	private RegionGateway $regionGateway;
 
 	public function __construct(
 		Session $session,
@@ -70,7 +72,8 @@ final class PageHelper
 		RegionPermissions $regionPermissions,
 		NewsletterEmailPermissions $newsletterEmailPermissions,
 		WorkGroupPermissions $workGroupPermissions,
-		ProfilePermissions $profilePermissions
+		ProfilePermissions $profilePermissions,
+		RegionGateway $regionGateway
 	) {
 		$this->twig = $twig;
 		$this->imageService = $imageService;
@@ -87,6 +90,7 @@ final class PageHelper
 		$this->storePermissions = $storePermissions;
 		$this->workGroupPermissions = $workGroupPermissions;
 		$this->profilePermissions = $profilePermissions;
+		$this->regionGateway = $regionGateway;
 	}
 
 	public function generateAndGetGlobalViewData(): array
@@ -251,6 +255,7 @@ final class PageHelper
 				$regions[] = $group;
 			} else {
 				$group['isAdmin'] = $this->workGroupPermissions->mayEdit($group);
+				$group['hasSubgroups'] = $this->regionGateway->hasSubgroups($groupId);
 				$workingGroups[] = $group;
 			}
 		}

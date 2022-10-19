@@ -695,4 +695,16 @@ class RegionGateway extends BaseGateway
 			'status' => $status
 		]);
 	}
+
+	public function hasSubgroups(int $regionId): bool
+	{
+		$parentalStatus = $this->db->fetchByCriteria('fs_bezirk', ['has_children'], ['id' => $regionId]);
+		if (empty($parentalStatus)) {
+			return false;
+		}
+
+		$hasSubgroup = (bool)$parentalStatus['has_children'];
+
+		return $hasSubgroup;
+	}
 }
