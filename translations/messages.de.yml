@@ -2094,7 +2094,7 @@ menu:
     your_baskets: "Deine Essenskörbe"
     baskets: "Essenskörbe"
     groups: "Gruppen"
-    group_overview: "Gruppenübersicht"
+    group_overview: "Gruppenübersicht globaler Arbeitsgruppen"
     your_account: "Dein Account"
     your_stores: "Deine Betriebe" #also in searchindexgenerator
     administration: "Administration"
