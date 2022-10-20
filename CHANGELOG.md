@@ -51,6 +51,7 @@
 - Fixed sending warnings to store managers about unoccupied pick-up slots !969 @rnoennig
 - added "Untergruppen" to  to top bar menue for workgroups with subgroups @Nickthenerd93
 - renamed "Gruppenübersicht" to "Gruppenübersicht globaler Arbeitsgruppen" #1393 !2391 @viper-kun
+- added icon to map menu item !2427 @martincodes-de
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier
