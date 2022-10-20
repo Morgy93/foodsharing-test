@@ -36,7 +36,7 @@ define('MAILBOX_OWN_DOMAINS', ['foodsharing.network', 'lebensmittelretten.de', '
 define('MAILER_HOST', 'smtp://maildev:25');
 define('MEM_ENABLED', true);
 
-define('SOCK_URL', 'http://chat:1338/');
+define('SOCK_URL', 'http://websocket:1338/');
 define('REDIS_HOST', 'redis');
 define('REDIS_PORT', 6379);
 

@@ -216,7 +216,7 @@ function generatePlantUmlEntityForTable(database, tableName, databaseMetaData, e
         });
         Array.from(fkColumns).forEach(column => { entity.push(column + " <FK>"); });
     }
-    
+
     entity.push("}");
     entity.push("");
     entities.push(entity.join("\n"));
@@ -259,8 +259,8 @@ function buildMarkdownTableDescription(item, metaData) {
         const type_string = generateColumnTypeIdentiferString(column);
 
         const properties = generateColumnProperties(item, column, columnMetaData);
-        const properties_string = (" " + properties.join(", ")).trimEnd();       
-        
+        const properties_string = (" " + properties.join(", ")).trimEnd();
+
         doc += column_name + " | " + description + " |" + type_string + " |" + properties_string + "\n";
     });
 
@@ -280,7 +280,7 @@ function selectColumnDescription(columnMetaData, column) {
 function buildMarkdownDocument(database, metaData, moduleMap) {
     let doc = "# Database structure\n"
     doc += "\n"
-    doc += "This page is automatic generated."
+    doc += "This page is automatically generated and can be manually generated with [database scripts](scripts.md#database-scripts)."
     doc += "\n"
 
     doc += "## Introduction\n"

@@ -106,9 +106,10 @@
 - Rename Region\Type -> Unit\UnitType to make it search able and clear !2352 @KoeMai
 - Improve quality/tests of manual pickup RestAPI !2369 @KoeMai
 - Renmae Region\Type -> Unit\UnitType to make it search able and clear !2352 @KoeMai
-- Added Gitpod and refactored permissions !2386 !2399 !2402 @sefn @chriswalg
 
 ## Dev/Test/CI stuff
+- Added Gitpod and refactored permissions !2386 !2399 !2402 @sefn @chriswalg
+- Scripts for Gitpod reworked and docker-compose cleanup !2405 @sefn
 - bump node to version 16 !2135 @peter.toennies
 - Update mdbook to 0.4.18 #1178 !2206 @alex.simm
 - Change all emitted Vue events to kebab-case and add linter rules #996 !2163 @alex.simm

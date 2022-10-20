@@ -1,27 +1,33 @@
 tasks:
-  - init: ./scripts/start && ./scripts/seed
+  - name: Initialize
+    init: >
+      ./scripts/containers-init &&
+      ./scripts/containers-stop &&
+      gp sync-done initialize
+    command: >
+      ./scripts/containers-start
 ports:
-  - port: 18080
+  - port: 18090
     name: webpack
     description: Webpack (Mostly used for the development preview)
     visibility: public
-    onOpen: open-browser
+    onOpen: ignore
   - port: 18081
     name: phpMyAdmin
     description: MySQL Database
     visibility: public
     onOpen: ignore
-  - port: 18090
+  - port: 18080
     name: Nginx
-    description: Webserver (Routing)
+    description: Routing/Reverse proxy
     visibility: public
-    onOpen: ignore
+    onOpen: open-browser
   - port: 18084
     name: MailDev
     description: Mail server
     visibility: private
     onOpen: ignore
-  - port: 8083
+  - port: 18083
     name: InfluxDB
     description: Usage unknow
     visibility: private
@@ -31,12 +37,12 @@ ports:
     description: Usage unknow
     visibility: private
     onOpen: ignore
-  - port: 3000
+  - port: 13000
     name: mdBook
     description: DevDocs
     visibility: public
     onOpen: ignore
-  - port: 3001
+  - port: 13001
     name: mdBook
     description: Websocket server, which is used to trigger a DevDocs hotreload
     visibility: private
@@ -64,6 +70,11 @@ ports:
   - port: 9003
     name: Xdebug
     description: PHP Debugging (php.dev.default.ini)
+    visibility: private
+    onOpen: ignore
+  - port: 19000
+    name: fpm
+    description: FastCGI Process Manager (FPM)
     visibility: private
     onOpen: ignore
 vscode:

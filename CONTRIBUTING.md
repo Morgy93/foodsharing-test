@@ -24,9 +24,9 @@ The project has some legacy issues but the developers who are actively working o
 3. add the original repository as upstream `git remote add upstream https://gitlab.com/foodsharing-dev/foodsharing.git` (sync the repository every time you are working on it to prevent working on old files with `git checkout master && git fetch upstream && git merge upstream/master`)
 4. install needed software (docker and so on) [see devdocs](https://devdocs.foodsharing.network/tools-installation.html)
 5. navigate to the directory with foodsharing content
-6. start the Docker containers via `./scripts/start` (maybe `sudo` before) and seed data [see devdocs](https://devdocs.foodsharing.network/setting-things-up.html)
+6. start the Docker containers via `./scripts/start` and seed data [see devdocs](https://devdocs.foodsharing.network/setting-things-up.html)
 7. call `http://localhost:18080`. Do you see the page? It works now! If not, check the [devdocs](https://devdocs.foodsharing.network), there is a tutorial on how to set up the code. **Note that you should not clone the original foodsharing repository, but your fork.**
-Sometimes it works if you run via the *hard* method `sudo ./scripts/stop && sudo rm -rf cache && sudo ./scripts/clean && ./scripts/start && ./scripts/seed` :D
+Sometimes it works if you run via the *hard* method `./scripts/clean && ./scripts/start` (add `sudo` on permission errors)
 
 ## Make a (pull) merge request
 If you have worked on an issue, feel free to create a merge request. Make sure that the target of your MR is the original foodsharing-dev/foodsharing repository. Also, please fill out the template in the large editor field. We will then look at it and give feedback in the code review. If we know we can't/won't merge your MR directly, we'll give the label hacktoberfest-accepted to be able to count it for hacktoberfest 2022. [see how it works (gif)](https://i.imgur.com/8sJwF8k.mp4)

@@ -4,8 +4,8 @@ set -o errexit
 
 dir=$(dirname "$0")
 root="$dir/../.."
-# shellcheck source=./inc.sh
-source "$dir/../inc.sh"
+# shellcheck source=./__helping-functions.sh
+source "$dir/../__helping-functions.sh"
 
 BUILD_DIR="$root/docs/build/db"
 RESULT_FOLDER="$root/docs/src"
