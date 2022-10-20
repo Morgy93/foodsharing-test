@@ -21,7 +21,7 @@ set('http_user', 'fs-php');
 set('http_group', 'www-data');
 set('remote_user', 'deploy');
 set('deploy_path', '/var/www/{{alias}}');
-set('cachetool', '/run/php8.0-fpm-{{alias}}.sock');
+set('cachetool', '/run/php-fpm-{{alias}}.sock');
 
 // default timeout of 300 was failing sometimes
 set('default_timeout', 600);
@@ -52,7 +52,7 @@ task('deploy:update_code', function () {
 });
 
 task('deploy:cache:warmup', function () {
-	run('sudo -u {{http_user}} -g {{http_group}} FS_ENV=prod {{release_path}}/bin/console cache:warmup -e prod');
+	run('sudo -u {{http_user}} -g {{http_group}} FS_ENV=prod php-{{alias}} {{release_path}}/bin/console cache:warmup -e prod');
 })->desc('Warmup symfony cache');
 
 task('deploy:permissions', function () {
