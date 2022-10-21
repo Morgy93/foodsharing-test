@@ -135,6 +135,8 @@
 - Moved variable DELAY_MICRO_SECONDS_BETWEEN_MAILS to config file #1389 !2383 @chriswalg
 - Replace `node-sass` with `sass` #1047 !2404 @schanso
 - Added mayRole function to Session class and made may function deprecated #1277 !2341 @alex.simm
+- Fix maintenance script test #1430 !2429 @rnoennig 
+
 
 ## Development documetation
 - Add generator for database documentation !2275 @KoeMai

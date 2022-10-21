@@ -3,6 +3,8 @@
 $I = new CliTester($scenario);
 
 $store = $I->createStore(1);
+$store_established = $I->createStore(1, null, null, ['betrieb_status_id' => '5']);
+
 $fetcher_unconfirmed_past_1 = $I->createFoodsaver();
 $fetcher_unconfirmed_past_2 = $I->createFoodsaver();
 $fetcher_unconfirmed_future = $I->createFoodsaver();
@@ -19,8 +21,8 @@ $I->addStoreTeam($store['id'], $fetcher_unconfirmed_future['id'], false, false, 
 $I->addStoreTeam($store['id'], $fetcher_confirmed_past['id'], false, false, true);
 $I->addStoreTeam($store['id'], $fetcher_confirmed_future['id'], false, false, true);
 
-$I->addStoreTeam($store['id'], $store_manager_1['id'], true, false, true);
-$I->addRecurringPickup($store['id'], ['dow' => (((int)date('w')) + 1) % 7]);
+$I->addStoreTeam($store_established['id'], $store_manager_1['id'], true, false, true);
+$I->addRecurringPickup($store_established['id'], ['dow' => (((int)date('w')) + 1) % 7]);
 
 $dataset_unconfirmed_past_1 = ['foodsaver_id' => $fetcher_unconfirmed_past_1['id'], 'betrieb_id' => $store['id'], 'date' => '2001-02-25 08:55', 'confirmed' => 0];
 $I->haveInDatabase('fs_abholer', $dataset_unconfirmed_past_1);
