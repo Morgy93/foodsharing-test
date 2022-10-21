@@ -43,6 +43,7 @@ maintenance_mode_on
 var/**
 builds
 
+docs/?
 docs/_book
 docs/dist
 docs/build

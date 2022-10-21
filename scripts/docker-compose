@@ -14,6 +14,12 @@ case "${unameOut}" in
     *)          export FS_PLATFORM=default;;
 esac
 
+# check if gp is there
+if [[ $(type -t gp) == file ]];
+then
+    FS_PLATFORM=gitpod
+fi
+
 # shellcheck source=./__helping-functions.sh
 source "$dir"/__helping-functions.sh
 

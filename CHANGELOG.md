@@ -109,7 +109,7 @@
 - Renmae Region\Type -> Unit\UnitType to make it search able and clear !2352 @KoeMai
 
 ## Dev/Test/CI stuff
-- Added Gitpod and refactored permissions !2386 !2399 !2402 @sefn @chriswalg
+- Added Gitpod and refactored permissions !2386 !2399 !2402 !2428 @sefn @chriswalg
 - Scripts for Gitpod reworked and docker-compose cleanup !2405 @sefn
 - bump node to version 16 !2135 @peter.toennies
 - Update mdbook to 0.4.18 #1178 !2206 @alex.simm

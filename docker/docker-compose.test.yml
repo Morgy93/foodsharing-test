@@ -96,7 +96,7 @@ services:
   selenium:
     user: ${CURRENT_USER}
     container_name: foodsharing_test_selenium
-    image: selenium/standalone-chrome:3.141.59-20200409
+    image: selenium/standalone-chrome:3.141.59-20200515 # used in .gitlab-ci.yml too
     shm_size: 2gb
     depends_on:
       - nginx
