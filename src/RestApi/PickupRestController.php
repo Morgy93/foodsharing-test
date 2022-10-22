@@ -14,18 +14,22 @@ use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Modules\Store\StoreTransactions;
 use Foodsharing\Permissions\ProfilePermissions;
 use Foodsharing\Permissions\StorePermissions;
+use Foodsharing\RestApi\Models\Store\PickupLeaveMessageOptions;
 use Foodsharing\Utility\TimeHelper;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\Annotations\RequestParam;
 use FOS\RestBundle\Request\ParamFetcherInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use OpenApi\Annotations as OA;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final class PickupRestController extends AbstractFOSRestController
 {
@@ -96,10 +100,12 @@ final class PickupRestController extends AbstractFOSRestController
 	 * @OA\Tag(name="pickup")
 	 *
 	 * @Rest\Delete("stores/{storeId}/pickups/{pickupDate}/{fsId}", requirements={"storeId" = "\d+", "pickupDate" = "[^/]+", "fsId" = "\d+"})
-	 * @RequestParam(name="message", nullable=true, default="")
-	 * @RequestParam(name="sendKickMessage", nullable=true, default=true)
+	 *
+	 * @OA\RequestBody(@Model(type=PickupLeaveMessageOptions::class))
+	 *
+	 * @ParamConverter("leaveInformation", class="Foodsharing\RestApi\Models\Store\PickupLeaveMessageOptions", converter="fos_rest.request_body")
 	 */
-	public function leavePickupAction(int $storeId, string $pickupDate, int $fsId, ParamFetcherInterface $paramFetcher): Response
+	public function leavePickupAction(int $storeId, string $pickupDate, int $fsId, PickupLeaveMessageOptions $leaveInformation, ValidatorInterface $validator): Response
 	{
 		if (!$this->session->id()) {
 			throw new UnauthorizedHttpException('');
@@ -108,9 +114,15 @@ final class PickupRestController extends AbstractFOSRestController
 			throw new AccessDeniedHttpException();
 		}
 
-		$message = trim($paramFetcher->get('message'));
-		$sendKickMessage = $paramFetcher->get('sendKickMessage') || !$this->profilePermissions->mayCancelSlotsFromProfile($fsId);
-		$this->leavePickup($storeId, $pickupDate, $fsId, $message, $sendKickMessage);
+		$errors = $validator->validate($leaveInformation);
+		if ($errors->count() > 0) {
+			$firstError = $errors->get(0);
+			$relevantErrorContent = ['field' => $firstError->getPropertyPath(), 'message' => $firstError->getMessage()];
+			throw new BadRequestHttpException(json_encode($relevantErrorContent));
+		}
+
+		$sendKickMessage = $leaveInformation->sendKickMessage || !$this->profilePermissions->mayCancelSlotsFromProfile($fsId);
+		$this->leavePickup($storeId, $pickupDate, $fsId, $leaveInformation->message, $sendKickMessage);
 
 		return $this->handleView($this->view([], 200));
 	}
@@ -121,10 +133,10 @@ final class PickupRestController extends AbstractFOSRestController
 	 * @OA\Tag(name="pickup")
 	 *
 	 * @Rest\Delete("pickups/{fsId}", requirements={"fsId" = "\d+"})
-	 * @RequestParam(name="message", nullable=true, default="")
-	 * @RequestParam(name="sendKickMessage", nullable=true, default=true)
+	 * @OA\RequestBody(@Model(type=PickupLeaveMessageOptions::class))
+	 * @ParamConverter("leaveInformation", class="Foodsharing\RestApi\Models\Store\PickupLeaveMessageOptions", converter="fos_rest.request_body")
 	 */
-	public function leaveAllPickupsAction(int $fsId, ParamFetcherInterface $paramFetcher)
+	public function leaveAllPickupsAction(int $fsId, PickupLeaveMessageOptions $leaveInformation, ValidatorInterface $validator)
 	{
 		if (!$this->session->id()) {
 			throw new UnauthorizedHttpException('');
@@ -132,12 +144,19 @@ final class PickupRestController extends AbstractFOSRestController
 		if (!$this->profilePermissions->mayCancelSlotsFromProfile($fsId)) {
 			throw new AccessDeniedHttpException();
 		}
+
+		$errors = $validator->validate($leaveInformation);
+		if ($errors->count() > 0) {
+			$firstError = $errors->get(0);
+			$relevantErrorContent = ['field' => $firstError->getPropertyPath(), 'message' => $firstError->getMessage()];
+			throw new BadRequestHttpException(json_encode($relevantErrorContent));
+		}
+
 		$pickups = $this->pickupGateway->getNextPickups($fsId);
-		$message = trim($paramFetcher->get('message'));
-		$sendKickMessage = $paramFetcher->get('sendKickMessage');
+		$sendKickMessage = $leaveInformation->sendKickMessage;
 
 		foreach ($pickups as $pickup) {
-			$this->leavePickup($pickup['store_id'], date(DATE_ATOM, $pickup['timestamp']), $fsId, $message, $sendKickMessage);
+			$this->leavePickup($pickup['store_id'], date(DATE_ATOM, $pickup['timestamp']), $fsId, $leaveInformation->message, $sendKickMessage);
 		}
 
 		return $this->handleView($this->view([], 200));
@@ -145,6 +164,7 @@ final class PickupRestController extends AbstractFOSRestController
 
 	private function leavePickup(int $storeId, string $pickupDate, int $fsId, string $message = '', bool $sendKickMessage = true)
 	{
+		$message = trim($message);
 		$date = TimeHelper::parsePickupDate($pickupDate);
 		if (is_null($date)) {
 			throw new BadRequestHttpException('Invalid date format');
