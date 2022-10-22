@@ -61,6 +61,10 @@ services:
   #------------------------------------
   phpmyadmin:
     container_name: foodsharing_test_phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
     ports:
       - 28081:80
 

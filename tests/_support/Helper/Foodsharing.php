@@ -111,7 +111,7 @@ class Foodsharing extends \Codeception\Module\Db
 			'geb_datum' => $this->faker->dateTimeBetween('-80 years', '-18 years'),
 			'last_login' => $this->faker->dateTimeBetween('-1 years', '-1 hours'),
 			'anschrift' => $this->faker->streetName(),
-			'handy' => $this->faker->phoneNumber(),
+			'handy' => $this->faker->e164PhoneNumber(),
 			'active' => 1,
 			'privacy_policy_accepted_date' => '2020-05-16 00:09:33',
 			'privacy_notice_accepted_date' => '2018-05-24 18:25:28',
