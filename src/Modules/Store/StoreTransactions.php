@@ -59,6 +59,11 @@ class StoreTransactions
 		$this->session = $session;
 	}
 
+	public function existStore($storeId)
+	{
+		return $this->storeGateway->storeExists($storeId);
+	}
+
 	public function createStore(array $legacyGlobalData): int
 	{
 		$store = new CreateStoreData();
@@ -563,6 +568,21 @@ class StoreTransactions
 			'user' => $this->session->user('name'),
 			'name' => $storeName,
 		], $bellId);
-		$this->bellGateway->addBell($userId, $bellData);
+		$this->bellGateway->addBell([$userId], $bellData);
+	}
+
+	public function triggerBellForRegularPickupChanged(int $storeId)
+	{
+		$storeName = $this->storeGateway->getStoreName($storeId);
+
+		$team = $this->storeGateway->getStoreTeam($storeId);
+		$team = array_map(function ($foodsaver) { return $foodsaver['id']; }, $team);
+		$bellData = Bell::create('store_cr_times_title', 'store_cr_times', 'fas fa-user-clock', [
+			'href' => '/?page=fsbetrieb&id=' . $storeId,
+		], [
+			'user' => $this->session->user('name'),
+			'name' => $storeName,
+		], BellType::createIdentifier(BellType::STORE_TIME_CHANGED, $storeId));
+		$this->bellGateway->addBell($team, $bellData);
 	}
 }

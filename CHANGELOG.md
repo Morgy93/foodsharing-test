@@ -21,6 +21,7 @@
 - Voter Turnout Percentage can be seen if the poll has completed !2377 @viveknshah
 - Provide RestAPI to get backend defined common meta information for stores like "max count of slots per pickup" !1373 @koemai
 - Provide RestAPI to change teamstatus of a store !2406
+- Added RestAPI for regular Pickup configuration !1373 @koemai
 
 ## Changes
 - Checks in the id card creation function if only one foodsaver is selected and then reduces the 
