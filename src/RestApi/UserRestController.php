@@ -521,16 +521,6 @@ class UserRestController extends AbstractFOSRestController
 		return $this->handleView($this->view([], 200));
 	}
 
-	private function handleUserView(): Response
-	{
-		$user = RestNormalization::normalizeUser([
-			'id' => $this->session->id(),
-			'name' => $this->session->get('user')['name']
-		]);
-
-		return $this->handleView($this->view($user, 200));
-	}
-
 	/**
 	 * Removes the user from the email bounce list. This will have no effect and return 200 if the user was
 	 * not on the bounce list.

@@ -136,11 +136,6 @@ class WallPostXhr extends Control
 		}
 	}
 
-	private function isAllowed(string $table)
-	{
-		return $this->wallPostGateway->isValidTarget($table);
-	}
-
 	public function attachimage()
 	{
 		if (!$this->wallPostPermissions->mayWriteWall($this->session->id(), $this->table, $this->id)) {

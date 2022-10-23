@@ -314,20 +314,6 @@ class StoreUserControl extends Control
 		);
 	}
 
-	private function addStoreLeaveModal(): void
-	{
-		$this->pageHelper->addHidden(
-			'
-		<div id="signout_shure" title="' . $this->translator->trans('pickup.signout_confirm') . '">
-			' . $this->v_utils->v_info(
-				'
-				<strong>' . $this->translator->trans('pickup.signout_sure') . '</strong>
-				<p>' . $this->translator->trans('pickup.signout_info') . '</p>'
-			) . '
-		</div>'
-		);
-	}
-
 	/**
 	 * Certain users will be able to manage a store even if not explicitly listed as manager:
 	 * - all members of the 'store coordination' workgroup of the store's region
