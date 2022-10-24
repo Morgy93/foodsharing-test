@@ -7,5 +7,5 @@ set -o nounset
 
 if [[ "$CI_ENVIRONMENT_NAME" == "production" ]]
 then
-  ssh deploy@dragonfruit.foodsharing.network sudo systemctl restart fs-chatserver.service
+  ssh deploy@foodsharing.network sudo systemctl restart fs-websocket.service
 fi
