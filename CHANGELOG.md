@@ -6,7 +6,7 @@
 - The number of unread mails is now displayed as a red badge. !2188 @AntonBallmaier
 - Improved Calendar exports. Events are now included and pickup descriptions contain links. !2182 @AntonBallmaier
 - Past events are shown now below current and upcoming events within the overview !2162 @merhoc
-- Commitment statistics on profile !2208 !2217 @fs_k
+- Commitment statistics on profile !2208 !2217 !2353 !2359 !2435 @fs_k
 - Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 #chriswalg
 - The profile page now contains one unified pickup section. Future pickup options are now visible in that section. !2211 !2226 @AntonBallmaier
 - Pickup statistics on profile !2208 @fs_k
@@ -79,7 +79,6 @@
 - Restrictions on the view of the store list in profile !2273 @chriswalg
 - Show only chat link if user is member in store !2304 @chriswalg
 - Fix XSS Vulnerability at login page !2351 #1252 @stcz
-- Commitmentstat correctly counts short term sign ups and shows handshake symbol for shared food baskets. Fix Speed. !2353 !2359 @fs_k 
 - Logging from removal of store managers. Corrected logging use for appointing store manager. !2365 @fs_k
 - The tooltip from foodbasked enquiry edit button blocked the clicking if only 1 enquiry was active. !2368 @martincodes-de
 - Reaction button hasn't different color if already reacted !2373 @martincodes-de

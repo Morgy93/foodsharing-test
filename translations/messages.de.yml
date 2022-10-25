@@ -1708,6 +1708,7 @@ profile:
     remove_button: "Von der Bounce-Liste entfernen"
   commitments_stat:
     title: "Engagementstatistik"
+    tooltip_visibility: "Die Engagemenstatistik ist sichtbar ab der Rolle des Betriebsverantwortlichen. Es wird eingeschränkt auf gemeinsamen Stammbezirk oder gemeinsame Betriebe."
     respActStores: "Danke für das Koordinieren von {count} aktiven "
     securePickupWeek: "Danke für das {count}-malige kurzfristige Einspringen und Sicherstellen von Abholungen!"
     eventsCreatedWeek: "Danke für das {count}-malige Erstellen von Events in dieser Woche. "
