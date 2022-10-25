@@ -2386,7 +2386,7 @@ email_template:
     part2: "Leider hat sich für den nächsten Termin noch niemand zum Abholen eingetragen."
   find_someone: "Bitte kümmere dich schnellstmöglich um jemanden aus deinem Betriebsteam, damit die Abholung stattfinden kann. Solltest du niemanden mobilisieren können, wäre es schön, wenn du die Abholung übernehmen könntest. Sollte dir das nicht möglich sein, dann sage den Termin bitte rechtzeitig beim Betrieb ab."
   information: "Info"
-  manual_slots_get_ignored: "Diese Benachrichtigung wird aktuell leider nur bei automatischen Abholterminen versendet. Manuell angelegte, überschriebene oder gelöschte Slots werden daher nicht berücksichtigt."
+  manual_slots_get_ignored: "Diese Benachrichtigung wird aktuell leider nur versendet, wenn sich niemand für die regelmäßigen Abholzeiten eingetragen hat. Einzeln hinzugefügte Zusatztermine sowie überschriebene oder gelöschte Slots werden bislang nicht berücksichtigt. Um diese Benachrichtigung nicht mehr zu erhalten, entferne die regelmäßigen Abholzeiten auf der Seite deines Betriebes indem du auf das Stift-Icon bei den Abholterminen klickst und die nicht benötigten Abholzeiten entfernst."
   help_needed:
     main: "Um diese Funktion zu überarbeiten, benötigen wir die Unterstützung weiterer Programmierer*innen, Tester und Helfer aus deinem Bezirk."
     link: "https://devdocs.foodsharing.network/it-tasks.html"
