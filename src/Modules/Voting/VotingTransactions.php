@@ -121,9 +121,9 @@ class VotingTransactions
 	 * @param int $regionId id of the poll's region
 	 * @param int $scope a poll's scope, see {@link VotingScope}
 	 *
-	 * @throws Exception if the scope is not a valid type
-	 *
 	 * @return array a list of user ids
+	 *
+	 * @throws Exception if the scope is not a valid type
 	 */
 	private function listUserIds(int $regionId, int $scope): array
 	{

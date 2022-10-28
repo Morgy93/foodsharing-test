@@ -308,7 +308,7 @@ class QuizSessionGateway extends BaseGateway
 						++$out['failed'];
 						break;
 					default:
-					}
+				}
 			}
 		}
 

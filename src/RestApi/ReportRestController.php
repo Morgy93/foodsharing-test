@@ -55,6 +55,7 @@ class ReportRestController extends AbstractFOSRestController
 	 * @OA\Tag(name="report")
 	 *
 	 * @param int $regionId for which region the reports should be returned
+	 *
 	 * @Rest\Get("report/region/{regionId}", requirements={"regionId" = "\d+"})
 	 *
 	 * An admin of a reportgroup gets all reports from the home district. Excluded are
@@ -116,7 +117,6 @@ class ReportRestController extends AbstractFOSRestController
 	 * Adds a new report. The reportedId must not be empty.
 	 *
 	 * @OA\Tag(name="report")
-	 *
 	 * @Rest\Post("report")
 	 * @Rest\RequestParam(name="reportedId", nullable=true)
 	 * @Rest\RequestParam(name="reporterId", nullable=true)

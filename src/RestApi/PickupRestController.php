@@ -50,7 +50,6 @@ final class PickupRestController extends AbstractFOSRestController
 
 	/**
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @Rest\Post("stores/{storeId}/pickups/{pickupDate}/{fsId}", requirements={"storeId" = "\d+", "pickupDate" = "[^/]+", "fsId" = "\d+"})
 	 */
 	public function joinPickupAction(int $storeId, string $pickupDate, int $fsId): Response
@@ -84,11 +83,8 @@ final class PickupRestController extends AbstractFOSRestController
 	 * Remove a user from a pickup.
 	 *
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @Rest\Delete("stores/{storeId}/pickups/{pickupDate}/{fsId}", requirements={"storeId" = "\d+", "pickupDate" = "[^/]+", "fsId" = "\d+"})
-	 *
 	 * @OA\RequestBody(@Model(type=PickupLeaveMessageOptions::class))
-	 *
 	 * @ParamConverter("leaveInformation", class="Foodsharing\RestApi\Models\Store\PickupLeaveMessageOptions", converter="fos_rest.request_body")
 	 */
 	public function leavePickupAction(int $storeId, string $pickupDate, int $fsId, PickupLeaveMessageOptions $leaveInformation, ValidatorInterface $validator): Response
@@ -113,7 +109,6 @@ final class PickupRestController extends AbstractFOSRestController
 	 * Remove a user from all his pickups.
 	 *
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @Rest\Delete("pickups/{fsId}", requirements={"fsId" = "\d+"})
 	 * @OA\RequestBody(@Model(type=PickupLeaveMessageOptions::class))
 	 * @ParamConverter("leaveInformation", class="Foodsharing\RestApi\Models\Store\PickupLeaveMessageOptions", converter="fos_rest.request_body")
@@ -185,7 +180,6 @@ final class PickupRestController extends AbstractFOSRestController
 
 	/**
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @Rest\Patch("stores/{storeId}/pickups/{pickupDate}/{fsId}", requirements={"storeId" = "\d+", "pickupDate" = "[^/]+", "fsId" = "\d+"})
 	 * @Rest\RequestParam(name="isConfirmed", nullable=true, default=null)
 	 */
@@ -223,7 +217,6 @@ final class PickupRestController extends AbstractFOSRestController
 	 * Return the regular pickups for an store.
 	 *
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @OA\Response(
 	 * 		response="200",
 	 * 		description="Success.",
@@ -257,7 +250,6 @@ final class PickupRestController extends AbstractFOSRestController
 	 * Configures the regular pickups for a store.
 	 *
 	 * @OA\Tag(name="stores")
-	 *
 	 * @OA\RequestBody(@OA\JsonContent(
 	 *        type="array",
 	 *        @OA\Items(ref=@Model(type=RegularPickup::class))
@@ -290,9 +282,7 @@ final class PickupRestController extends AbstractFOSRestController
 	 * Creates or modifies a manual pick up for an store.
 	 *
 	 * @OA\Tag(name="stores")
-	 *
 	 * @Rest\Patch("stores/{storeId}/pickups/{pickupDate}", requirements={"storeId" = "\d+", "pickupDate" = "[^/]+"})
-	 *
 	 * @OA\Parameter(
 	 *         name="storeId",
 	 *         in="path",
@@ -319,7 +309,6 @@ final class PickupRestController extends AbstractFOSRestController
 	 * @OA\Response(response="401", description="Not logged in")
 	 * @OA\Response(response="403", description="No permission to change pickup")
 	 * @OA\Response(response="404", description="Store not found")
-	 *
 	 * @RequestParam(name="totalSlots", requirements="\d+", description="Maximum allowed user on this pickup.")
 	 */
 	public function editPickupAction(int $storeId, string $pickupDate, ParamFetcherInterface $paramFetcher): Response
@@ -358,7 +347,6 @@ final class PickupRestController extends AbstractFOSRestController
 
 	/**
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @Rest\Get("stores/{storeId}/pickups", requirements={"storeId" = "\d+"})
 	 */
 	public function listPickupsAction(int $storeId): Response
@@ -384,7 +372,6 @@ final class PickupRestController extends AbstractFOSRestController
 
 	/**
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @Rest\Get("stores/{storeId}/history/{fromDate}/{toDate}", requirements={"storeId" = "\d+", "fromDate" = "[^/]+", "toDate" = "[^/]+"})
 	 */
 	public function listPickupHistoryAction(int $storeId, string $fromDate, string $toDate): Response
@@ -443,7 +430,6 @@ final class PickupRestController extends AbstractFOSRestController
 	 * Might be restricted to the last month depending on the permissions.
 	 *
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @Rest\Get("pickup/history")
 	 * @Rest\QueryParam(name="fsId", nullable=true, default=null)
 	 * @Rest\QueryParam(name="page", nullable=false, default=0)
@@ -497,7 +483,6 @@ final class PickupRestController extends AbstractFOSRestController
 	 * Get all future pickups a user has registered.
 	 *
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @Rest\Get("pickup/registered")
 	 * @Rest\QueryParam(name="fsId", nullable=true, default=null)
 	 */
@@ -548,7 +533,6 @@ final class PickupRestController extends AbstractFOSRestController
 	 * @OA\Response(response="200", description="Success")
 	 * @OA\Response(response="403", description="Insufficient permissions")
 	 * @OA\Tag(name="pickup")
-	 *
 	 * @Rest\Get("pickup/options")
 	 * @Rest\QueryParam(name="page", nullable=false, default=0)
 	 * @Rest\QueryParam(name="pageSize", nullable=false, default=50)

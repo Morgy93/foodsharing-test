@@ -46,7 +46,6 @@ class WorkingGroupRestController extends AbstractFOSRestController
 	 * @OA\Response(response="403", description="Insufficient permissions")
 	 * @OA\Response(response="404", description="Group not found")
 	 * @OA\Tag(name="groups")
-	 *
 	 * @Rest\Post  ("groups/{groupId}/members/{memberId}", requirements={"groupId" = "\d+", "memberId" = "\d+"})
 	 */
 	public function addMember(int $groupId, int $memberId): Response

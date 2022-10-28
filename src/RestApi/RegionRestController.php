@@ -63,7 +63,6 @@ class RegionRestController extends AbstractFOSRestController
 
 	/**
 	 * @OA\Tag(name="region")
-	 *
 	 * @Rest\Post("region/{regionId}/join", requirements={"regionId" = "\d+"})
 	 */
 	public function joinRegionAction(int $regionId): Response
@@ -119,7 +118,6 @@ class RegionRestController extends AbstractFOSRestController
 	 *
 	 * @OA\Tag(name="region")
 	 * @OA\Tag(name="my")
-	 *
 	 * @Rest\Get("user/current/regions")
 	 * @OA\Response(
 	 * 		response="200",
@@ -349,7 +347,6 @@ class RegionRestController extends AbstractFOSRestController
 	 * @OA\Response(response="403", description="Insufficient permissions")
 	 * @OA\Response(response="404", description="Region not found")
 	 * @OA\Tag(name="region")
-	 *
 	 * @Rest\Delete("region/{regionId}/members/{memberId}", requirements={"regionId" = "\d+", "memberId" = "\d+"})
 	 */
 	public function removeMember(int $regionId, int $memberId): Response

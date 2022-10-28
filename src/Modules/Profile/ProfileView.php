@@ -589,12 +589,12 @@ class ProfileView extends View
 				}
 				$out .= '<li class="title">'
 					. '<span class="' . $class . '">' . $typeOfChange . '</span>'
-					. ' am ' . $when . ' durch:' . '</li>';
+					. ' am ' . $when . ' durch:</li>';
 				break;
 			case 1:
 				$out = $h['bot_id'] === null
 					? $out . '<li class="title">' . $when . '</li>'
-					: $out . '<li class="title">' . $when . ' durch:' . '</li>';
+					: $out . '<li class="title">' . $when . ' durch:</li>';
 				break;
 			default:
 				break;

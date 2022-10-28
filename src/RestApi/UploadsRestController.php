@@ -57,7 +57,6 @@ class UploadsRestController extends AbstractFOSRestController
 	 * indicate no resizing.
 	 *
 	 * @OA\Tag(name="upload")
-	 *
 	 * @Rest\Get("uploads/{uuid}", requirements={"uuid"="[0-9a-f\-]+"})
 	 * @Rest\QueryParam(name="w", requirements="\d+", default=0, description="Max image width")
 	 * @Rest\QueryParam(name="h", requirements="\d+", default=0, description="Max image height")
@@ -154,7 +153,6 @@ class UploadsRestController extends AbstractFOSRestController
 
 	/**
 	 * @OA\Tag(name="upload")
-	 *
 	 * @Rest\Post("uploads")
 	 * @Rest\RequestParam(name="filename")
 	 * @Rest\RequestParam(name="body")

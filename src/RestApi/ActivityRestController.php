@@ -34,7 +34,6 @@ class ActivityRestController extends AbstractFOSRestController
 	 * @OA\Response(response="200", description="Success.")
 	 * @OA\Response(response="403", description="Insufficient permissions to request filters.")
 	 * @OA\Tag(name="activities")
-	 *
 	 * @Rest\Get("activities/filters")
 	 */
 	public function getActivityFiltersAction(): Response
@@ -54,7 +53,6 @@ class ActivityRestController extends AbstractFOSRestController
 	 * @OA\Response(response="200", description="Success.")
 	 * @OA\Response(response="403", description="Insufficient permissions to set filters.")
 	 * @OA\Tag(name="activities")
-	 *
 	 * @Rest\Patch("activities/filters")
 	 * @Rest\RequestParam(name="excluded")
 	 */
@@ -75,7 +73,6 @@ class ActivityRestController extends AbstractFOSRestController
 	 *
 	 * @OA\Response(response="200", description="Success.")
 	 * @OA\Tag(name="activities")
-	 *
 	 * @Rest\Get("activities/updates")
 	 * @Rest\QueryParam(name="page", requirements="\d+", default="0", description="Which page of updates to return")
 	 */
