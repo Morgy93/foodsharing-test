@@ -3,8 +3,6 @@
 namespace Foodsharing\RestApi;
 
 use Foodsharing\Lib\Session;
-use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
-use Foodsharing\Modules\Profile\ProfileGateway;
 use Foodsharing\Modules\Store\PickupGateway;
 use Foodsharing\Permissions\ProfilePermissions;
 use Foodsharing\Utility\TimeHelper;
@@ -18,21 +16,15 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 final class FoodsaverRestController extends AbstractFOSRestController
 {
-	private FoodsaverGateway $foodsaverGateway;
-	private ProfileGateway $profileGateway;
 	private PickupGateway $pickupGateway;
 	private ProfilePermissions $profilePermissions;
 	private Session $session;
 
 	public function __construct(
-		FoodsaverGateway $foodsaverGateway,
-		ProfileGateway $profileGateway,
 		PickupGateway $pickupGateway,
 		ProfilePermissions $profilePermissions,
 		Session $session
 	) {
-		$this->foodsaverGateway = $foodsaverGateway;
-		$this->profileGateway = $profileGateway;
 		$this->pickupGateway = $pickupGateway;
 		$this->profilePermissions = $profilePermissions;
 		$this->session = $session;

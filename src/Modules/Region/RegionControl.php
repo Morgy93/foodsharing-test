@@ -7,7 +7,6 @@ use Foodsharing\Modules\Core\DBConstants\Map\MapConstants;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionOptionType;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Event\EventGateway;
-use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\FoodSharePoint\FoodSharePointGateway;
 use Foodsharing\Modules\Mailbox\MailboxGateway;
 use Foodsharing\Modules\Voting\VotingGateway;
@@ -26,9 +25,7 @@ final class RegionControl extends Control
 	private array $region;
 	private RegionGateway $gateway;
 	private EventGateway $eventGateway;
-	private ForumGateway $forumGateway;
 	private FoodSharePointGateway $foodSharePointGateway;
-	private FoodsaverGateway $foodsaverGateway;
 	private ForumFollowerGateway $forumFollowerGateway;
 	private FormFactoryInterface $formFactory;
 	private ForumTransactions $forumTransactions;
@@ -54,8 +51,6 @@ final class RegionControl extends Control
 	public function __construct(
 		EventGateway $eventGateway,
 		FoodSharePointGateway $foodSharePointGateway,
-		FoodsaverGateway $foodsaverGateway,
-		ForumGateway $forumGateway,
 		ForumFollowerGateway $forumFollowerGateway,
 		ForumPermissions $forumPermissions,
 		RegionPermissions $regionPermissions,
@@ -72,9 +67,7 @@ final class RegionControl extends Control
 		$this->eventGateway = $eventGateway;
 		$this->forumPermissions = $forumPermissions;
 		$this->regionPermissions = $regionPermissions;
-		$this->forumGateway = $forumGateway;
 		$this->foodSharePointGateway = $foodSharePointGateway;
-		$this->foodsaverGateway = $foodsaverGateway;
 		$this->forumFollowerGateway = $forumFollowerGateway;
 		$this->forumTransactions = $forumTransactions;
 		$this->reportPermissions = $reportPermissions;

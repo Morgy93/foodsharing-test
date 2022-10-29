@@ -210,10 +210,17 @@ class ProfileView extends View
 			$this->pageHelper->addStyle('#wallposts .tools {display:none;}');
 		}
 
+		$fsMail = '';
+		if ($this->foodsaver['rolle'] > Role::FOODSAVER) {
+			if ($this->profilePermissions->maySeeEmailAddress($fsId)) {
+				$fsMail = $this->foodsaver['mailbox'];
+			}
+		}
+
 		$page->addSectionLeft(
 			$this->vueComponent('vue-profile-infos', 'ProfileInfos', [
 				'isfoodsaver' => $this->foodsaver['rolle'] > Role::FOODSHARER,
-				'fsMail' => isset($this->foodsaver['mailbox']) ?? $this->profilePermissions->maySeeEmailAddress($fsId) ? $this->foodsaver['mailbox'] : '',
+				'fsMail' => $fsMail,
 				'privateMail' => $this->profilePermissions->maySeePrivateEmail($fsId) ? $this->foodsaver['email'] : '',
 				'registrationDate' => $this->profilePermissions->maySeeRegistrationDate($fsId) ? Carbon::parse($this->foodsaver['anmeldedatum'])->format('d.m.Y') : '',
 				'lastLogin' => $this->profilePermissions->maySeeLastLogin($fsId) ? Carbon::parse($this->foodsaver['last_login'])->format('d.m.Y') : '',

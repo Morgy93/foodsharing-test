@@ -6,15 +6,12 @@ use Carbon\Carbon;
 use Foodsharing\Modules\Core\Control;
 use Foodsharing\Modules\Core\DBConstants\Region\WorkgroupFunction;
 use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
-use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\Group\GroupFunctionGateway;
 use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Store\PickupGateway;
 use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Permissions\StorePermissions;
 use Foodsharing\Utility\DataHelper;
-use Foodsharing\Utility\Sanitizer;
-use Foodsharing\Utility\TimeHelper;
 use Foodsharing\Utility\WeightHelper;
 
 class StoreUserControl extends Control
@@ -23,10 +20,7 @@ class StoreUserControl extends Control
 	private $pickupGateway;
 	private $storeGateway;
 	private $storePermissions;
-	private $foodsaverGateway;
 	private $dataHelper;
-	private $sanitizerService;
-	private $timeHelper;
 	private $weightHelper;
 	private $groupFunctionGateway;
 
@@ -36,10 +30,7 @@ class StoreUserControl extends Control
 		PickupGateway $pickupGateway,
 		StoreGateway $storeGateway,
 		StorePermissions $storePermissions,
-		FoodsaverGateway $foodsaverGateway,
 		DataHelper $dataHelper,
-		Sanitizer $sanitizerService,
-		TimeHelper $timeHelper,
 		WeightHelper $weightHelper,
 		GroupFunctionGateway $groupFunctionGateway
 	) {
@@ -48,10 +39,7 @@ class StoreUserControl extends Control
 		$this->pickupGateway = $pickupGateway;
 		$this->storeGateway = $storeGateway;
 		$this->storePermissions = $storePermissions;
-		$this->foodsaverGateway = $foodsaverGateway;
 		$this->dataHelper = $dataHelper;
-		$this->sanitizerService = $sanitizerService;
-		$this->timeHelper = $timeHelper;
 		$this->weightHelper = $weightHelper;
 		$this->groupFunctionGateway = $groupFunctionGateway;
 

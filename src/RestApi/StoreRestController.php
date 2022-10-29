@@ -206,7 +206,10 @@ class StoreRestController extends AbstractFOSRestController
 			throw new AccessDeniedHttpException();
 		}
 
-		$notes = $this->storeGateway->getStorePosts($storeId) ?? [];
+		$notes = $this->storeGateway->getStorePosts($storeId);
+		if (empty($notes)) {
+			$notes = [];
+		}
 		$notes = array_map(function ($n) {
 			return RestNormalization::normalizeStoreNote($n);
 		}, $notes);

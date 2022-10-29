@@ -3,7 +3,6 @@
 namespace Foodsharing\RestApi;
 
 use Foodsharing\Lib\Session;
-use Foodsharing\Modules\Activity\ActivityGateway;
 use Foodsharing\Modules\Activity\ActivityTransactions;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -15,16 +14,13 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 class ActivityRestController extends AbstractFOSRestController
 {
 	private ActivityTransactions $activityTransactions;
-	private ActivityGateway $activityGateway;
 	private Session $session;
 
 	public function __construct(
 		ActivityTransactions $activityTransactions,
-		ActivityGateway $activityGateway,
 		Session $session
 	) {
 		$this->activityTransactions = $activityTransactions;
-		$this->activityGateway = $activityGateway;
 		$this->session = $session;
 	}
 

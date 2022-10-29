@@ -9,7 +9,6 @@ use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
 use Foodsharing\Modules\Core\DBConstants\Region\WorkgroupFunction;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\Group\GroupFunctionGateway;
-use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Report\ReportGateway;
 use Foodsharing\Permissions\ReportPermissions;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -25,7 +24,6 @@ class ReportRestController extends AbstractFOSRestController
 	private BellGateway $bellGateway;
 	private FoodsaverGateway $foodsaverGateway;
 	private Session $session;
-	private RegionGateway $regionGateway;
 	private ReportGateway $reportGateway;
 	private ReportPermissions $reportPermissions;
 	private GroupFunctionGateway $groupFunctionGateway;
@@ -36,7 +34,6 @@ class ReportRestController extends AbstractFOSRestController
 	public function __construct(
 		Session $session,
 		BellGateway $bellGateway,
-		RegionGateway $regionGateway,
 		FoodsaverGateway $foodsaverGateway,
 		ReportGateway $reportGateway,
 		ReportPermissions $reportPermissions,
@@ -44,7 +41,6 @@ class ReportRestController extends AbstractFOSRestController
 	) {
 		$this->session = $session;
 		$this->bellGateway = $bellGateway;
-		$this->regionGateway = $regionGateway;
 		$this->reportGateway = $reportGateway;
 		$this->reportPermissions = $reportPermissions;
 		$this->groupFunctionGateway = $groupFunctionGateway;

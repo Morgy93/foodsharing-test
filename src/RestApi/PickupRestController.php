@@ -445,7 +445,7 @@ final class PickupRestController extends AbstractFOSRestController
 		$page = (int)$paramFetcher->get('page');
 		$pageSize = (int)$paramFetcher->get('pageSize');
 
-		if (!$this->session->id() || !$this->profilePermissions->maySeePickups($fsId)) {
+		if (!$this->profilePermissions->maySeePickups($fsId)) {
 			throw new AccessDeniedHttpException();
 		}
 
@@ -494,7 +494,7 @@ final class PickupRestController extends AbstractFOSRestController
 
 		$fsId = (int)($paramFetcher->get('fsId') ?? $this->session->id());
 
-		if (!$this->session->id() || !$this->profilePermissions->maySeePickups($fsId)) {
+		if (!$this->profilePermissions->maySeePickups($fsId)) {
 			throw new AccessDeniedHttpException();
 		}
 

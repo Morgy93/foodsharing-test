@@ -28,8 +28,6 @@ use Foodsharing\Permissions\QuizPermissions;
 use Foodsharing\Permissions\RegionPermissions;
 use Foodsharing\Permissions\ReportPermissions;
 use Foodsharing\Permissions\StorePermissions;
-use Foodsharing\Permissions\UserPermissions;
-use Foodsharing\Permissions\WorkGroupPermissions;
 use Foodsharing\RestApi\Models\Group\UserGroupModel;
 use Foodsharing\RestApi\Models\Region\UserRegionModel;
 use Foodsharing\Utility\EmailHelper;
@@ -65,7 +63,6 @@ class UserRestController extends AbstractFOSRestController
 		private FoodsaverTransactions $foodsaverTransactions,
 		private SettingsGateway $settingsGateway,
 
-		private UserPermissions $userPermissions,
 		private ProfilePermissions $profilePermissions,
 		private MailboxPermissions $mailboxPermissions,
 		private QuizPermissions $quizPermissions,
@@ -75,10 +72,32 @@ class UserRestController extends AbstractFOSRestController
 		private BlogPermissions $blogPermissions,
 		private RegionPermissions $regionPermissions,
 		private NewsletterEmailPermissions $newsletterEmailPermissions,
-		private WorkGroupPermissions $workGroupPermissions,
 		private RegionTransactions $regionTransactions,
 		private GroupTransactions $groupTransactions
 	) {
+		$this->session = $session;
+		$this->loginGateway = $loginGateway;
+		$this->foodsaverGateway = $foodsaverGateway;
+		$this->profileGateway = $profileGateway;
+		$this->uploadsGateway = $uploadsGateway;
+		$this->regionGateway = $regionGateway;
+		$this->emailHelper = $emailHelper;
+		$this->registerTransactions = $registerTransactions;
+		$this->profileTransactions = $profileTransactions;
+		$this->foodsaverTransactions = $foodsaverTransactions;
+		$this->settingsGateway = $settingsGateway;
+		$this->regionTransactions = $regionTransactions;
+		$this->groupTransactions = $groupTransactions;
+
+		$this->profilePermissions = $profilePermissions;
+		$this->mailboxPermissions = $mailboxPermissions;
+		$this->quizPermissions = $quizPermissions;
+		$this->reportPermissions = $reportPermissions;
+		$this->storePermissions = $storePermissions;
+		$this->contentPermissions = $contentPermissions;
+		$this->blogPermissions = $blogPermissions;
+		$this->regionPermissions = $regionPermissions;
+		$this->newsletterEmailPermissions = $newsletterEmailPermissions;
 	}
 
 	/**
@@ -95,7 +114,7 @@ class UserRestController extends AbstractFOSRestController
 		}
 
 		$data = $this->foodsaverGateway->getFoodsaverBasics($id);
-		if (!$data || empty($data)) {
+		if (empty($data)) {
 			throw new NotFoundHttpException('User does not exist.');
 		}
 
@@ -253,7 +272,7 @@ class UserRestController extends AbstractFOSRestController
 
 			// retrieve user data and normalise it
 			$user = $this->foodsaverGateway->getFoodsaverBasics($fs_id);
-			if (!$user || empty($user)) {
+			if (empty($user)) {
 				throw new NotFoundHttpException('User does not exist.');
 			}
 			$normalizedUser = RestNormalization::normalizeUser($user);

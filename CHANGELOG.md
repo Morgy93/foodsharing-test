@@ -140,6 +140,8 @@
 - Moved variable DELAY_MICRO_SECONDS_BETWEEN_MAILS to config file #1389 !2383 @chriswalg
 - Replace `node-sass` with `sass` #1047 !2404 @schanso
 - Added mayRole function to Session class and made may function deprecated #1277 !2341 @alex.simm
+- Fix maintenance script test #1430 !2429 @rnoennig 
+- Update php to version 8.1 !2358 @chriswalg
 - Fix maintenance script test #1430 !2429 @rnoennig
 - Remove unused triage bot in CI !2444 @chriswalg
 - Update backend dependencies !2441 @chriswalg
