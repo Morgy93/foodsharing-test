@@ -422,6 +422,12 @@ final class PickupRestController extends AbstractFOSRestController
 			return $a['date']->lt($b['date']) ? -1 : 1;
 		});
 
+		$pickups = array_map(function ($pickup) {
+			$pickup['date'] = $pickup['date']->toIso8601String();
+
+			return $pickup;
+		}, $pickups);
+
 		return $pickups;
 	}
 

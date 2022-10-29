@@ -106,6 +106,24 @@ class PickupApiCest
 		$I->seeResponseCodeIs(HttpCode::FORBIDDEN);
 	}
 
+	public function testSinglePickupInListExistsAndIsValid(\ApiTester $I)
+	{
+		$pickupBaseDate = Carbon::now()->add('2 days');
+		$pickupBaseDate->hours(16)->minutes(55)->seconds(0);
+		$I->addPickup($this->store['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->login($this->user['email']);
+		$I->sendGET('api/stores/' . $this->store['id'] . '/pickups');
+		$I->seeResponseCodeIs(HttpCode::OK);
+		$I->canSeeResponseContainsJson([
+			'pickups' => [[
+			'date' => $pickupBaseDate->toIso8601String(),
+			'totalSlots' => 2,
+			'occupiedSlots' => [],
+			'isAvailable' => true
+			]]
+		]);
+	}
+
 	public function cannotSignOutOfPastPickup(\ApiTester $I)
 	{
 		$pickupBaseDate = Carbon::now()->sub('2 days');
