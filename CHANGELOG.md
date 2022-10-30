@@ -99,7 +99,7 @@
 - Simplify code in the content module @alex.simm
 - Use a REST endpoint for quickreplying to forum threads #798 @alex.simm
 - Extract some redundant permission checks into one function. !2203 @AntonBallmaier
-- The Navigation is reworked !2296 @sefn
+- The Navigation is reworked !2296 !2440 @sefn
 - Rebuild store options to vue #2231 @chriswalg
 - Changed deleting wall posts to the API #798 !2253 @alex.simm
 - Rebuild profile infos to vue !2276 !2287 @chriswalg
