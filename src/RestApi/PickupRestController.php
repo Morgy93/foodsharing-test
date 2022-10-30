@@ -423,7 +423,15 @@ final class PickupRestController extends AbstractFOSRestController
 		});
 
 		$pickups = array_map(function ($pickup) {
-			$pickup['date'] = $pickup['date']->toIso8601String();
+			if (!empty($pickup['date'])) {
+				$pickup['date'] = $pickup['date']->toIso8601String();
+			}
+
+			if (!empty($pickup['occupiedSlots'])) {
+				foreach ($pickup['occupiedSlots'] as &$slot) {
+					$slot['date'] = Carbon::createFromTimestamp($slot['date_ts'])->toIso8601String();
+				}
+			}
 
 			return $pickup;
 		}, $pickups);

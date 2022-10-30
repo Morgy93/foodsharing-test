@@ -124,6 +124,43 @@ class PickupApiCest
 		]);
 	}
 
+	public function testSinglePickupHistoryInListExistsAndIsValid(\ApiTester $I)
+	{
+		$refDate = Carbon::now()->subYears(3)->subHours(8);
+		$I->haveInDatabase('fs_abholer', [
+			'betrieb_id' => $this->store['id'],
+			'foodsaver_id' => $this->storeCoordinator['id'],
+			'date' => $refDate
+		]);
+
+		$e = $I->grabFromDatabase('fs_abholer', 'date', [
+			'betrieb_id' => $this->store['id'],
+			'foodsaver_id' => $this->storeCoordinator['id']
+		]);
+
+		$startDate = $refDate->copy()->subYears(2);
+		$endDate = $refDate->copy()->addYears(2);
+
+		$I->login($this->storeCoordinator['email']);
+		$I->sendGET('api/stores/' . $this->store['id'] . '/history/' . $startDate->toIso8601String() . '/' . $endDate->toIso8601String());
+		$I->seeResponseCodeIs(HttpCode::OK);
+		$I->canSeeResponseContainsJson([
+			'pickups' => [
+				[
+					'occupiedSlots' => [
+						[
+							'profile' => [
+								'id' => $this->storeCoordinator['id']
+							],
+							'date' => $refDate->toIso8601String(),
+							'date_ts' => $refDate->timestamp,
+							'confirmed' => 0
+						]
+					]
+			]]
+		]);
+	}
+
 	public function cannotSignOutOfPastPickup(\ApiTester $I)
 	{
 		$pickupBaseDate = Carbon::now()->sub('2 days');
