@@ -13,7 +13,7 @@ dir=$(dirname "$0")
 # shellcheck source=./__helping-functions.sh
 source "$dir"/__helping-functions.sh
 
-if [[ ! $(dc ls --filter=name='foodsharing_test' | grep 'running') ]];
+if [[ ! $(dc ls --filter=name='foodsharing_test' | grep 'running(12)') ]];
 then
     log-header "Bringing up containers ..."
     dc up -d
@@ -37,6 +37,14 @@ then
     log-header "Waiting for assets to be generated ..."
     wait-for-assets
     exec-in-container app "bin/console assets:install"
+fi
+
+if ! sql-query mysql 'use foodsharing'; then
+    log-header "Initialize Database ..."
+    sql-query mysql "drop database if exists foodsharing; create database foodsharing"
+
+    log-header "Running migrations"
+    migratedb
 fi
 
 log-header "Running tests"

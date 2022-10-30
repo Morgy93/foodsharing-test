@@ -91,6 +91,7 @@
 - Show date inn preview of voting module !1408 @Friedrich-B
 - CreateEditStoreCept, should run smoother !2433 @sefn
 - Add margins to sendmail form buttons !2424 @diejani
+- StoreCest, improved and removed unnecessary elements !2434 @sefn
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
