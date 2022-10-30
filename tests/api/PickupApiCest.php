@@ -9,6 +9,8 @@ class PickupApiCest
 {
 	private $user;
 	private $store;
+	private $store2;
+	private $store3;
 	private $region;
 	private $waiter;
 
@@ -22,6 +24,12 @@ class PickupApiCest
 		$I->addStoreTeam($this->store['id'], $this->storeCoordinator['id'], true);
 		$this->waiter = $I->createFoodsaver();
 		$I->addStoreTeam($this->store['id'], $this->waiter['id'], false, true);
+		$this->store2 = $I->createStore($this->region['id'], null, null, ['use_region_pickup_rule' => 1]);
+		$I->addStoreTeam($this->store2['id'], $this->user['id']);
+		$this->store3 = $I->createStore($this->region['id'], null, null, ['use_region_pickup_rule' => 1]);
+		$I->addStoreTeam($this->store3['id'], $this->user['id']);
+		$this->store4 = $I->createStore($this->region['id'], null, null, ['use_region_pickup_rule' => 1]);
+		$I->addStoreTeam($this->store4['id'], $this->user['id']);
 	}
 
 	public function acceptsDifferentIsoFormats(\ApiTester $I)
@@ -185,5 +193,94 @@ class PickupApiCest
 		$I->haveHttpHeader('Content-Type', 'application/json');
 		$I->sendDELETE('api/stores/' . $this->store['id'] . '/pickups/' . $pickupBaseDate->toIso8601String() . '/' . $this->user['id'], ['sendKickMessage' => true, 'message' => 'Hallo']);
 		$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+	}
+
+	public function checkDistrictRules(\ApiTester $I)
+	{
+		/*
+			  Create PickupRule
+
+			7 days, max pickup 3 overall, max 2 per day, rule ignored 48 hours before pickup
+		*/
+		$I->createDistrictPickupRule((int)$this->region['id'], '7', '3', '2', '48');
+		$I->login($this->user['email']);
+
+		// Test for maximum 3 pickups in 7 days over multiple stores.
+		$pickupBaseDate = Carbon::now()->add('3 days');
+		$pickupBaseDate->hours(10)->minutes(00)->seconds(0);
+		$I->addPickup($this->store2['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->addPicker($this->store2['id'], $this->user['id'], ['date' => $pickupBaseDate]);
+
+		$pickupBaseDate = Carbon::now()->add('4 days');
+		$pickupBaseDate->hours(11)->minutes(00)->seconds(0);
+		$I->addPickup($this->store3['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->addPicker($this->store3['id'], $this->user['id'], ['date' => $pickupBaseDate]);
+
+		$pickupBaseDate = Carbon::now()->add('5 days');
+		$pickupBaseDate->hours(11)->minutes(00)->seconds(0);
+		$I->addPickup($this->store4['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+
+		// This signup is ok because it is the third one
+		$I->sendGET('api/stores/' . $this->store4['id'] . '/pickupRuleCheck/' . $pickupBaseDate->toIso8601String() . '/' . $this->user['id']);
+		$I->seeResponseIsJson();
+		$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+		$I->canSeeResponseContainsJson([
+			'result' => true
+		]);
+
+		// this signup breaks the rule as it is the fourth one
+		$I->addPicker($this->store4['id'], $this->user['id'], ['date' => $pickupBaseDate]);
+
+		$pickupBaseDate = Carbon::now()->add('6 days');
+		$pickupBaseDate->hours(11)->minutes(00)->seconds(0);
+		$I->addPickup($this->store4['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->sendGET('api/stores/' . $this->store4['id'] . '/pickupRuleCheck/' . $pickupBaseDate->toIso8601String() . '/' . $this->user['id']);
+		$I->seeResponseIsJson();
+		$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+		$I->canSeeResponseContainsJson([
+			'result' => false
+		]);
+
+		// Test for third signups on the same day over multiple stores
+		$pickupBaseDate = Carbon::now()->add('20 days');
+		$pickupBaseDate->hours(10)->minutes(00)->seconds(0);
+		$I->addPickup($this->store2['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->addPicker($this->store2['id'], $this->user['id'], ['date' => $pickupBaseDate]);
+
+		$pickupBaseDate = Carbon::now()->add('20 days');
+		$pickupBaseDate->hours(11)->minutes(00)->seconds(0);
+		$I->addPickup($this->store3['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->addPicker($this->store3['id'], $this->user['id'], ['date' => $pickupBaseDate]);
+
+		$pickupBaseDate = Carbon::now()->add('20 days');
+		$pickupBaseDate->hours(12)->minutes(00)->seconds(0);
+		$I->addPickup($this->store4['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->sendGET('api/stores/' . $this->store4['id'] . '/pickupRuleCheck/' . $pickupBaseDate->toIso8601String() . '/' . $this->user['id']);
+		$I->seeResponseIsJson();
+		$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+		$I->canSeeResponseContainsJson([
+			'result' => false
+		]);
+
+		// test for ignoring of the rule if signup date is closer then ignorerulehours
+		$pickupBaseDate = Carbon::now()->addDay();
+		$pickupBaseDate->hours(10)->minutes(00)->seconds(0);
+		$I->addPickup($this->store2['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->addPicker($this->store2['id'], $this->user['id'], ['date' => $pickupBaseDate]);
+
+		$pickupBaseDate = Carbon::now()->addDay();
+		$pickupBaseDate->hours(11)->minutes(00)->seconds(0);
+		$I->addPickup($this->store4['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->addPicker($this->store4['id'], $this->user['id'], ['date' => $pickupBaseDate]);
+
+		$pickupBaseDate = Carbon::now()->addDay();
+		$pickupBaseDate->hours(12)->minutes(00)->seconds(0);
+		$I->addPickup($this->store4['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+		$I->sendGET('api/stores/' . $this->store4['id'] . '/pickupRuleCheck/' . $pickupBaseDate->toIso8601String() . '/' . $this->user['id']);
+		$I->seeResponseIsJson();
+		$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+		$I->canSeeResponseContainsJson([
+			'result' => true
+		]);
 	}
 }

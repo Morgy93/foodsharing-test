@@ -4,6 +4,7 @@ namespace Foodsharing\Modules\StoreUser;
 
 use Carbon\Carbon;
 use Foodsharing\Modules\Core\Control;
+use Foodsharing\Modules\Core\DBConstants\Region\RegionOptionType;
 use Foodsharing\Modules\Core\DBConstants\Region\WorkgroupFunction;
 use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Group\GroupFunctionGateway;
@@ -106,6 +107,12 @@ class StoreUserControl extends Control
 					'storeTitle' => $store['name'],
 					'collectionQuantity' => $this->weightHelper->getFetchWeightName($store['abholmenge']),
 					'press' => $store['presse'],
+					'regionPickupRules' => (bool)$store['use_region_pickup_rule'],
+					'regionPickupRuleActive' => (bool)$this->regionGateway->getRegionOption((int)$store['bezirk_id'], RegionOptionType::REGION_PICKUP_RULE_ACTIVE),
+					'regionPickupRuleTimespan' => $this->regionGateway->getRegionOption((int)$store['bezirk_id'], RegionOptionType::REGION_PICKUP_RULE_TIMESPAN_DAYS),
+					'regionPickupRuleLimit' => $this->regionGateway->getRegionOption((int)$store['bezirk_id'], RegionOptionType::REGION_PICKUP_RULE_LIMIT_NUMBER),
+					'regionPickupRuleLimitDay' => $this->regionGateway->getRegionOption((int)$store['bezirk_id'], RegionOptionType::REGION_PICKUP_RULE_LIMIT_DAY_NUMBER),
+					'regionPickupRuleInactive' => $this->regionGateway->getRegionOption((int)$store['bezirk_id'], RegionOptionType::REGION_PICKUP_RULE_INACTIVE_HOURS),
 				]), CNT_RIGHT);
 
 				/* options menu */

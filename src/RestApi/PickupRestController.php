@@ -636,4 +636,27 @@ final class PickupRestController extends AbstractFOSRestController
 			throw new BadRequestHttpException(json_encode($relevantErrorContent));
 		}
 	}
+
+	/**
+	 * Validation of PickupRuleCheck.
+	 *
+	 * @OA\Tag(name="pickup")
+	 * @Rest\Get("stores/{storeId}/pickupRuleCheck/{pickupDate}/{fsId}", requirements={"storeId" = "\d+", "pickupDate" = "[^/]+", "fsId" = "\d+"})"
+	 */
+	public function passesPickupRule(int $storeId, string $pickupDate, int $fsId): Response
+	{
+		if (!$this->session->may()) {
+			throw new UnauthorizedHttpException('');
+		}
+
+		// is it a valid pickupdate?
+		$pickupSlotDate = TimeHelper::parsePickupDate($pickupDate);
+		if (is_null($pickupSlotDate)) {
+			throw new BadRequestHttpException('Invalid date format');
+		}
+
+		$response['result'] = $this->storeTransactions->checkPickupRule($storeId, $pickupSlotDate, $fsId);
+
+		return $this->handleView($this->view($response));
+	}
 }

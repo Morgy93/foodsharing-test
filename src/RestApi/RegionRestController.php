@@ -214,22 +214,46 @@ class RegionRestController extends AbstractFOSRestController
 	 * @Rest\Post("region/{regionId}/options", requirements={"regionId" = "\d+"})
 	 * @Rest\RequestParam(name="enableReportButton")
 	 * @Rest\RequestParam(name="enableMediationButton")
+	 * @Rest\RequestParam(name="regionPickupRuleActive")
+	 * @Rest\RequestParam(name="regionPickupRuleTimespan")
+	 * @Rest\RequestParam(name="regionPickupRuleLimit")
+	 * @Rest\RequestParam(name="regionPickupRuleLimitDay")
+	 * @Rest\RequestParam(name="regionPickupRuleInactive")
 	 */
 	public function setRegionOptions(ParamFetcher $paramFetcher, int $regionId): Response
 	{
 		if (!$this->session->may()) {
 			throw new UnauthorizedHttpException('');
 		}
-		if (!$this->regionPermissions->maySetRegionOptions($regionId)) {
+		if (!$this->regionPermissions->maySetRegionOptionsReportButtons($regionId) && !$this->regionPermissions->maySetRegionOptionsRegionPickupRule($regionId)) {
 			throw new AccessDeniedHttpException();
 		}
 
 		$params = $paramFetcher->all();
-		if (isset($params['enableReportButton'])) {
-			$this->regionGateway->setRegionOption($regionId, RegionOptionType::ENABLE_REPORT_BUTTON, strval(intval($params['enableReportButton'])));
+		if ($this->regionPermissions->maySetRegionOptionsReportButtons($regionId)) {
+			if (isset($params['enableReportButton'])) {
+				$this->regionGateway->setRegionOption($regionId, RegionOptionType::ENABLE_REPORT_BUTTON, strval(intval($params['enableReportButton'])));
+			}
+			if (isset($params['enableMediationButton'])) {
+				$this->regionGateway->setRegionOption($regionId, RegionOptionType::ENABLE_MEDIATION_BUTTON, strval(intval($params['enableMediationButton'])));
+			}
 		}
-		if (isset($params['enableMediationButton'])) {
-			$this->regionGateway->setRegionOption($regionId, RegionOptionType::ENABLE_MEDIATION_BUTTON, strval(intval($params['enableMediationButton'])));
+		if ($this->regionPermissions->maySetRegionOptionsRegionPickupRule($regionId)) {
+			if (isset($params['regionPickupRuleActive'])) {
+				$this->regionGateway->setRegionOption($regionId, RegionOptionType::REGION_PICKUP_RULE_ACTIVE, strval(intval($params['regionPickupRuleActive'])));
+			}
+			if (isset($params['regionPickupRuleTimespan'])) {
+				$this->regionGateway->setRegionOption($regionId, RegionOptionType::REGION_PICKUP_RULE_TIMESPAN_DAYS, strval(intval($params['regionPickupRuleTimespan'])));
+			}
+			if (isset($params['regionPickupRuleLimit'])) {
+				$this->regionGateway->setRegionOption($regionId, RegionOptionType::REGION_PICKUP_RULE_LIMIT_NUMBER, strval(intval($params['regionPickupRuleLimit'])));
+			}
+			if (isset($params['regionPickupRuleLimitDay'])) {
+				$this->regionGateway->setRegionOption($regionId, RegionOptionType::REGION_PICKUP_RULE_LIMIT_DAY_NUMBER, strval(intval($params['regionPickupRuleLimitDay'])));
+			}
+			if (isset($params['regionPickupRuleInactive'])) {
+				$this->regionGateway->setRegionOption($regionId, RegionOptionType::REGION_PICKUP_RULE_INACTIVE_HOURS, strval(intval($params['regionPickupRuleInactive'])));
+			}
 		}
 
 		return $this->handleView($this->view([], 200));
