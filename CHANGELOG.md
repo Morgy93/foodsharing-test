@@ -114,6 +114,7 @@
 - Renmae Region\Type -> Unit\UnitType to make it search able and clear !2352 @KoeMai
 - Removed unused private functions in the backend !2425 @alex.simm
 - Improve documentation tooling for OpenAPI RequestBody !2421 @KoeMai
+- Store TeamStatus moved to vue and REST API !2453 @chriswalg
 
 ## Dev/Test/CI stuff
 - Added Gitpod and refactored permissions !2386 !2399 !2402 !2428 @sefn @chriswalg
