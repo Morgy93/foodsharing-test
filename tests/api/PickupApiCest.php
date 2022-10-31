@@ -132,6 +132,63 @@ class PickupApiCest
 		]);
 	}
 
+	public function testListPickupWithHistoryShowFutureAndHistory(\ApiTester $I)
+	{
+		$pickupBaseDate = Carbon::now();
+		$pickupBaseDate->hours(16)->minutes(55)->seconds(0);
+
+		// Pickup in future
+		$I->addPickup($this->store['id'], ['time' => $pickupBaseDate, 'fetchercount' => 2]);
+
+		// Pickup 3 hours ago - manual planed
+		$manualPickup3HoursBeforeDate = $pickupBaseDate->copy()->subHours(3);
+		$I->addPickup($this->store['id'], ['time' => $manualPickup3HoursBeforeDate, 'fetchercount' => 1]);
+		$I->addPicker($this->store['id'], $this->user['id'], ['date' => $manualPickup3HoursBeforeDate]);
+
+		// Pickup 5 hours ago - regular replaced by manual planed
+		$regularPickup5HoursBeforeDate = $pickupBaseDate->copy()->subHours(5);
+		$I->addRecurringPickup($this->store['id'], [
+			'dow' => $regularPickup5HoursBeforeDate->dayOfWeek,
+			'time' => sprintf('%02d:%s:00', $regularPickup5HoursBeforeDate->hour, $pickupBaseDate->minute),
+			'fetcher' => 3
+		]);
+		$I->addPickup($this->store['id'], ['time' => $regularPickup5HoursBeforeDate, 'fetchercount' => 3]);
+		$I->addPicker($this->store['id'], $this->user['id'], ['date' => $regularPickup5HoursBeforeDate]);
+
+		// Pickup 1 hour ago - regular planed (not replaced by manual planed)
+		$regularPickup1HoursBeforeDate = $pickupBaseDate->copy()->subHours(1);
+		$I->addRecurringPickup($this->store['id'], [
+			'dow' => $regularPickup1HoursBeforeDate->dayOfWeek,
+			'time' => sprintf('%02d:%s:00', $regularPickup1HoursBeforeDate->hour, $pickupBaseDate->minute),
+			'fetcher' => 3
+		]);
+		$I->addPicker($this->store['id'], $this->user['id'], ['date' => $regularPickup1HoursBeforeDate]);
+
+		// Test
+		$I->login($this->user['email']);
+		$I->sendGET('api/stores/' . $this->store['id'] . '/pickups');
+		$I->seeResponseCodeIs(HttpCode::OK);
+		$I->canSeeResponseContainsJson([
+			'pickups' => [[
+				'date' => $pickupBaseDate->toIso8601String(),
+				'totalSlots' => 2,
+				'occupiedSlots' => [],
+				'isAvailable' => true
+				], [
+			'date' => $manualPickup3HoursBeforeDate->toIso8601String(),
+			'totalSlots' => 1,
+			'occupiedSlots' => [['isConfirmed' => true, 'profile' => ['id' => $this->user['id']]]],
+			'isAvailable' => false
+			],
+			[
+				'date' => $regularPickup1HoursBeforeDate->toIso8601String(),
+				'totalSlots' => 3,
+				'occupiedSlots' => [['isConfirmed' => true, 'profile' => ['id' => $this->user['id']]]],
+				'isAvailable' => true
+				]]
+		]);
+	}
+
 	public function testSinglePickupHistoryInListExistsAndIsValid(\ApiTester $I)
 	{
 		$refDate = Carbon::now()->subYears(3)->subHours(8);
