@@ -423,12 +423,16 @@ final class PickupRestController extends AbstractFOSRestController
 		});
 
 		$pickups = array_map(function ($pickup) {
+			// Check required for history (does not contain dates)
 			if (!empty($pickup['date'])) {
+				// List of last and future and only future have a date on highest level
 				$pickup['date'] = $pickup['date']->toIso8601String();
 			}
 
-			if (!empty($pickup['occupiedSlots'])) {
-				foreach ($pickup['occupiedSlots'] as &$slot) {
+			foreach ($pickup['occupiedSlots'] as &$slot) {
+				// Check required for list of last and future pickups
+				if (!empty($slot['date'])) {
+					// Time convertation needed for history
 					$slot['date'] = Carbon::createFromTimestamp($slot['date_ts'])->toIso8601String();
 				}
 			}
