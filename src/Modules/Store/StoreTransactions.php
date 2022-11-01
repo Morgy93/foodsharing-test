@@ -263,6 +263,11 @@ class StoreTransactions
 
 	public function joinPickup(int $storeId, Carbon $date, int $fsId, int $issuerId = null): bool
 	{
+		if ($fsId != $issuerId) {
+			/* currently it is forbidden to add other users to a pickup */
+			throw new StoreTransactionException(StoreTransactionException::NO_PICKUP_OTHER_USER);
+		}
+
 		$confirmed = $this->pickupIsPreconfirmed($storeId, $issuerId);
 
 		/* Never occupy more slots than available */
@@ -275,8 +280,10 @@ class StoreTransactions
 				throw new \DomainException('District Pickup Rule violated');
 			}
 		} else {
-			throw new \DomainException('No pickup slot available');
+			throw new StoreTransactionException(StoreTransactionException::NO_PICKUP_SLOT_AVAILABLE);
 		}
+
+		$this->storeGateway->addStoreLog($storeId, $fsId, null, $date, StoreLogAction::SIGN_UP_SLOT);
 
 		return $confirmed;
 	}

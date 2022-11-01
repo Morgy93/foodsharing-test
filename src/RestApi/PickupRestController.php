@@ -13,6 +13,7 @@ use Foodsharing\Modules\Store\PickupGateway;
 use Foodsharing\Modules\Store\PickupTransactions;
 use Foodsharing\Modules\Store\PickupValidationException;
 use Foodsharing\Modules\Store\StoreGateway;
+use Foodsharing\Modules\Store\StoreTransactionException;
 use Foodsharing\Modules\Store\StoreTransactions;
 use Foodsharing\Permissions\ProfilePermissions;
 use Foodsharing\Permissions\StorePermissions;
@@ -57,10 +58,7 @@ final class PickupRestController extends AbstractFOSRestController
 		if (!$this->session->id()) {
 			throw new UnauthorizedHttpException('');
 		}
-		if ($fsId != $this->session->id()) {
-			/* currently it is forbidden to add other users to a pickup */
-			throw new AccessDeniedHttpException();
-		}
+
 		if (!$this->storePermissions->mayDoPickup($storeId)) {
 			throw new AccessDeniedHttpException();
 		}
@@ -70,13 +68,15 @@ final class PickupRestController extends AbstractFOSRestController
 			throw new BadRequestHttpException('Invalid date format');
 		}
 
-		$isConfirmed = $this->storeTransactions->joinPickup($storeId, $date, $fsId, $this->session->id());
+		try {
+			$isConfirmed = $this->storeTransactions->joinPickup($storeId, $date, $fsId, $this->session->id());
 
-		$this->storeGateway->addStoreLog($storeId, $fsId, null, $date, StoreLogAction::SIGN_UP_SLOT);
-
-		return $this->handleView($this->view([
-			'isConfirmed' => $isConfirmed
-		], 200));
+			return $this->handleView($this->view([
+					'isConfirmed' => $isConfirmed
+				], 200));
+		} catch (StoreTransactionException $ex) {
+			throw new AccessDeniedHttpException($ex->getMessage(), $ex);
+		}
 	}
 
 	/**

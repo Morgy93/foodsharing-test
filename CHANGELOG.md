@@ -92,6 +92,7 @@
 - Show date inn preview of voting module !1408 @Friedrich-B
 - CreateEditStoreCept, should run smoother !2433 @sefn
 - Add margins to sendmail form buttons !2424 @diejani
+- Clean up pickup endpoint and catch DomainException: No pickup slot available problems !1407 @KoeMai
 - StoreCest, improved and removed unnecessary elements !2434 @sefn
 
 ## Refactoring
