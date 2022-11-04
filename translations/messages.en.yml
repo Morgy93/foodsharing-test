@@ -1215,9 +1215,12 @@ email_template:
   information: Information
   unknown_email2: The e-mail address %ADDRESS% is not known.
   unknown_email: Unkown e-mail address
-  manual_slots_get_ignored: Unfortunately, this notification is currently only sent
-    for automatic collection dates. Manually created, overwritten or deleted slots
-    are therefore not taken into account at the moment.
+  manual_slots_get_ignored: Unfortunately, this notification is currently only sent,
+    if no-one has signed up for regular pick-ups. Manually created, overwritten or
+    deleted slots are therefore not taken into account at the moment. In order to
+    cease receiving this notification, remove the regular pick-up slots from the company
+    page by clicking on the pen-icon near the pick-up slots and remove the unwanted
+    ones.
   find_someone: Please look for someone from the team as soon as possible so that
     the pick-up can take place. If you can't mobilise anyone, it would be nice if
     you could perform the pick-up. If this is not possible for you, please cancel
@@ -2028,8 +2031,10 @@ language_chooser:
   title: "Choose language"
   content: "Please choose a language"
   choose_button: "Update"
-  translation_help: "You speak other languages? Foodsharing is always looking for helpers to translate"
-  translation_help_info_text: "This link leads to the translation portal, there click on the pen to get started"
+  translation_help: "You speak other languages? Foodsharing is always looking for\
+    \ helpers to translate"
+  translation_help_info_text: "This link leads to the translation portal, there click\
+    \ on the pen to get started"
 plz: Post code (automatically filled by the map above)
 fsp:
   twig:
@@ -2495,6 +2500,8 @@ regionOptions:
   save: Save options
   success: Options saved successfully
   header_page: Settings for {bezirk}
+  regionPickupInactiveHours: 'Please indicate how many hours before the pick-up this
+    rule shall cease to be implemented:'
 list:
   filter_for: filter for …
 startpage:
