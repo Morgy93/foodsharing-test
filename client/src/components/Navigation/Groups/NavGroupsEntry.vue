@@ -16,8 +16,8 @@
       v-html="entry.name"
     />
     <b-collapse
-      :visible="isAlone"
       :id="toggleId(entry.id)"
+      :visible="isAlone"
       class="dropdown-submenu"
       accordion="groups"
     >

@@ -36,7 +36,6 @@ All scripts can be run with `./scripts/[script]`.
 | `containers-start`                          | dev           | Start the docker-containers and clears assets |
 | `containers-restart`                        | dev           | Restarts the docker-containers and clears the assets-folder |
 | `containers-stop [env]`                     | dev|test      | Stops the docker-containers |
-| `containers-remove`                         |               | Removes anything added by `start`/`test` scripts |
 
 ## Database `scripts`
 | Script                                      | ENV           | Description                                                                           |
