@@ -64,7 +64,7 @@ class ReportRestController extends AbstractFOSRestController
 	 */
 	public function listReportsForRegionAction(int $regionId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -123,7 +123,7 @@ class ReportRestController extends AbstractFOSRestController
 	 */
 	public function addReportAction(ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 		$this->reportGateway->addBetriebReport(

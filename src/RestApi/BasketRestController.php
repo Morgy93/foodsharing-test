@@ -88,7 +88,7 @@ final class BasketRestController extends AbstractFOSRestController
 		$baskets = [];
 		switch ($paramFetcher->get('type')) {
 			case 'mine':
-				if (!$this->session->may()) {
+				if (!$this->session->mayRole()) {
 					throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 				}
 				$baskets = $this->getCurrentUsersBaskets();
@@ -116,7 +116,7 @@ final class BasketRestController extends AbstractFOSRestController
 	 */
 	public function listNearbyBasketsAction(ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -202,7 +202,7 @@ final class BasketRestController extends AbstractFOSRestController
 	 */
 	public function getBasketAction(int $basketId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -285,7 +285,7 @@ final class BasketRestController extends AbstractFOSRestController
 	 */
 	public function addBasketAction(ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -341,7 +341,7 @@ final class BasketRestController extends AbstractFOSRestController
 	 */
 	public function removeBasketAction(int $basketId): ?Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 		$basket = $this->gateway->getBasket($basketId);
@@ -376,7 +376,7 @@ final class BasketRestController extends AbstractFOSRestController
 	 */
 	public function editBasketAction(int $basketId, ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -413,7 +413,7 @@ final class BasketRestController extends AbstractFOSRestController
 	 */
 	public function setPictureAction(int $basketId, Request $request): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -460,7 +460,7 @@ final class BasketRestController extends AbstractFOSRestController
 	 */
 	public function removePictureAction(int $basketId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -486,7 +486,7 @@ final class BasketRestController extends AbstractFOSRestController
 	 */
 	public function requestBasketAction(int $basketId, ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -524,7 +524,7 @@ final class BasketRestController extends AbstractFOSRestController
 	 */
 	public function withdrawBasketRequestAction(int $basketId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 

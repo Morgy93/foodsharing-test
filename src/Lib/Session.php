@@ -165,14 +165,6 @@ class Session
 	}
 
 	/**
-	 * @deprecated use [mayRole] instead
-	 */
-	public function may(string $role = 'user')
-	{
-		return $this->mayRole($this->roleKeysInverse[$role]);
-	}
-
-	/**
 	 * Checks if the current user has at least the specified role.
 	 *
 	 * @param int $role a {@see Role} constant
@@ -438,7 +430,7 @@ class Session
 
 	public function mayBezirk($regionId): bool
 	{
-		return isset($_SESSION['client']['bezirke'][$regionId]) || $this->isAdminFor($regionId) || $this->may('orga');
+		return isset($_SESSION['client']['bezirke'][$regionId]) || $this->isAdminFor($regionId) || $this->mayRole(Role::ORGA);
 	}
 
 	public function mayIsStoreResponsible($storeId)
@@ -457,7 +449,7 @@ class Session
 
 	public function isVerified()
 	{
-		if ($this->may('orga')) {
+		if ($this->mayRole(Role::ORGA)) {
 			return true;
 		}
 

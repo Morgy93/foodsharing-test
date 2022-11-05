@@ -145,7 +145,7 @@ class BasketView extends View
 
 		$page->setSubTitle($this->getSubtitle($basket));
 
-		if ($this->session->may()) {
+		if ($this->session->mayRole()) {
 			$page->addSection($this->v_utils->v_info($this->translator->trans('basket.howto')));
 
 			$label = $this->translator->trans('basket.provider');

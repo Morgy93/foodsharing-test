@@ -46,7 +46,7 @@ class WorkingGroupRestController extends AbstractFOSRestController
 	 */
 	public function addMember(int $groupId, int $memberId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 

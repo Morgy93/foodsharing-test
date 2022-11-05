@@ -331,7 +331,7 @@ class ProfileView extends View
 				. '</a>';
 		}
 
-		if ($this->session->may('fs')) {
+		if ($this->session->mayRole(Role::FOODSAVER)) {
 			$label = $this->translator->trans('profile.stats.posts');
 			$stats[] = $this->renderStat($this->foodsaver['stat_postcount'], '', $label, 'stat_postcount');
 		}
@@ -351,7 +351,7 @@ class ProfileView extends View
 
 	private function renderBananas(): string
 	{
-		if (!$this->session->may('fs')) {
+		if (!$this->session->mayRole(Role::FOODSAVER)) {
 			return '';
 		}
 
@@ -410,7 +410,7 @@ class ProfileView extends View
 		if (
 			$this->foodsaver['id'] != $this->session->id()
 			&& $this->foodsaver['rolle'] > Role::FOODSHARER
-			&& $this->session->may('fs')
+			&& $this->session->mayRole(Role::FOODSAVER)
 		) {
 			$infos = $this->renderFoodsaverTeamMemberInformation($infos);
 		}
@@ -509,7 +509,7 @@ class ProfileView extends View
 		if ($this->foodsaver['orga']) {
 			$ambassador = [];
 			foreach ($this->foodsaver['orga'] as $foodsaver) {
-				if ($this->session->may('orga')) {
+				if ($this->session->mayRole(Role::FOODSAVER)) {
 					$ambassador[$foodsaver['id']] = '<a class="light" href="/?page=bezirk&bid=' . $foodsaver['id'] . '&sub=forum">' . $foodsaver['name'] . '</a>';
 				} else {
 					$ambassador[$foodsaver['id']] = $foodsaver['name'];

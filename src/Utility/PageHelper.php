@@ -3,6 +3,7 @@
 namespace Foodsharing\Utility;
 
 use Foodsharing\Lib\Session;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Permissions\BlogPermissions;
@@ -108,11 +109,11 @@ final class PageHelper
 
 		$bodyClasses = [];
 
-		if ($this->session->may()) {
+		if ($this->session->mayRole()) {
 			$bodyClasses[] = 'loggedin';
 		}
 
-		if ($this->session->may('fs')) {
+		if ($this->session->mayRole(Role::FOODSAVER)) {
 			$bodyClasses[] = 'fs';
 		}
 
@@ -171,16 +172,16 @@ final class PageHelper
 			'id' => $this->session->id(),
 			'firstname' => $user['name'] ?? '',
 			'lastname' => $user['nachname'] ?? '',
-			'may' => $this->session->may(),
+			'may' => $this->session->mayRole(),
 			'homeRegionId' => $user['bezirk_id'] ?? null,
 			'mailBoxId' => $user['mailbox_id'] ?? null,
-			'isFoodsaver' => $this->session->may('fs') ? true : false,
+			'isFoodsaver' => $this->session->mayRole(Role::FOODSAVER) ? true : false,
 			'verified' => $this->session->isVerified(),
 			'avatar' => $user['photo'] ?? null,
 		];
 
 		$permissions = null;
-		if ($this->session->may()) {
+		if ($this->session->mayRole()) {
 			$userData['token'] = $this->session->user('token');
 			$permissions = $this->getPermissions();
 		}

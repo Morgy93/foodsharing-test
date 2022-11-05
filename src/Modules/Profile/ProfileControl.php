@@ -51,7 +51,7 @@ final class ProfileControl extends Control
 		$data = $this->profileGateway->getData($profileId, $viewerId, $this->reportPermissions->mayHandleReports());
 		$isRemoved = (!$data) || isset($data['deleted_at']);
 
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			$this->profilePublic($data);
 
 			return;

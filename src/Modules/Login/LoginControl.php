@@ -39,7 +39,7 @@ class LoginControl extends Control
 
 	public function index(Request $request, Response $response)
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			$has_subpage = $request->query->has('sub');
 			if (!$has_subpage) {
 				$this->pageHelper->addContent($this->view->loginForm());

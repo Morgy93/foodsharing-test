@@ -6,6 +6,7 @@ use Foodsharing\Modules\Bell\BellGateway;
 use Foodsharing\Modules\Bell\DTO\Bell;
 use Foodsharing\Modules\Core\Control;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
@@ -53,7 +54,7 @@ class StoreControl extends Control
 
 		parent::__construct();
 
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			$this->routeHelper->goLogin();
 		}
 	}
@@ -69,7 +70,7 @@ class StoreControl extends Control
 			$regionId = $this->session->getCurrentRegionId();
 		}
 
-		if (!$this->session->may('orga') && $regionId == 0) {
+		if (!$this->session->mayRole(Role::ORGA) && $regionId == 0) {
 			$regionId = $this->session->getCurrentRegionId();
 		}
 		if ($regionId > 0) {

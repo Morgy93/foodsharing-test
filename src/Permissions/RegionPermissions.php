@@ -27,28 +27,28 @@ final class RegionPermissions
 	{
 		$type = $this->regionGateway->getType($regionId);
 
-		return $this->session->may('fs') && UnitType::isAccessibleRegion($type);
+		return $this->session->mayRole(Role::FOODSAVER) && UnitType::isAccessibleRegion($type);
 	}
 
 	public function mayAdministrateRegions(): bool
 	{
-		return $this->session->may('orga');
+		return $this->session->mayRole(Role::ORGA);
 	}
 
 	public function maySetRegionAdmin(): bool
 	{
-		return $this->session->may('orga');
+		return $this->session->mayRole(Role::ORGA);
 	}
 
 	public function mayRemoveRegionAdmin(): bool
 	{
-		return $this->session->may('orga');
+		return $this->session->mayRole(Role::ORGA);
 	}
 
 	public function mayAdministrateWorkgroupFunction(int $wgfunction): bool
 	{
 		if (WorkgroupFunction::isRestrictedWorkgroupFunction($wgfunction)) {
-			return $this->session->may('orga') && $this->session->isAdminFor(RegionIDs::CREATING_WORK_GROUPS_WORK_GROUP);
+			return $this->session->mayRole(Role::ORGA) && $this->session->isAdminFor(RegionIDs::CREATING_WORK_GROUPS_WORK_GROUP);
 		}
 
 		return true;
@@ -56,7 +56,7 @@ final class RegionPermissions
 
 	public function mayAccessStatisticCountry(): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 
@@ -65,7 +65,7 @@ final class RegionPermissions
 
 	public function mayHandleFoodsaverRegionMenu(int $regionId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 
@@ -100,7 +100,7 @@ final class RegionPermissions
 
 	public function maySetRegionPin(int $regionId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 
@@ -127,7 +127,7 @@ final class RegionPermissions
 
 	public function maySeeRegionMembers(int $regionId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 

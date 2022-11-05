@@ -65,7 +65,7 @@ class EmailControl extends Control
 			$g_data['message'] = '<p><strong>{ANREDE} {NAME}</strong><br /><br /><br />';
 		}
 
-		$boxes = $this->mailboxGateway->getBoxes($this->session->isAmbassador(), $this->session->id(), $this->session->may('bieb'));
+		$boxes = $this->mailboxGateway->getBoxes($this->session->isAmbassador(), $this->session->id(), $this->session->mayRole(Role::STORE_MANAGER));
 		foreach ($boxes as $key => $b) {
 			$boxes[$key]['name'] = $b['name'] . '@' . NOREPLY_EMAIL_HOST;
 		}

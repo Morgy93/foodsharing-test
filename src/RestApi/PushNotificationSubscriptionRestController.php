@@ -56,7 +56,7 @@ class PushNotificationSubscriptionRestController extends AbstractFOSRestControll
 			throw new NotFoundHttpException();
 		}
 
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -80,7 +80,7 @@ class PushNotificationSubscriptionRestController extends AbstractFOSRestControll
 			throw new NotFoundHttpException();
 		}
 
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 

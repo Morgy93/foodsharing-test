@@ -68,7 +68,7 @@ class GroupRestController extends AbstractFOSRestController
 	 */
 	public function joinConferenceAction(RegionGateway $regionGateway, RegionPermissions $regionPermissions, BigBlueButton $bbb, int $groupId, ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		if (!in_array($groupId, $this->session->listRegionIDs())) {
@@ -113,7 +113,7 @@ class GroupRestController extends AbstractFOSRestController
 	 */
 	public function listMyWorkingGroups(): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		$fsId = $this->session->id();

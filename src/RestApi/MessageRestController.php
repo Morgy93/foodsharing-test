@@ -40,7 +40,7 @@ class MessageRestController extends AbstractFOSRestController
 	 */
 	public function markConversationReadAction(int $conversationId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		if (!$this->messageGateway->mayConversation($this->session->id(), $conversationId)) {
@@ -60,7 +60,7 @@ class MessageRestController extends AbstractFOSRestController
 	 */
 	public function getConversationMessagesAction(int $conversationId, ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		if (!$this->messageGateway->mayConversation($this->session->id(), $conversationId)) {
@@ -93,7 +93,7 @@ class MessageRestController extends AbstractFOSRestController
 	 */
 	public function getConversationAction(int $conversationId, ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		if (!$this->messageGateway->mayConversation($this->session->id(), $conversationId)) {
@@ -142,7 +142,7 @@ class MessageRestController extends AbstractFOSRestController
 	 */
 	public function createConversationAction(ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -168,7 +168,7 @@ class MessageRestController extends AbstractFOSRestController
 	 */
 	public function getConversationsAction(ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -190,7 +190,7 @@ class MessageRestController extends AbstractFOSRestController
 	 */
 	public function sendMessageAction(int $conversationId, ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		if (!$this->messageGateway->mayConversation($this->session->id(), $conversationId)) {
@@ -209,7 +209,7 @@ class MessageRestController extends AbstractFOSRestController
 	 */
 	public function patchConversationAction(int $conversationId, ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may() || !$this->messageGateway->mayConversation($this->session->id(), $conversationId)) {
+		if (!$this->session->mayRole() || !$this->messageGateway->mayConversation($this->session->id(), $conversationId)) {
 			throw new UnauthorizedHttpException('');
 		}
 		if ($this->messageGateway->isConversationLocked($conversationId)) {
@@ -234,7 +234,7 @@ class MessageRestController extends AbstractFOSRestController
 		/* only allow users to remove themselves from conversations */
 		throw new AccessDeniedHttpException();
 		/*
-		if (!$this->session->may() || $userId !== $this->session->id()) {
+		if (!$this->session->mayRole() || $userId !== $this->session->id()) {
 			throw new AccessDeniedHttpException();
 		}
 		if (!$this->messageTransactions->deleteUserFromConversation($conversationId, $userId)) {
@@ -251,7 +251,7 @@ class MessageRestController extends AbstractFOSRestController
 	 */
 	public function getUserConversationAction(int $userId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		if ($userId == $this->session->id()) {

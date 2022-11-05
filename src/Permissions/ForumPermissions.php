@@ -3,6 +3,7 @@
 namespace Foodsharing\Permissions;
 
 use Foodsharing\Lib\Session;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Region\ThreadStatus;
 use Foodsharing\Modules\Core\DBConstants\Region\WorkgroupFunction;
 use Foodsharing\Modules\Group\GroupFunctionGateway;
@@ -50,7 +51,7 @@ class ForumPermissions
 
 	public function mayPostToRegion(int $regionId, $ambassadorForum): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 
@@ -84,7 +85,7 @@ class ForumPermissions
 
 	public function mayModerate(int $threadId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 		$forums = $this->forumGateway->getForumsForThread($threadId);
@@ -105,7 +106,7 @@ class ForumPermissions
 
 	public function mayAccessThread(int $threadId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 
@@ -126,7 +127,7 @@ class ForumPermissions
 
 	public function mayChangeStickiness(int $regionId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 
@@ -145,7 +146,7 @@ class ForumPermissions
 
 	public function mayDeletePost(array $post): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 		if ($post['author_id'] == $this->session->id()) {

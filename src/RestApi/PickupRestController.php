@@ -564,7 +564,7 @@ final class PickupRestController extends AbstractFOSRestController
 		$page = (int)$paramFetcher->get('page');
 		$pageSize = (int)$paramFetcher->get('pageSize');
 		$id = $this->session->id();
-		if (!$this->session->may() || !$this->storePermissions->maySeePickupOptions($id)) {
+		if (!$this->session->mayRole() || !$this->storePermissions->maySeePickupOptions($id)) {
 			throw new AccessDeniedHttpException();
 		}
 
@@ -649,7 +649,7 @@ final class PickupRestController extends AbstractFOSRestController
 	 */
 	public function passesPickupRule(int $storeId, string $pickupDate, int $fsId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 

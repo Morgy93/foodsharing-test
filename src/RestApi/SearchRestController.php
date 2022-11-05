@@ -3,6 +3,7 @@
 namespace Foodsharing\RestApi;
 
 use Foodsharing\Lib\Session;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionIDs;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
@@ -48,7 +49,7 @@ class SearchRestController extends AbstractFOSRestController
 	 */
 	public function getSearchLegacyIndexAction(): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new AccessDeniedHttpException();
 		}
 		$data = $this->searchTransactions->generateIndex();
@@ -83,7 +84,7 @@ class SearchRestController extends AbstractFOSRestController
 			if (!empty($regionId)) {
 				$regions = [$regionId];
 			} elseif (in_array(RegionIDs::EUROPE_WELCOME_TEAM, $this->session->listRegionIDs(), true) ||
-				$this->session->may('orga')) {
+				$this->session->mayRole(Role::ORGA)) {
 				$regions = null;
 			} else {
 				$regions = array_column(array_filter(
@@ -126,7 +127,7 @@ class SearchRestController extends AbstractFOSRestController
 	 */
 	public function searchAction(ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 

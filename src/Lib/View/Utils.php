@@ -3,6 +3,7 @@
 namespace Foodsharing\Lib\View;
 
 use Foodsharing\Lib\Session;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Utility\DataHelper;
 use Foodsharing\Utility\IdentificationHelper;
 use Foodsharing\Utility\PageHelper;
@@ -81,7 +82,7 @@ class Utils
 		});');
 
 		$nodeselect = 'node.data.type == 1 || node.data.type == 2 || node.data.type == 3 || node.data.type == 7 || node.data.type == 9';
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			$nodeselect = 'true';
 		}
 

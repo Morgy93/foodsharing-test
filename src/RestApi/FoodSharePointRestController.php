@@ -44,7 +44,7 @@ final class FoodSharePointRestController extends AbstractFOSRestController
 	 */
 	public function listNearbyFoodSharePointsAction(ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -87,7 +87,7 @@ final class FoodSharePointRestController extends AbstractFOSRestController
 	 */
 	public function getFoodSharePointAction(int $foodSharePointId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 

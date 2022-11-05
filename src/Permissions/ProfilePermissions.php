@@ -3,6 +3,7 @@
 namespace Foodsharing\Permissions;
 
 use Foodsharing\Lib\Session;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionIDs;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\Region\RegionGateway;
@@ -22,7 +23,7 @@ class ProfilePermissions
 
 	public function mayAdministrateUserProfile(int $userId, ?int $regionId = null): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 
@@ -61,12 +62,12 @@ class ProfilePermissions
 
 	public function maySeeUserNotes(int $userId): bool
 	{
-		return $this->session->may('orga');
+		return $this->session->mayRole(Role::ORGA);
 	}
 
 	public function maySeePickups(int $fsId): bool
 	{
-		if (!$this->session->may('fs')) {
+		if (!$this->session->mayRole(Role::FOODSAVER)) {
 			return false;
 		}
 
@@ -80,7 +81,7 @@ class ProfilePermissions
 
 	public function maySeeStores(int $fsId): bool
 	{
-		if (!$this->session->may('fs')) {
+		if (!$this->session->mayRole(Role::FOODSAVER)) {
 			return false;
 		}
 
@@ -97,7 +98,7 @@ class ProfilePermissions
 			return true;
 		}
 
-		if ($this->session->may('bieb')) {
+		if ($this->session->mayRole(Role::STORE_MANAGER)) {
 			if ($this->foodsaverGateway->getCountCommonStores($this->session->id(), $fsId) > 0) {
 				return true;
 			}
@@ -112,7 +113,7 @@ class ProfilePermissions
 
 	public function maySeeEmailAddress(int $fsId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 
@@ -121,22 +122,22 @@ class ProfilePermissions
 
 	public function maySeePrivateEmail(int $userId): bool
 	{
-		return $this->session->id() === $userId || $this->session->may('orga');
+		return $this->session->id() === $userId || $this->session->mayRole(Role::ORGA);
 	}
 
 	public function maySeeLastLogin(int $userId): bool
 	{
-		return $this->session->may('orga');
+		return $this->session->mayRole(Role::ORGA);
 	}
 
 	public function maySeeRegistrationDate(int $userId): bool
 	{
-		return $this->session->id() === $userId || $this->session->may('orga');
+		return $this->session->id() === $userId || $this->session->mayRole(Role::ORGA);
 	}
 
 	public function mayDeleteUser(int $userId): bool
 	{
-		return $this->session->id() == $userId || $this->session->may('orga');
+		return $this->session->id() == $userId || $this->session->mayRole(Role::ORGA);
 	}
 
 	public function maySeeBounceWarning(int $userId): bool
@@ -152,6 +153,6 @@ class ProfilePermissions
 
 	public function mayRemoveFromBounceList(int $userId): bool
 	{
-		return $this->session->id() == $userId || $this->session->may('orga') || $this->session->isAdminFor(RegionIDs::IT_SUPPORT_GROUP);
+		return $this->session->id() == $userId || $this->session->mayRole(Role::ORGA) || $this->session->isAdminFor(RegionIDs::IT_SUPPORT_GROUP);
 	}
 }

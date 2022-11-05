@@ -41,7 +41,7 @@ class BasketXhr extends Control
 			'nearbyBaskets',
 		];
 
-		if (!$this->session->may() && !in_array($_GET['m'], $allowed)) {
+		if (!$this->session->mayRole() && !in_array($_GET['m'], $allowed)) {
 			echo json_encode(
 				[
 					'status' => 1,
@@ -291,7 +291,7 @@ class BasketXhr extends Control
 			$dia = new XhrDialog();
 
 			// What does the user see if not logged in?
-			if (!$this->session->may()) {
+			if (!$this->session->mayRole()) {
 				$dia->setTitle($this->translator->trans('terminology.basket'));
 				$dia->addContent($this->view->bubbleNoUser($basket));
 			} else {

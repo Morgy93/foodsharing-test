@@ -3,6 +3,7 @@
 namespace Foodsharing\Permissions;
 
 use Foodsharing\Lib\Session;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Region\WorkgroupFunction;
 use Foodsharing\Modules\Group\GroupFunctionGateway;
 
@@ -21,7 +22,7 @@ class FoodSharePointPermissions
 
 	public function mayFollow(): bool
 	{
-		return $this->session->may();
+		return $this->session->mayRole();
 	}
 
 	public function mayUnfollow(int $fspId): bool
@@ -32,7 +33,7 @@ class FoodSharePointPermissions
 
 	public function mayAdd(int $regionId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 
@@ -68,7 +69,7 @@ class FoodSharePointPermissions
 
 	public function mayDeleteFoodSharePointWallPostOfRegion(?int $regionId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			return true;
 		}
 

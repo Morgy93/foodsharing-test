@@ -125,7 +125,7 @@ abstract class Control
 	public function wallposts($table, $id): string
 	{
 		$posthtml = '';
-		if ($this->session->may()) {
+		if ($this->session->mayRole()) {
 			$posthtml = '
 				<div class="tools ui-padding">
 				<textarea id="wallpost-text" name="text" placeholder="' . $this->translator->trans('wall.message_placeholder') . '" class="comment textarea"></textarea>

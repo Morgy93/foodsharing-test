@@ -33,7 +33,7 @@ class LocaleRestController extends AbstractFOSRestController
 	 */
 	public function getLocaleAction(): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -51,7 +51,7 @@ class LocaleRestController extends AbstractFOSRestController
 	 */
 	public function setLocaleAction(ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 

@@ -89,7 +89,7 @@ class FoodSharePointControl extends Control
 		}
 
 		// allowed only for logged in users
-		if (!$this->session->may()
+		if (!$this->session->mayRole()
 			&& $request->query->has('sub')
 			&& $request->query->get('sub') !== 'ft') {
 			$this->routeHelper->goLogin();

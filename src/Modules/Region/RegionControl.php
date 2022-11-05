@@ -3,6 +3,7 @@
 namespace Foodsharing\Modules\Region;
 
 use Foodsharing\Modules\Core\Control;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Map\MapConstants;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionOptionType;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
@@ -127,7 +128,7 @@ final class RegionControl extends Control
 			if ($region['has_children'] === 1) {
 				$menu['subgroups'] = ['name' => 'terminology.subgroups', 'href' => '/?page=groups&p=' . $regionId];
 			}
-			if ($this->session->isAdminFor($regionId) || $this->session->may('orga')) {
+			if ($this->session->isAdminFor($regionId) || $this->session->mayRole(Role::ORGA)) {
 				$menu['workingGroupEdit'] = ['name' => 'menu.entry.workingGroupEdit', 'href' => '/?page=groups&sub=edit&id=' . $regionId];
 			}
 		} else {
@@ -256,7 +257,7 @@ final class RegionControl extends Control
 
 	public function index(Request $request, Response $response)
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			$this->routeHelper->goLogin();
 		}
 

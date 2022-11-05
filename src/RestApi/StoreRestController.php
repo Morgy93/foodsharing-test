@@ -7,6 +7,7 @@ use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Bell\BellGateway;
 use Foodsharing\Modules\Bell\DTO\Bell;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
 use Foodsharing\Modules\Core\DBConstants\Store\TeamStatus;
@@ -77,7 +78,7 @@ class StoreRestController extends AbstractFOSRestController
 	 */
 	public function getCommonStoreMetadata(): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -96,7 +97,7 @@ class StoreRestController extends AbstractFOSRestController
 		if (!$this->session->id()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
-		if (!$this->session->may('fs')) {
+		if (!$this->session->mayRole(Role::FOODSAVER)) {
 			throw new AccessDeniedHttpException('invalid permissions');
 		}
 		$maySeeDetails = $this->storePermissions->mayAccessStore($storeId);
@@ -172,7 +173,7 @@ class StoreRestController extends AbstractFOSRestController
 	 */
 	public function getListOfStoreStatusForCurrentFoodsaver(): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
@@ -199,7 +200,7 @@ class StoreRestController extends AbstractFOSRestController
 	 */
 	public function getStorePosts(int $storeId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 		if (!$this->storePermissions->mayReadStoreWall($storeId)) {
@@ -227,7 +228,7 @@ class StoreRestController extends AbstractFOSRestController
 	 */
 	public function addStorePostAction(int $storeId, ParamFetcher $paramFetcher): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 		if (!$this->storePermissions->mayWriteStoreWall($storeId)) {
@@ -286,7 +287,7 @@ class StoreRestController extends AbstractFOSRestController
 	 */
 	public function deleteStorePostAction(int $storeId, int $postId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 		if (!$this->storePermissions->mayDeleteStoreWallPost($storeId, $postId)) {

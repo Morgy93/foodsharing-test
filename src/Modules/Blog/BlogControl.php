@@ -3,6 +3,7 @@
 namespace Foodsharing\Modules\Blog;
 
 use Foodsharing\Modules\Core\Control;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Permissions\BlogPermissions;
 use Foodsharing\Utility\IdentificationHelper;
@@ -123,7 +124,7 @@ class BlogControl extends Control
 			$this->pageHelper->addBread($this->translator->trans('blog.new'));
 
 			$regions = $this->session->getRegions();
-			if (!$this->session->may('orga')) {
+			if (!$this->session->mayRole(Role::ORGA)) {
 				$bot_ids = $this->session->getMyAmbassadorRegionIds();
 				foreach ($regions as $k => $v) {
 					if (!UnitType::isGroup($v['type']) || !in_array($v['id'], $bot_ids)) {

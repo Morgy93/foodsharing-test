@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Exception;
 use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\Gender;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\Foodsaver\FoodsaverTransactions;
 use Foodsharing\Modules\Group\GroupTransactions;
@@ -109,7 +110,7 @@ class UserRestController extends AbstractFOSRestController
 	 */
 	public function userAction(int $id): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -130,7 +131,7 @@ class UserRestController extends AbstractFOSRestController
 	 */
 	public function currentUserAction(): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -144,13 +145,13 @@ class UserRestController extends AbstractFOSRestController
 	 */
 	private function normalizeUserDetails(array $data): array
 	{
-		$loggedIn = $this->session->may();
+		$loggedIn = $this->session->mayRole();
 		$mayEditUserProfile = $this->profilePermissions->mayEditUserProfile($data['id']);
 		$mayAdministrateUserProfile = $this->profilePermissions->mayAdministrateUserProfile($data['id'], $data['bezirk_id']);
 
 		$response = [];
 		$response['id'] = $data['id'];
-		$response['foodsaver'] = ($this->session->may('fs')) ? true : false;
+		$response['foodsaver'] = ($this->session->mayRole(Role::FOODSAVER)) ? true : false;
 		$response['isVerified'] = ($data['verified'] === 1) ? true : false;
 		$response['regionId'] = $data['bezirk_id'];
 		$response['regionName'] = ($data['bezirk_id'] === null) ? null : $this->regionGateway->getRegionName($data['bezirk_id']);
@@ -242,7 +243,7 @@ class UserRestController extends AbstractFOSRestController
 	 */
 	public function currentUserDetailsAction(): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -480,7 +481,7 @@ class UserRestController extends AbstractFOSRestController
 	 */
 	public function deleteBanana(int $userId, int $senderId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 

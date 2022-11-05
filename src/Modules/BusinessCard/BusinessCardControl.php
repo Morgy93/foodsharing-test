@@ -3,6 +3,7 @@
 namespace Foodsharing\Modules\BusinessCard;
 
 use Foodsharing\Modules\Core\Control;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use setasign\Fpdi\Tcpdf\Fpdi;
 
 class BusinessCardControl extends Control
@@ -24,7 +25,7 @@ class BusinessCardControl extends Control
 
 		$this->pageHelper->addContent($this->view->top(), CNT_TOP);
 
-		if ($data = $this->gateway->getMyData($this->session->id(), $this->session->may('bieb'))) {
+		if ($data = $this->gateway->getMyData($this->session->id(), $this->session->mayRole(Role::STORE_MANAGER))) {
 			if (mb_strlen($data['anschrift']) >= self::MAX_CHAR_PER_LINE || mb_strlen($data['plz'] . ' ' . $data['stadt']) >= self::MAX_CHAR_PER_LINE) {
 				$this->flashMessageHelper->info($this->translator->trans('bcard.info.address_shortened'));
 			}
@@ -73,7 +74,7 @@ class BusinessCardControl extends Control
 
 	public function makeCard()
 	{
-		$data = $this->gateway->getMyData($this->session->id(), $this->session->may('bieb'));
+		$data = $this->gateway->getMyData($this->session->id(), $this->session->mayRole(Role::STORE_MANAGER));
 		$opt = $this->getRequest('opt');
 		if (!$data || !$opt) {
 			return;

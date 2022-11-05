@@ -4,6 +4,7 @@ namespace Foodsharing\Modules\Foodsaver;
 
 use Foodsharing\Lib\Session;
 use Foodsharing\Lib\View\Utils;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\View;
 use Foodsharing\Utility\DataHelper;
 use Foodsharing\Utility\IdentificationHelper;
@@ -106,7 +107,7 @@ class FoodsaverView extends View
 
 		$position = '';
 
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			$position = $this->v_utils->v_form_text('position');
 			$options = [
 				'values' => [

@@ -4,6 +4,7 @@ namespace Foodsharing\Modules\StoreUser;
 
 use Carbon\Carbon;
 use Foodsharing\Modules\Core\Control;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionOptionType;
 use Foodsharing\Modules\Core\DBConstants\Region\WorkgroupFunction;
 use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
@@ -46,7 +47,7 @@ class StoreUserControl extends Control
 
 		parent::__construct();
 
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			$this->routeHelper->goLogin();
 		}
 	}
@@ -315,7 +316,7 @@ class StoreUserControl extends Control
 	 */
 	private function isResponsibleForThisStoreAnyways($storeId): bool
 	{
-		if ($this->session->may('orga')) {
+		if ($this->session->mayRole(Role::ORGA)) {
 			$extraResponsibility = true;
 			$extraMessageKey = 'storeedit.team.orga';
 		} elseif ($this->storePermissions->mayEditStore($storeId)) {

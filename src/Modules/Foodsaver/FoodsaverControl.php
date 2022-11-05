@@ -117,7 +117,7 @@ class FoodsaverControl extends Control
 			));
 
 			$actions = [];
-			if ($this->session->may()) {
+			if ($this->session->mayRole()) {
 				$actions[] = [
 					'href' => '/profile/' . $fs['id'],
 					'name' => $this->translator->trans('foodsaver.profileBack'),
@@ -148,7 +148,7 @@ class FoodsaverControl extends Control
 
 		if ($this->submitted()) {
 			$g_data['stadt'] = $g_data['ort'];
-			if ($this->session->may('orga')) {
+			if ($this->session->mayRole(Role::ORGA)) {
 				if (isset($g_data['orgateam']) && is_array($g_data['orgateam']) && $g_data['orgateam'][0] == 1) {
 					$g_data['orgateam'] = 1;
 				}
@@ -178,7 +178,7 @@ class FoodsaverControl extends Control
 
 	private function updateFoodsaver(array $fs, array $data): bool
 	{
-		if (!$this->session->may('orga')) {
+		if (!$this->session->mayRole(Role::ORGA)) {
 			unset($data['rolle']);
 		}
 

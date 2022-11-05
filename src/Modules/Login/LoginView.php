@@ -8,7 +8,7 @@ class LoginView extends View
 {
 	public function passwordRequest(): string
 	{
-		if ($this->session->may()) {
+		if ($this->session->mayRole()) {
 			return '';
 		}
 

@@ -43,7 +43,7 @@ class DashboardControl extends Control
 
 		parent::__construct();
 
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			$this->routeHelper->go('/');
 		}
 
@@ -59,7 +59,7 @@ class DashboardControl extends Control
 		$this->params['broadcast'] = $this->getBroadcast();
 		$this->params['quiz'] = $this->getQuiz();
 
-		if ($this->session->may('fs')) {
+		if ($this->session->mayRole(Role::FOODSAVER)) {
 			$this->params['events'] = $this->getEvents();
 		}
 
@@ -82,7 +82,7 @@ class DashboardControl extends Control
 
 	private function getQuiz(): ?array
 	{
-		$is_foodsharer = !$this->session->may('fs') && !$this->quizSessionGateway->hasPassedQuiz($this->session->id(), Role::FOODSAVER);
+		$is_foodsharer = !$this->session->mayRole(Role::FOODSAVER) && !$this->quizSessionGateway->hasPassedQuiz($this->session->id(), Role::FOODSAVER);
 
 		if ($is_foodsharer) {
 			$cnt = $this->contentGateway->get(ContentId::QUIZ_REMARK_PAGE_33);

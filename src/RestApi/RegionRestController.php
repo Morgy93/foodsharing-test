@@ -131,7 +131,7 @@ class RegionRestController extends AbstractFOSRestController
 	 */
 	public function listMyRegion(): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		$fsId = $this->session->id();
@@ -159,7 +159,7 @@ class RegionRestController extends AbstractFOSRestController
 	 */
 	public function leaveRegionAction(int $regionId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		/** @var int $sessionId */
@@ -222,7 +222,7 @@ class RegionRestController extends AbstractFOSRestController
 	 */
 	public function setRegionOptions(ParamFetcher $paramFetcher, int $regionId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 		if (!$this->regionPermissions->maySetRegionOptionsReportButtons($regionId) && !$this->regionPermissions->maySetRegionOptionsRegionPickupRule($regionId)) {
@@ -281,7 +281,7 @@ class RegionRestController extends AbstractFOSRestController
 	 */
 	public function setRegionPin(ParamFetcher $paramFetcher, int $regionId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -321,7 +321,7 @@ class RegionRestController extends AbstractFOSRestController
 	 */
 	public function listRegionChildrenAction(int $regionId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -350,7 +350,7 @@ class RegionRestController extends AbstractFOSRestController
 	 */
 	public function listMembersAction(int $regionId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -375,7 +375,7 @@ class RegionRestController extends AbstractFOSRestController
 	 */
 	public function removeMember(int $regionId, int $memberId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -413,7 +413,7 @@ class RegionRestController extends AbstractFOSRestController
 	 */
 	public function setAdminOrAmbassador(int $regionId, int $memberId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
@@ -453,7 +453,7 @@ class RegionRestController extends AbstractFOSRestController
 	 */
 	public function removeAdminOrAmbassador(int $regionId, int $memberId): Response
 	{
-		if (!$this->session->may()) {
+		if (!$this->session->mayRole()) {
 			throw new UnauthorizedHttpException('');
 		}
 
