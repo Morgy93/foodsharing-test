@@ -144,6 +144,7 @@
 - Some small code cleanup surrounding `Mem` @\_fridtjof_ !2357
 - Run maintenance daily and generate stats in new stats script and added them to seed script !2379 @chriswalg
 - Moved variable DELAY_MICRO_SECONDS_BETWEEN_MAILS to config file #1389 !2383 @chriswalg
+- Added the cli commands bin/console foodsharing:daily-cronjob and foodsharing:stats !2407 @chriswalg
 - Replace `node-sass` with `sass` #1047 !2404 @schanso
 - Added mayRole function to Session class and made may function deprecated #1277 !2341 @alex.simm
 - Fix maintenance script test #1430 !2429 @rnoennig 

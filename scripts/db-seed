@@ -14,13 +14,11 @@ source "$dir"/__helping-functions.sh
 log-header "Seed DB ..."
 exec-in-container app vendor/bin/codecept foodsharing:seed "$@"
 
-log-header "Running maintenance ..."
-"$dir"/docker-compose run --rm --no-deps app php -f run.php Maintenance daily
+log-header "Running daily cronjob..."
+exec-in-container app bin/console foodsharing:daily-cronjob
 
 log-header "Running stats ..."
-"$dir"/docker-compose run --rm --no-deps app php -f run.php Stats foodsaver
-"$dir"/docker-compose run --rm --no-deps app php -f run.php Stats betriebe
-"$dir"/docker-compose run --rm --no-deps app php -f run.php Stats bezirke
+exec-in-container app bin/console foodsharing:stats
 
 log-header "All done"
 "$dir"/__helping-print-intro.sh

@@ -42,7 +42,7 @@ $I->haveInDatabase('fs_abholer', $dataset_confirmed_future);
 $I->am('Cron');
 $I->wantTo('see that maintenance jobs do execute');
 $I->amInPath('');
-$I->runShellCommand('php -f run.php Maintenance daily');
+$I->runShellCommand('bin/console foodsharing:daily-cronjob');
 
 $I->seeInShellOutput('send 1 warnings...');
 $I->seeInShellOutput('delete unconfirmed fetchdates');
