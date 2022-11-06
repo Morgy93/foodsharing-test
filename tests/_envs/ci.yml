@@ -1,0 +1,5 @@
+# Used to adjust the port mapping for the CI
+modules:
+  config:
+    \Helper\Maildev:
+      url: http://maildev:1080
