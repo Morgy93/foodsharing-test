@@ -6,8 +6,7 @@ include:
 # to make the previous template work with kanthaus-runner, which expects these tags
 dependency_scanning:
   tags:
-    - shared
-    - linux
+    - saas-linux-medium-amd64
 
 variables:
   # https://docs.docker.com/engine/userguide/storagedriver/selectadriver/
@@ -17,8 +16,7 @@ variables:
 
 .defaults: &defaults
   tags:
-    - shared
-    - linux
+    - saas-linux-medium-amd64
   image: registry.gitlab.com/foodsharing-dev/images/ci/php:latest
 
 
@@ -193,7 +191,7 @@ test:backend-code:
       alias: selenium
     - name: registry.gitlab.com/foodsharing-dev/images/maildev:latest
       alias: maildev
-      command: ["bin/maildev",  "--web", "80", "--smtp", "25", "--hide-extensions", "STARTTLS"]
+      command: ["bin/maildev",  "--web", "1080", "--smtp", "1025", "--hide-extensions", "STARTTLS"]
     - name: registry.gitlab.com/foodsharing-dev/images/node:latest
       alias: websocket
       # websocket service runs with code that gets checked out later by the main build job. We use a file to synchronize that, so start websocket service only when that file has been recreated.
@@ -230,6 +228,9 @@ test:backend-code:
 
 test:backend-acceptance:
   <<: *defaults
+  tags:
+    - foodsharing
+    - shared
   interruptible: true
   variables:
     MYSQL_ROOT_PASSWORD: root
@@ -249,7 +250,7 @@ test:backend-acceptance:
       alias: selenium
     - name: registry.gitlab.com/foodsharing-dev/images/maildev:latest
       alias: maildev
-      command: ["bin/maildev",  "--web", "80", "--smtp", "25", "--hide-extensions", "STARTTLS"]
+      command: ["bin/maildev",  "--web", "1080", "--smtp", "1025", "--hide-extensions", "STARTTLS"]
     - name: registry.gitlab.com/foodsharing-dev/images/node:latest
       alias: websocket
       # websocket service runs with code that gets checked out later by the main build job. We use a file to synchronize that, so start websocket service only when that file has been recreated.
