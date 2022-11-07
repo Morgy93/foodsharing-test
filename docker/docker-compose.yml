@@ -145,13 +145,13 @@ services:
   maildev:
     container_name: foodsharing_maildev
     image: registry.gitlab.com/foodsharing-dev/images/maildev:latest
-    command: >
-      bin/maildev
-        --web 80
-        --smtp 25
-        --hide-extensions STARTTLS
-    # expose:
-    #   - 80
+    environment:
+      - MAILDEV_SMTP_PORT=1025
+      - MAILDEV_WEB_PORT=1080
+      # - MAILDEV_HIDE_EXTENSIONS=STARTTLS
+    expose:
+      - 1080
+      - 1025
     # ports:
     #   - 8084:80
 

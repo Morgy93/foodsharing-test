@@ -49,4 +49,4 @@ modules:
             host: db
             db: foodsharing
         \Helper\Maildev:
-            url: http://maildev
+            url: http://maildev:1080
