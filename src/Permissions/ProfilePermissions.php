@@ -40,6 +40,11 @@ class ProfilePermissions
 		return $this->session->isAmbassadorForRegion($regionIds, false, true);
 	}
 
+	public function hasApplicant(int $userId): bool
+	{
+		return $this->session->mayRole(Role::STORE_MANAGER) && $this->foodsaverGateway->isApplicant($userId, $this->session->id());
+	}
+
 	public function mayEditUserProfile(int $userId): bool
 	{
 		return $this->session->id() === $userId || $this->mayAdministrateUserProfile($userId);
@@ -85,7 +90,10 @@ class ProfilePermissions
 			return false;
 		}
 
-		return $this->session->id() == $fsId || $this->mayAdministrateUserProfile($fsId);
+		return
+			$this->session->id() == $fsId ||
+			$this->hasApplicant($fsId) ||
+			$this->mayAdministrateUserProfile($fsId);
 	}
 
 	public function maySeeCommitmentsStat(int $fsId): bool

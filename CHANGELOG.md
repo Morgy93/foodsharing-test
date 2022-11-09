@@ -55,6 +55,7 @@
 - renamed "Gruppenübersicht" to "Gruppenübersicht globaler Arbeitsgruppen" #1393 !2391 @viper-kun
 - added icon to map menu item !2427 @martincodes-de
 - Added information how to remove recurring pick-up dates to get rid of warnings about unoccupied slots !891 @rnoennig
+- Make store list of a user visible for store managers to whose store he/she applied. #1445 !2437 @AntonBallmaier
 
 ## Bugfixes
 - When going back during registration, email and password are unchanged. !2184 @AntonBallmaier

@@ -991,4 +991,26 @@ class FoodsaverGateway extends BaseGateway
 	{
 		return $this->db->exists('fs_verify_history', ['fs_id' => $userId]);
 	}
+
+	/**
+	 * Tests whether one user applied to any store of another user.
+	 *
+	 * @param int $userId User id of the possible applicant
+	 * @param int $storemanagerId User id of storemanager for whose ablicants to check
+	 *
+	 * @return bool true if the user with id userId is an applicant to any of the stores managed by the user with id storemanagerId, false otherwise
+	 */
+	public function isApplicant(int $userId, int $storemanagerId): bool
+	{
+		$applications = $this->db->fetchAll('
+			(SELECT betrieb_id from fs_betrieb_team WHERE :fsId = foodsaver_id AND active = 0)
+			INTERSECT
+			(SELECT betrieb_id from fs_betrieb_team WHERE :storemanagerId = foodsaver_id AND verantwortlich = 1);
+		', [
+			':fsId' => $userId,
+			':storemanagerId' => $storemanagerId
+		]);
+
+		return !empty($applications);
+	}
 }
