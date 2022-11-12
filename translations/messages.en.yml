@@ -448,6 +448,13 @@ profile:
       noshow: Did not come to the pickup
       respect: Behaved impolite or disrespectful
       dirty: Did not leave the pickup place tidy
+      what:
+        racist: racist remarks
+        sexist: sexist remarks
+        homophobe: homophobe remarks
+        brutal: Violence and threats
+        other: Other inappropriate statements and conduct
+      residence: FS place of residence
     control:
       total: total
       tot: total
@@ -461,6 +468,9 @@ profile:
       confirmed: Report was confirmed!
       plsconfirm: Really delete this report?
       reportee: Reported by
+      delivered: Report delivered
+      reportID: Report ID
+      allofthem: All reports about
     kindofreport: Please choose the type of report
     sells: Person sells rescued food
     noshow: The person didn't come
@@ -1434,6 +1444,7 @@ footer:
   version: 'Version: {version}'
   donate:
     cta: Donate now
+    call_to: You want to support foodsharing?
   statistics: Statistics
   blog: Blog
   wiki: Wiki
@@ -1460,6 +1471,7 @@ footer:
   meta:
     it_devdocs: by foodsharing IT
     version: 'Version: {version}'
+    beta_testing_issues: Test tasks of the Beta version
   hosting:
     info: Carbon-neutrally <a href="https://www.manitu.de/webhosting/" title="Webhosting">hosted</a>
     tooltip: Carbon-neutrally <a href="https://www.manitu.de/webhosting/" title="Webhosting">hosted</a>
@@ -2459,6 +2471,8 @@ storestatus:
   "3": Store is ready to cooperate
   "2": Negotiations are ongoing
   "1": There is no contact yet
+  "3a": Store is ready to donate. :-)
+  "5a": Store donates already
 formatting:
   md: You can use <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>
     for formatting.
@@ -2545,7 +2559,7 @@ startpage:
   call_to_action:
     title: Join
     text: We newly formed in 2012, by now we are an international movement existing
-      of over 200.000 users in Germany, Austia,  Switzerland and other European countries.
+      of over 200.000 users in Germany, Austria, Switzerland and other European countries.
   vision:
     title: Vision
     text: Our long-term goal is to reduce the throw-away culture of food and other
@@ -2586,6 +2600,8 @@ startpage:
   beresponsible: Be responsible
   bedependable: Be dependable
   makeproposals: Make proposals
+  proposals: We want to develop and consistently improve. Therefore we need you with
+    your many great ideas and tipps. Please send them to <a href='mailto:info@foodsharing.de'>info@foodsharing.de</a>
 date_short:
   Sunday: Sun
   Saturday: Sat
@@ -2685,6 +2701,7 @@ sig:
   buddies: People you know
 teamjs:
   wrongmail: There is something wrong with your email address.
+  entermail: Please enter a valid email-address so that we can get back to you!
 contentmanagement: Content management
 activitypost:
   Response: "Answer"
@@ -2715,12 +2732,28 @@ error:
     info: "In order for you to continue, a root district is required."
     link: "Select root district now"
 
+  invalid_mobile_phonenumber:
+    title: There is a problem with your mobile phone number.
+    link: Correct your mobile phone number
+  missing_geolocation:
+    description: Please check your address. The coordinates couldn't be determined.
+    title: There was an error with your address.
+  missing_home_region:
+    link: Choose your home region
+    description: To continue, you have to select a home region.
+    title: Choose a home region.
+  missing_user_avatar:
+    link: Upload your profile picture now
+    title: You haven't uploaded a profile picture yet.
+    description: Show the other members of Foodsharing who you are!
 information:
   push:
     title: "You can now receive push notifications from foodsharing."
     info: "If you no longer want to receive push notifications, you can deactivate\
       \ them at any time in the settings."
     link: "To the settings"
+    description: If you want to stop receiving push messsages, you can turn them off
+      anytime in the settings.
   calendar_sync:
     title: "Do you know the calendar synchronization for your pickups?"
     info: "This will allow you to see your next pickup dates using a calendar program\
@@ -2794,3 +2827,5 @@ navigation:
   system_administration: System administration
   help_needed: Help needed?
   profil: 👋 Hello {name}!
+  styleguide: Style guide
+  help_and_support: Help & Support
