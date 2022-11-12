@@ -12,7 +12,7 @@
 - Pickup statistics on profile !2208 @fs_k
 - Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 @chriswalg
 - Added buttons to thread view to navigate faster to the first and last post in this thread - the thread has to be min. 3 posts !1250 @martincodes-de
-- Dashboard revamped, shines in a new style and new features !2227 !2245 !2248 !2252 !2254 !2261 !2262 !2263 !2264 !2265 !2267 !2266 !2268 @sefn
+- Dashboard revamped, shines in a new style and new features !2227 !2245 !2248 !2252 !2254 !2261 !2262 !2263 !2264 !2265 !2267 !2266 !2268 !2461 @sefn @martincodes-de
 - In the footer of the website, "For developers" is added under "Participate" to create an easier way to IT. !2241 @NINI1988
 - On the login page, "Stay logged in for one day" is saved in local storage for the next logins. !2249 @NINI1988
 - Food-share-points are listed in the topbar search #1251 !2260 @alex.simm
