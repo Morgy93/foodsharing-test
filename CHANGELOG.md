@@ -119,6 +119,7 @@
 - Improve documentation tooling for OpenAPI RequestBody !2421 @KoeMai
 - Store TeamStatus moved to vue and REST API !2453 @chriswalg
 - Replaced may() to mayRole() !2457 @chriswalg
+- Replace the user avatar lists with a vue component !2460 @alex.simm
 
 ## Dev/Test/CI stuff
 - Added Gitpod and refactored permissions !2386 !2399 !2402 !2428 @sefn @chriswalg

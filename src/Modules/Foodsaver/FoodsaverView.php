@@ -86,9 +86,15 @@ class FoodsaverView extends View
 		return $this->v_utils->v_field($cnt, $foodsaver['name'], ['class' => 'ui-padding']);
 	}
 
-	public function foodsaverList($foodsaver, $bezirk, $inactive = false): string
+	/**
+	 * @param Profile[] $foodsaver
+	 */
+	public function foodsaverList(array $foodsaver, $bezirk, $inactive = false): string
 	{
-		$avatars = $this->fsAvatarList($foodsaver, 600, true, false, 'fslist');
+		$avatars = $this->vueComponent('fslist', 'AvatarList', [
+			'profiles' => $foodsaver,
+			'maxVisibleAvatars' => 8,
+		]);
 		$name = $inactive ? 'inactive' : '';
 		$label = $this->translator->trans('foodsaver.list.summary', [
 			'{count}' => count($foodsaver),

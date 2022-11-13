@@ -247,14 +247,22 @@ class FoodSharePointView extends View
 		$out = '';
 
 		if (!empty($this->follower['fsp_manager'])) {
+			shuffle($this->follower['fsp_manager']);
 			$out .= $this->v_utils->v_field(
-				$this->fsAvatarList($this->follower['fsp_manager']),
+				$this->vueComponent('fsp-managers', 'AvatarList', [
+					'profiles' => $this->follower['fsp_manager'],
+					'maxVisibleAvatars' => 5,
+				]),
 				$this->translator->trans('fsp.managers')
 			);
 		}
 		if (!empty($this->follower['follow'])) {
+			shuffle($this->follower['follow']);
 			$out .= $this->v_utils->v_field(
-				$this->fsAvatarList($this->follower['follow'], 700, true),
+				$this->vueComponent('fsp-followers', 'AvatarList', [
+					'profiles' => $this->follower['follow'],
+					'maxVisibleAvatars' => 8,
+				]),
 				$this->translator->trans('fsp.followers')
 			);
 		}

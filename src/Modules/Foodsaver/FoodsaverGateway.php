@@ -28,6 +28,9 @@ class FoodsaverGateway extends BaseGateway
 		$this->forumFollowerGateway = $forumFollowerGateway;
 	}
 
+	/**
+	 * @return Profile[]
+	 */
 	public function getFoodsaversByRegion(int $regionId, bool $hideRecentlyOnline = false): array
 	{
 		$onlyInactiveClause = '';
@@ -39,7 +42,7 @@ class FoodsaverGateway extends BaseGateway
 			';
 		}
 
-		return $this->db->fetchAll('
+		$result = $this->db->fetchAll('
 		    SELECT	fs.id,
 					fs.name,
 					fs.nachname,
@@ -59,6 +62,10 @@ class FoodsaverGateway extends BaseGateway
 		', [
 			':regionId' => $regionId
 		]);
+
+		return array_map(function ($fs) {
+			return new Profile($fs['id'], $fs['name'], $fs['photo'], $fs['sleep_status']);
+		}, $result);
 	}
 
 	/**
