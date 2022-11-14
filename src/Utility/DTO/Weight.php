@@ -1,14 +1,13 @@
 <?php
 
-namespace Foodsharing\RestApi\Models\Store;
+namespace Foodsharing\Utility\DTO;
 
-use Foodsharing\Modules\Store\StoreTransactions;
 use OpenApi\Annotations as OA;
 
 /**
  * Describes the common store metadata.
  */
-class CommonStoreMetadataModel
+class Weight
 {
 	/**
 	 * Maximum count of slots per pickup.
@@ -17,5 +16,7 @@ class CommonStoreMetadataModel
 	 *
 	 * @OA\Property(format="int64", example=1)
 	 */
-	public int $maxCountPickupSlot = StoreTransactions::MAX_SLOTS_PER_PICKUP;
+	public int $id = 0;
+
+	public string $label = '';
 }

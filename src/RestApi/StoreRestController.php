@@ -12,11 +12,11 @@ use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
 use Foodsharing\Modules\Core\DBConstants\Store\TeamStatus;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
+use Foodsharing\Modules\Store\DTO\CommonStoreMetadata;
 use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Modules\Store\StoreTransactions;
 use Foodsharing\Modules\Store\TeamStatus as TeamMembershipStatus;
 use Foodsharing\Permissions\StorePermissions;
-use Foodsharing\RestApi\Models\Store\CommonStoreMetadataModel;
 use Foodsharing\RestApi\Models\Store\StoreStatusForMemberModel;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -70,7 +70,7 @@ class StoreRestController extends AbstractFOSRestController
 	 * @OA\Response(
 	 * 		response="200",
 	 * 		description="Success.",
-	 *      @Model(type=CommonStoreMetadataModel::class)
+	 *      @Model(type=CommonStoreMetadata::class)
 	 * )
 	 * @OA\Response(response="401", description="Not logged in")
 
@@ -82,7 +82,10 @@ class StoreRestController extends AbstractFOSRestController
 			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
 		}
 
-		return $this->handleView($this->view(new CommonStoreMetadataModel(), 200));
+		$result = $this->storeTransactions->getCommonStoreMetadata(
+			!$this->storePermissions->mayCreateStore());
+
+		return $this->handleView($this->view($result, 200));
 	}
 
 	/**

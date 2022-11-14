@@ -15,7 +15,6 @@ use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Permissions\StorePermissions;
 use Foodsharing\Utility\DataHelper;
 use Foodsharing\Utility\IdentificationHelper;
-use Foodsharing\Utility\WeightHelper;
 
 class StoreControl extends Control
 {
@@ -27,7 +26,6 @@ class StoreControl extends Control
 	private $foodsaverGateway;
 	private $identificationHelper;
 	private $dataHelper;
-	private $weightHelper;
 
 	public function __construct(
 		StorePermissions $storePermissions,
@@ -38,8 +36,7 @@ class StoreControl extends Control
 		FoodsaverGateway $foodsaverGateway,
 		RegionGateway $regionGateway,
 		IdentificationHelper $identificationHelper,
-		DataHelper $dataHelper,
-		WeightHelper $weightHelper
+		DataHelper $dataHelper
 	) {
 		$this->view = $view;
 		$this->bellGateway = $bellGateway;
@@ -50,7 +47,6 @@ class StoreControl extends Control
 		$this->regionGateway = $regionGateway;
 		$this->identificationHelper = $identificationHelper;
 		$this->dataHelper = $dataHelper;
-		$this->weightHelper = $weightHelper;
 
 		parent::__construct();
 
@@ -87,11 +83,7 @@ class StoreControl extends Control
 
 				$chosenRegion = ($regionId > 0 && UnitType::isAccessibleRegion($this->regionGateway->getType($regionId))) ? $region : null;
 				$this->pageHelper->addContent($this->view->betrieb_form(
-					$this->storeGateway->getBasics_groceries(),
-					$this->storeGateway->getBasics_chain(),
-					$this->storeGateway->getStoreCategories(),
-					$this->getStoreStateList(),
-					$this->weightHelper->getWeightListEntries(),
+					$this->storeTransactions->getCommonStoreMetadata(false),
 					$chosenRegion,
 					'betrieb'
 				));
@@ -121,11 +113,7 @@ class StoreControl extends Control
 				$regionName = $this->regionGateway->getRegionName($regionId);
 
 				$this->pageHelper->addContent($this->view->betrieb_form(
-					$this->storeGateway->getBasics_groceries(),
-					$this->storeGateway->getBasics_chain(),
-					$this->storeGateway->getStoreCategories(),
-					$this->getStoreStateList(),
-					$this->weightHelper->getWeightListEntries(),
+					$this->storeTransactions->getCommonStoreMetadata(false),
 					['id' => $regionId, 'name' => $regionName],
 					'',
 				));
@@ -165,19 +153,6 @@ class StoreControl extends Control
 				'stores' => array_values($storesMapped),
 			]));
 		}
-	}
-
-	public function getStoreStateList(): array
-	{
-		return [
-			['id' => '1', 'name' => $this->translator->trans('storestatus.1')],
-			['id' => '2', 'name' => $this->translator->trans('storestatus.2')],
-			['id' => '3', 'name' => $this->translator->trans('storestatus.3a')],
-			['id' => '4', 'name' => $this->translator->trans('storestatus.4')],
-			['id' => '5', 'name' => $this->translator->trans('storestatus.5')],
-			['id' => '6', 'name' => $this->translator->trans('storestatus.6')],
-			['id' => '7', 'name' => $this->translator->trans('storestatus.7')],
-		];
 	}
 
 	private function handle_edit()

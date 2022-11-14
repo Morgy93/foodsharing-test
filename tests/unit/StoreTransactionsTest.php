@@ -5,14 +5,18 @@ use Carbon\CarbonInterval;
 use Faker\Factory;
 use Faker\Generator;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
+use Foodsharing\Modules\Core\DBConstants\Store\ConvinceStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
+use Foodsharing\Modules\Core\DBConstants\Store\PublicTimes;
 use Foodsharing\Modules\Store\PickupGateway;
+use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Modules\Store\StoreTransactionException;
 use Foodsharing\Modules\Store\StoreTransactions;
 
 class StoreTransactionsTest extends \Codeception\Test\Unit
 {
 	protected UnitTester $tester;
+	protected StoreGateway $store;
 	private StoreTransactions $transactions;
 	private PickupGateway $gateway;
 	private Generator $faker;
@@ -22,11 +26,138 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
 
 	public function _before()
 	{
+		$this->store = $this->tester->get(StoreGateway::class);
 		$this->transactions = $this->tester->get(StoreTransactions::class);
 		$this->gateway = $this->tester->get(PickupGateway::class);
+		$this->store = $this->tester->get(StoreGateway::class);
 		$this->faker = $this->faker = Factory::create('de_DE');
 		$this->foodsaver = $this->tester->createFoodsaver();
 		$this->region_id = $this->tester->createRegion()['id'];
+	}
+
+	public function testDefaultCommonStoreMetaData()
+	{
+		$foods = [$this->tester->addStoreFoodType(),
+			$this->tester->addStoreFoodType()];
+		usort($foods, function ($a, $b) { return strcmp($a['name'], $b['name']); });
+		$chains = [$this->tester->addStoreChain(), $this->tester->addStoreChain()];
+		usort($chains, function ($a, $b) { return strcmp($a['name'], $b['name']); });
+
+		$this->tester->createStoreCategories();
+
+		$common = $this->transactions->getCommonStoreMetadata();
+
+		// Check cooperation status
+		$this->assertEquals(CooperationStatus::NO_CONTACT, $common->status[0]->id);
+		$this->assertEquals(CooperationStatus::IN_NEGOTIATION, $common->status[1]->id);
+		$this->assertEquals(CooperationStatus::COOPERATION_STARTING, $common->status[2]->id);
+		$this->assertEquals(CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US, $common->status[3]->id);
+		$this->assertEquals(CooperationStatus::COOPERATION_ESTABLISHED, $common->status[4]->id);
+		$this->assertEquals(CooperationStatus::GIVES_TO_OTHER_CHARITY, $common->status[5]->id);
+		$this->assertEquals(CooperationStatus::PERMANENTLY_CLOSED, $common->status[6]->id);
+
+		// Check food types
+		foreach ($foods as $key => $food) {
+			$this->assertEquals($food['id'], $common->groceries[$key]->id);
+			$this->assertEquals($food['name'], $common->groceries[$key]->name);
+		}
+
+		// Check store chains
+		$this->assertNull($common->storeChains);
+
+		// Check categories
+		$this->assertEquals($this->tester->grabNumRecords('fs_betrieb_kategorie'), count($common->categories));
+		foreach ($common->categories as $category) {
+			$this->tester->seeInDatabase('fs_betrieb_kategorie', ['id' => $category->id, 'name' => $category->name]);
+		}
+
+		// Check weight
+		$this->assertEquals(0, $common->weight[0]->id);
+		$this->assertEquals('Keine Angabe', $common->weight[0]->name);
+		$this->assertEquals(1, $common->weight[1]->id);
+		$this->assertEquals('1-3 kg', $common->weight[1]->name);
+		$this->assertEquals(2, $common->weight[2]->id);
+		$this->assertEquals('3-5 kg', $common->weight[2]->name);
+		$this->assertEquals(3, $common->weight[3]->id);
+		$this->assertEquals('5-10 kg', $common->weight[3]->name);
+		$this->assertEquals(4, $common->weight[4]->id);
+		$this->assertEquals('10-20 kg', $common->weight[4]->name);
+		$this->assertEquals(5, $common->weight[5]->id);
+		$this->assertEquals('20-30 kg', $common->weight[5]->name);
+		$this->assertEquals(6, $common->weight[6]->id);
+		$this->assertEquals('40-50 kg', $common->weight[6]->name);
+		$this->assertEquals(7, $common->weight[7]->id);
+		$this->assertEquals('mehr als 50 kg', $common->weight[7]->name);
+
+		// Check possible pickup time range
+		$this->assertEquals(PublicTimes::IN_THE_MORNING->value, $common->status[0]->id);
+		$this->assertEquals(PublicTimes::AT_NOON_IN_THE_AFTERNOON->value, $common->status[1]->id);
+		$this->assertEquals(PublicTimes::IN_THE_EVENING->value, $common->status[2]->id);
+		$this->assertEquals(PublicTimes::AT_NIGHT->value, $common->status[3]->id);
+
+		// Check convince status
+		$this->assertEquals(ConvinceStatus::NO_PROBLEM_AT_ALL->value, $common->status[0]->id);
+		$this->assertEquals(ConvinceStatus::AFTER_SOME_PERSUASION->value, $common->status[1]->id);
+		$this->assertEquals(ConvinceStatus::DIFFICULT_NEGOTIATION->value, $common->status[2]->id);
+		$this->assertEquals(ConvinceStatus::LOOKED_BAD_BUT_WORKED->value, $common->status[3]->id);
+	}
+
+	public function testAllCommonStoreMetaDataWithLoadOfStoreChains()
+	{
+		$foods = [$this->tester->addStoreFoodType(),
+			$this->tester->addStoreFoodType()];
+		usort($foods, function ($a, $b) { return strcmp($a['name'], $b['name']); });
+		$chains = [$this->tester->addStoreChain(), $this->tester->addStoreChain()];
+		usort($chains, function ($a, $b) { return strcmp($a['name'], $b['name']); });
+
+		$this->tester->createStoreCategories();
+
+		$common = $this->transactions->getCommonStoreMetadata(false);
+
+		// Check cooperation status
+		$this->assertEquals(CooperationStatus::NO_CONTACT, $common->status[0]->id);
+		$this->assertEquals(CooperationStatus::IN_NEGOTIATION, $common->status[1]->id);
+		$this->assertEquals(CooperationStatus::COOPERATION_STARTING, $common->status[2]->id);
+		$this->assertEquals(CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US, $common->status[3]->id);
+		$this->assertEquals(CooperationStatus::COOPERATION_ESTABLISHED, $common->status[4]->id);
+		$this->assertEquals(CooperationStatus::GIVES_TO_OTHER_CHARITY, $common->status[5]->id);
+		$this->assertEquals(CooperationStatus::PERMANENTLY_CLOSED, $common->status[6]->id);
+
+		// Check food types
+		foreach ($foods as $key => $food) {
+			$this->assertEquals($food['id'], $common->groceries[$key]->id);
+			$this->assertEquals($food['name'], $common->groceries[$key]->name);
+		}
+
+		// Check store chains
+		foreach ($chains as $key => $chain) {
+			$this->assertEquals($chain['id'], $common->storeChains[$key]->id);
+			$this->assertEquals($chain['name'], $common->storeChains[$key]->name);
+		}
+
+		// Check categories
+		$this->assertEquals($this->tester->grabNumRecords('fs_betrieb_kategorie'), count($common->categories));
+		foreach ($common->categories as $category) {
+			$this->tester->seeInDatabase('fs_betrieb_kategorie', ['id' => $category->id, 'name' => $category->name]);
+		}
+
+		// Check weight
+		$this->assertEquals(0, $common->weight[0]->id);
+		$this->assertEquals('Keine Angabe', $common->weight[0]->name);
+		$this->assertEquals(1, $common->weight[1]->id);
+		$this->assertEquals('1-3 kg', $common->weight[1]->name);
+		$this->assertEquals(2, $common->weight[2]->id);
+		$this->assertEquals('3-5 kg', $common->weight[2]->name);
+		$this->assertEquals(3, $common->weight[3]->id);
+		$this->assertEquals('5-10 kg', $common->weight[3]->name);
+		$this->assertEquals(4, $common->weight[4]->id);
+		$this->assertEquals('10-20 kg', $common->weight[4]->name);
+		$this->assertEquals(5, $common->weight[5]->id);
+		$this->assertEquals('20-30 kg', $common->weight[5]->name);
+		$this->assertEquals(6, $common->weight[6]->id);
+		$this->assertEquals('40-50 kg', $common->weight[6]->name);
+		$this->assertEquals(7, $common->weight[7]->id);
+		$this->assertEquals('mehr als 50 kg', $common->weight[7]->name);
 	}
 
 	public function testPickupSlotAvailableRegular()

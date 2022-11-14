@@ -9,16 +9,21 @@ use Foodsharing\Modules\Bell\BellGateway;
 use Foodsharing\Modules\Bell\DTO\Bell;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionOptionType;
+use Foodsharing\Modules\Core\DBConstants\Store\ConvinceStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
+use Foodsharing\Modules\Core\DBConstants\Store\PublicTimes;
 use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
 use Foodsharing\Modules\Core\DBConstants\StoreTeam\MembershipStatus;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\Message\MessageGateway;
 use Foodsharing\Modules\Region\RegionGateway;
+use Foodsharing\Modules\Store\DTO\CommonLabel;
+use Foodsharing\Modules\Store\DTO\CommonStoreMetadata;
 use Foodsharing\Modules\Store\DTO\CreateStoreData;
 use Foodsharing\Modules\Store\DTO\Store;
 use Foodsharing\Modules\Store\DTO\StoreStatusForMember;
+use Foodsharing\Utility\WeightHelper;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class StoreTransactions
@@ -58,6 +63,61 @@ class StoreTransactions
 		$this->foodsaverGateway = $foodsaverGateway;
 		$this->regionGateway = $regionGateway;
 		$this->session = $session;
+	}
+
+	public function getCommonStoreMetadata($supressStoreChains = true): CommonStoreMetadata
+	{
+		$store = new CommonStoreMetadata();
+
+		$store->groceries = array_map(function ($row) {
+			return CommonLabel::createFromArray($row);
+		}, $this->storeGateway->getBasics_groceries());
+
+		$store->categories = array_map(function ($row) {
+			return CommonLabel::createFromArray($row);
+		}, $this->storeGateway->getStoreCategories());
+
+		$store->status = array_map(function ($row) {
+			return CommonLabel::createFromArray($row);
+		}, [
+			['id' => CooperationStatus::NO_CONTACT, 'name' => $this->translator->trans('storestatus.1')],
+			['id' => CooperationStatus::IN_NEGOTIATION, 'name' => $this->translator->trans('storestatus.2')],
+			['id' => CooperationStatus::COOPERATION_STARTING, 'name' => $this->translator->trans('storestatus.3a')],
+			['id' => CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US, 'name' => $this->translator->trans('storestatus.4')],
+			['id' => CooperationStatus::COOPERATION_ESTABLISHED, 'name' => $this->translator->trans('storestatus.5')],
+			['id' => CooperationStatus::GIVES_TO_OTHER_CHARITY, 'name' => $this->translator->trans('storestatus.6')],
+			['id' => CooperationStatus::PERMANENTLY_CLOSED, 'name' => $this->translator->trans('storestatus.7')],
+		]);
+
+		$store->publicTimes = array_map(function ($row) {
+			return CommonLabel::createFromArray($row);
+		}, [
+			['id' => PublicTimes::IN_THE_MORNING->value, 'name' => $this->translator->trans('storeview.public_time_in_the_morning')],
+			['id' => PublicTimes::AT_NOON_IN_THE_AFTERNOON->value, 'name' => $this->translator->trans('storeview.public_time_at_noon_or_afternoon')],
+			['id' => PublicTimes::IN_THE_EVENING->value, 'name' => $this->translator->trans('storeview.public_time_in_the_evening')],
+			['id' => PublicTimes::AT_NIGHT->value, 'name' => $this->translator->trans('storeview.public_time_at_night')]
+		]);
+
+		$store->convinceStatus = array_map(function ($row) {
+			return CommonLabel::createFromArray($row);
+		}, [
+			['id' => ConvinceStatus::NO_PROBLEM_AT_ALL->value, 'name' => $this->translator->trans('store.convince.none')],
+			['id' => ConvinceStatus::AFTER_SOME_PERSUASION->value, 'name' => $this->translator->trans('store.convince.some')],
+			['id' => ConvinceStatus::DIFFICULT_NEGOTIATION->value, 'name' => $this->translator->trans('store.convince.much')],
+			['id' => ConvinceStatus::LOOKED_BAD_BUT_WORKED->value, 'name' => $this->translator->trans('store.convince.final')]
+		]);
+
+		if (!$supressStoreChains) {
+			$store->storeChains = array_map(function ($row) {
+				return CommonLabel::createFromArray($row);
+			}, $this->storeGateway->getBasics_chain());
+		}
+
+		$store->weight = array_map(function ($row) {
+			return CommonLabel::createFromArray($row);
+		}, (new WeightHelper())->getWeightListEntries());
+
+		return $store;
 	}
 
 	public function existStore($storeId)

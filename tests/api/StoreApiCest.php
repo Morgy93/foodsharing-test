@@ -44,13 +44,38 @@ class StoreApiCest
 		$I->seeResponseCodeIs(Http::UNAUTHORIZED);
 	}
 
-	public function getCommonStoreMetadataLikeMaxPickupSlotsAsFoodsaver(ApiTester $I)
+	public function getCommonStoreMetadataAsFoodsaver(ApiTester $I)
 	{
 		$I->login($this->user[self::EMAIL]);
 		$I->sendGET(self::API_STORES . '/meta-data');
 		$I->seeResponseCodeIs(Http::OK);
 		$I->seeResponseIsJson();
+		$I->seeResponseContainsJson(['maxCountPickupSlot' => 10,
+									'storeChains' => null]);
+
+		$groceries = $I->grabDataFromResponseByJsonPath('$.groceries');
+		$I->assertNotCount(0, $groceries);
+		$categories = $I->grabDataFromResponseByJsonPath('$.categories');
+		$I->assertNotCount(0, $categories);
+		$status = $I->grabDataFromResponseByJsonPath('$.status');
+		$I->assertNotCount(0, $status);
+		$weight = $I->grabDataFromResponseByJsonPath('$.weight');
+		$I->assertNotCount(0, $weight);
+		$convinceStatus = $I->grabDataFromResponseByJsonPath('$.convinceStatus');
+		$I->assertNotCount(0, $convinceStatus);
+		$publicTimes = $I->grabDataFromResponseByJsonPath('$.publicTimes');
+		$I->assertNotCount(0, $publicTimes);
+	}
+
+	public function getCommonStoreMetadataAsStoreOwner(ApiTester $I)
+	{
+		$I->login($this->manager[self::EMAIL]);
+		$I->sendGET(self::API_STORES . '/meta-data');
+		$I->seeResponseCodeIs(Http::OK);
+		$I->seeResponseIsJson();
 		$I->seeResponseContainsJson(['maxCountPickupSlot' => 10]);
+		$storeChains = $I->grabDataFromResponseByJsonPath('$.storeChains');
+		$I->assertNotCount(0, $storeChains);
 	}
 
 	public function getStore(ApiTester $I)

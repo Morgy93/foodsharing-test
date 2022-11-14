@@ -2233,16 +2233,16 @@ store:
   locked: Du kan ikke redigere dette selskapet.
 storeview:
   status: Nåværende status
-  frequency4: om natten
-  frequency3: om kvelden
-  frequency2: midt på dagen/på ettermiddagen
-  frequency1: om morgenen
+  public_time_at_night: om natten
+  public_time_in_the_evening: om kvelden
+  public_time_at_noon_or_afternoon: midt på dagen/på ettermiddagen
+  public_time_in_the_morning: om morgenen
   info: Informasjon
   store: Drift
   counter: <strong>{count}<span style="white-space:nowrap"> </span>{suffix}</strong>
   pickupWeight: '{pickupWeight} mat ble spart.'
   cooperation: Samarbeid siden {startTime}.
-  frequency: Vi henter her {freq}. Vennligst aldri gå til butikken uten forhåndsavtale!
+  public_time: Vi henter her {freq}. Vennligst aldri gå til butikken uten forhåndsavtale!
   want_to_fetch: Jeg ønsker å hjelpe i dette laget.
   specials: Særtrekk
   teamInfo: Det er <strong>{active}</strong> aktive og <strong>{jumper}</strong> hoppere

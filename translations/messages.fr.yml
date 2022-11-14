@@ -1070,11 +1070,11 @@ storeview:
   specials: Particularités
   managers: Foodsaver responsable
   status: Statut actuel
-  frequency4: la nuit
-  frequency3: le soir
-  frequency2: le midi/l'après-midi
-  frequency1: le matin
-  frequency: Les interventions ont lieu tous les {freq}. N'interviens JAMAIS dans
+  public_time_at_night: la nuit
+  public_time_in_the_evening: le soir
+  public_time_at_noon_or_afternoon: le midi/l'après-midi
+  public_time_in_the_morning: le matin
+  public_time: Les interventions ont lieu tous les {freq}. N'interviens JAMAIS dans
     le magasin sans accord !
   cooperation: Coopère depuis le {startTime}.
   pickupWeight: Il y a eu {pickupWeight} de repêchés.

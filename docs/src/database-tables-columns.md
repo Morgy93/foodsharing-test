@@ -16,10 +16,10 @@ and/or the best location for a new query/function.
 
 ## List of tables
 
-- [fs_foodsaver_has_conversation](#table-fs_foodsaver_has_conversation)
-- [uploads](#table-uploads)
-- [fs_foodsaver_has_event](#table-fs_foodsaver_has_event)
+- [fs_abholer](#table-fs_abholer)
+- [fs_abholzeiten](#table-fs_abholzeiten)
 - [fs_answer](#table-fs_answer)
+- [fs_apitoken](#table-fs_apitoken)
 - [fs_application_has_wallpost](#table-fs_application_has_wallpost)
 - [fs_basket](#table-fs_basket)
 - [fs_basket_anfrage](#table-fs_basket_anfrage)
@@ -58,8 +58,8 @@ and/or the best location for a new query/function.
 - [fs_foodsaver_has_bell](#table-fs_foodsaver_has_bell)
 - [fs_foodsaver_has_bezirk](#table-fs_foodsaver_has_bezirk)
 - [fs_foodsaver_has_contact](#table-fs_foodsaver_has_contact)
-- [phinxlog](#table-phinxlog)
-- [fs_apitoken](#table-fs_apitoken)
+- [fs_foodsaver_has_conversation](#table-fs_foodsaver_has_conversation)
+- [fs_foodsaver_has_event](#table-fs_foodsaver_has_event)
 - [fs_foodsaver_has_options](#table-fs_foodsaver_has_options)
 - [fs_foodsaver_has_poll](#table-fs_foodsaver_has_poll)
 - [fs_foodsaver_has_wallpost](#table-fs_foodsaver_has_wallpost)
@@ -99,65 +99,58 @@ and/or the best location for a new query/function.
 - [fs_usernotes_has_wallpost](#table-fs_usernotes_has_wallpost)
 - [fs_verify_history](#table-fs_verify_history)
 - [fs_wallpost](#table-fs_wallpost)
-- [fs_abholzeiten](#table-fs_abholzeiten)
-- [fs_abholer](#table-fs_abholer)
+- [phinxlog](#table-phinxlog)
+- [uploads](#table-uploads)
 
 ## Structure of tables
 
-## Table fs_foodsaver_has_conversation
+## Table fs_abholer
 
-### Description - fs_foodsaver_has_conversation
+### Description - fs_abholer
 
-Relates conversations to foodsavers. Care: It is also used to look up conversations by user
+Stores filled pickup slots, describes by who fetches when, where and if confirmed, needed to generate statistics (count, but not weight).
 
-### Open todos from old documentation - fs_foodsaver_has_conversation
+### Open todos from old documentation - fs_abholer
 
-- Reinsert missing foodsaver, add FK to *fs_conversation* (not to user)
-- Fix code to handle deleted users correctly
+- Have deleted entries from *fs_foodsaver* and *fs_betrieb* reappear.
+- Hide deleted fs_betrieb on existing map
+- Don't care about that in existing code. Used to show pickup history, but broken old entries seem fine.
+- Document: Add to database as comment (1: Confirmed, 0: Not confirmed)
+- Clarify: Why is this an integer and not a boolean?
 
-### Table columns - fs_foodsaver_has_conversation
+### Table columns - fs_abholer
 
 Column | Description | Type | properties
 ------ |-------------|------|--------
-foodsaver_id |  |unsigned int(10) | [foreign key (fs_foodsaver:id)](#table-fs_foodsaver)
-conversation_id |  |unsigned int(10) | [foreign key (fs_conversation:id)](#table-fs_conversation)
-unread |  |unsigned int(4)=1 | Nullable
+foodsaver_id |  |unsigned int(10) | [Weak-foreign key (fs_foodsaver:id)](#table-fs_foodsaver)
+betrieb_id |  |unsigned int(10) | [Weak-foreign key (fs_betrieb:id)](#table-fs_betrieb)
+date |  |datetime |
+confirmed | 1: Confirmed, 0: Not confirmed |unsigned int(4) |
 **id** |  |unsigned int(10) | Primary Key, Auto-Increment
 
-## Table uploads
+## Table fs_abholzeiten
 
-### Description - uploads
+### Description - fs_abholzeiten
 
-### Table columns - uploads
+Contains information about regurlary reoccuring pickup slots.
 
-Column | Description | Type | properties
------- |-------------|------|--------
-**uuid** |  |char(36) | Primary Key
-user_id |  |unsigned int(10) |
-sha256hash |  |char(64) |
-mimeType |  |varchar(255) |
-uploaded_at |  |datetime |
-lastaccess_at |  |datetime |
-filesize |  |unsigned int(10) |
+### Open todos from old documentation - fs_abholzeiten
 
-## Table fs_foodsaver_has_event
+- Document: Add to database as column (Dow) comment: Day of week (1=Monday, 0=Sunday)
+- Document: Add to database as column (Time) comment: When on the day the pickup is
+- Document: Add to database as column (Fetcher) comment: Number of slots (>= 0, >= 1 enforced by frontend)
+- Clarify: Where are additional single pickup slots are stored?
+- Remove all non-existent references to *fs_betrieb*, add `ON DELETE CASCADE`.
+- Add foreign key relationship to *fs_betrieb* Reasoning: The data only affects future pickups that will not occur in case a store is removed.
 
-### Description - fs_foodsaver_has_event
-
-Relates users to events.
-
-### Open todos from old documentation - fs_foodsaver_has_event
-
-- Remove broken data
-- FK on *fs_foodsaver*, *fs_event*, `ON DELETE CASCADE`
-
-### Table columns - fs_foodsaver_has_event
+### Table columns - fs_abholzeiten
 
 Column | Description | Type | properties
 ------ |-------------|------|--------
-**foodsaver_id** |  |unsigned int(10) | Primary Key, [foreign key (fs_foodsaver:id)](#table-fs_foodsaver)
-**event_id** |  |unsigned int(10) | Primary Key, [foreign key (fs_event:id)](#table-fs_event)
-status |  |unsigned int(4) |
+**betrieb_id** |  |unsigned int(10) | Primary Key, [Weak-foreign key (fs_betrieb:id)](#table-fs_betrieb)
+**dow** | Day of week (1=Monday, 0=Sunday) |unsigned int(4) | Primary Key
+**time** | Time when on the day the pickup is |time=00:00:00 | Primary Key
+fetcher | Number of slots (> 0, limited by frontend currently 8) |unsigned int(4)=4 |
 
 ## Table fs_answer
 
@@ -178,6 +171,24 @@ question_id |  |unsigned int(10) | [foreign key (fs_question:id)](#table-fs_ques
 text |  |text(16777215) | Nullable
 explanation |  |text(16777215) |
 right |  |unsigned int(4) | Nullable
+
+## Table fs_apitoken
+
+### Description - fs_apitoken
+
+User tokens for ICS/ICAL/WebCal access to calendar of future events/pickups.
+
+### Open todos from old documentation - fs_apitoken
+
+- Remove tokens for not existing users
+- add foreign key relationship to *fs_foodsaver* as well as `ON DELETE CASCADE`.
+
+### Table columns - fs_apitoken
+
+Column | Description | Type | properties
+------ |-------------|------|--------
+foodsaver_id | Owner of the token and identifier for the calendar |unsigned int(10) | [foreign key (fs_foodsaver:id)](#table-fs_foodsaver)
+token | Access token, hex-number from openssl. |varchar(255) |
 
 ## Table fs_application_has_wallpost
 
@@ -350,15 +361,15 @@ Stores stores.
 Column | Description | Type | properties
 ------ |-------------|------|--------
 **id** |  |unsigned int(10) | Primary Key, Auto-Increment
-betrieb_status_id |  |unsigned int(10) |
+betrieb_status_id | [@Status::CooperationStatus](https://gitlab.com/foodsharing-dev/foodsharing/-/tree/master/src/Modules/Core/DBConstants/Status/CooperationStatus.php) |unsigned int(10) |
 bezirk_id |  |unsigned int(10) |
 added |  |date |
 plz |  |varchar(5) |
 stadt |  |varchar(50) |
 lat |  |varchar(20) | Nullable
 lon |  |varchar(20) | Nullable
-kette_id |  |unsigned int(10) | Nullable
-betrieb_kategorie_id |  |int(11) | Nullable
+kette_id |  |unsigned int(10) | [Weak-foreign key (fs_kette:id)](#table-fs_kette), Nullable
+betrieb_kategorie_id |  |int(11) | [Weak-foreign key (fs_betrieb_kategorie:id)](#table-fs_betrieb_kategorie), Nullable
 name |  |varchar(120) | Nullable
 str |  |varchar(120) | Nullable
 status_date |  |date | Nullable
@@ -370,16 +381,17 @@ email |  |varchar(60) | Nullable
 begin |  |date | Nullable
 besonderheiten |  |text(16777215) | Nullable
 public_info |  |varchar(200) | Nullable
-public_time |  |int(4) |
-ueberzeugungsarbeit |  |int(4) |
-presse |  |int(4) |
-sticker |  |int(4) |
-abholmenge |  |int(4) |
+public_time | [@Store::PublicTimes](https://gitlab.com/foodsharing-dev/foodsharing/-/tree/master/src/Modules/Core/DBConstants/Store/PublicTimes.php) |int(4) |
+ueberzeugungsarbeit | [@Store::ConvinceStatus](https://gitlab.com/foodsharing-dev/foodsharing/-/tree/master/src/Modules/Core/DBConstants/Store/ConvinceStatus.php) |int(4) |
+presse | Yes=0; No=1 |int(4) |
+sticker | Yes=0; No=1 |int(4) |
+abholmenge | [@Store::PublicTimes](https://gitlab.com/foodsharing-dev/foodsharing/-/tree/master/src/Modules/Core/DBConstants/Store/PublicTimes.php) |int(4) |
 team_status | 0 = Team Voll; 1 = Es werden noch Helfer gesucht; 2 = Es werden dringend Helfer gesucht |int(4)=1 |
-prefetchtime |  |unsigned int(10)=1209600 |
+prefetchtime | Frequence of expected regular pickups in seconds |unsigned int(10)=1209600 |
 team_conversation_id |  |unsigned int(10) | Nullable
 springer_conversation_id |  |unsigned int(10) | Nullable
 deleted_at |  |datetime | Nullable
+use_region_pickup_rule | [[@StoreSettings::USE](https://gitlab.com/foodsharing-dev/foodsharing/-/tree/master/src/Modules/Core/DBConstants/StoreSettings/USE.php)](https://gitlab.com/foodsharing-dev/foodsharing/-/tree/master/src/Modules/Core/DBConstants/StoreSettings/USE.php)_PICKUP_RULE_YES = Store follows region pickup rule. @StoreSettings::USE_PICKUP_RULE_NO = Store does not follow region pickup rule. |unsigned int(1) |
 
 ## Table fs_betrieb_has_lebensmittel
 
@@ -1086,37 +1098,44 @@ Column | Description | Type | properties
 **foodsaver_id** |  |unsigned int(10) | Primary Key, [foreign key (fs_foodsaver:id)](#table-fs_foodsaver)
 **contact_id** |  |unsigned int(10) | Primary Key, [foreign key (fs_contact:id)](#table-fs_contact)
 
-## Table phinxlog
+## Table fs_foodsaver_has_conversation
 
-### Description - phinxlog
+### Description - fs_foodsaver_has_conversation
 
-### Table columns - phinxlog
+Relates conversations to foodsavers. Care: It is also used to look up conversations by user
 
-Column | Description | Type | properties
------- |-------------|------|--------
-**version** |  |int(20) | Primary Key
-migration_name |  |varchar(100) | Nullable
-start_time |  |timestamp | Nullable
-end_time |  |timestamp | Nullable
-breakpoint |  |int(1) |
+### Open todos from old documentation - fs_foodsaver_has_conversation
 
-## Table fs_apitoken
+- Reinsert missing foodsaver, add FK to *fs_conversation* (not to user)
+- Fix code to handle deleted users correctly
 
-### Description - fs_apitoken
-
-User tokens for ICS/ICAL/WebCal access to calendar of future events/pickups.
-
-### Open todos from old documentation - fs_apitoken
-
-- Remove tokens for not existing users
-- add foreign key relationship to *fs_foodsaver* as well as `ON DELETE CASCADE`.
-
-### Table columns - fs_apitoken
+### Table columns - fs_foodsaver_has_conversation
 
 Column | Description | Type | properties
 ------ |-------------|------|--------
-foodsaver_id | Owner of the token and identifier for the calendar |unsigned int(10) | [foreign key (fs_foodsaver:id)](#table-fs_foodsaver)
-token | Access token, hex-number from openssl. |varchar(255) |
+foodsaver_id |  |unsigned int(10) | [foreign key (fs_foodsaver:id)](#table-fs_foodsaver)
+conversation_id |  |unsigned int(10) | [foreign key (fs_conversation:id)](#table-fs_conversation)
+unread |  |unsigned int(4)=1 | Nullable
+**id** |  |unsigned int(10) | Primary Key, Auto-Increment
+
+## Table fs_foodsaver_has_event
+
+### Description - fs_foodsaver_has_event
+
+Relates users to events.
+
+### Open todos from old documentation - fs_foodsaver_has_event
+
+- Remove broken data
+- FK on *fs_foodsaver*, *fs_event*, `ON DELETE CASCADE`
+
+### Table columns - fs_foodsaver_has_event
+
+Column | Description | Type | properties
+------ |-------------|------|--------
+**foodsaver_id** |  |unsigned int(10) | Primary Key, [foreign key (fs_foodsaver:id)](#table-fs_foodsaver)
+**event_id** |  |unsigned int(10) | Primary Key, [foreign key (fs_event:id)](#table-fs_event)
+status |  |unsigned int(4) |
 
 ## Table fs_foodsaver_has_options
 
@@ -1785,53 +1804,35 @@ body |  |text(16777215) | Nullable
 time |  |datetime | Nullable
 attach |  |text(16777215) | Nullable
 
-## Table fs_abholzeiten
+## Table phinxlog
 
-### Description - fs_abholzeiten
+### Description - phinxlog
 
-Contains information about regurlary reoccuring pickup slots.
-
-### Open todos from old documentation - fs_abholzeiten
-
-- Document: Add to database as column (Dow) comment: Day of week (1=Monday, 0=Sunday)
-- Document: Add to database as column (Time) comment: When on the day the pickup is
-- Document: Add to database as column (Fetcher) comment: Number of slots (>= 0, >= 1 enforced by frontend)
-- Clarify: Where are additional single pickup slots are stored?
-- Remove all non-existent references to *fs_betrieb*, add `ON DELETE CASCADE`.
-- Add foreign key relationship to *fs_betrieb* Reasoning: The data only affects future pickups that will not occur in case a store is removed.
-
-### Table columns - fs_abholzeiten
+### Table columns - phinxlog
 
 Column | Description | Type | properties
 ------ |-------------|------|--------
-**betrieb_id** |  |unsigned int(10) | Primary Key, [Weak-foreign key (fs_betrieb:id)](#table-fs_betrieb)
-**dow** | Day of week (1=Monday, 0=Sunday) |unsigned int(4) | Primary Key
-**time** | Time when on the day the pickup is |time=00:00:00 | Primary Key
-fetcher | Number of slots (> 0, limited by frontend currently 8) |unsigned int(4)=4 |
+**version** |  |int(20) | Primary Key
+migration_name |  |varchar(100) | Nullable
+start_time |  |timestamp | Nullable
+end_time |  |timestamp | Nullable
+breakpoint |  |int(1) |
 
-## Table fs_abholer
+## Table uploads
 
-### Description - fs_abholer
+### Description - uploads
 
-Stores filled pickup slots, describes by who fetches when, where and if confirmed, needed to generate statistics (count, but not weight).
-
-### Open todos from old documentation - fs_abholer
-
-- Have deleted entries from *fs_foodsaver* and *fs_betrieb* reappear.
-- Hide deleted fs_betrieb on existing map
-- Don't care about that in existing code. Used to show pickup history, but broken old entries seem fine.
-- Document: Add to database as comment (1: Confirmed, 0: Not confirmed)
-- Clarify: Why is this an integer and not a boolean?
-
-### Table columns - fs_abholer
+### Table columns - uploads
 
 Column | Description | Type | properties
 ------ |-------------|------|--------
-foodsaver_id |  |unsigned int(10) | [Weak-foreign key (fs_foodsaver:id)](#table-fs_foodsaver)
-betrieb_id |  |unsigned int(10) | [Weak-foreign key (fs_betrieb:id)](#table-fs_betrieb)
-date |  |datetime |
-confirmed | 1: Confirmed, 0: Not confirmed |unsigned int(4) |
-**id** |  |unsigned int(10) | Primary Key, Auto-Increment
+**uuid** |  |char(36) | Primary Key
+user_id |  |unsigned int(10) |
+sha256hash |  |char(64) |
+mimeType |  |varchar(255) |
+uploaded_at |  |datetime |
+lastaccess_at |  |datetime |
+filesize |  |unsigned int(10) |
 
 ## Usage of table in PHP Modules
 
@@ -1877,6 +1878,16 @@ entity fs_betrieb {
 --
 }
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
 entity fs_location {
 * id
 --
@@ -1901,6 +1912,8 @@ fs_bezirk ||..o| fs_mailbox
 fs_bezirk ||..o| fs_bezirk
 fs_betrieb_team ||..o| fs_foodsaver
 fs_betrieb_team ||..o| fs_betrieb
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
 fs_event ||..o| fs_bezirk
 fs_event ||..o| fs_location
 fs_event_has_wallpost ||..o| fs_event
@@ -2374,6 +2387,16 @@ entity fs_mailbox {
 --
 }
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
 fs_region_function ||..o| fs_bezirk
 fs_botschafter ||..o| fs_foodsaver
 fs_botschafter ||..o| fs_bezirk
@@ -2382,6 +2405,8 @@ fs_bezirk ||..o| fs_bezirk
 fs_foodsaver ||..o| fs_bezirk
 fs_foodsaver ||..o| fs_mailbox
 fs_bezirk_closure ||..o| fs_bezirk
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
 fs_fairteiler ||..o| fs_bezirk
 @enduml
 ~~~
@@ -2617,6 +2642,16 @@ fs_foodsaver ||..o| fs_mailbox
 ~~~plantuml
 @startuml
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
 entity fs_bezirk {
 * id
 --
@@ -2633,6 +2668,8 @@ entity fs_foodsaver {
 --
 }
 
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
 fs_foodsaver ||..o| fs_bezirk
 fs_foodsaver ||..o| fs_mailbox
 fs_basket ||..o| fs_foodsaver
@@ -2662,6 +2699,16 @@ entity fs_conversation {
 --
 }
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
 entity fs_bezirk {
 * id
 --
@@ -2675,6 +2722,8 @@ entity fs_mailbox {
 
 fs_foodsaver_has_conversation ||..o| fs_foodsaver
 fs_foodsaver_has_conversation ||..o| fs_conversation
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
 fs_msg ||..o| fs_conversation
 fs_foodsaver ||..o| fs_bezirk
 fs_foodsaver ||..o| fs_mailbox
@@ -2764,6 +2813,16 @@ entity fs_betrieb {
 --
 }
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
 entity fs_location {
 * id
 --
@@ -2789,6 +2848,8 @@ fs_basket_anfrage ||..o| fs_foodsaver
 fs_basket_anfrage ||..o| fs_basket
 fs_betrieb_team ||..o| fs_foodsaver
 fs_betrieb_team ||..o| fs_betrieb
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
 fs_event ||..o| fs_bezirk
 fs_event ||..o| fs_location
 fs_foodsaver_has_event ||..o| fs_foodsaver
@@ -2895,6 +2956,16 @@ entity fs_betrieb {
 --
 }
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
 fs_foodsaver ||..o| fs_bezirk
 fs_foodsaver ||..o| fs_mailbox
 fs_bezirk_has_theme ||..o| fs_bezirk
@@ -2911,6 +2982,8 @@ fs_botschafter ||..o| fs_foodsaver
 fs_botschafter ||..o| fs_bezirk
 fs_abholer ||..o| fs_foodsaver
 fs_abholer ||..o| fs_betrieb
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
 fs_region_options ||..o| fs_bezirk
 fs_region_pin ||..o| fs_bezirk
 @enduml
@@ -2955,10 +3028,22 @@ entity fs_mailbox {
 --
 }
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
 fs_betrieb_team ||..o| fs_foodsaver
 fs_betrieb_team ||..o| fs_betrieb
 fs_foodsaver ||..o| fs_bezirk
 fs_foodsaver ||..o| fs_mailbox
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
 fs_bezirk ||..o| fs_mailbox
 fs_bezirk ||..o| fs_bezirk
 @enduml
@@ -3099,6 +3184,16 @@ entity fs_betrieb {
 --
 }
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
 entity fs_theme {
 * id
 --
@@ -3108,6 +3203,8 @@ fs_foodsaver ||..o| fs_bezirk
 fs_foodsaver ||..o| fs_mailbox
 fs_abholer ||..o| fs_foodsaver
 fs_abholer ||..o| fs_betrieb
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
 fs_theme_post ||..o| fs_theme
 fs_rating ||..o| fs_foodsaver
 fs_buddy ||..o| fs_foodsaver
@@ -3158,6 +3255,16 @@ entity fs_betrieb {
 --
 }
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
 entity fs_bezirk {
 * id
 --
@@ -3171,6 +3278,8 @@ entity fs_mailbox {
 
 fs_abholer ||..o| fs_foodsaver
 fs_abholer ||..o| fs_betrieb
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
 fs_abholzeiten ||..o| fs_betrieb
 fs_foodsaver ||..o| fs_bezirk
 fs_foodsaver ||..o| fs_mailbox
@@ -3183,7 +3292,7 @@ fs_bezirk_closure ||..o| fs_bezirk
 ~~~
 
   - [fs_abholer](#table-fs_abholer) (DELETE, INSERT, SELECT)
-  - [fs_abholzeiten](#table-fs_abholzeiten) (SELECT)
+  - [fs_abholzeiten](#table-fs_abholzeiten) (DELETE, INSERT, SELECT)
   - [fs_betrieb](#table-fs_betrieb) (, INSERT, SELECT, UPDATE)
   - [fs_betrieb_has_lebensmittel](#table-fs_betrieb_has_lebensmittel) (DELETE, INSERT, SELECT)
   - [fs_betrieb_kategorie](#table-fs_betrieb_kategorie) (SELECT)
@@ -3221,7 +3330,23 @@ fs_foodsaver ||..o| fs_mailbox
   - [fs_ipblock](#table-fs_ipblock) (INSERT, SELECT)
 ### Unclassified
 
+~~~plantuml
+@startuml
 
+entity fs_kette {
+* id
+--
+}
+
+entity fs_betrieb_kategorie {
+* id
+--
+}
+
+fs_betrieb ||..o| fs_kette
+fs_betrieb ||..o| fs_betrieb_kategorie
+@enduml
+~~~
 
   - [fs_bell](#table-fs_bell) (DELETE)
   - [fs_betrieb](#table-fs_betrieb) (SELECT)
@@ -3309,7 +3434,6 @@ fs_bezirk ||..o| fs_bezirk
   - [fs_foodsaver_has_bezirk](#table-fs_foodsaver_has_bezirk) (SELECT)
   - [fs_foodsaver_has_poll](#table-fs_foodsaver_has_poll) (INSERT, SELECT, UPDATE)
   - [fs_poll](#table-fs_poll) (DELETE, INSERT, SELECT, UPDATE)
-  - [fs_poll_has_option](#table-fs_poll_has_option) (SELECT)
   - [fs_poll_has_options](#table-fs_poll_has_options) (DELETE, INSERT, SELECT)
   - [fs_poll_option_has_value](#table-fs_poll_option_has_value) (DELETE, INSERT, SELECT, UPDATE)
 ### WallPost

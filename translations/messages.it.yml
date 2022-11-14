@@ -842,17 +842,17 @@ storeview:
   specials: particolarità
   managers: Foodsaver responsabile
   status: Stato attuale
-  frequency4: di notte
-  frequency3: a sera
-  frequency2: mezzogiorno/pomeriggio
-  frequency1: mattina
+  public_time_at_night: di notte
+  public_time_in_the_evening: a sera
+  public_time_at_noon_or_afternoon: mezzogiorno/pomeriggio
+  public_time_in_the_morning: mattina
   cooperation: Cooperazione da {startTime}.
   teamInfo: Ci sono <strong>{active}</strong> attivi e <strong>{jumper}</strong> sostituti
     nella squadra.
   info: Informazioni
   store: Azienda
   counter: <strong>{count}<span style="white-space:nowrap"> </span>{suffix}</strong>
-  frequency: Sarà rilevato all'incirca {freq}. Si prega di non recarsi mai al negozio
+  public_time: Sarà rilevato all'incirca {freq}. Si prega di non recarsi mai al negozio
     senza previa consultazione!
   pickupWeight: '{pickupWeight} sono stati salvati.'
   pickupCount: In questa agenzia e stato {pickupCount} ritirato.

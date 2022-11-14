@@ -554,7 +554,7 @@ profile:
     title: Engagement stats
     securePickupWeek: Thanks for {count} stepping in and securing pickups on short
       notice!
-    pickupCount: Frequency
+    pickupCount: public_time
     week_0: The week after next
     eventsCreatedWeek: 'Thanks for creating events {count} times this week. '
     eventsParticipatedWeek: 'Thanks for participating in {count} events this week.
@@ -858,15 +858,15 @@ storeview:
   cooperation: Cooperation since {startTime}.
   store: Store
   want_to_fetch: I would like to help in this team.
-  frequency4: at night
-  frequency3: in the evening
-  frequency2: at noon/in the afternoon
-  frequency1: in the morning
+  public_time_at_night: at night
+  public_time_in_the_evening: in the evening
+  public_time_at_noon_or_afternoon: at noon/in the afternoon
+  public_time_in_the_morning: in the morning
   info: Information
   specials: Special features
   managers: Responsible foodsavers
   status: Current status
-  frequency: 'It will be picked up roughly {freq}. Please never go to the store without
+  public_time: 'It will be picked up roughly {freq}. Please never go to the store without
     prior consultation!'
   pickupWeight: '{pickupWeight} were saved.'
   counter: <strong>{count}<span style="white-space:nowrap"> </span>{suffix}</strong>

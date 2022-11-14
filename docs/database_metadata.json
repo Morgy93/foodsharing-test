@@ -180,7 +180,7 @@
                 },
                 "rolle": {
                     "description": "Describes the type of member in the foodsharing community system @Foodsaver::Role"
-                }, 
+                },
                 "verified": {
                     "description": "User is verified to by part of the foodsharing community (True: Verified, False: Not verified or lost verification)"
                 },
@@ -189,7 +189,7 @@
                 },
                 "position": {
                     "description": "Free text description of position in foodsharing community (public visible)"
-                }, 
+                },
                 "type": {
                     "description": "**Unused? I only found one SELECT but no write**"
                 },
@@ -284,7 +284,7 @@
                 },
                 "sleep_msg": {
                     "description": "Message about the reason of sleeping."
-                }, 
+                },
                 "sleep_status": {
                     "description": "Kind of sleeping (@Foodsaver::SleepStatus)"
                 },
@@ -302,7 +302,7 @@
                 },
                 "stat_ratecount": {
                     "description": "**Unused**"
-                }, 
+                },
                 "stat_rating": {
                     "description": "**Unused**"
                 },
@@ -819,7 +819,48 @@
                 "Conversation 108242 and 108243 missing (store 1, 2) (fixed, inserted)",
                 "Link `bezirk_id` to *fs_bezirk*",
                 "Care about kette_id, betrieb_kategorie_id (fixed with issue #862)"
-            ]
+            ],
+            "columns": {
+                "kette_id": {
+                    "weakForeignKey": {
+                        "table": "fs_kette",
+                        "column": "id"
+                    }
+                },
+                "betrieb_kategorie_id": {
+                    "weakForeignKey": {
+                        "table": "fs_betrieb_kategorie",
+                        "column": "id"
+                    }
+                },
+                "betrieb_status_id": {
+                    "description": "@Status::CooperationStatus"
+                },
+                "staus": {
+                    "description": "maybe unused"
+                },
+                "abholmenge": {
+                    "description": "See @WeightHelper"
+                },
+                "public_time": {
+                    "description": "@Store::PublicTimes"
+                },
+                "ueberzeugungsarbeit": {
+                    "description": "@Store::ConvinceStatus"
+                },
+                "presse": {
+                    "description": "Yes=0; No=1"
+                },
+                "sticker": {
+                    "description": "Yes=0; No=1"
+                },
+                "team_status": {
+                    "description": "@Status::TeamStatus"
+                },
+                "prefetchtime": {
+                    "description": "Frequence of expected regular pickups in seconds"
+                }
+            }
         },
         {
             "identifier": "fs_betrieb_notiz",
