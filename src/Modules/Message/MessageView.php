@@ -7,6 +7,8 @@ use Foodsharing\Modules\Foodsaver\Profile;
 
 final class MessageView extends View
 {
+	private const DEFAULT_AVATAR_IMAGE_PATH = '/img/avatar-mini.png';
+
 	public function leftMenu(): string
 	{
 		return $this->menu([
@@ -132,7 +134,9 @@ final class MessageView extends View
 				if ($m == $this->session->id()) {
 					continue;
 				}
-				$pics .= '<img src="' . $this->imageService->img($profiles[$m]->avatar, $size) . '" width="' . $pictureWidth . '" />';
+				$avatar = $profiles[$m]->avatar ?? self::DEFAULT_AVATAR_IMAGE_PATH;
+				$pics .= '<img src="' . $this->imageService->img($avatar, $size, 'q', self::DEFAULT_AVATAR_IMAGE_PATH)
+					. '" width="' . $pictureWidth . '" />';
 				if ($profiles[$m]->name) {
 					$title .= ', ' . $profiles[$m]->name;
 				}

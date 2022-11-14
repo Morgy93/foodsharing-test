@@ -96,6 +96,7 @@
 - Clean up pickup endpoint and catch DomainException: No pickup slot available problems !1407 @KoeMai
 - StoreCest, improved and removed unnecessary elements !2434 @sefn
 - Fix the link in the notification regarding old profile photos #1424 !2459 @alex.simm  
+- Prevent access to missing conversation member image
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
