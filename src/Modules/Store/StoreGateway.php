@@ -145,9 +145,9 @@ class StoreGateway extends BaseGateway
 			'name' => $store->name,
 			'bezirk_id' => $store->regionId,
 
-			'lat' => $store->lat,
-			'lon' => $store->lon,
-			'str' => $store->str,
+			'lat' => $store->location->lat,
+			'lon' => $store->location->lon,
+			'str' => $store->street,
 			'plz' => $store->zip,
 			'stadt' => $store->city,
 
@@ -1026,6 +1026,11 @@ class StoreGateway extends BaseGateway
 		]);
 	}
 
+	/**
+	 * Returns a list of stores which belong to regions.
+	 *
+	 *  @return array<Store>
+	 */
 	public function listStoresInRegion(int $regionId, bool $includeSubregions = false): array
 	{
 		$regionIds = [$regionId];
@@ -1033,27 +1038,39 @@ class StoreGateway extends BaseGateway
 			$regionIds = array_merge($regionIds, $this->regionGateway->listIdsForDescendantsAndSelf($regionId));
 		}
 
-		return $this->db->fetchAll('
-				SELECT 	fs_betrieb.id,
-						`fs_betrieb`.betrieb_status_id,
-						fs_betrieb.plz,
-						fs_betrieb.added,
-						`stadt`,
-						fs_betrieb.kette_id,
-						fs_betrieb.betrieb_kategorie_id,
+		$placeholders = implode(',', array_fill(0, count($regionIds), '?'));
+		$results = $this->db->fetchAll('SELECT fs_betrieb.id,
 						fs_betrieb.name,
-						fs_betrieb.str AS anschrift,
-						fs_betrieb.str,
-						CONCAT(fs_betrieb.lat,", ",fs_betrieb.lon) AS geo,
-						fs_betrieb.`betrieb_status_id`,
-						fs_bezirk.name AS bezirk_name
+						fs_betrieb.bezirk_id as region_id,
+						fs_betrieb.lat,
+						fs_betrieb.lon,
 
+						fs_betrieb.str AS street,
+						fs_betrieb.plz as zip,
+						fs_betrieb.stadt as city,
+
+						fs_betrieb.public_info,
+						fs_betrieb.public_time,
+
+						fs_betrieb.kette_id as chainId,
+						fs_betrieb.betrieb_kategorie_id as categoryId,
+						fs_betrieb.betrieb_status_id as cooperationStatus,
+						fs_betrieb.besonderheiten as "description",
+
+						fs_betrieb.presse as publicity,
+						fs_betrieb.sticker,
+
+						fs_betrieb.added as createdAt,
+						fs_betrieb.status_date as updatedAt
 				FROM 	fs_betrieb,
 						fs_bezirk
-
 				WHERE 	fs_betrieb.bezirk_id = fs_bezirk.id
-				AND 	fs_betrieb.bezirk_id IN(' . implode(',', $regionIds) . ')
-		');
+				AND 	fs_betrieb.bezirk_id IN(' . $placeholders . ')
+		', $regionIds);
+
+		return array_map(function ($store) {
+			return Store::createFromArray($store);
+		}, $results);
 	}
 
 	public function listStoresWithoutRegion(array $storeIds): array

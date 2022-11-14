@@ -6,6 +6,7 @@ use Faker\Factory;
 use Faker\Generator;
 use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\StoreTeam\MembershipStatus;
+use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Store\DTO\CreateStoreData;
 use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Modules\Store\TeamStatus;
@@ -102,6 +103,86 @@ class StoreGatewayTest extends Unit
 			TeamStatus::WaitingList,
 			$this->gateway->getUserTeamStatus($waiter['id'], $this->store['id'])
 		);
+	}
+
+	public function testListStoresInRegionStoreContent(): void
+	{
+		$region = $this->tester->createRegion();
+		$storeAdded = new DateTime();
+		$storeStatusUpdate = new DateTime();
+		$store = $this->tester->createStore($region['id'], null, null, ['added' => $storeAdded, 'status_date' => $storeStatusUpdate]);
+
+		$listOfStores = $this->gateway->listStoresInRegion($region['id'], true);
+		$this->assertIsArray($listOfStores);
+		$this->assertEquals(1, count($listOfStores));
+
+		$dbStore = $listOfStores[0];
+		$this->assertEquals($store['id'], $dbStore->id);
+		$this->assertEquals($store['name'], $dbStore->name);
+		$this->assertEquals($store['bezirk_id'], $dbStore->regionId);
+		$this->assertEquals($store['lat'], $dbStore->location->lat);
+		$this->assertEquals($store['lon'], $dbStore->location->lon);
+		$this->assertEquals($store['str'], $dbStore->street);
+		$this->assertEquals($store['plz'], $dbStore->zip);
+		$this->assertEquals($store['stadt'], $dbStore->city);
+		$this->assertEquals($store['public_info'], $dbStore->publicInfo);
+		$this->assertEquals($store['public_time'], $dbStore->publicTime);
+		$this->assertEquals($store['kette_id'], $dbStore->chainId);
+		$this->assertEquals($store['betrieb_kategorie_id'], $dbStore->categoryId);
+		$this->assertEquals($store['betrieb_status_id'], $dbStore->cooperationStatus);
+		$this->assertEquals($store['besonderheiten'], $dbStore->description);
+		$this->assertEquals($store['presse'], $dbStore->publicity);
+		$this->assertEquals($store['sticker'], $dbStore->sticker);
+		$this->assertEquals($storeAdded->format('Y-m-d'), $dbStore->createdAt->format('Y-m-d'));
+		$this->assertEquals($storeStatusUpdate->format('Y-m-d'), $dbStore->updatedAt->format('Y-m-d'));
+	}
+
+	public function testlistStoresInRegionWithSubRegions(): void
+	{
+		$regionRelatedRegion = $this->tester->createRegion();
+		$this->tester->createStore($regionRelatedRegion['id']);
+		$this->tester->createStore($regionRelatedRegion['id']);
+
+		$regionTop = $this->tester->createRegion(null, ['type' => UnitType::CITY]);
+		$regionChild = $this->tester->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store1 = $this->tester->createStore($regionTop['id']);
+		$store2 = $this->tester->createStore($regionTop['id']);
+		$store3 = $this->tester->createStore($regionChild['id']);
+		$store4 = $this->tester->createStore($regionChild['id']);
+
+		$listOfStores = $this->gateway->listStoresInRegion($regionTop['id'], true);
+		$this->assertIsArray($listOfStores);
+		$this->assertEquals(4, count($listOfStores));
+		$this->assertContainsOnlyInstancesOf('Foodsharing\Modules\Store\DTO\Store', $listOfStores);
+		$storeIds = array_map(function ($store) { return $store->id; }, $listOfStores);
+		$this->assertContainsEquals($store1['id'], $storeIds);
+		$this->assertContainsEquals($store2['id'], $storeIds);
+		$this->assertContainsEquals($store3['id'], $storeIds);
+		$this->assertContainsEquals($store4['id'], $storeIds);
+	}
+
+	public function testlistStoresInRegionWithoutSubRegions(): void
+	{
+		$regionRelatedRegion = $this->tester->createRegion();
+		$this->tester->createStore($regionRelatedRegion['id']);
+		$this->tester->createStore($regionRelatedRegion['id']);
+
+		$regionTop = $this->tester->createRegion(null, ['type' => UnitType::CITY]);
+		$regionChild = $this->tester->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store1 = $this->tester->createStore($regionTop['id']);
+		$store2 = $this->tester->createStore($regionTop['id']);
+		$store3 = $this->tester->createStore($regionChild['id']);
+		$store4 = $this->tester->createStore($regionChild['id']);
+
+		$listOfStores = $this->gateway->listStoresInRegion($regionTop['id'], false);
+		$this->assertIsArray($listOfStores);
+		$this->assertEquals(2, count($listOfStores));
+		$this->assertContainsOnlyInstancesOf('Foodsharing\Modules\Store\DTO\Store', $listOfStores);
+		$storeIds = array_map(function ($store) { return $store->id; }, $listOfStores);
+		$this->assertContainsEquals($store1['id'], $storeIds);
+		$this->assertContainsEquals($store2['id'], $storeIds);
+		$this->assertNotContainsEquals($store3['id'], $storeIds);
+		$this->assertNotContainsEquals($store4['id'], $storeIds);
 	}
 
 	/**

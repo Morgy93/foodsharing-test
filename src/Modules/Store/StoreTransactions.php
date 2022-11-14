@@ -15,6 +15,7 @@ use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\PublicTimes;
 use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
 use Foodsharing\Modules\Core\DBConstants\StoreTeam\MembershipStatus;
+use Foodsharing\Modules\Core\DTO\GeoLocation;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\Message\MessageGateway;
 use Foodsharing\Modules\Region\RegionGateway;
@@ -22,6 +23,7 @@ use Foodsharing\Modules\Store\DTO\CommonLabel;
 use Foodsharing\Modules\Store\DTO\CommonStoreMetadata;
 use Foodsharing\Modules\Store\DTO\CreateStoreData;
 use Foodsharing\Modules\Store\DTO\Store;
+use Foodsharing\Modules\Store\DTO\StoreListInformation;
 use Foodsharing\Modules\Store\DTO\StoreStatusForMember;
 use Foodsharing\Utility\WeightHelper;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -125,6 +127,33 @@ class StoreTransactions
 		return $this->storeGateway->storeExists($storeId);
 	}
 
+	/**
+	 * Return a list of store identifiers of reduced store information which belong to region.
+	 *
+	 * This list of stores contains all stores from sub regions.
+	 *
+	 * @param int $regionId Region identifier
+	 * @param bool $expand Expand information about store and region
+	 *
+	 * @return array<StoreListInformation> List of information
+	 */
+	public function listOverviewInformationsOfStoresInRegion(int $regionId, bool $expand): array
+	{
+		$stores = $this->storeGateway->listStoresInRegion($regionId, true);
+
+		$storesMapped = array_map(function (Store $store) use ($expand) {
+			$requiredStoreInformation = StoreListInformation::loadFrom($store, !$expand);
+			if ($expand) {
+				$regionName = $this->regionGateway->getRegionName($store->regionId);
+				$requiredStoreInformation->region->name = $regionName;
+			}
+
+			return $requiredStoreInformation;
+		}, $stores);
+
+		return $storesMapped;
+	}
+
 	public function createStore(array $legacyGlobalData): int
 	{
 		$store = new CreateStoreData();
@@ -159,9 +188,10 @@ class StoreTransactions
 		$store->regionId = intval($legacyGlobalData['bezirk_id']);
 
 		$address = $legacyGlobalData['str'];
-		$store->lat = floatval($legacyGlobalData['lat']);
-		$store->lon = floatval($legacyGlobalData['lon']);
-		$store->str = $address;
+		$store->location = new GeoLocation();
+		$store->location->lat = floatval($legacyGlobalData['lat']);
+		$store->location->lon = floatval($legacyGlobalData['lon']);
+		$store->street = $address;
 		$store->zip = $legacyGlobalData['plz'];
 		$store->city = $legacyGlobalData['stadt'];
 
@@ -186,8 +216,8 @@ class StoreTransactions
 		$store->useRegionPickupRule = intval($legacyGlobalData['use_region_pickup_rule']);
 		$store->weight = intval($legacyGlobalData['abholmenge']);
 		$store->effort = intval($legacyGlobalData['ueberzeugungsarbeit']);
-		$store->publicity = intval($legacyGlobalData['presse']);
-		$store->sticker = intval($legacyGlobalData['sticker']);
+		$store->publicity = boolval($legacyGlobalData['presse']);
+		$store->sticker = boolval($legacyGlobalData['sticker']);
 
 		$store->updatedAt = Carbon::now();
 

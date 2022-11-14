@@ -17,6 +17,7 @@ use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Modules\Store\StoreTransactions;
 use Foodsharing\Modules\Store\TeamStatus as TeamMembershipStatus;
 use Foodsharing\Permissions\StorePermissions;
+use Foodsharing\RestApi\Models\Store\StorePaginationResult;
 use Foodsharing\RestApi\Models\Store\StoreStatusForMemberModel;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -32,31 +33,18 @@ use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class StoreRestController extends AbstractFOSRestController
 {
-	private Session $session;
-	private FoodsaverGateway $foodsaverGateway;
-	private StoreGateway $storeGateway;
-	private StoreTransactions $storeTransactions;
-	private StorePermissions $storePermissions;
-	private BellGateway $bellGateway;
-
 	// literal constants
 	private const NOT_LOGGED_IN = 'not logged in';
 	private const ID = 'id';
 
 	public function __construct(
-		Session $session,
-		FoodsaverGateway $foodsaverGateway,
-		StoreGateway $storeGateway,
-		StoreTransactions $storeTransactions,
-		StorePermissions $storePermissions,
-		BellGateway $bellGateway
+		private Session $session,
+		private FoodsaverGateway $foodsaverGateway,
+		private StoreGateway $storeGateway,
+		private StoreTransactions $storeTransactions,
+		private StorePermissions $storePermissions,
+		private BellGateway $bellGateway
 	) {
-		$this->session = $session;
-		$this->foodsaverGateway = $foodsaverGateway;
-		$this->storeGateway = $storeGateway;
-		$this->storeTransactions = $storeTransactions;
-		$this->storePermissions = $storePermissions;
-		$this->bellGateway = $bellGateway;
 	}
 
 	/**
@@ -84,6 +72,41 @@ class StoreRestController extends AbstractFOSRestController
 
 		$result = $this->storeTransactions->getCommonStoreMetadata(
 			!$this->storePermissions->mayCreateStore());
+
+		return $this->handleView($this->view($result, 200));
+	}
+
+	/**
+	 * Provides store identifiers for stores of a region.
+	 *
+	 * @OA\Tag(name="stores")
+	 * @OA\Tag(name="region")
+	 * @OA\Response(
+	 * 		response="200",
+	 * 		description="Success.",
+	 *      @Model(type=StorePaginationResult::class)
+	 * )
+	 * @OA\Response(response="401", description="Not logged in")
+	 * @OA\Response(response="403", description="Forbidden to access store list")
+	 * @Rest\Get("region/{regionId}/stores", requirements={"regionId" = "\d+"})
+	 * @Rest\QueryParam(name="expand", requirements="\d+", default="0", description="Expand information for store and region")
+	 */
+	public function getStoresOfRegion(int $regionId, ParamFetcher $paramFetcher): Response
+	{
+		if (!$this->session->mayRole()) {
+			throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
+		}
+
+		if (!$this->storePermissions->mayListStores()) {
+			throw new AccessDeniedHttpException('No permission see store list');
+		}
+
+		$expand = boolval($paramFetcher->get('expand'));
+
+		$stores = $this->storeTransactions->listOverviewInformationsOfStoresInRegion($regionId, $expand);
+		$result = new StorePaginationResult();
+		$result->total = count($stores);
+		$result->stores = $stores;
 
 		return $this->handleView($this->view($result, 200));
 	}

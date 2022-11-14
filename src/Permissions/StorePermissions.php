@@ -344,4 +344,20 @@ class StorePermissions
 	{
 		return $this->session->mayRole(Role::FOODSAVER) && $this->session->id() == $userId;
 	}
+
+	/**
+	 * Check is the user have the permission to view the list of stores.
+	 */
+	public function mayListStores(int $userId = null): bool
+	{
+		if ($userId == null) {
+			$userId = $this->session->id();
+		}
+
+		if (!$userId) {
+			return false;
+		}
+
+		return $this->session->mayRole(Role::FOODSAVER);
+	}
 }

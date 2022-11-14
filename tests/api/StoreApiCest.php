@@ -7,6 +7,7 @@ use Codeception\Util\HttpCode as Http;
 use Faker;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
+use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 
 /**
  * Tests for the store api.
@@ -22,6 +23,7 @@ class StoreApiCest
 	private $faker;
 
 	private const API_STORES = 'api/stores';
+	private const API_REGIONS = 'api/region';
 	private const EMAIL = 'email';
 	private const ID = 'id';
 
@@ -29,8 +31,9 @@ class StoreApiCest
 	{
 		$this->region = $I->createRegion();
 		$this->store = $I->createStore($this->region['id']);
-		$this->foodsharer = $I->createFoodsharer();
-		$this->user = $I->createFoodsaver();
+		$this->foodsharer = $I->createFoodsharer(null, ['verified' => 0]);
+		$this->user = $I->createFoodsaver(null, ['verified' => 0]);
+		$this->unverifiedUser = $I->createFoodsaver(null, ['verified' => 0]);
 		$this->teamMember = $I->createFoodsaver();
 		$I->addStoreTeam($this->store[self::ID], $this->teamMember[self::ID], false);
 		$this->manager = $I->createStoreCoordinator(null, ['bezirk_id' => $this->region['id']]);
@@ -76,6 +79,106 @@ class StoreApiCest
 		$I->seeResponseContainsJson(['maxCountPickupSlot' => 10]);
 		$storeChains = $I->grabDataFromResponseByJsonPath('$.storeChains');
 		$I->assertNotCount(0, $storeChains);
+	}
+
+	public function canAnonymUserNotAccessToGetListOfStoresInRegion(ApiTester $I)
+	{
+		$regionRelatedRegion = $I->createRegion();
+
+		$I->sendGET(self::API_REGIONS . '/' . $regionRelatedRegion['id'] . '/stores');
+		$I->seeResponseCodeIs(Http::UNAUTHORIZED);
+	}
+
+	public function canNotAccessToGetListOfStoresWithInvalidRegion(ApiTester $I)
+	{
+		$I->sendGET(self::API_REGIONS . '/1234/stores');
+		$I->seeResponseCodeIs(Http::UNAUTHORIZED);
+	}
+
+	public function foodsharerCanNotAccessToGetListOfStoresInRegion(ApiTester $I)
+	{
+		$regionRelatedRegion = $I->createRegion();
+
+		$I->login($this->foodsharer[self::EMAIL]);
+		$I->sendGET(self::API_REGIONS . '/' . $regionRelatedRegion['id'] . '/stores');
+		$I->seeResponseCodeIs(Http::FORBIDDEN);
+	}
+
+	public function unverifiedFoodsaverCanAccessToGetListOfStoresInRegion(ApiTester $I)
+	{
+		$regionRelatedRegion = $I->createRegion();
+
+		$I->login($this->unverifiedUser[self::EMAIL]);
+		$I->sendGET(self::API_REGIONS . '/' . $regionRelatedRegion['id'] . '/stores');
+		$I->seeResponseCodeIs(Http::OK);
+	}
+
+	public function verifiedFoodsaverCanAccessToGetListOfStoresInRegion(ApiTester $I)
+	{
+		$regionRelatedRegion = $I->createRegion();
+
+		$I->login($this->user[self::EMAIL]);
+		$I->sendGET(self::API_REGIONS . '/' . $regionRelatedRegion['id'] . '/stores');
+		$I->seeResponseCodeIs(Http::OK);
+	}
+
+	public function foodsaverWithRegionRelationCanAccessToGetListOfStoresInRegion(ApiTester $I)
+	{
+		$regionRelatedRegion = $I->createRegion();
+		$I->addRegionMember($regionRelatedRegion['id'], $this->user['id'], true);
+
+		$I->login($this->user[self::EMAIL]);
+		$I->sendGET(self::API_REGIONS . '/' . $regionRelatedRegion['id'] . '/stores');
+		$I->seeResponseCodeIs(Http::OK);
+	}
+
+	public function testContentofGetListOfStoresInRegion(ApiTester $I)
+	{
+		$regionTop = $I->createRegion(null, ['type' => UnitType::CITY]);
+		$I->addRegionMember($regionTop['id'], $this->user['id'], true);
+
+		$regionChild1 = $I->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store1 = $I->createStore($regionChild1['id']);
+		$regionChild2 = $I->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store2 = $I->createStore($regionChild2['id']);
+
+		$I->login($this->user[self::EMAIL]);
+		$I->sendGET(self::API_REGIONS . '/' . $regionTop['id'] . '/stores');
+		$I->seeResponseCodeIs(Http::OK);
+		$I->seeResponseIsJson();
+
+		$ids = $I->grabDataFromResponseByJsonPath('stores.*.id');
+		$I->assertContains($store1[self::ID], $ids);
+		$I->assertContains($store2[self::ID], $ids);
+
+		$names = $I->grabDataFromResponseByJsonPath('stores.*.name');
+		foreach ($names as $name) {
+			$I->assertNull($name);
+		}
+	}
+
+	public function testContentofGetListOfStoresInRegionExpanded(ApiTester $I)
+	{
+		$regionTop = $I->createRegion(null, ['type' => UnitType::CITY]);
+		$I->addRegionMember($regionTop['id'], $this->user['id'], true);
+
+		$regionChild1 = $I->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store1 = $I->createStore($regionChild1['id']);
+		$regionChild2 = $I->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store2 = $I->createStore($regionChild2['id']);
+
+		$I->login($this->user[self::EMAIL]);
+		$I->sendGET(self::API_REGIONS . '/' . $regionTop['id'] . '/stores', ['expand' => true]);
+		$I->seeResponseCodeIs(Http::OK);
+		$I->seeResponseIsJson();
+
+		$ids = $I->grabDataFromResponseByJsonPath('stores.*.id');
+		$I->assertContains($store1[self::ID], $ids);
+		$I->assertContains($store2[self::ID], $ids);
+
+		$names = $I->grabDataFromResponseByJsonPath('stores.*.name');
+		$I->assertContains($store1['name'], $names);
+		$I->assertContains($store2['name'], $names);
 	}
 
 	public function getStore(ApiTester $I)

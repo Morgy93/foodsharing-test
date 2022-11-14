@@ -8,6 +8,7 @@ use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
 use Foodsharing\Modules\Core\DBConstants\Store\ConvinceStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\PublicTimes;
+use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Store\PickupGateway;
 use Foodsharing\Modules\Store\StoreGateway;
 use Foodsharing\Modules\Store\StoreTransactionException;
@@ -443,6 +444,60 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
 
 		$this->tester->addCollector($this->foodsaver['id'], $store['id'], ['date' => $date]);
 		$this->assertEquals($this->transactions->getAvailablePickupStatus($store['id']), 0);
+	}
+
+	public function testListStoresOfRegionWithoutExpendRegion()
+	{
+		$regionRelatedRegion = $this->tester->createRegion();
+		$this->tester->createStore($regionRelatedRegion['id']);
+		$this->tester->createStore($regionRelatedRegion['id']);
+
+		$regionTop = $this->tester->createRegion(null, ['type' => UnitType::CITY]);
+		$regionChild1 = $this->tester->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store1 = $this->tester->createStore($regionChild1['id']);
+		$regionChild2 = $this->tester->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store2 = $this->tester->createStore($regionChild2['id']);
+
+		$listOfStores = $this->transactions->listOverviewInformationsOfStoresInRegion($regionTop['id'], false);
+		$this->assertIsArray($listOfStores);
+		$this->assertEquals(2, count($listOfStores));
+		$this->assertContainsOnlyInstancesOf('Foodsharing\Modules\Store\DTO\StoreListInformation', $listOfStores);
+		$storeIds = array_map(function ($store) { return $store->id; }, $listOfStores);
+		$this->assertContainsEquals($store1['id'], $storeIds);
+		$this->assertContainsEquals($store2['id'], $storeIds);
+
+		foreach ($listOfStores as $store) {
+			$this->assertNull($store->name);
+			$this->assertNull($store->region);
+		}
+	}
+
+	public function testListStoresOfRegionWithExpandRegion()
+	{
+		$regionRelatedRegion = $this->tester->createRegion();
+		$this->tester->createStore($regionRelatedRegion['id']);
+		$this->tester->createStore($regionRelatedRegion['id']);
+
+		$regionTop = $this->tester->createRegion(null, ['type' => UnitType::CITY]);
+		$regionChild1 = $this->tester->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store1 = $this->tester->createStore($regionChild1['id']);
+		$regionChild2 = $this->tester->createRegion(null, ['parent_id' => $regionTop['id'], 'type' => UnitType::PART_OF_TOWN]);
+		$store2 = $this->tester->createStore($regionChild2['id']);
+
+		$listOfStores = $this->transactions->listOverviewInformationsOfStoresInRegion($regionTop['id'], true);
+		$this->assertIsArray($listOfStores);
+		$this->assertEquals(2, count($listOfStores));
+		$this->assertContainsOnlyInstancesOf('Foodsharing\Modules\Store\DTO\StoreListInformation', $listOfStores);
+		$storeIds = array_map(function ($store) { return $store->id; }, $listOfStores);
+		$this->assertContainsEquals($store1['id'], $storeIds);
+		$this->assertContainsEquals($store2['id'], $storeIds);
+
+		$storeNames = array_map(function ($store) { return $store->region->name; }, $listOfStores);
+		foreach ($listOfStores as $store) {
+			$this->assertNotNull($store->region->name);
+		}
+		$this->assertContainsEquals($regionChild1['name'], $storeNames);
+		$this->assertContainsEquals($regionChild2['name'], $storeNames);
 	}
 
 	public function testListAllStoreStatusForFoodsaver()

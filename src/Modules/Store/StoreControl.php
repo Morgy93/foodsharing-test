@@ -7,7 +7,6 @@ use Foodsharing\Modules\Bell\DTO\Bell;
 use Foodsharing\Modules\Core\Control;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
-use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
@@ -127,24 +126,12 @@ class StoreControl extends Control
 		} elseif (isset($_GET['id'])) {
 			$this->routeHelper->go('/?page=fsbetrieb&id=' . (int)$_GET['id']);
 		} else {
+			if (!$this->session->mayRole() || !$this->storePermissions->mayListStores()) {
+				$this->routeHelper->go('/');
+			}
 			$this->pageHelper->addBread($this->translator->trans('store.bread'), '/?page=fsbetrieb');
 
-			$stores = $this->storeGateway->listStoresInRegion($regionId, true);
-
-			$storesMapped = array_map(function ($store) {
-				return [
-					'id' => (int)$store['id'],
-					'name' => $store['name'],
-					// status COOPERATION_STARTING and COOPERATION_ESTABLISHED are the same (in cooperation), always return COOPERATION_STARTING
-					'status' => $store['betrieb_status_id'] == CooperationStatus::COOPERATION_ESTABLISHED ? CooperationStatus::COOPERATION_STARTING : (int)$store['betrieb_status_id'],
-					'added' => $store['added'],
-					'region' => $store['bezirk_name'],
-					'address' => $store['anschrift'],
-					'city' => $store['stadt'],
-					'zipcode' => $store['plz'],
-					'geo' => $store['geo'],
-				];
-			}, $stores);
+			$storesMapped = $this->storeTransactions->listOverviewInformationsOfStoresInRegion($regionId, true);
 
 			$this->pageHelper->addContent($this->view->vueComponent('vue-storelist', 'store-list', [
 				'regionName' => $region['name'],
