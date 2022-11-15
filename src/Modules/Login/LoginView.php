@@ -41,8 +41,8 @@ class LoginView extends View
 		);
 	}
 
-	public function loginForm()
+	public function loginPage()
 	{
-		return $this->vueComponent('login-form', 'LoginForm');
+		return $this->vueComponent('login-page', 'LoginPage');
 	}
 }

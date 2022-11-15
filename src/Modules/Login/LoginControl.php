@@ -42,7 +42,7 @@ class LoginControl extends Control
 		if (!$this->session->mayRole()) {
 			$has_subpage = $request->query->has('sub');
 			if (!$has_subpage) {
-				$this->pageHelper->addContent($this->view->loginForm());
+				$this->pageHelper->addContent($this->view->loginPage());
 			}
 		} else {
 			if (!isset($_GET['sub']) || $_GET['sub'] != 'unsubscribe') {

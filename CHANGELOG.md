@@ -123,6 +123,8 @@
 - Store TeamStatus moved to vue and REST API !2453 @chriswalg
 - Replaced may() to mayRole() !2457 @chriswalg
 - Replace the user avatar lists with a vue component !2460 @alex.simm
+- LoginForm: Removed duplicated content and imported NavLoginEntry.vue !2471 @chriswalg
+- LoginForm: Removed duplicated content and moved to client/src !2471 @chriswalg
 
 ## Dev/Test/CI stuff
 - Added Gitpod and refactored permissions !2386 !2399 !2402 !2428 @sefn @chriswalg
