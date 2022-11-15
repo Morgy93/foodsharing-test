@@ -4,6 +4,7 @@ namespace Foodsharing\Modules\Store\DTO;
 
 use DateTime;
 use Foodsharing\Modules\Core\DTO\GeoLocation;
+use InvalidArgumentException;
 
 /**
  * This class is a representation of an Store.
@@ -35,27 +36,27 @@ class Store
 	public string $city;
 
 	public string $publicInfo;
-	public int $publicTime;
+	public ?int $publicTime;
 
-	public int $categoryId;
-	public int $chainId;
-	public int $cooperationStatus;
+	public ?int $categoryId = null;
+	public ?int $chainId = null;
+	public ?int $cooperationStatus = null;
 
-	public string $description;
+	public ?string $description;
 	// public array $foodTypes; // specialcased in StoreTransaction
 
-	public ?string $contactName;
-	public ?string $contactPhone;
-	public ?string $contactFax;
-	public ?string $contactEmail;
-	public ?DateTime $cooperationStart;
+	public ?string $contactName = null;
+	public ?string $contactPhone = null;
+	public ?string $contactFax = null;
+	public ?string $contactEmail = null;
+	public ?DateTime $cooperationStart = null;
 
-	public int $calendarInterval;
-	public int $useRegionPickupRule;
-	public int $weight;
-	public int $effort;
-	public bool $publicity;
-	public bool $sticker;
+	public ?int $calendarInterval = null;
+	public ?int $useRegionPickupRule = null;
+	public ?int $weight = null;
+	public ?int $effort = null;
+	public ?bool $publicity = null;
+	public ?bool $sticker = null;
 
 	public ?DateTime $createdAt = null;
 	public DateTime $updatedAt;
@@ -66,11 +67,17 @@ class Store
 		$obj->id = $queryResult['id'];
 		$obj->name = $queryResult['name'];
 		$obj->regionId = $queryResult['region_id'];
-		$obj->location = GeoLocation::createFromArray($queryResult);
+
+		try {
+			$obj->location = GeoLocation::createFromArray($queryResult);
+		} catch (InvalidArgumentException) {
+			$obj->location = new GeoLocation();
+		}
+
 		$obj->street = $queryResult['street'];
 		$obj->zip = $queryResult['zip'];
 		$obj->city = $queryResult['city'];
-		$obj->publicInfo = $queryResult['public_info'];
+		$obj->publicInfo = isset($queryResult['public_info']) ? $queryResult['public_info'] : '';
 		$obj->publicTime = $queryResult['public_time'];
 		$obj->categoryId = $queryResult['categoryId'];
 		$obj->chainId = $queryResult['chainId'];

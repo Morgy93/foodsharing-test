@@ -137,6 +137,55 @@ class StoreGatewayTest extends Unit
 		$this->assertEquals($storeStatusUpdate->format('Y-m-d'), $dbStore->updatedAt->format('Y-m-d'));
 	}
 
+	/**
+	 * Productive database contains "null" values in public information
+	 * The newer create and update function do not allow this but it is still present.
+	 * The read should be robust to read it and forward it correct.
+	 */
+	public function testPublicInformationMissing(): void
+	{
+		$region = $this->tester->createRegion();
+		$this->tester->createStore($region['id'], null, null, ['public_info' => null]);
+
+		$listOfStores = $this->gateway->listStoresInRegion($region['id'], true);
+		$this->assertEquals(1, count($listOfStores));
+
+		$this->assertEquals($listOfStores[0]->publicInfo, '');
+	}
+
+	/**
+	 * Productive database contains "null" values in public information
+	 * The newer create and update function do not allow this but it is still present.
+	 * The read should be robust to read it and forward it correct.
+	 */
+	public function testBetriebsCategoryMissing(): void
+	{
+		$region = $this->tester->createRegion();
+		$this->tester->createStore($region['id'], null, null, ['betrieb_kategorie_id' => null]);
+
+		$listOfStores = $this->gateway->listStoresInRegion($region['id'], true);
+		$this->assertEquals(1, count($listOfStores));
+
+		$this->assertEquals($listOfStores[0]->categoryId, null);
+	}
+
+	/**
+	 * Productive database contains "string" values in geo location "lon" or "lat"
+	 * The newer create and update function do not allow this but it is still present.
+	 * The read should be robust to read it and forward it correct.
+	 */
+	public function testEmptyGeoPosition(): void
+	{
+		$region = $this->tester->createRegion();
+		$this->tester->createStore($region['id'], null, null, ['lon' => null, 'lon' => null]);
+
+		$listOfStores = $this->gateway->listStoresInRegion($region['id'], true);
+		$this->assertEquals(1, count($listOfStores));
+
+		$this->assertEquals($listOfStores[0]->location->lon, 0.0);
+		$this->assertEquals($listOfStores[0]->location->lat, 0.0);
+	}
+
 	public function testlistStoresInRegionWithSubRegions(): void
 	{
 		$regionRelatedRegion = $this->tester->createRegion();

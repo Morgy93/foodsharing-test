@@ -10,18 +10,22 @@ class GeoLocation
 	/**
 	 * Latitude of the location.
 	 */
-	public float $lat;
+	public float $lat = 0;
 
 	/**
 	 * Longitude of the location.
 	 */
-	public float $lon;
+	public float $lon = 0;
 
 	public static function createFromArray($queryResult)
 	{
 		$obj = new GeoLocation();
-		$obj->lat = $queryResult['lat'];
-		$obj->lon = $queryResult['lon'];
+		if (!is_numeric($queryResult['lat']) || !is_numeric($queryResult['lon'])) {
+			throw new \InvalidArgumentException('Longitude/Latitude is invalid.');
+		}
+
+		$obj->lat = floatval($queryResult['lat']);
+		$obj->lon = floatval($queryResult['lon']);
 
 		return $obj;
 	}
