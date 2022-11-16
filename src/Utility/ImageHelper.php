@@ -100,8 +100,10 @@ final class ImageHelper
 		}
 
 		// prevent path traversal
-		$file = preg_replace('/%/', '', $file) ?? '';
-		$file = preg_replace('/\.+/', '.', $file) ?? '';
+		if (!empty($file)) {
+			$file = preg_replace('/%/', '', $file) ?? ''; // Destroys url encoded path elements to load images from other position
+			$file = preg_replace('/\.+/', '.', $file) ?? ''; // Destroys url path navigation like /../../
+		}
 
 		if (!empty($file)) {
 			if (strpos($file, '/api/uploads/') === 0) {
