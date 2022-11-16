@@ -138,6 +138,23 @@ class StoreGatewayTest extends Unit
 	}
 
 	/**
+	 * Productive database contains "null" values in updateAt field.
+	 * The newer create and update function do not allow this but it is still present.
+	 * The read should be robust to read it and forward it correct.
+	 */
+	public function testStoreUpdateAtNullShouldBeReplacedByCreatedAt(): void
+	{
+		$region = $this->tester->createRegion();
+		$expectedCreationDateTime = new DateTime((new DateTime())->format(DateTimeInterface::ATOM));
+		$this->tester->createStore($region['id'], null, null, ['added' => $expectedCreationDateTime, 'status_date' => null]);
+
+		$listOfStores = $this->gateway->listStoresInRegion($region['id'], true);
+		$this->assertEquals(1, count($listOfStores));
+
+		$this->assertEquals($listOfStores[0]->updatedAt, $expectedCreationDateTime);
+	}
+
+	/**
 	 * Productive database contains "null" values in public information
 	 * The newer create and update function do not allow this but it is still present.
 	 * The read should be robust to read it and forward it correct.

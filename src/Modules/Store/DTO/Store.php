@@ -98,6 +98,8 @@ class Store
 		$updatedAt = DateTime::createFromFormat('Y-m-d', $queryResult['updatedAt']);
 		if ($updatedAt) {
 			$obj->updatedAt = $updatedAt;
+		} else {
+			$obj->updatedAt = $obj->createdAt;
 		}
 
 		return $obj;
