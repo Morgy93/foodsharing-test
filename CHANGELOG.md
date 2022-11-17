@@ -161,6 +161,7 @@
 - Fix maintenance script test #1430 !2429 @rnoennig
 - Remove unused triage bot in CI !2444 @chriswalg
 - Update backend dependencies !2441 @chriswalg
+- Fix "bid" contains a number !2476 @BibaltiK
 
 
 ## Development documetation

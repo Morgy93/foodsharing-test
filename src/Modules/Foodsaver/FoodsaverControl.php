@@ -13,36 +13,18 @@ use Foodsharing\Utility\IdentificationHelper;
 
 class FoodsaverControl extends Control
 {
-	private FoodsaverGateway $foodsaverGateway;
-	private FoodsaverTransactions $foodsaverTransactions;
-	private RegionGateway $regionGateway;
-	private SettingsGateway $settingsGateway;
-	private ProfilePermissions $profilePermissions;
-	private RegionPermissions $regionPermissions;
-	private DataHelper $dataHelper;
-	private IdentificationHelper $identificationHelper;
-
 	public function __construct(
 		FoodsaverView $view,
-		FoodsaverGateway $foodsaverGateway,
-		FoodsaverTransactions $foodsaverTransactions,
-		RegionGateway $regionGateway,
-		SettingsGateway $settingsGateway,
-		ProfilePermissions $profilePermissions,
-		RegionPermissions $regionPermissions,
-		DataHelper $dataHelper,
-		IdentificationHelper $identificationHelper
+		private readonly FoodsaverGateway $foodsaverGateway,
+		private readonly FoodsaverTransactions $foodsaverTransactions,
+		private readonly RegionGateway $regionGateway,
+		private readonly SettingsGateway $settingsGateway,
+		private readonly ProfilePermissions $profilePermissions,
+		private readonly RegionPermissions $regionPermissions,
+		private readonly DataHelper $dataHelper,
+		private readonly IdentificationHelper $identificationHelper
 	) {
 		$this->view = $view;
-		$this->foodsaverGateway = $foodsaverGateway;
-		$this->foodsaverTransactions = $foodsaverTransactions;
-		$this->regionGateway = $regionGateway;
-		$this->settingsGateway = $settingsGateway;
-		$this->profilePermissions = $profilePermissions;
-		$this->regionPermissions = $regionPermissions;
-		$this->dataHelper = $dataHelper;
-		$this->identificationHelper = $identificationHelper;
-
 		parent::__construct();
 	}
 
@@ -54,6 +36,7 @@ class FoodsaverControl extends Control
 	public function index()
 	{
 		$regionId = $_GET['bid'] ?? null;
+		$regionId = is_numeric($regionId) ? (int)$regionId : null;
 		$fsId = $this->identificationHelper->getActionId('edit'); // int or false
 
 		if ($regionId && $this->regionPermissions->mayHandleFoodsaverRegionMenu($regionId)) {
@@ -104,17 +87,20 @@ class FoodsaverControl extends Control
 			$name = $fs['name'] . ' ' . $fs['nachname'];
 			$regionDetails = $fs['bezirk_id'] > 0 ? $this->regionGateway->getRegion($fs['bezirk_id']) : false;
 
-			$this->pageHelper->addBread($this->translator->trans('foodsaver.bread'),
+			$this->pageHelper->addBread(
+				$this->translator->trans('foodsaver.bread'),
 				$regionDetails ? '/?page=foodsaver&bid=' . $regionDetails['id'] : ''
 			);
 			$this->pageHelper->addBread($name, '/profile/' . $fs['id']);
 			$this->pageHelper->addBread($this->translator->trans('foodsaver.edit'));
 
 			$this->dataHelper->setEditData($fs);
-			$this->pageHelper->addContent($this->view->foodsaver_form(
-				$this->translator->trans('foodsaver.editName', ['{name}' => $name]),
-				$regionDetails
-			));
+			$this->pageHelper->addContent(
+				$this->view->foodsaver_form(
+					$this->translator->trans('foodsaver.editName', ['{name}' => $name]),
+					$regionDetails
+				)
+			);
 
 			$actions = [];
 			if ($this->session->mayRole()) {
@@ -131,9 +117,12 @@ class FoodsaverControl extends Control
 					'name' => '⚠️ ' . $this->translator->trans('foodsaver.delete_account'),
 				];
 			}
-			$this->pageHelper->addContent($this->v_utils->v_field(
-				$this->v_utils->v_menu($actions, $this->translator->trans('foodsaver.actions')),
-			), CNT_RIGHT);
+			$this->pageHelper->addContent(
+				$this->v_utils->v_field(
+					$this->v_utils->v_menu($actions, $this->translator->trans('foodsaver.actions')),
+				),
+				CNT_RIGHT
+			);
 		} else {
 			// end user-edit
 			$this->pageHelper->addContent(
@@ -159,8 +148,27 @@ class FoodsaverControl extends Control
 
 			if (isset($_GET['id']) && $fsId = (int)$_GET['id']) {
 				if ($oldFs = $this->foodsaverGateway->getFoodsaver($fsId)) {
-					$changedFields = ['name', 'nachname', 'stadt', 'plz', 'anschrift', 'telefon', 'handy', 'geschlecht', 'geb_datum', 'rolle', 'orgateam', 'bezirk_id'];
-					$this->settingsGateway->logChangedSetting($fsId, $oldFs, $g_data, $changedFields, $this->session->id());
+					$changedFields = [
+						'name',
+						'nachname',
+						'stadt',
+						'plz',
+						'anschrift',
+						'telefon',
+						'handy',
+						'geschlecht',
+						'geb_datum',
+						'rolle',
+						'orgateam',
+						'bezirk_id'
+					];
+					$this->settingsGateway->logChangedSetting(
+						$fsId,
+						$oldFs,
+						$g_data,
+						$changedFields,
+						$this->session->id()
+					);
 				}
 
 				if (!isset($g_data['bezirk_id'])) {
