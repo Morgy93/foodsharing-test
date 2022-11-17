@@ -100,6 +100,7 @@
 - StoreCest, improved and removed unnecessary elements !2434 @sefn
 - Fix the link in the notification regarding old profile photos #1424 !2459 @alex.simm  
 - Prevent access to missing conversation member image
+- New AvatarList doesn't show avatar on foodsharepoints !2479 @alex.simm
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc

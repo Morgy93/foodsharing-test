@@ -6,6 +6,7 @@ use Foodsharing\Modules\Core\Control;
 use Foodsharing\Modules\Core\DBConstants\Info\InfoType;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
+use Foodsharing\Modules\Foodsaver\Profile;
 use Foodsharing\Modules\Mailbox\MailboxGateway;
 use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Permissions\FoodSharePointPermissions;
@@ -140,8 +141,13 @@ class FoodSharePointControl extends Control
 			}
 
 			$this->follower = $this->foodSharePointGateway->getFollower($foodSharePointId);
+			$mapper = function ($foodsaver) {
+				return new Profile($foodsaver['id'], $foodsaver['name'], $foodsaver['photo'], $foodsaver['sleep_status']);
+			};
+			$managers = array_map($mapper, $this->follower['fsp_manager']);
+			$followers = array_map($mapper, $this->follower['follow']);
 
-			$this->view->setFoodSharePoint($this->foodSharePoint, $this->follower);
+			$this->view->setFoodSharePoint($this->foodSharePoint, $managers, $followers);
 
 			$this->foodSharePoint['urlname'] = str_replace(' ', '_', $this->foodSharePoint['name']);
 			$this->foodSharePoint['urlname'] = $this->identificationHelper->id($this->foodSharePoint['urlname']);
