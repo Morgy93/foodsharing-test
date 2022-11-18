@@ -101,6 +101,7 @@
 - Fix the link in the notification regarding old profile photos #1424 !2459 @alex.simm  
 - Prevent access to missing conversation member image
 - New AvatarList doesn't show avatar on foodsharepoints !2479 @alex.simm
+- Show all Photos on Team Page !2488 @BibaltiK
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
