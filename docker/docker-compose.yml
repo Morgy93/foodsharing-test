@@ -13,8 +13,8 @@ services:
       - websocket
     volumes:
       - ../:/app:delegated
-    # expose:
-    #   - 8080
+    expose:
+      - 8080
     # ports:
     #   - 80:8080
 
@@ -36,8 +36,8 @@ services:
       - ./conf/php/dev-config.${FS_PLATFORM}.ini:/usr/local/etc/php/conf.d/dev-config.ini:cached
     # environment:
     #   - FS_ENV=dev
-    # expose:
-    #   - 9000
+    expose:
+      - 9000
     # ports:
     #   - 9000:9000
 
@@ -49,15 +49,15 @@ services:
     image: registry.gitlab.com/foodsharing-dev/images/node:latest
     # command: sh -c "yarn && yarn dev"
     command: sh -c "yarn && yarn build"
-    working_dir: /home/node/app/client
+    working_dir: /app/client
     volumes:
-      - ../:/home/node/app:delegated
+      - ../:/app:delegated
     environment:
       - HOST=0.0.0.0 #https://github.com/webpack/webpack-dev-server/issues/416
       - PROXY_TARGET=http://nginx
       - NPM_CONFIG_CACHE=/tmp/.npm-cache
-    # expose:
-    #   - 8082
+    expose:
+      - 8082
     # ports:
     #   - 8080:8082
 
@@ -93,9 +93,9 @@ services:
       - REDIS_HOST=redis
     volumes:
       - ../:/app:delegated
-    # expose:
-    #   - 1337
-    #   - 1338
+    expose:
+      - 1337
+      - 1338
     # ports:
     #   - 1337:1337
     #   - 1338:1338
@@ -110,8 +110,8 @@ services:
       - TZ=Europe/Berlin
     volumes:
       - database:/var/lib/mysql-tmpfs # based on the image configuration
-    # expose:
-    #   - 3306
+    expose:
+      - 3306
     # ports:
     #   - 3306:3306
 
@@ -120,8 +120,8 @@ services:
   redis:
     container_name: foodsharing_redis
     image: registry.gitlab.com/foodsharing-dev/images/redis:latest
-    # expose:
-    #   - 6379
+    expose:
+      - 6379
     # ports:
     #   - 6379:6379
 
@@ -135,8 +135,8 @@ services:
       - PMA_USER=root
       - PMA_PASSWORD=root
     restart: unless-stopped
-    # expose:
-    #   - 80
+    expose:
+      - 80
     # ports:
     #   - 8081:80
 
@@ -169,38 +169,29 @@ services:
     volumes:
       - influxdb:/var/lib/influxdb:cached
       - ./conf/influxdb/influxdb.toml:/etc/influxdb/influxdb.toml:cached
-    # expose:
-    #   - 8083
-    #   - 8089/udp
-    #   - 8086
+    expose:
+      - 8083
+      - 8089/udp
+      - 8086
     # ports:
     #   - 8083:8083
     #   - 8089:8089/udp
     #   - 8086:8086
 
-  # mdbook
+  # docs
   # A plattform for the developer documentations
   #------------------------------------
   docs:
     user: ${CURRENT_USER}
     container_name: foodsharing_docs
-    image: registry.gitlab.com/foodsharing-dev/images/mdbook:latest
-    depends_on:
-      - db
-    command: mdbook serve --hostname '0.0.0.0'
+    image: registry.gitlab.com/foodsharing-dev/images/docs:latest
     working_dir: /app/docs
-    environment:
-      - BUILD_DIR=/app/docs/build/db
-    stdin_open: true
-    tty: true
     volumes:
-      - ../:/app
-    # expose:
-    #   - 3000
-    #   - 3001
+      - ../:/app:delegated
+    expose:
+      - 3000
     # ports:
     #   - 3000:3000
-    #   - 3001:3001
 
 volumes:
   database:

@@ -154,7 +154,6 @@ const urls = {
 
   // Devdocs
   devdocs: () => 'https://devdocs.foodsharing.network',
-  devdocs_it_tasks: () => 'https://devdocs.foodsharing.network/it-tasks.html',
 
   // Beta Testing
   beta: () => 'https://beta.foodsharing.de',

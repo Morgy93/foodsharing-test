@@ -81,11 +81,11 @@ services:
       - 18089:8089/udp
       - 18086:8086
 
-  # mdbook
+  # docs
   # A plattform for the developer documentations
   #------------------------------------
   docs:
     container_name: foodsharing_dev_docs
+    command: sh -c "yarn && yarn start"
     ports:
       - 13000:3000
-      - 13001:3001

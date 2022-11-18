@@ -43,13 +43,14 @@ maintenance_mode_on
 var/**
 builds
 
+## Documentation
 docs/?
-docs/_book
-docs/dist
+docs/src/mdbook-plantuml-img
+docs/book
 docs/build
-docs/src/database-tables-columns.md
-docs/src/mdbook-plantuml-img/
-docs/.config/configstore/update-notifier-npm.json
+docs/db/build
+.docusaurus
+.cache-loader
 
 *.swp
 *.swo
@@ -61,3 +62,9 @@ config/gitpod
 
 am_cache
 .idea
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+

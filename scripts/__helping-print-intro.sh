@@ -17,7 +17,7 @@ then
   devdocs_port=23000
 else
   page_port=8080 #nginx
-  phpmyadmin_port=8081 
+  phpmyadmin_port=8081
   devdocs_port=3000
 fi
 
@@ -45,9 +45,7 @@ echo "  * PHPMyAdmin:   $phpmyadmin_url"
 echo
 echo "Documentations:"
 echo "  * API-DOCS:     $api_url"
-echo "  * DEV-DOCS:     $devdocs_url (not maintained)"
-echo "  * DEV-WIKI:     https://gitlab.com/foodsharing-dev/foodsharing/-/wikis/home"
-echo
+echo "  * DEV-DOCS:     $devdocs_url"
 echo
 echo "Want to discuss with us, or help with some translations?"
 echo "  * Slack:        https://slackin.yunity.org/"

@@ -174,11 +174,10 @@ function generatePlantUmlForPhpModule(database, databaseMetaData, module) {
     });
 
     if(entities.length > 0) {
-        const image = ["~~~plantuml", "@startuml", ""];
+        const image = ["```plantuml "];
         image.push(entities.join('\n'));
         image.push(Array.from(relations).join('\n'));
-        image.push("@enduml");
-        image.push("~~~");
+        image.push("```");
         return image.join("\n");
     }
     return ""
@@ -280,7 +279,7 @@ function selectColumnDescription(columnMetaData, column) {
 function buildMarkdownDocument(database, metaData, moduleMap) {
     let doc = "# Database structure\n"
     doc += "\n"
-    doc += "This page is automatically generated and can be manually generated with [database scripts](scripts.md#database-scripts)."
+    doc += "This page is automatically generated and can be manually generated with [database scripts](../../deployment/scripts#database-scripts)."
     doc += "\n"
 
     doc += "## Introduction\n"

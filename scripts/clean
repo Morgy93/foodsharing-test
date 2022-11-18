@@ -13,32 +13,41 @@ set -o errexit
 
 # existsTestEnv=$($dir/docker-compose ls --filter=name='foodsharing' | grep 'foodsharing_test')
 # echo $($dir/docker-compose ls --filter=name='foodsharing_test' | grep 'foodsharing_test')
-
-log-header "Removing containers and images"
-if [[ ! $($dir/docker-compose ls --filter=name='foodsharing' --all | grep 'foodsharing_test') ]];
-then
-  "$dir"/docker-compose down --rmi all -v --remove-orphans
+if [[ "$@" == "full" ]]; then
+  log-header "Removing containers and images"
+  if [[ ! $($dir/docker-compose ls --filter=name='foodsharing' --all | grep 'foodsharing_test') ]]; then
+    "$dir"/docker-compose down --rmi all -v --remove-orphans
+  else
+    FS_ENV="dev"
+    "$dir"/docker-compose down -v --remove-orphans
+    FS_ENV="test"
+    "$dir"/docker-compose down --rmi all -v --remove-orphans
+  fi
 else
+  log-header "Removing containers"
   FS_ENV="dev"
   "$dir"/docker-compose down -v --remove-orphans
   FS_ENV="test"
-  "$dir"/docker-compose down --rmi all -v --remove-orphans
+  "$dir"/docker-compose down -v --remove-orphans
 fi
 
-log-header "Removing local node_modules"
-find $base_dir -name "node_modules" -type d -prune | xargs du -chs # prints the folders
-find $base_dir -name "node_modules" -type d -prune -exec rm -rf '{}' + # removes the folders
+if [[ "$@" == "full" ]]; then
+  log-header "Removing local node_modules"
+  find $base_dir -name "node_modules" -type d -prune | xargs du -chs # prints the folders
+  find $base_dir -name "node_modules" -type d -prune -exec rm -rf '{}' + # removes the folders
 
-log-header "Removing directories"
+  log-header "Removing directories"
 
-base_dir=$(cd "$dir/.." && pwd)
-rm -vrf \
-  "$base_dir"/assets \
-  "$base_dir"/images \
-  "$base_dir"/data \
-  "$base_dir"/cache \
-  "$base_dir"/var \
-  "$base_dir"/tmp \
-  "$base_dir"/tests/_output
+  base_dir=$(cd "$dir/.." && pwd)
+  rm -vrf \
+    "$base_dir"/assets \
+    "$base_dir"/images \
+    "$base_dir"/data \
+    "$base_dir"/cache \
+    "$base_dir"/var \
+    "$base_dir"/tmp \
+    "$base_dir"/tests/_output \
+    "$base_dir"/docs/build
+fi
 
 log-header "All clean!"

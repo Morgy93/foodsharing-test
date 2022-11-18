@@ -1,8 +1,4 @@
 tasks:
-  - name: GitLab Runner
-    init: >
-      curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash &&
-      sudo apt-get install gitlab-runner
   - name: Initialize
     init: >
       ./scripts/containers-init &&
@@ -42,14 +38,9 @@ ports:
     visibility: private
     onOpen: ignore
   - port: 13000
-    name: mdBook
+    name: docusaurus.io
     description: DevDocs
     visibility: public
-    onOpen: ignore
-  - port: 13001
-    name: mdBook
-    description: Websocket server, which is used to trigger a DevDocs hotreload
-    visibility: private
     onOpen: ignore
   - port: 16379
     name: Redis

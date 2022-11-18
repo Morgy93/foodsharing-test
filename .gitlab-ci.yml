@@ -145,7 +145,7 @@ build:docs:
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_PIPELINE_SOURCE == "schedule"
       when: never
-  image: registry.gitlab.com/foodsharing-dev/images/mdbook:latest
+  image: registry.gitlab.com/foodsharing-dev/images/docs:latest
   variables:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_INITDB_SKIP_TZINFO: 1
@@ -153,9 +153,7 @@ build:docs:
     - name: registry.gitlab.com/foodsharing-dev/images/mariadb:latest
       alias: db
   script:
-    - composer validate --no-check-all --no-check-publish
-    - composer install --verbose --prefer-dist --no-progress --no-interaction --no-scripts --ignore-platform-reqs
-    - ./scripts/ci-doc-build
+    - ./scripts/ci-docs-build
   artifacts:
     expire_in: 1 week
     paths:
@@ -207,6 +205,7 @@ test:backend-code:
     - build:frontend
     - build:backend
     - build:websocket
+    - test:backend-acceptance
   script:
     - touch $CI_PROJECT_DIR/code_updated # Create file to notify websocket container that code is up to date
     - ./scripts/ci-backend-test-code
@@ -361,7 +360,7 @@ deploy:docs:
   dependencies:
     - build:docs
   script:
-    - rsync -avz --delete docs/dist/ "deploy@devdocs.foodsharing.network:/var/www/devdocs/htdocs/"
+    - rsync -avz --delete docs/build/ "deploy@devdocs.foodsharing.network:/var/www/devdocs/htdocs/"
   environment:
     name: docs
     url: https://devdocs.foodsharing.network

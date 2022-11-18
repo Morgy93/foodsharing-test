@@ -81,14 +81,14 @@ services:
       - 28089:8089/udp
       - 28086:8086
 
-  # mdbook
+  # docs
   # A plattform for the developer documentations
   #------------------------------------
   docs:
     container_name: foodsharing_test_docs
+    command: sh -c "yarn && yarn serve"
     ports:
       - 26000:3000
-      - 26002:3001
 
   # selenium
   # for running browser-based tests
