@@ -1,4 +1,6 @@
-# Prerequisites
+# Controller migration (Porting to Symfony)
+
+## Prerequisites
 
 - Routing:
     - old controllers are mostly called through these kinds of URLs: `/?page=general&sub=`
