@@ -3,6 +3,7 @@
 namespace Foodsharing\Modules\Store\DTO;
 
 use DateTime;
+use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DTO\GeoLocation;
 use InvalidArgumentException;
 
@@ -31,16 +32,48 @@ class Store
 	 */
 	public GeoLocation $location;
 
+	/**
+	 * Street name with street number.
+	 */
 	public string $street;
+
+	/**
+	 * Zip code.
+	 */
 	public string $zip;
+
+	/**
+	 * City name.
+	 */
 	public string $city;
 
+	/**
+	 * Public information about the store which is visible
+	 * for users which are looking for a store.
+	 *
+	 * Max length 180 chars
+	 */
 	public string $publicInfo;
 	public ?int $publicTime;
 
-	public ?int $categoryId = null;
-	public ?int $chainId = null;
-	public ?int $cooperationStatus = null;
+	/**
+	 * Category of store.
+	 *
+	 * @see StoreGateway::getStoreCategories()
+	 */
+	public ?int $categoryId;
+
+	/**
+	 * Store chain information.
+	 *
+	 * @see StoreGateway::getBasics_chain()
+	 */
+	public ?int $chainId;
+
+	/**
+	 * Current status of cooperation between foodsharing and store.
+	 */
+	public ?CooperationStatus $cooperationStatus;
 
 	public ?string $description;
 	// public array $foodTypes; // specialcased in StoreTransaction
@@ -81,7 +114,7 @@ class Store
 		$obj->publicTime = $queryResult['public_time'];
 		$obj->categoryId = $queryResult['categoryId'];
 		$obj->chainId = $queryResult['chainId'];
-		$obj->cooperationStatus = $queryResult['cooperationStatus'];
+		$obj->cooperationStatus = CooperationStatus::tryFrom($queryResult['cooperationStatus']);
 
 		$obj->description = $queryResult['description'];
 

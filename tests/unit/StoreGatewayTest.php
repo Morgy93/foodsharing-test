@@ -129,7 +129,7 @@ class StoreGatewayTest extends Unit
 		$this->assertEquals($store['public_time'], $dbStore->publicTime);
 		$this->assertEquals($store['kette_id'], $dbStore->chainId);
 		$this->assertEquals($store['betrieb_kategorie_id'], $dbStore->categoryId);
-		$this->assertEquals($store['betrieb_status_id'], $dbStore->cooperationStatus);
+		$this->assertEquals($store['betrieb_status_id'], $dbStore->cooperationStatus->value);
 		$this->assertEquals($store['besonderheiten'], $dbStore->description);
 		$this->assertEquals($store['presse'], $dbStore->publicity);
 		$this->assertEquals($store['sticker'], $dbStore->sticker);
@@ -307,19 +307,19 @@ class StoreGatewayTest extends Unit
 	public function testFoodsaverRelatedStoreMembershipStatus(): void
 	{
 		$store1 = $this->tester->createStore(
-			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]
+			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]
 		);
 		$store2 = $this->tester->createStore(
-			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]
+			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]
 		);
 		$store3 = $this->tester->createStore(
-			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]
+			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]
 		);
 		$store4 = $this->tester->createStore(
-			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]
+			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]
 		);
 		$store5 = $this->tester->createStore(
-			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US]
+			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US->value]
 		);
 
 		$this->tester->addStoreTeam($store1['id'], $this->foodsaver['id'], true, false, true); // Test coordinator
@@ -413,10 +413,10 @@ class StoreGatewayTest extends Unit
 	public function testStoreCooperationFilterForFoodsaverRelatedStoreMembershipsByStatusNotWantToWorkWithUs(): void
 	{
 		$store2 = $this->tester->createStore(
-			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]
+			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]
 		);
 		$store5 = $this->tester->createStore(
-			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US]
+			$this->region['id'], null, null, ['betrieb_status_id' => CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US->value]
 		);
 
 		$this->tester->addStoreTeam(

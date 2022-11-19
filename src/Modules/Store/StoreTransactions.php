@@ -82,13 +82,13 @@ class StoreTransactions
 		$store->status = array_map(function ($row) {
 			return CommonLabel::createFromArray($row);
 		}, [
-			['id' => CooperationStatus::NO_CONTACT, 'name' => $this->translator->trans('storestatus.1')],
-			['id' => CooperationStatus::IN_NEGOTIATION, 'name' => $this->translator->trans('storestatus.2')],
-			['id' => CooperationStatus::COOPERATION_STARTING, 'name' => $this->translator->trans('storestatus.3a')],
-			['id' => CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US, 'name' => $this->translator->trans('storestatus.4')],
-			['id' => CooperationStatus::COOPERATION_ESTABLISHED, 'name' => $this->translator->trans('storestatus.5')],
-			['id' => CooperationStatus::GIVES_TO_OTHER_CHARITY, 'name' => $this->translator->trans('storestatus.6')],
-			['id' => CooperationStatus::PERMANENTLY_CLOSED, 'name' => $this->translator->trans('storestatus.7')],
+			['id' => CooperationStatus::NO_CONTACT->value, 'name' => $this->translator->trans('storestatus.1')],
+			['id' => CooperationStatus::IN_NEGOTIATION->value, 'name' => $this->translator->trans('storestatus.2')],
+			['id' => CooperationStatus::COOPERATION_STARTING->value, 'name' => $this->translator->trans('storestatus.3a')],
+			['id' => CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US->value, 'name' => $this->translator->trans('storestatus.4')],
+			['id' => CooperationStatus::COOPERATION_ESTABLISHED->value, 'name' => $this->translator->trans('storestatus.5')],
+			['id' => CooperationStatus::GIVES_TO_OTHER_CHARITY->value, 'name' => $this->translator->trans('storestatus.6')],
+			['id' => CooperationStatus::PERMANENTLY_CLOSED->value, 'name' => $this->translator->trans('storestatus.7')],
 		]);
 
 		$store->publicTimes = array_map(function ($row) {
@@ -200,7 +200,7 @@ class StoreTransactions
 
 		$store->categoryId = intval($legacyGlobalData['betrieb_kategorie_id']);
 		$store->chainId = intval($legacyGlobalData['kette_id']);
-		$store->cooperationStatus = intval($legacyGlobalData['betrieb_status_id']);
+		$store->cooperationStatus = CooperationStatus::tryFrom($legacyGlobalData['betrieb_status_id']);
 
 		$store->description = $legacyGlobalData['besonderheiten'];
 

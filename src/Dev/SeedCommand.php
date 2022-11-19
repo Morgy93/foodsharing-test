@@ -114,33 +114,33 @@ class SeedCommand extends Command implements CustomCommandInterface
 			$this->helper->addCollector($user['id'], $store['id'], ['date' => Carbon::today()->add('minute', 60 * $i)->toDateTimeString()]);
 		}
 
-		$storeEinAb = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED, 'betrieb_kategorie_id' => '6', 'abholmenge' => '0']);
+		$storeEinAb = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value, 'betrieb_kategorie_id' => '6', 'abholmenge' => '0']);
 		$I->addStoreTeam($storeEinAb['id'], $user['id'], false);
 		$this->helper->addCollector($user['id'], $storeEinAb['id'], ['date' => Carbon::now()->toDateTimeString()]);
 
-		$storePr = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED, 'betrieb_kategorie_id' => '11', 'abholmenge' => '0']);
+		$storePr = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value, 'betrieb_kategorie_id' => '11', 'abholmenge' => '0']);
 		$I->addStoreTeam($storePr['id'], $user['id'], false);
 		$this->helper->addCollector($user['id'], $storePr['id'], ['date' => Carbon::now()->toDateTimeString()]);
 
-		$storeSuper = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED, 'betrieb_kategorie_id' => '14']);
+		$storeSuper = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value, 'betrieb_kategorie_id' => '14']);
 		$I->addStoreTeam($storeSuper['id'], $user['id'], true);
 		for ($i = 1; $i < 3; ++$i) {
 			$this->helper->addCollector($user['id'], $storeSuper['id'], ['date' => Carbon::today()->add('minute', 50 * $i)->toDateTimeString()]);
 		}
 
-		$storeBacery = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED, 'betrieb_kategorie_id' => '1', 'abholmenge' => '1']);
+		$storeBacery = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value, 'betrieb_kategorie_id' => '1', 'abholmenge' => '1']);
 		$I->addStoreTeam($storeBacery['id'], $user['id'], false);
 		$this->helper->addCollector($user['id'], $storeBacery['id'], ['date' => Carbon::now()->toDateTimeString()]);
 
-		$storeBioBakery = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED, 'betrieb_kategorie_id' => '2', 'abholmenge' => '1']);
+		$storeBioBakery = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value, 'betrieb_kategorie_id' => '2', 'abholmenge' => '1']);
 		$I->addStoreTeam($storeBioBakery['id'], $user['id'], false);
 		$this->helper->addCollector($user['id'], $storeBioBakery['id'], ['date' => Carbon::now()->toDateTimeString()]);
 
-		$storeBioGrocery = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED, 'betrieb_kategorie_id' => '3', 'abholmenge' => '1']);
+		$storeBioGrocery = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value, 'betrieb_kategorie_id' => '3', 'abholmenge' => '1']);
 		$I->addStoreTeam($storeBioGrocery['id'], $user['id'], false);
 		$this->helper->addCollector($user['id'], $storeBioGrocery['id'], ['date' => Carbon::now()->toDateTimeString()]);
 
-		$storeDrink = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED, 'betrieb_kategorie_id' => '4', 'abholmenge' => '1']);
+		$storeDrink = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value, 'betrieb_kategorie_id' => '4', 'abholmenge' => '1']);
 		$I->addStoreTeam($storeDrink['id'], $user['id'], false);
 		for ($i = 1; $i < 3; ++$i) {
 			$this->helper->addCollector($user['id'], $storeDrink['id'], ['date' => Carbon::today()->add('minute', 50 * $i)->toDateTimeString()]);

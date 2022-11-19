@@ -2,6 +2,7 @@
 
 namespace Foodsharing\Modules\Store\DTO;
 
+use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DTO\GeoLocation;
 use Foodsharing\Modules\Region\DTO\MinimalRegionIdentifier;
 
@@ -43,7 +44,7 @@ class StoreListInformation
 	 *
 	 * @see CooperationStatus
 	 */
-	public ?int $cooperationStatus = null;
+	public ?CooperationStatus $cooperationStatus = null;
 
 	/**
 	 * Data of creation of store in database.

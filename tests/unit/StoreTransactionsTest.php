@@ -49,13 +49,13 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
 		$common = $this->transactions->getCommonStoreMetadata();
 
 		// Check cooperation status
-		$this->assertEquals(CooperationStatus::NO_CONTACT, $common->status[0]->id);
-		$this->assertEquals(CooperationStatus::IN_NEGOTIATION, $common->status[1]->id);
-		$this->assertEquals(CooperationStatus::COOPERATION_STARTING, $common->status[2]->id);
-		$this->assertEquals(CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US, $common->status[3]->id);
-		$this->assertEquals(CooperationStatus::COOPERATION_ESTABLISHED, $common->status[4]->id);
-		$this->assertEquals(CooperationStatus::GIVES_TO_OTHER_CHARITY, $common->status[5]->id);
-		$this->assertEquals(CooperationStatus::PERMANENTLY_CLOSED, $common->status[6]->id);
+		$this->assertEquals(CooperationStatus::NO_CONTACT->value, $common->status[0]->id);
+		$this->assertEquals(CooperationStatus::IN_NEGOTIATION->value, $common->status[1]->id);
+		$this->assertEquals(CooperationStatus::COOPERATION_STARTING->value, $common->status[2]->id);
+		$this->assertEquals(CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US->value, $common->status[3]->id);
+		$this->assertEquals(CooperationStatus::COOPERATION_ESTABLISHED->value, $common->status[4]->id);
+		$this->assertEquals(CooperationStatus::GIVES_TO_OTHER_CHARITY->value, $common->status[5]->id);
+		$this->assertEquals(CooperationStatus::PERMANENTLY_CLOSED->value, $common->status[6]->id);
 
 		// Check food types
 		foreach ($foods as $key => $food) {
@@ -116,13 +116,13 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
 		$common = $this->transactions->getCommonStoreMetadata(false);
 
 		// Check cooperation status
-		$this->assertEquals(CooperationStatus::NO_CONTACT, $common->status[0]->id);
-		$this->assertEquals(CooperationStatus::IN_NEGOTIATION, $common->status[1]->id);
-		$this->assertEquals(CooperationStatus::COOPERATION_STARTING, $common->status[2]->id);
-		$this->assertEquals(CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US, $common->status[3]->id);
-		$this->assertEquals(CooperationStatus::COOPERATION_ESTABLISHED, $common->status[4]->id);
-		$this->assertEquals(CooperationStatus::GIVES_TO_OTHER_CHARITY, $common->status[5]->id);
-		$this->assertEquals(CooperationStatus::PERMANENTLY_CLOSED, $common->status[6]->id);
+		$this->assertEquals(CooperationStatus::NO_CONTACT->value, $common->status[0]->id);
+		$this->assertEquals(CooperationStatus::IN_NEGOTIATION->value, $common->status[1]->id);
+		$this->assertEquals(CooperationStatus::COOPERATION_STARTING->value, $common->status[2]->id);
+		$this->assertEquals(CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US->value, $common->status[3]->id);
+		$this->assertEquals(CooperationStatus::COOPERATION_ESTABLISHED->value, $common->status[4]->id);
+		$this->assertEquals(CooperationStatus::GIVES_TO_OTHER_CHARITY->value, $common->status[5]->id);
+		$this->assertEquals(CooperationStatus::PERMANENTLY_CLOSED->value, $common->status[6]->id);
 
 		// Check food types
 		foreach ($foods as $key => $food) {
@@ -424,7 +424,7 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
 		$dow = $date->weekday();
 
 		// stores should result is a non-null date if there are free slots available
-		$store = $this->tester->createStore($this->region_id, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]);
+		$store = $this->tester->createStore($this->region_id, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]);
 		$this->tester->addRecurringPickup($store['id'], ['time' => '16:30:00', 'dow' => $dow, 'fetcher' => 1]);
 		$this->assertEquals($this->transactions->getNextAvailablePickupTime($store['id'], $maxDate), $date);
 
@@ -438,7 +438,7 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
 		$dow = $date->weekday();
 
 		// stores should have status != 0 if free slots are available
-		$store = $this->tester->createStore($this->region_id, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]);
+		$store = $this->tester->createStore($this->region_id, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]);
 		$this->tester->addRecurringPickup($store['id'], ['time' => '16:30:00', 'dow' => $dow, 'fetcher' => 1]);
 		$this->assertEquals($this->transactions->getAvailablePickupStatus($store['id']), 2);
 
@@ -506,13 +506,13 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
 		$date = Carbon::now()->add('2 days')->hours(16)->minutes(30)->seconds(0)->microseconds(0);
 		$dow = $date->weekday();
 
-		$store_coord = $this->tester->createStore($this->region_id, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]);
+		$store_coord = $this->tester->createStore($this->region_id, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]);
 		$this->tester->addStoreTeam($store_coord['id'], $this->foodsaver['id'], true);
 		$this->tester->addRecurringPickup($store_coord['id'], ['time' => '16:30:00', 'dow' => $dow, 'fetcher' => 1]);
 		$regularSlots = $this->gateway->getRegularPickups($store_coord['id']);
 
 		// Create store membership
-		$store_member = $this->tester->createStore($this->region_id, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]);
+		$store_member = $this->tester->createStore($this->region_id, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]);
 		$this->tester->addStoreTeam($store_member['id'], $this->foodsaver['id'], false);
 
 		$result = $this->transactions->listAllStoreStatusForFoodsaver($this->foodsaver['id']);

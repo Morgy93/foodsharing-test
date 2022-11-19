@@ -13,7 +13,6 @@ use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Store\DTO\CreateStoreData;
 use Foodsharing\Modules\Store\DTO\Store;
 use Foodsharing\Modules\Store\DTO\StoreTeamMembership;
-use UnexpectedValueException;
 
 class StoreGateway extends BaseGateway
 {
@@ -156,7 +155,7 @@ class StoreGateway extends BaseGateway
 
 			'betrieb_kategorie_id' => $store->categoryId,
 			'kette_id' => $store->chainId,
-			'betrieb_status_id' => $store->cooperationStatus,
+			'betrieb_status_id' => $store->cooperationStatus->value,
 
 			'besonderheiten' => $store->description,
 
@@ -203,7 +202,7 @@ class StoreGateway extends BaseGateway
 			  AND	b.`lat` != ""
 		', [
 			':regionId' => $regionId,
-			':permanentlyClosed' => CooperationStatus::PERMANENTLY_CLOSED,
+			':permanentlyClosed' => CooperationStatus::PERMANENTLY_CLOSED->value,
 		]);
 	}
 
@@ -769,7 +768,7 @@ class StoreGateway extends BaseGateway
 	 * Returns a list with all store memberships of the foodsaver.
 	 *
 	 * @param int $fsId Foodsharer Id
-	 * @param int[] $storeCooperationStates All store state should should be contained @see CooperationStatus
+	 * @param CooperationStatus[] $storeCooperationStates All store state should should be contained @see CooperationStatus
 	 *
 	 * @return StoreTeamMembership[] Returns a array of memberships
 	 */
@@ -777,13 +776,6 @@ class StoreGateway extends BaseGateway
 	{
 		if ($fsId == 0) {
 			return [];
-		}
-
-		// last check of CooperationStatus content before DB
-		foreach ($storeCooperationStates as $storeState) {
-			if (!CooperationStatus::isValidStatus($storeState)) {
-				throw new UnexpectedValueException('Store cooperation state is not valid.');
-			}
 		}
 
 		$inPlaceHolder = implode(', ', array_fill(0, count($storeCooperationStates), '?'));
@@ -800,7 +792,8 @@ class StoreGateway extends BaseGateway
 			ORDER BY bt.verantwortlich DESC, membership_status ASC, b.name ASC
 		', [
 			$fsId,
-			$storeCooperationStates
+			array_map(function (CooperationStatus $state) { return $state->value; },
+				$storeCooperationStates)
 		]);
 
 		$results = [];
@@ -956,8 +949,8 @@ class StoreGateway extends BaseGateway
 			', [
 				'fs_id' => $fs_id,
 				'membership_status' => MembershipStatus::MEMBER,
-				':established' => CooperationStatus::COOPERATION_ESTABLISHED,
-				':starting' => CooperationStatus::COOPERATION_STARTING
+				':established' => CooperationStatus::COOPERATION_ESTABLISHED->value,
+				':starting' => CooperationStatus::COOPERATION_STARTING->value
 			]);
 		} else {
 			return $this->db->fetchAllByCriteria('fs_betrieb', ['id', 'name']);

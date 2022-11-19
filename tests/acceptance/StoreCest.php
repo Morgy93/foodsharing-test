@@ -40,7 +40,7 @@ class StoreCest
 
 		// init store
 		$this->store = $I->createStore(
-			$regionId, $this->teamConversation['id'], $this->jumperConversation['id'], ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED]
+			$regionId, $this->teamConversation['id'], $this->jumperConversation['id'], ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value]
 		);
 
 		// add user to region (DIRTY, HOW IT WORKS ...)
