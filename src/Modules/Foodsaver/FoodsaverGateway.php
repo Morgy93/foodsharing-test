@@ -124,31 +124,33 @@ class FoodsaverGateway extends BaseGateway
 
 	public function getFoodsaverDetails(int $fsId): array
 	{
-		return $this->db->fetchByCriteria(
-			'fs_foodsaver',
-			[
-				'id',
-				'admin',
-				'orgateam',
-				'bezirk_id',
-				'photo',
-				'rolle',
-				'type',
-				'verified',
-				'name',
-				'nachname',
-				'lat',
-				'lon',
-				'email',
-				'token',
-				'mailbox_id',
-				'option',
-				'geschlecht',
-				'privacy_policy_accepted_date',
-				'privacy_notice_accepted_date'
-			], [
-			'id' => $fsId
-		]);
+		return $this->db->fetch('
+		SELECT
+			fs.id,
+			fs.admin,
+			fs.orgateam,
+			fs.bezirk_id,
+			fs.photo,
+			fs.rolle,
+			fs.type,
+			fs.verified,
+			fs.name,
+			fs.nachname,
+			fs.lat,
+			fs.lon,
+			fs.email,
+			fs.token,
+			fs.mailbox_id,
+			fs.option,
+			fs.geschlecht,
+			fs.privacy_policy_accepted_date,
+			fs.privacy_notice_accepted_date,
+			fs.last_login as last_activity
+
+		FROM	fs_foodsaver fs
+
+		WHERE     fs.id = :id
+		', [':id' => $fsId]);
 	}
 
 	public function getCountCommonStores(int $fs_viewer, int $fs_viewed): int
@@ -834,18 +836,20 @@ class FoodsaverGateway extends BaseGateway
 
 	public function loadFoodsaver(int $foodsaverId): array
 	{
-		return $this->db->fetchByCriteria('fs_foodsaver', [
-			'id',
-			'name',
-			'nachname',
-			'photo',
-			'rolle',
-			'geschlecht',
-			'last_login'
-		], [
-			'id' => $foodsaverId,
-			'deleted_at' => null
-		]);
+		return $this->db->fetch('
+		SELECT	fs.id,
+				fs.name,
+				fs.nachname,
+				fs.photo,
+				fs.rolle
+				fs.geschlecht
+				fs.last_login as last_activity
+
+		FROM	fs_foodsaver fs
+
+		WHERE   fs.deleted_at_at IS NULL
+		AND     fs.id = :foodsaverId
+		', [':foodsaverId' => $foodsaverId]);
 	}
 
 	public function updateFoodsaver(int $fsId, array $data): int

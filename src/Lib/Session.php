@@ -2,6 +2,7 @@
 
 namespace Foodsharing\Lib;
 
+use Carbon\Carbon;
 use Exception;
 use Flourish\fAuthorization;
 use Flourish\fSession;
@@ -23,7 +24,7 @@ class Session
 {
 	// update this whenever adding new fields to the session!!!
 	// this should be a unix timestamp, together with a human readable date in a comment.
-	private const LAST_SESSION_SCHEMA_CHANGE = 1664920800; // 2022-10-05 00:00:00 UTC
+	private const LAST_SESSION_SCHEMA_CHANGE = 1667080800; // 2022-10-30 00:00:00 UTC
 
 	private const SESSION_TIMESTAMP_FIELD_NAME = 'last_updated_ts';
 
@@ -42,7 +43,7 @@ class Session
 
 	private const DEFAULT_NORMAL_SESSION_TIMESPAN = '24 hours';
 
-	private const DEFAULT_PERSISTENT_SESSION_TIMESPAN = '1 day';
+	private const DEFAULT_PERSISTENT_SESSION_TIMESPAN = '14 days';
 
 	public function __construct(
 		private Mem $mem,
@@ -374,7 +375,8 @@ class Session
 			'mailbox_id' => $fs['mailbox_id'],
 			'gender' => $fs['geschlecht'],
 			'privacy_policy_accepted_date' => $fs['privacy_policy_accepted_date'],
-			'privacy_notice_accepted_date' => $fs['privacy_notice_accepted_date']
+			'privacy_notice_accepted_date' => $fs['privacy_notice_accepted_date'],
+			'last_activity' => $fs['last_activity']
 		]);
 		$this->set('buddy-ids', $fs['buddys']);
 
@@ -400,7 +402,8 @@ class Session
 			'group' => ['member' => true],
 			'photo' => $fs['photo'],
 			'rolle' => (int)$fs['rolle'],
-			'verified' => (int)$fs['verified']
+			'verified' => (int)$fs['verified'],
+			'last_activity' => $fs['last_activity']
 		];
 		if ((int)$fs['rolle'] > 0) {
 			if ($r = $this->regionGateway->listRegionsForBotschafter($fs['id'])
@@ -521,5 +524,16 @@ class Session
 	public function isMob(): bool
 	{
 		return isset($_SESSION['mob']) && $_SESSION['mob'] == 1;
+	}
+
+	public function updateLastActivity()
+	{
+		$today = Carbon::today()->isoFormat('YYYY-MM-DD');
+		$last_activity = date('Y-m-d', strtotime($_SESSION['client']['last_activity']));
+
+		if ($this->isPersistent() && $today != $last_activity) {
+			$this->loginGateway->updateLastActivityInDatabase($this->id());
+			$this->refreshFromDatabase();
+		}
 	}
 }

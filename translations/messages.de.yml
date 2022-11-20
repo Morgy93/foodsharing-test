@@ -33,7 +33,6 @@ betrieb: "Kooperationsbetrieb/e"
 active: "Aktiviert" # TODO check this
 mailbox_name: "Mailbox-Name" # XhrMethods
 rolle: "Benutzer*innenrolle" # FoodsaverView
-last_login: "Letzter Login"
 title: "Überschrift"
 body: "Nachricht"
 status: "Aktueller Status"
@@ -522,7 +521,7 @@ login:
   forgotten_password_label: "Passwort vergessen?"
   login_button_label: "Einloggen"
   save_password: "Passwort speichern"
-  steady_login: "Für einen Tag eingeloggt bleiben (verwendet Cookies)"
+  steady_login: "Dauerhaft eingeloggt bleiben"
   error_no_email: "Bitte gib deine E-Mail-Adresse an."
   error_no_password: "Bitte gib dein Passwort an."
   error_no_auth: "Leider finden wir diese E-Mail-Adresse oder Passwort nicht, bitte versuche es noch einmal."
@@ -1494,7 +1493,7 @@ foodsaver:
     photo: "Foto"
     name: "Name"
     role: "Rolle"
-    last-login: "Letzter Login"
+    last-activity: "Letzte Aktivität"
     actions: "Optionen"
     remove: "Aus Bezirk löschen"
     orga: "ist im bundesweiten Orgateam dabei"
@@ -1527,7 +1526,7 @@ foodsaver:
   restricted: "Du hast leider keine Berechtigung, diese Daten einzusehen."
   list:
     summary: "{count} Foodsaver in {region}"
-    inactive: ", die sich 6 Monate nicht eingeloggt haben:"
+    inactive: ", die in den letzten 6 Monaten nicht aktiv waren:"
   kicked: "Foodsaver wurde entfernt"
 
 content:
@@ -1776,7 +1775,7 @@ profile:
   online: "{name} ist online."
   infos:
     title: "Infos"
-    lastLogin: "Letzter Login"
+    lastActivity: "Letzte Aktivität"
     registrationDate: "Registrierungsdatum"
     never: "Noch nie"
     privateMail: "Private E-Mail-Adresse"

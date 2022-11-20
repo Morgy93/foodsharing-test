@@ -32,7 +32,7 @@ class DashboardControl extends Control
 		SettingsGateway $settingsGateway,
 		FoodsaverGateway $foodsaverGateway,
 		EventGateway $eventGateway,
-		QuizSessionGateway $quizSessionGateway
+		QuizSessionGateway $quizSessionGateway,
 	) {
 		$this->view = $view;
 		$this->contentGateway = $contentGateway;
@@ -56,6 +56,8 @@ class DashboardControl extends Control
 	 */
 	public function index(): void
 	{
+		$this->session->updateLastActivity();
+
 		$this->params['broadcast'] = $this->getBroadcast();
 		$this->params['quiz'] = $this->getQuiz();
 
@@ -63,7 +65,6 @@ class DashboardControl extends Control
 			$this->params['events'] = $this->getEvents();
 		}
 
-		// echo json_encode($_SESSION);
 		$this->pageHelper->addContent($this->view->index($this->params), CNT_MAIN);
 	}
 

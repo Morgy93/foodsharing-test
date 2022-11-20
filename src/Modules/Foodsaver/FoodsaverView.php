@@ -73,8 +73,8 @@ class FoodsaverView extends View
 			)
 		);
 
-		$cnt .= $this->v_utils->v_input_wrapper($this->translator->trans('foodsaver.manage.last-login'),
-			$foodsaver['last_login']
+		$cnt .= $this->v_utils->v_input_wrapper($this->translator->trans('foodsaver.manage.last-activity'),
+			$foodsaver['last_activity']
 		);
 
 		$cnt .= $this->v_utils->v_input_wrapper($this->translator->trans('foodsaver.manage.actions'),

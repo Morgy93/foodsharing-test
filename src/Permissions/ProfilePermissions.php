@@ -133,7 +133,7 @@ class ProfilePermissions
 		return $this->session->id() === $userId || $this->session->mayRole(Role::ORGA);
 	}
 
-	public function maySeeLastLogin(int $userId): bool
+	public function maySeelastActivity(int $userId): bool
 	{
 		return $this->session->mayRole(Role::ORGA);
 	}

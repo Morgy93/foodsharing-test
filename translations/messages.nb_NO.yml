@@ -673,7 +673,7 @@ profile:
     fsMail: Intern postkasse
     privateMail: Privat e-postadresse
     never: aldri
-    lastLogin: Siste innlogging
+    lastActivity: Siste innlogging
     registrationDate: Registreringsdato
     title: Informasjon
     foodsharerId: Matdeler-ID
@@ -1033,7 +1033,7 @@ content:
 foodsaver:
   manage:
     actions: Alternativer
-    last-login: Siste innlogging
+    last-activity: Siste innlogging
     role: Rolle
     name: Navn
     photo: Bilde
@@ -1330,7 +1330,6 @@ login:
   form_title: Velkommen tilbake
   topbar: Logg Inn
   submit_btn: Logg Inn
-  steady_login: Hold deg pålogget i én dag (bruker informasjonskapsler)
   error_no_email: Vennligst skriv inn E-postadressen din.
   error_no_password: Vennligst skriv inn passordet ditt.
   error_no_auth: Beklager, vi finner ikke denne e-postadressen eller passordet. Vær
@@ -1658,7 +1657,6 @@ kette_id: Driftskjede
 homepage: Din nettside
 location_name: Spillested/konferanserom
 status: Nåværende status
-last_login: Siste innlogging
 rolle: Brukerrolle
 active: aktiviert
 stadt: Din by
