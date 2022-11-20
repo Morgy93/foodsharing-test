@@ -197,9 +197,9 @@ class MessageRestController extends AbstractFOSRestController
 			throw new AccessDeniedHttpException();
 		}
 		$body = $paramFetcher->get('body');
-		$this->messageTransactions->sendMessage($conversationId, $this->session->id(), $body);
+		$message = $this->messageTransactions->sendMessage($conversationId, $this->session->id(), $body);
 
-		return $this->handleView($this->view([], 200));
+		return $this->handleView($this->view(['message' => $message], 200));
 	}
 
 	/**

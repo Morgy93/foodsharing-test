@@ -1105,6 +1105,7 @@ forum:
 chat:
   open_chat: "Nachricht schreiben"
   new_message: "Neue Nachricht" #also Mailbox.js
+  new_messages: "Neue Nachrichten"
   receivermissing: "Du musst einen Empfänger angeben" #Mailbox.js
   incorrect_address: "Diese E-Mail-Adresse ist nicht korrekt" #Mailbox.js
   conversations: "Unterhaltungen"
@@ -1116,10 +1117,16 @@ chat:
   error_sending_message: "Das Senden der Nachricht ist fehlgeschlagen."
   empty_message: "Du musst erst eine Nachricht eingeben."
   empty_recipients: "Du musst erst noch Empfänger*innen auswählen."
+  select_recipients: "Empfänger*innen auswählen"
   confirm_draft_discard: |
     Du wechselst zu einer neuen Unterhaltung. Der Text im Antwortfeld wird dabei verworfen.
 
     Wenn du diesen Dialog abbrichst, wird dein Entwurf stattdessen in die neue Unterhaltung mitgenommen.
+  search: "Suchen"
+  no_messages: "Keine Nachrichten"
+  no_conversation: "Keine Unterhaltung ausgewählt"
+  start_of_conversation: "Konversation gestartet am:"
+  display_all_messages: "Alle Nachrichten anzeigen"
 
 wall:
   name: "Pinnwand"

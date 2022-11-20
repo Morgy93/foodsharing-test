@@ -2152,11 +2152,13 @@ memberlist:
 chat:
   conversations: Conversations
   new_message: New message
+  new_messages: New messages
   open_chat: Write a message
   notification_unnamed_conversation: '{foodsaver} has sent you a message.'
   placeholder: Write something.
   empty: No conversations yet
   empty_recipients: You still have to select recipients.
+  select_recipients: Select recipients
   empty_message: You need to enter a message first.
   error_sending_message: Sending the message failed.
   error_loading_messages: Reloading of messages failed.
@@ -2166,6 +2168,12 @@ chat:
     \ over into the new conversation instead.\n"
   incorrect_address: This email address is not valid
   receivermissing: Please enter a recipient
+  search: Search
+  no_messages: No messages
+  no_conversation: No conversation selected
+  start_of_conversation: "Conversation started on: "
+  display_all_messages: "Display all messages"
+
 delete: Delete
 error_unexpected: An error has occurred
 register:
