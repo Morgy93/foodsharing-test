@@ -5,16 +5,20 @@ namespace Foodsharing\Modules\BusinessCard;
 use Foodsharing\Modules\Core\Control;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use setasign\Fpdi\Tcpdf\Fpdi;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class BusinessCardControl extends Control
 {
-	private BusinessCardGateway $gateway;
+	private string $projectDir;
 	private const MAX_CHAR_PER_LINE = 45;
 
-	public function __construct(BusinessCardView $view, BusinessCardGateway $gateway)
-	{
+	public function __construct(
+		BusinessCardView $view,
+		private readonly BusinessCardGateway $gateway,
+		KernelInterface $kernel
+	) {
 		$this->view = $view;
-		$this->gateway = $gateway;
+		$this->projectDir = $kernel->getProjectDir();
 
 		parent::__construct();
 	}
@@ -151,14 +155,14 @@ class BusinessCardControl extends Control
 		$pdf = new Fpdi();
 		$pdf->AddPage();
 		$pdf->SetTextColor(0, 0, 0);
-		$pdf->AddFont('Ubuntu-L', '', 'lib/font/ubuntul.php', true);
-		$pdf->AddFont('AcmeFont Regular', '', 'lib/font/acmefont.php', true);
+		$pdf->AddFont('Ubuntu-L', '', $this->projectDir . '/lib/font/ubuntul.php', true);
+		$pdf->AddFont('AcmeFont Regular', '', $this->projectDir . '/lib/font/acmefont.php', true);
 
 		$x = 0.0;
 		$y = 0.0;
 
 		for ($i = 0; $i < 8; ++$i) {
-			$pdf->Image('img/fsvisite.png', 10 + $x, 10 + $y, 91, 61);
+			$pdf->Image($this->projectDir . '/img/fsvisite.png', 10 + $x, 10 + $y, 91, 61);
 
 			$pdf->SetTextColor(85, 60, 36);
 
