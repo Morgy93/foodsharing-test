@@ -21,6 +21,10 @@ class BusinessCardControl extends Control
 
 	public function index(): void
 	{
+		if (!$this->session->mayRole()) {
+			$this->routeHelper->goLogin();
+		}
+
 		$this->pageHelper->addBread($this->translator->trans('bcard.title'));
 
 		$this->pageHelper->addContent($this->view->top(), CNT_TOP);
