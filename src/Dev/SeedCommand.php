@@ -107,7 +107,7 @@ class SeedCommand extends Command implements CustomCommandInterface
 
 		$I->createEvents($region1, $user['id']);
 
-		$store = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED, 'betrieb_kategorie_id' => '1']);
+		$store = $I->createStore($region1, null, null, ['betrieb_status_id' => CooperationStatus::COOPERATION_ESTABLISHED->value, 'betrieb_kategorie_id' => '1']);
 		$I->addStoreTeam($store['id'], $user['id'], true);
 		$I->addRecurringPickup($store['id']);
 		for ($i = 1; $i < 3; ++$i) {
