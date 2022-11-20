@@ -124,10 +124,14 @@ class VotingGateway extends BaseGateway
 			'poll_id' => $pollId,
 			'foodsaver_id' => $userId
 		]);
-		$format = 'Y-m-d H:i:s';
-		$date = DateTime::createFromFormat($format, $value);
 
-		return $date ?: null;
+		if ($value !== null) {
+			$date = DateTime::createFromFormat('Y-m-d H:i:s', $value);
+		} else {
+			$date = null;
+		}
+
+		return $date;
 	}
 
 	/**
