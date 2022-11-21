@@ -133,6 +133,7 @@
 - LoginForm: Removed duplicated content and imported NavLoginEntry.vue !2471 @chriswalg
 - LoginForm: Removed duplicated content and moved to client/src !2471 @chriswalg
 - Remove unused Endpoints from RestAPI !2499 @BibaltiK
+- Changed store cooperation status to an enum !2473 !2496 @KoeMai
 
 ## Dev/Test/CI stuff
 - Added Gitpod and refactored permissions !2386 !2399 !2402 !2428 @sefn @chriswalg

@@ -71,10 +71,10 @@ class MapGateway extends BaseGateway
 		$query = 'SELECT id, lat, lon FROM fs_betrieb WHERE lat != ""';
 
 		if (!empty($excludedStoreTypes)) {
-			$query .= ' AND betrieb_status_id NOT IN(' . implode(',', array_fill(0, count($$excludedStoreTypes), '?')) . ')';
+			$query .= ' AND betrieb_status_id NOT IN(' . implode(',', array_fill(0, count($excludedStoreTypes), '?')) . ')';
 		}
 		if (!empty($teamStatus)) {
-			$query .= ' AND team_status IN (' . implode(',', array_fill(0, count($$excludedStoreTypes), '?')) . ')';
+			$query .= ' AND team_status IN (' . implode(',', array_fill(0, count($teamStatus), '?')) . ')';
 		}
 		$excludedStoreTypesIds = array_map(function (CooperationStatus $storeType) { return $storeType->value; }, $excludedStoreTypes);
 		$markers = $this->db->fetchAll($query, array_merge($excludedStoreTypesIds, $teamStatus));
