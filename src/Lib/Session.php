@@ -2,7 +2,6 @@
 
 namespace Foodsharing\Lib;
 
-use Carbon\Carbon;
 use Exception;
 use Flourish\fAuthorization;
 use Flourish\fSession;
@@ -24,7 +23,7 @@ class Session
 {
 	// update this whenever adding new fields to the session!!!
 	// this should be a unix timestamp, together with a human readable date in a comment.
-	private const LAST_SESSION_SCHEMA_CHANGE = 1667080800; // 2022-10-30 00:00:00 UTC
+	private const LAST_SESSION_SCHEMA_CHANGE = 1668985200; // 2022-11-21 00:00:00 UTC
 
 	private const SESSION_TIMESTAMP_FIELD_NAME = 'last_updated_ts';
 
@@ -528,8 +527,13 @@ class Session
 
 	public function updateLastActivity()
 	{
-		$today = Carbon::today()->isoFormat('YYYY-MM-DD');
-		$last_activity = date('Y-m-d', strtotime($_SESSION['client']['last_activity']));
+		$session_last_activity = $_SESSION['client']['last_activity'];
+		if ($session_last_activity === null) {
+			$session_last_activity = date('Y-m-d');
+		}
+
+		$last_activity = date('Y-m-d', strtotime($session_last_activity));
+		$today = date('Y-m-d');
 
 		if ($this->isPersistent() && $today != $last_activity) {
 			$this->loginGateway->updateLastActivityInDatabase($this->id());

@@ -100,7 +100,7 @@
 - Clean up pickup endpoint and catch DomainException: No pickup slot available problems !1407 @KoeMai
 - StoreCest, improved and removed unnecessary elements !2434 @sefn
 - Fix the link in the notification regarding old profile photos #1424 !2459 @alex.simm  
-- If session persistent and current date not equal to last_login, update last_login date on every dashboard reload !2450 @chriswalg
+- If session persistent and current date not equal to last_login, update last_login date on every dashboard reload !2450 !2495 @chriswalg
 - Prevent access to missing conversation member image
 - New AvatarList doesn't show avatar on foodsharepoints !2479 @alex.simm
 - Show all Photos on Team Page !2488 @BibaltiK
