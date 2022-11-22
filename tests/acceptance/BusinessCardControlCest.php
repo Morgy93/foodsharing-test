@@ -1,7 +1,5 @@
 <?php
 
-use AcceptanceTester;
-
 class BusinessCardControlCest
 {
 	public function GuestSeeLoginPage(AcceptanceTester $I)
