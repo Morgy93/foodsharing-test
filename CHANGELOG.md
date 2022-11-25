@@ -170,6 +170,7 @@
 - Update backend dependencies !2441 @chriswalg
 - Fix "bid" contains a number !2476 @BibaltiK
 - Fix use Statemen !2500 @BibaltiK
+- Added setting for the cs-fixer to sort the usage imports !2509 @BibaltiK
 
 
 ## Development documetation
