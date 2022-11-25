@@ -19,7 +19,6 @@ use Jsvrcek\ICS\Utility\Formatter;
 use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -55,7 +54,6 @@ class CalendarRestController extends AbstractFOSRestController
 	 *
 	 * @OA\Response(response="200", description="Success")
 	 * @OA\Response(response="401", description="Not logged in")
-	 * @OA\Response(response="404", description="User does not have a token")
 	 * @OA\Tag(name="calendar")
 	 * @Rest\Get("calendar/token")
 	 */
@@ -67,9 +65,6 @@ class CalendarRestController extends AbstractFOSRestController
 		}
 
 		$token = $this->settingsGateway->getApiToken($userId);
-		if (empty($token)) {
-			throw new NotFoundHttpException();
-		}
 
 		return $this->handleView($this->view(['token' => $token]));
 	}
