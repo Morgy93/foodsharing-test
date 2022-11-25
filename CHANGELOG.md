@@ -134,6 +134,8 @@
 - LoginForm: Removed duplicated content and moved to client/src !2471 @chriswalg
 - Remove unused Endpoints from RestAPI !2499 @BibaltiK
 - Changed store cooperation status to an enum !2473 !2496 !2505 @KoeMai
+- Changed store cooperation status to an enum !2473 !2496 @KoeMai
+- Replaced the edit form for working groups with Vue #1409 !2439 @alex.simm
 
 ## Dev/Test/CI stuff
 - Added Gitpod and refactored permissions !2386 !2399 !2402 !2428 @sefn @chriswalg
