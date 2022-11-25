@@ -174,10 +174,11 @@
 - Fix use Statemen !2500 @BibaltiK
 - Added setting for the cs-fixer to sort the usage imports !2509 @BibaltiK
 
-
-## Development documetation
+## Development documentation
 - Add generator for database documentation !2275 @KoeMai
 - Moved DevDocs from mdbook to docusaurus !2465 @sefn
+- Improved Devdocs to include Rest API !2493 @sefn
+
 
 # Release "Heidelbeere", 2022-05-01
 

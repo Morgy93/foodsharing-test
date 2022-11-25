@@ -65,7 +65,7 @@ class ActivityRestController extends AbstractFOSRestController
 	}
 
 	/**
-	 * Returns the updates object for <ActivityOverview> to display on the dashboard.
+	 * Returns the updates object for ActivityOverview to display on the dashboard.
 	 *
 	 * @OA\Response(response="200", description="Success.")
 	 * @OA\Tag(name="activities")
