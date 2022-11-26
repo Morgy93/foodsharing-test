@@ -22,6 +22,8 @@
 - Provide RestAPI to get backend defined common meta information for stores like "max count of slots per pickup" !1373 @koemai
 - GOALS-BOARD-Group added. Global Admin exchange group for local board members. !2295 @fs_k
 - Provide RestApi to list all stores of an region and expand details !2466 !2507 @KoeMai
+- Provide RestApi to list all stores of an region and expand details !2466 !2502 @KoeMai
+- Provide RestApi to list all stores of an region and expand details !2466 !2507 !2502 @KoeMai
 - Provide RestAPI to get backend defined common meta information for stores like "max count of slots per pickup", and store creation required informatio !1373 !2448 @koemai
 - District rules for maximum number of pickups in a timeframe accross severall stores combined can be set !2414 @fs_k
 - Provide RestAPI to change teamstatus of a store !2406
