@@ -20,6 +20,7 @@
 - At stores under pickup history, storemanagers can now see the signed out foodsavers from pickup slots from past 7 days with the signout date. !2363 @martincodes-de
 - Voter Turnout Percentage can be seen if the poll has completed !2377 @viveknshah
 - Provide RestAPI to get backend defined common meta information for stores like "max count of slots per pickup" !1373 @koemai
+- GOALS-BOARD-Group added. Global Admin exchange group for local board members. !2295 @fs_k
 - Provide RestApi to list all stores of an region and expand details !2466 !2507 @KoeMai
 - Provide RestAPI to get backend defined common meta information for stores like "max count of slots per pickup", and store creation required informatio !1373 !2448 @koemai
 - District rules for maximum number of pickups in a timeframe accross severall stores combined can be set !2414 @fs_k
