@@ -132,7 +132,7 @@
 - Improve documentation tooling for OpenAPI RequestBody !2421 @KoeMai
 - Store TeamStatus moved to vue and REST API !2453 @chriswalg
 - Replaced may() to mayRole() !2457 @chriswalg
-- Replace the user avatar lists with a vue component !2460 @alex.simm
+- Replace the user avatar lists with a vue component !2460 !2501 @alex.simm
 - LoginForm: Removed duplicated content and imported NavLoginEntry.vue !2471 @chriswalg
 - LoginForm: Removed duplicated content and moved to client/src !2471 @chriswalg
 - Remove unused Endpoints from RestAPI !2499 @BibaltiK
