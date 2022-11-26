@@ -541,8 +541,13 @@ class SeedCommand extends Command implements CustomCommandInterface
 			foreach ($this->getRandomIDOfArray($this->foodsavers, 10) as $chatpartner) {
 				if ($user !== $chatpartner) {
 					$conv = $I->createConversation([$user, $chatpartner]);
-					$I->addConversationMessage($user, $conv['id']);
-					$I->addConversationMessage($chatpartner, $conv['id']);
+					for ($i = 1; $i <= rand(1, 10); ++$i) {
+						$userId = $user;
+						if (rand(0, 1)) {
+							$userId = $chatpartner;
+						}
+						$I->addConversationMessage($userId, $conv['id']);
+					}
 				}
 			}
 			$this->output->write('.');
