@@ -356,10 +356,19 @@ class SeedCommand extends Command implements CustomCommandInterface
 		$I->createWorkingGroup('Öffentlichkeitsarbeit - Partner + Teamseite', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::PR_PARTNER_AND_TEAM_WORK_GROUP]);
 		$I->createWorkingGroup('Öffentlichkeitsarbeit - Startseite', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::PR_START_PAGE]);
 		$I->createWorkingGroup('Newsletter', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::NEWSLETTER_WORK_GROUP]);
-		$I->createWorkingGroup('Abstimmungs-AG Praxis', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::VOTING_ADMIN_GROUP]);
 		$I->createWorkingGroup('Orgarechte-Koordination', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::ORGA_COORDINATION_GROUP]);
 		$I->createWorkingGroup('Redaktion', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::EDITORIAL_GROUP]);
 		$I->createWorkingGroup('foodsharing Vereins-Vorstände', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::BOARD_ADMIN_GROUP]);
+		$I->createWorkingGroup('Begrüßungsteam Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::WELCOME_TEAM_ADMIN_GROUP]);
+		$I->createWorkingGroup('Abstimmungs-AG Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::VOTING_ADMIN_GROUP]);
+		$I->createWorkingGroup('Fairteiler-AG Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::FSP_TEAM_ADMIN_GROUP]);
+		$I->createWorkingGroup('Betriebskoordination-AG Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::STORE_COORDINATION_TEAM_ADMIN_GROUP]);
+		$I->createWorkingGroup('Meldungen-AG Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::REPORT_TEAM_ADMIN_GROUP]);
+		$I->createWorkingGroup('Mediation-AG Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::MEDIATION_TEAM_ADMIN_GROUP]);
+		$I->createWorkingGroup('Schiedsstelle-AG Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::ARBITRATION_TEAM_ADMIN_GROUP]);
+		$I->createWorkingGroup('Verwaltung-AG Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::FSMANAGEMENT_TEAM_ADMIN_GROUP]);
+		$I->createWorkingGroup('Öffentlichkeitsarbeit-AG Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::PR_TEAM_ADMIN_GROUP]);
+		$I->createWorkingGroup('Moderation-AG Praxisaustausch', ['parent_id' => RegionIDs::GLOBAL_WORKING_GROUPS, 'id' => RegionIDs::MODERATION_TEAM_ADMIN_GROUP]);
 
 		$region1Subregion = $I->createRegion('Stadtteil von Göttingen', ['type' => UnitType::PART_OF_TOWN, 'parent_id' => $region1]);
 
