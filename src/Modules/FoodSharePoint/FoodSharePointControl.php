@@ -377,13 +377,20 @@ class FoodSharePointControl extends Control
 
 	private function prepareInput(Request $request): array
 	{
+		// For old pictures the upload form needs an additional "/images/" in front of the path, which needs to be removed
+		// before storing the path in the database
+		$pic = strip_tags($request->request->get('picture'));
+		if (str_starts_with($pic, '/images/')) {
+			$pic = substr($pic, 8);
+		}
+
 		return [
 			'name' => $request->request->get('name'),
 			'desc' => $request->request->get('desc'),
 			'anschrift' => strip_tags($request->request->get('anschrift')),
 			'plz' => preg_replace('[^0-9]', '', $request->request->get('plz')),
 			'ort' => strip_tags($request->request->get('ort')),
-			'picture' => strip_tags($request->request->get('picture')),
+			'picture' => $pic,
 			'bezirk_id' => (int)$request->request->getDigits('fsp_bezirk_id'),
 			'lat' => $request->request->filter(
 				'lat',
