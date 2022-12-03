@@ -181,6 +181,7 @@
 - Fix "bid" contains a number !2476 @BibaltiK
 - Fix use Statemen !2500 @BibaltiK
 - Added setting for the cs-fixer to sort the usage imports !2509 @BibaltiK
+- Fix FoodBasketCreateCept - added wait(2) !2523 @chriswalg
 
 ## Development documentation
 - Add generator for database documentation !2275 @KoeMai
