@@ -5,7 +5,8 @@
 - The housenumber of companys shouldn't be saved seperately anymore. #1146 !2222 !2413 @martincodes-de
 - The number of unread mails is now displayed as a red badge. !2188 @AntonBallmaier
 - Improved Calendar exports. Events are now included and pickup descriptions contain links. !2182 @AntonBallmaier
-- Past events are shown now below current and upcoming events within the overview !2162 @merhoc
+- Past events are shown now below current and upcoming events within the overview !2162 !2531 @merhoc @chriswalg
+- Events show the year in event list !2531 @chriswalg
 - Commitment statistics on profile !2208 !2217 !2353 !2359 !2435 @fs_k
 - Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 #chriswalg
 - The profile page now contains one unified pickup section. Future pickup options are now visible in that section. !2211 !2226 @AntonBallmaier
