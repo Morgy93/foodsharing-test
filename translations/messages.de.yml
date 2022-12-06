@@ -827,9 +827,9 @@ store:
   team_conversation_name: "Team {name}"
   springer_conversation_name: "Springer {name}"
   regionPickupRules: "zusätzliche ROSINEN-Regel"
-  useRegionPickupRules: "Zusätzlich zu den Betriebsregeln gilt folgende Bezirks-ROSINEN-Regel für Abholungen:"
+  useRegionPickupRules: "Dies ist ein ROSINEN-Betrieb. Zusätzlich zu den Betriebsregeln gilt folgende Bezirks-ROSINEN-Regel für Abholungen:"
   regionPickupRulesInactive: "Die zusätzlichen Bezirksregeln für Abholungen sind nicht aktiv"
-  regionPickupRuleLong: "Innerhalb von {regionPickupRuleTimespan} Tagen dürfen nicht mehr als insgesamt {regionPickupRuleLimit} Abholungen unter Berücksichtigung aller Betrieber mit Bezirksregeln durchgeführt werden. Pro Tag darf höchstens insgesamt {regionPickupRuleLimitDay}-mal bei diesen Betrieben abgeholt werden. {regionPickupRuleInactive} Stunden vor der Abholung wird diese Regel nicht berücksichtigt."
+  regionPickupRuleLong: "Innerhalb von {regionPickupRuleTimespan} Tagen dürfen nicht mehr als insgesamt {regionPickupRuleLimit} Abholungen unter Berücksichtigung aller Betriebe mit Bezirksregeln durchgeführt werden. Pro Tag darf höchstens insgesamt {regionPickupRuleLimitDay}-mal bei diesen Betrieben abgeholt werden. {regionPickupRuleInactive} Stunden vor der Abholung wird diese Regel nicht berücksichtigt."
   sm:
     managementToggleOn: "Ansicht für Betriebsverantwortliche aktivieren"
     managementToggleOff: "Zurück zur Standard-Ansicht"
@@ -1485,10 +1485,10 @@ regionOptions:
   enableMediationButton: "Technische Unterstützung für Mediationen durch einen Mediations-Link auf den Profilen der Stammfoodsaver des Bezirkes aktivieren."
   regionPickupRuleActive: "Folgende Bezirksregel für Abholungen bei ROSINEN (Raren Oft Sagenhaften Inspesondere Nicht alltäglichen Extrem beliebten Nüztliche)-Betrieben aktivieren:"
   regionPickupTimespan: "Bitte gib den Zeitraum in Tagen an, in denen die Regelung gültig ist"
-  regionPickupLimitNumber: "Bitte gib die maximale Anzahl der insgesamt möglichen Abholungen für diesen Zeitraum an:"
-  regionPickupLimitDayNumber: "Bitte gib die insgesamte maximale Anzzahl von Abholungen für EINEN TAG an:"
-  regionPickupInactiveHours: "Bitte gib die Anzahl Stunden vor einer Abholung an, in denen die Regel nicht mehr gilt:"
-  regionPickupRuleActiveStoreList: "Liste der Betriebe im Bezirk, die für die ROSINEN Regel Berücksichtigt werden. ACHTUNG: Alle Abholung der aufgelisteten Betriebe werden zusammengezählt und für die Regel berücksichtigt."
+  regionPickupLimitNumber: "Bitte gib die maximale Anzahl der insgesamt möglichen Abholungen für diesen Zeitraum an"
+  regionPickupLimitDayNumber: "Bitte gib die insgesamte maximale Anzahl von Abholungen für EINEN TAG an"
+  regionPickupInactiveHours: "Bitte gib die Anzahl Stunden vor einer Abholung an, in denen die Regel nicht mehr gilt"
+  regionPickupRuleActiveStoreList: "Liste der Betriebe im Bezirk, die für die ROSINEN Regel berücksichtigt werden. ACHTUNG: Alle Abholung der aufgelisteten Betriebe werden zusammengezählt und für die Regel berücksichtigt."
 
 regionPin:
   header_page: "Öffentliche Ortsgruppenbeschreibung für {bezirk}"

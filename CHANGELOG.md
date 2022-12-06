@@ -25,7 +25,7 @@
 - Provide RestApi to list all stores of an region and expand details !2466 !2502 @KoeMai
 - Provide RestApi to list all stores of an region and expand details !2466 !2507 !2502 @KoeMai
 - Provide RestAPI to get backend defined common meta information for stores like "max count of slots per pickup", and store creation required informatio !1373 !2448 @koemai
-- District rules for maximum number of pickups in a timeframe accross severall stores combined can be set !2414 @fs_k
+- District rules for maximum number of pickups in a timeframe accross severall stores combined can be set !2414 !2530 @fs_k
 - Provide RestAPI to change teamstatus of a store !2406
 - Added RestAPI for regular Pickup configuration !1373 @koemai
 - The chat has been modernised !2301 !2498 !2508 !2514 @NINI1988
