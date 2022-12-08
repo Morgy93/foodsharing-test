@@ -115,6 +115,7 @@
 - Prevent an unnecessary 404 error on the calendar page !2510 @alex.simm
 - Fix the paths of old pictures of foodsharepoints #1490 !2519 @alex.simm
 - Prevent invalid states in notification icons #1465 !2536 @AntonBallmaier
+- Prevent errors in the calendar export caused by events with wrong dates #1301 !2532 @alex.simm
 
 ## Refactoring
 - Currently running events are shown within the event overview until their end !2162 @merhoc
