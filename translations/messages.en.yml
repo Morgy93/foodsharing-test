@@ -173,6 +173,8 @@ group:
     remove_admin_title: remove as admin
     old_edit_hint_link: Members
     old_edit_hint: You can now find the member administration on the tab
+    remove_text_group: Do you really want to remove {name} ({id}) from this workgroup?
+    remove_text_region: Do you really want to remove {name} ({id}) from the region?
   application_from: by
   entermotivation: 'Motivation:'
   enterskills: 'Skills:'
@@ -2828,6 +2830,7 @@ globals:
     my_foodshare_points: My FoodSharePoints
     groups: Groups
     my_groups: My groups
+    persons: Persons
   save: Save
   close: Close
   select: Please select...
@@ -2836,6 +2839,7 @@ globals:
   account:
     signin: Sign in
     signout: Sign out
+    signup: Participate
 bootstrap-datepicker:
   labelPrevDecade: Previous decade
   labelPrevYear: Previous year
