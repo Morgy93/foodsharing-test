@@ -46,7 +46,7 @@
           <button
             class="dropdown-item small d-flex align-items-center"
             @click="resetHiding"
-            v-html="$i18n('dashboard.options.reset')"
+            v-text="$i18n('dashboard.options.reset')"
           />
         </b-dropdown>
         <button
@@ -65,7 +65,7 @@
           />
           <span
             class="sr-only"
-            v-html="$i18n(`dashboard.options.grid_toggle.${state ? 3 : 2}_columns`)"
+            v-text="$i18n(`dashboard.options.grid_toggle.${state ? 3 : 2}_columns`)"
           />
         </button>
       </div>
