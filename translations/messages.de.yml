@@ -1978,6 +1978,7 @@ dashboard:
     no-stores: "Du bist bis jetzt in keinem Betriebsteam."
     users: "Foodsaver*innen"
     buddies: "Menschen, die Du kennst"
+    polls: Abstimmungen
   options:
     hide:
       text: "Anzeige verwalten"
@@ -1991,6 +1992,7 @@ dashboard:
   event: "Nächstes Event"
   eventCount: "Nächste Events ({count})"
   pickupdates: "Nächste Abholtermine"
+  polls: Deine laufenden Abstimmungen
   quiz:
     ack: "Hinweis gelesen und nicht mehr anzeigen"
     read: "weiterlesen"
@@ -2446,6 +2448,7 @@ polls:
   ongoing: "Laufende Abstimmungen"
   ended: "Vergangene Abstimmungen"
   future: "Zukünftige Abstimmungen"
+  until: "Möglich bis {until}"
 
 poll:
   not_available: "Diese Abstimmung existiert nicht oder du kannst nicht darauf zugreifen."

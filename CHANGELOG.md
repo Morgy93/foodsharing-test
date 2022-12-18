@@ -1,6 +1,7 @@
 # Release "Next", Unreleased
 
 ## Features
+- Ongoing polls a user has not yet voted in are displayed on the dashboard. !2349 @AntonBallmaier
 
 
 ## Changes
