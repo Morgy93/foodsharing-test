@@ -1,3 +1,24 @@
+# Release "Next", Unreleased
+
+## Features
+
+
+## Changes
+
+
+## Bugfixes
+
+
+## Refactoring
+
+
+## Dev/Test/CI stuff
+
+
+## Development documentation
+
+
+
 # Release "Icecream", 2022-12-18
 
 ## Features
