@@ -139,7 +139,7 @@
 - Remove unused Endpoints from RestAPI !2499 @BibaltiK
 - Changed store cooperation status to an enum !2473 !2496 !2505 @KoeMai
 - Replaced the edit form for working groups with Vue #1409 !2439 @alex.simm
-- Removed links to foodsaver page and moved functions to member list !2512 !2524 @chriswalg
+- Removed links to foodsaver page and moved functions to member list !2512 !2524 !2561 @chriswalg
 
 ## Dev/Test/CI stuff
 - Added Gitpod and refactored permissions !2386 !2399 !2402 !2428 @sefn @chriswalg

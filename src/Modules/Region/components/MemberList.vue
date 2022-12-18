@@ -164,7 +164,7 @@
         </b-button>
       </template>
       <template
-        v-if="maySetAdminOrAmbassador && managementModeEnabled"
+        v-if="maySetAdminOrAmbassador"
         #cell(setAdminButton)="row"
       >
         <b-button
