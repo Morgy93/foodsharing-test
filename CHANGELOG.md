@@ -37,7 +37,7 @@
 - Send a bell notification and email, if a foodsaver was verified. !2198 #chriswalg
 - Unifiying the foodsaver adress change page and adress change page for ambassadors !2171 @NINI1988
 - Set fileformat jpg / png for wallposts !2229 @chriswalg
-- Removed the possibility to edit the member list on a working group's edit page !2228 @alex.simm
+- Removed the possibility to edit the member list on a working group's edit page !2228 !2562 @alex.simm
 - Info for foodsharer how can change the name !2240 @chriswalg
 - Renamed the button to update displayed language !1232 @martincodes-de
 - On mobile devices the forum profile image is smaller !2237 @sefn
