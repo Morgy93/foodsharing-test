@@ -1,4 +1,4 @@
-# Release "I", unreleased
+# Release "Icecream", 2022-12-18
 
 ## Features
 - The number of unread mails is now displayed as a red badge. !2188 !2230 @AntonBallmaier
