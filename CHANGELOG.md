@@ -11,7 +11,7 @@
 
 
 ## Refactoring
-
+- added poppins font in Styleguide !2564 @Niklas003 
 
 ## Dev/Test/CI stuff
 - Small Improving Changes on GitLab CI !2565
