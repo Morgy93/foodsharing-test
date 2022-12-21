@@ -204,6 +204,7 @@
 - Add generator for database documentation !2275 @KoeMai
 - Moved DevDocs from mdbook to docusaurus !2465 @sefn
 - Improved Devdocs to include Rest API !2493 @sefn
+- Added tutorial to create bug tickets as non-tech person !2542 @martincodes-de
 
 
 # Release "Heidelbeere", 2022-05-01
