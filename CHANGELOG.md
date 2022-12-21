@@ -15,6 +15,8 @@
 
 ## Dev/Test/CI stuff
 - Small Improving Changes on GitLab CI !2565
+- Change identity style from tab to space !2571 @BibaltiK
+
 
 ## Development documentation
 
