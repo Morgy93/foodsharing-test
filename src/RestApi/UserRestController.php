@@ -158,10 +158,10 @@ class UserRestController extends AbstractFOSRestController
         $response['aboutMePublic'] = $data['about_me_public'];
 
         if ($loggedIn) {
-            $infos = $this->foodsaverGateway->getFoodsaverBasics($this->session->id());
+            $infos = $this->foodsaverGateway->getFoodsaverBasics($data['id']);
 
             $response['mailboxId'] = $data['mailbox_id'];
-            $response['hasCalendarToken'] = $this->settingsGateway->getApiToken($this->session->id());
+            $response['hasCalendarToken'] = $this->settingsGateway->getApiToken($data['id']);
             $response['firstname'] = $data['name'];
             $response['lastname'] = $data['nachname'];
             $response['gender'] = $data['geschlecht'];
@@ -203,11 +203,11 @@ class UserRestController extends AbstractFOSRestController
             $response['aboutMeIntern'] = $data['about_me_intern'];
 
             // load region
-            $regions = $this->regionTransactions->getUserRegions($this->session->id());
+            $regions = $this->regionTransactions->getUserRegions($data['id']);
             $response['regions'] = array_map(fn (UserUnit $region): UserRegionModel => UserRegionModel::createFrom($region), $regions);
 
             // load groups
-            $groups = $this->groupTransactions->getUserGroups($this->session->id());
+            $groups = $this->groupTransactions->getUserGroups($data['id']);
             $response['groups'] = array_map(fn (UserUnit $group): UserGroupModel => UserGroupModel::createFrom($group), $groups);
         }
 
@@ -232,7 +232,9 @@ class UserRestController extends AbstractFOSRestController
             throw new NotFoundHttpException('User does not exist.');
         }
 
-        return $this->handleView($this->view($this->normalizeUserDetails($data), 200));
+        $normalisedData = $this->normalizeUserDetails($data);
+
+        return $this->handleView($this->view($normalisedData, Response::HTTP_OK));
     }
 
     /**
