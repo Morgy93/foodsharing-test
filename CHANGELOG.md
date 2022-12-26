@@ -16,7 +16,7 @@
 
 ## Dev/Test/CI stuff
 - Fix given null parameter !2550 @BibaltiK
-- Small Improving Changes on GitLab CI !2565
+- Small Improving Changes on GitLab CI !2565 !2567
 - Change identity style from tab to space !2571 @BibaltiK
 - Python Script to generate Release Notes from gitlab MRs !2548 @alex.simm
 

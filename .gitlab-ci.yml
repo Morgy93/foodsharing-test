@@ -161,7 +161,7 @@ build:docs:
   artifacts:
     expire_in: 1 week
     paths:
-      - docs
+      - docs/build
 
 test:backend-code:
   <<: *defaults
