@@ -22,6 +22,7 @@
 - Add $SKIP_CI_TESTS Variable to deploy production faster if needed !2581 @stcz
 - Change identity style from tab to space !2571 @BibaltiK
 - Python Script to generate Release Notes from gitlab MRs !2548 @alex.simm
+- Restart all foodsharing services after production deployment !2583 @stcz
 
 
 ## Development documentation

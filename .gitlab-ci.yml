@@ -52,7 +52,7 @@ stages:
     - chmod -R 750 ./
     - (cd deployer && composer install)
     - deployer/vendor/bin/dep deploy $CI_ENVIRONMENT_NAME --revision $CI_COMMIT_SHA
-    - ./scripts/deploy-websocket-restart
+    - ./scripts/deploy-restart-services
     - ./scripts/deploy-notify-slack
 
 outdated:
