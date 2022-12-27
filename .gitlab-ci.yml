@@ -176,6 +176,8 @@ test:backend-code:
   interruptible: true
   rules:
     - if: $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'production'
+    - if: $CI_COMMIT_BRANCH == 'production' && $SKIP_CI_TESTS == 'true'
+      when: never
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_PIPELINE_SOURCE == "schedule"
       when: never
@@ -241,6 +243,8 @@ test:backend-acceptance:
   interruptible: true
   rules:
     - if: $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'production'
+    - if: $CI_COMMIT_BRANCH == 'production' && $SKIP_CI_TESTS == 'true'
+      when: never
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_PIPELINE_SOURCE == "schedule"
       when: never
@@ -303,6 +307,8 @@ test:frontend:
   interruptible: true
   rules:
     - if: $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'production'
+    - if: $CI_COMMIT_BRANCH == 'production' && $SKIP_CI_TESTS == 'true'
+      when: never
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_PIPELINE_SOURCE == "schedule"
       when: never
@@ -324,6 +330,8 @@ test:websocket:
     - if: $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'production'
       changes:
         - 'websocket/**/*'
+    - if: $CI_COMMIT_BRANCH == 'production' && $SKIP_CI_TESTS == 'true'
+      when: never
     - if: $CI_MERGE_REQUEST_ID
       changes:
         - 'websocket/**/*'
