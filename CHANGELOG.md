@@ -13,6 +13,8 @@
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003 
+- Use email address DTO and let the MailboxGateway handle JSON encoding !2520 @alex.simm
+
 
 ## Dev/Test/CI stuff
 - Fix given null parameter !2550 @BibaltiK
