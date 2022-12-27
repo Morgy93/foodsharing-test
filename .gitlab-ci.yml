@@ -148,7 +148,7 @@ build:docs:
   stage: build
   interruptible: true
   rules:
-    - if: $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'production'
+    - if: $CI_COMMIT_BRANCH == 'master'
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_PIPELINE_SOURCE == "schedule"
       when: never
