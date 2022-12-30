@@ -2167,7 +2167,7 @@ lifetime: How long is your food basket to be valid?
 contact_type: How would you like to be contacted?
 food_art: What kind of food is it?
 ageBandList:
-  home_district_tab: Home disctrict
+  home_district_tab: Home district
   district_tab: Region
   NumberOfAgeband: Quantity
   ageBand: Age group
