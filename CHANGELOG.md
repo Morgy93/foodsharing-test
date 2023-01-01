@@ -5,6 +5,7 @@
 
 
 ## Changes
+- Make menubar sticky on mobile !2411 @AntonBallmaier
 
 
 ## Bugfixes
