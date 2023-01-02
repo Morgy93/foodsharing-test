@@ -120,7 +120,7 @@
     </b-modal>
     <b-modal
       ref="modal_report_request"
-      :title="$i18n('profile.mediation.title', { name: foodSaverName })"
+      :title="$i18n('profile.report.title', { name: foodSaverName })"
       :cancel-title="$i18n('button.cancel')"
       header-class="d-flex"
       content-class="pr-3 pt-3"
