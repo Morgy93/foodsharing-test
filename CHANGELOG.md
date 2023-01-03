@@ -9,6 +9,7 @@
 
 
 ## Bugfixes
+- Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
 - Outgoing mails were sent out with an invalid charset !2572 @\_fridtjof_
 - Return the correct data from the user details REST endpoint #1534 !2575 @alex.simm
 - Fixed some typos #1539 !2585 @alex.simm
