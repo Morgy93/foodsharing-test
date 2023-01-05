@@ -1822,8 +1822,8 @@ store:
     store, the following district-wide CHERRY rule applies:'
   regionPickupRulesInactive: The additional district rules for pick-ups are not active
   regionPickupRuleLong: Within {regionPickupRuleTimespan} days, no more than a total
-    of {regionPickupRuleLimit} pick-ups may be made, taking into account stores from
-    all districts with pick-up rules. No more than a total of {regionPickupRuleLimitDay}
+    of {regionPickupRuleLimit} pick-ups may be made, taking into account all stores
+    with pick-up rule, regardless which district. No more than a total of {regionPickupRuleLimitDay}
     times may be picked up from these districts per day. {regionPickupRuleInactive}
     hours before the pick-up, this rule is not taken into account.
   regionPickupRules: additional CHERRY rule
