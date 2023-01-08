@@ -14,6 +14,7 @@
 - Return the correct data from the user details REST endpoint #1534 !2575 @alex.simm
 - Fixed some typos #1539 !2585 @alex.simm
 - Fix some broken links !2586
+- Show the report button on the own profile page !2589 @alex.simm
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003 
