@@ -65,6 +65,7 @@
 - District rules for maximum number of pickups in a timeframe accross severall stores combined can be set !2414 !2530 @fs_k
 - Provide RestAPI to change teamstatus of a store !2406
 - Added RestAPI for regular Pickup configuration !1373 @koemai
+- Added RestAPI to create a new store !2484 @koemai
 - The chat has been modernised !2301 !2498 !2508 !2514 !2533 @NINI1988
 - Added new body font !2426 @sefn
 
