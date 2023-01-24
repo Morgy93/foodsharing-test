@@ -555,17 +555,18 @@ class MailboxGateway extends BaseGateway
     /**
      * Creates a Mailbox for the user and returns its ID.
      */
-    private function createMailbox(string $mb_name): int
+    private function createMailbox(string $name): int
     {
-        $mb_id = 0;
-        $i = 0;
-        $insert_name = $mb_name;
-        while (($mb_id = $this->db->insert('fs_mailbox', ['name' => strip_tags($insert_name)])) === 0) {
-            ++$i;
-            $insert_name = $mb_name . $i;
-        }
+        $amountOfMailboxesStartingWithName = $this->db->fetchValue(
+            'SELECT COUNT(name) FROM fs_mailbox WHERE name LIKE :name',
+            [
+                'name' => $name . '%'
+            ]
+        );
 
-        return $mb_id;
+        $mailboxName = $amountOfMailboxesStartingWithName > 0 ? $name . $amountOfMailboxesStartingWithName : $name;
+
+        return $this->db->insert('fs_mailbox', ['name' => strip_tags($mailboxName)]);
     }
 
     /**
