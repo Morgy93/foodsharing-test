@@ -33,7 +33,7 @@
 - Python Script to generate Release Notes from gitlab MRs !2548 @alex.simm
 - Restart all foodsharing services after production deployment !2583 @stcz
 - Clean up scripts a bit more !2480 @\_fridtjof_
-- Introduce a public/ directory for static content !2486 @\_fridtjof_
+- Introduce a public/ directory for static content !2486 !2599 @\_fridtjof_
 
 
 ## Development documentation
