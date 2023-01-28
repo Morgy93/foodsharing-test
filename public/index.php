@@ -4,11 +4,11 @@ use Foodsharing\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
-require __DIR__ . '/vendor/autoload.php';
-require_once 'config.inc.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
+require_once dirname(__DIR__) . '/config.inc.php';
 
 // The check is to ensure we don't use .env in production
-$env = $_SERVER['FS_ENV'] ?? 'dev';
+$env = $_SERVER['FS_ENV'] ?? getenv('FS_ENV') ?? 'dev';
 $debug = (bool)($_SERVER['APP_DEBUG'] ?? ('prod' !== $env));
 
 if ($debug) {
