@@ -43,7 +43,7 @@ class CreateStoreInformationModel
      * @Assert\NotNull()
      * @Assert\Length(max=5)
      */
-    public ?string $zip;
+    public ?string $zipCode;
 
     /**
      * City name.
@@ -72,7 +72,7 @@ class CreateStoreInformationModel
         $store->name = $this->name;
         $store->location = $this->location;
         $store->street = $this->street;
-        $store->zip = $this->zip;
+        $store->zipCode = $this->zipCode;
         $store->city = $this->city;
         $store->publicInfo = $this->publicInfo;
 

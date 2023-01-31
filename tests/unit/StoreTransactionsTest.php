@@ -50,7 +50,7 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
         $store->location->lat = 42.900;
         $store->location->lon = 5.200;
         $store->street = ' Langstr. 10';
-        $store->zip = '69132';
+        $store->zipCode = '69132';
         $store->city = 'Mühlhausen';
         $store->publicInfo = 'Public info.';
 
@@ -64,7 +64,7 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
             'lat' => $store->location->lat,
             'lon' => $store->location->lon,
             'str' => $store->street,
-            'plz' => $store->zip,
+            'plz' => $store->zipCode,
             'stadt' => $store->city,
             'public_info' => $store->publicInfo]);
     }
@@ -78,7 +78,7 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
         $store->location->lat = 42.900;
         $store->location->lon = 5.200;
         $store->street = ' Langstr. 10';
-        $store->zip = '69132';
+        $store->zipCode = '69132';
         $store->city = 'Mühlhausen';
         $store->publicInfo = 'Public info.';
 
@@ -92,7 +92,7 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
             'lat' => $store->location->lat,
             'lon' => $store->location->lon,
             'str' => $store->street,
-            'plz' => $store->zip,
+            'plz' => $store->zipCode,
             'stadt' => $store->city,
             'public_info' => $store->publicInfo]);
     }
@@ -108,7 +108,7 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
         $store->location->lat = 42.900;
         $store->location->lon = 5.200;
         $store->street = ' Langstr. 10';
-        $store->zip = '69132';
+        $store->zipCode = '69132';
         $store->city = 'Mühlhausen';
         $store->publicInfo = 'Public info.';
 
@@ -121,7 +121,7 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
             'lat' => $store->location->lat,
             'lon' => $store->location->lon,
             'str' => $store->street,
-            'plz' => $store->zip,
+            'plz' => $store->zipCode,
             'stadt' => $store->city,
             'public_info' => $store->publicInfo]);
 
@@ -166,7 +166,7 @@ class StoreTransactionsTest extends \Codeception\Test\Unit
         $store->location->lat = 42.900;
         $store->location->lon = 5.200;
         $store->street = ' Langstr. 11';
-        $store->zip = '69132';
+        $store->zipCode = '69132';
         $store->city = 'Mühlhausen';
         $store->publicInfo = 'Public info.';
 

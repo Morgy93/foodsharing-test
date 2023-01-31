@@ -7,7 +7,7 @@ use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Core\DatabaseNoValueFoundException;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Region\WorkgroupFunction;
-use Foodsharing\Modules\Core\DBConstants\Store\TeamStatus as StoreTeamStatus;
+use Foodsharing\Modules\Core\DBConstants\Store\TeamSearchStatus;
 use Foodsharing\Modules\Group\GroupFunctionGateway;
 use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Store\StoreGateway;
@@ -35,10 +35,10 @@ class StorePermissions
             return false;
         }
 
-        $storeTeamStatus = $this->storeGateway->getStoreTeamStatus($storeId);
+        $teamSearchStatus = $this->storeGateway->getStoreTeamStatus($storeId);
 
         // store open?
-        if (!in_array($storeTeamStatus, [StoreTeamStatus::OPEN, StoreTeamStatus::OPEN_SEARCHING])) {
+        if (!in_array($teamSearchStatus, [TeamSearchStatus::OPEN, TeamSearchStatus::OPEN_SEARCHING])) {
             return false;
         }
 

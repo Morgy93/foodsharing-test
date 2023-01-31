@@ -5,8 +5,13 @@ namespace Foodsharing\Modules\Store;
 use Foodsharing\Modules\Core\Control;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
+use Foodsharing\Modules\Core\DTO\PatchGeoLocation;
 use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Store\DTO\CreateStoreData;
+use Foodsharing\Modules\Store\DTO\PatchAddress;
+use Foodsharing\Modules\Store\DTO\PatchContactData;
+use Foodsharing\Modules\Store\DTO\PatchStore;
+use Foodsharing\Modules\Store\DTO\PatchStoreOptionModel;
 use Foodsharing\Permissions\StorePermissions;
 use Foodsharing\Utility\DataHelper;
 use Foodsharing\Utility\IdentificationHelper;
@@ -88,9 +93,39 @@ class StoreControl extends Control
         } elseif ($id = $this->identificationHelper->getActionId('edit')) {
             $this->pageHelper->addBread($this->translator->trans('store.bread'), '/?page=fsbetrieb');
             $this->pageHelper->addBread($this->translator->trans('storeedit.bread'));
-            $data = $this->storeGateway->getEditStoreData($id);
+            $store = $this->storeGateway->getStore($id);
+            $data['name'] = $store->name;
+            $data['bezirk_id'] = $store->regionId;
+            $data['lat'] = $store->location->lat;
+            $data['lon'] = $store->location->lon;
+            $data['str'] = $store->address->street;
+            $data['plz'] = $store->address->zipCode;
+            $data['ort'] = $store->address->city;
 
-            $this->pageHelper->addTitle($data['name']);
+            $data['public_info'] = $store->publicInfo;
+            $data['public_time'] = $store->publicTime->value;
+            $data['betrieb_kategorie_id'] = $store->categoryId;
+            $data['kette_id'] = $store->chainId;
+            $data['betrieb_status_id'] = $store->cooperationStatus->value;
+            $data['besonderheiten'] = $store->description;
+
+            $data['ansprechpartner'] = $store->contact->name;
+            $data['telefon'] = $store->contact->phone;
+            $data['fax'] = $store->contact->fax;
+            $data['email'] = $store->contact->email;
+
+            $data['begin'] = $store->cooperationStart->format('Y-m-d');
+            $data['prefetchtime'] = $store->calendarInterval;
+            $data['abholmenge'] = $store->weight;
+            $data['ueberzeugungsarbeit'] = $store->effort->value;
+            $data['presse'] = $store->publicity;
+            $data['sticker'] = $store->showsSticker;
+            $data['use_region_pickup_rule'] = $store->options->useRegionPickupRule;
+            $data['lebensmittel'] = $store->groceries;
+            $data['status_date'] = $store->updatedAt->format('Y-m-d H:i:s');
+            $data['added'] = $store->createdAt->format('Y-m-d H:i:s');
+
+            $this->pageHelper->addTitle($store->name);
             $this->pageHelper->addTitle($this->translator->trans('storeedit.bread'));
 
             if ($this->storePermissions->mayEditStore($id)) {
@@ -98,7 +133,7 @@ class StoreControl extends Control
 
                 $this->dataHelper->setEditData($data);
 
-                $regionId = $data['bezirk_id'];
+                $regionId = $store->regionId;
                 $regionName = $this->regionGateway->getRegionName($regionId);
 
                 $this->pageHelper->addContent($this->view->betrieb_form(
@@ -142,12 +177,56 @@ class StoreControl extends Control
         global $g_data;
         if ($this->submitted()) {
             $id = (int)$_GET['id'];
-            $g_data['stadt'] = $g_data['ort'];
-            $g_data['str'] = $g_data['anschrift'];
+            $store = new PatchStore();
+            $store->name = $g_data['name'];
+            $store->regionId = intval($g_data['bezirk_id']);
 
-            $this->storeTransactions->updateAllStoreData($id, $g_data);
+            $store->location = new PatchGeoLocation();
+            $store->location->lat = floatval($g_data['lat']);
+            $store->location->lon = floatval($g_data['lon']);
+            $store->address = new PatchAddress();
+            $store->address->street = $g_data['anschrift'];
+            $store->address->zipCode = $g_data['plz'];
+            $store->address->city = $g_data['ort'];
 
-            $this->flashMessageHelper->success($this->translator->trans('storeedit.edit_success'));
+            $store->publicInfo = $g_data['public_info'];
+            $store->publicTime = intval($g_data['public_time']);
+
+            if (!empty($g_data['betrieb_kategorie_id'])) {
+                $store->categoryId = intval($g_data['betrieb_kategorie_id']);
+            }
+            if (!empty($g_data['kette_id'])) {
+                $store->chainId = intval($g_data['kette_id']);
+            }
+            $store->cooperationStatus = intval($g_data['betrieb_status_id']);
+            $store->description = $g_data['besonderheiten'];
+
+            $store->contact = new PatchContactData();
+            $store->contact->name = $g_data['ansprechpartner'];
+            $store->contact->phone = $g_data['telefon'];
+            $store->contact->fax = $g_data['fax'];
+            $store->contact->email = $g_data['email'];
+            $store->cooperationStart = $g_data['begin'];
+            $store->calendarInterval = intval($g_data['prefetchtime']);
+            $store->weight = intval($g_data['abholmenge']);
+            $store->effort = intval($g_data['ueberzeugungsarbeit']);
+            $store->publicity = boolval($g_data['presse']);
+            $store->showsSticker = boolval($g_data['sticker']);
+
+            $store->options = new PatchStoreOptionModel();
+            $store->options->useRegionPickupRule = boolval($g_data['use_region_pickup_rule']);
+            if (isset($g_data['lebensmittel'])) {
+                $store->groceries = array_map(function ($value) {
+                    return intval($value);
+                }, $g_data['lebensmittel']);
+            }
+
+            try {
+                $this->storeTransactions->updateStore($id, $store);
+                $this->flashMessageHelper->success($this->translator->trans('storeedit.edit_success'));
+            } catch (StoreTransactionException $ex) {
+                $this->flashMessageHelper->error($ex->getMessage());
+            }
             $this->routeHelper->go('/?page=fsbetrieb&id=' . $id);
         }
     }

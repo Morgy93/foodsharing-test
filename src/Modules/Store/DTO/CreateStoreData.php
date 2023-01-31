@@ -29,7 +29,7 @@ class CreateStoreData
     /**
      * Zip code.
      */
-    public string $zip;
+    public string $zipCode;
 
     /**
      * City name.
@@ -54,7 +54,7 @@ class CreateStoreData
         $store->regionId = $data['bezirk_id'];
         $store->location = GeoLocation::createFromArray($data);
         $store->street = $data['str'];
-        $store->zip = $data['plz'];
+        $store->zipCode = $data['plz'];
         $store->city = $data['stadt'];
         $store->publicInfo = $data['public_info'];
 
@@ -67,9 +67,9 @@ class CreateStoreData
         $store->name = $this->name;
         $store->regionId = $this->regionId;
         $store->location = $this->location;
-        $store->street = $this->street;
-        $store->zip = $this->zip;
-        $store->city = $this->city;
+        $store->address->street = $this->street;
+        $store->address->zipCode = $this->zipCode;
+        $store->address->city = $this->city;
         $store->publicInfo = $this->publicInfo;
 
         return $store;

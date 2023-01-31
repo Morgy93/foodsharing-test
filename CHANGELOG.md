@@ -2,6 +2,7 @@
 
 ## Features
 - Ongoing polls a user has not yet voted in are displayed on the dashboard. !2349 @AntonBallmaier
+- Provide RestApi to edit store !2515 @KoeMai
 
 
 ## Changes
@@ -23,6 +24,8 @@
 - added poppins font in Styleguide !2564 @Niklas003 
 - Use email address DTO and let the MailboxGateway handle JSON encoding !2520 @alex.simm
 - Replaced the usage of a function in FoodsaverGateway with a more ressource saving function !2595 @alex.simm
+- Use Store DTO in StoreGateway !2515 @KoeMai
+- Move business logic for editing store into StoreTransaction !2515 @KoeMai
 
 
 ## Dev/Test/CI stuff

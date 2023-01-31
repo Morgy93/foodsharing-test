@@ -5,7 +5,7 @@ namespace Foodsharing\RestApi;
 use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionPinStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
-use Foodsharing\Modules\Core\DBConstants\Store\TeamStatus;
+use Foodsharing\Modules\Core\DBConstants\Store\TeamSearchStatus;
 use Foodsharing\Modules\Map\MapGateway;
 use Foodsharing\Modules\Region\RegionGateway;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -61,16 +61,16 @@ class MapRestController extends AbstractFOSRestController
             }
 
             $excludedStoreTypes = [];
-            $teamStatus = [];
+            $teamSearchStatus = [];
             $status = $paramFetcher->get('status');
             if (is_array($status) && !empty($status)) {
                 foreach ($status as $s) {
                     switch ($s) {
                         case 'needhelpinstant':
-                            $teamStatus[] = TeamStatus::OPEN_SEARCHING;
+                            $teamSearchStatus[] = TeamSearchStatus::OPEN_SEARCHING;
                             break;
                         case 'needhelp':
-                            $teamStatus[] = TeamStatus::OPEN;
+                            $teamSearchStatus[] = TeamSearchStatus::OPEN;
                             break;
                         case 'nkoorp':
                             $excludedStoreTypes = array_merge($excludedStoreTypes, [
@@ -81,7 +81,7 @@ class MapRestController extends AbstractFOSRestController
                 }
             }
 
-            $markers['betriebe'] = $this->mapGateway->getStoreMarkers($excludedStoreTypes, $teamStatus);
+            $markers['betriebe'] = $this->mapGateway->getStoreMarkers($excludedStoreTypes, $teamSearchStatus);
         }
 
         return $this->handleView($this->view($markers, 200));

@@ -7,13 +7,15 @@ use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Bell\BellGateway;
 use Foodsharing\Modules\Bell\DTO\Bell;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
-use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
-use Foodsharing\Modules\Core\DBConstants\Store\TeamStatus;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
+use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Store\DTO\CommonStoreMetadata;
+use Foodsharing\Modules\Store\DTO\PatchStore;
+use Foodsharing\Modules\Store\DTO\Store;
 use Foodsharing\Modules\Store\StoreGateway;
+use Foodsharing\Modules\Store\StoreTransactionException;
 use Foodsharing\Modules\Store\StoreTransactions;
 use Foodsharing\Modules\Store\TeamStatus as TeamMembershipStatus;
 use Foodsharing\Permissions\StorePermissions;
@@ -34,7 +36,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class StoreRestController extends AbstractFOSRestController
 {
@@ -48,6 +49,7 @@ class StoreRestController extends AbstractFOSRestController
         private StoreGateway $storeGateway,
         private StoreTransactions $storeTransactions,
         private StorePermissions $storePermissions,
+        private RegionGateway $regionGateway,
         private BellGateway $bellGateway
     ) {
     }
@@ -139,7 +141,7 @@ class StoreRestController extends AbstractFOSRestController
      * @OA\Response(response=Response::HTTP_UNAUTHORIZED, description="Not logged in")
      * @OA\Response(response=Response::HTTP_FORBIDDEN, description="No permission to create a store")
      */
-    public function addStoreAction(int $regionId, CreateStoreModel $storeCreateInformation, ValidatorInterface $validator): Response
+    public function addStoreAction(int $regionId, CreateStoreModel $storeCreateInformation, ConstraintViolationListInterface $validationErrors): Response
     {
         if (!$this->session->mayRole()) {
             throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
@@ -149,8 +151,7 @@ class StoreRestController extends AbstractFOSRestController
             throw new AccessDeniedHttpException('No permission to create store for this region');
         }
 
-        $errors = $validator->validate($storeCreateInformation);
-        $this->throwBadRequestExceptionOnError($errors);
+        $this->throwBadRequestExceptionOnError($validationErrors);
 
         $storeModel = new MinimalStoreModel();
         $store = $storeCreateInformation->store->toCreateStore();
@@ -166,13 +167,17 @@ class StoreRestController extends AbstractFOSRestController
      *
      * @OA\Tag(name="stores")
      * @Rest\Get("stores/{storeId}", requirements={"storeId" = "\d+"})
+     * @OA\Response(response=Response::HTTP_OK, description="Store information")
+     * @OA\Response(response=Response::HTTP_UNAUTHORIZED, description="Not logged in")
+     * @OA\Response(response=Response::HTTP_FORBIDDEN, description="No permission to update store")
+     * @OA\Response(response=Response::HTTP_NOT_FOUND, description="Store not found")
      */
     public function getStoreAction(int $storeId): Response
     {
         if (!$this->session->id()) {
             throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
         }
-        if (!$this->session->mayRole(Role::FOODSAVER)) {
+        if (!$this->storePermissions->mayListStores()) {
             throw new AccessDeniedHttpException('invalid permissions');
         }
         $maySeeDetails = $this->storePermissions->mayAccessStore($storeId);
@@ -185,26 +190,23 @@ class StoreRestController extends AbstractFOSRestController
 
         $store = RestNormalization::normalizeStore($store, $maySeeDetails);
 
-        return $this->handleView($this->view(['store' => $store], 200));
+        return $this->handleView($this->view(['store' => $store], Response::HTTP_OK));
     }
 
     /**
      * Allows to patch the store with information like the store team status.
      *
-     * - CLOSED = 0 No new members accepted
-     * - OPEN = 1 Open for members
-     * - OPEN_SEARCHING = 2 Requires new members
-     *
      * @OA\Tag(name="stores")
      * @Rest\Patch("stores/{storeId}", requirements={"storeId" = "\d+"})
-     * @Rest\RequestParam(name="teamStatus", requirements="\d+")
-     * @OA\Response(response="400", description="Invalid request data")
-     * @OA\Response(response="401", description="Not logged in")
-     * @OA\Response(response="403", description="No permission to store")
-     * @OA\Response(response="404", description="Store not found")
-     * @OA\Response(response="200", description="Store information")
+     * @OA\RequestBody(@Model(type=PatchStore::class))
+     * @ParamConverter("storeModel", converter="fos_rest.request_body")
+     * @OA\Response(response=Response::HTTP_BAD_REQUEST, description="Invalid request data")
+     * @OA\Response(response=Response::HTTP_UNAUTHORIZED, description="Not logged in")
+     * @OA\Response(response=Response::HTTP_FORBIDDEN, description="No permission to update store")
+     * @OA\Response(response=Response::HTTP_NOT_FOUND, description="Store not found")
+     * @OA\Response(response=Response::HTTP_OK, description="Store information")
      */
-    public function setStoreTeamStatus(int $storeId, ParamFetcher $paramFetcher)
+    public function editStoreAction(int $storeId, PatchStore $storeModel, ConstraintViolationListInterface $validationErrors)
     {
         if (!$this->session->id()) {
             throw new UnauthorizedHttpException('', self::NOT_LOGGED_IN);
@@ -218,13 +220,28 @@ class StoreRestController extends AbstractFOSRestController
             }
         }
 
-        $teamStatus = $paramFetcher->get('teamStatus');
+        $this->throwBadRequestExceptionOnError($validationErrors);
 
-        if (!TeamStatus::isValidStatus($teamStatus)) {
-            throw new BadRequestHttpException('Team status is invalid');
+        if (!empty($storeModel->regionId) && !$this->regionGateway->hasMember($this->session->id(), $storeModel->regionId)) {
+            throw new AccessDeniedHttpException('no member of other region');
         }
 
-        $this->storeGateway->setStoreTeamStatus($storeId, $teamStatus);
+        try {
+            $hasChanged = $this->storeTransactions->updateStore($storeId, $storeModel);
+            if (!$hasChanged) {
+                throw new BadRequestHttpException('No settings to change');
+            }
+        } catch (StoreTransactionException $ex) {
+            if ($ex->getMessage() == StoreTransactionException::STORE_CATEGORY_NOT_EXISTS ||
+                $ex->getMessage() == StoreTransactionException::STORE_CHAIN_NOT_EXISTS ||
+                $ex->getMessage() == StoreTransactionException::INVALID_STORE_TEAM_STATUS ||
+                $ex->getMessage() == StoreTransactionException::INVALID_COOPERATION_STATUS ||
+                $ex->getMessage() == StoreTransactionException::INVALID_PUBLIC_TIMES) {
+                throw new BadRequestHttpException($ex->getMessage());
+            } else {
+                throw $ex;
+            }
+        }
 
         return $this->getStoreAction($storeId);
     }

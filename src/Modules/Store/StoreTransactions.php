@@ -14,15 +14,21 @@ use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\PublicTimes;
 use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
+use Foodsharing\Modules\Core\DBConstants\Store\TeamSearchStatus;
 use Foodsharing\Modules\Core\DBConstants\StoreTeam\MembershipStatus;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
-use Foodsharing\Modules\Core\DTO\GeoLocation;
+use Foodsharing\Modules\Core\DTO\PatchGeoLocation;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
+use Foodsharing\Modules\Foodsaver\Profile;
 use Foodsharing\Modules\Message\MessageGateway;
 use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Store\DTO\CommonLabel;
 use Foodsharing\Modules\Store\DTO\CommonStoreMetadata;
 use Foodsharing\Modules\Store\DTO\CreateStoreData;
+use Foodsharing\Modules\Store\DTO\PatchAddress;
+use Foodsharing\Modules\Store\DTO\PatchContactData;
+use Foodsharing\Modules\Store\DTO\PatchStore;
+use Foodsharing\Modules\Store\DTO\PatchStoreOptionModel;
 use Foodsharing\Modules\Store\DTO\Store;
 use Foodsharing\Modules\Store\DTO\StoreListInformation;
 use Foodsharing\Modules\Store\DTO\StoreStatusForMember;
@@ -189,7 +195,7 @@ class StoreTransactions
         $this->storeGateway->add_betrieb_notiz([
             'foodsaver_id' => $authorFsId,
             'betrieb_id' => $storeId,
-            'text' => '{BETRIEB_ADDED}', // TODO Do we want to keep this?
+            'text' => '{BETRIEB_ADDED}',
             'zeit' => date('Y-m-d H:i:s', time() - 10),
             'milestone' => Milestone::CREATED,
         ]);
@@ -213,61 +219,192 @@ class StoreTransactions
             'user' => $authorName,
             'name' => $createStore->name
         ], BellType::createIdentifier(BellType::NEW_STORE, $storeId));
-        $this->bellGateway->addBell(array_map(function ($f) {
-            return $f->id;
-        }, $foodsaver), $bellData);
+        $this->bellGateway->addBell(
+            array_map(
+                function (Profile $f) { return $f->id; },
+                $foodsaver
+            ),
+            $bellData
+        );
 
         return $storeId;
     }
 
-    public function updateAllStoreData(int $storeId, array $legacyGlobalData): bool
+    /**
+     * Update the information about the store.
+     *
+     * @param int $storeId Identifier of store to modify
+     * @param PatchStore $storeChange Changes on the store
+     *
+     * @return bool information have changed
+     *
+     * @throws StoreTransactionException
+     */
+    public function updateStore(int $storeId, PatchStore $storeChange): bool
     {
-        $this->storeGateway->setGroceries($storeId, $legacyGlobalData['lebensmittel'] ?? []);
+        $store = $this->storeGateway->getStore($storeId);
 
-        $store = new Store();
+        $changeInformation = $this->checkAndPatchStore($storeChange, $store);
 
-        $store->id = $storeId;
-        $store->name = $legacyGlobalData['name'];
-        $store->regionId = intval($legacyGlobalData['bezirk_id']);
+        if ($changeInformation->informationChanged) {
+            $store->updatedAt = Carbon::now();
+            $this->storeGateway->updateStoreData($store, $changeInformation->groceriesChanged);
 
-        $address = $legacyGlobalData['str'];
-        $store->location = new GeoLocation();
-        $store->location->lat = floatval($legacyGlobalData['lat']);
-        $store->location->lon = floatval($legacyGlobalData['lon']);
-        $store->street = $address;
-        $store->zip = $legacyGlobalData['plz'];
-        $store->city = $legacyGlobalData['stadt'];
-
-        $store->publicInfo = $this->sanitizerService->purifyHtml($legacyGlobalData['public_info']);
-        $store->publicTime = intval($legacyGlobalData['public_time']);
-
-        $store->categoryId = intval($legacyGlobalData['betrieb_kategorie_id']);
-        $store->chainId = intval($legacyGlobalData['kette_id']);
-        $store->cooperationStatus = CooperationStatus::tryFrom(intval($legacyGlobalData['betrieb_status_id']));
-
-        $store->description = $legacyGlobalData['besonderheiten'];
-
-        $store->contactName = $legacyGlobalData['ansprechpartner'];
-        $store->contactPhone = $legacyGlobalData['telefon'];
-        $store->contactFax = $legacyGlobalData['fax'];
-        $store->contactEmail = $legacyGlobalData['email'];
-        $store->cooperationStart = null;
-        if (!empty($legacyGlobalData['begin'])) {
-            $store->cooperationStart = Carbon::createFromFormat('Y-m-d', $legacyGlobalData['begin']);
+            if ($changeInformation->nameChanged) {
+                $this->setStoreNameInConversations($storeId, $store->name);
+            }
         }
-        $store->calendarInterval = intval($legacyGlobalData['prefetchtime']);
-        $store->useRegionPickupRule = intval($legacyGlobalData['use_region_pickup_rule']);
-        $store->weight = intval($legacyGlobalData['abholmenge']);
-        $store->effort = intval($legacyGlobalData['ueberzeugungsarbeit']);
-        $store->publicity = boolval($legacyGlobalData['presse']);
-        $store->sticker = boolval($legacyGlobalData['sticker']);
 
-        $store->updatedAt = Carbon::now();
+        return $changeInformation->informationChanged;
+    }
 
-        $this->storeGateway->updateStoreData($store->id, $store);
-        $this->setStoreNameInConversations($store->id, $store->name);
+    /**
+     * Check for the correct values of the store and updates the store object.
+     *
+     * @param PatchStore $storeChange Changes on the store
+     * @param Store $store Store to apply changes
+     *
+     * @return PatchStoreChangeInformation information about the important changes
+     *
+     * @throws StoreTransactionException
+     */
+    private function checkAndPatchStore(PatchStore &$storeChange, Store &$store): PatchStoreChangeInformation
+    {
+        $changeInformation = new PatchStoreChangeInformation();
+        if (!empty($storeChange->name)) {
+            $changeInformation->informationChanged = true;
+            $changeInformation->nameChanged = true;
+            $store->name = $storeChange->name;
+        }
 
-        return true;
+        if (!empty($storeChange->regionId)) {
+            $changeInformation->informationChanged = true;
+            $store->regionId = $storeChange->regionId;
+        }
+
+        if (!empty($storeChange->publicInfo)) {
+            $changeInformation->informationChanged = true;
+            $store->publicInfo = $this->sanitizerService->purifyHtml($storeChange->publicInfo);
+        }
+
+        if (!empty($storeChange->publicTime)) {
+            $publicTime = PublicTimes::tryFrom($storeChange->publicTime);
+            if (!$publicTime) {
+                throw new StoreTransactionException(StoreTransactionException::INVALID_PUBLIC_TIMES);
+            }
+            $changeInformation->informationChanged = true;
+            $store->publicTime = $publicTime;
+        }
+
+        if (!is_null($storeChange->categoryId)) {
+            $changeInformation->informationChanged = true;
+            $storeCategoryExists = $this->storeGateway->existStoreCategory($storeChange->categoryId);
+            if (!$storeCategoryExists) {
+                throw new StoreTransactionException(StoreTransactionException::STORE_CATEGORY_NOT_EXISTS);
+            }
+            $store->categoryId = $storeChange->categoryId;
+        }
+
+        if (!is_null($storeChange->chainId)) {
+            $changeInformation->informationChanged = true;
+            $storeChainExists = $this->storeGateway->existStoreChain($storeChange->chainId);
+            if (!$storeChainExists) {
+                throw new StoreTransactionException(StoreTransactionException::STORE_CHAIN_NOT_EXISTS);
+            }
+            $store->chainId = $storeChange->chainId;
+        }
+
+        if (!is_null($storeChange->cooperationStatus)) {
+            $cooperationStatus = CooperationStatus::tryFrom($storeChange->cooperationStatus);
+            if (!$cooperationStatus) {
+                throw new StoreTransactionException(StoreTransactionException::INVALID_COOPERATION_STATUS);
+            }
+            $changeInformation->informationChanged = true;
+            $store->cooperationStatus = $cooperationStatus;
+        }
+
+        if (!empty($storeChange->description)) {
+            $changeInformation->informationChanged = true;
+            $store->description = $storeChange->description;
+        }
+
+        if (!empty($storeChange->cooperationStart)) {
+            $changeInformation->informationChanged = true;
+            $store->cooperationStart = DateTime::createFromFormat('Y-m-d', $storeChange->cooperationStart);
+        }
+
+        if (!empty($storeChange->teamStatus)) {
+            if (!TeamSearchStatus::tryFrom($storeChange->teamStatus)) {
+                throw new StoreTransactionException(StoreTransactionException::INVALID_STORE_TEAM_STATUS);
+            }
+            $changeInformation->informationChanged = true;
+            $store->teamStatus = TeamSearchStatus::from($storeChange->teamStatus);
+        }
+
+        if (!empty($storeChange->calendarInterval)) {
+            $changeInformation->informationChanged = true;
+            $store->calendarInterval = $storeChange->calendarInterval;
+        }
+
+        if (!is_null($storeChange->weight)) {
+            $changeInformation->informationChanged = true;
+            $store->weight = $storeChange->weight;
+        }
+
+        if (!is_null($storeChange->effort)) {
+            $effort = ConvinceStatus::tryFrom($storeChange->effort);
+            if (!$effort) {
+                throw new StoreTransactionException(StoreTransactionException::INVALID_CONVINCE_STATUS);
+            }
+            $changeInformation->informationChanged = true;
+            $store->effort = $effort;
+        }
+
+        if (!is_null($storeChange->showsSticker)) {
+            $changeInformation->informationChanged = true;
+            $store->showsSticker = $storeChange->showsSticker;
+        }
+
+        if (!is_null($storeChange->publicity)) {
+            $changeInformation->informationChanged = true;
+            $store->publicity = $storeChange->publicity;
+        }
+
+        if (!is_null($storeChange->groceries)) {
+            $changeInformation->informationChanged = true;
+            $changeInformation->groceriesChanged = true;
+            $store->groceries = $storeChange->groceries;
+        }
+
+        if (!is_null($storeChange->location)) {
+            $changed = PatchGeoLocation::apply($storeChange->location, $store->location);
+            if ($changed) {
+                $changeInformation->informationChanged = true;
+            }
+        }
+
+        if (!is_null($storeChange->address)) {
+            $changed = PatchAddress::apply($storeChange->address, $store->address);
+            if ($changed) {
+                $changeInformation->informationChanged = true;
+            }
+        }
+
+        if (!is_null($storeChange->contact)) {
+            $changed = PatchContactData::apply($storeChange->contact, $store->contact);
+            if ($changed) {
+                $changeInformation->informationChanged = true;
+            }
+        }
+
+        if (!is_null($storeChange->options)) {
+            $changed = PatchStoreOptionModel::apply($storeChange->options, $store->options);
+            if ($changed) {
+                $changeInformation->informationChanged = true;
+            }
+        }
+
+        return $changeInformation;
     }
 
     /**
