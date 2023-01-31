@@ -1,5 +1,7 @@
 <?php
 
+/* If you make changes here check if changes at the production server are needed */
+
 if (php_sapi_name() != 'cli') {
     /* Whoops catches all error messages in CLI mode as well :( */
     Foodsharing\Debug\Whoops::register();
