@@ -2918,13 +2918,14 @@ navigation:
   search: Recherche
   map: Carte
   profil: 👋 Salut {name} !
-  contact: Contact
+  contact: Contact et assistance
   whats_new: Quoi de neuf ?
   styleguide: Styleguide
   support: Assistance
   basket: Paniers solidaires
   wiki: Wiki
   conversations: Messages
+  news_from_it: Actualités et perturbations
 information:
   calendar_sync:
     description: Tu peux ainsi voir tes prochaines dates de collecte avec le programme
