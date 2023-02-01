@@ -38,6 +38,7 @@
 - Clean up scripts a bit more !2480 @\_fridtjof_
 - Introduce a public/ directory for static content !2486 !2599 @\_fridtjof_
 - Add a infrastructure documentation !2579 @stcz
+- Update Symfony to latest patch versions !2604 @\_fridtjof_
 
 
 ## Development documentation
