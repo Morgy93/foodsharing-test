@@ -88,7 +88,7 @@ class MailsControl extends ConsoleControl
         $connection = $server->authenticate($user, $password);
 
         $mailbox = $connection->getMailbox('INBOX');
-        if ($connection->hasMailbox(IMAP_FAILED_BOX)) {
+        if (!$connection->hasMailbox(IMAP_FAILED_BOX)) {
             $connection->createMailbox(IMAP_FAILED_BOX);
         }
         $failedMailbox = $connection->getMailbox(IMAP_FAILED_BOX);
