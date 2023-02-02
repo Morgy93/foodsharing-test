@@ -19,6 +19,7 @@
 - Fix some broken links !2586
 - Show the report button on the own profile page !2589 @alex.simm
 - Hacky workaround to replace $amp in urls from chat messages #1531 !2594 @chriswalg
+- Fixed some stability issues with incoming Mail processing !2598 @\_fridtjof_
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003 

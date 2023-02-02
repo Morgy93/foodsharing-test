@@ -49,6 +49,7 @@ define('DELAY_MICRO_SECONDS_BETWEEN_MAILS', 1330000);
 define('IMAP', [
     ['host' => 'imap', 'user' => 'user', 'password' => 'pass']
 ]);
+define('IMAP_FAILED_BOX', 'INBOX/FailedProcessing');
 
 define('BOUNCE_IMAP_HOST', null);
 define('BOUNCE_IMAP_USER', null);

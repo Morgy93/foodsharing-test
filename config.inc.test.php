@@ -48,6 +48,7 @@ define('REDIS_PORT', 6379);
 define('DELAY_MICRO_SECONDS_BETWEEN_MAILS', 1330000);
 
 define('IMAP', []);
+define('IMAP_FAILED_BOX', 'INBOX/FailedProcessing');
 
 define('BOUNCE_IMAP_HOST', null);
 define('BOUNCE_IMAP_USER', null);
