@@ -73,7 +73,7 @@ class StoreMaintainceTransactionsTest extends \Codeception\Test\Unit
         $this->tester->addStoreTeam($storeWithRegularPickup['id'], $foodsaver1['id'], false);
         $this->tester->addStoreTeam($storeWithRegularPickup['id'], $storeCoordinator['id'], true);
 
-        $dayOfPickup = (new Carbon())->addHour();
+        $dayOfPickup = (new Carbon())->addHour(1);
         $timeOfPickup = $dayOfPickup->clone()->format('H:i:s');
         $dayOfWeek = intval($dayOfPickup->format('w'));
         $dayOfWeek2 = intval((new Carbon())->clone()->addDays(3)->format('w'));
@@ -108,7 +108,7 @@ class StoreMaintainceTransactionsTest extends \Codeception\Test\Unit
         $this->tester->addStoreTeam($storeWithRegularPickup['id'], $storeCoordinator['id'], true);
         $this->tester->addStoreTeam($storeWithRegularPickup['id'], $storeCoordinator2['id'], true);
 
-        $dayOfPickup = (new Carbon())->addHour();
+        $dayOfPickup = (new Carbon())->addHour(1);
         $timeOfPickup = $dayOfPickup->clone()->format('H:i:s');
 
         $dayOfWeek = intval($dayOfPickup->format('w'));
@@ -142,7 +142,7 @@ class StoreMaintainceTransactionsTest extends \Codeception\Test\Unit
         $this->tester->addStoreTeam($storeWithRegularPickup['id'], $storeCoordinator['id'], true);
 
         $dayOfPickup = new Carbon();
-        $timeOfPickup = $dayOfPickup->clone()->addHour()->format('H:i:s');
+        $timeOfPickup = $dayOfPickup->clone()->addHour(1)->format('H:i:s');
 
         $dayOfWeek = intval($dayOfPickup->format('w'));
         $dayOfWeek2 = intval((new Carbon())->clone()->addDays(3)->format('w'));

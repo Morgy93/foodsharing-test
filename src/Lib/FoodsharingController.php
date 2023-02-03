@@ -55,7 +55,7 @@ abstract class FoodsharingController extends AbstractController
 
         // deprecated, but still needed by some legacy code, so we can't get rid of it yet.
         global $container;
-        $container = $containerInterface;
+        $container = $this->fullServiceContainer;
 
         $this->mem = $container->get(Mem::class);
         $this->session = $container->get(Session::class);

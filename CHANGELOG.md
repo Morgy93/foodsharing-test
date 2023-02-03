@@ -41,8 +41,8 @@
 - Introduce a public/ directory for static content !2486 !2599 @\_fridtjof_
 - Add a infrastructure documentation !2579 @stcz
 - Update Symfony to latest patch versions !2604 @\_fridtjof_
-- Update deployer to v7.1.3
 - Update deployer to v7.1.3 !2600 @chriswalg
+- Update some backend dependencies !2601 @chriswalg
 
 
 ## Development documentation
