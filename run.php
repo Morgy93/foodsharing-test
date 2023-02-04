@@ -1,13 +1,20 @@
 <?php
 
-use Symfony\Component\DependencyInjection\Container;
+use Foodsharing\Kernel;
 
-require __DIR__ . '/includes/setup.php';
+require __DIR__ . '/vendor/autoload.php';
+
+\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');
+
 require_once 'config.inc.php';
 
-/* @var Container $container */
+$env = $_SERVER['FS_ENV'] ?? getenv('FS_ENV') ?? 'dev';
+$debug = (bool)($_SERVER['APP_DEBUG'] ?? ('prod' !== $env));
+$kernel = new Kernel($env, $debug);
+$kernel->boot();
+
 global $container;
-$container = initializeContainer();
+$container = $kernel->getContainer();
 
 /*
  * force only executing on commandline
