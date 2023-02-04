@@ -10,6 +10,7 @@ use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\TeamSearchStatus;
 use Foodsharing\Modules\Core\DBConstants\StoreTeam\MembershipStatus;
+use Foodsharing\Modules\Map\DTO\MapMarker;
 use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Store\DTO\Store;
 use Foodsharing\Modules\Store\DTO\StoreTeamMembership;
@@ -1152,5 +1153,29 @@ class StoreGateway extends BaseGateway
 					  and b.use_region_pickup_rule',
             [':regionId' => $regionId]
         );
+    }
+
+    /**
+     * Provides Stores with position markers.
+     *
+     * @param array<CooperationStatus> $excludedStoreTypes Excludes stores of this types
+     */
+    public function getStoreMarkers(array $excludedStoreTypes, array $teamStatus): array
+    {
+        $query = 'SELECT id, lat, lon FROM fs_betrieb WHERE (lat != "" OR lon != "")';
+
+        if (!empty($excludedStoreTypes)) {
+            $query .= ' AND betrieb_status_id NOT IN(' . implode(',', array_fill(0, count($excludedStoreTypes), '?')) . ')';
+        }
+        if (!empty($teamStatus)) {
+            $query .= ' AND team_status IN (' . implode(',', array_fill(0, count($teamStatus), '?')) . ')';
+        }
+        $teamStatusIds = array_map(function (TeamSearchStatus $item) { return $item->value; }, $teamStatus);
+        $excludedStoreTypesIds = array_map(function (CooperationStatus $storeType) { return $storeType->value; }, $excludedStoreTypes);
+        $markers = $this->db->fetchAll($query, array_merge($excludedStoreTypesIds, $teamStatusIds));
+
+        return array_map(function ($x) {
+            return MapMarker::create($x['id'], floatval($x['lat']), floatval($x['lon']));
+        }, $markers);
     }
 }

@@ -8,6 +8,7 @@ use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\TeamSearchStatus;
 use Foodsharing\Modules\Map\MapGateway;
 use Foodsharing\Modules\Region\RegionGateway;
+use Foodsharing\Modules\Store\StoreGateway;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Request\ParamFetcher;
@@ -18,18 +19,12 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class MapRestController extends AbstractFOSRestController
 {
-    private MapGateway $mapGateway;
-    private RegionGateway $regionGateway;
-    private Session $session;
-
     public function __construct(
-        MapGateway $mapGateway,
-        RegionGateway $regionGateway,
-        Session $session
+        private MapGateway $mapGateway,
+        private RegionGateway $regionGateway,
+        private StoreGateway $storeGateway,
+        private Session $session
     ) {
-        $this->mapGateway = $mapGateway;
-        $this->regionGateway = $regionGateway;
-        $this->session = $session;
     }
 
     /**
@@ -81,7 +76,7 @@ class MapRestController extends AbstractFOSRestController
                 }
             }
 
-            $markers['betriebe'] = $this->mapGateway->getStoreMarkers($excludedStoreTypes, $teamSearchStatus);
+            $markers['betriebe'] = $this->storeGateway->getStoreMarkers($excludedStoreTypes, $teamSearchStatus);
         }
 
         return $this->handleView($this->view($markers, 200));

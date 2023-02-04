@@ -28,6 +28,7 @@
 - Replaced the usage of a function in FoodsaverGateway with a more ressource saving function !2595 @alex.simm
 - Use Store DTO in StoreGateway !2515 @KoeMai
 - Move business logic for editing store into StoreTransaction !2515 @KoeMai
+- Fix TeamStoreStatus and move getStoreMarkers to StoreGateway !2560 @KoeMai
 
 
 ## Dev/Test/CI stuff
