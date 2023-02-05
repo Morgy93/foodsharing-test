@@ -14,6 +14,7 @@ class StoreTransactionException extends \Exception
     public const INVALID_CONVINCE_STATUS = 'Effort convince status is invalid.';
     public const INVALID_REGION = 'Store is in an unknown region';
     public const INVALID_REGION_TYPE = 'Region type is wrong';
+    public const INVALID_STORE_COOPERATION_START = 'Store cooperation start is in wrong format';
 
     public function __construct(string $message = '', int $code = 0)
     {

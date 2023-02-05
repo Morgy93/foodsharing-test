@@ -153,6 +153,40 @@ class StoreGatewayTest extends Unit
         $this->assertEquals($storeStatusUpdate->format('Y-m-d'), $dbStore->updatedAt->format('Y-m-d'));
     }
 
+    public function testListStoresInRegionStoreContentIsNull(): void
+    {
+        $region = $this->tester->createRegion();
+        $storeAdded = new DateTime();
+        $storeStatusUpdate = new DateTime();
+        $store = $this->tester->createStore($region['id'], null, null, ['begin' => null, 'besonderheiten' => null, 'team_status' => 1, 'added' => $storeAdded, 'status_date' => $storeStatusUpdate]);
+
+        $listOfStores = $this->gateway->listStoresInRegion($region['id'], true);
+        $this->assertIsArray($listOfStores);
+        $this->assertEquals(1, count($listOfStores));
+
+        $dbStore = $listOfStores[0];
+        $this->assertEquals($store['id'], $dbStore->id);
+        $this->assertEquals($store['name'], $dbStore->name);
+        $this->assertEquals($store['bezirk_id'], $dbStore->regionId);
+        $this->assertEquals($store['lat'], $dbStore->location->lat);
+        $this->assertEquals($store['lon'], $dbStore->location->lon);
+        $this->assertEquals($store['str'], $dbStore->address->street);
+        $this->assertEquals($store['plz'], $dbStore->address->zipCode);
+        $this->assertEquals($store['stadt'], $dbStore->address->city);
+        $this->assertEquals($store['public_info'], $dbStore->publicInfo);
+        $this->assertEquals($store['public_time'], $dbStore->publicTime->value);
+        $this->assertEquals($store['begin'], $dbStore->cooperationStart);
+        $this->assertEquals($store['kette_id'], $dbStore->chainId);
+        $this->assertEquals($store['betrieb_kategorie_id'], $dbStore->categoryId);
+        $this->assertEquals($store['betrieb_status_id'], $dbStore->cooperationStatus->value);
+        $this->assertEquals($store['team_status'], $dbStore->teamStatus->value);
+        $this->assertEquals($store['besonderheiten'], $dbStore->description);
+        $this->assertEquals($store['presse'], $dbStore->publicity);
+        $this->assertEquals($store['sticker'], $dbStore->showsSticker);
+        $this->assertEquals($storeAdded->format('Y-m-d'), $dbStore->createdAt->format('Y-m-d'));
+        $this->assertEquals($storeStatusUpdate->format('Y-m-d'), $dbStore->updatedAt->format('Y-m-d'));
+    }
+
     /**
      * Productive database contains "null" values in updateAt field.
      * The newer create and update function do not allow this but it is still present.

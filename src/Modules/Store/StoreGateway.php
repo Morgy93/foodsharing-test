@@ -121,7 +121,7 @@ class StoreGateway extends BaseGateway
 					`ueberzeugungsarbeit` as effort,
 					`presse` as publicity,
 					`sticker`,
-					`status` as teamStatus,
+					`team_status` as teamStatus,
 					`use_region_pickup_rule` as useRegionPickupRule,
 					`status_date` as updatedAt,
 					`added` as createdAt
@@ -164,7 +164,7 @@ class StoreGateway extends BaseGateway
             'telefon' => $store->contact->phone,
             'fax' => $store->contact->fax,
             'email' => $store->contact->email,
-            'begin' => $this->db->date($store->cooperationStart),
+            'begin' => $store->cooperationStart ? $this->db->date($store->cooperationStart) : null,
             'team_status' => $store->teamStatus->value,
 
             'prefetchtime' => $store->calendarInterval,
@@ -1090,7 +1090,7 @@ class StoreGateway extends BaseGateway
                     fs_betrieb.ueberzeugungsarbeit as effort,
                     fs_betrieb.presse as publicity,
                     fs_betrieb.sticker,
-                    fs_betrieb.status as teamStatus,
+                    fs_betrieb.team_status as teamStatus,
                     fs_betrieb.use_region_pickup_rule as useRegionPickupRule,
                     fs_betrieb.status_date as updatedAt,
                     fs_betrieb.added as createdAt

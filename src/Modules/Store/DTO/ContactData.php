@@ -7,28 +7,28 @@ class ContactData
     /**
      * String with name of contact person for store.
      */
-    public string $name = '';
+    public ?string $name = '';
 
     /**
      * String with phone number of contact person for store.
      *
      * // Check phone number format?
      */
-    public string $phone = '';
+    public ?string $phone = '';
 
     /**
      * String with fax number of contact person for store.
      *
      * // Check phone number format?
      */
-    public string $fax = '';
+    public ?string $fax = '';
 
     /**
      * String with e-mail of contact person for store.
      *
      * // Check email? format
      */
-    public string $email = '';
+    public ?string $email = '';
 
     public static function createFromArray($queryResult)
     {

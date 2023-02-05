@@ -114,7 +114,7 @@ class StoreControl extends Control
             $data['fax'] = $store->contact->fax;
             $data['email'] = $store->contact->email;
 
-            $data['begin'] = $store->cooperationStart->format('Y-m-d');
+            $data['begin'] = $store->cooperationStart ? $store->cooperationStart->format('Y-m-d') : '';
             $data['prefetchtime'] = $store->calendarInterval;
             $data['abholmenge'] = $store->weight;
             $data['ueberzeugungsarbeit'] = $store->effort->value;

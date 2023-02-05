@@ -58,24 +58,24 @@ class Store
      *
      * @see StoreGateway::getStoreCategories()
      */
-    public ?int $categoryId;
+    public ?int $categoryId = null;
 
     /**
      * Identifier of the store chain.
      *
      * @see StoreGateway::getBasics_chain()
      */
-    public ?int $chainId;
+    public ?int $chainId = null;
 
     /**
      * Enum which represents the current state of cooperation between foodsharing and store.
      */
-    public CooperationStatus $cooperationStatus = CooperationStatus::UNCLEAR;
+    public ?CooperationStatus $cooperationStatus = CooperationStatus::UNCLEAR;
 
     /**
      * Date of cooperation between store and foodsharing.
      */
-    public DateTime $cooperationStart;
+    public ?DateTime $cooperationStart = null;
 
     /**
      * String which describes the store.
@@ -185,10 +185,13 @@ class Store
 
         $obj->cooperationStatus = CooperationStatus::tryFrom($queryResult['cooperationStatus']);
         if ($queryResult['cooperationStart']) {
-            $obj->cooperationStart = DateTime::createFromFormat('Y-m-d', $queryResult['cooperationStart']);
+            $cooperationStart = DateTime::createFromFormat('Y-m-d', $queryResult['cooperationStart']);
+            if ($cooperationStart) {
+                $obj->cooperationStart = $cooperationStart;
+            }
         }
 
-        $obj->description = $queryResult['description'];
+        $obj->description = $queryResult['description'] ?? '';
 
         $obj->contact = ContactData::createFromArray($queryResult);
 

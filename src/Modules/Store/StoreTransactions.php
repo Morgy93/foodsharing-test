@@ -329,8 +329,12 @@ class StoreTransactions
         }
 
         if (!empty($storeChange->cooperationStart)) {
+            $cooperationStart = DateTime::createFromFormat('Y-m-d', $storeChange->cooperationStart);
+            if (!$cooperationStart) {
+                throw new StoreTransactionException(StoreTransactionException::INVALID_STORE_COOPERATION_START);
+            }
             $changeInformation->informationChanged = true;
-            $store->cooperationStart = DateTime::createFromFormat('Y-m-d', $storeChange->cooperationStart);
+            $store->cooperationStart = $cooperationStart;
         }
 
         if (!empty($storeChange->teamStatus)) {
