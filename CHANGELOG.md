@@ -46,6 +46,10 @@
 - Update some backend dependencies !2601 @chriswalg
 - Improve CI to not build same things multiple times !2569 @stcz
 - Get rid of includes/setup.php !2609 @\_fridtjof_
+- bump fontawsome to v6 and sinon to v15 !2613 @peter.toennies
+- bump fontawsome to v6, glob to v8, and sinon to v15, remove dotenv !2613 @peter.toennies
+- bump fontawsome to v6, glob to v8, mkdirp to v2, and sinon to v15, remove dotenv !2613 @peter.toennies
+- bump fontawsome to v6, glob to v8, mkdirp to v2, jsdom to v21, and sinon to v15, remove dotenv !2613 @peter.toennies
 
 - Clean up Symfony related code and config !2608 @\_fridtjof_
 
