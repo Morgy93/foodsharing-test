@@ -16,20 +16,11 @@ $kernel->boot();
 global $container;
 $container = $kernel->getContainer();
 
-/*
- * force only executing on commandline
-*/
-if (!isset($argv)) {
-    header('Location: ' . BASE_URL);
-    exit;
-}
-
 $app = 'Console';
 $method = 'index';
 
 if (isset($argv[3]) && $argv[3] == 'quiet') {
     define('QUIET', true);
-} else {
 }
 
 if (isset($argv) && is_array($argv)) {

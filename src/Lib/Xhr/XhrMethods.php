@@ -361,7 +361,7 @@ class XhrMethods
 				"' . $this->translator->trans('region.save') . '": function () {
 					showLoader();
 					$.ajax({
-						url: "/xhr.php?f=saveBezirk",
+						url: "/xhr?f=saveBezirk",
 						data: $("#bezirkform-form").serialize(),
 						dataType: "json",
 						success: function (data) {

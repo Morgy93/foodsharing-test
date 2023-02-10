@@ -104,11 +104,11 @@ class Utils
 			checkbox: true,
 			selectMode: 1,
 			initAjax: {
-				url: "/xhr.php?f=bezirkTree",
+				url: "/xhr?f=bezirkTree",
 				data: {p: "0"}
 			},
 			onLazyRead: function (node) {
-				node.appendAjax({url: "/xhr.php?f=bezirkTree",
+				node.appendAjax({url: "/xhr?f=bezirkTree",
 					data: {"p": node.data.ident},
 					dataType: "json",
 					success: function (node) {},

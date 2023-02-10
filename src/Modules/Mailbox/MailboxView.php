@@ -147,7 +147,7 @@ class MailboxView extends View
         }
 
         if ($mail['time_ts'] > 1391338283) {
-            $body = '<iframe sandbox="" style="width:100%;height:100%;border:0;margin:0;padding:0;" frameborder="0" src="/xhrapp.php?app=mailbox&m=fmail&id=' . $mail['id'] . '"></iframe>';
+            $body = '<iframe sandbox="" style="width:100%;height:100%;border:0;margin:0;padding:0;" frameborder="0" src="/xhrapp?app=mailbox&m=fmail&id=' . $mail['id'] . '"></iframe>';
         } else {
             $body = nl2br($mail['body']);
         }
@@ -313,7 +313,7 @@ class MailboxView extends View
 							</div>
 							<div class="wrapper">
 								<div class="et-filebox">
-									<form method="post" target="et-upload" action="/xhrapp.php?app=mailbox&m=attach" enctype="multipart/form-data">
+									<form method="post" target="et-upload" action="/xhrapp?app=mailbox&m=attach" enctype="multipart/form-data">
 										' . $this->v_utils->v_form_file('et-attach', ['btlabel' => $this->translator->trans('mailbox.attach')]) . '
 									</form>
 								</div>

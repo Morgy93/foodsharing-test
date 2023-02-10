@@ -47,6 +47,7 @@
 - Improve CI to not build same things multiple times !2569 @stcz
 - Get rid of includes/setup.php !2609 @\_fridtjof_
 
+- Clean up Symfony related code and config !2608 @\_fridtjof_
 
 ## Development documentation
 

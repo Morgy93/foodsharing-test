@@ -16,6 +16,7 @@ use Foodsharing\Utility\PageHelper;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -70,9 +71,23 @@ class RenderControllerSetupSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
+            KernelEvents::REQUEST => 'onKernelRequest',
             KernelEvents::CONTROLLER => 'onKernelController',
             KernelEvents::RESPONSE => 'onKernelResponse',
         ];
+    }
+
+    /**
+     * This is fired before routing happens,
+     * and therefore before the controller is created.
+     * We use this opportunity to prepare the global $container variable
+     * currently used to easily prepare common controller dependencies
+     * in the `Control` and `FoodsharingController` classes.
+     */
+    public function onKernelRequest(RequestEvent $event)
+    {
+        global $container;
+        $container = $this->fullServiceContainer;
     }
 
     /**

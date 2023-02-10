@@ -466,7 +466,7 @@ final class PageHelper
 				showLoader();
 				$.ajax({
 					dataType: "json",
-					url: "/xhr.php?f=' . $id . '&" + $("#' . $id . ' form").serialize(),
+					url: "/xhr?f=' . $id . '&" + $("#' . $id . ' form").serialize(),
 					success: function (data) {
 						$("#' . $id . '").dialog(\'close\');
 						' . $success . '

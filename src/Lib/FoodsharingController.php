@@ -4,7 +4,6 @@ namespace Foodsharing\Lib;
 
 use Foodsharing\Lib\Db\Mem;
 use Foodsharing\Lib\View\Utils;
-use Foodsharing\Modules\Core\Control;
 use Foodsharing\Modules\Core\InfluxMetrics;
 use Foodsharing\Modules\Core\View;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
@@ -15,7 +14,6 @@ use Foodsharing\Utility\RouteHelper;
 use Foodsharing\Utility\TranslationHelper;
 use ReflectionClass;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -27,12 +25,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 abstract class FoodsharingController extends AbstractController
 {
-    /**
-     * @var ContainerInterface Kernel container needed to access any service,
-     * instead of just the ones specified in AbstractController::getSubscribedServices
-     */
-    protected ContainerInterface $fullServiceContainer;
-
     protected View $view;
     // $sub was deliberately left out in this compatibility layer for the time being.
     // However, a replacement or better solution for its behavior will be necessary for porting some controllers.
@@ -49,13 +41,18 @@ abstract class FoodsharingController extends AbstractController
     protected TranslationHelper $translationHelper;
     protected TranslatorInterface $translator;
 
-    public function __construct(ContainerInterface $containerInterface)
+    /**
+     * @throws \Exception if the inheriting class does not end with "Controller"
+     */
+    public function __construct()
     {
-        $this->fullServiceContainer = $containerInterface;
-
-        // deprecated, but still needed by some legacy code, so we can't get rid of it yet.
+        /*
+         * This is not ideal, but easier than getting all these services through DI.
+         * Inheriting classes would need to manually pass all of them through,
+         * leading to a lot of boilerplate.
+         * Maybe there is a more optimal way to go about this, but this will do for now.
+         */
         global $container;
-        $container = $this->fullServiceContainer;
 
         $this->mem = $container->get(Mem::class);
         $this->session = $container->get(Session::class);
@@ -93,9 +90,9 @@ abstract class FoodsharingController extends AbstractController
         $entry = 'Modules/' . $moduleName;
         if (isset($manifest[$entry])) {
             foreach ($manifest[$entry] as $asset) {
-                if (substr($asset, -3) === '.js') {
+                if (str_ends_with($asset, '.js')) {
                     $this->pageHelper->addWebpackScript($asset);
-                } elseif (substr($asset, -4) === '.css') {
+                } elseif (str_ends_with($asset, '.css')) {
                     $this->pageHelper->addWebpackStylesheet($asset);
                 }
             }
@@ -118,7 +115,7 @@ abstract class FoodsharingController extends AbstractController
      *
      * @param string $template which template should be used when rendering the website
      */
-    protected function renderGlobal($template = 'default'): Response
+    protected function renderGlobal(string $template = 'default'): Response
     {
         return $this->render('layouts/' . $template . '.twig', $this->pageHelper->generateAndGetGlobalViewData());
     }

@@ -8,24 +8,12 @@ use Foodsharing\Modules\Core\Control;
 use Foodsharing\Utility\PageHelper;
 use Foodsharing\Utility\RouteHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class IndexController extends AbstractController
 {
-    /**
-     * @var ContainerInterface Kernel container needed to access any service,
-     * instead of just the ones specified in AbstractController::getSubscribedServices
-     */
-    private ContainerInterface $fullServiceContainer;
-
-    public function __construct(ContainerInterface $container)
-    {
-        $this->fullServiceContainer = $container;
-    }
-
     /**
      * @DisableCsrfProtection CSRF Protection (originally done for the REST API)
      * breaks POST on these entrypoints right now,
@@ -44,7 +32,6 @@ class IndexController extends AbstractController
 
         try {
             global $container;
-            $container = $this->fullServiceContainer;
             if ($controller !== null) {
                 /** @var Control $obj */
                 $obj = $container->get(ltrim($controller, '\\'));
@@ -67,8 +54,7 @@ class IndexController extends AbstractController
                 $obj->$sub($request, $response);
             }
         } else {
-            $response->setStatusCode(Response::HTTP_NOT_FOUND);
-            $response->setContent('');
+            throw $this->createNotFoundException();
         }
 
         $controllerUsedResponse = $response->getContent() !== '--';

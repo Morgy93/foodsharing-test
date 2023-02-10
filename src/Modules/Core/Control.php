@@ -137,7 +137,7 @@ abstract class Control
 					<span id="wallpost-loader"></span><span id="wallpost-attach-image"><i class="far fa-image"></i> ' . $this->translator->trans('button.attach_image') . '</span>
 					<a href="#" id="wall-submit">' . $this->translator->trans('button.send') . '</a>
 					<div style="overflow: hidden; height: 0;">
-						<form id="wallpost-attachimage-form" action="/xhrapp.php?app=wallpost&m=attachimage&table=' . $table . '&id=' . $id . '" method="post" enctype="multipart/form-data" target="wallpost-frame">
+						<form id="wallpost-attachimage-form" action="/xhrapp?app=wallpost&m=attachimage&table=' . $table . '&id=' . $id . '" method="post" enctype="multipart/form-data" target="wallpost-frame">
 							<input id="wallpost-attach-trigger" type="file" accept="image/png, image/jpeg" maxlength="100000" size="chars" name="etattach" />
 						</form>
 					</div>
