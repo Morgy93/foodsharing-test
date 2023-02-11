@@ -208,6 +208,7 @@ final class PageHelper
             'locations' => $locations,
             'ravenConfig' => $sentryConfig,
             'isDev' => getenv('FS_ENV') === 'dev',
+            'isTest' => getenv('FS_ENV') === 'test',
             'locale' => $this->session->getLocale()
         ]);
     }

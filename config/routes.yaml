@@ -14,3 +14,9 @@ xhr:
 xhrapp:
   path: /xhrapp
   controller: Foodsharing\Entrypoint\XhrAppController
+
+mock:
+  type: annotation
+  prefix: /mock
+  resource: ../src/Mock/
+  condition: "'%kernel.environment%' in ['dev', 'test']"
