@@ -82,8 +82,6 @@ outdated:
     - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULED_JOB == "outdated"
       when: always
   script:
-    # unfortunately "composer outdated -D" only works if you have installed the dependencies :/
-    - composer install --verbose --prefer-dist --no-progress --no-interaction --classmap-authoritative --no-scripts --ignore-platform-reqs
     - ./scripts/ci-notify-outdated
   cache:
     key: outdated:cache
