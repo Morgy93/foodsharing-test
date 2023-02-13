@@ -115,7 +115,7 @@
                   :title="$i18n('storelist.map')"
                 >
                   <i class="fas fa-map-marker-alt" />
-                </a><br> {{ row.item.zip }} {{ row.item.city }}
+                </a><br> {{ row.item.zipCode }} {{ row.item.city }}
               </p>
               <p><strong>{{ $i18n('storelist.entered') }}</strong> {{ row.item.createdAt }}</p>
             </div>
@@ -212,7 +212,7 @@ export default {
           sortable: true,
         },
         {
-          key: 'zip',
+          key: 'zipCode',
           label: i18n('storelist.zipcode'),
           sortable: true,
         },
@@ -261,7 +261,7 @@ export default {
             store.street.toLowerCase().indexOf(filterText) !== -1 ||
             store.region.name.toLowerCase().indexOf(filterText) !== -1 ||
             store.city.toLowerCase().indexOf(filterText) !== -1 ||
-            store.zip.toLowerCase().indexOf(filterText) !== -1
+            store.zipCode.toLowerCase().indexOf(filterText) !== -1
           ))
         )
       }))
