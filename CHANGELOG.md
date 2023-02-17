@@ -9,6 +9,7 @@
 - Make menubar sticky on mobile !2411 @AntonBallmaier
 - Added a new content page for it infos to menu !2590 @chriswalg
 - Removed freshdesk link to Support and renamed contact to contact & support !2590 @chriswalg
+- Changed persistent cookie timespan from 14 days to 38 years !2626 @chriswalg
 
 
 ## Bugfixes
