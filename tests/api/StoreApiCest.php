@@ -1246,6 +1246,18 @@ class StoreApiCest
         $I->seeResponseCodeIs(Http::OK);
         $I->seeResponseIsJson();
         $I->seeResponseContainsJson(['store' => ['id' => $this->store[self::ID], 'teamStatus' => 2]]);
+
+        $I->haveHttpHeader('Content-Type', 'application/json');
+        $I->sendPATCH(self::API_STORES . '/' . $this->store[self::ID], ['teamStatus' => 1]);
+        $I->seeResponseCodeIs(Http::OK);
+        $I->seeResponseIsJson();
+        $I->seeResponseContainsJson(['store' => ['id' => $this->store[self::ID], 'teamStatus' => 1]]);
+
+        $I->haveHttpHeader('Content-Type', 'application/json');
+        $I->sendPATCH(self::API_STORES . '/' . $this->store[self::ID], ['teamStatus' => 0]);
+        $I->seeResponseCodeIs(Http::OK);
+        $I->seeResponseIsJson();
+        $I->seeResponseContainsJson(['store' => ['id' => $this->store[self::ID], 'teamStatus' => 0]]);
     }
 
     public function patchStoreEffortAsStoreManager(ApiTester $I)
@@ -1398,6 +1410,11 @@ class StoreApiCest
 
     public function patchStoreTeamStatusInvalid(ApiTester $I)
     {
+        $I->login($this->manager[self::EMAIL]);
+        $I->haveHttpHeader('Content-Type', 'application/json');
+        $I->sendPATCH(self::API_STORES . '/' . $this->store[self::ID], ['teamStatus' => null]);
+        $I->seeResponseCodeIs(Http::BAD_REQUEST);
+
         $I->login($this->manager[self::EMAIL]);
         $I->haveHttpHeader('Content-Type', 'application/json');
         $I->sendPATCH(self::API_STORES . '/' . $this->store[self::ID], ['teamStatus' => 'a']);

@@ -337,7 +337,7 @@ class StoreTransactions
             $store->cooperationStart = $cooperationStart;
         }
 
-        if (!empty($storeChange->teamStatus)) {
+        if ($storeChange->teamStatus !== null) {
             if (!TeamSearchStatus::tryFrom($storeChange->teamStatus)) {
                 throw new StoreTransactionException(StoreTransactionException::INVALID_STORE_TEAM_STATUS);
             }

@@ -2,7 +2,7 @@
 
 ## Features
 - Ongoing polls a user has not yet voted in are displayed on the dashboard. !2349 @AntonBallmaier
-- Provide RestApi to edit store !2515 @KoeMai
+- Provide RestApi to edit store !2515 !2625 @KoeMai
 
 
 ## Changes
