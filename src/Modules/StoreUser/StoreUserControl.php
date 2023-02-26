@@ -48,7 +48,7 @@ class StoreUserControl extends Control
         parent::__construct();
 
         if (!$this->session->mayRole()) {
-            $this->routeHelper->goLogin();
+            $this->routeHelper->goLoginAndExit();
         }
     }
 
@@ -62,17 +62,17 @@ class StoreUserControl extends Control
             $store = $this->storeGateway->getMyStore($this->session->id(), $storeId);
 
             if (!$store) {
-                $this->routeHelper->goPage();
+                $this->routeHelper->goPageAndExit();
             }
 
-            $this->pageHelper->jsData['store'] = [
+            $this->pageHelper->addJsServerData('store', [
                 'id' => $storeId,
                 'name' => $store['name'],
                 'bezirk_id' => (int)$store['bezirk_id'],
                 'verantwortlich' => $store['verantwortlich'],
                 'prefetchtime' => $store['prefetchtime'],
                 'isJumper' => $store['jumper']
-            ];
+            ]);
 
             $this->pageHelper->addTitle($store['name']);
 
@@ -248,9 +248,9 @@ class StoreUserControl extends Control
                 if ($store = $this->storeGateway->getBetrieb($storeId)) {
                     $this->pageHelper->addBread($store['name']);
                     $this->flashMessageHelper->info($this->translator->trans('store.not-in-team'));
-                    $this->routeHelper->go('/?page=map&bid=' . $storeId);
+                    $this->routeHelper->goAndExit('/?page=map&bid=' . $storeId);
                 } else {
-                    $this->routeHelper->go('/karte');
+                    $this->routeHelper->goAndExit('/karte');
                 }
             }
         } else {

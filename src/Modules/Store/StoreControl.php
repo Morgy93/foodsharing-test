@@ -45,7 +45,7 @@ class StoreControl extends Control
         parent::__construct();
 
         if (!$this->session->mayRole()) {
-            $this->routeHelper->goLogin();
+            $this->routeHelper->goLoginAndExit();
         }
     }
 
@@ -87,7 +87,7 @@ class StoreControl extends Control
                 ]), $this->translator->trans('storeedit.actions')), CNT_RIGHT);
             } else {
                 $this->flashMessageHelper->info($this->translator->trans('store.smneeded'));
-                $this->routeHelper->go('/?page=settings&sub=up_bip');
+                $this->routeHelper->goAndExit('/?page=settings&sub=up_bip');
             }
         } elseif ($id = $this->identificationHelper->getActionId('delete')) {
         } elseif ($id = $this->identificationHelper->getActionId('edit')) {
@@ -149,15 +149,15 @@ class StoreControl extends Control
                 ['name' => $this->translator->trans('bread.backToStore'), 'href' => '/?page=fsbetrieb&bid=' . $regionId]
             ]), $this->translator->trans('storeedit.actions')), CNT_RIGHT);
         } elseif (isset($_GET['id'])) {
-            $this->routeHelper->go('/?page=fsbetrieb&id=' . (int)$_GET['id']);
+            $this->routeHelper->goAndExit('/?page=fsbetrieb&id=' . (int)$_GET['id']);
         } else {
             if (!$this->session->mayRole() || !$this->storePermissions->mayListStores()) {
-                $this->routeHelper->go('/');
+                $this->routeHelper->goAndExit('/');
             }
 
             if (empty($region) || $regionId <= 0) {
                 $this->flashMessageHelper->info($this->translator->trans('store.error'));
-                $this->routeHelper->go('/');
+                $this->routeHelper->goAndExit('/');
             } else {
                 $this->pageHelper->addBread($this->translator->trans('store.bread'), '/?page=fsbetrieb');
                 $storesMapped = $this->storeTransactions->listOverviewInformationsOfStoresInRegion($regionId, true);
@@ -227,7 +227,7 @@ class StoreControl extends Control
             } catch (StoreTransactionException $ex) {
                 $this->flashMessageHelper->error($ex->getMessage());
             }
-            $this->routeHelper->go('/?page=fsbetrieb&id=' . $id);
+            $this->routeHelper->goAndExit('/?page=fsbetrieb&id=' . $id);
         }
     }
 
@@ -242,9 +242,7 @@ class StoreControl extends Control
 
         if (!in_array($g_data['bezirk_id'], $this->session->listRegionIDs())) {
             $this->flashMessageHelper->error($this->translator->trans('storeedit.not-in-region'));
-            $this->routeHelper->goPage();
-
-            return;
+            $this->routeHelper->goPageAndExit();
         }
 
         if (isset($g_data['ort'])) {
@@ -264,6 +262,6 @@ class StoreControl extends Control
 
         $this->flashMessageHelper->success($this->translator->trans('storeedit.add_success'));
 
-        $this->routeHelper->go('/?page=fsbetrieb&id=' . (int)$storeId);
+        $this->routeHelper->goAndExit('/?page=fsbetrieb&id=' . (int)$storeId);
     }
 }

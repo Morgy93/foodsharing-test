@@ -148,13 +148,13 @@ class RenderControllerSetupSubscriber implements EventSubscriberInterface
         global $content_right_width;
         $content_right_width = 6;
 
-        global $g_template;
-        $g_template = 'default';
-
         global $g_data;
-        $g_data = $this->get(DataHelper::class)->getPostData();
+        /** @var DataHelper $dataHelper */
+        $dataHelper = $this->get(DataHelper::class);
+        $g_data = $dataHelper->getPostData();
 
         // TODO check if all of these are actually needed anymore
+        /** @var PageHelper $pageHelper */
         $pageHelper = $this->get(PageHelper::class);
         $pageHelper->addHidden('<ul id="hidden-info"></ul>');
         $pageHelper->addHidden('<ul id="hidden-error"></ul>');
@@ -162,6 +162,7 @@ class RenderControllerSetupSubscriber implements EventSubscriberInterface
         . $this->translator->trans('really_delete')
         . '><p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span><span id="dialog-confirm-msg"></span><input type="hidden" value="" id="dialog-confirm-url" /></p></div>');
 
+        /** @var ContentGateway $contentGateway */
         $contentGateway = $this->get(ContentGateway::class);
         global $g_broadcast_message;
         $g_broadcast_message = $contentGateway->get(ContentId::BROADCAST_MESSAGE)['body'];
@@ -183,6 +184,7 @@ class RenderControllerSetupSubscriber implements EventSubscriberInterface
         $response->headers->set('X-Frame-Options', 'DENY');
         $response->headers->set('X-Content-Type-Options', 'nosniff');
 
+        /** @var ContentSecurityPolicy $csp */
         $csp = $this->get(ContentSecurityPolicy::class);
         $cspString = $csp->generate($request->getSchemeAndHttpHost(), CSP_REPORT_URI, CSP_REPORT_ONLY);
         $cspParts = explode(': ', $cspString, 2);

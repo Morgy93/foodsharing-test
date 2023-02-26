@@ -42,7 +42,7 @@ final class PassportGeneratorControl extends Control
                 $this->region = $region;
             }
         } else {
-            $this->routeHelper->go('/?page=dashboard');
+            $this->routeHelper->goAndExit('/?page=dashboard');
         }
     }
 

@@ -6,7 +6,6 @@ use Foodsharing\Lib\Db\Mem;
 use Foodsharing\Lib\View\Utils;
 use Foodsharing\Modules\Core\InfluxMetrics;
 use Foodsharing\Modules\Core\View;
-use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Utility\EmailHelper;
 use Foodsharing\Utility\FlashMessageHelper;
 use Foodsharing\Utility\PageHelper;
@@ -33,7 +32,6 @@ abstract class FoodsharingController extends AbstractController
     protected Mem $mem;
     protected Session $session;
     protected Utils $v_utils;
-    private FoodsaverGateway $foodsaverGateway;
     private InfluxMetrics $metrics;
     protected EmailHelper $emailHelper;
     protected FlashMessageHelper $flashMessageHelper;
@@ -57,7 +55,6 @@ abstract class FoodsharingController extends AbstractController
         $this->mem = $container->get(Mem::class);
         $this->session = $container->get(Session::class);
         $this->v_utils = $container->get(Utils::class);
-        $this->foodsaverGateway = $container->get(FoodsaverGateway::class);
         $this->metrics = $container->get(InfluxMetrics::class);
         $this->pageHelper = $container->get(PageHelper::class);
         $this->emailHelper = $container->get(EmailHelper::class);
@@ -106,8 +103,7 @@ abstract class FoodsharingController extends AbstractController
      * They mostly talk to pageHelper, which is then used like this to generate the view data for the desired twig template.
      * There are two things to be mentioned here:
      * - MapControl and MessageControl are the only controllers changing the template from 'default'.
-     *   Currently, they are using the global $g_template for this,
-     *   but when they are ported, they can use this method's $template argument.
+     *   They can use this method's $template argument.
      * - Some controllers call Control::render, which is different from AbstractController::render.
      *
      * If a controller method only interacts with PageHelper (directly, or indirectly through a View class that gets it through DI),

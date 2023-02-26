@@ -16,6 +16,7 @@ use Foodsharing\Permissions\RegionPermissions;
 use Foodsharing\Permissions\ReportPermissions;
 use Foodsharing\Permissions\StorePermissions;
 use Foodsharing\Permissions\WorkGroupPermissions;
+use JetBrains\PhpStorm\Deprecated;
 use Twig\Environment;
 
 final class PageHelper
@@ -39,61 +40,30 @@ final class PageHelper
     private int $content_left_width = 6;
     private int $content_right_width = 6;
 
-    public array $jsData = [];
-
-    private RouteHelper $routeHelper;
-    private Sanitizer $sanitizerService;
-    private Session $session;
-    private BlogPermissions $blogPermissions;
-    private ContentPermissions $contentPermissions;
-    private MailboxPermissions $mailboxPermissions;
-    private NewsletterEmailPermissions $newsletterEmailPermissions;
-    private QuizPermissions $quizPermissions;
-    private RegionPermissions $regionPermissions;
-    private ReportPermissions $reportPermissions;
-    private StorePermissions $storePermissions;
-    private WorkGroupPermissions $workGroupPermissions;
-    private ProfilePermissions $profilePermissions;
-    private Environment $twig;
-    private RegionGateway $regionGateway;
+    private array $extraJsServerData = [];
 
     public function __construct(
-        Session $session,
-        Sanitizer $sanitizerService,
-        Environment $twig,
-        RouteHelper $routeHelper,
-        MailboxPermissions $mailboxPermissions,
-        QuizPermissions $quizPermissions,
-        ReportPermissions $reportPermissions,
-        StorePermissions $storePermissions,
-        ContentPermissions $contentPermissions,
-        BlogPermissions $blogPermissions,
-        RegionPermissions $regionPermissions,
-        NewsletterEmailPermissions $newsletterEmailPermissions,
-        WorkGroupPermissions $workGroupPermissions,
-        ProfilePermissions $profilePermissions,
-        RegionGateway $regionGateway
+        private readonly Session $session,
+        private readonly Sanitizer $sanitizerService,
+        private readonly Environment $twig,
+        private readonly RouteHelper $routeHelper,
+        private readonly MailboxPermissions $mailboxPermissions,
+        private readonly QuizPermissions $quizPermissions,
+        private readonly ReportPermissions $reportPermissions,
+        private readonly StorePermissions $storePermissions,
+        private readonly ContentPermissions $contentPermissions,
+        private readonly BlogPermissions $blogPermissions,
+        private readonly RegionPermissions $regionPermissions,
+        private readonly NewsletterEmailPermissions $newsletterEmailPermissions,
+        private readonly WorkGroupPermissions $workGroupPermissions,
+        private readonly ProfilePermissions $profilePermissions,
+        private readonly RegionGateway $regionGateway
     ) {
-        $this->twig = $twig;
-        $this->routeHelper = $routeHelper;
-        $this->sanitizerService = $sanitizerService;
-        $this->session = $session;
-        $this->blogPermissions = $blogPermissions;
-        $this->contentPermissions = $contentPermissions;
-        $this->mailboxPermissions = $mailboxPermissions;
-        $this->newsletterEmailPermissions = $newsletterEmailPermissions;
-        $this->quizPermissions = $quizPermissions;
-        $this->regionPermissions = $regionPermissions;
-        $this->reportPermissions = $reportPermissions;
-        $this->storePermissions = $storePermissions;
-        $this->workGroupPermissions = $workGroupPermissions;
-        $this->profilePermissions = $profilePermissions;
-        $this->regionGateway = $regionGateway;
     }
 
     public function generateAndGetGlobalViewData(): array
     {
-        $this->getMessages();
+        $this->addMessages();
         $mainWidth = 24;
 
         $contentLeft = $this->getContent(CNT_LEFT);
@@ -175,7 +145,7 @@ final class PageHelper
             'may' => $this->session->mayRole(),
             'homeRegionId' => $user['bezirk_id'] ?? null,
             'mailBoxId' => $user['mailbox_id'] ?? null,
-            'isFoodsaver' => $this->session->mayRole(Role::FOODSAVER) ? true : false,
+            'isFoodsaver' => $this->session->mayRole(Role::FOODSAVER),
             'verified' => $this->session->isVerified(),
             'avatar' => $user['photo'] ?? null,
         ];
@@ -200,7 +170,7 @@ final class PageHelper
             $sentryConfig = RAVEN_JAVASCRIPT_CONFIG;
         }
 
-        return array_merge($this->jsData, [
+        return array_merge($this->extraJsServerData, [
             'user' => $userData,
             'permissions' => $permissions,
             'page' => $this->routeHelper->getPage(),
@@ -258,19 +228,17 @@ final class PageHelper
             }
         }
 
-        $params = array_merge(
-            [
-                'regions' => $regions,
-                'groups' => $workingGroups,
-            ]
-        );
+        $props = [
+            'regions' => $regions,
+            'groups' => $workingGroups,
+        ];
 
         return $this->twig->render(
             'partials/vue-wrapper.twig',
             [
                 'id' => 'vue-topbar',
                 'component' => 'topbar',
-                'props' => $params,
+                'props' => $props,
             ]
         );
     }
@@ -299,13 +267,12 @@ final class PageHelper
             'css' => str_replace(["\r", "\n"], '', $this->add_css),
             'jsFunc' => $this->js_func,
             'js' => $this->js,
-            'ravenConfig' => null,
             'stylesheets' => $this->webpackStylesheets,
             'scripts' => $this->webpackScripts
         ];
     }
 
-    private function getMessages(): void
+    private function addMessages(): void
     {
         if (!isset($_SESSION['msg'])) {
             $_SESSION['msg'] = [];
@@ -336,33 +303,17 @@ final class PageHelper
         $_SESSION['msg']['error'] = [];
     }
 
-    private function getContent(int $positionCode = CNT_MAIN): string
+    private function getContent(int $positionCode): string
     {
-        switch ($positionCode) {
-            case CNT_MAIN:
-                $content = $this->content_main;
-                break;
-            case CNT_RIGHT:
-                $content = $this->content_right;
-                break;
-            case CNT_TOP:
-                $content = $this->content_top;
-                break;
-            case CNT_BOTTOM:
-                $content = $this->content_bottom;
-                break;
-            case CNT_LEFT:
-                $content = $this->content_left;
-                break;
-            case CNT_OVERTOP:
-                $content = $this->content_overtop;
-                break;
-            default:
-                $content = '';
-                break;
-        }
-
-        return $content;
+        return match ($positionCode) {
+            CNT_MAIN => $this->content_main,
+            CNT_RIGHT => $this->content_right,
+            CNT_TOP => $this->content_top,
+            CNT_BOTTOM => $this->content_bottom,
+            CNT_LEFT => $this->content_left,
+            CNT_OVERTOP => $this->content_overtop,
+            default => '',
+        };
     }
 
     public function addContent(string $newContent, int $positionCode = CNT_MAIN): void
@@ -421,6 +372,14 @@ final class PageHelper
         $this->js_func .= $nfunc;
     }
 
+    /**
+     * @deprecated
+     */
+    public function addJsServerData(string $key, array $data): void
+    {
+        $this->extraJsServerData[$key] = $data;
+    }
+
     public function addHead(string $str): void
     {
         $this->head .= "\n" . $str;
@@ -441,10 +400,7 @@ final class PageHelper
      */
     public function hiddenDialog(string $id, array $fields, string $title = '', bool $reload = false, string $width = ''): void
     {
-        $form = '';
-        foreach ($fields as $f) {
-            $form .= $f;
-        }
+        $form = implode('', $fields);
 
         $get = '';
         if (isset($_GET['id'])) {
@@ -453,7 +409,7 @@ final class PageHelper
 
         $this->addHidden('<div id="' . $id . '"><form>' . $form . $get . '</form></div>');
 
-        $width = $width ? "width: {$width}," : '';
+        $width = $width ? "width: $width," : '';
         $success = $reload ? 'reload();' : '';
 
         $this->addJs('

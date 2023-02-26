@@ -51,10 +51,9 @@
 - Get rid of includes/setup.php !2609 @\_fridtjof_
 - bump fontawsome to v6, glob to v8, mkdirp to v2, jsdom to v21, and sinon to v15, remove dotenv !2613 @peter.toennies
 - improved the script which reports outdated packages to Slack !2619 @peter.toennies
-- Clean up Symfony related code and config !2608 @\_fridtjof_
+- Clean up Symfony related code and config !2608 !2623 @\_fridtjof_
 - Improved test stability when geocoding is involved !2620 @\_fridtjof_
 - some updates to composer packages. Removed deprecations in order to prepare for Symfony 6 ! 2617 @peter.toennies
-
 
 ## Development documentation
 

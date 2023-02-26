@@ -258,7 +258,7 @@ final class RegionControl extends Control
     public function index(Request $request, Response $response)
     {
         if (!$this->session->mayRole()) {
-            $this->routeHelper->goLogin();
+            $this->routeHelper->goLoginAndExit();
         }
 
         $region_id = $request->query->getInt('bid', $_SESSION['client']['bezirk_id']);
@@ -269,9 +269,7 @@ final class RegionControl extends Control
             $this->region = $region;
         } else {
             $this->flashMessageHelper->error($this->translator->trans('region.not-member'));
-            $this->routeHelper->go('/?page=dashboard');
-
-            return;
+            $this->routeHelper->goAndExit('/?page=dashboard');
         }
 
         $this->pageHelper->addTitle($region['name']);
@@ -280,7 +278,7 @@ final class RegionControl extends Control
         switch ($request->query->get('sub')) {
             case 'botforum':
                 if (!$this->forumPermissions->mayAccessAmbassadorBoard($region_id)) {
-                    $this->routeHelper->go($this->forumTransactions->url($region_id, false));
+                    $this->routeHelper->goAndExit($this->forumTransactions->url($region_id, false));
                 }
                 $this->forum($request, $response, $region, true);
                 break;
@@ -290,7 +288,7 @@ final class RegionControl extends Control
             case 'wall':
                 if (!UnitType::isGroup($region['type'])) {
                     $this->flashMessageHelper->info($this->translator->trans('region.forum-redirect'));
-                    $this->routeHelper->go('/?page=bezirk&bid=' . $region_id . '&sub=forum');
+                    $this->routeHelper->goAndExit('/?page=bezirk&bid=' . $region_id . '&sub=forum');
                 } else {
                     $this->wall($request, $response, $region);
                 }
@@ -319,17 +317,16 @@ final class RegionControl extends Control
             case 'pin':
                 if (!$this->regionPermissions->maySetRegionPin($region_id) || UnitType::isGroup($region['type'])) {
                     $this->flashMessageHelper->info($this->translator->trans('region.restricted'));
-                    $this->routeHelper->go($this->forumTransactions->url($region_id, false));
+                    $this->routeHelper->goAndExit($this->forumTransactions->url($region_id, false));
                 }
                 $this->pin($request, $response, $region);
                 break;
             default:
                 if (UnitType::isGroup($region['type'])) {
-                    $this->routeHelper->go('/?page=bezirk&bid=' . $region_id . '&sub=wall');
+                    $this->routeHelper->goAndExit('/?page=bezirk&bid=' . $region_id . '&sub=wall');
                 } else {
-                    $this->routeHelper->go($this->forumTransactions->url($region_id, false));
+                    $this->routeHelper->goAndExit($this->forumTransactions->url($region_id, false));
                 }
-                break;
         }
     }
 
@@ -369,7 +366,7 @@ final class RegionControl extends Control
             if (!$postActiveWithoutModeration) {
                 $this->flashMessageHelper->info($this->translator->trans('forum.hold_back_for_moderation'));
             }
-            $this->routeHelper->go($this->forumTransactions->url($region['id'], $ambassadorForum));
+            $this->routeHelper->goAndExit($this->forumTransactions->url($region['id'], $ambassadorForum));
         }
 
         return $form->createView();

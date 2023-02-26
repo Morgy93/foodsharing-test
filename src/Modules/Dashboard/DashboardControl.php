@@ -43,7 +43,7 @@ class DashboardControl extends Control
         parent::__construct();
 
         if (!$this->session->mayRole()) {
-            $this->routeHelper->go('/');
+            $this->routeHelper->goAndExit('/');
         }
 
         $this->params = [];

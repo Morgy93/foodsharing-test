@@ -9,37 +9,30 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class RouteHelper
 {
-    private Session $session;
-    private TranslatorInterface $translator;
-    private LegalGateway $legalGateway;
-
     public function __construct(
-        Session $session,
-        TranslatorInterface $translator,
-        LegalGateway $legalGateway
+        private readonly Session $session,
+        private readonly TranslatorInterface $translator,
+        private readonly LegalGateway $legalGateway
     ) {
-        $this->session = $session;
-        $this->translator = $translator;
-        $this->legalGateway = $legalGateway;
     }
 
-    public function go(string $url)
+    public function goAndExit(string $url): never
     {
         header('Location: ' . $url);
         exit;
     }
 
-    public function goSelf(): void
+    public function goSelfAndExit(): never
     {
-        $this->go($this->getSelf());
+        $this->goAndExit($this->getSelf());
     }
 
-    public function goLogin(): void
+    public function goLoginAndExit(): never
     {
-        $this->go('/?page=login&ref=' . urlencode($this->getSelf()));
+        $this->goAndExit('/?page=login&ref=' . urlencode($this->getSelf()));
     }
 
-    public function goPage(string $page = ''): void
+    public function goPageAndExit(string $page = ''): never
     {
         if (empty($page)) {
             $page = $this->getPage();
@@ -47,7 +40,7 @@ final class RouteHelper
                 $page .= '&bid=' . (int)$_GET['bid'];
             }
         }
-        $this->go('/?page=' . $page);
+        $this->goAndExit('/?page=' . $page);
     }
 
     public function getSelf()
