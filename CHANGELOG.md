@@ -57,6 +57,7 @@
 - Clean up Symfony related code and config !2608 !2623 @\_fridtjof_
 - Improved test stability when geocoding is involved !2620 @\_fridtjof_
 - some updates to composer packages. Removed deprecations in order to prepare for Symfony 6 ! 2617 @peter.toennies
+- Improved scripts. repaired outdated notify. Made test rerun faster. Made clean more powerfull !2622 @peter.toennies
 
 ## Development documentation
 
