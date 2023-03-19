@@ -195,6 +195,8 @@ group:
       ?
     remove_text_region: Veux-tu vraiment supprimer {name} ({id}) de la région ?
     old_edit_hint: Tu trouveras désormais la gestion des membres sous l'onglet
+    is_verified: Vérifié
+    is_home_region: District principal
   last_activity: Dernière activité
   role_name: Rôle
   entertime: 'Temps :'
@@ -2427,7 +2429,7 @@ startpage:
     title: en tant que membre
   call_to_action:
     text: Le mouvement a commencé en 2012 et s'est répandu à l'international avec
-      plus de 200 000 utilisateur.ice.s en Allemagne, Autriche, Suisse et dans bien
+      plus de 500 000 utilisateur.ice.s en Allemagne, Autriche, Suisse et dans bien
       d'autres pays européens.
     title: Participe
   vision:
