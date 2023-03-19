@@ -12,6 +12,7 @@
 - Changed persistent cookie timespan from 14 days to 38 years !2626 @chriswalg
 - Updated the number of registered users on the start page !2629 @alex.simm
 
+- Added home region and verified columns to member tables of regions and working groups !2602 #1548 @alex.simm
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
