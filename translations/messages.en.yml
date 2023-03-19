@@ -175,6 +175,8 @@ group:
     old_edit_hint: You can now find the member administration on the tab
     remove_text_group: Do you really want to remove {name} ({id}) from this workgroup?
     remove_text_region: Do you really want to remove {name} ({id}) from the region?
+    is_verified: Verified
+    is_home_region: Home region
   application_from: by
   entermotivation: 'Motivation:'
   enterskills: 'Skills:'
@@ -189,7 +191,7 @@ settings:
   header: Profile settings
   name_change:
     title: Name (first & last name)
-    desc: You cannot change your name yourself. You can however <a {link}">request
+    desc: You cannot change your name yourself. However, you can <a {link}">request
       a name change</a>.
     request: Request name change
     info: To get your name changed you have to contact an ambassador of your home
@@ -510,6 +512,8 @@ profile:
     noshow: The person didn't come
     late: The person was late
     cancellation: Frequent late cancellation of appointments without finding a replacement
+    readup: "Find advice on processing a report here: <a href='https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.29_Bearbeitung_einer_Meldung'>Processing\
+      \ a report</a>"
   history:
     wasVerified: Verified
     lostVerification: De-verified
@@ -2847,14 +2851,14 @@ error:
 
   invalid_mobile_phonenumber:
     title: There is a problem with your mobile phone number.
-    link: Correct your mobile phone number
+    link: Correct your mobile phone number now
     description: Unfortunately, your mobile phone number has a format that cannot
       be called.
   missing_geolocation:
     description: Please check your address. The coordinates couldn't be determined.
     title: There was an error with your address.
   missing_home_region:
-    link: Choose your home disctrict
+    link: Choose your home disctrict now
     description: To continue, you have to select a home district.
     title: Choose a home district.
   missing_user_avatar:
@@ -2862,7 +2866,7 @@ error:
     title: You haven't uploaded a profile picture yet.
     description: Show the other members of Foodsharing who you are!
   old_user_avatar:
-    title: There is a problem with your profile photo.
+    title: There is a problem with your profile picture.
     link: Update profile picture now
     description: In September 2021 we have made a technical change that affects the
       profile pictures. Therefore we ask you to re-upload or renew your profile picture.
@@ -2874,8 +2878,8 @@ information:
     info: "If you no longer want to receive push notifications, you can deactivate\
       \ them at any time in the settings."
     link: "To the settings"
-    description: If you want to stop receiving push messsages, you can turn them off
-      anytime in the settings.
+    description: If you no longer want to receive push notifications, you can deactivate
+      them at any time in the settings.
   calendar_sync:
     title: "Do you know the calendar synchronization for your pick-ups?"
     info: "This will allow you to see your next pickup dates using a calendar program\
@@ -2900,6 +2904,7 @@ globals:
     groups: Groups
     my_groups: My groups
     persons: Persons
+    my_persons: My friends
   save: Save
   close: Close
   select: Please select...
@@ -2943,7 +2948,7 @@ join_region:
   headline: Please choose the region in which you want to become active.
 navigation:
   map: Map
-  contact: Contact
+  contact: Contact & Support
   whats_new: What is new?
   support: Support
   help: Help
@@ -2956,11 +2961,12 @@ navigation:
   conversations: 'Conversations'
   notifications: Notifications
   system_administration: System administration
-  help_needed: Help needed?
+  help_needed: Need help?
   profil: 👋 Hello {name}!
   styleguide: Style guide
   help_and_support: Help & Support
   promotion: In IT? We need you!
+  news_from_it: News & Disruptions
 use_region_pickup_rule: Should the district-wide CHERRY rule apply to this establishment?
 savewithus: Join us saving!
 timefrom: ''
