@@ -191,7 +191,7 @@ settings:
   header: Profile settings
   name_change:
     title: Name (first & last name)
-    desc: You cannot change your name yourself. However, you can <a {link}">request
+    desc: You cannot change your name yourself. You can however <a {link}">request
       a name change</a>.
     request: Request name change
     info: To get your name changed you have to contact an ambassador of your home
@@ -488,8 +488,11 @@ profile:
       vsclients: towards clients
       ofstore: by store employees
       bossy: Has shown invasive behavior
-      ofclients: by clients
-      offs: by Foodsavers
+      ofclients: by customers
+      offs: by foodsavers
+      nearfs: in front of foodsavers
+      nearclients: in front of customers
+      nearstore: in front of employees
     control:
       total: total
       tot: total
@@ -733,6 +736,10 @@ forum:
     closed: Closed thread
     navigate_to_newest_post: "jump to latest post"
     navigate_to_oldest_post: "jump to first post"
+    delivery_mail:
+      title: Mail dispatch
+      active: activated
+      non_active: disabled
   post:
     delete: Delete post
     body: Message
@@ -915,8 +922,8 @@ storeview:
     without prior consultation!'
   pickupWeight: '{pickupWeight} were saved.'
   counter: <strong>{count}<span style="white-space:nowrap"> </span>{suffix}</strong>
-  teamInfo: There are <strong> {active} </strong> actives and <strong> {jumper} </strong>
-    jumpers in the team.
+  teamInfo: There are <strong>{active}</strong> actives and <strong>{jumper}</strong>
+    backup people in the team.
   pickupCount: At this store there have been {pickupCount} pick-ups.
   status_notes: status notes
 day: Day
@@ -1830,7 +1837,7 @@ store:
     with pick-up rule, regardless which district. No more than a total of {regionPickupRuleLimitDay}
     times may be picked up from these districts per day. {regionPickupRuleInactive}
     hours before the pick-up, this rule is not taken into account.
-  regionPickupRules: additional CHERRY rule
+  regionPickupRules: additional rule for much sought-after slots
 search:
   mygroups: My groups
   mybuddies: My buddies
@@ -2719,6 +2726,14 @@ startpage:
     target='_blank' rel='noopener noreferrer nofollow'>foodsharing hygiene rules</a>.
     Guidance can also be found in the <a href='https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel'
     target='_blank' rel='noopener noreferrer nofollow'>guide</a>.
+  respect: "To preserve groceries we want to treat them respectfully. To ensure everything\
+    \ runs optimally, we have defined a few behaviour rules over the years. Sharing\
+    \ groceries is a very human, but also responsible task. Basically always applies:\
+    \ \"Don't share with others, that you would not eat yourself.\" Please read the\
+    \ foodsharing etiquette!"
+  together: Together with foodsharing, you can help ensure that discarded and unsaleable
+    food is put to good use instead of being thrown away. You can find more information
+    <a href='/fuer-unternehmen'>here.</a>
 date_short:
   Sunday: Sun
   Saturday: Sat
@@ -2857,6 +2872,7 @@ error:
   missing_geolocation:
     description: Please check your address. The coordinates couldn't be determined.
     title: There was an error with your address.
+    link: To the address entry
   missing_home_region:
     link: Choose your home disctrict now
     description: To continue, you have to select a home district.
@@ -2929,12 +2945,12 @@ bootstrap-datepicker:
   labelNav: Calendar navigation
   labelHelp: Navigate the calendar using arrow keys
 system_administration:
-  regions: Administrate regions
+  regions: Manage districts
   email: Send newsletter
-  blog: Administrate blog entries
-  quiz: Administrate quiz
-  mailboxes: Administrate mailboxes
-  content: Administrate content
+  blog: Edit blog posts
+  quiz: Manage quiz
+  mailboxes: Manage mailboxes
+  content: Edit content
   reports: Show reports
 join_region:
   error:
@@ -2946,6 +2962,15 @@ join_region:
     is_big_city: <strong>This is a large city.</strong><br> Please choose a city,
       a region or a district!
   headline: Please choose the region in which you want to become active.
+  description: You can join your first district by clicking through to your district
+    starting with <em>Europe</em> and your country. If you don't find a district for
+    you, choose a level higher or join the nearest district. If you don't have the
+    opportunity to train as a food saver in the area, you can consider starting your
+    own district. In this case, please read the wiki carefully, in particular the
+    <a href="{href}">article on founding or reactivating districts<a>. If you want
+    to start the district or have explicit questions that the wiki doesn't answer,
+    send us a <a href="{mail}">mail</a>. We're not a central point for questions of
+    all kinds, but we can help with district-related questions.
 navigation:
   map: Map
   contact: Contact & Support
@@ -2969,4 +2994,4 @@ navigation:
   news_from_it: News & Disruptions
 use_region_pickup_rule: Should the district-wide CHERRY rule apply to this establishment?
 savewithus: Join us saving!
-timefrom: ''
+timefrom: 'Time from'
