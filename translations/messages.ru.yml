@@ -20,3 +20,13 @@ subject: Тема
 address: Адрес
 edit: редактировать
 geb_datum: Дата рождения (гггг-мм-дд)
+bootstrap-datepicker:
+  labelToday: Сегодня
+botschafter: Посол
+numbers:
+  decimal_separator: ','
+  thousands_separator: ' '
+  million_abbreviation: ' миллионов'
+  billion_abbreviation: ' миллиардов'
+logincontrol:
+  success: Успех!
