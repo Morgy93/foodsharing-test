@@ -553,6 +553,7 @@ login:
   form_title: registrare Ben tornato
   topbar: Accedi
   submit_btn: Accedi
+  steady_login: Resta connesso
 salutation:
   "3": Cara/o
   "2": Cara
