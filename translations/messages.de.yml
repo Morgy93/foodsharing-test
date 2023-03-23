@@ -1796,10 +1796,11 @@ profile:
     violations: "Meldungen <strong>({count})</strong>"
     storelist: "Betriebe ({count})"
   history:
-    noActor: "Es liegt keine Information über den Ersteller vor"
+    noActor: "unbekannt"
     noData: "Es liegen keine Daten vor."
     wasVerified: "Verifiziert"
     lostVerification: "Entverifiziert"
+    actionBy: "durch"
   notes:
     bread: "Notizen"
     title: "Notizen über {name}"
