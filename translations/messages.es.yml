@@ -18,12 +18,13 @@ picture: Foto
 options: Opciones
 botschafter: Embajador
 geschlecht: Sexo
-anschrift: Dirección (automáticamente del mapa anterior, corregir después si es necesario)
+anschrift: Dirección (automáticamente con el mapa anterior, corregir después si es
+  necesario)
 handy: Teléfono mobil
-telefon: Teléfono fijo
+telefon: Número de teléfono fijo (incl. código de país, comienza con +)
 attachement: Documento adjunto
 email: Correo electrónico
-plz: Código postal (automáticamente desde el mapa anterior)
+plz: Código postal (automáticamente con el mapa anterior)
 desc: Descripción
 description: Descripción
 edit: editar
@@ -33,7 +34,7 @@ subject: Asunto
 nachname: Apellido
 add: añadir
 name: Nombre
-geb_datum: Fecha de nacimiento
+geb_datum: Fecha de nacimiento (AAAA-MM-DD)
 newsletter: Boletín
 compose_body: Mensaje
 pass1: Tu nueva contraseña deseada
@@ -93,3 +94,4 @@ regionPin:
   lon: Longitud
 storemanagers: Gerentes de operaciones
 team_status: Estado del equipo
+edit_websites: Editar páginas web públicas
