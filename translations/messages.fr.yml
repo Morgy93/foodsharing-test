@@ -735,6 +735,10 @@ forum:
     close: Fermer le sujet
     navigate_to_newest_post: Aller au dernier article
     navigate_to_oldest_post: Aller au premier article
+    delivery_mail:
+      non_active: désactivé
+      title: Envoi de courrier
+      active: activé
   follow:
     email: comme courriel
     bell: par la cloche
