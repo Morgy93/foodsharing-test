@@ -520,8 +520,9 @@ profile:
   history:
     wasVerified: Verified
     lostVerification: De-verified
-    noActor: There is no information about the creator
+    noActor: unknown
     noData: No data is available.
+    actionBy: by
   nav:
     storelist: Stores ({count})
     notes: Notes <strong>({count})</strong>
