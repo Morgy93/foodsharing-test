@@ -33,7 +33,7 @@ export class RestController {
             return response.send(true); // there at least one connection to a client that is visible to the user
         }
 
-        return response.sendRaw('false', { 'Content-Type': 'application/json' }); // due to a bug in Restify, a normal send would result in false being casted to null
+        return response.sendRaw('false', { 'Content-Type': 'application/json' }); // due to a bug in Restify, a normal send would result in false being cast to null
     }
 
     /**

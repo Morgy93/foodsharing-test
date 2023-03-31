@@ -68,17 +68,4 @@ export class ConnectionRegistry {
     get numRegisteredSessions (): number {
         return this.registeredConnections.size;
     }
-
-    get numConnectionsOnline (): number {
-        let numConnectionsOnline = 0;
-        for (const connections of this.registeredConnections.values()) {
-            for (const connection of connections) {
-                if (connection.clientIsHidden) {
-                    continue;
-                }
-                numConnectionsOnline++;
-            }
-        }
-        return numConnectionsOnline;
-    }
 }

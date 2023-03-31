@@ -63,7 +63,7 @@
 
 
 - Delete faulty mails on imap server !2591 @stcz
-
+- Bump typescript to version 5 !2637 @peter.toennies
 
 ## Development documentation
 

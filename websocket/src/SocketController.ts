@@ -12,7 +12,7 @@ export class SocketController {
     }
 
     @OnSocketConnection()
-    onConnect (socket: Socket): void {
+    onConnect (): void {
         this.connectionRegistry.numConnections++;
     }
 
