@@ -96,7 +96,7 @@ class VerificationRestController extends AbstractFOSRestController
         );
         $this->bellGateway->addBell($userId, $bellData);
 
-        $passportMailLink = 'https://foodsharing.de/' . $passportGenLink;
+        $passportMailLink = 'https://foodsharing.de' . $passportGenLink;
         $fs = $this->foodsaverGateway->getFoodsaver($userId);
         $this->emailHelper->tplMail('user/verification', $fs['email'], [
             'name' => $fs['name'],
