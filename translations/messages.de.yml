@@ -293,8 +293,8 @@ pass:
     Foodsaver, die einen Ausweis bekommen haben und die Richtigkeit ihrer Persodaten bestätigt haben, können verifiziert werden.
   claim: "Teile Lebensmittel, anstatt sie wegzuwerfen!"
   verify:
-    do: "Account von {name} verifizieren"
-    undo: "Verifizierung von {name} aufheben"
+    do: "Account von {name} ({id}) verifizieren"
+    undo: "Verifizierung von {name} ({id}) aufheben"
     confirm: "Sicher?"
     text: |
       Persodaten gecheckt? <br/>
@@ -304,6 +304,7 @@ pass:
     checkPickups: "Vor dem Entverifizieren musst du die eingetragenen Abholtermine prüfen."
   button:
     verify: "Verifizieren"
+    unverify: "Entverifizieren"
     check: "Termine prüfen"
   noPhoto: "Die folgenden Personen haben noch kein Foto hochgeladen:"
   notGenerated: "Ihr Ausweis konnte daher nicht erstellt werden."
@@ -327,6 +328,7 @@ bcard:
 
 group:
   name: "Name"
+  userId: "ID"
   description: "Beschreibung"
   photo: "Foto"
   last_activity: "Letzte Aktivität"
@@ -1443,6 +1445,7 @@ memberlist:
   header_for_district: "Foodsaver im Bezirk {bezirk}"
   header_for_workgroup: "Foodsaver in der Arbeitsgruppe {bezirk}"
   some_in_all: "({some} von {all})"
+  filter_for_name_id: "Name oder ID"
 
 genderlist:
   header_for_district: "Verteilung der Foodsaver nach Geschlecht in {bezirk}"
