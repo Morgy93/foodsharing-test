@@ -36,7 +36,7 @@
 - Move uploadlogic and actions from controller to transactionclass for reuse !2478 @martncodes-de
 - Reimplement create new forum thread in vue js !2627 @chriswalg
 - New vue component for address search !2632 @alex.simm
-
+- Replaced get store information to rest api !1449 @KoeMai
 - Replaced the history dialogs on profile pages with a vue component !2587 @alex.simm
 
 ## Dev/Test/CI stuff
