@@ -2519,6 +2519,7 @@ poll:
     option_text: "Option"
     percentage_of_votes: "Wahlbeteiligung"
     sum: "Summe"
+    average: "Mittelwert"
   submit_vote_question: "Wirklich jetzt abstimmen? Deine Auswahl kann danach nicht mehr geändert werden."
   eligible_votes_count: "Anzahl der Stimmberechtigten"
   edit:
