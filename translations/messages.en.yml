@@ -2093,6 +2093,7 @@ bcard:
   claim: Generate, print and cut easily here …
   info:
     address_shortened: Your address will be abbreviated on the business card.
+  role: "Role/Region"
 picture_upload_widget:
   picture_upload: Upload image
   choose_picture: Choose a picture from your computer.

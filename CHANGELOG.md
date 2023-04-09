@@ -24,6 +24,7 @@
 - Hacky workaround to replace $amp in urls from chat messages #1531 !2594 @chriswalg
 - Fixed some stability issues with incoming Mail processing !2598 !2607 @\_fridtjof_
 - Removed remains of mapbox-gl in the LeafletMap component #1570 !2628 @alex.simm
+- Made creation of business cards for foreign languages work #1575 @andre161292
 
 
 ## Refactoring
