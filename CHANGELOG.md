@@ -12,6 +12,8 @@
 - Updated the number of registered users on the start page !2629 @alex.simm
 - Added home region and verified columns to member tables of regions and working groups !2602 #1548 @alex.simm
 - Minor updates in the frontend of the voting tool #975 !2640 @alex.simm 
+- Show title of forum post in window header !2658 #1591 @Martin Goldenbaum
+- Show title of forum post in window header !2658 #1591 @McGoldi
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
