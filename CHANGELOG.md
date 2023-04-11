@@ -26,6 +26,7 @@
 - Fixed some stability issues with incoming Mail processing !2598 !2607 @\_fridtjof_
 - Removed remains of mapbox-gl in the LeafletMap component #1570 !2628 @alex.simm
 - Made creation of business cards for foreign languages work #1575 @andre161292
+- Fixed deleted notification subscriptions for forum threads whenever a user is removed #1066 @McGoldi
 
 
 ## Refactoring
