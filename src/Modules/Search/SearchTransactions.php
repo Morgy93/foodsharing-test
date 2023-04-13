@@ -88,13 +88,12 @@ class SearchTransactions
 
     private function searchUserByEmail(string $query): array
     {
-        if (!filter_var($query, FILTER_VALIDATE_EMAIL)) {
+        if (str_ends_with($query, PLATFORM_MAILBOX_HOST) || !filter_var($query, FILTER_VALIDATE_EMAIL)) {
             return [];
         }
 
-        try {
-            $user = $this->foodsaverGateway->getUserFromEmail($query);
-        } catch (\Exception $e) {
+        $user = $this->foodsaverGateway->getUserFromEmail($query);
+        if (empty($user)) {
             return [];
         }
 

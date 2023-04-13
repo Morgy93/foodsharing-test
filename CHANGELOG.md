@@ -13,7 +13,7 @@
 - Added home region and verified columns to member tables of regions and working groups !2602 #1548 @alex.simm
 - Minor updates in the frontend of the voting tool #975 !2640 @alex.simm
 - Show title of forum post in window header !2658 #1591 @McGoldi
-- Support and orga-user can search users with e-mail !2651 @chriswalg @martincodes-de
+- Support and orga-user can search users with e-mail !2651 !2663 @chriswalg @martincodes-de
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
