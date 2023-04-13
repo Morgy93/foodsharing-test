@@ -72,6 +72,7 @@
 - Improved scripts. repaired outdated notify. Made test rerun faster. Made clean more powerfull !2622 @peter.toennies
 - Delete faulty mails on imap server !2591 @stcz
 - Replaced FS_ENV to "${1:-dev}" for containers-start to solve unbound variable !2542 @chriswalg
+- Made scripts work with docker-compose-plugin !1587 @andre161292
 
 ## Development documentation
 
