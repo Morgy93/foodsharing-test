@@ -27,6 +27,7 @@
 - Removed remains of mapbox-gl in the LeafletMap component #1570 !2628 @alex.simm
 - Made creation of business cards for foreign languages work #1575 @andre161292
 - Fixed deleted notification subscriptions for forum threads whenever a user is removed #1066 @McGoldi
+- Use strip_tags instead of preg_replace for basket phone to keep + sign #1005 !2650
 
 
 ## Refactoring
