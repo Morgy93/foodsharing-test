@@ -28,6 +28,7 @@
 - Made creation of business cards for foreign languages work #1575 @andre161292
 - Fixed deleted notification subscriptions for forum threads whenever a user is removed #1066 @McGoldi
 - Use strip_tags instead of preg_replace for basket phone to keep + sign #1005 !2650
+- Fix wrong Content-Length header in mailbox attachment and passport download !2664 @stcz
 
 
 ## Refactoring
