@@ -14,6 +14,8 @@
 - Minor updates in the frontend of the voting tool #975 !2640 @alex.simm
 - Show title of forum post in window header !2658 #1591 @McGoldi
 - Support and orga-user can search users with e-mail !2651 !2663 @chriswalg @martincodes-de
+- focus foodsharing tab of the same kind if clicking a push notification !2671 @buntel
+- close push notification of the same thread or same kind if clicked !2671 @buntel
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
@@ -29,6 +31,7 @@
 - Fixed deleted notification subscriptions for forum threads whenever a user is removed #1066 @McGoldi
 - Use strip_tags instead of preg_replace for basket phone to keep + sign #1005 !2650
 - Fix wrong Content-Length header in mailbox attachment and passport download !2664 @stcz
+- close push notification on android phones !2671 @buntel
 
 
 ## Refactoring
