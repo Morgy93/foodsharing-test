@@ -130,6 +130,7 @@ poll:
     votes: Stemmer
     number_of_votes: Avgitte stemmer
     percentage_of_votes: Valgdeltakelse
+    average: Gjennomsnitt
   new_poll:
     option: Alternativ
     time: Tid
@@ -702,7 +703,8 @@ profile:
     lostVerification: de-verifisert
     wasVerified: verifisert
     noData: Ingen data er tilgjengelige.
-    noActor: Det er ingen informasjon om skaperen
+    noActor: ukjent
+    actionBy: gjennom
   nav:
     violations: Klager <strong>({count})</strong>
     notes: Merknader <strong>({count})</strong>
@@ -1146,6 +1148,7 @@ memberlist:
   some_in_all: ({some} av {all})
   header_for_district: Matreddere i distrikt {bezirk}
   header_for_workgroup: Matreddere i arbeidsgruppe {bezirk}
+  filter_for_name_id: Navn eller ID
 bell:
   report_reason: '{reason}'
   workgroup_request_decline_title: '{name}'
@@ -1589,6 +1592,7 @@ group:
   last_activity: Siste aktivitet
   filter_by_last_activity: Ikke aktiv på måneder
   role_name: Rolle
+  userId: ID
 bcard:
   generate: Lag visittkort
   actions: Alternativer
@@ -1606,6 +1610,7 @@ bcard:
     address_shortened: Din adresse og/eller postnummer + sted vil vises i forkortet
       form på visittkortet.
   desc: Velg hvilket distrikt eller hvilken rolle du vil lage visittkortet ditt for.
+  role: Rolle/Region
 pass:
   nav:
     options: Alternativer
@@ -1618,8 +1623,8 @@ pass:
   verify:
     failed: Et problem oppstod
     confirm: Sikker?
-    do: Bekreft kontoen til {name}
-    undo: Opphev bekreftelsen av {name}
+    do: Bekreft kontoen til {name} ({id})
+    undo: Opphev bekreftelsen av {name} ({id})
     text: "Sjekket personopplysninger? <br/>\nOverlate ID?\n"
     hasPickup: Fortsatt registrert for henting
     checkPickups: Før du avverifiserer, må du sjekke de kommende hentedatoene.
@@ -1631,6 +1636,7 @@ pass:
   button:
     verify: Bekrefte
     check: Sjekk datoer
+    unverify: Deverifisere
   bread: Pass generator
   hintSelect: "Med et klikk på opprettelsesdatoen merkes alle matreddere med samme\
     \ dato eller uten opprettelsesdato.\n"
@@ -2274,6 +2280,11 @@ store:
   useRegionPickupRules: 'I tillegg til driftsreglene gjelder følgende distriktsdekkende
     rettferdighetsregel for henting:'
   regionPickupRules: ekstra rettferdighetsregel
+  regionPickupRuleLong: Innenfor {regionPickupRuleTimespan} dager kan det ikke foretas
+    mer enn totalt {regionPickupRuleLimit} hentinger, idet det tas hensyn til alle
+    virksomheter med distriktsregler. Det kan ikke hentes mer enn totalt {regionPickupRuleLimitDay}
+    ganger fra disse virksomhetene per dag. {regionPickupRuleInactive} timer før henting,
+    tas det ikke hensyn til denne regelen.
 storeview:
   status: Nåværende status
   public_time_at_night: om natten
@@ -2532,6 +2543,15 @@ regionOptions:
   regionPickupInactiveHours: 'Vennligst angi hvor mange timer før henting denne regelen
     skal slutte å være implementert'
   regionPickupLimitNumber: 'Angi maksimalt antall mulige samlinger for denne perioden'
+  regionPickupLimitDayNumber: Angi det totale mulige maksimale antallet henting fra
+    populære virksomheter på én dag
+  regionPickupRuleActive: 'Aktiver følgende distriktsregel for henting på populære
+    bedrifter:'
+  regionPickupTimespan: Vennligst skriv inn antall dager før og etter ønsket hentedato
+    som du vil at andre hentinger fra populære virksomheter skal telles med
+  regionPickupRuleActiveStoreList: 'Liste over selskaper innenfor distriktet som skal
+    vurderes for regelen. Merk: henting i alle børsnoterte selskaper vil bli lagt
+    sammen og vurdert.'
 messages:
   bread: Meldinger
 list:
