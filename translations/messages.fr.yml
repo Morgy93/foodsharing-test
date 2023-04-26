@@ -207,6 +207,7 @@ group:
   entermotivation: 'Motivation :'
   enterxp: 'Expérience :'
   enterskills: 'Compétences :'
+  userId: ID
 bcard:
   generate: Créer une carte de visite
   error:
@@ -234,11 +235,12 @@ pass:
   button:
     verify: Vérifier
     check: Vérifier les occurences
+    unverify: Dévérifier
   verify:
     failed: Une erreur s'est produite
     confirm: Sûr·e ?
-    undo: Vérification du compte de {name} annulée
-    do: Vérifier le compte de {name}
+    undo: Vérification du compte de {name} ({id}) annulée
+    do: Vérifier le compte de {name} ({id})
     text: "Données personnelles ok <br/> ?\nBadge remis à l'intéressé(e) ?\n"
     checkPickups: Avant de retirer la vérification, vérifie les collectes de ce membre.
     hasPickup: Encore inscrit pour des collectes
@@ -2170,6 +2172,7 @@ memberlist:
   some_in_all: ({some} de {all})
   header_for_workgroup: Foodsaver dans le GT {bezirk}
   header_for_district: Collecteur.ice dans le secteur géographique {bezirk}
+  filter_for_name_id: Nom ou ID
 list:
   filter_for: Filtrer suivant…
 bell:
@@ -2535,6 +2538,7 @@ poll:
     votes: voix
     number_of_votes: Voix attribuées
     percentage_of_votes: Participation au vote
+    average: Moyenne
   may_not_yet_vote: Ce vote n'a pas encore commencé.
   may_not_vote: Tu ne peux pas participer à ce vote.
   already_voted: tu as déjà participé à ce vote
