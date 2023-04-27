@@ -7,7 +7,7 @@ lon: Boylam
 regionPin:
   lat: Enlem
   lon: Boylam
-email: Email adresi
+email: E-Posta Adresi
 attachement: Ek
 name: Ad
 nachname: Soyad
@@ -16,4 +16,59 @@ anschrift: Sokak ve ev numarası (yukarıdaki haritadan otomatik olarak, gerekir
 address: Adres
 options: Seçenekler
 picture: Resim
-geschlecht: cinslik
+geschlecht: Cinsiyet
+teaser: Tanıtım
+bezirk_id: Bu ürün hangi bölge için geçerlidir?
+opt: Seçenekler
+testemail: Test E-Posta Adresi
+mailbox_id: Gönderen e-posta adresi
+online_type: Etkinlik çevrimdışı mı yoksa çevrimiçi mi gerçekleşecek?
+dateend: Son Tarihi
+pass2: Şifre tekrarı
+compose_body: Mesaj
+newsletter: E-Bülteni
+newmail: Yeni e-posta adresinizi giriniz
+sleep_msg: Buraya şu anda neden vaktiniz olmadığını kısa bir mesaj bırakabilirsiniz.
+verantwortlicher: Yetkili Üyeler
+edit_websites: Genel Web Sitelerini düzenle
+botschafter: Elçi
+stadt: Bağlı olduğunuz Şehir veya Belde
+bezirk: Bölge
+betrieb: İşbirliğinde olan İşletmeler
+rolle: Kullanıcı Rolü
+mailbox_name: Posta Kutusu Adı
+title: Başlık
+body: Mesaj
+active: Aktif Durumda
+photo: Fotoğraf
+info: Bilgi
+ort: Şehir/Belde (yukarıdaki haritadan otomatik olarak)
+about_me_public: Herkese Açık Kısa Tanımlama
+about_me_intern: Özet
+daterange: Süre
+regions: İlçeler
+status: Güncel Durum
+parent_id: Ebeveyn kimliği
+fs_id: foodsharing-ID
+location_name: Etkinlik mekanı / konferans salonu
+infomail_message: foodsharing üzerinden sohbet mesajlarının bildirimi
+pass1: İstediğiniz yeni şifreniz
+telefon: Sabit Telefon numarası (ülke kodu dahil, + ile başlar)
+handy: Cep Telefonu numarası (ülke kodu dahil, + ile başlar)
+description: Açıklama
+plz: Posta Kodu (otomatik olarak yukarıdaki haritadan)
+passcheck: Lütfen değişikliği şifrenizle onaylayın
+sleep_status: Güncel durumunuz
+edit: düzenle
+desc: Açıklama
+subject: Konu
+message: Mesaj
+homepage: Web Siteniz
+food_type: Hangi tür gıdalar mevcut?
+groups:
+  empty: Henüz herhangi bir çalışma grubunda değilsiniz
+weight: Tahmini Ağırlık
+position: Foodsharingde ki Pozisyonu (kamu)
+infotype: Bildiri
+fsp_bezirk_id: Dağıtım Noktası hangi semtte?
+fspmanagers: Dağıtım noktalarından sorumlu gıda kurtarıcıları (Foodsaver)
