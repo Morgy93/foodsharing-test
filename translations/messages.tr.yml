@@ -72,3 +72,125 @@ position: Foodsharingde ki Pozisyonu (kamu)
 infotype: Bildiri
 fsp_bezirk_id: Dağıtım Noktası hangi semtte?
 fspmanagers: Dağıtım noktalarından sorumlu gıda kurtarıcıları (Foodsaver)
+fetchstate: Herşey yolunda mıydı ?
+contact_type: Sizinle nasıl iletişime geçilmesini istersiniz?
+lifetime: Yemek sepetiniz ne kadar süreyle geçerli olsun?
+request_time: 'İstek zamanı:'
+storemanagers: İşletme Sorumlusu
+team_status: Ekip Statüsü
+betrieb_kategorie_id: Kategori
+first_post: İlk Pano Kayıtı
+begin: İşbirliğinin başlangıcı
+besonderheiten: Ekip Statüsü
+public_info: Şirket hakkında açık görünen bilgiler
+fax: Faks
+lebensmittel: Hangi yiyecekler alınabilir?
+abholmenge: Kurtarma başına yaklaşık kaç kilogram alınabilir?
+ueberzeugungsarbeit: Yetkiliyi foodsharing ile işbirliği yapmaya ikna etmek kolay
+  mıydı?
+presse: Şirket/Mağaza/Dernek basında ve foodsharing'de ismini vermeye hazır mı?
+member: Üyeler
+explanation: Açıklama
+week_num: Başvuranın kaç hafta orada olması gerekirli?
+leader: Grup Yöneticisi
+quiz:
+  question: Soru
+  questions: Sorular
+  resultsbelow: Değerlendirmeyi aşağıda bulabilirsiniz.
+  donecorrectly: Tamamen doğru cevapladınız. Tebrikler!
+  wikilink: Bu konuya uygun Wiki Makalesi
+  finishnow:
+    bv: Şimdi İşletmeden Sorumlu Yetkili kaydını tamamlayınız.
+  choice:
+    wrongb: bu doğru değil!
+    percentb: '% doğru cevapladınız.'
+    koquestion: Ne yazık ki, bu soru özellikle önemliydi ve doğru yanıtlamadınız.
+    correcta: doğru!
+    correctb: Bu yalnış. Doğru bildiniz!
+  goodluck: Bol şanslar!
+  timedstart: Zaman sınırlı ve 10 sorulu sınava başlayın
+  congrats_details: Tebrikler! Maksimum {max_points} ceza puanından {points} ile geçtiniz!
+  finished: Tebrikler, başardınız!
+  regstart: Süre sınırlaması olmayan, 20 soru ile sınava başlayın
+  heavysigh: Başardınız!
+  notfinishedyet: Bulmacayı bitirmediniz.
+answers: Hangi cevaplar doğru?
+maxfp: Geçilmesi gerekilen maksimum hata puanları
+questcount: Sınavda kaç soru sorulmalıdır?
+wikilink: Wiki Sayfasına giden link
+button:
+  upload: Yükleme
+  new: Yeni
+  edit: Düzenle
+  delete: Sil
+  apply: Kabul et
+  next: Devam et
+  yes_i_am_sure: Evet eminim
+upload:
+  new_image: Yeni resim yükle
+picture_upload_widget:
+  picture_upload: Fotoğraf yükleme
+pass:
+  photo: Fotoğraf
+  name: Ad
+  hintVerify: "Kimlik kartı alan ve kişisel verilerinin doğruluğunu onaylayan Foodsaverlar\
+    \ onaylanabilir.\n"
+group:
+  actions:
+    go: Gruba git
+    edit: Grubu düzenle
+  description: Açıklama
+  apply:
+    faehigkeit: Bu alanda sahip olduğunuz becerileriniz nelerdir?
+  application_requirements:
+    everybody: Herkes başvurabilir.
+  image: '%name% için kapak fotoğrafı'
+ansprechpartner: İşletmeden sorumlu Yektili (Şube Müdürü vs.)
+text: Metin
+fp: Hata puanları
+fpsingular: Hata puanı
+nofp: hata puanı yok (şaka sorusu)
+bell:
+  workgroup_request_decline: Çalışma grubuna kabul edilmediniz.
+  buddy_request: '{name} seni tanıyor.'
+  buddy_request_title: '{name} tanıyor musunuz?'
+sig:
+  buddies: Tanıdığın insanlar
+error:
+  mail_activation:
+    link_2: E-Posta  adresini değiştirin
+activitypost:
+  quickreply_info: <code class="key">Shift + Enter</code> yeni bir satır eklemek için.
+  quickreply_button: Şimdi gönder<br>veya <code class="key">Enter tuşuna</code>bas.
+  write: Cevap yaz…
+bootstrap-datepicker:
+  labelPrevMonth: Geçen ay
+  labelCurrentMonth: Güncel ay
+  labelNextMonth: Gelecek ay
+  labelNextYear: Gelecek yıl
+  labelNav: Takvim Navigasyonu
+  labelHelp: Ok tuşlarını kullanarak Takvimde gezinin
+  labelNextDecade: Önümüzdeki on yıl
+  labelSelected: Seçilen Tarih
+  labelNoDateSelected: Tarih seçilmedi
+  labelPrevDecade: Önceki on yıl
+  labelCalendar: Takvim
+  labelPrevYear: Geçen sene
+  labelToday: Bugün
+pickuplist:
+  error_leave: 'Çıkış başarısız oldu: '
+  tryagain: Yeniden yükledikten sonra tekrar deneyiniz.
+  error_loadingPickup: 'Slotlar yüklenemedi: '
+list:
+  filter_for: '...göre filtrele'
+startpage:
+  towns:
+    title: foodsharing şehirleri
+filter_by: ..göre filtrele
+right: Değerlendirme
+apply_type: Bu gruba kimler kayıt olabilir?
+ui:
+  switch:
+    off: kapalı
+bcard:
+  card: Foodsharing kartvizitiniz
