@@ -221,7 +221,7 @@ sig:
   buddies: Tanıdığın insanlar
 error:
   mail_activation:
-    link_2: E-Posta  adresini değiştirin
+    link_2: E-Posta adresini değiştirin
 activitypost:
   quickreply_info: <code class="key">Shift + Enter</code> yeni bir satır eklemek için.
   quickreply_button: Şimdi gönder<br>veya <code class="key">Enter tuşuna</code>bas.
@@ -247,7 +247,7 @@ pickuplist:
   unclear: Durum belirsiz
   error_whileSending: Mesaj gönderirken hata oluştu
 list:
-  filter_for: '...göre filtrele'
+  filter_for: '… göre filtrele'
 startpage:
   towns:
     title: foodsharing şehirleri
