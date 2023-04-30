@@ -107,6 +107,15 @@ quiz:
     koquestion: Ne yazık ki, bu soru özellikle önemliydi ve doğru yanıtlamadınız.
     correcta: doğru!
     correctb: Bu yalnış. Doğru bildiniz!
+    cresponses: Doğru Cevaplar
+    nresponses: Nötr Cevaplar
+    wresponses: Yalnış Cevaplar
+    writecomment: Bu soruya yorum yazın
+    send: Gönder
+    joke: sadece bir şakaydı ve elbette değerlendirilmeyecek
+    whatisko: Bu tür soruların değeri özellikle yüksektir ve yanlış yanıtlama ne yazık
+      ki başarısızlığa yol açar.
+    responses: Cevaplayınız
   goodluck: Bol şanslar!
   timedstart: Zaman sınırlı ve 10 sorulu sınava başlayın
   congrats_details: Tebrikler! Maksimum {max_points} ceza puanından {points} ile geçtiniz!
@@ -114,6 +123,15 @@ quiz:
   regstart: Süre sınırlaması olmayan, 20 soru ile sınava başlayın
   heavysigh: Başardınız!
   notfinishedyet: Bulmacayı bitirmediniz.
+  threestrikes: Sınavda 3 kez başarısız oldunuz.
+  waitxdays: '... Süre zarfından sonra tekrar deneyebilirsiniz'
+  safeandsound: Hiç sorun değil. Oturumunuz kaydedildi. İstediğiniz zaman yanıtlamaya
+    devam edebilirsiniz.
+  continuenow: Testi yanıtlamaya şimdi devam edin!
+  trynumber: Bu deneme numara
+  failedbeforebut: ' kadar sınavı geçemediniz. Ama hala şu kadar deneme hakkınız kaldı:'
+  continuetype: -Teste devam edin
+  days: Günler
 answers: Hangi cevaplar doğru?
 maxfp: Geçilmesi gerekilen maksimum hata puanları
 questcount: Sınavda kaç soru sorulmalıdır?
@@ -142,9 +160,54 @@ group:
   description: Açıklama
   apply:
     faehigkeit: Bu alanda sahip olduğunuz becerileriniz nelerdir?
+    motivation: '{group} grubuna katılma motivasyonunuz nedir?'
+    title: '{group} için başvuru'
+    summary: '{name} {group} grubuna katılmak istiyor.'
   application_requirements:
     everybody: Herkes başvurabilir.
   image: '%name% için kapak fotoğrafı'
+  saved: Değişiklikler kaydedildi
+  function:
+    fsp: Dağıtım Noktası
+    stores: İşletmeler
+    voting: Oylama
+    report: Bildiriler
+    mediation: Arabuluculuk
+    board: Yönetim Kurulu
+    moderation: Moderatör
+    invalid: Bir İlçeye çalışma grubu rolü verilemez.
+    duplicate_welcome_team: Karşılama ekibi oluşturuldu! Bölge başına yalnızca bir
+      karşılama ekibi olabilir.
+    arbitration: Tahkim Kurulu
+    fsmanagement: Yönetim
+    pr: Halkla İlişkiler
+    duplicate_stores_team: İşletme koordinasyon ekibi zaten kuruldu! Bölge başına
+      yalnızca bir işletme koordinasyon ekibi olabilir.
+    duplicate_fsp_team: Dağıtım ekibi zaten oluşturuldu! Bölge başına yalnızca bir
+      dağıtım ekibi olabilir.
+    duplicate_voting_team: Oylama ekibi oluşturuldu! Her bölge için yalnızca bir oylama
+      ekibi olabilir.
+  entermotivation: 'Motivasyon:'
+  mail_link_title:
+    region: Bölge Posta Kutusu
+    workgroup: Çalışma grubunun posta kutusu
+  edit:
+    title: '{group} düzenle'
+    description_required: Lütfen bir açıklama giriniz.
+    description_placeholder: Çalışma grubunun açıklaması
+    name_required: Lütfen bir isim giriniz.
+  contact:
+    disclaimer: "Bu çalışma grubuna mesaj gönderdiğiniz an,\nfoodsharing profilinizde\
+      \ belirttiğiniz e-posta adresinizi,çalışma grubunun tüm yöneticileri görür.\n\
+      Bu mesajın bir kopyası da size, E-Posta yoluyla gönderilecektir.\n"
+    admins: '{count} İlgili kişi:'
+    title: '{group} ile iletişime geç'
+    empty: Hadi önce bir şeyler yaz ;)
+    send: Mesaj gönder
+    sent: Mesaj başarıyla gönderildi.
+  enterskills: 'Yetenekler:'
+  enterxp: 'Deneyim:'
+  entertime: 'Zaman:'
 ansprechpartner: İşletmeden sorumlu Yektili (Şube Müdürü vs.)
 text: Metin
 fp: Hata puanları
@@ -181,6 +244,8 @@ pickuplist:
   error_leave: 'Çıkış başarısız oldu: '
   tryagain: Yeniden yükledikten sonra tekrar deneyiniz.
   error_loadingPickup: 'Slotlar yüklenemedi: '
+  unclear: Durum belirsiz
+  error_whileSending: Mesaj gönderirken hata oluştu
 list:
   filter_for: '...göre filtrele'
 startpage:
@@ -194,3 +259,98 @@ ui:
     off: kapalı
 bcard:
   card: Foodsharing kartvizitiniz
+month:
+  "4": Nisan
+  "6": Haziran
+  "8": Ağustos
+  short:
+    "1": Oca.
+    "7": Tem.
+    "8": Ağu.
+    "9": Eyl.
+    "2": Şub.
+    "3": Mar.
+    "4": Nis.
+    "10": Eki.
+    "12": Ara.
+    "6": Haz.
+    "11": Kas.
+    "5": May.
+  "5": Mayıs
+  "11": Kasım
+  "12": Aralık
+  "9": Eylül
+  "10": Ekim
+  "1": Ocak
+  "2": Şubat
+  "3": Mart
+  "7": Temmuz
+really_delete: Gerçekten silinsin mi?
+no: Hayır
+notice: Bir uyarı!
+back: Geri dön
+error_permissions: Maalesef bu işlem için gerekli izinlere sahip değilsiniz.
+error_unexpected: Bir hata oldu
+storeedit:
+  team:
+    empty: Ekip boş kalamaz
+    coordinator: "Bu işletmeden siz sorumlu değilsiniz.\nAncak, işletme koordinasyon\
+      \ ekibinin bir parçası olarak geniş kapsamlı haklara sahipsiniz.\n"
+    unmanaged: "Şu anda bu işletmeden sorumlu kişi bulunmamaktadır.\nLütfen gelecekte\
+      \ bu işletmeden sorumlu olacak en fazla üç yönetici ekleyin.\n"
+    leave_myself: Kendinizi
+    need-sm: Bu İşletme için en az bir kişi sorumlu olmalıdır.
+    note: 'Uyarı:'
+    cannot-leave: Bu işletmeden hala siz sorumlusunuz ve bu nedenle ayrılamazsınız.
+    max-sm: Lütfen işletmeden sorumlu, en fazla üç yönetici seç
+date:
+  -- Tomorrow: Yarın
+  yesterday: dün
+  sunday: Pazar
+  Today: Bugün
+  today: bugün
+  saturday: Cumartesi
+  tomorrow: yarın
+  -- Yesterday: Dün
+  thursday: Perşembe
+  monday: Pazartesi
+  tuesday: Salı
+  wednesday: Çarşamba
+  friday: Cuma
+date_short:
+  Tuesday: Sal
+  Thursday: Per
+  Wednesday: Çar
+  Friday: Cum
+  Saturday: Cmt
+  Monday: Pzt
+  Sunday: Paz
+ageBandList:
+  ageBand: Yaş Grupları
+  header_for_district: '{bezirk} bölgesindeki yaş grupları '
+  district_tab: Bölge
+  home_district_tab: Bağlı olduğunuz Bölge
+  NumberOfAgeband: Sayısı
+regionOptions:
+  header_page: '{bezirk} için seçenekler'
+  enableMediationButton: Bölgenin foodsaver profillerine bir arabuluculuk bağlantısı
+    yerleştirerek arabuluculuk için teknik destek sağlayın.
+  success: Seçenekler başarıyla kaydedildi
+  save: Seçenekleri kaydet
+  enableReportButton: Bölgedeki düzenli Foodsaverların profillerine ilişkin bir rapor
+    bağlantısı aracılığıyla raporlar için teknik desteği etkinleştirin.
+validate:
+  required: '{it} boş kalamaz'
+select: Lütfen seçiniz
+reports:
+  about: Hakkında
+message_text_to_group_admin_workgroup: '<b>{groupName}</b> bölgesi/çalışma grubu artık
+  <b>herhangi bir</b> Elçiye/Yöneticiye sahip değil.<br><br><br>Şu kimlik yapısına
+  sahip: <br>{idStructureList }<br><br>Kimlik: {groupId}<br><br>URL: "<a href="https://foodsharing.de/?page=bezirk&bid={groupId}&sub
+  =forum" target= "_blank">Bölgeye/çalışma grubuna gitmek için burayı tıklayın</a>'
+success: Başarıyla tamamlandı
+error_ajax: "Bu ne yazık ki işe yaramadı.\nBelki internet bağlantınız şu anda çalışmıyordur.\n\
+  Sayfayı yeniden yükleyin ve tekrar deneyin.\n"
+delete: Sil
+yes: Evet
+deletelow: sil
