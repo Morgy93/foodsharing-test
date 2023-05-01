@@ -44,8 +44,10 @@ class ProfilePermissions
             if (!UnitType::isAccessibleRegion($regionType)) {
                 return false;
             }
+
             return true;
         }
+
         return false;
     }
 
