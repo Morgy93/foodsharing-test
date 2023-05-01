@@ -53,6 +53,7 @@
 
 - added poppins font in Styleguide !2564 @Niklas003
 - Replace the region tree with a new vue component !2483 @alex.simm
+- New vue component for blog posts !2676 @alex.simm
 
 ## Dev/Test/CI stuff
 - Fix given null parameter !2550 @BibaltiK

@@ -1005,7 +1005,7 @@ class Foodsharing extends \Codeception\Module\Db
             'bezirk_id' => $regionId,
             'foodsaver_id' => $authorId,
             'name' => $this->faker->text(40),
-            'body' => $this->faker->text(),
+            'body' => $this->faker->text(2000),
             'teaser' => $this->faker->text(50),
             'time' => $this->faker->dateTime($max = 'now'),
             'active' => 1,
