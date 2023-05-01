@@ -5,6 +5,7 @@ namespace Foodsharing\Permissions;
 use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionIDs;
+use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
 use Foodsharing\Modules\Region\RegionGateway;
 
@@ -21,6 +22,9 @@ class ProfilePermissions
         $this->foodsaverGateway = $foodsaverGateway;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function mayAdministrateUserProfile(int $userId, ?int $regionId = null): bool
     {
         if ($this->session->mayRole(Role::ORGA)) {
@@ -31,13 +35,18 @@ class ProfilePermissions
             return false;
         }
 
-        if ($regionId !== null && $this->session->isAdminFor($regionId)) {
+        if ($regionId !== null) {
+            if (!$this->session->isAdminFor($regionId)) {
+                return false;
+            }
+
+            $regionType = $this->regionGateway->getType($regionId);
+            if (!UnitType::isAccessibleRegion($regionType)) {
+                return false;
+            }
             return true;
         }
-
-        $regionIds = $this->regionGateway->getFsRegionIds($userId);
-
-        return $this->session->isAmbassadorForRegion($regionIds, false, true);
+        return false;
     }
 
     public function hasApplicant(int $userId): bool
