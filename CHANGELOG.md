@@ -49,6 +49,7 @@
 - Replaced get store information to rest api !1449 @KoeMai
 - Replaced the history dialogs on profile pages with a vue component !2587 @alex.simm
 - Moved verification to memberlist !2646 @chriswalg
+- The broadcast banner fetches its content from the API #1284 !2661 @alex.simm
 
 - added poppins font in Styleguide !2564 @Niklas003
 - Replace the region tree with a new vue component !2483 @alex.simm
