@@ -196,8 +196,8 @@ pass:
     failed: Si è verificato un problema
     text: "Dati personali controllati?<br/>\nConsegnato l'ID carta?\n"
     confirm: sicuro?
-    undo: Annulla verifica {name}
-    do: Verifica l'account di {name}
+    undo: Annulla verifica {name} ({id})
+    do: Verifica l'account di {name} ({id})
   notGenerated: Non è stato possibile creare il tuo ID.
   noPhoto: 'Le seguenti persone non hanno ancora caricato una foto:'
   claim: Condividi il cibo invece di buttarlo via!
