@@ -61,6 +61,7 @@ const urls = {
   statistics: () => '/statistik',
   store: (storeId) => `/?page=fsbetrieb&id=${storeId}`,
   storeList: () => '/?page=fsbetrieb',
+  storeOwnList: () => '/?page=betrieb&a=own',
 
   team: () => '/team',
   transparency: () => '/?page=content&sub=transparency',

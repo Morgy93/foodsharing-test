@@ -4,6 +4,7 @@ namespace Foodsharing\Modules\Store;
 
 use Carbon\Carbon;
 use DateTime;
+use Exception;
 use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Bell\BellGateway;
 use Foodsharing\Modules\Bell\DTO\Bell;
@@ -138,11 +139,35 @@ class StoreTransactions
      * @param bool $expand Expand information about store and region
      *
      * @return array<StoreListInformation> List of information
+     *
+     * @throws Exception
      */
     public function listOverviewInformationsOfStoresInRegion(int $regionId, bool $expand): array
     {
         $stores = $this->storeGateway->listStoresInRegion($regionId, true);
 
+        return $this->arrayMapStoreListInformation($stores, $expand);
+    }
+
+    /**
+     * Returns a list of stores where the user is a member of reduced store information.
+     **
+     * @param int $userId User identifier
+     * @param bool $expand Expand information about store and region
+     *
+     * @return array<StoreListInformation> List of information
+     *
+     * @throws Exception
+     */
+    public function listOverviewInformationsOfStoresFromUser(int $userId, bool $expand): array
+    {
+        $stores = $this->storeGateway->listStoresInFromUser($userId);
+
+        return $this->arrayMapStoreListInformation($stores, $expand);
+    }
+
+    private function arrayMapStoreListInformation(array $stores, bool $expand): array
+    {
         return array_map(function (Store $store) use ($expand) {
             $requiredStoreInformation = StoreListInformation::loadFrom($store, !$expand);
             if ($expand) {
@@ -206,7 +231,7 @@ class StoreTransactions
     {
         try {
             $regionType = $this->regionGateway->getType($createStore->regionId);
-        } catch (\Exception $dbExpection) {
+        } catch (Exception $dbExpection) {
             throw new StoreTransactionException(StoreTransactionException::INVALID_REGION);
         }
         if (!UnitType::isAccessibleRegion($regionType)) {
@@ -901,7 +926,7 @@ class StoreTransactions
      *
      * @return bool true or false - true if no rule is violated, false if a rule is vialated
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function checkPickupRule(int $storeId, Carbon $pickupDate, int $fsId): bool
     {

@@ -1,7 +1,16 @@
 <template>
   <div class="card mb-3 rounded">
     <div class="card-header text-white bg-primary">
-      {{ $i18n('store.allStoresOfRegion') }} {{ regionName }}
+      <span
+        v-if="isManagingEnabled"
+      >
+        {{ $i18n('store.ownStores') }}
+      </span>
+      <span
+        v-else
+      >
+        {{ $i18n('store.allStoresOfRegion') }} {{ regionName }}
+      </span>
       <span>
         {{ $i18n('memberlist.some_in_all', {some: storesFiltered.length, all: stores.length}) }}
       </span>
@@ -76,6 +85,15 @@
           <div class="text-center">
             <StoreStatusIcon :cooperation-status="row.value" />
           </div>
+        </template>
+        <template
+          v-if="isManagingEnabled"
+          #cell(isManaging)="row"
+        >
+          <i
+            v-if="isManaging(row.item)"
+            class="fas fa-users-cog"
+          />
         </template>
         <template
           #cell(name)="row"
@@ -169,22 +187,12 @@ export default {
   components: { BCard, BTable, BButton, BPagination, BFormSelect, StoreStatusIcon },
   directives: { VBTooltip },
   props: {
-    regionName: {
-      type: String,
-      default: '',
-    },
-    stores: {
-      type: Array,
-      default: () => [],
-    },
-    regionId: {
-      type: Number,
-      default: 0,
-    },
-    showCreateStore: {
-      type: Boolean,
-      default: false,
-    },
+    stores: { type: Array, default: () => [] },
+    isManagingEnabled: { type: Boolean, default: false },
+    storeMemberStatus: { type: Array, default: () => [] },
+    showCreateStore: { type: Boolean, default: false },
+    regionId: { type: Number, default: 0 },
+    regionName: { type: String, default: '' },
   },
   data () {
     return {
@@ -194,13 +202,37 @@ export default {
       perPage: 20,
       filterText: '',
       filterStatus: null,
-      fields: [
+      statusOptions: [
+        { value: null, text: 'Status' },
+        { value: 1, text: i18n('storestatus.1') }, // CooperationStatus::NO_CONTACT
+        { value: 2, text: i18n('storestatus.2') }, // CooperationStatus::IN_NEGOTIATION
+        { value: 3, text: i18n('storestatus.3') }, // CooperationStatus::COOPERATION_STARTING
+        { value: 4, text: i18n('storestatus.4') }, // CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US
+        { value: 5, text: i18n('storestatus.5') }, // CooperationStatus::COOPERATION_ESTABLISHED
+        { value: 6, text: i18n('storestatus.6') }, // CooperationStatus::GIVES_TO_OTHER_CHARITY
+        { value: 7, text: i18n('storestatus.7') }, // CooperationStatus::PERMANENTLY_CLOSED
+      ],
+    }
+  },
+  computed: {
+    fields () {
+      const columns = [
         {
           key: 'cooperationStatus',
           label: i18n('storelist.status'),
           tdClass: 'status',
           sortable: true,
         },
+      ]
+      if (this.isManagingEnabled) {
+        columns.push({
+          key: 'isManaging',
+          label: i18n('storelist.isManaging'),
+          tdClass: 'status',
+          sortable: true,
+        })
+      }
+      columns.push(
         {
           key: 'name',
           label: i18n('storelist.name'),
@@ -236,20 +268,9 @@ export default {
           label: '',
           sortable: false,
         },
-      ],
-      statusOptions: [
-        { value: null, text: 'Status' },
-        { value: 1, text: i18n('storestatus.1') }, // CooperationStatus::NO_CONTACT
-        { value: 2, text: i18n('storestatus.2') }, // CooperationStatus::IN_NEGOTIATION
-        { value: 3, text: i18n('storestatus.3') }, // CooperationStatus::COOPERATION_STARTING
-        { value: 4, text: i18n('storestatus.4') }, // CooperationStatus::DOES_NOT_WANT_TO_WORK_WITH_US
-        { value: 5, text: i18n('storestatus.5') }, // CooperationStatus::COOPERATION_ESTABLISHED
-        { value: 6, text: i18n('storestatus.6') }, // CooperationStatus::GIVES_TO_OTHER_CHARITY
-        { value: 7, text: i18n('storestatus.7') }, // CooperationStatus::PERMANENTLY_CLOSED
-      ],
-    }
-  },
-  computed: {
+      )
+      return columns
+    },
     storesFiltered: function () {
       if (!this.filterText.trim() && !this.filterStatus) return this.stores
       const filterText = this.filterText ? this.filterText.toLowerCase() : null
@@ -288,6 +309,10 @@ export default {
     },
   },
   methods: {
+    isManaging (value) {
+      const isManaging = this.storeMemberStatus.some(obj => obj.list.some(item => item.id === value.id && item.isManaging === true))
+      return Boolean(isManaging)
+    },
     clearFilter () {
       this.filterStatus = null
       this.filterText = ''

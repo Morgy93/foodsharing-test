@@ -803,6 +803,7 @@ store:
   tooltip_managing: "Du bist verantwortlich für diesen Betrieb"
   tooltip_jumping: "Du bist Springer für diesen Betrieb"
   allStoresOfRegion: "Alle Betriebe aus dem Bezirk"
+  ownStores: "Eigene Betriebe"
   addNewStoresButton: "Neuen Betrieb eintragen"
   noStores: "Es sind noch keine Betriebe eingetragen"
   go: "Zur Teamseite"
@@ -2261,6 +2262,7 @@ storestatus:
 storelist:
  entered: "Eingetragen:"
  status: "Status"
+ isManaging: "Verantwortlich"
  name: "Name"
  address: "Straße"
  addressdata: "Anschrift"

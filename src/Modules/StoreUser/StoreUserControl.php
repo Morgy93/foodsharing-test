@@ -253,36 +253,6 @@ class StoreUserControl extends Control
                     $this->routeHelper->goAndExit('/karte');
                 }
             }
-        } else {
-            $this->pageHelper->addBread($this->translator->trans('menu.entry.your_stores'));
-
-            if ($this->storePermissions->mayCreateStore()) {
-                $this->pageHelper->addContent($this->v_utils->v_menu(
-                    [
-                        ['href' => '/?page=betrieb&a=new', 'name' => $this->translator->trans('storeedit.add-new')]
-                    ],
-                    $this->translator->trans('storeedit.actions')
-                ), CNT_RIGHT);
-            }
-
-            $region = $this->regionGateway->getRegion($this->session->getCurrentRegionId());
-            $stores = $this->storeGateway->getMyStores($this->session->id(), $this->session->getCurrentRegionId());
-            $this->pageHelper->addContent($this->view->u_storeList(
-                $stores['verantwortlich'],
-                $this->translator->trans('storelist.managing')
-            ));
-            $this->pageHelper->addContent($this->view->u_storeList(
-                $stores['team'],
-                $this->translator->trans('storelist.fetching')
-            ));
-
-            if (!is_null($region)) {
-                $regionName = $region['name'];
-                $this->pageHelper->addContent($this->view->u_storeList(
-                    $stores['sonstige'],
-                    $this->translator->trans('storelist.others', ['{region}' => $regionName])
-                ));
-            }
         }
     }
 

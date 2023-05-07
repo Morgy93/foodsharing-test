@@ -388,7 +388,7 @@ class StoreApiCest
 
         $names = $I->grabDataFromResponseByJsonPath('stores.*.name');
         foreach ($names as $name) {
-            $I->assertNull($name);
+            $I->assertNotEmpty($name, 'Store name should not be empty');
         }
     }
 
