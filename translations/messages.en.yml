@@ -1491,6 +1491,7 @@ storelist:
   status: Status
   entered: 'Created on:'
   geo: geo
+  isManaging: Managing
 releases:
   "2020-08": "'Pear' release (August 2020)"
   "2020-10": "'Cranberry' release (October 2020)"
@@ -1841,6 +1842,7 @@ store:
     times may be picked up from these districts per day. {regionPickupRuleInactive}
     hours before the pick-up, this rule is not taken into account.
   regionPickupRules: additional rule for much sought-after slots
+  ownStores: My stores
 search:
   mygroups: My groups
   mybuddies: My buddies
