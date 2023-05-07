@@ -14,7 +14,6 @@
 - Minor updates in the frontend of the voting tool #975 !2640 @alex.simm
 - Show title of forum post in window header !2658 #1591 @McGoldi
 - Support and orga-user can search users with e-mail !2651 !2663 @chriswalg @martincodes-de
-- User permission for ambassadors who are not in self::PART_OF_TOWN, self::CITY, self::REGION, self::DISTRICT is now no longer possible !2670 @chriswalg
 - focus foodsharing tab of the same kind if clicking a push notification !2671 @buntel
 - close push notification of the same thread or same kind if clicked !2671 @buntel
 
