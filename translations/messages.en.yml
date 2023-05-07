@@ -83,8 +83,8 @@ group:
       by the transregional group ‘AG Anlegen’
     tooltip_function_10: Administrators of this work group can approve posts in moderated
       forums.
-    tooltip_function_9: Administrators of this workgroup can edit the description
-      of the district in the map.
+    tooltip_function_9: Administrators of this working group can edit the description
+      of the local group in the map.
     tooltip_function_6: The e-mail address of this work group is shown at the ‘Request
       mediation’ button. The administrators have no special permissions.
     tooltip_function_5: Administrators of this work group can see messages about foodsaver
@@ -330,7 +330,7 @@ menu:
     press: Press
     forcompanies: For companies
     imprint: Impressum
-    regionalgroups: Regional groups
+    regionalgroups: Local groups
     Germany: Germany
     Austria: Austria
     Swiss: Switzerland
@@ -368,7 +368,7 @@ menu:
     friendcircle: circle of friends
     selfservice: Self service
     fundraising: Fundraising
-    pin: Description of district
+    pin: Description of local group
     helpwanted: Help wanted
     helpneeded: Help wanted urgently
     in_negotiation: In negotiation
@@ -951,7 +951,7 @@ terminology:
   group: Working group
   groups: Working groups
   baskets: Food baskets
-  community: Community {name}
+  community: Local group {name}
   basket: Food basket
   statistic: Statistics
   wall: pinboard
@@ -1002,7 +1002,7 @@ terminology:
   options: Options
   reports: Reporting View (local reporting group)
   arbitration: Reporting View (LS)
-  pin: Description of the district
+  pin: Description of the local group
   homepage: Homepage
   boardAdmins: Board
   role:
@@ -2754,7 +2754,7 @@ regionPin:
   save: save
   text_desc: Please provide a description of the local group or contact option here.
     This is shown in the popup of the pin from the map …
-  header_page: Public description of the district {bezirk}
+  header_page: Public description of the local group {bezirk}
   lon: Longitude
   desc: Description
   success: Saved successfully
