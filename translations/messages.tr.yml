@@ -1,5 +1,13 @@
 dashboard:
   greeting: Merhaba {name}! Burada olman güzel.
+  no_more_updates_all: Bu kadar!
+  settings_tooltip: Anasayfa- Ayarlar
+  updates_title_all: Güncelleme-Anasayfa
+  display_all: Tümü
+  updates_title_some: Güncelleme-Anasayfa ({0})
+  no_updates: Güncelleme yok
+  title: Gösterge Paneli
+  settings: Ayarlar
 geb_datum: Doğum tarihi (YYYY-AA-GG)
 add: ekle
 lat: Enlem
@@ -122,8 +130,8 @@ quiz:
   finished: Tebrikler, başardınız!
   regstart: Süre sınırlaması olmayan, 20 soru ile sınava başlayın
   heavysigh: Başardınız!
-  notfinishedyet: Bulmacayı bitirmediniz.
-  threestrikes: Sınavda 3 kez başarısız oldunuz.
+  notfinishedyet: Testi bitirmediniz.
+  threestrikes: Testde 3 kez başarısız oldunuz.
   waitxdays: '... Süre zarfından sonra tekrar deneyebilirsiniz'
   safeandsound: Hiç sorun değil. Oturumunuz kaydedildi. İstediğiniz zaman yanıtlamaya
     devam edebilirsiniz.
@@ -132,6 +140,10 @@ quiz:
   failedbeforebut: ' kadar sınavı geçemediniz. Ama hala şu kadar deneme hakkınız kaldı:'
   continuetype: -Teste devam edin
   days: Günler
+  session_deleted: Test iki haftadan uzun bir süre önce tamamlandığından, bu testin
+    sonuçları silindi.
+  quizleft: ' - Şimdi sadece bu testi başarmak kaldı !'
+  nownownow: Testi şimdi başlat
 answers: Hangi cevaplar doğru?
 maxfp: Geçilmesi gerekilen maksimum hata puanları
 questcount: Sınavda kaç soru sorulmalıdır?
@@ -155,9 +167,20 @@ button:
   rotate_right: saat yönünde döndür
   permadelete: Geri getirilemez bir şekilde silin
 upload:
-  new_image: Yeni resim yükle
+  new_image: Yeni fotoğraf yükle
+  file: Dosya yükle
+  no_image: Yüklenen dosya bir fotoğraf değil. Lütfen başka bir dosya seçin.
+  no_image_yet: Henüz bir fotoğraf yüklenmedi
+  no_image_chosen: Henüz bir dosya seçilmedi
+  image: Fotoğraf yükle
+  choose_file: Dosya yükle
+  new_file: Yeni dosya yükle
+  crop_dialog_title: Fotoğrafı kes
+  image-problem: Dosyanız düzenli görünmüyor, en iyisi normal bir jpg fotoğrafı seçmen
+  preview_image: Ön izleme
 picture_upload_widget:
   picture_upload: Fotoğraf yükleme
+  choose_picture: Bilgisayarınızdan bir fotoğraf seçin.
 pass:
   photo: Fotoğraf
   name: Ad
@@ -1335,6 +1358,63 @@ profile:
     week_0: Sonraki Hafta
     week_3: Geçen hafta
     pickupCount: Sıklık
+  report:
+    view:
+      what:
+        homophobe: Homofobik ifadeler
+        sexist: Cinsiyetçi ifadeler
+        other: Diğer uygunsuz ifadeler ve davranışlar
+        hurtful: Aşağılayıcı ifadeler
+        racist: ırkçı ifadeler
+        brutal: Şiddet eğilimi ve tehdit
+      nearstore: İşletme çalışanlarının önünde
+      other: Diğer davranış kurallarını ihlal etti (diğer her şeyi)
+      noshow: Almaya hiç gelmedi
+      tardy: Almak için geç kaldı
+      respect: Kaba veya saygısızca davrandı
+      bossy: Talepkar/zorba bir tavır sergiledi
+      complaints: Suçlamalarda bulundu
+      vsstore: İşletme çalışanlarına yönelik
+      vsclients: Müşterilere karşı
+      newreport: Yeni mesajlar
+      delivered: Teslim edilmiş olanlar
+      social: Alırken topluluğa uygun ve sosyal bir şekilde davranmadı
+      dirty: Alım yerini temiz bırakmadı
+      thief: Kendisi için belirlenmemiş şeyleri aldı
+      returned: İade edilmesi gereken şişeleri/kasaları vb., iade etmedi
+      additional: Şirketten, alış saati dışında kurtarılması gereken yiyeceklerden
+        aldı veya istedi
+      vsfs: Foodsaverlara karşı
+      nearclients: Müşterilerden
+      sells: Kurtarılan yiyecekleri satıyor
+      why: Bu kişiyi neden şikayet ediyorsunuz?
+      residence: FS İkametgah
+      picky: Alınması ön görülen tüm yiyecekleri almıyor
+      ofclients: Müşterilerden
+      unreliable: Yerine birini aramadan,bulmadan kısa sürede sıklıkla alımlarını
+        iptal etti
+      trasher: Kurtarılan yiyecekleri atıyor
+    control:
+      from: Gelen raporlar
+      delivered: Teslim edilen Mesajlar
+      notes: Notlar ve Kararlar
+    xhr:
+      allofthem: Hakkında tüm raporlar
+      delivered: Mesaj gönderildi
+      plsconfirm: Bu mesaj gerçekten silinsin mi?
+      deleted: Mesaj silindi!
+      confirmed: Mesaj onaylandı!
+      reporting: Hakkında mesaj
+      reportID: Rapor Kimliği
+      reportee: Tarafından rapor edildi
+    readup: "Bir mesajın nasıl işleneceği hakkında buradan bilgi edinebilirsiniz:\
+      \ <a href='https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.29_Bearbeitung_einer_Meldung'>\
+      \ Bearbeitung einer Meldung </a>"
+  choosestore: Lütfen ilgili işletmeyi seçiniz
+  cantdeleteall: Tüm randevuları silemezsiniz!
+  deletesuccess: Tek randevu silindi
+  cantdeletethis: Bireysel randevuları silemezsiniz!
+  alldatesdeleted: Tüm randevular silindi
 stats:
   total:
     foodsaver: Foodsaverlar gıda israfının olmadığı bir dünya için gönüllü oluyor.
@@ -1367,3 +1447,7 @@ bread:
   backToStore: İşletmeye geri dön
 messages:
   bread: Mesaj
+image: Fotoğraf
+quizusercomment: "Bu soru hakkında bize geri bildirimde bulunun.\nÇok mu kolaydı,\
+  \ çok mu zordu, anlaşılmaz mıydı?\nYoksa bireysel cevaplar veya açıklamalar yanlış\
+  \ mı?\n"
