@@ -5,6 +5,7 @@ namespace Foodsharing\Modules\Region;
 use Foodsharing\Modules\Core\Control;
 use Foodsharing\Modules\Core\DBConstants\Foodsaver\Role;
 use Foodsharing\Modules\Core\DBConstants\Map\MapConstants;
+use Foodsharing\Modules\Core\DBConstants\Region\RegionIDs;
 use Foodsharing\Modules\Core\DBConstants\Region\RegionOptionType;
 use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
 use Foodsharing\Modules\Event\EventGateway;
@@ -162,6 +163,10 @@ final class RegionControl extends Control
             $menu['mailbox'] = ['name' => $regionOrGroupString, 'href' => '/?page=mailbox'];
         }
 
+        if ($regionId == RegionIDs::STORE_CHAIN_GROUP) {
+            $menu['chainList'] = ['name' => 'menu.entry.chainList', 'href' => '/?page=chain'];
+        }
+
         if ($this->mayAccessApplications($regionId)) {
             if ($requests = $this->gateway->listRequests($regionId)) {
                 $menu['applications'] = ['name' => $this->translator->trans('group.applications') . ' (' . count($requests) . ')', 'href' => '/?page=bezirk&bid=' . $regionId . '&sub=applications'];
@@ -245,6 +250,7 @@ final class RegionControl extends Control
             ['key' => 'subgroups', 'position' => 18],
             ['key' => 'options', 'position' => 19],
             ['key' => 'pin', 'position' => 20],
+            ['key' => 'chainList', 'position' => 21],
         ];
 
         $orderedMenu = [];
@@ -356,12 +362,18 @@ final class RegionControl extends Control
         $data = CreateForumThreadData::create();
         $form = $this->formFactory->create(ForumCreateThreadForm::class, $data, ['postActiveWithoutModeration' => $postActiveWithoutModeration]);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()
+        if (
+            $form->isSubmitted() && $form->isValid()
             && $this->forumPermissions->mayPostToRegion($region['id'], $ambassadorForum)
         ) {
             $threadId = $this->forumTransactions->createThread(
-                $this->session->id(), $data->title, $data->body, $region,
-                $ambassadorForum, $postActiveWithoutModeration, $postActiveWithoutModeration ? $data->sendMail : null
+                $this->session->id(),
+                $data->title,
+                $data->body,
+                $region,
+                $ambassadorForum,
+                $postActiveWithoutModeration,
+                $postActiveWithoutModeration ? $data->sendMail : null
             );
 
             $this->forumFollowerGateway->followThreadByBell($this->session->id(), $threadId);

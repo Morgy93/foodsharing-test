@@ -2224,10 +2224,11 @@ genderlist:
   gender_district_table_caption: Breakdown of the characteristic 'gender' among all
     foodsaver who joined the district.
 memberlist:
-  some_in_all: ({some} of {all})
   header_for_workgroup: Foodsavers in the working group {bezirk}
   header_for_district: Foodsavers in the region {bezirk}
   filter_for_name_id: name or ID
+filterlist:
+  some_in_all: ({some} of {all})
 chat:
   conversations: Conversations
   new_message: New message
@@ -2849,6 +2850,77 @@ activitypost:
   quickreply_button: Send now<br>or press<code class="key">Return</code>.
 deletelow: delete
 
+chain:
+  listheader: Store chains
+  filterplaceholder: Name / address / KAM ID
+  columns:
+    status: Status
+    name: Name
+    stores: Stores
+    headquarters: Headquarters
+    kams: KAMs
+    notes: Notes
+  new: Create new Chain
+  allowpress: Public mentions allowed.
+  tooltips:
+    modification_date: Last changed
+    options: Options
+  options:
+    showstores: Show stores
+    edit: Edit
+  inputmodal:
+    title:
+      edit: Edit chain
+      new: Create chain
+    inputs:
+      name:
+        label: Name
+        invalidfeedback: Name must not be empty
+        placeholder: Name of the chain
+      headquarters:
+        label: Headquarters
+        placeholder:
+          zip: Zip.
+          city: City
+      status:
+        label: Status
+      thread:
+        label: Forum-Thread
+        invalidfeedback: Invalid input. Thread-Id or link needed.
+        description: Id of a forum thread. Paste a link for automatic identification.
+      kam:
+        label: KAMs
+        invalidfeedback: Invalid input. One or more user ids required.
+        description: Comma separated list of the key account managers user ids.
+      press:
+        label: Press
+        description: Allow public mentions of the chain
+      notes:
+        label: Notes
+        invalidfeedback: Notes must not be longer than 200 chars.
+        description: Notes that are displayed in the chain list.
+      details:
+        label: Store info
+        description: Information text that gets displayed on the store pages of stores belonging to this chain.
+    cancel: Cancel
+    ok: Save
+  detailsmodal:
+    title: Stores belonging to the chain {chain}
+    nostores: No stores
+    stores: "Stores:"
+  status:
+    cooperating: Cooperating
+    negotiating: In negotiation
+    notcooperating: Not cooperating
+    filterplaceholder: Status
+  error:
+    create: Chain could not be created.
+    edit: Chain could not be edited.
+    notfs: You must be foodsaver to view this list.
+  bread:
+    workinggroup: Store chains
+    list: Overview
+  pagetitle: Store chains
 error:
   mail_bounce:
     title: "Blocked email address!"

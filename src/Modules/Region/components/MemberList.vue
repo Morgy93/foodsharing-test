@@ -6,7 +6,7 @@
     >
       {{ $i18n('memberlist.header_for_workgroup', {bezirk: regionName}) }}
       <span>
-        {{ $i18n('memberlist.some_in_all', {some: membersFiltered.length, all: memberList.length}) }}
+        {{ $i18n('filterlist.some_in_all', {some: membersFiltered.length, all: memberList.length}) }}
       </span>
     </div>
     <div
@@ -15,7 +15,7 @@
     >
       {{ $i18n('memberlist.header_for_district', {bezirk: regionName}) }}
       <span>
-        {{ $i18n('memberlist.some_in_all', {some: membersFiltered.length, all: memberList.length}) }}
+        {{ $i18n('filterlist.some_in_all', {some: membersFiltered.length, all: memberList.length}) }}
       </span>
     </div>
 

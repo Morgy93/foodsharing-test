@@ -82,7 +82,7 @@ const urls = {
 
   // region id
   forum: (regionId, subforumId = 0, threadId = null, postId = null, newThread = false) => {
-    const str = [`/?page=bezirk&bid=${regionId}`]
+    const str = [`/?page=bezirk${regionId ? `&bid=${regionId}` : ''}`]
     if (subforumId === 1) {
       str.push('&sub=botforum')
     } else {
@@ -98,6 +98,11 @@ const urls = {
       str.push('&newthread=1')
     }
     return str.join('')
+  },
+
+  // simplified url for forum threads
+  forumThread: (threadId, postId = null) => {
+    return url('forum', null, 0, threadId, postId)
   },
   events: (regionId) => `/?page=bezirk&bid=${regionId}&sub=events`,
   foodsaverList: (regionId) => `/?page=foodsaver&bid=${regionId}`,
@@ -153,6 +158,7 @@ const urls = {
   wiener_tafel: () => 'https://www.wienertafel.at',
   bmlfuw: () => 'https://www.bmlrt.gv.at',
   denns: () => 'https://www.denns-biomarkt.at',
+  chains: () => '/?page=chain',
 
   // Devdocs
   devdocs: () => 'https://devdocs.foodsharing.network',

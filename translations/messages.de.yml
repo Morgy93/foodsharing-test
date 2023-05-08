@@ -462,6 +462,7 @@ group:
     tooltip_function_region432: "Administrator*innen dieser Arbeitsgruppe können Meldungen einsehen"
     tooltip_function_region387: "Administrator*innen dieser Arbeitsgruppe können Einträge von der E-Mail-Bounceliste entfernen"
     tooltip_function_region327: "Administrator*innen dieser Arbeitsgruppe können Blogeinträge bearbeiten"
+    tooltip_function_region332: "Mitglieder dieser Arbeitsgruppe haben Zugriff auf die Kettenliste"
   show-all: "Alle anzeigen"
   member_list:
     remove_admin_title: "Als Admin austragen"
@@ -1445,6 +1446,8 @@ list:
 memberlist:
   header_for_district: "Foodsaver im Bezirk {bezirk}"
   header_for_workgroup: "Foodsaver in der Arbeitsgruppe {bezirk}"
+
+filterlist:
   some_in_all: "({some} von {all})"
   filter_for_name_id: "Name oder ID"
 
@@ -2175,6 +2178,7 @@ menu:
     events: "Termine"
     members: "Mitglieder"
     workingGroupEdit: "Gruppe verwalten"
+    chainList: "Kettenübersicht"
     aboutUs: "Über uns"
     fundamentals: "Grundsätze"
     blog: "Blog"
@@ -2658,6 +2662,77 @@ numbers:
   million_abbreviation: " Mio."
   billion_abbreviation: " Mrd."
 
+chain:
+  listheader: Betriebsketten
+  filterplaceholder: Name / Adresse / KAM ID
+  columns:
+    status: Status
+    name: Name
+    stores: Betriebe
+    headquarters: Zentrale
+    kams: KAMs
+    notes: Hinweise
+  new: Neue Kette eintragen
+  allowpress: Öffentliche Nennung erlaubt.
+  tooltips:
+    modification_date: Zuletzt bearbeitet
+    options: Optionen
+  options:
+    showstores: Betriebe anzeigen
+    edit: Bearbeiten
+  inputmodal:
+    title:
+      edit: Kette bearbeiten
+      new: Kette erstellen
+    inputs:
+      name:
+        label: Name
+        invalidfeedback: Name darf nicht leer sein
+        placeholder: Name der Kette
+      headquarters:
+        label: Zentrale
+        placeholder:
+          zip: Plz.
+          city: Stadt
+      status:
+        label: Status
+      thread:
+        label: Forum-Thread
+        invalidfeedback: Ungültige Eingabe. Thread-Id oder Link benötigt.
+        description: Id eines Forum-Threads. Link einfügen zur automatischen Erkennung.
+      kam:
+        label: KAMs
+        invalidfeedback: Ungültige Eingabe. Ein oder mehrere Nutzer-Ids benötigt.
+        description: Nutzer-Ids der Key-Account-Manager, ggf. mit Komma getrennt.
+      press:
+        label: Presse
+        description: Öffentliche Nennung der Kooperation erlauben
+      notes:
+        label: Notizen
+        invalidfeedback: Notizen dürfen nicht länger als 200 Zeichen sein.
+        description: Hinweise, die in der Kettenübersicht angezeigt werden.
+      details:
+        label: Infos für Betriebe
+        description: Hinweise, die auf Betriebsseiten angezeigt werden, die zur Kette gehören.
+    cancel: Abbrechen
+    ok: Speichern
+  detailsmodal:
+    title: Betriebe der Kette {chain}
+    nostores: Keine Betriebe
+    stores: "Betriebe:"
+  status:
+    cooperating: Kooperiert
+    negotiating: In Verhandlung
+    notcooperating: Kooperiert nicht
+    filterplaceholder: Status
+  error:
+    create: Kette konnte nicht erstellt werden.
+    edit: Kette konnte nicht bearbeitet werden.
+    notfs: Zum ansehen dieser Liste musst du Foodsaver sein.
+  bread:
+    workinggroup: Betriebsketten
+    list: Übersicht
+  pagetitle: Betriebsketten
 error:
   mail_bounce:
     title: "Gesperrte E-Mail-Adresse!"

@@ -210,11 +210,10 @@ class StoreGateway extends BaseGateway
 					b.betrieb_kategorie_id,
 					b.name,
 					b.str,
+					b.`betrieb_status_id`,
 					k.logo
 
 			FROM 	fs_betrieb b
-			LEFT JOIN fs_kette k ON b.kette_id = k.id
-
 			WHERE 	b.bezirk_id = :regionId
 			  AND	b.betrieb_status_id <> :permanentlyClosed
 			  AND	b.`lat` != ""
@@ -535,14 +534,14 @@ class StoreGateway extends BaseGateway
         return $this->db->fetchAll('
 			SELECT	`id`,
 					`name`
-			FROM 	`fs_kette`
+			FROM 	`fs_chain`
 			ORDER BY `name`
 		');
     }
 
     public function existStoreChain(int $id): bool
     {
-        return $this->db->exists('fs_kette', ['id' => $id]);
+        return $this->db->exists('fs_chain', ['id' => $id]);
     }
 
     public function getStoreTeam($storeId): array
@@ -846,11 +845,8 @@ class StoreGateway extends BaseGateway
     {
         return $this->db->fetch('
 			SELECT   `id`,
-			         `name`,
-			         `logo`
-
-			FROM     `fs_kette`
-
+			         `name`
+			FROM     `fs_chain`
 			WHERE    `id` = :id
         ', [
             ':id' => $id

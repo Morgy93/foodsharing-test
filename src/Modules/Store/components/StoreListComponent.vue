@@ -12,7 +12,7 @@
         {{ $i18n('store.allStoresOfRegion') }} {{ regionName }}
       </span>
       <span>
-        {{ $i18n('memberlist.some_in_all', {some: storesFiltered.length, all: stores.length}) }}
+        {{ $i18n('filterlist.some_in_all', {some: storesFiltered.length, all: stores.length}) }}
       </span>
     </div>
     <div

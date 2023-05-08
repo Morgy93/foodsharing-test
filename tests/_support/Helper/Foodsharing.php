@@ -532,10 +532,17 @@ class Foodsharing extends \Codeception\Module\Db
     public function addStoreChain($extra_params = [])
     {
         $params = array_merge([
-            'name' => 'chain_' . $this->faker->company()
+            'name' => 'chain_' . $this->faker->company(),
+            'headquarters_zip' => $this->faker->postcode(),
+            'headquarters_city' => $this->faker->city(),
+            'status' => random_int(0, 2),
+            'modification_date' => $this->faker->dateTimeThisDecade()->format('Y-m-d H:i:s'),
+            'allow_press' => random_int(0, 1),
+            'notes' => $this->faker->realTextBetween(5, 80),
+            'common_store_information' => $this->faker->realTextBetween(100, 500),
         ], $extra_params);
 
-        $id = $this->haveInDatabase('fs_kette', $params);
+        $id = $this->haveInDatabase('fs_chain', $params);
         $params['id'] = $id;
 
         return $params;

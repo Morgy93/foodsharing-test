@@ -50,7 +50,7 @@ class StoreApiCest
         $this->region = $I->createRegion();
         $this->nextRegion = $I->createRegion();
         $this->otherRegion = $I->createRegion();
-        $I->haveInDatabase('fs_kette', ['id' => 40, 'name' => 'Chain']);
+        $I->haveInDatabase('fs_chain', ['id' => 40, 'name' => 'Chain']);
         $I->haveInDatabase('fs_betrieb_kategorie', ['id' => 20, 'name' => 'Category']);
         $this->foodsharer = $I->createFoodsharer(null, ['verified' => 0]);
         $this->user = $I->createFoodsaver(null, ['verified' => 0]);
@@ -1131,7 +1131,7 @@ class StoreApiCest
     public function patchStoreChainAsStoreManager(ApiTester $I)
     {
         $I->login($this->manager[self::EMAIL]);
-        $I->haveInDatabase('fs_kette', ['id' => 4, 'name' => 'Chain']);
+        $I->haveInDatabase('fs_chain', ['id' => 4, 'name' => 'Chain']);
 
         $I->haveHttpHeader('Content-Type', 'application/json');
         $I->sendPATCH(self::API_STORES . '/' . $this->store[self::ID] . '/information', ['chainId' => 4]);

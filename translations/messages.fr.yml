@@ -2169,10 +2169,11 @@ ageBandList:
   district_tab: Secteur géographique
   header_for_district: "Groupes d'âges à {bezirk} "
 memberlist:
-  some_in_all: ({some} de {all})
   header_for_workgroup: Foodsaver dans le GT {bezirk}
   header_for_district: Collecteur.ice dans le secteur géographique {bezirk}
   filter_for_name_id: Nom ou ID
+filterlist:
+  some_in_all: ({some} de {all})
 list:
   filter_for: Filtrer suivant…
 bell:

@@ -1145,10 +1145,11 @@ genderlist:
   gender_district_table_caption: Fordeling av attributtet «kjønn» blant alle matreddere
     som har sluttet seg til distriktet.
 memberlist:
-  some_in_all: ({some} av {all})
   header_for_district: Matreddere i distrikt {bezirk}
   header_for_workgroup: Matreddere i arbeidsgruppe {bezirk}
   filter_for_name_id: Navn eller ID
+filterlist:
+  some_in_all: ({some} av {all})
 bell:
   report_reason: '{reason}'
   workgroup_request_decline_title: '{name}'

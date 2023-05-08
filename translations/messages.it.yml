@@ -1523,6 +1523,7 @@ genderlist:
 memberlist:
   header_for_workgroup: Foodsaver nel gruppo di lavoro {distretto}
   header_for_district: Foodsaver nel distretto {distretto}
+filterlist:
   some_in_all: ({some} da {all})
 list:
   filter_for: Filtra per…
