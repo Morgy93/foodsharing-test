@@ -1684,6 +1684,10 @@ settings:
   saved: "Änderungen wurden gespeichert."
   passport:
     menu: "Ausweis"
+    verified_text: "Dieser Ausweis wird ohne Schnittmarken heruntergeladen. Das PDF ist vor Drucken und Bearbeiten geschützt.
+      Es soll nur auf dem Smartphone vorgezeigt werden. Solltest du einen gedruckten Ausweis benötigen, wende Dich an deine Botschafter."
+    non_verified_text: "Du bist noch nicht verifiziert. Nur verifizierten Foodsavern steht das Herunterladen vom Ausweis zur Verfügung."
+    button: "Ausweis herunterladen"
   calendar:
     menu: "Kalender"
     title: "Dein Abholkalender"

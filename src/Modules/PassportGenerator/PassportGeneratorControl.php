@@ -55,7 +55,7 @@ final class PassportGeneratorControl extends Control
         $this->pageHelper->addTitle($this->translator->trans('pass.bread'));
 
         if (isset($_POST['passes']) && !empty($_POST['passes'])) {
-            $this->passportGeneratorTransaction->generate($_POST['passes'], true, false, $this->region);
+            $this->passportGeneratorTransaction->generate($_POST['passes'], null, true, false, true, true);
         }
 
         if ($regions = $this->passportGeneratorGateway->getPassFoodsaver($this->regionId)) {
