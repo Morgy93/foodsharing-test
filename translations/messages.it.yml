@@ -238,7 +238,7 @@ button:
   new: nuovo
   upload: caricare
   rotate_right: ruotare in senso orario
-  attach_image: Allega foto
+  attach_image: Caricare l'immagine (formato png o jpg)
   change_picture: cambia immagine
   next: avanti
   save: salvare
@@ -267,7 +267,7 @@ maxfp: Numero massimo di punti di errore da superare
 answers: Quali risposte sono corrette?
 duration: Tempo per rispondere
 explanation: Spiegazione
-fp: Punti di guasto
+fp: Punti di errore
 text: Testo
 right: Valutazione
 week_num: Quante settimane avrebbe dovuto essere un candidato con noi?
@@ -1031,9 +1031,13 @@ email_template:
     link: https://devdocs.foodsharing.network/it-tasks.html
     main: Per rivedere questa funzione, abbiamo bisogno del supporto di altri programmatori,
       tester e aiutanti del vostro distretto.
-  manual_slots_get_ignored: Sfortunatamente, questa notifica è attualmente inviata
-    solo per gli appuntamenti di ritiro automatico. Gli slot creati manualmente, sovrascritti
-    o cancellati non sono quindi presi in considerazione.
+  manual_slots_get_ignored: Purtroppo, al momento questa notifica viene inviata solo
+    se nessuno si è registrato per gli orari di ritiro regolari. Gli appuntamenti
+    aggiuntivi aggiunti individualmente e le fasce orarie sovrascritte o cancellate
+    non vengono ancora presi in considerazione. Per non ricevere più questa notifica,
+    rimuovete gli orari di ritiro regolari dalla pagina della vostra azienda facendo
+    clic sull'icona della matita accanto agli orari di ritiro e rimuovendo gli orari
+    di ritiro non necessari.
   information: Informazioni
   find_someone: Per favore, coinvolgi qualcuno del tuo team operativo il prima possibile
     in modo che il ritiro possa avvenire. Se non sei in grado di mobilitare nessuno,
@@ -1078,7 +1082,7 @@ email_template:
   request_from: Richiesta di
 foodsaver:
   list:
-    inactive: ", che non hanno effettuato l'accesso da 6 mesi:"
+    inactive: "che non sono stati attivi negli ultimi 6 mesi:"
     summary: '{conta} Foodsaver in {regione}'
   kicked: Il Foodsaver è stato eliminato
   upgrade:
@@ -1113,7 +1117,7 @@ foodsaver:
   delete_own_account: Stai per cancellare il tuo account. Sei proprio sicuro?
   your_account: a te
   delete_account_now: Elimina account ora
-  delete_account_sure: Sei sicuro di voler eliminare l'account di {nome}?
+  delete_account_sure: Sei sicuro di voler eliminare il tuo account?
   delete_account: Elimina account
   profileBack: Torna al profilo
   edit_failure: Non è stato modificato nulla o le modifiche non sono state salvate
@@ -1476,9 +1480,9 @@ regionOptions:
   success: Opzioni salvate correttamente
   header_page: Opzioni per {distretto}
   enableMediationButton: Abilitare l'assistenza tecnica per le mediazioni attraverso
-    un pulsante di mediazione sui profili del foodsaver tribale del distretto.
+    un link di mediazione sui profili del foodsaver tribale del distretto.
   enableReportButton: Abilitare il supporto tecnico per le notifiche attraverso un
-    pulsante di notifica sui profili del foodsaver tribale del distretto.
+    link di notifica sui profili del foodsaver tribale del distretto.
 ageBandList:
   NumberOfAgeband: Numero
   ageBand: Fascia di età
@@ -1579,7 +1583,7 @@ menu:
     your_groups: I tuoi gruppi
     messages: Messaggi
     all_messages: Tutti i messaggi
-    infos: Info
+    infos: Informazioni
     activities: Azioni
     events: Appuntamenti
     BOTforum: Forum degli ambasciatori
@@ -1773,7 +1777,7 @@ search:
   mybuddies: I miei Buddies
   thread-title-only: Si cercano solo i titoli, non il testo dei post.
   forum: Cerca per titolo…
-  placeholder: Cerca persone, gruppi, aziende, …
+  placeholder: Avvia la ricerca ora ...
   persons: Persone
   groups: Gruppi
   myregions: I miei distretti
@@ -2334,3 +2338,8 @@ quiz:
   timedstart: Iniziare il quiz con tempo limitato e 10 domande
 deletelow: elimina
 filter_by: Filtrare per
+fpcapital: Punti di Errore
+groups:
+  empty: Non sei ancora in nessun gruppo di lavoro
+fpsingular: Punto di errore
+nofp: nessun punto di errore (domanda scherzosa)
