@@ -8,6 +8,16 @@ dashboard:
   no_updates: Güncelleme yok
   title: Gösterge Paneli
   settings: Ayarlar
+  no_more_updates_event: Başka randevu yok
+  activity_filter_info: Burada, ana sayfanızda hangi güncellemelerin görüntüleneceğini
+    ayarlayabilirsiniz.
+  no_more_updates_store: İşletme ile ilgili daha fazla mesaj yok
+  no_more_updates_forum: Daha fazla Forum gönderisi yok
+  empty_section: Henüz bir {type} sahibi değilsiniz
+  no_more_updates_friendWall: Daha fazla Durum Mesajları yok
+  save_selection: Ayarları kaydet
+  no_more_updates_foodsharepoint: Başka dağıtım noktası gönderileri yok
+  no_more_updates_mailbox: Daha fazla Sesli Mesaj yok
 geb_datum: Doğum tarihi (YYYY-AA-GG)
 add: ekle
 lat: Enlem
@@ -271,6 +281,24 @@ group:
       dağıtım ekibi olabilir.
     duplicate_voting_team: Oylama ekibi oluşturuldu! Her bölge için yalnızca bir oylama
       ekibi olabilir.
+    tooltip_function_6: Bu çalışma grubunun e-posta adresi "Arabuluculuk iste" düğmesinde
+      görüntülenir. Yöneticilerin özel izinleri yoktur.
+    tooltip_function_7: Bu çalışma grubunun yöneticilerine, raporlama ekibini içeren
+      raporlar gösterilir. Yöneticileri içeren hiçbir mesaj görüntülenmez! Bu tür
+      mesajları Raporlama ekibi alır
+    tooltip_function_9: Bu çalışma grubunun yöneticileri, harita için yerel grup açıklamasını
+      düzenleyebilir.
+    tooltip_function_10: Bu çalışma grubunun yöneticileri, denetlenen forumlarda ki
+      yazıları yayınlayabilir.
+    tooltip_function_3: Bu çalışma grubunun yöneticileri, bölgede ki dağıtım noktalarını
+      açabilir, düzenleyebilir veya bununla ilgili paylaşımları kaldırabilirler
+    tooltip_function_11: Bu çalışma grubunun yöneticileri, bölge genel görünümünde
+      görüntülenir.
+    tooltip_function_4: Bu çalışma grubunun yöneticileri, bölgedeki işletmeleri görüntüleyebilir
+      ve düzenleyebilirler
+    tooltip_function_5: Bu çalışma grubunun yöneticileri, bölgedeki Foodsaverlarla
+      ilgili raporları görebilirler. Yöneticileri içeren hiçbir mesaj görüntülenmez!
+      Bunu ancak Tahkim kurulu görebilir.
   entermotivation: 'Motivasyon:'
   mail_link_title:
     region: Bölge Posta Kutusu
@@ -320,6 +348,47 @@ group:
   application_from: -den
   motivation: Motivasyon Yazısı
   admin_count: '{0} Yönetici yok|{1} Bir yönetici| [2, Inf[ %count% yönetici'
+  unique_function:
+    tooltip_function_region332: Bu çalışma grubunun üyeleri İşletme zinciri listesine
+      erişebilir
+    tooltip_function_region341: Bu çalışma grubunun yöneticileri sınav sorularını
+      yönetebilir
+    tooltip_function_region1811: Bu çalışma grubunun yöneticileri "Partner", "İletişim"
+      ve "Ekip" sayfalarını düzenleyebilir
+    tooltip_function_region2287: Bu çalışma grubunun yöneticileri, başlangıç sayfasının
+      içeriğini düzenleyebilir
+    tooltip_function_region432: Bu çalışma grubunun yöneticileri raporları görüntüleyebilir
+    tooltip_function_region327: Bu çalışma grubunun yöneticileri blog girişlerini
+      düzenleyebilir
+    tooltip_function_region331: Bu çalışma grubunun yöneticileri haber bültenleri
+      gönderebilir
+    tooltip_function_region387: Bu çalışma grubunun yöneticileri, e-posta geri dönen
+      listesinden girişleri kaldırabilir
+  member_list:
+    remove_admin_title: Yönetici olarak oturumu kapat
+    is_verified: Onaylandı
+    is_home_region: Ana Bölge
+    set_admin_title: Üyeyi yönetici olarak kaydet
+    remove_title: Üyeyi çıkart
+    set_ambassador_title: Üyeyi elçi olarak kaydet
+    set_admin_text: "{name} ({id})'yi yönetici olarak eklemek istediğinizden emin\
+      \ misiniz?"
+    set_ambassador_text: "{name} ({id})'i elçi olarak kaydetmek istediğinizden emin\
+      \ misiniz?"
+    remove_ambassador_title: Elçi olarak aboneliği iptal et
+    remove_admin_text: '{name} ({id}) adlı kişinin kaydını yönetici olarak silmek
+      istediğinizden emin misiniz?'
+    remove_ambassador_text: "{name} ({id}) 'yi elçi olarak hesaptan düşmek istediğinizden\
+      \ emin misiniz?"
+    old_edit_hint_link: Üyeler
+    remove_text_group: '{name} ({id}) adlı kişiyi çalışma grubundan çıkarmak istediğinizden
+      emin misiniz?'
+    remove_text_region: "{name} ({id})'yi bölgeden çıkarmak istediğinizden emin misiniz?"
+    add_member: Ekibe al
+    admin_mode_on: Yöneticiler için görünümü etkinleştir
+    admin_mode_off: Standart görünüme dön
+    old_edit_hint: Artık üye yönetimini sekmesinde bulabilirsiniz
+  show-all: Hepsini göster
 ansprechpartner: İşletmeden sorumlu Yektili (Şube Müdürü vs.)
 text: Metin
 fp: Hata puanları
@@ -1451,3 +1520,196 @@ image: Fotoğraf
 quizusercomment: "Bu soru hakkında bize geri bildirimde bulunun.\nÇok mu kolaydı,\
   \ çok mu zordu, anlaşılmaz mıydı?\nYoksa bireysel cevaplar veya açıklamalar yanlış\
   \ mı?\n"
+login:
+  pwreset:
+    error: Üzgünüz, verilerinizle ilgili bir sorun var.
+    tooShort: Üzgünüz, seçtiğiniz şifre çok kısa.
+    success: Harika, şifreniz başarıyla değiştirildi. Şimdi giriş yapabilirsiniz.
+    bread: Şifreyi yenile
+    wrongMail: Maalesef bu e-posta adresini bulamıyoruz, lütfen tekrar deneyin.
+    mailSent: Anlaşıldı, e-postayla şifreni değiştirmen için bir bağlantı gönderildi.
+    expired: Üzgünüz biraz fazla bekledin. Lütfen tekrar yeni bir şifre isteyin.
+    mismatch: Üzgünüz, şifreler eşleşmiyor.
+  forgotten_password_label: Şifrenizi mi unuttunuz?
+  login_button_label: Giriş yap
+  success: <b>İyi günler {user_name}!</b>
+  logout: Çıkış yap
+  error_no_auth: Üzgünüz, o e-posta adresini veya şifreyi bulamıyoruz, lütfen tekrar
+    deneyin.
+  topbar: Giriş yap
+  form_title: Tekrar hoşgeldiniz
+  email_address: E-Posta Adresi
+  error_no_password: Lütfen şifrenizi giriniz.
+  submit_btn: Giriş yap
+  password: Şifre
+  save_password: Şifreyi kaydet
+  steady_login: Kalıcı olarak oturum açmış durumda kal
+  error_no_email: Lütfen e-mail adresinizi giriniz.
+terminology:
+  foodsaver:
+    d: Foodsaver
+    f: Foodsaver
+    m: Foodsaver
+  moderationAdmins: Moderasyon Ekibi
+  wall: Pano
+  reportAdmins: Rapor düzenleme Ekibi
+  community: Yerel grup {isim}
+  ambassador:
+    m: Elçi
+    f: Elçi
+    d: Elçi
+  role:
+    "0": Foodsharer
+    "1": Foodsaver
+    "2": İşletme Sorumlusu
+    "3": Elçi
+  forum: Forum
+  foodsharer:
+    f: Foodsharer
+    d: Foodsharer
+    m: Foodsharer
+  ambassadors: Elçi
+  ambassador_forum: Elçi Forumu
+  groups: Çalışma grupları
+  storemanager:
+    m: İşletme Sorumlusu
+    f: İşletme Sorumlusu
+    d: İşletme Sorumlusu
+  admins: Yöneticiler
+  fspAdmins: Gıda Dağıtım Noktası Ekibi
+  prAdmins: Halkla İlişkiler Ekibi
+  storesAdmins: İşletme Koordinasyon Ekibi
+  boardAdmins: Yönetim Kurulu
+  subgroups: Alt gruplar
+  settings: Ayarlar
+  n_foodsaver: Bir Foodsaver|%count% Foodsaver
+  arbitrationAdmins: Tahkim Kurulu
+  mediationAdmins: Arabuluculuk Ekibi
+  fsManagementAdmins: İdare
+  statistic: İstatistik
+  fsps: Gıda Dağıtım Noktası
+  profile_picture: Profil Resmi
+  n_cooperating_stores: Devam eden bir işbirliği|%count%Devam eden bir işbirliği
+  basket: Yemek Sepeti
+  fsp: Gıda Dağıtım Noktası
+  stores: İşletmeler
+  homepage: Ana sayfa
+  welcomeAdmins: Karşılama Ekibi
+  votingAdmins: Oylama Ekibi
+  n_stores: Bir İşletme|%count% İşletme
+  baskets: Yemek Sepeti
+  group: Çalışma grupları
+  n_ambassadors: Bir Elçi|%count% Elçi
+legal:
+  if_delete:
+    this_doesnt_get_deleted: 'Aşağıdaki bilgiler artık aktif sistemde mevcut değildir,
+      ancak DSGVO 17. Madde, Paragraf 3 uyarınca ayrı olarak arşivlenir:'
+    legal_1: Burada <a href="https://foodsharing.de/?page=legal" target="_blank">geçerli
+      veri koruma sözleşmemizi görebilirsiniz</a>
+    this_gets_deleted_friendlist: <ul><li>Arkadaş listeniz kaldırılacak.</ul></li>
+    this_gets_deleted_quiz: <ul><li>Foodsaver testiniz kaldırılacak.</ul></li>
+    this_doesnt_get_deleted_history: <ul><li>Onaylanma geçmişiniz</ul></li>
+    legal_2: Burada <a href="https://www.dsgvo.tools/aufbeehrungsfristen/" target="_blank">yasaların
+      birbiriyle nasıl ilişkili olduğunu bulabilirsiniz. (Sayfa almanca )</a>
+    this_gets_deleted_main: 'Aşağıdaki bilgileri siliyorsun ve bundan sonra eski haline
+      getirelemez:'
+    this_gets_deleted_stores: <ul><li>Katıldığınız işletmeler.</ul></li>
+    this_gets_deleted_verify: <ul><li>Onaylanmanız kaldırılacak.</ul></li>
+    this_doesnt_get_deleted_name: <ul><li>Adınız</ul></li>
+    this_doesnt_get_deleted_address: <ul><li>Adresiniz</ul></li>
+  agree_privacy_notice: Kişisel verilerin gizliliğini koruma yükümlülüğü ve bunun
+    sonucunda ortaya çıkan davranışlar konusunda bilgilendirildim. Kayıtlarım için
+    verdiğim adrese e-posta ile bunun teyidini alacağım.
+  not_acknowledge_pn_description: Talimatı kabul etmezseniz, bir Foodsaver seviyesine
+    düşürüleceksiniz. Bu, artık bir Bölge Elçisi olmayacağınız, operasyonel sorumluluklarınızı
+    kaybedeceğiniz ve Operasyon Müdürü/Elçi testini tekrar yapmanız gerekeceği anlamına
+    gelir.
+  dont_agree: Verilerimin işlenmesine izin vermiyorum ve
+  privacy_notice_agree:
+    acknowledge: Kabul ediyorum
+    select: Lütfen seçin
+    not_acknowledge: Kabul etmiyorum ve Foodsaver seviyesine indirilmek istiyorum
+  legal_agreement: Yasal anlaşma
+  are_you_sure_to_downgrade: 'Dikkat: Foodsaver seviyesine indirilmeyi seçtiniz. Emin
+    misiniz?'
+  delete_account: Hesabımı silmek istiyorum.
+  privacy_notice: Gizlilik Politikası
+  acknowledge: Anlaşmayı dikkate alıyor musunuz?
+  not_acknowledge_pp_description: Foodsharing platformunu kullanabilmek için açıklanan
+    veri koruma beyanını dikkate almanız gerekmektedir.
+  actions:
+    safe: Ayarları kaydet
+  pp: Veri Koruma Beyannamesi
+  agree_privacy_policy: Veri koruma beyannamesini okudum.
+  must_accept_pp: Foodsharing'e katılmak için veri koruma koşullarını kabul etmelisiniz.
+pronoun:
+  "3": o
+  "0": o
+  "1": o
+  "2": o
+salutation:
+  "0": Sayın
+  "2": Sayın
+  "3": Sayın
+  "1": Sayın
+register:
+  login_passwd1: Şifre (en az 8 karakter)
+  confirmPassword_sameAsPassword: Parola eşleşmelidir.
+  geb_datum: Doğum tarihiniz
+  firstname_required: Lütfen isminizi giriniz.
+  firstname_minLength: Adınız en az 2 karakterden oluşmalıdır.
+  lastname_required: Lütfen soyadınızı giriniz.
+  join_error: Kaydınız başarısız oldu.
+  login_phone_info: Telefon numaranızı diğer Foodsharer'larla paylaşmak yararlı olabilir
+  lastname_minLength: Soyadı en az 2 karakterden oluşmalıdır.
+  phone_not_valid: Girilen telefon numarası geçerli değil.
+  email_invalid: Email adresi geçersiz.
+  finish: Kaydı gönder
+  next: devam et
+  requiredFields: Zorunlu giriş
+  check_mail: Kayıt işlemini tamamlamak için şimdi e-posta kutunuzu kontrol edin!
+  change-password: Şimdi şifrenizi değiştirebilirsiniz.
+  join_success: Kaydınız başarılı oldu.
+  activation_failed: <strong>Etkinleştirme başarısız oldu.</strong> Girdiğiniz bağlantı
+    doğru mu?
+  activation_success: <strong>Etkinleştirme başarılı.</strong> E-posta adresiniz ve
+    seçtiğiniz şifreyle şimdi oturum açın.
+  birthdate_hint: Foodsharer veya Foodsaver olarak kaydolurken <a href="/?page=legal"
+    target="_blank">Gizlilik Politikası</a>'nın 2d) maddesinde daha fazla bilgi bulabilirsiniz.
+  topbar: Katıl
+  title: Kayıt
+  register_button_label: Kayıt ol
+  mail_hint: 'Önemli: Yazım kurallarına dikkat ediniz!'
+  error_email_exist: Bu E-posta adresi zaten var.
+  login_email: E-Posta Adresi
+  woman: kadın
+  login_surname: Soyadınız
+  pass1: İstediğiniz yeni şifreniz
+  join_success_message: Foodsharing'e kaydınızı başarıyla tamamladınız. Artık e-postanız
+    ve şifrenizle giriş yapabilirsiniz.
+  login_passwd2: Şifre tekrarı
+  password_required: Şifre gerekli.
+  password_minLength: Parola en az 8 karakterden oluşmalıdır.
+  confirmPassword_required: Lütfen şifreyi tekrarlayınız.
+  landline_example: Örnek +49 30 123456789
+  forgotten_password: Şifreyi mi unuttunuz?
+  prev: geri dön
+  login_mobile_phone: Cep telefonu numaranız
+  login_location: Adresiniz
+  man: erkek
+  other: diğer
+  error_birthdate: Örnek 03/25/2001 (GG.AA.YYYY). Veri koruma ve sorumluluk nedenleriyle,
+    foodsharing'e katılmak için en az 18 yaşında olmalısınız.
+  account-exists: Zaten kayıtlısınız. Tekrar kaydolmak istiyorsanız lütfen oturumu
+    kapatın.
+  pass2: Şifre tekrarı
+  signup_newsletter: Ayda yaklaşık bir kez foodsharing bültenini almak istiyorum
+  email_required: Bir e-posta adresi gerekli.
+  login_name: Adınız
+  phone_example: Örnek +49 179 12345678
+  error: Bir hata oluştu
+  set-password: Yeni şifre ayarla
+gender:
+  f: Kadın
+  d: Her ikisi veya diğer
+  m: Adam
