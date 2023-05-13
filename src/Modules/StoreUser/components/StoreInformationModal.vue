@@ -312,7 +312,7 @@
               class="bootstrap input-wrapper"
             >
               <b-form-select
-                v-if="store.effort"
+                v-if="store.effort !== null"
                 id="effort"
                 v-model="store.effort"
                 :options="convinceStatusTypes"
