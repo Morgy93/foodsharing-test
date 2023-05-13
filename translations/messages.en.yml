@@ -909,9 +909,33 @@ pickup:
 
   region_pickup_rule_failed: This entry does not comply with district regulations
 storeview:
+  show_information: Show store information
   cooperation: Cooperation since {startTime}.
+  cooperation_start: "Cooperation since"
+  cooperation_status: "State of cooperation"
+  common: "Common information"
+  visible_for_public: "This text is visible for all foodsavers."
+  visible_for_team: "This text is visible for the pickup team of the store."
+  invalid_field: "Invalid field content. The change is not stored."
+  contact:
+    name: "Name/first name"
+  management: "Management"
+  source_data: "Source data"
+  select_related_region: "Select related region"
   store: Store
   want_to_fetch: I would like to help in this team.
+  public_and_statistics: "Public activites and statistical information"
+  no_permission_to_view: "No permission"
+  groceries:
+    label: Which kinds of food are allowed to be collected?
+    select_tag: Select food
+    search_tag: Search for food
+    no_match: No food found
+    no_tag_preset: No food exist
+  calendar_interval:
+    not_set: No pickup calender interval defined
+    single: 1 week
+    multiply: "{weeks} Weeks"
   public_time_at_night: at night
   public_time_in_the_evening: in the evening
   public_time_at_noon_or_afternoon: at noon/in the afternoon
@@ -981,6 +1005,8 @@ terminology:
     f: Foodsharer
     m: Foodsharer
   stores: Stores
+  store: Store
+  pickup: Pick-up
   events: Events
   forum: Forum
   fspAdmins: Food-Share Point team
@@ -2376,6 +2402,7 @@ addresspicker:
     it is even mandatory.
   infobox: Please enter the address in the text field between this message and the
     map and then confirm this by selecting it on the map.
+  different_location: Addresse independent of location
 dashboard:
   my:
     groups: Your groups

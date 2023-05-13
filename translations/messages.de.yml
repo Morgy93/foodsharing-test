@@ -620,6 +620,8 @@ terminology:
   forum: "Forum"
   events: "Termine"
   stores: "Betriebe"
+  store: Betrieb
+  pickup: "Abholung"
   foodsharer:
     m: "Foodsharer"
     f: "Foodsharerin"
@@ -768,13 +770,25 @@ fsp:
     n_in_region: "{0} Keine Fairteiler in %name%| {1} Ein Fairteiler in %name%| [2, Inf[ %count% Fairteiler in %name%"
 
 storeview:
+  show_information: "Betriebs-Information anzeigen"
   store: "Betrieb"
+  common: "Allgemein"
+  visible_for_public: "Dieser Text ist für jeden Foodsaver sichtbar."
+  visible_for_team: "Dieser Text ist nur für das Abholteam sichtbar."
+  invalid_field: "Ungültiger Feldinhalt. Die Änderung kann nicht gespeichert werden."
+  contact:
+    name: "Name/Vorname"
+  management: "Verwaltung"
+  source_data: "Stammdaten"
+  select_related_region: "Auswahl des zuständigen Bezirkes"
   info: "Informationen"
   teamInfo: "Es sind <strong>{active}</strong> Aktive und <strong>{jumper}</strong> Springer im Team."
   counter: "<strong>{count}<span style=\"white-space:nowrap\"> </span>{suffix}</strong>"
   pickupCount: "Bei diesem Betrieb wurde {pickupCount} abgeholt."
   pickupWeight: "Es wurden {pickupWeight} gerettet."
   cooperation: "Kooperation seit {startTime}."
+  cooperation_start: "Kooperation seit"
+  cooperation_status: "Kooperationstatus"
   public_time: "Es wird in etwa {freq} abgeholt. Geh bitte niemals ohne Absprache zum Laden!"
   public_time_in_the_morning: "morgens"
   public_time_at_noon_or_afternoon: "mittags/nachmittags"
@@ -784,7 +798,21 @@ storeview:
   status_notes: "Statusnotizen"
   managers: "Verantwortliche Foodsaver"
   specials: "Besonderheiten"
+  team: "Abholteam"
   want_to_fetch: "In diesem Team würde ich gerne helfen."
+  public_and_statistics: "Statistik & Öffentlichkeitsarbeit"
+  no_permission_to_view: "Fehlende Berechtigung"
+  groceries:
+    label: "Welche Lebensmittel dürfen abgeholt werden?"
+    select_tag: "Wähle Lebensmittelkategorie"
+    search_tag: "Suche nach Lebensmittelkategorien"
+    no_match: "Keine passende Lebensmittelkategorie gefunden"
+    no_tag_preset: "Keine Lebensmittelkategorie vorhanden"
+  calendar_interval:
+    not_set: "Kein Zeitraum festgelegt"
+    single: "1 Woche"
+    multiply: "{weeks} Wochen"
+
 
 store:
   bread: "Alle Betriebe" #also in MapView
@@ -937,6 +965,7 @@ storeedit:
     teamStatus2: "Es werden dringend noch Helfer*innen gesucht"
   add_success: "Kooperationsbetrieb wurde eingetragen"
   edit_success: "Änderungen wurden gespeichert"
+  unsuccess: "Änderungen konnte nicht übernommen werden."
   milestone:
     statuschanged: "Statusänderung am {date}"
     created: "{user} hat den Betrieb am {date} eingetragen"
@@ -1280,7 +1309,7 @@ addresspicker:
   placeholder: "Bitte hier die Adresse suchen. Falls nötig, danach unten korrigieren."
   infobox: "Bitte gib die Adresse im Textfeld zwischen dieser Nachricht und der Karte ein und bestätige diese dann durch Auswahl in der Karte."
   infobox_profile: "<a href=\"https://wiki.foodsharing.de/Foodsharer\">Foodsharer</a> benötigen die Adresse, um Essenskörbe über die Webseite anbieten zu können. Um als <a href=\"https://wiki.foodsharing.de/Foodsaver\">Foodsaver</a> an Lebensmittelrettungen teilnehmen zu können, ist sie notwendig."
-
+  different_location: Adresse ist unabhängig von Geo-Position
 date:
   time: "{time} Uhr"
   clock: "Uhr"

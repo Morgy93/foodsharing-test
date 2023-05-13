@@ -289,8 +289,7 @@ class StoreApiCest
         $I->seeResponseIsJson();
         $I->seeResponseContainsJson(['maxCountPickupSlot' => 10]);
         $storeChains = $I->grabDataFromResponseByJsonPath('$.storeChains');
-        $I->assertCount(1, $storeChains);
-        $I->assertEquals(null, $storeChains[0]);
+        $I->assertNotCount(0, $storeChains);
         $groceries = $I->grabDataFromResponseByJsonPath('$.groceries');
         $I->assertNotCount(0, $groceries);
         $categories = $I->grabDataFromResponseByJsonPath('$.categories');

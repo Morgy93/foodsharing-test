@@ -80,7 +80,7 @@ class StoreRestController extends AbstractFOSRestController
         }
 
         $result = $this->storeTransactions->getCommonStoreMetadata(
-            !$this->storePermissions->mayCreateStore());
+            !$this->storePermissions->mayListStores());
 
         return $this->handleView($this->view($result, 200));
     }
@@ -180,6 +180,7 @@ class StoreRestController extends AbstractFOSRestController
         try {
             $maySeeDetails = $this->storePermissions->mayAccessStore($storeId);
             $maySeeSensitiveDetails = $this->storePermissions->mayEditStore($storeId);
+
             $result = $this->storeTransactions->getStore($storeId, $maySeeDetails, $maySeeSensitiveDetails);
 
             return $this->handleView($this->view($result, 200));

@@ -78,13 +78,15 @@ class StoreTransactions
             return CommonLabel::createFromArray($row);
         }, $this->storeGateway->getBasics_groceries());
 
-        $store->categories = array_map(function ($row) {
-            return CommonLabel::createFromArray($row);
-        }, $this->storeGateway->getStoreCategories());
+        $store->categories = [new CommonLabel(0, $this->translator->trans('store.nodeclaration')),
+            ...array_map(function ($row) {
+                return CommonLabel::createFromArray($row);
+            }, $this->storeGateway->getStoreCategories())];
 
         $store->status = array_map(function ($row) {
             return CommonLabel::createFromArray($row);
         }, [
+            ['id' => CooperationStatus::UNCLEAR->value, 'name' => $this->translator->trans('store.nodeclaration')],
             ['id' => CooperationStatus::NO_CONTACT->value, 'name' => $this->translator->trans('storestatus.1')],
             ['id' => CooperationStatus::IN_NEGOTIATION->value, 'name' => $this->translator->trans('storestatus.2')],
             ['id' => CooperationStatus::COOPERATION_STARTING->value, 'name' => $this->translator->trans('storestatus.3a')],
@@ -97,6 +99,7 @@ class StoreTransactions
         $store->publicTimes = array_map(function ($row) {
             return CommonLabel::createFromArray($row);
         }, [
+            ['id' => PublicTimes::NOT_SET->value, 'name' => $this->translator->trans('store.nodeclaration')],
             ['id' => PublicTimes::IN_THE_MORNING->value, 'name' => $this->translator->trans('storeview.public_time_in_the_morning')],
             ['id' => PublicTimes::AT_NOON_IN_THE_AFTERNOON->value, 'name' => $this->translator->trans('storeview.public_time_at_noon_or_afternoon')],
             ['id' => PublicTimes::IN_THE_EVENING->value, 'name' => $this->translator->trans('storeview.public_time_in_the_evening')],
@@ -106,6 +109,7 @@ class StoreTransactions
         $store->convinceStatus = array_map(function ($row) {
             return CommonLabel::createFromArray($row);
         }, [
+            ['id' => ConvinceStatus::NOT_SET->value, 'name' => $this->translator->trans('store.nodeclaration')],
             ['id' => ConvinceStatus::NO_PROBLEM_AT_ALL->value, 'name' => $this->translator->trans('store.convince.none')],
             ['id' => ConvinceStatus::AFTER_SOME_PERSUASION->value, 'name' => $this->translator->trans('store.convince.some')],
             ['id' => ConvinceStatus::DIFFICULT_NEGOTIATION->value, 'name' => $this->translator->trans('store.convince.much')],
@@ -113,9 +117,10 @@ class StoreTransactions
         ]);
 
         if (!$supressStoreChains) {
-            $store->storeChains = array_map(function ($row) {
-                return CommonLabel::createFromArray($row);
-            }, $this->storeGateway->getBasics_chain());
+            $store->storeChains = [new CommonLabel(0, $this->translator->trans('store.nodeclaration')),
+                ...array_map(function ($row) {
+                    return CommonLabel::createFromArray($row);
+                }, $this->storeGateway->getBasics_chain())];
         }
 
         $store->weight = array_map(function ($row) {
@@ -346,7 +351,7 @@ class StoreTransactions
             $store->publicInfo = $this->sanitizerService->purifyHtml($storeChange->publicInfo);
         }
 
-        if (!empty($storeChange->publicTime)) {
+        if (!is_null($storeChange->publicTime)) {
             $publicTime = PublicTimes::tryFrom($storeChange->publicTime);
             if (!$publicTime) {
                 throw new StoreTransactionException(StoreTransactionException::INVALID_PUBLIC_TIMES);
@@ -357,20 +362,28 @@ class StoreTransactions
 
         if (!is_null($storeChange->categoryId)) {
             $changeInformation->informationChanged = true;
-            $storeCategoryExists = $this->storeGateway->existStoreCategory($storeChange->categoryId);
-            if (!$storeCategoryExists) {
-                throw new StoreTransactionException(StoreTransactionException::STORE_CATEGORY_NOT_EXISTS);
+            if ($storeChange->categoryId !== 0) {
+                $storeCategoryExists = $this->storeGateway->existStoreCategory($storeChange->categoryId);
+                if (!$storeCategoryExists) {
+                    throw new StoreTransactionException(StoreTransactionException::STORE_CATEGORY_NOT_EXISTS);
+                }
+                $store->category = MinimalIdentifier::createFromId($storeChange->categoryId);
+            } else {
+                $store->category = null;
             }
-            $store->category = MinimalIdentifier::createFromId($storeChange->categoryId);
         }
 
         if (!is_null($storeChange->chainId)) {
             $changeInformation->informationChanged = true;
-            $storeChainExists = $this->storeGateway->existStoreChain($storeChange->chainId);
-            if (!$storeChainExists) {
-                throw new StoreTransactionException(StoreTransactionException::STORE_CHAIN_NOT_EXISTS);
+            if ($storeChange->chainId !== 0) {
+                $storeChainExists = $this->storeGateway->existStoreChain($storeChange->chainId);
+                if (!$storeChainExists) {
+                    throw new StoreTransactionException(StoreTransactionException::STORE_CHAIN_NOT_EXISTS);
+                }
+                $store->chain = MinimalIdentifier::createFromId($storeChange->chainId);
+            } else {
+                $store->chain = null;
             }
-            $store->chain = MinimalIdentifier::createFromId($storeChange->chainId);
         }
 
         if (!is_null($storeChange->cooperationStatus)) {
