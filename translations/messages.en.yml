@@ -157,6 +157,7 @@ group:
     tooltip_function_region387: "Administrators of this group can remove entries from\
       \ the e-mail bounce list"
     tooltip_function_region327: Administrators of this workgroup can edit blog entries
+    tooltip_function_region332: Members of this group can access the store chain list
   member_list:
     remove_title: Remove member
     remove_text: Do you really want to remove {name} ({id}) from this group?
@@ -295,6 +296,9 @@ settings:
     \ saving movement in a newsletter.\nDo you want to receive these emails?\n"
   passport:
     menu: ID card
+    non_verified_text: You are not yet verified. Only verified foodsavers are allowed
+      to download their passport.
+    button: Download passport
 menu:
   manage_regions: Manage regions
   blog: Manage blog content
@@ -374,6 +378,7 @@ menu:
     in_negotiation: In negotiation
     group_overview: Group overview of global working groups
     baskets: Food baskets
+    chainList: Chain list
 profile:
   banana:
     by: ' by '
@@ -2258,6 +2263,7 @@ memberlist:
   filter_for_name_id: name or ID
 filterlist:
   some_in_all: ({some} of {all})
+  filter_for_name_id: Name or ID
 chat:
   conversations: Conversations
   new_message: New message
@@ -2931,7 +2937,8 @@ chain:
         description: Notes that are displayed in the chain list.
       details:
         label: Store info
-        description: Information text that gets displayed on the store pages of stores belonging to this chain.
+        description: Information text that gets displayed on the store pages of stores
+          belonging to this chain.
     cancel: Cancel
     ok: Save
   detailsmodal:
