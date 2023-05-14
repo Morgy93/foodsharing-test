@@ -30,7 +30,11 @@ group:
     disclaimer: "Inviando un messaggio a questo gruppo di lavoro\ntutti gli amministratori\
       \ del gruppo di lavoro vedranno il tuo indirizzo e-mail,\nche hai specificato\
       \ nel tuo profilo di.\nUna copia di questo messaggio ti verrà inviata via e-mail.\n"
-  edit: 'Modifica {group}'
+  edit:
+    title: Modificare {gruppo}
+    name_required: Si prega di inserire un nome.
+    description_required: Si prega di inserire una descrizione.
+    description_placeholder: Descrizione del gruppo di lavoro
   applications_for: Domande per %name%
   applications: Domande
   photo: foto
@@ -52,6 +56,8 @@ group:
       cancellare le iscrizioni delle E-mail Bounceliste
     tooltip_function_region327: Gli amministratori di questo gruppo di lavoro possono
       modificare i post del blog
+    tooltip_function_region332: I membri di questo gruppo di lavoro hanno accesso
+      all'elenco delle catene
   function:
     tooltip_function_7: L'indirizzo e-mail di questo gruppo di lavoro viene visualizzato
       sotto il pulsante «Richiedi mediazione». Gli amministratori non hanno diritti
@@ -108,6 +114,11 @@ group:
       abilitare i divisori del distretto sia rimuovere i contribuiti per il divisore
     tooltip_function_10: Gli amministratori di questo gruppo di lavoro possono attivare
       contributi nei forum moderati.
+    board: Consiglio di amministrazione
+    duplicate_board_team: Consiglio già creato! Ci può essere solo un consiglio per
+      distretto.
+    tooltip_function_11: Gli amministratorə di questo gruppo di lavoro sono visualizzati
+      nella visione d’insieme dei distretti.
   delete_group_sure: Sei sicuro di voler eliminare il gruppo di lavoro / distretto
     {groupName}?
   quitting_home_district_warning: Sei sicuro di voler lasciare il tuo distretto di
@@ -126,6 +137,7 @@ group:
     go: al gruppo
     edit: Modifica il gruppo
     contact: contattare il gruppo
+    save: Salvare le modifiche
   already_applied: Hai già fatto domanda per questo gruppo.
   image: Foto per% name%
   admin_count: '{0} Nessun amministratore |{1} Un amministratore | [2, Inf[% count%
@@ -157,6 +169,19 @@ group:
     add_member: Includere nel team
     admin_mode_on: Attiva vista per amministratori
     admin_mode_off: Torna alla visualizzazione standard
+    is_verified: Verificat@
+    remove_admin_text: Ti vuoi davvero cancellare {nome} ({id}) come amministratore?
+    remove_ambassador_title: Cancellarsi come ambasciatore
+    remove_admin_title: Cancellarsi come amministratore
+    set_admin_title: Registrare il membro come amministratore
+    remove_text_group: Vuoi davvero rimuovere {nome} ({id}) dal gruppo di lavoro?
+    remove_text_region: Vuoi davvero rimuovere {nome} ({id}) dalla regione?
+    set_ambassador_title: Registrare il membro come ambasciatore
+    remove_ambassador_text: Ti vuoi davvero cancellare {nome} ({id}) come ambasciatore?
+    old_edit_hint_link: Membri
+    set_admin_text: Vuoi davvero registrare {nome} ({id}) come amministratore?
+    set_ambassador_text: Vuoi davvero registrare {nome} ({id}) come ambasciatore?
+    is_home_region: Distretto principale
   application_region: 'Candidatura per '
   motivation: Testo motivazionale
   entermotivation: 'Motivazione:'
@@ -164,6 +189,10 @@ group:
   enterxp: 'Esperienza:'
   entertime: 'Tempo:'
   application_from: di
+  last_activity: Ultima attività
+  userId: ID
+  role_name: Ruolo
+  filter_by_last_activity: Non attivo da mesi
 bcard:
   info:
     address_shortened: Il tuo indirizzo e / o codice postale + luogo verranno visualizzati
@@ -189,6 +218,7 @@ pass:
   button:
     check: Controlla gli appuntamenti
     verify: Verificare
+    unverify: Deverificare
   verify:
     checkPickups: Prima di annullare la verifica devi controllare le date di ritiro
       registrate.
@@ -224,6 +254,7 @@ ui:
     on: pubblicato
 bread:
   backToOverview: Torna alla panoramica
+  backToStore: ritorno all’azienda
 button:
   clear_filter: filtro pulito
   create: creare
@@ -454,6 +485,13 @@ terminology:
   community: Gruppo locale {name}
   pin: Descrizione del gruppo locale
   homepage: Pagina iniziale
+  role:
+    "4": Organizzatore
+    "2": Responsabile dell’azienda
+    "3": Ambasciatore
+  store: Azienda
+  pickup: Ritiro
+  boardAdmins: Consiglio di amministrazione
 register:
   woman: femmina
   signup_newsletter: Vorrei ricevere la newsletter di foodsharing circa una volta
@@ -599,6 +637,19 @@ legal:
     this_gets_deleted_trustbananas: <ul><li>Le banane che hai distribuito vengono
       eliminate.</ul></li>
     this_doesnt_get_deleted_name: <ul><li>Il tuo nome</ul></li>
+    this_gets_deleted_main: 'Le seguenti informazioni saranno eliminate dal vostro
+      account e non potranno essere ripristinate:'
+    this_doesnt_get_deleted: "Le seguenti informazioni non sono più disponibili nel\
+      \ sistema attivo, ma vengono archiviate separatamente sulla base dell'articolo\
+      \ 17, paragrafo 3 del GDPR:"
+    this_doesnt_get_deleted_history: <ul><li>Storia della tua verifica</ul></li>
+    legal_1: Ecco <a href="https://foodsharing.de/?page=legal" target="_blank">il
+      nostro attuale accordo sulla privacy.</a>
+    this_gets_deleted_stores: <ul><li>Aziende a cui ti sei uniti.</ul></li>
+    this_gets_deleted_quiz: <ul><li>Il tuo quiz Foodsaver sarà rimosso.</ul></li>
+    this_gets_deleted_verify: <ul><li>La tua verifica sarà rimossa.</ul></li>
+    legal_2: Qui puoi trovare <a href="https://www.dsgvo.tools/aufbewahrungsfristen/"
+      target="_blank">come le leggi si relazionano tra loro. (Pagina in tedesco)</a>
 fsp:
   followName: seguire il divisore {name}
   follow: Segui questo equo divisore
@@ -838,6 +889,28 @@ store:
   noPickup: Non ha mai ritirato qui.
   team:
     isfull: Il team è al completo
+  short_tooltip_orange: Ritiri aperti in 3 giorni
+  short_tooltip_red: Ritiri aperti oggi o domani
+  regionPickupRulesInactive: Le regole distrettuali aggiuntive per i ritiri non sono
+    attive
+  enterdate: Inserire la data di ritiro
+  short_tooltip_yellow: Ritiri aperti in 5 giorni
+  tooltip_jumping: Sei un saltatore per questa azienda
+  maxchar: (max. 180 caratteri)
+  important: 'Importante:'
+  leaveinfo: Qui puoi fornire alcune informazioni ai/alle foodsaver che desiderano
+    candidarsi per il team.
+  filter: Filtrare per …
+  enternumber: È comunque necessario selezionare il numero di persone da ritirare.
+  willgetcontacted: Al momento sei nella lista dei saltatori. Non appena ci sarà bisogno
+    di aiuto, sarei contattat@.
+  nodetails: Non indicare qui gli orari esatti di ritiro.
+  ownStores: Aziende proprie
+  regionPickupRuleLong: Entro {regionPickupRuleTimespan} giorni, non possono essere
+    effettuati più di un totale di {regionPickupRuleLimit} ritiri, tenendo conto di
+    tutti le aziende con regole distrettuali. Da queste aziende non possono essere
+    prelevati più di {regionPickupRuleLimitDay} volte al giorno. {regionPickupRuleInactive}
+    ore prima del ritiro, questa regola non viene presa in considerazione.
 storeview:
   want_to_fetch: Vorrei aiutare in questo team.
   specials: particolarità
@@ -857,6 +930,32 @@ storeview:
     senza previa consultazione!
   pickupWeight: '{pickupWeight} sono stati salvati.'
   pickupCount: In questa agenzia e stato {pickupCount} ritirato.
+  show_information: Mostra informazioni sull’azienda
+  common: Generale
+  visible_for_public: Questo testo è visibile a tuttə i/le foodsaver.
+  visible_for_team: Questo testo è visibile solo al team di ritiro.
+  invalid_field: Contenuto della casella non valido. La modifica non può essere salvata.
+  contact:
+    name: Cognome/Nome
+  management: Amministrazione
+  source_data: Dati anagrafici
+  select_related_region: Selezione del distretto responsabile
+  cooperation_start: Cooperazione da
+  status_notes: Note di stato
+  team: Squadra di ritiro
+  public_and_statistics: Statistiche e relazioni pubbliche
+  no_permission_to_view: Autorizzazione mancante
+  groceries:
+    label: Quali alimenti possono essere ritirati?
+    search_tag: Ricerca per categoria di alimenti
+    no_match: Non è stata trovata una categoria di alimenti adatta
+    no_tag_preset: Nessuna categoria di alimenti disponibile
+    select_tag: Scegliere la categoria di alimenti
+  calendar_interval:
+    not_set: Non è stato impostato un periodo di tempo
+    single: 1 settimana
+    multiply: '{weeks} Settimane'
+  cooperation_status: Stato di cooperazione
 message_text_to_group_admin_workgroup: 'La regione/gruppo di lavoro <b>{groupName}</b>
   non <b>ha più </b> ambasciatori/amministratori.<br><br><br>Ha la seguente struttura
   ID:<br>{idStructureList}<br><br> L''ID è:{groupId}<br><br>URL: "<a href="https://foodsharing.de/?page=bezirk&bid={groupId}&sub=forum"
@@ -2319,6 +2418,9 @@ quiz:
     sadlywrong: purtroppo non è stata risposta correttamente.
     koquestion: Questa domanda purtroppo era particolarmente importante e non l'hai
       risposta correttamente.
+    alsowrong: purtroppo è stato classificato come errato perché non è stato selezionato
+      nulla o il tempo è scaduto.
+    percenta: purtroppo hai solo
   threestrikes: Non hai superato il quiz per 3 volte.
   waitxdays: Puoi ritentare tra
   days: Giorni
@@ -2336,6 +2438,17 @@ quiz:
     la risposta alle domande in qualsiasi momento.
   nownownow: Inizia il quiz adesso
   timedstart: Iniziare il quiz con tempo limitato e 10 domande
+  wikilink: Articolo Wiki adatto a questo argomento
+  session_deleted: I risultati di questo quiz sono stati cancellati perché il quiz
+    è stato completato più di due settimane fa.
+  congrats_details: Congratulazioni! Superato con {punti} su un massimo di {punti_massimi}!
+  not_passed_details: Sfortunatamente, non hai superat@. Hai ottenuto {punti} su un
+    massimo di {punti_massimi}!
+  finishnow:
+    fs: Completate subito la registrazione del Foodsaver.
+    bv: Ora completa la registrazione dell'amministratore della fattoria.
+  resultsbelow: La valutazione è disponibile di seguito.
+  donecorrectly: Hai risposto completamente corretto. Grande!
 deletelow: elimina
 filter_by: Filtrare per
 fpcapital: Punti di Errore
