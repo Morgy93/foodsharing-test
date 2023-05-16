@@ -119,6 +119,8 @@ quiz:
   wikilink: Bu konuya uygun Wiki Makalesi
   finishnow:
     bv: Şimdi İşletmeden Sorumlu Yetkili kaydını tamamlayınız.
+    fs: Foodsaver kaydını şimdi tamamlayın.
+    bot: Şimdi Elçi kaydını tamamlayın.
   choice:
     wrongb: bu doğru değil!
     percentb: '% doğru cevapladınız.'
@@ -134,6 +136,14 @@ quiz:
     whatisko: Bu tür soruların değeri özellikle yüksektir ve yanlış yanıtlama ne yazık
       ki başarısızlığa yol açar.
     responses: Cevaplayınız
+    wronga: bu da doğru olurdu.
+    answer: Cevap
+    fpsum: biriken hata puanları
+    sadlywrong: maalesef yanlış cevaplandı.
+    alsowrong: hiçbir şey seçmediğinizden veya süre dolduğundan maalesef yanlış olarak
+      derecelendirildi.
+    percenta: ne yazık ki sadece
+    neut: nötrdür ve bu nedenle değerlendirilmez.
   goodluck: Bol şanslar!
   timedstart: Zaman sınırlı ve 10 sorulu sınava başlayın
   congrats_details: Tebrikler! Maksimum {max_points} ceza puanından {points} ile geçtiniz!
@@ -154,6 +164,9 @@ quiz:
     sonuçları silindi.
   quizleft: ' - Şimdi sadece bu testi başarmak kaldı !'
   nownownow: Testi şimdi başlat
+  not_passed_details: Maalesef başaramadınız. Maksimum {max_points} hata puanından
+    {points} aldınız!
+  type: -Test
 answers: Hangi cevaplar doğru?
 maxfp: Geçilmesi gerekilen maksimum hata puanları
 questcount: Sınavda kaç soru sorulmalıdır?
@@ -299,6 +312,25 @@ group:
     tooltip_function_5: Bu çalışma grubunun yöneticileri, bölgedeki Foodsaverlarla
       ilgili raporları görebilirler. Yöneticileri içeren hiçbir mesaj görüntülenmez!
       Bunu ancak Tahkim kurulu görebilir.
+    duplicate_report_team: Raporlama ekibi zaten oluşturuldu! Bölge başına yalnızca
+      bir raporlama ekibi olabilir.
+    duplicate_mediation_team: Arabuluculuk ekibi zaten oluşturuldu! Bölge başına yalnızca
+      bir arabuluculuk ekibi olabilir.
+    duplicate_arbitration_team: Tahkim kurulu zaten oluşturuldu! Her ilçede yalnızca
+      bir tahkim kurulu olabilir.
+    title: Çalışma grubunun işlevi
+    duplicate_moderation_team: Moderasyon ekibi zaten oluşturuldu! Bölge başına yalnızca
+      bir moderasyon ekibi olabilir.
+    duplicate_board_team: Yönetim kurulu zaten oluşturuldu! Her ilçede sadece bir
+      yönetim kurulu olabilir.
+    tooltip_function_1: Bu çalışma grubunun yöneticileri, ilçedeki yeni üyeler hakkında
+      bilgilendirilecektir
+    welcome: Selamlama
+    duplicate_pr_team: Halkla ilişkiler ekibi zaten oluşturuldu! Bölge başına yalnızca
+      bir halkla ilişkiler ekibi olabilir.
+    restricted_workgroup_function: Bu çalışma grubu fonksiyonu, yalnızca bölgeler
+      üstü çalışma grubu oluştur üzerinden düzenlenebilir
+    tooltip_function_2: Bu çalışma grubunun yöneticileri, bölge için oylama oluşturabilir
   entermotivation: 'Motivasyon:'
   mail_link_title:
     region: Bölge Posta Kutusu
@@ -389,6 +421,8 @@ group:
     admin_mode_off: Standart görünüme dön
     old_edit_hint: Artık üye yönetimini sekmesinde bulabilirsiniz
   show-all: Hepsini göster
+  delete_group_sure: '{groupName} çalışma grubunu/bölgesini silmek istediğinizden
+    emin misiniz?'
 ansprechpartner: İşletmeden sorumlu Yektili (Şube Müdürü vs.)
 text: Metin
 fp: Hata puanları
@@ -488,6 +522,7 @@ bcard:
   actions: Opsiyonlar
   desc: Kartvizitinizi hangi bölge için veya hangi sıfat için oluşturmak istediğinizi
     buradan seçin.
+  role: Rol/Bölge
 month:
   "4": Nisan
   "6": Haziran
@@ -535,10 +570,27 @@ storeedit:
     bread: Ekibi düzenle
     foodsaver: Foodsaver
     leave: İşletmeden çık
+    amb: "Bu işletmeden siz sorumlu değilsiniz.\nAncak, bir büyükelçi olarak geniş
+      kapsamlı haklarınız var.\n"
   actions: Opsiyonlar
   bread: İşletmeyi düzenle
   not-in-region: Sadece üye olduğunuz bölgelerde işletme açabilirsiniz.
   add-new: Yeni bir işletme oluştur
+  fetch:
+    teamStatus: Ekip Statüsü
+    teamStatus0: Bu ekip dolu ve şu anda başka bir yardımcı aramıyor
+    teamStatus1: Yardımcı aranıyor
+    teamStatus2: Acilen yardımcı aranıyor
+  add_success: İşbirliği yapan işletme kaydedildi
+  unsuccess: Değişiklikler kaydedilemedi.
+  store:
+    status: Durum
+  milestone:
+    statuschanged: '{date} tarihinde durum değişikliği'
+    accepted: '{user} artık ekipte'
+    created: '{user}, işletmeyi {date} tarihinde girdi'
+    dropped: '{user} artık ekipte değil'
+  edit_success: Değişiklikler kaydedildi
 date:
   -- Tomorrow: Yarın
   yesterday: dün
@@ -612,6 +664,14 @@ store:
     filterJumper: Yedek
     reallyRemove: "{name}'ı bu İşletme Grubundan çıkarmak istediğinizden emin misiniz?"
     makeJumper: Yedek Listesinde
+    byLastPickup: Son alıma göre sırala
+    filter: 'Yalnızca göster:'
+    managementToggleOn: İşletme yöneticileri için görünümü etkinleştir
+    managementEffect: 'Son teslim alma tarihine göre sıralama:'
+    managementToggleOff: Standart görünüme dön
+    pickupAsc: En yenisi en son
+    pickupReset: Standart sıralama
+    pickupDesc: Önce en yenisi
   prefetchthree: 3 Hafta
   prefetchfour: 4 Hafta
   request:
@@ -652,6 +712,59 @@ store:
   locked: Bu işletmeyi düzenleyemezsiniz.
   bread: Tüm işletmeler
   actions: Opsiyonlar
+  not-in-team: Henüz bu işletme ekibinin bir parçası değilsiniz.
+  pickup_slot_unavailable: Bu zaman penceresi, operasyon yöneticinizin planladığından
+    daha ileride. Bu yüzden lütfen daha sonra tekrar deneyin.
+  fetchCount: '{count}× buradan aldı.'
+  mayManage: İşletme yöneticisi sınavını geçti.
+  particularities: Özellikler
+  average_collection_quantity: Ortalama alım miktarı
+  address: Adres
+  may_referred_to_in_public: Bu işletmenin adı açık olarak dile getirilebilir.
+  my_last_pickup: Son alımım
+  days: Günler
+  noStores: Henüz işletme girişi yapılmadı
+  error: İşletme yüklenemedi.
+  tooltip_managing: Bu işletmeden siz sorumlusunuz
+  allStoresOfRegion: İlçedeki tüm işletmeler
+  addNewStoresButton: Yeni işletme girin
+  appliedFor: İstek yapıldı
+  regionPickupRulesInactive: Teslim alımlar için ek bölge kuralları etkin değil
+  short_tooltip_red: Bugün veya yarın ki açık alımlar
+  short_tooltip_yellow: 5 gün içinde ki açık alımlar
+  short_tooltip_orange: 3 gün içinde ki açık alımlar
+  tooltip_jumping: Bu işletmenin yedek listesindesiniz
+  jumperSince: 'Şu tarihten beri yedek listesinde: {date}'
+  go: Ekip sayfasına
+  regionPickupRuleLong: Tüm Bölge Kuralları işletmeleri dikkate alınarak, {regionPickupRuleTimespan}
+    gün içinde toplam {regionPickupRuleLimit} adetten fazla alım yapılamaz. Bu işletmelerden
+    günde en fazla {regionPickupRuleLimitDay} kez alım yapılabilir. Alım tarihinden
+    {regionPickupRuleInactive} saat önce, bu kural dikkate alınmaz.
+  unknownDate: bilinmeyen
+  days_before: önce
+  peoplecame: İnsanların mağazaya sık sık çağrılmadan gittiği oldu.
+  nodeclaration: Belirtilmemiş
+  all_of_my_stores: Tüm işletmelerim
+  isManager: Bu işletmeden sorumlu.
+  mayAmb: Elçi sınavını geçti.
+  may_not_referred_to_in_public: "Bu şirketi asla açık açık dile getirmeyin (misal:
+    yemek sepetlerinde, Facebook'da veya basın başvurularında)."
+  tooltip_yellow: Önümüzdeki beş gün içinde ki açık alımlar
+  tooltip_orange: Önümüzdeki üç gün içinde ki açık alımlar
+  tooltip_red: Bugün veya yarın ki açık alımlar
+  team_conversation_name: Ekip {name}
+  springer_conversation_name: Yedek {name}
+  ownStores: Kendi işletmeleriniz
+  teamName: '{storeTitle}-Ekibi'
+  memberSince: Şu tarihten beri ekipte {date}
+  lastPickup: 'Son alım tarihi: {date}'
+  chat:
+    jumper: Yedek listesinde olanlara mesaj
+    team: Ekibe mesaj
+  lastPickupShort: en son {date}
+  noPickup: Buradan hiç almadı.
+  isJumper: Yedek listesinde.
+  isNotVerified: Henüz onaylanmadı.
 polls:
   title: Başlık
   new_poll: Yeni Anket oluştur
@@ -1104,7 +1217,7 @@ menu:
     mailbox: E-Posta Kutusu
     press: Basın
     imprint: Künye
-    events: Randevular
+    events: Tarihler
     members: Üyeler
     your_baskets: Yemek sepetleriniz
     baskets: Yemek sepetleri
@@ -1361,6 +1474,18 @@ forum:
     closed: Kapalı Konu
     open: Konuyu tekrar aç
     close: Konuyu kapat
+    delivery_mail:
+      non_active: devre dışı
+      title: Posta gönderimi
+      active: aktifleştirildi
+    with_mail: Konu açıldı ve herkes bu konuda e-posta ile bilgilendirildi
+    activate: Konuyu etkinleştir
+    too_big_to_mail: Bu konu için, bir ülke veya eyalet olduğundan, dolayı e-posta
+      gönderilmedi.
+    no_mail: E-posta gönderilmeden konu açıldı
+    delete: Konuyu sil
+    inactive: "Bu konu henüz aktif değil.\nBurdan kilidini açabilir ve tüm Foodsaverların
+      bundan haberdar olmasını sağlayabilirsiniz.\n"
   hold_back_for_moderation: Konu kaydedildi ve bir elçi/moderatör onaylar onaylamaz
     yayınlanacak.
   sending_error: Gönderilirken bir hata oluştu
@@ -1375,6 +1500,15 @@ forum:
     için <a href="https://de.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a>
     kullanabilirsiniz.<br />Dikkat: Metninizde * kullanmak istiyorsanız, başına &bsol;
     eklemelisiniz. Bunu örneğin, elçi kelimesini cinsiyetlendirirken kullanabilirsiniz.'
+  from: '{name} den'
+  threads: Konular
+  follow:
+    email: E-posta olarak
+    header: 'Yeni yanıtların bildirimi:'
+  post:
+    delete: Gönderiyi sil
+    body: Mesaj
+  new_thread: Yeni bir konu oluştur
 chat:
   open_chat: Bir mesaj yaz
   new_messages: Yeni Mesajlar
@@ -1611,6 +1745,11 @@ terminology:
   region: Bölge
   regions: Bölgeler
   threads: Konular
+  store: İşletme
+  n_sleeping: Bir Uyku beresi|%count% Uyku beresi
+  pickup: Alım
+  events: Tarihler
+  mailboxes: Posta kutuları
 legal:
   if_delete:
     this_doesnt_get_deleted: 'Aşağıdaki bilgiler artık aktif sistemde mevcut değildir,
@@ -1720,6 +1859,8 @@ register:
   phone_example: Örnek +49 179 12345678
   error: Bir hata oluştu
   set-password: Yeni şifre ayarla
+  have_read_the_legal_stuff2: anlaşıldı
+  select_your_gender: Hitap için…
 gender:
   f: Kadın
   d: Her ikisi veya diğer
@@ -1833,3 +1974,19 @@ day: Gün
 formatting:
   md: Format atmak için <a href="https://markdown.de/">Markdown</a> kullanabilirsiniz.
 time: Saat
+fetchercount: Alanların sayısı
+kette_id: İşletme Zinciri
+betrieb_status_id: Durum
+public_time: Ortalama alım saati
+sticker: İşletme/Mağaza/Dernek vs. girişe veya görülebilecek başka bir yere çıkartma
+  yapıştırmak istiyor mu?
+prefetchtime: Foodsaverlar, otomatik zaman penceresini kullanarak kaç hafta önceden
+  kayıt yaptırabilir?
+fetch_count: Bir başvuru sahibi kaç tane kurtarma yapmış olmalıdır?
+duration: Cevaplamak için zaman
+fpko: Hata puanları
+timepicker:
+  labelCloseButton: Kapat
+  labelNowButton: Şimdi
+pickup:
+  dates: Alım tarihleri
