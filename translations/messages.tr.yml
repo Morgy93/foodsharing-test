@@ -25,6 +25,13 @@ lon: Boylam
 regionPin:
   lat: Enlem
   lon: Boylam
+  text_desc: Lütfen yerel grubun açıklamasını veya iletişim bilgilerini buraya girin.
+    Bu, haritadaki Popup penceresinde görüntülenir…
+  pin_visible: Pin haritada görünür
+  header_page: '{bezirk} için genel yerel grup açıklaması'
+  desc: Açıklama
+  success: Başarıyla kaydedildi
+  save: kaydet
 email: E-Posta Adresi
 attachement: Ek
 name: Ad
@@ -167,6 +174,7 @@ quiz:
   not_passed_details: Maalesef başaramadınız. Maksimum {max_points} hata puanından
     {points} aldınız!
   type: -Test
+  learnbreak: Ders arası
 answers: Hangi cevaplar doğru?
 maxfp: Geçilmesi gerekilen maksimum hata puanları
 questcount: Sınavda kaç soru sorulmalıdır?
@@ -237,6 +245,7 @@ pass:
   claim: Yiyecekleri atmak yerine paylaşın!
   noPhoto: 'Aşağıdaki kişiler henüz bir fotoğraf yüklemedi:'
   notGenerated: Bu nedenle kimliğiniz oluşturulamadı.
+  bread: Pass jeneratörü
 group:
   actions:
     go: Gruba git
@@ -331,6 +340,8 @@ group:
     restricted_workgroup_function: Bu çalışma grubu fonksiyonu, yalnızca bölgeler
       üstü çalışma grubu oluştur üzerinden düzenlenebilir
     tooltip_function_2: Bu çalışma grubunun yöneticileri, bölge için oylama oluşturabilir
+    duplicate_fsmanagement_team: Yönetim ekibi zaten oluşturuldu! Bölge başına yalnızca
+      bir yönetim ekibi olabilir.
   entermotivation: 'Motivasyon:'
   mail_link_title:
     region: Bölge Posta Kutusu
@@ -464,6 +475,12 @@ bell:
   store_new_request: '{name} için istek'
   store_request_accept_wait_title: '{name}'
   store_request_accept_title: '{name}'
+  passgen_failed_title: Kimliğiniz oluşturulamadı
+  report_reason: '{reason}'
+  workgroup_request_accept: Çalışma grubuna kabul edildiniz.
+  new_report_title: '{name} hakkında yeni mesaj'
+  workgroup_request_accept_title: '{name}'
+  workgroup_request_decline_title: '{name}'
 sig:
   buddies: Tanıdığın insanlar
 error:
@@ -493,6 +510,20 @@ pickuplist:
   error_loadingPickup: 'Slotlar yüklenemedi: '
   unclear: Durum belirsiz
   error_whileSending: Mesaj gönderirken hata oluştu
+  day_tab: Gün
+  week_tab: Hafta
+  month_tab: Ay
+  year_tab: Yıl
+  NumberOfSlots_table_header: Slot sayısı
+  tooslow: Maalesef, kayıt işlemi gerçekleşemedi. Bunun nedeni muhtemelen başka birinin
+    daha hızlı olmasıydı.
+  error_kick: 'Kaldırılamadı '
+  header_for_district: '{bezirk} içinde alımların dağılımı '
+  time_table_header: Süre
+  NumberOfStores_table_header: İşletme sayısı
+  error_changeSlotCount: 'Slot sayısı değiştirilemedi: '
+  error_confirm: 'Onay başarısız oldu: '
+  NumberOfFoodSavers_table_header: Foodsaver sayısı
 list:
   filter_for: '… göre filtrele'
 startpage:
@@ -572,6 +603,8 @@ storeedit:
     leave: İşletmeden çık
     amb: "Bu işletmeden siz sorumlu değilsiniz.\nAncak, bir büyükelçi olarak geniş
       kapsamlı haklarınız var.\n"
+    orga: "Bu işletmeden siz sorumlu değilsiniz.\nAncak, küresel organizasyon ekibinin
+      bir parçası olarak geniş kapsamlı haklara sahipsiniz.\n"
   actions: Opsiyonlar
   bread: İşletmeyi düzenle
   not-in-region: Sadece üye olduğunuz bölgelerde işletme açabilirsiniz.
@@ -631,6 +664,12 @@ regionOptions:
   save: Seçenekleri kaydet
   enableReportButton: Bölgedeki düzenli Foodsaverların profillerine ilişkin bir rapor
     bağlantısı aracılığıyla raporlar için teknik desteği etkinleştirin.
+  regionPickupLimitNumber: Lütfen bu dönem için mümkün olan maksimum alım sayısını
+    girin
+  regionPickupTimespan: Lütfen düzenlemenin geçerli olduğu süreyi gün olarak belirtiniz
+  regionPickupLimitDayNumber: Lütfen BİR GÜN için toplam maksimum alım sayısını girin
+  regionPickupInactiveHours: Lütfen düzenlemenin artık geçerli olmayacağı bir alımdan
+    önceki saat sayısını girin
 validate:
   required: '{it} boş kalamaz'
 select: Lütfen seçiniz
@@ -672,6 +711,7 @@ store:
     pickupAsc: En yenisi en son
     pickupReset: Standart sıralama
     pickupDesc: Önce en yenisi
+    managementActions: İşletme Sorumluları için eylemler
   prefetchthree: 3 Hafta
   prefetchfour: 4 Hafta
   request:
@@ -713,8 +753,8 @@ store:
   bread: Tüm işletmeler
   actions: Opsiyonlar
   not-in-team: Henüz bu işletme ekibinin bir parçası değilsiniz.
-  pickup_slot_unavailable: Bu zaman penceresi, operasyon yöneticinizin planladığından
-    daha ileride. Bu yüzden lütfen daha sonra tekrar deneyin.
+  pickup_slot_unavailable: Bu Slot, operasyon yöneticinizin planladığından daha ileride.
+    Bu yüzden lütfen daha sonra tekrar deneyin.
   fetchCount: '{count}× buradan aldı.'
   mayManage: İşletme yöneticisi sınavını geçti.
   particularities: Özellikler
@@ -765,6 +805,7 @@ store:
   noPickup: Buradan hiç almadı.
   isJumper: Yedek listesinde.
   isNotVerified: Henüz onaylanmadı.
+  attribution: Atıf
 polls:
   title: Başlık
   new_poll: Yeni Anket oluştur
@@ -780,7 +821,7 @@ poll:
   new_poll:
     time: Saat
     title: Yeni Oylama
-    description: Tarif
+    description: Açıklama
     scope: Kimler oy kullanabilir?
     end_date: Oylama sonu
     options: Aralarından seçim yapabileceğiniz seçenekler.
@@ -1023,6 +1064,7 @@ foodsaver:
     last-activity: Son Aktivite
     remove: Bu Bölgeden sil
     name: İsim
+    role: Rölü
   url_error: Ana sayfa URL'nizde bir sorun var
   editName: '{name} düzenle'
   edit_failure: Hiçbir şey değiştirilmedi veya değişiklikler kaydedilmedi
@@ -1099,6 +1141,7 @@ mailbox:
   not-allowed: Bunu yapmak için gerekli haklara sahip değilsiniz.
   okay: E-posta başarıyla gönderildi.
   failed: E-posta gönderilemedi.
+  from: -den
 basket:
   sent_request: Başvuru gönderildi
   n_requests: 'Şimdiye kadar ki başvurular: <strong>{count}</strong>'
@@ -1699,6 +1742,7 @@ terminology:
     "1": Foodsaver
     "2": İşletme Sorumlusu
     "3": Elçi
+    "4": Organizatör
   forum: Forum
   foodsharer:
     f: Foodsharer
@@ -1750,6 +1794,12 @@ terminology:
   pickup: Alım
   events: Tarihler
   mailboxes: Posta kutuları
+  arbitration: Raporlama Görünümü (LS)
+  orga:
+    m: Organizatör
+    f: Organizatör
+    d: Organizatör
+  reports: Raporlama Görünümü (Yerel raporlama grubu)
 legal:
   if_delete:
     this_doesnt_get_deleted: 'Aşağıdaki bilgiler artık aktif sistemde mevcut değildir,
@@ -1861,6 +1911,7 @@ register:
   set-password: Yeni şifre ayarla
   have_read_the_legal_stuff2: anlaşıldı
   select_your_gender: Hitap için…
+  have_read_the_legal_stuff1: Ben
 gender:
   f: Kadın
   d: Her ikisi veya diğer
@@ -1980,8 +2031,7 @@ betrieb_status_id: Durum
 public_time: Ortalama alım saati
 sticker: İşletme/Mağaza/Dernek vs. girişe veya görülebilecek başka bir yere çıkartma
   yapıştırmak istiyor mu?
-prefetchtime: Foodsaverlar, otomatik zaman penceresini kullanarak kaç hafta önceden
-  kayıt yaptırabilir?
+prefetchtime: Foodsaverlar, otomatik slotu kullanarak kaç hafta önceden kayıt yaptırabilir?
 fetch_count: Bir başvuru sahibi kaç tane kurtarma yapmış olmalıdır?
 duration: Cevaplamak için zaman
 fpko: Hata puanları
@@ -1990,3 +2040,160 @@ timepicker:
   labelNowButton: Şimdi
 pickup:
   dates: Alım tarihleri
+  edit:
+    added: Alım tarihi girildi.
+    slotcount: 1 Alıcı
+    bread: Alım saatlerini düzenleyin
+    add: Alım saatlerini girin
+    more: Randevu Ekle
+    many-people: "Alım için ikiden fazla kişi belirttiniz.\n<br />\nLütfen işletmeye
+      <strong>yalnızca gerektiği kadar toplayıcı gönderiniz</strong>.\nÇok fazla insan
+      geçmişte bir işbirliğinin sona ermesine yol açmıştır.\n<br />\nİşletme ile olası
+      maksimum alıcı sayısını netleştirin.\nEk olarak, gerekli yardımcılar bir bisiklet
+      römorku veya benzeri ile gelebilir.\nİşletmenin görüş alanı dışında bekleyebilir.\n"
+    slotscount: '{count} Toplayıcılar'
+  overview:
+    status:
+      confirmed: Onaylandı
+      pending: Onaylanmadı
+      option: Mevcut Slot
+    header: Alım Tarihleri
+    tab:
+      registered:
+        name: Kayıtlı alım tarihleri
+        tooltip:
+          own: Kaydolduğunuz gelecekteki alım tarihleri
+          other: Kayıtlı, gelecekteki alım tarihleri
+        empty: Şu anda listelenmiş bir alım yok.
+      options:
+        name: Alım seçenekleri
+        tooltip:
+          own: Kayıt olabileceğiniz gelecekteki alım tarihleri
+        empty: Şu anda işletmenizde boş Slot yok.
+      history:
+        name: Alım geçmişi
+        tooltip:
+          own: Katıldığınız geçmiş alım tarihleri
+          other: Geçen ayda ki senin de katıldığın alım tarihleri
+        empty: Henüz alımlar yapılmadı.
+    cols:
+      time: Zaman noktası
+      slots: Slotlar
+      store: İşletme
+    menu:
+      refresh: Güncelle
+      signOffAll: Hepsini iptal et
+      signOff: İptal et
+      registeredSwitch: Kayıtlı alımlar
+      loadMore: Daha fazla yükle
+    modals:
+      signOff:
+        title: Slotdan çıkarılsın mı?
+        message: Kullanıcıyı gerçekten bu Slotdan çıkarmak istiyor musunuz?
+      signOffAll:
+        message: Kullanıcıyı gerçekten tüm kayıtlı Slotlardan çıkarmak istiyor musunuz?
+        title: Tüm yazıldığın slotların iptal edilsin mi?
+    allLoaded: Tüm girişler zaten görüntüleniyor.
+    freeSlots: boş {slots}
+  leave_pickup_message_team: Ekibe haber ver
+  leave_team_message_title: Ekibe Mesaj gönder
+  to_be_confirmed: Bu teslim alma tarihinin işletmeden sorumlu bir kişi tarafından
+    onaylanması gerekmektedir.
+  slot_add: Slot ekle
+  history:
+    title: Alım Geçmişi
+    search: Alımları göster
+  signout_history:
+    title: Son 7 günde çıkarılan Foodsaver geçmişi
+    signout_via_responsible_person:
+      remove_reason: '(Sebep: {reason})'
+      via: dolayı
+    reload: Tekrar yükle
+    slot: Alım
+    no_signouts_found: Giriş bulunamadı.
+  signout_confirm: Emin misiniz?
+  really_leave_date_title: '{date} randevudan çıkmak istiyor musunuz?'
+  really_join_date: '{date} tarihinde alım için kesin kaydolmak ister misiniz?'
+  copyNumber: Numarayı kopyala
+  signout_sure: Bu ekipden ayrılmak istiyor musunuz?
+  team_message_success: Ekibe mesaj başarıyla gönderildi
+  join_title_date: Emin misin?
+  same_day_hint: '{day} tarihinde, aşağıdaki alımlar için kaydoldunuz:'
+  join_agree: Evet, kesin yazılmak istiyorum
+  kick: Çıkış yap
+  call: Telefon et
+  confirm: Onayla
+  team_message_send_and_leave: Gönder ve çıkış yap
+  join_cancel: Yok değil
+  take_empty_slot: Buraya yazıl
+  open_profile: Profile git
+  copiedNumber: '"{number}" panoya kopyalandı.'
+  signout_info: Alım randevularınızın tümü silinecektir.
+  really_kick_user_info: "{name}'ı {date} tarihindeki alma işleminden çıkarmak istediğinizden
+    emin misiniz?\n{name} bununla ilgili şu mesajı alacak:\n"
+  leave_team_message_template: Sevgili arkadaşlar,{date} …
+  slot_remove: Slotu kaldır
+  kick_message_placeholder: 'Opsiyonel : buraya bilgi ekleyin…'
+  edit_recurring_pickups: Düzenli teslim alma saatlerini düzenleyin
+  really_delete_date: '{date} tarihinde alım tarihini gerçekten silmek istediğinizden
+    emin misiniz?'
+  delete_not_empty: Şu anda kayıtlı olan Foodsaverlar var. Herkes kayıttan çıktıktan
+    sonra alım tarihini silebilirsiniz.
+  kick_message: seni {date} tarihindeki {storeName} teslimatından çıkardık.
+  kick_message_footer: Sevgiler. İşletme yöneticileriniz
+  same_day_entry: '[{when} Saat] {name}'
+  delete_title: Alım tarihini sil
+  region_pickup_rule_failed: Bu giriş işlemi bölge kurallarına uymuyor
+  add_onetime_pickup: Ek tarih girin
+  no_slots_available: Açık Slot yok
+  leave: Çıkış yap
+  really_leave_date: Bu alımdan siz sorumlusunuz. Lütfen yerinize birilerini ayarlayın.
+  leave_pickup_ok: Yedek birini buldum bile
+calendar:
+  export:
+    pickup:
+      name: '{store} Alım'
+      unconfirmed: onaylanmamış
+      description: <a href="{url}">{store}</a> 'a Foodsharing alımı
+    event:
+      linkTitle: Foodsharing etkinliği
+      statusUnspecified: Bu randevuya katılıp katılmayacağınızı henüz belirtmediniz.
+        Bunu bağlantılı sayfada yapabilirsiniz.
+  labelCurrentMonth: Bu ay
+  labelSelected: Seçilmiş Tarih
+  labelHelp: Ok tuşlarıyla da navigasyon mümkündür
+  labelPrevMonth: Geçen ay
+  labelPrevYear: Geçen yıl
+  labelNextYear: Gelecek yıl
+  labelNextMonth: Gelecek ay
+  labelToday: Bugün
+  labelNoDateSelected: Tarih seç
+  labelCalendar: Takvim
+  labelNav: Takvim Navigasyonu
+fpcapital: Hata Noktası
+memberlist:
+  header_for_district: '{bölge} Bölgesinde Foodsaver'
+  header_for_workgroup: '{district} çalışma grubunda Foodsaver'
+genderlist:
+  district_tab: Bölge
+  gender_not_selected: seçilmedi
+  gender_male: erkek
+  gender_table_header: Cinsiyet
+  number_table_header: Sayı
+  gender_female: kadın
+  header_for_district: '{bezirk} Bölgesinde ki Foodsaverların Cinsiyete göre dağılımı'
+  home_district_tab: Ana bölge
+  gender_district_table_caption: Bölgeye katılan tüm Foodsaverlara karakteristik 'cinsiyet'
+    tahsisi.
+  gender_home_district_table_caption: Karakteristik 'cinsiyet'in ana bölge Foodsaverlarına
+    tahsisi
+  gender_divers: diğer
+store_status_impact_explanation: 'Lütfen her irtibat sonrası işletmenin durumunu (<a
+  href="https://wiki.foodsharing.de/Kooperationsaufbau_-_Checkliste" target="_blank">
+  Wiki: İşbirliği Oluşturma - Kontrol Listesi </a>) durumunu (<a href="https://wiki.foodsharing.de/Betrieb"
+  target="_blank">Wiki: İşletme</a>) böylece ilgili kişinin durumu herkes tarafından
+  görülebilir.<br><br>Daha sonra gezinme çubuğundaki şirket menüsünün üst kısmında
+  yalnızca işbirliği yapmak isteyen şirketler görüntülenecektir.'
+filterlist:
+  some_in_all: ({all}'dan {some})
+  filter_for_name_id: Ad veya ID
