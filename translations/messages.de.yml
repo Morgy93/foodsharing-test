@@ -676,6 +676,7 @@ terminology:
   settings: "Einstellungen"
   mailboxes: "Mailboxen"
   n_foodsaver: "Ein Foodsaver|%count% Foodsaver"
+  n_home_regions: "eine(r) mit Stammbezirk|%count% mit Stammbezirk"
   n_sleeping: "Eine Schlafmütze|%count% Schlafmützen"
   n_ambassadors: "Ein(e) Botschafter*in|%count% Botschafter*innen"
   n_stores: "Ein Betrieb|%count% Betriebe"

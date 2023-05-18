@@ -186,6 +186,7 @@ final class RegionControl extends Control
         $viewdata['isRegion'] = !$isWorkGroup;
         $stat = [
             'num_fs' => $this->region['fs_count'],
+            'num_fs_home' => $this->region['fs_home_count'],
             'num_sleeping' => $this->region['sleeper_count'],
             'num_ambassadors' => $this->region['stat_botcount'],
             'num_stores' => $this->region['stat_betriebcount'],
