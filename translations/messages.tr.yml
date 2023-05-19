@@ -481,6 +481,17 @@ bell:
   new_report_title: '{name} hakkında yeni mesaj'
   workgroup_request_accept_title: '{name}'
   workgroup_request_decline_title: '{name}'
+  new_foodsaver_needs_verification: Doğrulanması gerekir
+  new_foodsaver_needs_introduction: Tanıtım amaçlı alımlar gerekiyor
+  foodsaver_verified_title: Artık doğrulandınız!
+  foodsaver_verified: Kimliğinizi burdan arayın...
+  betrieb_fetch_title: '{betrieb}'
+  betrieb_fetch: '{count} onaylanmamış alım zamanı'
+  sharepoint_activate: '{name} yazıldı'
+  sharepoint_activate_title: '{bezirk} bölgesinde yeni dağıtım noktası'
+  passgen_failed: Lütfen bir fotoğraf yükleyin, sonra çalışacaktır.
+  new_foodsaver_verified_title: '{name}, {bezirk} bölgesinde yeni'
+  new_foodsaver_verified: Zaten doğrulanmış - Hemen başlayabilir
 sig:
   buddies: Tanıdığın insanlar
 error:
@@ -524,6 +535,7 @@ pickuplist:
   error_changeSlotCount: 'Slot sayısı değiştirilemedi: '
   error_confirm: 'Onay başarısız oldu: '
   NumberOfFoodSavers_table_header: Foodsaver sayısı
+  NumberOfAppointments_table_header: Randevu sayısı
 list:
   filter_for: '… göre filtrele'
 startpage:
@@ -654,7 +666,7 @@ ageBandList:
   ageBand: Yaş Grupları
   header_for_district: '{bezirk} bölgesindeki yaş grupları '
   district_tab: Bölge
-  home_district_tab: Bağlı olduğunuz Bölge
+  home_district_tab: Ana Bölge
   NumberOfAgeband: Sayısı
 regionOptions:
   header_page: '{bezirk} için seçenekler'
@@ -677,6 +689,27 @@ reports:
   about: Hakkında
   reportmessage: Herhangi bir soru olması durumunda size nasıl ulaşılabileceğini kısaca
     belirtiniz.
+  about_first_name: İsim hakkında
+  all_reports: Tüm raporlar
+  city: Şehir
+  report_id: Rapor-ID
+  about_last_name: Soyadı hakkında
+  about_email: E-Posta hakkında
+  from: den
+  time: Zaman noktası
+  reason: Nedeni
+  region: Ana Bölge
+  store: Atanan İşletme
+  from_first_name: İsimden
+  from_last_name: Soyadından
+  no_reports_fallback: Henüz rapor yok
+  in-store: Rapor, {user} alımın olduğu bir İşletme ile mi ilgili?
+  when: Zaman noktası
+  info: ' <br><br>!! Lütfen olayın <b>tarihini</b>, <b>yerini</b> ve <b>zamanını</b>
+    belirtin !! <br> Olayı doğrudan kişiyle ele almak ve konuyu açıklığa kavuşturmak
+    için lütfen size sunulan iletişim kanallarını deneyip denemediğinizi kontrol edin.
+    Lütfen soruları işleme almak için size ulaşmanın en uygun yolunu belirtin.'
+  message: Açıklama
 message_text_to_group_admin_workgroup: '<b>{groupName}</b> bölgesi/çalışma grubu artık
   <b>herhangi bir</b> Elçiye/Yöneticiye sahip değil.<br><br><br>Şu kimlik yapısına
   sahip: <br>{idStructureList }<br><br>Kimlik: {groupId}<br><br>URL: "<a href="https://foodsharing.de/?page=bezirk&bid={groupId}&sub
@@ -955,6 +988,7 @@ events:
       herkes içindir\nPaylaşılan bir bağlantı veya randevu menüsü aracılığıyla erişilebilir.\n
       <br>\nRandevuyu bu arada gösterge tablosunda yeni gelenlere de göstermek için,\n
       daha sonra tekrar kaydedin.\n"
+    endtime: Zaman sonu
   bread: Tarih
   add_new_event: Şimdi yeni bir tarih girin
   mumble:
@@ -1026,6 +1060,9 @@ recipients:
   newsletter_only_foodsharer: YALNIZCA tüm haber bülteni aboneleri arasında Foodsharer
     olanlar
   variables: Kişisel hitap
+  variable-info: "E-postayı daha kişisel hale getirmek için adın yerine <strong>{NAME}</strong>
+    ekleyebilirsiniz\nve selamlama için <strong>{ANREDE}</strong> kullanın.\n<p>{ANREDE}
+    {NAME} şu şekilde sonuçlanır: \"Sevgili Mete\"\n"
 foodsaver:
   list:
     summary: '{region}de ki Foodsaver {count}'
@@ -1483,6 +1520,13 @@ settings:
     none: Aktifim ve hazırım
     full: Belirsiz bir süre yokum
     tooltip: '{name} ara veriyor ve uyku modunda'
+    info: "Uyku beresi işleviyle, topluluğa şu anda uzakta olduğunuzu,\nveya başka
+      sebeplerden dolayı gıda kurtarmaya vaktiniz olmadığını iletmiş olursunuz.\n
+      Mesajlara cevap verip veremeyeceğinizi, \nhatta bazen alımlar yapabileceğinizi
+      bilmek faydalı olacaktır.\n"
+    show: "Bu işlevi kullanarak, durumunuzun, devamsızlık sürenizin ve mesajınız profil
+      sayfanızda görünmesini, profil resminizin üzerine bir \"uyku beresi\" yerleştirilmiş
+      olmasını kabul ediyor olacaksınız.\n"
   follow:
     thread: '{thread} forum konusundan haberdar olmak ister misiniz?'
     mail: Evet, yeni yazılardan e-posta ile haberdar olmak istiyorum.
@@ -1500,14 +1544,69 @@ settings:
     sync: "Takvim programınız bu takvimi düzenli olarak yeniden senkronize etmelidir.\n
       Ancak o zaman yeni teslim alma tarihleri görünür veya iptal edilen tarihler
       artık görünmez.\n"
+    delete_token:
+      message: Bu, önceki bağlantıyı geçersiz kılacaktır. Jetonu gerçekten silmek
+        istiyor musunuz?
+      title: Jetonu sil
+      button: Jetonu sil
+    create_token:
+      button: Yeni bir jeton oluştur
+      message: Bir seferde yalnızca bir jeton oluşturabilirsiniz. Yeni bir jeton ile,
+        önceki bağlantının üzeri yazılır ve öncekini geçersiz kılar. Bunu gerçekten
+        yeniden oluşturmak istiyor musun?
+      title: Yeni bir jeton oluştur
   title: Ayarlar
   passport:
     menu: Kimlik Kartı
+    verified_text: Bu kimlik yazıcı işareti olmadan indirilir. PDF, yazdırılmaya ve
+      düzenlenmeye karşı korumalıdır. Yalnızca akıllı telefonda gösterilmelidir. Basılı
+      bir kimliğe ihtiyacınız varsa, elçinizle iletişime geçin.
+    non_verified_text: Henüz doğrulanmadınız. Kimliği yalnızca doğrulanmış Foodsaverlar
+      indirilebilir.
+    button: Kimliği indir
   account: Hesap seçenekleri
   header: Profil Ayarları
   businesscard: Kişisel kartvizit
   email: E-posta adresini değiştir
   saved: Değişiklikler kaydedildi.
+  push:
+    disabled: Push bildirimleri başarıyla devre dışı bırakıldı
+    denied: "Tarayıcınızda foodsharing ile Push bildirimlerin görüntülenmesini reddettiniz.\n
+      Push bildirimleri almak istiyorsanız, Foodsharing için tarayıcı ayarlarınızı
+      değiştirin\nve sayfayı yeniden yükleyin.\n"
+    success: Push bildirimleri başarıyla etkinleştirildi
+    disable: Push bildirimlerini devre dışı bırak
+    enable: Push bildirimlerini etkinleştir
+    title: Push bildirimleri
+    not-supported: Ne yazık ki, tarayıcınız Push bildirimlerini desteklemiyor.
+    info-on: "Bu cihaz için push bildirimlerini etkinleştirirseniz,\noturum açmamış
+      olsanız bile,\nsohbet mesajları gelecekte doğrudan cihazınıza teslim edilecek.\n
+      Cihazınız daha sonra ilgili bir bildirim gösterecektir.\nveya bir ses veya titreşimle
+      tepki verir.\n"
+    info-off: "Bu cihazda Foodsharing Push bildirimleri açık.\nPush bildirimleri devre
+      dışı bırakırsanız, gelecekte sohbet mesajları devre dışı bırakılır\nve artık
+      doğrudan cihazınıza teslim edilmez.\nGiriş yapmadıysanız, cihazınız artık bildirim
+      göstermeyecek\nve artık bir ton veya titreşimle yanıt vermeyecektir.\n"
+  name_change:
+    foodsharer_info: Adınızı değiştirmek için <a {link}>Destek Formunda</a> bize bir
+      başvuruda bulunmalısınız.
+    title: Ad (ad ve soyadı)
+    desc: Kendi adınızı kendiniz değiştiremezsiniz. Ancak <a {link}">ad değişikliği
+      talebinde bulunabilirsiniz</a>.
+    request: İsim değişikliği talep edin
+    foodsaver_info: Adınızı değiştirmek için, kendi bölgenizden bir elçi ile iletişime
+      geçmelisiniz. Bu kişi, adınızı değiştirebilir.<hr/>Sol kenar çubuğundaki <a
+      {link}>bölgenizin forumunda</a> kendi bölgenizdeki elçinin kim olduğunu görebilirsiniz.
+  chatmail: "Foodsharing ana sayfasında dahili bir mesaj alırsanız,\nve o anda giriş
+    yapmadıysanız, e-posta ile bilgilendirilebilirsiniz.\nBunu istiyor musunuz?\n"
+  newsletter: "Yaklaşık ayda 1x yiyecek kurtarımı hakkında \ngünceli bilgileri bir
+    haber bülteninde gönderiyoruz.\nBu e-postaları almak ister misiniz?\n"
+  photo:
+    title: Senin Fotoğrafın
+    info: "Profil fotoğrafında yüzünüz <a href=\"{link_photo}\">tanımlanabilir</a>
+      olmalıdır,\nFoodsharing <a href=\"{link_id}\">ID</a> için kullanıldığından,\n
+      daha sonra <a href=\"{link_fs}\">Foodsaver</a> olunca işletmelerden gıda alımı
+      yapıcaksınız.\n"
 forum:
   thread:
     navigate_to_oldest_post: ilk gönderiye git
@@ -1548,6 +1647,7 @@ forum:
   follow:
     email: E-posta olarak
     header: 'Yeni yanıtların bildirimi:'
+    bell: Zil bildirimi ile
   post:
     delete: Gönderiyi sil
     body: Mesaj
@@ -1598,6 +1698,7 @@ addresspicker:
     </a> web sitesi aracılığıyla yiyecek sepetleri sunabilmeleri için adrese ihtiyaçları
     vardır. <a href="https://wiki.foodsharing.de/Foodsaver">Foodsaver</a> olarak yiyecek
     kurtarma çalışmalarına katılabilmek için gereklidir.
+  different_location: Adres, coğrafi konumdan bağımsızdır
 profile:
   commitments_stat:
     week_2: Bu hafta
@@ -1606,6 +1707,11 @@ profile:
     week_0: Sonraki Hafta
     week_3: Geçen hafta
     pickupCount: Sıklık
+    title: Etkileşim istatistikleri
+    tooltip_visibility: Etkileşim istatistikleri, işletme yöneticisinin rolünden görülebilir.
+      Ortak ana bölgesi veya ortak işletme ile sınırlıdır.
+    basketsOfferedWeek: "Yaklaşık ayda 1x yiyecek kurtarımı hakkında güncel bilgileri,
+      bir haber bülteninde gönderiyoruz.\nBu e-postaları almak ister misiniz?"
   report:
     view:
       what:
@@ -1663,6 +1769,19 @@ profile:
   deletesuccess: Tek randevu silindi
   cantdeletethis: Bireysel randevuları silemezsiniz!
   alldatesdeleted: Tüm randevular silindi
+  mail_bounce:
+    warning_3: 'bu kilit kaldırılacaktır. Daha fazla bilgiyi şu adreste bulabilirsiniz: '
+    warning_4: bu destek makalesi.
+    warning_2: E-posta adresini değiştirme
+    warning_1: Kişisel e-posta adresiniz {email}, yfoodsharing postaları ve iletişiminden
+      engellendi. tarafından
+    remove_button: Hemen çıkma listesinden kaldır
+    warning_others: Bu kullanıcının e-posta adresi {email}, foodsharing e-postaları
+      ve iletişiminden engellendi. Bu engeli, buton ile kaldırabilirsiniz.
+  title: Profil
+  go: Profile git
+  warning: Uyarı
+  notFound: Bu kullanıcı profili mevcut değil veya artık mevcut değil
 stats:
   total:
     foodsaver: Foodsaverlar gıda israfının olmadığı bir dünya için gönüllü oluyor.
@@ -1848,10 +1967,10 @@ pronoun:
   "1": o
   "2": o
 salutation:
-  "0": Sayın
-  "2": Sayın
-  "3": Sayın
-  "1": Sayın
+  "0": Sevgili
+  "2": Sevgili
+  "3": Sevgili
+  "1": Sevgili
 register:
   login_passwd1: Şifre (en az 8 karakter)
   confirmPassword_sameAsPassword: Parola eşleşmelidir.
@@ -2038,6 +2157,13 @@ fpko: Hata puanları
 timepicker:
   labelCloseButton: Kapat
   labelNowButton: Şimdi
+  labelSelected: Seçilen zaman
+  labelNoTimeSelected: Zaman seçilmedi
+  labelIncrement: Arttır
+  labelHours: Saatler
+  labelDecrement: Azalt
+  labelSeconds: Saniyeler
+  labelMinutes: Dakikalar
 pickup:
   dates: Alım tarihleri
   edit:
@@ -2159,6 +2285,7 @@ calendar:
       linkTitle: Foodsharing etkinliği
       statusUnspecified: Bu randevuya katılıp katılmayacağınızı henüz belirtmediniz.
         Bunu bağlantılı sayfada yapabilirsiniz.
+      description: Açıklama
   labelCurrentMonth: Bu ay
   labelSelected: Seçilmiş Tarih
   labelHelp: Ok tuşlarıyla da navigasyon mümkündür
@@ -2182,7 +2309,7 @@ genderlist:
   number_table_header: Sayı
   gender_female: kadın
   header_for_district: '{bezirk} Bölgesinde ki Foodsaverların Cinsiyete göre dağılımı'
-  home_district_tab: Ana bölge
+  home_district_tab: Ana Bölge
   gender_district_table_caption: Bölgeye katılan tüm Foodsaverlara karakteristik 'cinsiyet'
     tahsisi.
   gender_home_district_table_caption: Karakteristik 'cinsiyet'in ana bölge Foodsaverlarına
@@ -2197,3 +2324,6 @@ store_status_impact_explanation: 'Lütfen her irtibat sonrası işletmenin durum
 filterlist:
   some_in_all: ({all}'dan {some})
   filter_for_name_id: Ad veya ID
+mail:
+  noreply_addresses_not_allowed: '"noreply@" adreslerine gönderilen e-postalar teslim
+    edilemez.<br>Lütfen alıcı adresini kontrol edin.'
