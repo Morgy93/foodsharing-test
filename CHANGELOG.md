@@ -83,6 +83,7 @@
 - Replaced FS_ENV to "${1:-dev}" for containers-start to solve unbound variable !2542 @chriswalg
 - Made scripts work with docker-compose-plugin !1587 @andre161292
 - remove trailing whitespace from CHANGELOG.md !2690 @Morgy93
+- [DevDocs] Added follow-up link for local dev environment on getting ready page !2689 @Morgy93
 
 ## Development documentation
 
