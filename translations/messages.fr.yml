@@ -435,7 +435,7 @@ settings:
       message: Vous ne pouvez créer qu'un seul jeton à la fois. Un nouveau jeton écrase
         le lien précédent et le rend invalide. Voulez-vous vraiment en créer un nouveau ?
       title: Créer un nouveau jeton
-      button: Créer un nouveau jeton
+      button: Générer un nouveau jeton
   push:
     disabled: Les notifications push on été désactivées
     disable: Désactiver les notifications push
