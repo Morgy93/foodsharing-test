@@ -298,6 +298,9 @@ settings:
     non_verified_text: You are not yet verified. Only verified foodsavers are allowed
       to download their passport.
     button: Download passport
+    verified_text: This badge is downloaded without crop marks. The PDF is protected
+      from printing and editing. It should only be shown on your smartphone. If you
+      need a printed badge, contact your ambassadors.
 menu:
   manage_regions: Manage regions
   blog: Manage blog content
@@ -931,10 +934,10 @@ storeview:
   no_permission_to_view: "No permission"
   groceries:
     label: Which kinds of food are allowed to be collected?
-    select_tag: Select food
-    search_tag: Search for food
-    no_match: No food found
-    no_tag_preset: No food exist
+    select_tag: Choose food category
+    search_tag: Search for food categories
+    no_match: No suitable food category found
+    no_tag_preset: No food category available
   calendar_interval:
     not_set: No pickup calender interval defined
     single: 1 week
