@@ -1710,8 +1710,8 @@ profile:
     title: Etkileşim istatistikleri
     tooltip_visibility: Etkileşim istatistikleri, işletme yöneticisinin rolünden görülebilir.
       Ortak ana bölgesi veya ortak işletme ile sınırlıdır.
-    basketsOfferedWeek: "Bu hafta {count} kez yemek sepeti sunduğunuz için teşekkürler.\
-      \  Toplam {ağırlık} kg paylaşıldı."
+    basketsOfferedWeek: "Bu hafta {count} kez yemek sepeti sunduğunuz için teşekkürler.
+      Toplam {weight} kg paylaşıldı."
   report:
     view:
       what:
