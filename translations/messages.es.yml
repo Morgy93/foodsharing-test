@@ -16,11 +16,11 @@ lon: Longitud
 lat: Latitud
 picture: Foto
 options: Opciones
-botschafter: Embajador
+botschafter: Embajador/a
 geschlecht: Sexo
 anschrift: Dirección (automáticamente con el mapa anterior, corregir después si es
   necesario)
-handy: Teléfono mobil
+handy: Número de teléfono móvil (incluido el código de país, comienza con +)
 telefon: Número de teléfono fijo (incl. código de país, comienza con +)
 attachement: Documento adjunto
 email: Correo electrónico
@@ -110,3 +110,14 @@ passcheck: Por favor confirme el cambio con su contraseña
 fetchercount: Número de recogidas
 quiz:
   question: Pregunta
+  goodluck: ¡Buena suerte!
+terminology:
+  foodsaver:
+    m: salvacomidas
+    f: salvacomidas
+    d: salvacomidas
+groups:
+  empty: Aún no estás en ningún grupo de trabajo
+position: Puesto en foodsharing (público)
+infomail_message: Notificación de mensajes de chat sobre foodsharing
+kette_id: cadena corporativa
