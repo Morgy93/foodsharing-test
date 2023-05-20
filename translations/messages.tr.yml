@@ -1524,9 +1524,9 @@ settings:
       sebeplerden dolayı gıda kurtarmaya vaktiniz olmadığını iletmiş olursunuz.\n
       Mesajlara cevap verip veremeyeceğinizi, \nhatta bazen alımlar yapabileceğinizi
       bilmek faydalı olacaktır.\n"
-    show: "Bu işlevi kullanarak, durumunuzun, devamsızlık sürenizin ve mesajınız profil
-      sayfanızda görünmesini, profil resminizin üzerine bir \"uyku beresi\" yerleştirilmiş
-      olmasını kabul ediyor olacaksınız.\n"
+    show: "Bu işlevi kullanarak, durumunuzun, devamsızlık sürenizin ve mesajınız\n
+      profil sayfanızda görünmesini, profil resminizin üzerine bir \"uyku beresi\"\
+      \nyerleştirilmiş olmasını kabul ediyor olacaksınız.\n"
   follow:
     thread: '{thread} forum konusundan haberdar olmak ister misiniz?'
     mail: Evet, yeni yazılardan e-posta ile haberdar olmak istiyorum.
