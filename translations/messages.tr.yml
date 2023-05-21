@@ -927,7 +927,7 @@ region:
   edit: Bölgeyi düzenle
   type:
     country: Ülke
-    district: Bölge/Semt
+    district: Bölge
     city: Şehir
     region: Bölge
     title: Bölge Türü
@@ -1243,6 +1243,29 @@ basket:
     yapın ve talebinizi tekrar gönderin.\n"
   go-to-settings: Ayarlara dön
   no-desc: Lütfen bir açıklama girin.
+  mapsearch: Adres arama…
+  where: Nerede?
+  requests: İstekte bulun ({count})
+  nearby-short: Size yakın
+  expires: <strong>{date}</strong> tarihine kadar geçerlidir
+  provider: Sağlayıcı
+  new: Yeni yemek sepeti
+  date: Giriş tarihi
+  created: <strong>{date}</strong> tarihinde yayınlandı
+  my_list_empty: Herhangi bir yiyecek sepeti girmediniz
+  recent: En yeni yemek sepetleri
+  no_nearby: '{radius} kilometre yakınında yiyecek sepeti yok'
+  publish: Yemek sepeti yayınla
+  edit: Yemek sepetini düzenle
+  nearby: Yakınınızdaki yemek sepetleri
+  on: '{platform} tarafından yemek sepeti'
+  all: Tüm yemek sepetleri
+  all_map: Haritadaki tüm sepetler
+  add: Yemek sepeti oluştur
+  by: "{name}'nin yemek sepeti"
+  go: Yemek sepetine
+  delete: Yemek sepetini sil
+  updated: <strong>{date}</strong> tarihinde güncellendi
 menu:
   entry:
     joinregion: Bir bölgeye katılın
@@ -1300,7 +1323,7 @@ menu:
     events: Tarihler
     members: Üyeler
     your_baskets: Yemek sepetleriniz
-    baskets: Yemek sepetleri
+    baskets: Yemek Sepetleri
     helpwanted: Yardımcı aranıyor
     talksandworkshops: Konferanslar ve Atölyeler
     forum: Forum
@@ -1363,7 +1386,7 @@ storelist:
   name: İsim
   addressdata: Adres
   city: Konum
-  region: Bölge/İlçe
+  region: Bölge
   nowaste: Hiçbir şeyi atmıyor
   map: Harita
   nocontact: Henüz iletişim yok
@@ -1712,6 +1735,17 @@ profile:
       Ortak ana bölgesi veya ortak işletme ile sınırlıdır.
     basketsOfferedWeek: "Bu hafta {count} kez yemek sepeti sunduğunuz için teşekkürler.
       Toplam {weight} kg paylaşıldı."
+    eventsParticipatedWeek: 'Bu haftaki etkinliklere {count} katıldığınız için teşekkür
+      ederiz. Toplam süre: {saat}:{dakika} '
+    weekDesc: '{weekStart} ile {weekEnd} arasındaki {week} takvim haftası'
+    categorieName: Kategori
+    pickupAmount: Miktar
+    districtName: Bölge
+    securePickupWeek: Kısa sürede müdahale ettiğiniz ve {count} kez teslim almayı
+      sağladığınız için teşekkürler!
+    basketsSharedWeek: 'Yemek sepetleri {count} kişiyle paylaşıldı. '
+    respActStores: 'Aktif olanları {count} koordine ettiğiniz için teşekkürler '
+    eventsCreatedWeek: 'Bu hafta {count} kez etkinlik oluşturduğunuz için teşekkürler. '
   report:
     view:
       what:
@@ -1764,6 +1798,21 @@ profile:
     readup: "Bir mesajın nasıl işleneceği hakkında buradan bilgi edinebilirsiniz:
       <a href='https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.29_Bearbeitung_einer_Meldung'>
       Bearbeitung einer Meldung </a>"
+    oldReportButton: Kural ihlalini bildir
+    oldReportButtonTextPart2: Gerekirse, bölgenizdeki yerel raporlama grubuyla iletişime
+      geçin.
+    reporterHasNoReportGroup: Bölgenizde yerel bir raporlama grubu bulunmadığından,
+      bildirim sisteminin teknik desteğini kullanamazsınız.
+    send: Raporu gönder
+    oldReportButtonTextPart1: Kural ihlalleri şu anda burada bildirilmiyor.
+    sent: Rapor gönderildi
+    title: '{name} hakkında rapor'
+    oldReportButtonTextPart3: Raporlama sistemi hakkında daha fazla bilgi bulabilirsiniz
+    mail: 'Yerel raporlama grubunuza aşağıdaki e-posta adresinden de ulaşabilirsiniz:'
+    info: Lütfen olayın tarihini, yerini ve saatini belirtiniz. Olayı doğrudan ele
+      almak ve konuyu o kişiyle açıklığa kavuşturmak için, lütfen size sunulan iletişim
+      kanallarını deneyip denemediğinizi kontrol edin. Ve lütfen soruları işleme almak
+      için size ulaşmanın en iyi yolunu belirtin.
   choosestore: Lütfen ilgili işletmeyi seçiniz
   cantdeleteall: Tüm randevuları silemezsiniz!
   deletesuccess: Tek randevu silindi
@@ -1782,6 +1831,78 @@ profile:
   go: Profile git
   warning: Uyarı
   notFound: Bu kullanıcı profili mevcut değil veya artık mevcut değil
+  nav:
+    buddy: '{name} tanıyorum'
+    notes: Notlar <strong>({count})</strong>
+    violations: Mesajlar <strong>({count})</strong>
+    edit: Profili düzenle
+    history: Kimlik kartı geçmişi
+    storelist: İşletmeler ({count})
+    verificationHistory: Doğrulama geçmişi
+  history:
+    wasVerified: Onaylandı
+    lostVerification: Onaylanmadı
+    noData: Veri yok.
+    noActor: bilinmeyen
+    actionBy: dolayı
+  notes:
+    title: '{name} hakkında notlar'
+    info: Lütfen bu işlevi dikkatli kullanın. Bu, süreçleri görünür kılmak ve işleri
+      azaltmaya yardımcı olması içindir. Bir kişi hakkında kişisel veya yargılayıcı
+      hiçbir şeyin burada yeri yoktur. Gerçekçi kalın.
+    bread: Notlar
+  infos:
+    buddies: Tanıdık
+    buddycount_followed: '{name}, {count} Foodsaverı tanır'
+    title: Bilgiler
+    registrationDate: Kayıt Tarihi
+    never: Hiç
+    privateMail: Özel e-posta adresi
+    buddycount_known: '{name}, {count} Foodsaverı tanır'
+    foodsaverId: Foodsaver-ID
+    lastActivity: Son Aktivite
+    fetchrate: Alma oranı
+    fsMail: Dahili E-Posta Kutusu
+    foodsharerId: Foodsharer-ID
+  about_me_intern: Kendisi hakkında
+  mediationRequest: Arabuluculuk talep et
+  public:
+    mayNot: aktif değil
+    cta: '{name} adlı kullanıcının tüm profili giriş yaptıktan sonra kullanılabilir:'
+    who: "{name} {from} 'den"
+    textMay: ve bu nedenle foodsharing adına yiyecek kabul edebilir.
+    join: Katılın & Kaydolun
+    may: aktif
+    login: Oturum açmak için
+    textMayNot: ve bu nedenle şu anda foodsharing adına yiyecek kabul etme yetkisi
+      yoktur.
+  mediation:
+    title: '{name} için arabuluculuk isteği'
+    no_group: Ne yazık ki, Foodsaver'ın ana bölgesinde henüz yerel bir arabuluculuk
+      grubu yok. Yerel bir arabuluculuk ekibinin seçilmesi için konuyu bir grup toplantısında
+      veya forumda gündeme getirebilirsiniz.
+    info: 'Foodsaver ile bir konuyu ele almak için destek aramanızın harika olduğunu
+      düşünüyoruz. Arabuluculuk ekibi bir aracı olarak hareket edebilir ve görüşmelerinizin
+      aynı seviyede ve karşılıklı saygı içinde yürütülmesini sağlamaya yardımcı olabilir.
+      Yerel arabuluculuk çalışma grubuna aşağıdaki e-posta adresinden ulaşabilirsiniz:'
+  online: '{name} online.'
+  sleeping: '{name} süresiz bir uyku beresi var'
+  banana:
+    placeholder: en az 100 karakter…
+  stats:
+    baskets: Yemek Sepetleri
+    posts: Gönderiler
+    count: alındı
+    weight: kurtarıldı
+  workgroups_admin: '{name}, grupların irtibat kişisidir'
+  ambRegions: '{name} {role} için'
+  workgroups_member: '{name} ile aşağıdaki çalışma gruplarındasınız'
+  regions: '{name} bir Foodsaver'
+  sleepinfo: '{name}, {from} ile {until} arasında bir uyku beresi var'
+  homeRegion: '{name} in ana bölgesi'
+  pinboard: '{name} tarafından durum güncellemeleri'
+  reportRequest: Rapor gönder
+  no_common_workgroups: '{name} ile ortak bir çalışma grubunda değilsiniz.'
 stats:
   total:
     foodsaver: Foodsaverlar gıda israfının olmadığı bir dünya için gönüllü oluyor.
@@ -2297,6 +2418,7 @@ calendar:
   labelNoDateSelected: Tarih seç
   labelCalendar: Takvim
   labelNav: Takvim Navigasyonu
+  locale: de
 fpcapital: Hata Noktası
 memberlist:
   header_for_district: '{bölge} Bölgesinde Foodsaver'
@@ -2327,3 +2449,5 @@ filterlist:
 mail:
   noreply_addresses_not_allowed: '"noreply@" adreslerine gönderilen e-postalar teslim
     edilemez.<br>Lütfen alıcı adresini kontrol edin.'
+food_art: Ne tür yiyecekler sözkonusu?
+orgateam: Ülke çapındaki yönetici ekibi
