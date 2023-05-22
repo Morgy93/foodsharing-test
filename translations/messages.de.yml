@@ -770,7 +770,7 @@ fsp:
     n_in_region: "{0} Keine Fairteiler in %name%| {1} Ein Fairteiler in %name%| [2, Inf[ %count% Fairteiler in %name%"
 
 storeview:
-  show_information: "Betriebs-Information anzeigen"
+  show_information: "Betriebsinformationen anzeigen"
   store: "Betrieb"
   common: "Allgemein"
   visible_for_public: "Dieser Text ist für jeden Foodsaver sichtbar."
@@ -965,7 +965,7 @@ storeedit:
     teamStatus2: "Es werden dringend noch Helfer*innen gesucht"
   add_success: "Kooperationsbetrieb wurde eingetragen"
   edit_success: "Änderungen wurden gespeichert"
-  unsuccess: "Änderungen konnte nicht übernommen werden."
+  unsuccess: "Änderungen konnten nicht übernommen werden. {error}"
   milestone:
     statuschanged: "Statusänderung am {date}"
     created: "{user} hat den Betrieb am {date} eingetragen"

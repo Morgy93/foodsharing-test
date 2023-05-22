@@ -15,10 +15,11 @@ export function getCsrfToken () {
 }
 
 export class HTTPError extends Error {
-  constructor (code, text, method, url) {
+  constructor (code, text, method, url, jsonContent) {
     super(`HTTP Error ${code}: ${text} during ${method} ${url}`)
     this.code = code
     this.statusText = text
+    this.jsonContent = jsonContent
   }
 }
 
@@ -31,7 +32,8 @@ export async function request (path, options = {}) {
     const request = new self.Request(BASE_URL + path, o)
     const res = await self.fetch(request)
     if (!res.ok) {
-      throw new HTTPError(res.status, res.statusText, request.method, request.url)
+      const jsonContent = await res.json()
+      throw new HTTPError(res.status, res.statusText, request.method, request.url, jsonContent)
     }
     if (options.responseType === 'blob') {
       return await res.blob()

@@ -2050,6 +2050,7 @@ storeedit:
     created: '{user} added the store on {date}'
     statuschanged: Status changed on {date}
   edit_success: The changes were saved
+  unsuccess: "Unable to store change. {error}"
   fetch:
     teamStatus: team status
     teamStatus2: Helpers are strongly needed

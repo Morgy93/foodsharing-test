@@ -614,8 +614,9 @@ export default {
         pulseSuccess(this.$i18n('storeedit.edit_success'))
         this.$bvModal.hide('storeInformationModal')
       } catch (err) {
-        console.error(err)
-        pulseError(this.$i18n('storeedit.unsuccess'))
+        const errorDescription = err.jsonContent ?? { message: '' }
+        const errorMessage = `(${errorDescription.message ?? 'Unknown'})`
+        pulseError(this.$i18n('storeedit.unsuccess', { error: errorMessage }))
       } finally {
         hideLoader()
       }
@@ -640,7 +641,7 @@ export default {
     async resetModal () {
       this.editMode = false
       this.store = await getStoreInformation(this.storeId)
-      if (!this.store.groceries !== null) {
+      if (this.store.groceries !== null) {
         const selectedValues = getters.getGrocerieTypes().filter(opt => this.store.groceries.indexOf(opt.id) !== -1).map(opt => opt.name)
         this.storeFoodNames = [...new Set(selectedValues)]
       } else {
