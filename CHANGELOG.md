@@ -34,7 +34,7 @@
 - Use strip_tags instead of preg_replace for basket phone to keep + sign #1005 !2650
 - Fix wrong Content-Length header in mailbox attachment and passport download !2664 @stcz
 - close push notification on android phones !2671 @buntel
-
+- Fix the vue import on the settings page #1618 !2691 @alex.simm
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003

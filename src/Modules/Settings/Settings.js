@@ -33,7 +33,7 @@ switch (GET('sub')) {
     vueRegister({ Calendar })
     vueApply('#calendar')
     break
-  default:
+  case 'general':
     vueRegister({ ProfilePicture, NameInput, LeafletLocationSearchVForm, RegionTreeVForm })
     vueApply('#image-upload')
     vueApply('#name-input')
