@@ -35,6 +35,8 @@
 - Fix wrong Content-Length header in mailbox attachment and passport download !2664 @stcz
 - close push notification on android phones !2671 @buntel
 - Fix the vue import on the settings page #1618 !2691 @alex.simm
+- fixed kick message length #1540 !2694 @Morgy93
+
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
