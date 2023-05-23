@@ -2068,7 +2068,6 @@ storeedit:
   actions: Options
   add_success: Cooperating store was added
   not-in-region: You can only add stores to regions, in which you are a member.
-  unsuccess: Changes could not be saved.
 legal:
   delete_account: I want to delete my account.
   legal_agreement: Legal agreement
