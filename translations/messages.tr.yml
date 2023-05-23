@@ -19,60 +19,63 @@ dashboard:
   no_more_updates_foodsharepoint: Başka dağıtım noktası gönderileri yok
   no_more_updates_mailbox: Daha fazla Sesli Mesaj yok
   options:
-    reset: ''
+    reset: 'Sıfırla'
     grid_toggle:
-      3_columns: ''
-      2_columns: ''
+      3_columns: '3 sütunlu görünüme geç'
+      2_columns: '2 sütunlu görünüme geç'
     hide:
-      tooltip: ''
-      text: ''
-  source_friendWall_own: ''
+      tooltip: 'Burada panodaki ayrı alanları gizleyebilir veya gösterebilirsiniz.'
+      text: 'Görünümü değiştir'
+  source_friendWall_own: 'Panon'
   mail_activation_error_body:
-    part_3: ''
-    part_1: ''
-    part_4: ''
-    part_2: ''
-  homeRegion: ''
-  foodsharer: ''
+    part_3: 'veya'
+    part_1: 'Lütfen etkinleştirme e-postasındaki bağlantıya tıklayarak e-posta adresinizi
+      onaylayın. Alternatif olarak şunları yapabilirsiniz'
+    part_4: 'E-posta adresini değiştir'
+    part_2: 'Buradan yeni bir aktivasyon e-postası isteyin'
+  homeRegion: 'Ana bölgeniz {region}.'
+  foodsharer: 'İyi kurtarmalar!'
   my:
-    events: ''
-    pending: ''
-    groups: ''
-    users: ''
-    no-stores: ''
-    regions: ''
-    buddies: ''
-    baskets: ''
-    jumping_stores: ''
-    managing_stores: ''
-    polls: ''
-    stores: ''
-  source_forum_bot: ''
-  invitation: ''
-  invitationCount: ''
-  eventCount: ''
-  activation_mail_sent: ''
-  source_forum: ''
-  source_mailbox: ''
-  event: ''
-  source_friendWall: ''
-  pickupdates: ''
+    events: 'Etkinlikler'
+    pending: 'Başvuru yapıldı'
+    groups: 'Grupların'
+    users: 'Foodsaver'
+    no-stores: 'Henüz bir işletme ekibinde değilsiniz.'
+    regions: 'Bölgelerin'
+    buddies: 'Tanıdığın insanlar'
+    baskets: 'Yemek Sepetleri'
+    jumping_stores: 'Yedek listesinde olduğunuz İşletmeler'
+    managing_stores: 'Sorumlu olduğun işletmeler'
+    polls: 'Anketler'
+    stores: 'İşletmeleriniz'
+  source_forum_bot: 'Elçi Forumu {0}'
+  invitation: 'Davet edildin'
+  invitationCount: 'Davet edildin ({count})'
+  eventCount: 'Bir sonraki etkinlik ({count})'
+  activation_mail_sent: 'Etkinleştirme bağlantısı gönderildi - lütfen e-postanızı
+    kontrol edin'
+  source_forum: 'Forum {0}'
+  source_mailbox: '{0}'
+  event: 'Bir sonraki etkinlik'
+  source_friendWall: '{0} Panosu'
+  pickupdates: 'Sonraki kurtarma tarihleri'
   deleted_user: ''
-  mail_activation_error_title: ''
+  mail_activation_error_title: 'E-posta adresi onaylanmadı'
   quiz:
     read: ''
     ack: ''
     go: ''
-  polls: ''
-  full_subline: ''
-  chooseHomeRegion: ''
-  foodsaver_amount: ''
-  source_foodsharepoint: ''
-  activation_mail_failure: ''
-  source_event: ''
-  source_store: ''
-  greeting_short: ''
-  foodsharer_amount: ''
+  polls: 'Devam eden anketleriniz'
+  full_subline: '<b>{pickups} x</b> yiyecek aldınız ve <b>{weight} kg</b> kurtardınız.
+    Yaşadığınız bölge <b>{region}</b>.'
+  chooseHomeRegion: 'Lütfen bir ana bölgesi seçin.'
+  foodsaver_amount: '<b>{pickups} x</b> yiyecek aldınız ve <b>{weight} kg</b> kurtardınız.'
+  source_foodsharepoint: 'Dağtım Noktası {0}'
+  activation_mail_failure: 'Yeni bir etkinleştirme bağlantısı gönderilemedi'
+  source_event: 'Randevu {0}'
+  source_store: 'İşletmeler {0}'
+  greeting_short: 'Merhaba {isim}!'
+  foodsharer_amount: 'Şu ana kadar tam tamına {weight} kilo kurtardınız!'
 geb_datum: Doğum tarihi (YYYY-AA-GG)
 add: ekle
 lat: Enlem
@@ -651,12 +654,15 @@ startpage:
     title: ''
   welcome_text: ''
   join_welcome: ''
-  registernow: ''
-  telltruth: ''
+  registernow: 'Şimdi Katıl'
+  telltruth: 'Foodsharing''i geliştiren ve web sitesini işleten hepimiz işimizi çok
+    ciddiye alıyoruz. Bir dizi yasa ve yönetmeliğe uyarız. Lütfen verilerinizi doldururken
+    ve platformda yaptığınız diğer tüm paylaşımlarınızda, örneğin yemek sepetleri
+    ve forum gönderilerinizde dürüst olun.'
   private:
     title: ''
     text: ''
-  bedependable: ''
+  bedependable: 'Güvenilir ol'
   demands:
     text: ''
     title: ''
@@ -664,33 +670,44 @@ startpage:
     text: ''
     title: ''
     link: ''
-  makeproposals: ''
-  etiquette: ''
-  call_to_action_button: ''
+  makeproposals: 'Önerilerde bulun'
+  etiquette: 'foodsharing Etiketi'
+  call_to_action_button: 'Şimdi Katıl'
   member:
     title: ''
     text: ''
-  followrules_c: ''
-  beresponsible: ''
+  followrules_c: 'Tüm ayrıntılar <a href=''https://wiki.foodsharing.de/Hygieneregeln''
+    target=''_blank'' rel=''noopener noreferrer nofollow''>foodsharing hijyen kurallarında</a>
+    bulunabilir. Talimatlar ayrıca <a href=''https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel''
+    target=''_blank'' rel=''noopener noreferrer nofollow''>kılavuzda</a> bulunabilir.'
+  beresponsible: 'Sorumluluk sahibi ol'
   slogan_2: ''
-  notallowed: ''
+  notallowed: 'İlaçların paylaşımı ve dağıtımı (homeopatik ilaçlar dahil) foodsharing
+    dışındadır. Giyim, kozmetik, ev kimyasalları, oyuncaklar ve diğer gıda dışı ürünler
+    de foodsharing yoluyla değiştirilemez veya paylaşılamaz. Foodsharing platformu
+    bu tür teklifleri silme hakkını saklı tutar.'
   vision:
-    title: ''
+    title: 'Vizyon'
     text: ''
-  more_infos: ''
+  more_infos: 'Daha fazla bilgi edin'
   slogan_1: ''
-  honest: ''
+  honest: 'Dürüst ol'
   responsibility: ''
   followrules_a: ''
   how_we_work:
     text: ''
     title: ''
-  dependability: ''
-  proposals: ''
+  dependability: 'Birçok şehirde, yiyeceklerin paylaşıldığı gıda dağıtım noktaları
+    vardır. Paylaşmak için orada veya diğer tarafsız yerlerde buluşabilirsiniz. Yiyecek
+    teslim etmek veya teslim almak istiyorsanız, lütfen güvenilir ve dakik olun, kimseyi
+    "yağmurda" bırakmayın.'
+  proposals: 'Kendimizi geliştirmek, daha iyiye doğru ilerlemek istiyoruz. Bunun için
+    birçok iyi fikir ve öneri ile size ihtiyacımız var. Bunları <a href=''mailto:info@foodsharing.de''>info@foodsharing.de</a>
+    adresine gönderebilirsiniz'
   call_to_action:
     text: ''
-    title: ''
-  this_is_how_it_works: ''
+    title: 'Sen de katıl'
+  this_is_how_it_works: 'Şöyle çalışıyor'
   store:
     text: ''
     title: ''
@@ -701,7 +718,11 @@ startpage:
   register: ''
   forstores: ''
   together: ''
-  followrules_b: ''
+  followrules_b: 'Yasal sebeplerden dolayı sadece belirli yiyeceklerin ve diğer ürünlerin
+    sunulmasına ve paylaşılmasına belirli koşullar altında izin verdiğimizi açıkça
+    belirtiriz. Bu özellikle çiğ balık, çiğ et, çiğ yumurtalı yemekler ve hazır yiyecekler
+    gibi çabuk bozulan yiyecekler için geçerlidir. Genel olarak, yiyeceğin hala yenilebilir
+    olduğundan emin olmak için tüm dikkatimizi kullanırız.'
 filter_by: ..göre filtrele
 right: Değerlendirme
 apply_type: Bu gruba kimler kayıt olabilir?
@@ -788,7 +809,7 @@ storeedit:
     teamStatus1: Yardımcı aranıyor
     teamStatus2: Acilen yardımcı aranıyor
   add_success: İşbirliği yapan işletme kaydedildi
-  unsuccess: Değişiklikler kaydedilemedi.
+  unsuccess: Değişiklikler kaydedilemedi.{error}
   store:
     status: Durum
   milestone:
@@ -1965,14 +1986,14 @@ profile:
       unreliable: Yerine birini aramadan,bulmadan kısa sürede sıklıkla alımlarını
         iptal etti
       trasher: Kurtarılan yiyecekleri atıyor
-      nearfs: ''
+      nearfs: 'Foodsaver''dan önce'
       offs: ''
-      ofstore: ''
+      ofstore: 'İşletme çalışanları tarafından'
     control:
       from: Gelen raporlar
       delivered: Teslim edilen Mesajlar
       notes: Notlar ve Kararlar
-      tot: ''
+      tot: 'Toplamda'
       newreports: ''
       total: ''
     xhr:
@@ -2233,7 +2254,7 @@ terminology:
   group: Çalışma grupları
   n_ambassadors: Bir Elçi|%count% Elçi
   message: Bildiri
-  polls: Oylar
+  polls: Anketler
   buddies: Tanıdık
   options: Opsiyonlar
   pin: Yerel Grup açıklaması
