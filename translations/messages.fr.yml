@@ -908,6 +908,7 @@ terminology:
     "3": Ambassadeur.rice
     "4": Personne gérant l'organisation
   pickup: Collecte
+  store: ''
 register:
   activation_success: <strong>Activation réussie.</strong> Connecte-toi maintenant
     avec ton adresse courriel et le mot de passe que tu as choisi.
@@ -1209,6 +1210,7 @@ store:
   leaveinfo: Ici, tu peux indiquer quelques informations pour les collecteurs.rices
     qui souhaitent postuler pour faire partie de l'équipe.
   prefetchfour: 4 semaines
+  ownStores: ''
 storeview:
   want_to_fetch: J'aimerais m'engager dans cette équipe.
   specials: Particularités
@@ -1252,6 +1254,8 @@ storeview:
     not_set: Aucune période spécifiée
     multiply: '{weeks} semaines'
   public_and_statistics: Statistiques et relations publiques
+  show_information: ''
+  visible_for_public: ''
 day: Balise
 time: Heure
 select: Veuillez choisir
@@ -3108,6 +3112,9 @@ chain:
         label: Presse
       status:
         label: Statut
+      details:
+        label: ''
+        description: ''
     cancel: Annuler
     ok: Sauvegarder
   detailsmodal:
@@ -3126,3 +3133,4 @@ chain:
   error:
     create: La chaîne n’a pas pu être créée.
     edit: La chaîne n’a pas pu être modifiée.
+    notfs: ''
