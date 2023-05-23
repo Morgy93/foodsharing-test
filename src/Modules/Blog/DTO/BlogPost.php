@@ -10,7 +10,10 @@ class BlogPost
     public string $title;
     public string $content;
     public DateTime $publishedAt;
-    public string $authorName;
+    /**
+     * Name of this post's author or null if the author's profile was deleted.
+     */
+    public ?string $authorName;
     public string $picture;
 
     public static function create(
@@ -18,7 +21,7 @@ class BlogPost
         string $title,
         string $content,
         DateTime $publishedAt,
-        string $authorName,
+        ?string $authorName,
         string $picture
     ): BlogPost {
         $b = new BlogPost();

@@ -5,8 +5,8 @@
     >
       <h2>{{ blogPost.title }}</h2>
       <p class="subtitle">
-        <span>{{ $i18n('blog.author') }} {{ blogPost.authorName }}</span>,
-        <span>{{ $dateFormatter.format(blogPost.publishedAt) }}</span>
+        <span v-if="blogPost.authorName">{{ $i18n('blog.author') }} {{ blogPost.authorName }}, </span>
+        <span>{{ formattedDate }}</span>
       </p>
       <img
         v-if="pictureUrl"
@@ -47,6 +47,16 @@ export default {
       } else {
         return '/images/' + this.blogPost.picture.replace('/', '/crop_0_528_') // backward compatible path for old pictures
       }
+    },
+    formattedDate () {
+      return this.$dateFormatter.format(this.blogPost.publishedAt, {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+      })
     },
   },
   async mounted () {
