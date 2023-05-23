@@ -490,9 +490,12 @@ terminology:
     "4": Organizzatore
     "2": Responsabile dell’azienda
     "3": Ambasciatore
+    "0": ''
+    "1": ''
   store: Azienda
   pickup: Ritiro
   boardAdmins: Consiglio di amministrazione
+  fsps: ''
 register:
   woman: femmina
   signup_newsletter: Vorrei ricevere la newsletter di foodsharing circa una volta
@@ -770,6 +773,59 @@ pickup:
   open_profile: Richiama il profilo
   leave: cancellare
   kick: Cancellare
+  signout_history:
+    title: ''
+    signout_via_responsible_person:
+      via: ''
+      remove_reason: ''
+    reload: ''
+    no_signouts_found: ''
+    slot: ''
+  overview:
+    tab:
+      registered:
+        tooltip:
+          other: ''
+          own: ''
+        name: ''
+        empty: ''
+      options:
+        name: ''
+        tooltip:
+          own: ''
+        empty: ''
+      history:
+        name: ''
+        tooltip:
+          own: ''
+          other: ''
+        empty: ''
+    status:
+      confirmed: ''
+      pending: ''
+      option: ''
+    cols:
+      store: ''
+      slots: ''
+      time: ''
+    freeSlots: ''
+    header: ''
+    modals:
+      signOff:
+        message: ''
+        title: ''
+      signOffAll:
+        message: ''
+        title: ''
+    menu:
+      refresh: ''
+      signOffAll: ''
+      loadMore: ''
+      registeredSwitch: ''
+      signOff: ''
+    allLoaded: ''
+  region_pickup_rule_failed: ''
+  no_slots_available: ''
 storeedit:
   milestone:
     statuschanged: Cambio di stato il {date}
@@ -803,11 +859,13 @@ storeedit:
     max-sm: Si prega di scegliere un massimo di tre responsabili agenzie
     leave: Annulla l'iscrizione del agenzia
     bread: modificare il team
+    leave_myself: ''
   actions: Opzioni
   bread: Modifica l'agenzia
   add_success: L´agenzia di cooperazione è stata registrata
   not-in-region: Puoi creare agenzie solo nelle regioni di cui sei membro.
   add-new: Crea una nuova agenzia
+  unsuccess: ''
 store:
   request:
     to-nowhere: Rifiutare
@@ -912,6 +970,23 @@ store:
     tutti le aziende con regole distrettuali. Da queste aziende non possono essere
     prelevati più di {regionPickupRuleLimitDay} volte al giorno. {regionPickupRuleInactive}
     ore prima del ritiro, questa regola non viene presa in considerazione.
+  complete: ''
+  regionPickupRules: ''
+  nodeclaration: ''
+  prefetchone: ''
+  prefetchfour: ''
+  locked: ''
+  prefetchtwo: ''
+  useRegionPickupRules: ''
+  nochains: ''
+  convince:
+    some: ''
+    final: ''
+    none: ''
+    much: ''
+  prefetchthree: ''
+  peoplecame: ''
+  smneeded: ''
 storeview:
   want_to_fetch: Vorrei aiutare in questo team.
   specials: particolarità
@@ -1039,12 +1114,35 @@ startpage:
   slogan_3: foodsharing è e rimane gratuito.
   slogan_2: collaborativo, sostenibile e riconoscente
   slogan_1: Insieme per apprezzare di più il cibo
+  telltruth: ''
+  followrules_b: ''
+  etiquette: ''
+  register: ''
+  bedependable: ''
+  join: ''
+  forstores: ''
+  proposals: ''
+  responsibility: ''
+  honest: ''
+  makeproposals: ''
+  registernow: ''
+  respect: ''
+  followrules_a: ''
+  followrules_c: ''
+  beresponsible: ''
+  join_rules: ''
+  join_welcome: ''
+  together: ''
+  notallowed: ''
+  dependability: ''
 poll:
   results:
     option_text: Opzione
     sum: Somma
     votes: Voti
     number_of_votes: Voti espressi
+    average: ''
+    percentage_of_votes: ''
   cancel:
     question: Vuole davvero annullare questa votazione? Questo non può essere annullato.
     title: Cancellare la riconciliazione
@@ -1122,6 +1220,8 @@ language_chooser:
   content: Scegli una lingua
   title: Scegli la lingua
   choose_button: Aggiornamento
+  translation_help_info_text: ''
+  translation_help: ''
 email_template:
   login: Accedi per rispondere
   foodbasket_request: Il tuo cesto di cibo è stato richiesto da %SENDER%
@@ -1205,6 +1305,7 @@ foodsaver:
     to_sm: Diventare funzionario di un'agenzia
     needs_fs_quiz: Prima devi fare il quiz di Foodsaver
     needs_sm: Devi prima diventare un funzionario dell'agenzia
+    learning: ''
   manage:
     remove: Elimina dal distretto
     actions: Opzioni
@@ -1235,6 +1336,7 @@ foodsaver:
     >pagina degli alumni</a>\ne può essere visto da tutti sul sito web.\n"
   mailchange_error: L'attivazione del tuo nuovo indirizzo email non è riuscita. Si
     prega di riprovare.
+  delete_account_sure_reason: ''
 reports:
   reason: Motivo
   message: Descrizione
@@ -1259,6 +1361,7 @@ reports:
   from_last_name: per cognome
   region: Distritto origine
   store: Società assegnata
+  about_email: ''
 month:
   short:
     "12": dic.
@@ -1310,6 +1413,7 @@ date:
   time: '{time} ore'
   to: per
   from: da
+  clock: ''
 addresspicker:
   label: Ricerca per indirizzo/località
   infobox_profile: <a href="https://wiki.foodsharing.de/Foodsharer">Foodsharer</a>
@@ -1319,6 +1423,7 @@ addresspicker:
   infobox: Inserisci l'indirizzo nel campo di testo tra questo messaggio e la carta
     e poi confermalo selezionandolo sulla carta.
   placeholder: Si prega di cercare l'indirizzo qui. Se necessario, correggere in seguito.
+  different_location: ''
 recipients:
   done: Tutte le e-mail sono state inviate
   unknown: sconosciuto
@@ -1375,6 +1480,12 @@ forum:
     too_big_to_mail: Non sono state inviate email per l'argomento perché si tratta
       di un paese o di una regione.
     no_mail: L'argomento è stato aperto senza inviare email
+    delivery_mail:
+      active: ''
+      non_active: ''
+      title: ''
+    navigate_to_oldest_post: ''
+    navigate_to_newest_post: ''
   follow:
     email: come email
     bell: come una campana
@@ -1414,6 +1525,7 @@ events:
     no: non posso
     maybe: forse
     yes: partecipo
+    change: ''
   morePeople: '... e altri {count}'
   invitedCount: '{count} Inviti'
   maybeCount: '{count} può forse partecipare'
@@ -1486,6 +1598,15 @@ chat:
   conversations: Conversazione
   new_message: Messaggio nuovo
   open_chat: Scrivere un messaggio
+  new_messages: ''
+  no_messages: ''
+  no_conversation: ''
+  display_all_messages: ''
+  search: ''
+  start_of_conversation: ''
+  receivermissing: ''
+  select_recipients: ''
+  incorrect_address: ''
 timepicker:
   labelNowButton: Adesso
   labelCloseButton: Chiudere
@@ -1509,6 +1630,15 @@ calendar:
   labelPrevMonth: Lo scorso mese
   labelPrevYear: L'anno scorso
   locale: de
+  export:
+    pickup:
+      description: ''
+      name: ''
+      unconfirmed: ''
+    event:
+      description: ''
+      linkTitle: ''
+      statusUnspecified: ''
 bell:
   ft_update_title: '{nome}'
   blog_new_check: '{titolo}'
@@ -1561,6 +1691,9 @@ bell:
   new_foodsaver_needs_introduction: Ha bisogno di un'introduzione ai pickup
   fs_sleepmode_title: Nuovo dormiglione
   poll_new_title: Nuova votazione
+  foodsaver_verified_title: ''
+  foodsaver_verified: ''
+  new_foodsaver_needs_verification: ''
 content:
   edit: Modifica pagina
   new_success: La pagina è stata creata
@@ -1583,6 +1716,12 @@ regionOptions:
     un link di mediazione sui profili del foodsaver tribale del distretto.
   enableReportButton: Abilitare il supporto tecnico per le notifiche attraverso un
     link di notifica sui profili del foodsaver tribale del distretto.
+  regionPickupLimitNumber: ''
+  regionPickupLimitDayNumber: ''
+  regionPickupRuleActive: ''
+  regionPickupInactiveHours: ''
+  regionPickupTimespan: ''
+  regionPickupRuleActiveStoreList: ''
 ageBandList:
   NumberOfAgeband: Numero
   ageBand: Fascia di età
@@ -1629,6 +1768,7 @@ memberlist:
   header_for_district: Foodsaver nel distretto {distretto}
 filterlist:
   some_in_all: ({some} da {all})
+  filter_for_name_id: ''
 list:
   filter_for: Filtra per…
 menu:
@@ -1693,6 +1833,13 @@ menu:
     dataprivacy: Protezione dei dati
     wiki: Wiki
     pin: Descrizione del gruppo locale
+    helpwanted: ''
+    other_stores: ''
+    your_baskets: ''
+    helpneeded: ''
+    baskets: ''
+    group_overview: ''
+    chainList: ''
   reports: Messaggi
   content: Modifica contenuti
   manage_mailboxes: Gestire caselle di posta
@@ -1793,6 +1940,8 @@ basket:
     cesto di cibo attraverso il sito web.\n<br><br>\nQuesto è necessario per visualizzare
     un cestino di cibo sulla mappa usando un pin.\n<br><br>\nL'indirizzo postale del
     tuo indirizzo non è visibile per gli utenti del cesto alimentare.\n"
+  no_nearby: ''
+  not_withdrawn: ''
 team:
   not-found: Pagina non trovata
   ratelimit: Si prega di attendere {minuti} finché non si può inviare il prossimo
@@ -1829,6 +1978,13 @@ dashboard:
     stores: Tu ritiri alimentari da
     groups: I tuoi gruppi
     regions: I vostri distretti
+    buddies: ''
+    events: ''
+    users: ''
+    jumping_stores: ''
+    baskets: ''
+    polls: ''
+    managing_stores: ''
   foodsharer: Buon divertimento salvando il cibo!
   checkAddress: Per favore, controllate il vostro indirizzo. Non è stato possibile
     determinare le coordinate.
@@ -1872,6 +2028,21 @@ dashboard:
   display_all: Tutti
   foodsaver_amount: "Hai raccolto <b>{pickups} x</b> generi alimentari e salvato <b>{weight}
     kg</b>."
+  invitation: ''
+  greeting_short: ''
+  options:
+    hide:
+      tooltip: ''
+      text: ''
+    grid_toggle:
+      3_columns: ''
+      2_columns: ''
+    reset: ''
+  full_subline: ''
+  polls: ''
+  invitationCount: ''
+  settings: ''
+  eventCount: ''
 search:
   mystores: Le mie aziende
   mybuddies: I miei Buddies
@@ -1886,6 +2057,7 @@ search:
   title: Ricerca
   user_search:
     placeholder: Nome o ID
+  informations: ''
 profile:
   report:
     arbAdminAgainstRepAdmin: Sei un amministratore del collegio arbitrale e vuoi segnalare
@@ -1919,6 +2091,65 @@ profile:
       direttamente con la persona e chiarire i fatti. Si prega di indicare come si
       può essere raggiunti al meglio per ulteriori richieste.
     title: Rapporto su {nome}
+    cancellation: ''
+    view:
+      thief: ''
+      tardy: ''
+      noshow: ''
+      dirty: ''
+      bossy: ''
+      vsstore: ''
+      nearstore: ''
+      social: ''
+      picky: ''
+      sells: ''
+      vsfs: ''
+      vsclients: ''
+      nearclients: ''
+      newreport: ''
+      unreliable: ''
+      ofclients: ''
+      what:
+        sexist: ''
+        racist: ''
+        brutal: ''
+        homophobe: ''
+        hurtful: ''
+        other: ''
+      why: ''
+      respect: ''
+      residence: ''
+      trasher: ''
+      returned: ''
+      additional: ''
+      other: ''
+      nearfs: ''
+      offs: ''
+      ofstore: ''
+      delivered: ''
+      complaints: ''
+    control:
+      from: ''
+      delivered: ''
+      notes: ''
+      newreports: ''
+      total: ''
+      tot: ''
+    xhr:
+      allofthem: ''
+      delivered: ''
+      reportee: ''
+      reporting: ''
+      reportID: ''
+      deleted: ''
+      plsconfirm: ''
+      confirmed: ''
+    noshow: ''
+    kindofreport: ''
+    inthisblog: ''
+    readup: ''
+    sells: ''
+    late: ''
   banana:
     give: Dai a {nome} una banana
     none: '{name} non ha ancora ricevuto banane di fiducia.'
@@ -1999,6 +2230,8 @@ profile:
     registrationDate: Data di registrazione
     lastActivity: Ultimo accesso
     title: Informazioni
+    buddycount_known: ''
+    buddycount_followed: ''
   online: '{nome} è online.'
   notes:
     info: "Si prega di utilizzare questa funzione in modo coscienzioso. Dovrebbe aiutare
@@ -2011,6 +2244,7 @@ profile:
     wasVerified: Verificato
     noData: Non ci sono dati disponibili.
     noActor: sconosciuto
+    actionBy: ''
   nav:
     storelist: Agenzie ({count})
     violations: Messaggi <strong>({count})</strong>
@@ -2022,6 +2256,31 @@ profile:
   no_common_workgroups: Non sei in un gruppo con {name}.
   workgroups_member: Sei con {name} nei seguenti gruppi
   workgroups_admin: '{name} è la persona di contatto per i gruppi'
+  cantdeleteall: ''
+  commitments_stat:
+    pickupCount: ''
+    week_1: ''
+    basketsSharedWeek: ''
+    securePickupWeek: ''
+    weekDesc: ''
+    categorieName: ''
+    pickupAmount: ''
+    calenderWeek: ''
+    title: ''
+    respActStores: ''
+    eventsCreatedWeek: ''
+    week_3: ''
+    eventsParticipatedWeek: ''
+    tooltip_visibility: ''
+    districtName: ''
+    week_4: ''
+    week_2: ''
+    basketsOfferedWeek: ''
+    week_0: ''
+  deletesuccess: ''
+  choosestore: ''
+  alldatesdeleted: ''
+  cantdeletethis: ''
 mail:
   noreply_addresses_not_allowed: Le e-mail a indirizzi "noreply@" non sono consegnabili.<br>Si
     prega di controllare l'indirizzo del destinatario.
@@ -2084,6 +2343,7 @@ settings:
     invalid: C'è qualcosa di sbagliato nell'indirizzo e-mail che hai inserito.
     passfail: La password è sbagliata, digitata male?
     passcheck: Confermate il cambiamento con la vostra password
+    question: ''
   email: Cambiare l'indirizzo e-mail
   sleep:
     tooltip: "{nome} si sta solo prendendo un po' di tempo libero ed è in modalità
@@ -2116,6 +2376,17 @@ settings:
   notifications: Notifiche
   header: I tuoi impostazioni
   title: Impostazioni
+  name_change:
+    desc: ''
+    request: ''
+    foodsharer_info: ''
+    foodsaver_info: ''
+    title: ''
+  passport:
+    menu: ''
+    verified_text: ''
+    non_verified_text: ''
+    button: ''
 mailbox:
   mark_as_unread: Contrassegnare come non letto
   filesize: Scusa, il file è troppo grande.
@@ -2155,10 +2426,14 @@ mailbox:
   title: Caselle postali
   mail: Email
   member: Utente Mailbox
+  to: ''
+  fromto: ''
+  from: ''
 messages:
   bread: Notizie
 map:
   title: Carta
+  donates: ''
 push_notifications:
   test_notification_body: Ottimo, sembra che abbia funzionato :)
   test_notification_title: Notifiche push abilitate
@@ -2183,6 +2458,7 @@ storelist:
   zipcode: Codice postale
   addressdata: Indirizzo
   geo: geo
+  isManaging: ''
 storestatus:
   "7": L'agenzia non esiste più
   "5": L'agenzia collabora con noi
@@ -2192,6 +2468,8 @@ storestatus:
   "1": Non c'è ancora alcun contatto
   "0": Stato non chiaro
   "6": Dona a Tafel ecc. e non butta via niente
+  "5a": ''
+  "3a": ''
 footer:
   it_devdocs: fatto dal gruppo informatico foodsharing
   donate_now: Dona ora
@@ -2213,13 +2491,27 @@ footer:
     del Turismo - Austria
   wiener_tafel_alt_text: Wiener Tafel - Tavola di cibo a Vienna
   denns_at_alt_text: Denn's Biomarkt
-  donate: Sostenere
+  donate:
+    cta: ''
+    call_to: ''
   hosting_tooltip: CO2-neutrale ospitato su manitu.
   hosting_info: CO2-neutrale ospitata su
   wiki: Wiki
   guide: Guida all'igiene
   dataprivacy: Protezione dei dati
   imprint: Impronta
+  meta:
+    version: ''
+    beta_testing_issues: ''
+    it_devdocs: ''
+  infosDeveloper: ''
+  hosting:
+    tooltip: ''
+    info: ''
+  partner_names:
+    wiener_tafel: ''
+    denns: ''
+    lebensministerium: ''
 personal_data:
   landline: Telefono fisso
   mobile: Numero di cellulare
@@ -2278,6 +2570,7 @@ polls:
   hint_2: Le istruzioni su come utilizzare i sondaggi possono essere trovate nel wiki
   hint: Il modulo di voto può essere testato nel gruppo di lavoro sovraregionale "Voting
     - Test".
+  until: ''
 buddy:
   request_accepted: Ora vi conoscete.
   request_sent: Richiesta inviata.
@@ -2345,6 +2638,7 @@ blog:
   header: Notizie dal mondo del foodsharing
   go: Al Blog
   bread: Blog
+  read: ''
 releases:
   "2020-05": Release 'Apfelsine' (maggio 2020)
   "2020-08": Release 'Birne' (agosto 2020)
@@ -2352,6 +2646,9 @@ releases:
   "2020-12": Release 'Drachenfrucht' (dicembre 2020)
   "2021-03": Release "Erdbeere" 🍓 (marzo 2021)
   "2021-09": Versione "fig" 🥧 (settembre 2021)
+  "2022-05": ''
+  "2022-12": ''
+  "2022-01": ''
 base:
   jsrequired: Sfortunatamente, qui non funziona nulla senza JavaScript.
   slogan: Condividere il cibo invece di buttarlo via - foodsharing Germania
@@ -2448,6 +2745,7 @@ quiz:
   finishnow:
     fs: Completate subito la registrazione del Foodsaver.
     bv: Ora completa la registrazione dell'amministratore della fattoria.
+    bot: ''
   resultsbelow: La valutazione è disponibile di seguito.
   donecorrectly: Hai risposto completamente corretto. Grande!
 deletelow: elimina
@@ -2457,3 +2755,219 @@ groups:
   empty: Non sei ancora in nessun gruppo di lavoro
 fpsingular: Punto di errore
 nofp: nessun punto di errore (domanda scherzosa)
+numbers:
+  million_abbreviation: ''
+  thousands_separator: ''
+  decimal_separator: ''
+  billion_abbreviation: ''
+error:
+  invalid_mobile_phonenumber:
+    description: ''
+    link: ''
+    title: ''
+  mail_bounce:
+    link_1: ''
+    link_2: ''
+    title: ''
+    description: ''
+  missing_user_avatar:
+    link: ''
+    title: ''
+    description: ''
+  mail_activation:
+    title: ''
+    link_2: ''
+    link_1: ''
+    description: ''
+  missing_geolocation:
+    title: ''
+    description: ''
+    link: ''
+  old_user_avatar:
+    link: ''
+    title: ''
+    description: ''
+  missing_home_region:
+    description: ''
+    link: ''
+    title: ''
+globals:
+  type:
+    foodshare_points: ''
+    mailboxes: ''
+    my_mailboxes: ''
+    regions: ''
+    my_regions: ''
+    buddies: ''
+    groups: ''
+    my_groups: ''
+    persons: ''
+    my_buddies: ''
+    stores: ''
+    my_persons: ''
+    my_stores: ''
+    my_foodshare_points: ''
+  reset: ''
+  account:
+    signout: ''
+    signin: ''
+    signup: ''
+  close: ''
+  select: ''
+  you: ''
+  show_less: ''
+  save: ''
+  show_more: ''
+activitypost:
+  response: ''
+  quickreply_info: ''
+  write: ''
+  quickreply_button: ''
+  Response: ''
+bootstrap-datepicker:
+  labelPrevYear: ''
+  labelNextYear: ''
+  labelCalendar: ''
+  labelToday: ''
+  labelPrevDecade: ''
+  labelNextDecade: ''
+  labelHelp: ''
+  labelPrevMonth: ''
+  labelCurrentMonth: ''
+  labelNextMonth: ''
+  labelSelected: ''
+  labelNoDateSelected: ''
+  labelNav: ''
+navigation:
+  styleguide: ''
+  stores: ''
+  conversations: ''
+  regions: ''
+  basket: ''
+  search: ''
+  whats_new: ''
+  news_from_it: ''
+  wiki: ''
+  groups: ''
+  support: ''
+  help_needed: ''
+  promotion: ''
+  map: ''
+  contact: ''
+  help: ''
+  notifications: ''
+  profil: ''
+  system_administration: ''
+system_administration:
+  email: ''
+  quiz: ''
+  blog: ''
+  reports: ''
+  content: ''
+  regions: ''
+  mailboxes: ''
+teamjs:
+  wrongmail: ''
+  entermail: ''
+join_region:
+  headline: ''
+  error:
+    is_big_city: ''
+    is_state: ''
+    not_allowed: ''
+    is_country: ''
+  description: ''
+information:
+  push:
+    title: ''
+    description: ''
+    link: ''
+  calendar_sync:
+    link: ''
+    description: ''
+    title: ''
+logincontrol:
+  nomorenewsletter: ''
+  bread: ''
+  title: ''
+  success: ''
+fpko: ''
+chain:
+  inputmodal:
+    inputs:
+      name:
+        invalidfeedback: ''
+        placeholder: ''
+        label: ''
+      thread:
+        description: ''
+        invalidfeedback: ''
+        label: ''
+      headquarters:
+        label: ''
+        placeholder:
+          zip: ''
+          city: ''
+      status:
+        label: ''
+      kam:
+        label: ''
+        invalidfeedback: ''
+        description: ''
+      press:
+        label: ''
+        description: ''
+      notes:
+        label: ''
+        invalidfeedback: ''
+        description: ''
+      details:
+        label: ''
+        description: ''
+    title:
+      edit: ''
+      new: ''
+    cancel: ''
+    ok: ''
+  listheader: ''
+  options:
+    edit: ''
+    showstores: ''
+  filterplaceholder: ''
+  columns:
+    name: ''
+    stores: ''
+    kams: ''
+    notes: ''
+    headquarters: ''
+    status: ''
+  tooltips:
+    options: ''
+    modification_date: ''
+  new: ''
+  allowpress: ''
+  detailsmodal:
+    title: ''
+    nostores: ''
+    stores: ''
+  status:
+    cooperating: ''
+    negotiating: ''
+    notcooperating: ''
+    filterplaceholder: ''
+  error:
+    create: ''
+    edit: ''
+    notfs: ''
+  bread:
+    workinggroup: ''
+    list: ''
+  pagetitle: ''
+use_region_pickup_rule: ''
+contentmanagement: ''
+deletefromregion: ''
+savewithus: ''
+addreaction: ''
+sig:
+  buddies: ''
+timefrom: ''
