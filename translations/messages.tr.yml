@@ -18,6 +18,61 @@ dashboard:
   save_selection: Ayarları kaydet
   no_more_updates_foodsharepoint: Başka dağıtım noktası gönderileri yok
   no_more_updates_mailbox: Daha fazla Sesli Mesaj yok
+  options:
+    reset: ''
+    grid_toggle:
+      3_columns: ''
+      2_columns: ''
+    hide:
+      tooltip: ''
+      text: ''
+  source_friendWall_own: ''
+  mail_activation_error_body:
+    part_3: ''
+    part_1: ''
+    part_4: ''
+    part_2: ''
+  homeRegion: ''
+  foodsharer: ''
+  my:
+    events: ''
+    pending: ''
+    groups: ''
+    users: ''
+    no-stores: ''
+    regions: ''
+    buddies: ''
+    baskets: ''
+    jumping_stores: ''
+    managing_stores: ''
+    polls: ''
+    stores: ''
+  source_forum_bot: ''
+  invitation: ''
+  invitationCount: ''
+  eventCount: ''
+  activation_mail_sent: ''
+  source_forum: ''
+  source_mailbox: ''
+  event: ''
+  source_friendWall: ''
+  pickupdates: ''
+  deleted_user: ''
+  mail_activation_error_title: ''
+  quiz:
+    read: ''
+    ack: ''
+    go: ''
+  polls: ''
+  full_subline: ''
+  chooseHomeRegion: ''
+  foodsaver_amount: ''
+  source_foodsharepoint: ''
+  activation_mail_failure: ''
+  source_event: ''
+  source_store: ''
+  greeting_short: ''
+  foodsharer_amount: ''
 geb_datum: Doğum tarihi (YYYY-AA-GG)
 add: ekle
 lat: Enlem
@@ -281,6 +336,11 @@ group:
     member_since_weeks: Bir başvuranın orada kaç hafta olması gerekirdi?
     requires_properties: Belirli güven puanlarını yerine getiren herkes.
     fetch_count: Başvuru sahibi kaç tane kurtarma yapmış olmalıdır?
+    banana_count_errors:
+      max: ''
+      min: ''
+    banana_count: ''
+    not_fulfilled: ''
   image: '%name% için kapak fotoğrafı'
   saved: Değişiklikler kaydedildi
   function:
@@ -492,15 +552,47 @@ bell:
   passgen_failed: Lütfen bir fotoğraf yükleyin, sonra çalışacaktır.
   new_foodsaver_verified_title: '{name}, {bezirk} bölgesinde yeni'
   new_foodsaver_verified: Zaten doğrulanmış - Hemen başlayabilir
+  banana_given: ''
+  banana_given_title: ''
 sig:
   buddies: Tanıdığın insanlar
 error:
   mail_activation:
     link_2: E-Posta adresini değiştirin
+    description: ''
+    link_1: ''
+    title: ''
+  missing_home_region:
+    title: ''
+    link: ''
+    description: ''
+  old_user_avatar:
+    title: ''
+    link: ''
+    description: ''
+  mail_bounce:
+    link_2: ''
+    link_1: ''
+    title: ''
+    description: ''
+  missing_geolocation:
+    title: ''
+    link: ''
+    description: ''
+  missing_user_avatar:
+    title: ''
+    link: ''
+    description: ''
+  invalid_mobile_phonenumber:
+    title: ''
+    description: ''
+    link: ''
 activitypost:
   quickreply_info: <code class="key">Shift + Enter</code> yeni bir satır eklemek için.
   quickreply_button: Şimdi gönder<br>veya <code class="key">Enter tuşuna</code>bas.
   write: Cevap yaz…
+  Response: ''
+  response: ''
 bootstrap-datepicker:
   labelPrevMonth: Geçen ay
   labelCurrentMonth: Güncel ay
@@ -541,6 +633,75 @@ list:
 startpage:
   towns:
     title: foodsharing şehirleri
+    text: ''
+  near_you:
+    text3:
+      part2: ''
+      part1: ''
+    text1:
+      part2: ''
+      part3: ''
+      part1: ''
+      part4: ''
+      part5: ''
+    text2:
+      part1: ''
+      part3: ''
+      part2: ''
+    title: ''
+  welcome_text: ''
+  join_welcome: ''
+  registernow: ''
+  telltruth: ''
+  private:
+    title: ''
+    text: ''
+  bedependable: ''
+  demands:
+    text: ''
+    title: ''
+  donate:
+    text: ''
+    title: ''
+    link: ''
+  makeproposals: ''
+  etiquette: ''
+  call_to_action_button: ''
+  member:
+    title: ''
+    text: ''
+  followrules_c: ''
+  beresponsible: ''
+  slogan_2: ''
+  notallowed: ''
+  vision:
+    title: ''
+    text: ''
+  more_infos: ''
+  slogan_1: ''
+  honest: ''
+  responsibility: ''
+  followrules_a: ''
+  how_we_work:
+    text: ''
+    title: ''
+  dependability: ''
+  proposals: ''
+  call_to_action:
+    text: ''
+    title: ''
+  this_is_how_it_works: ''
+  store:
+    text: ''
+    title: ''
+  slogan_3: ''
+  join: ''
+  join_rules: ''
+  respect: ''
+  register: ''
+  forstores: ''
+  together: ''
+  followrules_b: ''
 filter_by: ..göre filtrele
 right: Değerlendirme
 apply_type: Bu gruba kimler kayıt olabilir?
@@ -682,6 +843,8 @@ regionOptions:
   regionPickupLimitDayNumber: Lütfen BİR GÜN için toplam maksimum alım sayısını girin
   regionPickupInactiveHours: Lütfen düzenlemenin artık geçerli olmayacağı bir alımdan
     önceki saat sayısını girin
+  regionPickupRuleActive: ''
+  regionPickupRuleActiveStoreList: ''
 validate:
   required: '{it} boş kalamaz'
 select: Lütfen seçiniz
@@ -839,6 +1002,8 @@ store:
   isJumper: Yedek listesinde.
   isNotVerified: Henüz onaylanmadı.
   attribution: Atıf
+  useRegionPickupRules: ''
+  regionPickupRules: ''
 polls:
   title: Başlık
   new_poll: Yeni Anket oluştur
@@ -922,6 +1087,9 @@ poll:
   error_cannot_vote: Bu ankette oy kullanamazsınız
   submit_vote: Oyla
   vote_success: Başarılı bir şekilde oy kullandınız.
+  cancel:
+    question: ''
+    title: ''
 region:
   change: İlçe değiştir
   edit: Bölgeyi düzenle
@@ -1266,6 +1434,10 @@ basket:
   go: Yemek sepetine
   delete: Yemek sepetini sil
   updated: <strong>{date}</strong> tarihinde güncellendi
+  description: ''
+  howto: ''
+  title: ''
+  login: ''
 menu:
   entry:
     joinregion: Bir bölgeye katılın
@@ -1329,6 +1501,12 @@ menu:
     forum: Forum
     helpneeded: Acilen yardımcı aranıyor
     groups: Gruplar
+    activities: ''
+    fundraising: ''
+    dataprivacy: ''
+    release-notes: ''
+    group_overview: ''
+    chainList: ''
 footer:
   infosDeveloper: Geliştiriciler için
   wiki: Viki
@@ -1357,8 +1535,10 @@ footer:
   partner_names:
     denns: Denn's Biomarkt
     lebensministerium: Federal Tarım, Bölgeler ve Turizm Bakanlığı
+    wiener_tafel: ''
   contact: İletişim
   press: Basın
+  dataprivacy: ''
 releases:
   "2022-12": Release "Icecream" 🍇 (Aralık 2022)
   "2020-05": Release 'Portakal' (Mayıs 2020)
@@ -1400,6 +1580,7 @@ storelist:
   address: Sokak
   zipcode: Posta Kodu
   entered: 'Kayıtlı:'
+  isManaging: ''
 blog:
   edit: Blog yazısını düzenle
   newTitle: '{bölge} için yeni yazı'
@@ -1490,6 +1671,7 @@ email_template:
     noreply: Lütfen bu e-postaya cevap vermeyiniz. Bu mesaj, posta kutusu olmayan
       bir adresten gönderilmiştir.
     you_can: -- altında yapabilirsiniz
+    nomail: ''
   foodsharepoint: '---Dağıtım noktası'
   to: -da/de
   unknown_email2: '%ADDRESS% e-posta adresi bilinmiyor.'
@@ -1746,6 +1928,7 @@ profile:
     basketsSharedWeek: 'Yemek sepetleri {count} kişiyle paylaşıldı. '
     respActStores: 'Aktif olanları {count} koordine ettiğiniz için teşekkürler '
     eventsCreatedWeek: 'Bu hafta {count} kez etkinlik oluşturduğunuz için teşekkürler. '
+    calenderWeek: ''
   report:
     view:
       what:
@@ -1782,10 +1965,16 @@ profile:
       unreliable: Yerine birini aramadan,bulmadan kısa sürede sıklıkla alımlarını
         iptal etti
       trasher: Kurtarılan yiyecekleri atıyor
+      nearfs: ''
+      offs: ''
+      ofstore: ''
     control:
       from: Gelen raporlar
       delivered: Teslim edilen Mesajlar
       notes: Notlar ve Kararlar
+      tot: ''
+      newreports: ''
+      total: ''
     xhr:
       allofthem: Hakkında tüm raporlar
       delivered: Mesaj gönderildi
@@ -1813,6 +2002,17 @@ profile:
       almak ve konuyu o kişiyle açıklığa kavuşturmak için, lütfen size sunulan iletişim
       kanallarını deneyip denemediğinizi kontrol edin. Ve lütfen soruları işleme almak
       için size ulaşmanın en iyi yolunu belirtin.
+    noshow: ''
+    late: ''
+    inthisblog: ''
+    cancellation: ''
+    sells: ''
+    noReportGroup: ''
+    reporterAdminNoArbitration: ''
+    arbAdminAgainstRepAdmin: ''
+    repAdminAgainstArbAdmin: ''
+    kindofreport: ''
+    reportedAdminNoArbitration: ''
   choosestore: Lütfen ilgili işletmeyi seçiniz
   cantdeleteall: Tüm randevuları silemezsiniz!
   deletesuccess: Tek randevu silindi
@@ -1889,6 +2089,18 @@ profile:
   sleeping: '{name} süresiz bir uyku beresi var'
   banana:
     placeholder: en az 100 karakter…
+    remove:
+      confirm_title: ''
+      confirm_message: ''
+    title: ''
+    details: ''
+    messageTooShort: ''
+    undo: ''
+    none: ''
+    sent: ''
+    give: ''
+    alreadyGiven: ''
+    vouch: ''
   stats:
     baskets: Yemek Sepetleri
     posts: Gönderiler
@@ -2057,6 +2269,7 @@ legal:
     this_gets_deleted_verify: <ul><li>Onaylanmanız kaldırılacak.</ul></li>
     this_doesnt_get_deleted_name: <ul><li>Adınız</ul></li>
     this_doesnt_get_deleted_address: <ul><li>Adresiniz</ul></li>
+    this_gets_deleted_trustbananas: ''
   agree_privacy_notice: Kişisel verilerin gizliliğini koruma yükümlülüğü ve bunun
     sonucunda ortaya çıkan davranışlar konusunda bilgilendirildim. Kayıtlarım için
     verdiğim adrese e-posta ile bunun teyidini alacağım.
@@ -2451,3 +2664,193 @@ mail:
     edilemez.<br>Lütfen alıcı adresini kontrol edin.'
 food_art: Ne tür yiyecekler sözkonusu?
 orgateam: Ülke çapındaki yönetici ekibi
+use_region_pickup_rule: ''
+navigation:
+  styleguide: ''
+  stores: ''
+  notifications: ''
+  wiki: ''
+  contact: ''
+  conversations: ''
+  whats_new: ''
+  basket: ''
+  search: ''
+  help_needed: ''
+  map: ''
+  profil: ''
+  news_from_it: ''
+  regions: ''
+  support: ''
+  help: ''
+  system_administration: ''
+  promotion: ''
+  groups: ''
+chain:
+  inputmodal:
+    inputs:
+      kam:
+        label: ''
+        invalidfeedback: ''
+        description: ''
+      name:
+        placeholder: ''
+        label: ''
+        invalidfeedback: ''
+      thread:
+        label: ''
+        description: ''
+        invalidfeedback: ''
+      notes:
+        label: ''
+        invalidfeedback: ''
+        description: ''
+      details:
+        description: ''
+        label: ''
+      press:
+        description: ''
+        label: ''
+      status:
+        label: ''
+      headquarters:
+        label: ''
+        placeholder:
+          zip: ''
+          city: ''
+    title:
+      edit: ''
+      new: ''
+    cancel: ''
+    ok: ''
+  filterplaceholder: ''
+  tooltips:
+    modification_date: ''
+    options: ''
+  new: ''
+  bread:
+    list: ''
+    workinggroup: ''
+  columns:
+    status: ''
+    stores: ''
+    headquarters: ''
+    notes: ''
+    name: ''
+    kams: ''
+  allowpress: ''
+  detailsmodal:
+    stores: ''
+    title: ''
+    nostores: ''
+  error:
+    edit: ''
+    create: ''
+    notfs: ''
+  listheader: ''
+  options:
+    edit: ''
+    showstores: ''
+  pagetitle: ''
+  status:
+    notcooperating: ''
+    filterplaceholder: ''
+    cooperating: ''
+    negotiating: ''
+globals:
+  account:
+    signin: ''
+    signout: ''
+    signup: ''
+  save: ''
+  type:
+    regions: ''
+    stores: ''
+    foodshare_points: ''
+    my_foodshare_points: ''
+    mailboxes: ''
+    my_buddies: ''
+    persons: ''
+    my_stores: ''
+    buddies: ''
+    my_mailboxes: ''
+    my_groups: ''
+    my_persons: ''
+    my_regions: ''
+    groups: ''
+  select: ''
+  close: ''
+  show_more: ''
+  reset: ''
+  you: ''
+  show_less: ''
+search:
+  placeholder: ''
+  informations: ''
+  noresults: ''
+  forum: ''
+  thread-title-only: ''
+  title: ''
+  user_search:
+    placeholder: ''
+language_chooser:
+  choose_button: ''
+  translation_help_info_text: ''
+  title: ''
+  content: ''
+  translation_help: ''
+numbers:
+  billion_abbreviation: ''
+  decimal_separator: ''
+  thousands_separator: ''
+  million_abbreviation: ''
+information:
+  push:
+    title: ''
+    link: ''
+    description: ''
+  calendar_sync:
+    description: ''
+    link: ''
+    title: ''
+team:
+  email: ''
+  current: ''
+  ratelimit: ''
+  former: ''
+  contact: ''
+  name: ''
+  not-found: ''
+  contacted: ''
+home:
+  home: ''
+  title: ''
+logincontrol:
+  bread: ''
+  success: ''
+  title: ''
+  nomorenewsletter: ''
+system_administration:
+  email: ''
+  mailboxes: ''
+  blog: ''
+  quiz: ''
+  reports: ''
+  regions: ''
+  content: ''
+teamjs:
+  wrongmail: ''
+  entermail: ''
+join_region:
+  headline: ''
+  error:
+    not_allowed: ''
+    is_state: ''
+    is_country: ''
+    is_big_city: ''
+  description: ''
+addreaction: ''
+contentmanagement: ''
+timefrom: ''
+deletefromregion: ''
+banana_count: ''
+savewithus: ''
