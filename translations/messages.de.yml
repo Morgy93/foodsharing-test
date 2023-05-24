@@ -1121,6 +1121,7 @@ timepicker:
   labelNowButton: "Jetzt"
 
 forum:
+  deleted_user: "gelöschter Benutzer"
   from: "Von {name}"
   threads: "Themen"
   new_thread: "Neues Thema verfassen"

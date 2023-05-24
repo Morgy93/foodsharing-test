@@ -18,6 +18,7 @@
 - focus foodsharing tab of the same kind if clicking a push notification !2671 @buntel
 - close push notification of the same thread or same kind if clicked !2671 @buntel
 - Removed the additional button in the report modal #1599 !2677 @alex.simm
+- Show forum text if foodsaver deleted again !2697 @chriswalg
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
