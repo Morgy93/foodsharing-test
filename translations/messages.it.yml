@@ -1956,7 +1956,7 @@ home:
   home: Home
   title: Pagina iniziale
 dashboard:
-  deleted_user: utente disconnesso
+  deleted_user: utente eliminato
   push:
     button: Abilita le notifiche push
     info: Se non vuoi più ricevere le notifiche push, puoi disabilitarle in qualsiasi
