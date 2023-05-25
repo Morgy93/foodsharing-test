@@ -768,6 +768,7 @@ forum:
     use <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a>.<br
     />Attention: If you want to use a * in your text, you have to put a &bsol; in
     front of it, e.g. when gendering he&bsol;*she.'
+  deleted_user: deleted user
 timepicker:
   labelNowButton: Now
   labelCloseButton: Close
