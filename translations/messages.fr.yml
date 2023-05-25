@@ -774,6 +774,7 @@ forum:
   threads: Discussions
   new_thread: Ouvrir une nouvelle discussion
   from: de {name}
+  deleted_user: utilisateur supprimé
 fsp:
   info:
     mail: Cloche et notification par courriel
@@ -908,7 +909,7 @@ terminology:
     "3": Ambassadeur.rice
     "4": Personne gérant l'organisation
   pickup: Collecte
-  store: ''
+  store: 'Magasin'
 register:
   activation_success: <strong>Activation réussie.</strong> Connecte-toi maintenant
     avec ton adresse courriel et le mot de passe que tu as choisi.
@@ -1210,7 +1211,7 @@ store:
   leaveinfo: Ici, tu peux indiquer quelques informations pour les collecteurs.rices
     qui souhaitent postuler pour faire partie de l'équipe.
   prefetchfour: 4 semaines
-  ownStores: ''
+  ownStores: 'Coopérations propres'
 storeview:
   want_to_fetch: J'aimerais m'engager dans cette équipe.
   specials: Particularités
@@ -1254,8 +1255,8 @@ storeview:
     not_set: Aucune période spécifiée
     multiply: '{weeks} semaines'
   public_and_statistics: Statistiques et relations publiques
-  show_information: ''
-  visible_for_public: ''
+  show_information: 'Afficher les informations sur l''établissement'
+  visible_for_public: 'Ce texte est visible par tous les Foodsaver.'
 day: Balise
 time: Heure
 select: Veuillez choisir
@@ -1978,7 +1979,7 @@ storeedit:
     dont tu fais partie.
   add-new: Ajouter un nouveau magasin
   bread: Modifier la fiche magasin
-  unsuccess: Les modifications n’ont pas pu être appliquées.
+  unsuccess: Les modifications n’ont pas pu être appliquées. {error}
 basket:
   published: Merci ! Ton panier solidaire vient d'être mis en ligne.
   publish_error: Erreur. Le panier solidaire n'a pas pu être publié.
@@ -3113,8 +3114,9 @@ chain:
       status:
         label: Statut
       details:
-        label: ''
-        description: ''
+        label: 'Informations sur le magasin'
+        description: 'Remarques affichées sur les pages de sites appartenant à la
+          chaîne.'
     cancel: Annuler
     ok: Sauvegarder
   detailsmodal:
@@ -3133,4 +3135,4 @@ chain:
   error:
     create: La chaîne n’a pas pu être créée.
     edit: La chaîne n’a pas pu être modifiée.
-    notfs: ''
+    notfs: 'Vous devez être un Foodsaver pour voir cette liste.'
