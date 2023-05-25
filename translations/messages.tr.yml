@@ -59,12 +59,12 @@ dashboard:
   event: 'Bir sonraki etkinlik'
   source_friendWall: '{0} Panosu'
   pickupdates: 'Sonraki kurtarma tarihleri'
-  deleted_user: ''
+  deleted_user: 'Silinmiş kullanıcı'
   mail_activation_error_title: 'E-posta adresi onaylanmadı'
   quiz:
-    read: ''
-    ack: ''
-    go: ''
+    read: 'okumaya devam et'
+    ack: 'Uyarı okundu ve tekrar gösterme'
+    go: 'Teste git'
   polls: 'Devam eden anketleriniz'
   full_subline: '<b>{pickups} x</b> yiyecek aldınız ve <b>{weight} kg</b> kurtardınız.
     Yaşadığınız bölge <b>{region}</b>.'
@@ -92,7 +92,7 @@ regionPin:
   save: kaydet
 email: E-Posta Adresi
 attachement: Ek
-name: Ad
+name: İsim
 nachname: Soyad
 anschrift: Sokak ve ev numarası (yukarıdaki haritadan otomatik olarak, gerekirse daha
   sonra düzeltin)
@@ -272,7 +272,7 @@ picture_upload_widget:
   choose_picture: Bilgisayarınızdan bir fotoğraf seçin.
 pass:
   photo: Fotoğraf
-  name: Ad
+  name: İsim
   hintVerify: "Kimlik kartı alan ve kişisel verilerinin doğruluğunu onaylayan Foodsaverlar
     onaylanabilir.\n"
   date: En son oluşturulan
@@ -653,7 +653,7 @@ startpage:
       part2: ''
     title: ''
   welcome_text: ''
-  join_welcome: ''
+  join_welcome: 'Foodsharing''e katılmak istemeniz güzel!'
   registernow: 'Şimdi Katıl'
   telltruth: 'Foodsharing''i geliştiren ve web sitesini işleten hepimiz işimizi çok
     ciddiye alıyoruz. Bir dizi yasa ve yönetmeliğe uyarız. Lütfen verilerinizi doldururken
@@ -681,7 +681,7 @@ startpage:
     bulunabilir. Talimatlar ayrıca <a href=''https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel''
     target=''_blank'' rel=''noopener noreferrer nofollow''>kılavuzda</a> bulunabilir.'
   beresponsible: 'Sorumluluk sahibi ol'
-  slogan_2: ''
+  slogan_2: 'hep birlikte, sürdürülebilir & takdir edilebilir'
   notallowed: 'İlaçların paylaşımı ve dağıtımı (homeopatik ilaçlar dahil) foodsharing
     dışındadır. Giyim, kozmetik, ev kimyasalları, oyuncaklar ve diğer gıda dışı ürünler
     de foodsharing yoluyla değiştirilemez veya paylaşılamaz. Foodsharing platformu
@@ -711,9 +711,9 @@ startpage:
   store:
     text: ''
     title: ''
-  slogan_3: ''
-  join: ''
-  join_rules: ''
+  slogan_3: 'foodsharing ücretsizdir ve ücretsiz kalacaktır.'
+  join: 'Sen de katıl'
+  join_rules: 'Sen de katıl - Kurallarımız'
   respect: ''
   register: ''
   forstores: ''
@@ -928,7 +928,7 @@ store:
     pickupAsc: En yenisi en son
     pickupReset: Standart sıralama
     pickupDesc: Önce en yenisi
-    managementActions: İşletme Sorumluları için eylemler
+    managementActions: İşletme Sorumluları için faaliyetler
   prefetchthree: 3 Hafta
   prefetchfour: 4 Hafta
   request:
@@ -1318,7 +1318,7 @@ content:
   content: İçindekiler
   edit_success: Sayfa kaydedildi.
   name: Açık İsim
-  actions: Eylemler
+  actions: Faaliyetler
   public: Herkese Açık Sayfalar
   changelog: Güncel Changelog
   bread: Tüm sayfalar
@@ -1455,10 +1455,26 @@ basket:
   go: Yemek sepetine
   delete: Yemek sepetini sil
   updated: <strong>{date}</strong> tarihinde güncellendi
-  description: ''
-  howto: ''
-  title: ''
-  login: ''
+  description: 'Açıklama'
+  howto: '<b>Yiyecek sepetlerinin kullanımına ilişkin bilgiler</b>
+
+    <br>
+
+    Lütfen bu sepete ilginizi belirtmek için <b>"Yiyecek sepetini iste"</b> yeşil
+    düğmeyi ,
+
+    veya daha sonra kendi sepetinizi düzenlemek için <b>"Yiyecek sepetini düzenle"</b>
+    ''yi kullanın.
+
+    '
+  title: 'Yemek Sepetleri'
+  login: 'Ayrıntılı bilgi için üye girişi yapmalısınız.
+
+    Henüz bir foodsharer olarak kayıtlı değil misiniz?
+
+    Ardından yukarıdaki <b>Katıl</b>''ı tıklayın ve hemen başlayın.
+
+    '
 menu:
   entry:
     joinregion: Bir bölgeye katılın
@@ -1631,7 +1647,7 @@ blog:
   go: Bloga git
   manage: Blog girişlerini yönet
   empty: Şimdiye kadar hiç kayıt yok.
-  actions: Eylemler
+  actions: Faaliyetler
   new: Yeni Yazı yaz
   confirmDelete: "{name}'i gerçekten kalıcı olarak silmek istiyor musunuz?"
   title: Blog Yazısı
@@ -1987,7 +2003,7 @@ profile:
         iptal etti
       trasher: Kurtarılan yiyecekleri atıyor
       nearfs: 'Foodsaver''dan önce'
-      offs: ''
+      offs: 'Foodsaverdan'
       ofstore: 'İşletme çalışanları tarafından'
     control:
       from: Gelen raporlar
@@ -2250,7 +2266,7 @@ terminology:
   welcomeAdmins: Karşılama Ekibi
   votingAdmins: Oylama Ekibi
   n_stores: Bir İşletme|%count% İşletme
-  baskets: Yemek Sepeti
+  baskets: Yemek Sepetleri
   group: Çalışma grupları
   n_ambassadors: Bir Elçi|%count% Elçi
   message: Bildiri
@@ -2350,7 +2366,7 @@ register:
     seçtiğiniz şifreyle şimdi oturum açın.
   birthdate_hint: Foodsharer veya Foodsaver olarak kaydolurken <a href="/?page=legal"
     target="_blank">Gizlilik Politikası</a>'nın 2d) maddesinde daha fazla bilgi bulabilirsiniz.
-  topbar: Katıl
+  topbar: Sen de katıl
   title: Kayıt
   register_button_label: Kayıt ol
   mail_hint: 'Önemli: Yazım kurallarına dikkat ediniz!'
@@ -2834,17 +2850,17 @@ information:
     link: ''
     title: ''
 team:
-  email: ''
-  current: ''
-  ratelimit: ''
-  former: ''
-  contact: ''
-  name: ''
-  not-found: ''
-  contacted: ''
+  email: 'E-Posta Adresi'
+  current: 'Ekip'
+  ratelimit: 'Bir sonraki mesajı göndermeden önce lütfen {minutes} dakika bekleyin.'
+  former: 'Önceki'
+  contact: '{name} foodsharing.de iletişim formu aracılığıyla'
+  name: 'İsim'
+  not-found: 'Sayfa bulunamadı'
+  contacted: 'Mesajınız başarıyla gönderilmiştir.'
 home:
-  home: ''
-  title: ''
+  home: 'Ana Sayfa'
+  title: 'Ana Sayfa'
 logincontrol:
   bread: ''
   success: ''
