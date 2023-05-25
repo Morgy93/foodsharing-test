@@ -1994,6 +1994,7 @@ forum:
     kan du bruke <a href="https://en.wikipedia.org/wiki/Markdown" target= "_blank">Markdown</a>.<br
     />Obs: Hvis du vil bruke en * i teksten, må du sette inn en omvendt skråstrek
     (&bsol;) foran den, for eksempel som i han&bsol;*hun.'
+  deleted_user: Slettet bruker
 timepicker:
   labelNowButton: nå
   labelCloseButton: Lukk
@@ -2177,7 +2178,7 @@ storeedit:
   add-new: Legg til selskap
   not-in-region: Du kan bare legge til selskaper i regioner du er medlem av.
   add_success: Samarbeidende selskap ble registrert
-  unsuccess: Endringer kunne ikke vedtas.
+  unsuccess: Endringer kunne ikke vedtas. {error}
 store:
   sm:
     searchPlaceholder: Navn eller ID
