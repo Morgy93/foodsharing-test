@@ -59,22 +59,6 @@ class StoreView extends View
         );
     }
 
-    public function dateForm()
-    {
-        return '<div id="datepicker" style="height: 220px;"></div>'
-            . $this->v_utils->v_input_wrapper($this->translator->trans('time'), $this->v_utils->v_form_time('time'))
-            . $this->v_utils->v_form_select('fetchercount', ['selected' => 1, 'values' => [
-                ['id' => 1, 'name' => $this->translator->trans('pickup.edit.slotcount')],
-                ['id' => 2, 'name' => $this->translator->trans('pickup.edit.slotscount', ['{count}' => 2])],
-                ['id' => 3, 'name' => $this->translator->trans('pickup.edit.slotscount', ['{count}' => 3])],
-                ['id' => 4, 'name' => $this->translator->trans('pickup.edit.slotscount', ['{count}' => 4])],
-                ['id' => 5, 'name' => $this->translator->trans('pickup.edit.slotscount', ['{count}' => 5])],
-                ['id' => 6, 'name' => $this->translator->trans('pickup.edit.slotscount', ['{count}' => 6])],
-                ['id' => 7, 'name' => $this->translator->trans('pickup.edit.slotscount', ['{count}' => 7])],
-                ['id' => 8, 'name' => $this->translator->trans('pickup.edit.slotscount', ['{count}' => 8])],
-            ]]);
-    }
-
     public function betrieb_form(CommonStoreMetadata $common, $region = false, $page = '')
     {
         global $g_data;

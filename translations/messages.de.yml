@@ -1043,6 +1043,7 @@ pickup:
       Zusätzlich benötigte Helfer*innen können mit Fahrradanhänger oder ähnlichem
       außer Sichtweite des Betriebes warten.
     added: "Abholtermin wurde eingetragen."
+    disable_auto_slot: "Automatischer Slot in der Zukunft soll deaktiviert werden."
   overview:
     header: Abholtermine
     tab:

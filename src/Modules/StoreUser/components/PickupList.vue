@@ -16,7 +16,7 @@
                 v-b-tooltip
                 :title="$i18n('pickup.add_onetime_pickup')"
                 class="btn btn-primary btn-sm"
-                @click="loadAddPickupModal"
+                @click="$bvModal.show('AddPickupModal')"
               >
                 <i class="fas fa-plus" />
               </button>
@@ -53,19 +53,23 @@
         </div>
       </div>
     </div>
+    <AddPickupModal
+      :store-id="storeId"
+    />
   </div>
 </template>
 
 <script>
 import { VBTooltip } from 'bootstrap-vue'
 import Pickup from './Pickup'
+import AddPickupModal from './AddPickupModal.vue'
 import { setPickupSlots, confirmPickup, joinPickup, leavePickup, listPickups } from '@/api/pickups'
 import { sendMessage } from '@/api/conversations'
 import DataUser from '@/stores/user'
 import { ajreq, pulseError, pulseSuccess } from '@/script'
 
 export default {
-  components: { Pickup },
+  components: { Pickup, AddPickupModal },
   directives: { VBTooltip },
   props: {
     storeId: {
@@ -90,6 +94,7 @@ export default {
       pickups: [],
       hasPickups: false,
       isLoading: false,
+      isModalOpen: false,
       user: DataUser.getters.getUser(),
     }
   },
@@ -106,6 +111,12 @@ export default {
     clearInterval(this._interval)
   },
   methods: {
+    openModal () {
+      this.isModalOpen = true
+    },
+    closeModal () {
+      this.isModalOpen = false
+    },
     async reload (silent = false) {
       if (!silent) this.isLoading = true
       try {
