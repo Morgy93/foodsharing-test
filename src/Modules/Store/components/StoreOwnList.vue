@@ -27,13 +27,7 @@ export default {
     storeMemberStatus () {
       return [
         {
-          list: DataStores.getters.getManaging(),
-        },
-        {
-          list: DataStores.getters.getJumping(),
-        },
-        {
-          list: DataStores.getters.getOthers(),
+          list: DataStores.getters.getAll(),
         },
       ].filter(e => e.list.length > 0)
     },

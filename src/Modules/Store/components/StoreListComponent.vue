@@ -90,10 +90,26 @@
           v-if="isManagingEnabled"
           #cell(isManaging)="row"
         >
-          <i
+          <span
             v-if="isManaging(row.item)"
-            class="fas fa-users-cog"
-          />
+          >
+            {{ $i18n('store.managing') }}
+          </span>
+          <span
+            v-if="isMember(row.item)"
+          >
+            {{ $i18n('store.member') }}
+          </span>
+          <span
+            v-if="isJumping(row.item)"
+          >
+            {{ $i18n('store.jumping') }}
+          </span>
+          <span
+            v-if="isAppliedForTeam(row.item)"
+          >
+            {{ $i18n('store.isAppliedForTeam') }}
+          </span>
         </template>
         <template
           #cell(name)="row"
@@ -224,14 +240,6 @@ export default {
           sortable: true,
         },
       ]
-      if (this.isManagingEnabled) {
-        columns.push({
-          key: 'isManaging',
-          label: i18n('storelist.isManaging'),
-          tdClass: 'status',
-          sortable: true,
-        })
-      }
       columns.push(
         {
           key: 'name',
@@ -252,23 +260,34 @@ export default {
           key: 'city',
           label: i18n('storelist.city'),
           sortable: true,
-        },
-        {
+        })
+
+      if (!this.isManagingEnabled) {
+        columns.push({
           key: 'createdAt',
           label: i18n('storelist.added'),
+          tdClass: 'status',
           sortable: true,
-        },
-        {
-          key: 'region',
-          label: i18n('storelist.region'),
+        })
+      }
+      columns.push({
+        key: 'region',
+        label: i18n('storelist.region'),
+        sortable: true,
+      })
+      if (this.isManagingEnabled) {
+        columns.push({
+          key: 'isManaging',
+          label: i18n('storelist.memberState'),
+          tdClass: 'status',
           sortable: true,
-        },
-        {
-          key: 'actions',
-          label: '',
-          sortable: false,
-        },
-      )
+        })
+      }
+      columns.push({
+        key: 'actions',
+        label: '',
+        sortable: false,
+      })
       return columns
     },
     storesFiltered: function () {
@@ -312,6 +331,18 @@ export default {
     isManaging (value) {
       const isManaging = this.storeMemberStatus.some(obj => obj.list.some(item => item.id === value.id && item.isManaging === true))
       return Boolean(isManaging)
+    },
+    isMember (value) {
+      const isMember = this.storeMemberStatus.some(obj => obj.list.some(item => item.id === value.id && item.membershipStatus === 1 && item.isManaging === false))
+      return Boolean(isMember)
+    },
+    isJumping (value) {
+      const isJumping = this.storeMemberStatus.some(obj => obj.list.some(item => item.id === value.id && item.membershipStatus === 2))
+      return Boolean(isJumping)
+    },
+    isAppliedForTeam (value) {
+      const AppliedForTeam = this.storeMemberStatus.some(obj => obj.list.some(item => item.id === value.id && item.membershipStatus === 0))
+      return Boolean(AppliedForTeam)
     },
     clearFilter () {
       this.filterStatus = null

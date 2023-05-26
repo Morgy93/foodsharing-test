@@ -61,6 +61,7 @@
 - Changed forum post response to empty content #1499 !2638 @krauterisator
 - Refactor add pickup modal !2693 @chriswalg
 - Refactor edit pickup rules to vue component and moved it to storeInformationModal !2686 @chriswalg 
+- Refactor own store list in vue !2668 !2683 @chriswalg
 
 ## Dev/Test/CI stuff
 - Fix given null parameter !2550 @BibaltiK

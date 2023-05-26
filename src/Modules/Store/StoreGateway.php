@@ -1157,10 +1157,9 @@ class StoreGateway extends BaseGateway
             FROM fs_betrieb_team t
             JOIN fs_betrieb b ON
                 b.id = t.betrieb_id
-            WHERE t.foodsaver_id = :fs_id AND t.active = :membership_status
+            WHERE t.foodsaver_id = :fs_id
     ', [
-                'fs_id' => $fs_id,
-                'membership_status' => MembershipStatus::MEMBER,
+                'fs_id' => $fs_id
         ]);
 
         return array_map(function ($store) {
