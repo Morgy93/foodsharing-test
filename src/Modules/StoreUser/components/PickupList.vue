@@ -14,15 +14,6 @@
               <button
                 v-if="isCoordinator"
                 v-b-tooltip
-                :title="$i18n('pickup.edit_recurring_pickups')"
-                class="btn btn-primary btn-sm"
-                @click="loadEditRecurringPickupModal"
-              >
-                <i class="fas fa-pen" />
-              </button>
-              <button
-                v-if="isCoordinator"
-                v-b-tooltip
                 :title="$i18n('pickup.add_onetime_pickup')"
                 class="btn btn-primary btn-sm"
                 @click="loadAddPickupModal"
@@ -72,7 +63,6 @@ import { setPickupSlots, confirmPickup, joinPickup, leavePickup, listPickups } f
 import { sendMessage } from '@/api/conversations'
 import DataUser from '@/stores/user'
 import { ajreq, pulseError, pulseSuccess } from '@/script'
-import $ from 'jquery'
 
 export default {
   components: { Pickup },
@@ -190,10 +180,6 @@ export default {
           id: this.storeId,
         },
       )
-    },
-    loadEditRecurringPickupModal () {
-      $('#bid').val(this.storeId)
-      $('#editpickups').dialog('open')
     },
   },
 }

@@ -55,11 +55,11 @@
 - Replaced the history dialogs on profile pages with a vue component !2587 @alex.simm
 - Moved verification to memberlist !2646 @chriswalg
 - The broadcast banner fetches its content from the API #1284 !2661 @alex.simm
-
 - added poppins font in Styleguide !2564 @Niklas003
 - Replace the region tree with a new vue component !2483 @alex.simm
 - New vue component for blog posts !2676 !2687 @alex.simm
 - Changed forum post response to empty content #1499 !2638 @krauterisator
+- Refactor edit pickup rules to vue component and moved it to storeInformationModal !2686 @chriswalg 
 
 ## Dev/Test/CI stuff
 - Fix given null parameter !2550 @BibaltiK

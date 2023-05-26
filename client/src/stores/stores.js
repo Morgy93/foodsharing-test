@@ -58,6 +58,10 @@ export const getters = {
     return store.metadata.publicTimes ?? []
   },
 
+  getMaxCountPickupSlot () {
+    return store.metadata.maxCountPickupSlot ?? 0
+  },
+
   has (id) {
     return store.stores.find(store => store.id === id)
   },

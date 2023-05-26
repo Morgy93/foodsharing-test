@@ -1030,6 +1030,7 @@ pickup:
     bread: "Abholzeiten bearbeiten"
     add: "Abholzeiten eintragen"
     more: "Termin hinzufügen"
+    slot_titel: "Slots"
     slotcount: "1 Abholer*in"
     slotscount: "{count} Abholer*innen"
     many-people: |

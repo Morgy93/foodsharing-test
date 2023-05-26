@@ -255,6 +255,7 @@
             <b-form-group
               :label="$i18n('use_region_pickup_rule')"
               label-for="useRegionPickupRule"
+              class="input-wrapper"
             >
               <b-form-checkbox
                 id="useRegionPickupRule"
@@ -263,6 +264,11 @@
                 :disabled="!editMode"
               />
             </b-form-group>
+            <RegularPickup
+              :edit-pickups.sync="editPickups"
+              :edit-mode="editMode"
+              :max-count-pickup-slot="maxCountPickupSlot"
+            />
           </b-card-text>
         </b-tab>
         <b-tab
@@ -452,13 +458,16 @@
 <script>
 // Stores
 import { getters, mutations } from '@/stores/stores'
+import { getters as pickupGetters, mutations as pickupMutations } from '@/stores/pickups'
 import { getters as regionGetters } from '@/stores/regions'
 // Others
 import { pulseError, showLoader, hideLoader, pulseSuccess } from '@/script'
 import { getStoreInformation, updateStore } from '@/api/stores'
+import { editRegularPickup } from '@/api/pickups'
 
 import LeafletLocationSearch from '@/components/map/LeafletLocationSearch.vue'
 import RegionTreeVForm from '@/components/regiontree/RegionTreeVForm.vue'
+import RegularPickup from './RegularPickup.vue'
 
 import MediaQueryMixin from '@/mixins/MediaQueryMixin'
 import AutoResizeTextareaMixin from '@/mixins/AutoResizeTextareaMixin'
@@ -468,6 +477,7 @@ export default {
   components: {
     LeafletLocationSearch,
     RegionTreeVForm,
+    RegularPickup,
   },
   mixins: [MediaQueryMixin, AutoResizeTextareaMixin],
   props: {
@@ -475,6 +485,9 @@ export default {
   },
   data () {
     return {
+      editPickups: {},
+      previousEditPickups: null,
+      selectedWeekDay: null,
       foodSearchCriteriaField: '',
       storeFoodNames: [],
       teamStatusOptions: [
@@ -546,6 +559,9 @@ export default {
         this.store.calendarInterval = val * 3600 * 24 * 7
       },
     },
+    maxCountPickupSlot () {
+      return getters.getMaxCountPickupSlot()
+    },
     storeChains () {
       return getters.getStoreChains()?.map(item => ({ value: item.id, text: item.name }))
     },
@@ -589,15 +605,21 @@ export default {
       return ''
     },
   },
-  watch: {
-  },
   async created () {
     // Load data
     await mutations.fetch()
+    await pickupMutations.fetchRegularPickup(this.storeId)
+    this.editPickups = this.regularPickup()
   },
   methods: {
+    regularPickup () {
+      return pickupGetters.getRegularPickup()
+    },
     dispatchResize () {
       window.dispatchEvent(new Event('resize'))
+    },
+    isUpdatedRegularPickup () {
+      return JSON.stringify(this.editPickups) !== JSON.stringify(this.previousEditPickups)
     },
     async submit (bvModalEvent) {
       bvModalEvent.preventDefault()
@@ -611,6 +633,9 @@ export default {
         const store = this.store
         store.groceries = this.storeFoodIds
         await updateStore(store)
+        if (this.isUpdatedRegularPickup) {
+          await editRegularPickup(this.storeId, this.editPickups)
+        }
         pulseSuccess(this.$i18n('storeedit.edit_success'))
         this.$bvModal.hide('storeInformationModal')
       } catch (err) {
@@ -622,6 +647,7 @@ export default {
       }
     },
     async showModal () {
+      this.previousEditPickups = structuredClone(this.editPickups)
       this.store = await getStoreInformation(this.storeId)
       if (this.store.categoryId === null) {
         this.store.categoryId = 0
@@ -687,5 +713,11 @@ export default {
   display: flex;
   position: fixed;
   z-index: 100000;
+}
+</style>
+
+<style>
+.b-form-btn-label-control.form-control > .btn {
+  font-size: 0.5em;
 }
 </style>

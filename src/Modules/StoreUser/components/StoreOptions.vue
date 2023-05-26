@@ -26,14 +26,6 @@
       v-text="$i18n('storeview.show_information')"
     />
     <button
-      v-if="mayEditStore"
-      type="button"
-      class="list-group-item list-group-item-action"
-      href="#"
-      @click="loadEditRecurringPickupModal"
-      v-text="$i18n('pickup.edit.bread')"
-    />
-    <button
       v-if="mayLeaveStoreTeam && userIsInStore || isJumper"
       type="button"
       class="list-group-item list-group-item-action"
@@ -46,7 +38,6 @@
 
 <script>
 import conversationStore from '@/stores/conversations'
-import $ from 'jquery'
 import { pulseError } from '@/script'
 import DataUser from '@/stores/user'
 import { removeStoreMember } from '@/api/stores'
@@ -81,10 +72,6 @@ export default {
   methods: {
     openChat (conversationId) {
       conversationStore.openChat(conversationId)
-    },
-    loadEditRecurringPickupModal () {
-      $('#bid').val(this.storeId)
-      $('#editpickups').dialog('open')
     },
     async removeFromTeam (fsId, fsName) {
       if (!fsId) {
