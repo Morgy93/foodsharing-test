@@ -75,9 +75,14 @@
       <span
         v-b-tooltip="$dateFormatter.dateTimeTooltip(date, { isShown: isSoon })"
       >
-        {{ $dateFormatter.base(date, { isRelativeTime: isSoon }) }}
+        {{ $dateFormatter.time(date, { isRelativeTime: isSoon }) }}
 
       </span>
+      <br>
+      <small>
+        {{ $dateFormatter.dateTime(date, { isRelativeTime: isSoon }).slice(0, -7) }}
+
+      </small>
       <span
         v-if="isSoon"
         class="pickup-status-time"
