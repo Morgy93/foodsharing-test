@@ -652,7 +652,7 @@ startpage:
       part3: ''
       part2: ''
     title: ''
-  welcome_text: ''
+  welcome_text: 'Foodsharing''e hoş geldiniz'
   join_welcome: 'Foodsharing''e katılmak istemeniz güzel!'
   registernow: 'Şimdi Katıl'
   telltruth: 'Foodsharing''i geliştiren ve web sitesini işleten hepimiz işimizi çok
@@ -660,8 +660,9 @@ startpage:
     ve platformda yaptığınız diğer tüm paylaşımlarınızda, örneğin yemek sepetleri
     ve forum gönderilerinizde dürüst olun.'
   private:
-    title: ''
-    text: ''
+    title: 'özelden'
+    text: 'Evinizdeki yemek israfına son verin. Bununla ilgili sizleri Fuarlarda ve
+      etkinliklerde bilgilendiriyoruz.'
   bedependable: 'Güvenilir ol'
   demands:
     text: ''
@@ -674,8 +675,9 @@ startpage:
   etiquette: 'foodsharing Etiketi'
   call_to_action_button: 'Şimdi Katıl'
   member:
-    title: ''
-    text: ''
+    title: 'Üye olarak'
+    text: 'Fazla yiyeceklerinizi foodsharing topluluğuyla paylaşın veya şirketlerin
+      gözden çıkardığı yiyecekleri kurtarın.'
   followrules_c: 'Tüm ayrıntılar <a href=''https://wiki.foodsharing.de/Hygieneregeln''
     target=''_blank'' rel=''noopener noreferrer nofollow''>foodsharing hijyen kurallarında</a>
     bulunabilir. Talimatlar ayrıca <a href=''https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel''
@@ -688,15 +690,23 @@ startpage:
     bu tür teklifleri silme hakkını saklı tutar.'
   vision:
     title: 'Vizyon'
-    text: ''
+    text: 'Kendimizi, kaynakların dikkatsiz kullanımına karşı ve sürdürülebilir bir
+      gıda sistemi için kampanya yürüten bir çevre ve eğitim politikası hareketi olarak
+      görüyoruz. Uzun vadeli hedefimiz yenilebilir gıda israfına son vermek. Bu nedenle
+      sahada aktifiz: Evlerde ve şirketlerde iyi olan yiyeceklerin çöpe atılmasına
+      karşı kurtarıyoruz.Ayrıca politikacılarla diyalog halindeyiz ve vizyonumuzu
+      dünyaya taşıyoruz.'
   more_infos: 'Daha fazla bilgi edin'
   slogan_1: ''
   honest: 'Dürüst ol'
-  responsibility: ''
-  followrules_a: ''
+  responsibility: 'tüm yiyecekler sonunda çöpe gidiyor. Bu nihayet son bulmalı. Hiçbir
+    şeyi atmak istemiyoruz! Yiyecekleri sorumlu bir şekilde ele almak istiyoruz ve
+    bize katıldığınız için mutluyuz.'
+  followrules_a: 'Yiyecekleri başkalarına dağıtma kurallarına ve <a href=''https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel''
+    target=''_blank'' rel=''noopener noreferrer nofollow''>kılavuz</a>a uyun'
   how_we_work:
     text: ''
-    title: ''
+    title: 'Şu şekilde işliyor'
   dependability: 'Birçok şehirde, yiyeceklerin paylaşıldığı gıda dağıtım noktaları
     vardır. Paylaşmak için orada veya diğer tarafsız yerlerde buluşabilirsiniz. Yiyecek
     teslim etmek veya teslim almak istiyorsanız, lütfen güvenilir ve dakik olun, kimseyi
@@ -705,19 +715,23 @@ startpage:
     birçok iyi fikir ve öneri ile size ihtiyacımız var. Bunları <a href=''mailto:info@foodsharing.de''>info@foodsharing.de</a>
     adresine gönderebilirsiniz'
   call_to_action:
-    text: ''
+    text: '2012 yılında kurulduk ve şu anda Almanya, Avusturya, İsviçre ve diğer Avrupa
+      ülkelerinde 500.000''den fazla kullanıcıyla uluslararası bir hareketiz.'
     title: 'Sen de katıl'
   this_is_how_it_works: 'Şöyle çalışıyor'
   store:
-    text: ''
-    title: ''
+    text: 'Bir süpermarkette, restoranda veya kantinde mi çalışıyorsunuz...? İşletmenizi
+      kaydedin ve siz de yiyecek israfına son verin.'
+    title: 'İşletme olarak'
   slogan_3: 'foodsharing ücretsizdir ve ücretsiz kalacaktır.'
   join: 'Sen de katıl'
   join_rules: 'Sen de katıl - Kurallarımız'
   respect: ''
   register: ''
   forstores: ''
-  together: ''
+  together: 'Foodsharing ile birlikte, ayıklanmış ve satılamayan yiyeceklerin çöpe
+    atılması yerine, iyi bir şekilde değerlendirilmesini sağlamak için çalışabilirsiniz.
+    Daha fazla bilgiyi <a href=''/İşletmeler için''>burada</a> bulabilirsiniz'
   followrules_b: 'Yasal sebeplerden dolayı sadece belirli yiyeceklerin ve diğer ürünlerin
     sunulmasına ve paylaşılmasına belirli koşullar altında izin verdiğimizi açıkça
     belirtiriz. Bu özellikle çiğ balık, çiğ et, çiğ yumurtalı yemekler ve hazır yiyecekler
@@ -1109,8 +1123,8 @@ poll:
   submit_vote: Oyla
   vote_success: Başarılı bir şekilde oy kullandınız.
   cancel:
-    question: ''
-    title: ''
+    question: 'Oylamayı iptal etmek istediğinizden emin misiniz? Bu durum geri döndürülemez.'
+    title: 'Oylamayı iptal et'
 region:
   change: İlçe değiştir
   edit: Bölgeyi düzenle
@@ -1538,11 +1552,11 @@ menu:
     forum: Forum
     helpneeded: Acilen yardımcı aranıyor
     groups: Gruplar
-    activities: ''
-    fundraising: ''
-    dataprivacy: ''
+    activities: 'Faaliyetler'
+    fundraising: 'Bağış'
+    dataprivacy: 'Veri gizliliği'
     release-notes: ''
-    group_overview: ''
+    group_overview: 'Küresel çalışma gruplarına genel bakış'
     chainList: ''
 footer:
   infosDeveloper: Geliştiriciler için
@@ -1575,7 +1589,7 @@ footer:
     wiener_tafel: ''
   contact: İletişim
   press: Basın
-  dataprivacy: ''
+  dataprivacy: 'Veri gizliliği'
 releases:
   "2022-12": Release "Icecream" 🍇 (Aralık 2022)
   "2020-05": Release 'Portakal' (Mayıs 2020)
@@ -1618,6 +1632,7 @@ storelist:
   zipcode: Posta Kodu
   entered: 'Kayıtlı:'
   isManaging: ''
+  memberState: Üyelik durumu
 blog:
   edit: Blog yazısını düzenle
   newTitle: '{bölge} için yeni yazı'
@@ -1708,7 +1723,7 @@ email_template:
     noreply: Lütfen bu e-postaya cevap vermeyiniz. Bu mesaj, posta kutusu olmayan
       bir adresten gönderilmiştir.
     you_can: -- altında yapabilirsiniz
-    nomail: ''
+    nomail: 'hangi e-postaları alacağınızı ayarlayın.'
   foodsharepoint: '---Dağıtım noktası'
   to: -da/de
   unknown_email2: '%ADDRESS% e-posta adresi bilinmiyor.'
@@ -1965,7 +1980,7 @@ profile:
     basketsSharedWeek: 'Yemek sepetleri {count} kişiyle paylaşıldı. '
     respActStores: 'Aktif olanları {count} koordine ettiğiniz için teşekkürler '
     eventsCreatedWeek: 'Bu hafta {count} kez etkinlik oluşturduğunuz için teşekkürler. '
-    calenderWeek: ''
+    calenderWeek: 'Takvim haftası'
   report:
     view:
       what:
@@ -1984,7 +1999,7 @@ profile:
       complaints: Suçlamalarda bulundu
       vsstore: İşletme çalışanlarına yönelik
       vsclients: Müşterilere karşı
-      newreport: Yeni mesajlar
+      newreport: Yeni raporlar
       delivered: Teslim edilmiş olanlar
       social: Alırken topluluğa uygun ve sosyal bir şekilde davranmadı
       dirty: Alım yerini temiz bırakmadı
@@ -1999,8 +2014,8 @@ profile:
       residence: FS İkametgah
       picky: Alınması ön görülen tüm yiyecekleri almıyor
       ofclients: Müşterilerden
-      unreliable: Yerine birini aramadan,bulmadan kısa sürede sıklıkla alımlarını
-        iptal etti
+      unreliable: Alımların sık sık kısa sürede iptal edilmesi ve yerine yeni bir
+        kişi bulamaması
       trasher: Kurtarılan yiyecekleri atıyor
       nearfs: 'Foodsaver''dan önce'
       offs: 'Foodsaverdan'
@@ -2010,8 +2025,8 @@ profile:
       delivered: Teslim edilen Mesajlar
       notes: Notlar ve Kararlar
       tot: 'Toplamda'
-      newreports: ''
-      total: ''
+      newreports: 'Yeni raporlar'
+      total: 'toplamda'
     xhr:
       allofthem: Hakkında tüm raporlar
       delivered: Mesaj gönderildi
@@ -2039,17 +2054,27 @@ profile:
       almak ve konuyu o kişiyle açıklığa kavuşturmak için, lütfen size sunulan iletişim
       kanallarını deneyip denemediğinizi kontrol edin. Ve lütfen soruları işleme almak
       için size ulaşmanın en iyi yolunu belirtin.
-    noshow: ''
-    late: ''
-    inthisblog: ''
-    cancellation: ''
-    sells: ''
-    noReportGroup: ''
-    reporterAdminNoArbitration: ''
-    arbAdminAgainstRepAdmin: ''
-    repAdminAgainstArbAdmin: ''
-    kindofreport: ''
-    reportedAdminNoArbitration: ''
+    noshow: 'Kişi almak için gelmedi'
+    late: 'Kişi geç kaldı'
+    inthisblog: 'Bu blog yazısında'
+    cancellation: 'Alımların sık sık kısa sürede iptal edilmesi ve yerine yeni bir
+      kişi bulamaması'
+    sells: 'Kurtarılan yiyecekleri satıyor'
+    noReportGroup: 'Foodsaver''ın bölgesi için aktif olmadığından, raporlama sisteminin
+      teknik desteğini kullanamazsınız.'
+    reporterAdminNoArbitration: 'Yerel raporlama grubunun yöneticisisiniz ve yerel
+      hakem kurulu olmadığı için rapor gönderemezsiniz.'
+    arbAdminAgainstRepAdmin: 'Tahkim kurulunun bir yöneticisisiniz ve raporlama grubunun
+      bir yönetici üyesini şikayet etmek istiyorsunuz. Bu, şu anda teknik olarak desteklenmiyor.
+      Bu vaka için yerel olarak sizden sorumlu kişilere e-posta yoluyla istediğiniz
+      zaman bir rapor gönderebilirsiniz.'
+    repAdminAgainstArbAdmin: 'Rapor işleme ekibinin yöneticisisiniz ve bir yöneticiyi
+      tahkim kuruluna şikayet etmek istiyorsunuz. Bu, şu anda teknik olarak desteklenmiyor.
+      Bu vaka için yerel olarak sizden sorumlu kişilere e-posta yoluyla istediğiniz
+      zaman bir rapor gönderebilirsiniz.'
+    kindofreport: 'Lütfen mesaj türünü seçiniz'
+    reportedAdminNoArbitration: '{name} aleyhinde şikayette bulunamazsınız çünkü bu
+      Admin, bölgenin yerel raporlama grubundadır ve orada bir tahkim kurulu yoktur.'
   choosestore: Lütfen ilgili işletmeyi seçiniz
   cantdeleteall: Tüm randevuları silemezsiniz!
   deletesuccess: Tek randevu silindi
@@ -2830,11 +2855,13 @@ search:
   user_search:
     placeholder: ''
 language_chooser:
-  choose_button: ''
-  translation_help_info_text: ''
-  title: ''
-  content: ''
-  translation_help: ''
+  choose_button: 'Güncelle'
+  translation_help_info_text: 'Bu bağlantı tercüme portalına yönlendiriyor, başlamak
+    için kaleme tıklayabilirsiniz'
+  title: 'Lisan seçiniz'
+  content: 'Lütfen bir dil seçin'
+  translation_help: 'Başka lisanları konuşuyormusun? Foodsharing her zaman tercümanlık
+    konusunda yardımcı arıyor'
 numbers:
   billion_abbreviation: ''
   decimal_separator: ''
