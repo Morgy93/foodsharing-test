@@ -37,7 +37,7 @@ class ProfilePermissions
 
     public function mayChangeUserVerification(int $userId): bool
     {
-        return $this->commonPermissions->mayVerifyRegion($userId);
+        return $this->commonPermissions->mayAdministrateRegion($userId);
     }
 
     public function maySeeHistory(int $fsId): bool

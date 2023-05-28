@@ -20,7 +20,7 @@ class PassportPermissions
 
     public function mayCreatePassportAsAmbassador(int $userId, int $regionId): bool
     {
-        return $this->commonPermissions->mayVerifyRegion($userId, $regionId);
+        return $this->commonPermissions->mayAdministrateRegion($userId, $regionId);
     }
 
     public function mayCreatePassportAsUser(int $userId): bool

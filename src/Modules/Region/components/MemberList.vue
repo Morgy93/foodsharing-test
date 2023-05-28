@@ -90,7 +90,7 @@
             v-model="filterText"
             type="text"
             class="form-control form-control-sm"
-            :placeholder="$i18n('memberlist.filter_for_name_id')"
+            :placeholder="$i18n('filterlist.filter_for_name_id')"
           >
         </div>
         <div
@@ -167,7 +167,7 @@
         <button
           v-else
           class="btn btn-sm btn-secondary"
-          :title="$i18n('group.member_list.verify')"
+          :title="$i18n('group.member_list.not_verified')"
           @click="showVerifyConfirmation(true, row.item.id,row.item.name)"
         >
           <i class="fas fa-user-check" />
@@ -533,9 +533,9 @@ export default {
       this.isBusy = true
       try {
         if (isVerified) {
-          verifyUser(userId)
+          await verifyUser(userId)
         } else {
-          deverifyUser(userId)
+          await deverifyUser(userId)
         }
       } catch (e) {
         pulseError(i18n('error_unexpected'))

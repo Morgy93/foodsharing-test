@@ -35,21 +35,4 @@ class CommonPermissions
 
         return $this->session->isAmbassadorForRegion($regionIds, false, true);
     }
-
-    public function mayVerifyRegion(int $userId, ?int $regionId = null): bool
-    {
-        if ($this->session->mayRole(Role::ORGA)) {
-            return true;
-        }
-
-        if (!$this->session->isAmbassador()) {
-            return false;
-        }
-
-        if ($regionId !== null && $this->session->isAdminFor($regionId)) {
-            return true;
-        }
-
-        return false;
-    }
 }
