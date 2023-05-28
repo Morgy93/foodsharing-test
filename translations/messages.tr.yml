@@ -665,8 +665,18 @@ startpage:
       etkinliklerde bilgilendiriyoruz.'
   bedependable: 'Güvenilir ol'
   demands:
-    text: ''
-    title: ''
+    text: '"Alman çevre yardımı ile eylem planı
+
+      12/12/2018 tarihinde foodsharing 6. yıldönümünde yayınlandı. Başka bir kelime
+      ihlalinden Almanya''ya
+
+      - 2020 için iklim koruma hedeflerinde olduğu gibi - foodsharing ve Deutsche
+      Umwelthilfe''yı bir arada gösteren
+
+      Eylem Planı, olmadan yarılanma hedefine ulaşılamayan önlemleri listeler."
+
+      '
+    title: 'Talepler'
   donate:
     text: ''
     title: ''
