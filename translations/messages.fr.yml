@@ -199,6 +199,7 @@ group:
     old_edit_hint: Tu trouveras désormais la gestion des membres sous l'onglet
     is_verified: Vérifié
     is_home_region: District principal
+    not_verified: non vérifié
   last_activity: Dernière activité
   role_name: Rôle
   entertime: 'Temps :'
@@ -1212,6 +1213,10 @@ store:
     qui souhaitent postuler pour faire partie de l'équipe.
   prefetchfour: 4 semaines
   ownStores: 'Coopérations propres'
+  managing: Responsabilité de l'entreprise
+  jumping: Sauteur
+  member: Membre
+  isAppliedForTeam: Demande
 storeview:
   want_to_fetch: J'aimerais m'engager dans cette équipe.
   specials: Particularités
@@ -1713,6 +1718,8 @@ pickup:
     more: Ajouter un rendez-vous
     add: Ajouter les horaires des collectes
     bread: Modifier les horaires des collectes
+    slot_titel: Slots
+    disable_auto_slot: La fente automatique à l'avenir devrait être désactivée.
   history:
     search: Voir les collectes
     title: Historique des collectes
@@ -2397,6 +2404,7 @@ storelist:
   cooperating: coopère
   geo: géo
   isManaging: Responsable
+  memberState: Statut de membre
 storestatus:
   "7": Le magasin n'existe plus
   "6": Fait don de ses denrées alimentaires à la croix rouge, banques alimentaires
