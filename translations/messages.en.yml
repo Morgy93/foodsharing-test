@@ -178,6 +178,7 @@ group:
     remove_text_region: Do you really want to remove {name} ({id}) from the region?
     is_verified: Verified
     is_home_region: Home region
+    not_verified: not verified
   application_from: by
   entermotivation: 'Motivation:'
   enterskills: 'Skills:'
@@ -844,6 +845,8 @@ pickup:
       helpers required can wait with bicycle trailers or the like\nout of sight of
       the store.\n"
     added: Pick-up slot was added.
+    disable_auto_slot: Automatic slot in the future should be disabled.
+    slot_titel: Slots
   slot_remove: Delete slot
   slot_add: Add slot
   no_slots_available: No pick-up slots available
@@ -1526,6 +1529,7 @@ storelist:
   entered: 'Created on:'
   geo: geo
   isManaging: Managing
+  memberState: Membership status
 releases:
   "2020-08": "'Pear' release (August 2020)"
   "2020-10": "'Cranberry' release (October 2020)"
@@ -1877,6 +1881,10 @@ store:
     hours before the pick-up, this rule is not taken into account.
   regionPickupRules: additional rule for much sought-after slots
   ownStores: My stores
+  managing: Corporate responsibility
+  member: Member
+  isAppliedForTeam: Request
+  jumping: Standby
 search:
   mygroups: My groups
   mybuddies: My buddies
