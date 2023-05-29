@@ -1564,6 +1564,7 @@ group:
     is_verified: Bekreftet
     remove_text_group: Er du sikker på at du vil fjerne {name} ({id}) fra arbeidsgruppen?
     remove_text_region: Er du sikker på at du vil fjerne {name} ({id}) fra regionen?
+    not_verified: ikke låst opp
   saved: Endringene har blitt lagret
   subtitle: her kan du finne hjelp og mye å gjøre…
   member_count: '{0} ingen bidragsytere|{1} en bidragsyter| [2, Inf[ %count% bidragsytere'
@@ -1767,6 +1768,7 @@ storelist:
   nocontact: ingen kontakt enda
   notcooperating: ønsker ikke å samarbeide
   isManaging: Ansvarlig
+  memberState: medlemsstatus
 footer:
   version: 'Versjon: {version}'
   hosting_info: CO2-nøytral vert på
@@ -2041,6 +2043,8 @@ pickup:
       ofte til slutten på et samarbeid.\n<br />\nAvklar maksimalt antall mulige samlere
       med selskapet.\nI tillegg kan nødvendige hjelpere vente med sykkelhengere eller
       lignende\nutenfor selskapets syn.\n"
+    disable_auto_slot: Automatisk spor i fremtiden bør være deaktivert.
+    slot_titel: Plasser
   history:
     search: Vis pickups
     title: Samlingshistorie
@@ -2298,6 +2302,10 @@ store:
     ganger fra disse virksomhetene per dag. {regionPickupRuleInactive} timer før henting,
     tas det ikke hensyn til denne regelen.
   ownStores: Egen drift
+  managing: Samarbeidsansvar
+  jumping: Hopper
+  member: Medlem
+  isAppliedForTeam: Forespørsel
 storeview:
   status: Nåværende status
   public_time_at_night: om natten
