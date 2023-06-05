@@ -52,8 +52,7 @@
 - Reimplement create new forum thread in vue js !2627 @chriswalg
 - New vue component for address search !2632 !2669 @alex.simm
 - Replaced get store information to rest api !1449 @KoeMai
-- put Date and time in two lines at User Dashboard Card "Nächste Abholungen". !2588 @Niklas003
-- put Date and time in two lines at User Dashboard Card "Nächste Abholungen". #1448 !2588 @Niklas003
+- Put Date and time in two lines at User Dashboard Card "Nächste Abholungen". #1448 !2588 !2707 @Niklas003 @sefn
 
 - Replaced the history dialogs on profile pages with a vue component !2587 @alex.simm
 - Moved verification to memberlist !2646 !2698 @chriswalg
