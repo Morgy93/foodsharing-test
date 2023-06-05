@@ -997,13 +997,13 @@ store:
   request:
     request: Bu gruba yardım etmek isterim.
     no-duplicate: İstek başvurusu zaten var.
-    title: '{storeTitle} için istekler'
+    title: '{storeTitle} için başvuru'
     verified: Kullanıcı onaylandı
     withdrawn: Başvuru talebi başarıyla geri çekildi.
     to-jumper: Yedek Listesi
     got-it: Sorumlular talebiniz hakkında bilgilendirilmiştir ve sizinle iletişime
       geçecektir.
-    withdraw: Başvuruyu geri çek
+    withdraw: Başvuruyu geri çekin
     to-team: Kabul et
     to-nowhere: Reddet
   filter: … göre filtrele
