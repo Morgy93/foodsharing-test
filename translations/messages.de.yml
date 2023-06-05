@@ -1727,6 +1727,8 @@ settings:
     button: "Ausweis herunterladen"
   calendar:
     menu: "Kalender"
+    export: "Kalender exportieren"
+    export_tooltip: "Du kannst deine Abholtermine mit einem Kalenderprogramm deiner Wahl ansehen."
     title: "Dein Abholkalender"
     teaser: |
       Du kannst deinen Abholkalender mit einem Kalenderprogramm deiner Wahl ansehen.
