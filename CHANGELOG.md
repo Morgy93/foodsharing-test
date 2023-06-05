@@ -42,7 +42,7 @@
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
-- Use email address DTO and let the MailboxGateway handle JSON encoding !2520 @alex.simm
+- Use email address DTO and let the MailboxGateway handle JSON encoding !2520 !2712 @alex.simm @neriton
 - Replaced the usage of a function in FoodsaverGateway with a more ressource saving function !2595 @alex.simm
 - Use Store DTO in StoreGateway !2515 !2611 @KoeMai
 - Move business logic for editing store into StoreTransaction !2515 @KoeMai
