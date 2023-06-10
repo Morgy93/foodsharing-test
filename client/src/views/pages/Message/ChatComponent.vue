@@ -349,7 +349,13 @@ export default {
       if (conversation.title) { return conversation.title }
       return conversation.members
         .filter(m => m !== this.currentUserId)
-        .map(m => ProfileStore.profiles[m].name)
+        .map(m => {
+          if (ProfileStore.profiles[m]) {
+            return ProfileStore.profiles[m].name
+          } else {
+            return this.$i18n('chat.unknown_username')
+          }
+        })
         .join(', ')
     },
     async loadRooms () {
@@ -359,12 +365,17 @@ export default {
     convertMessages (conversation) {
       const chatMessages = []
       for (const message of Object.values(conversation.messages)) {
+        let username = this.$i18n('chat.unknown_username')
+        if (ProfileStore.profiles[message.authorId]) {
+          username = ProfileStore.profiles[message.authorId].name
+        }
+
         const chatMessage = {
           _id: message.id,
           indexId: message.id,
           content: message.body,
           senderId: String(message.authorId),
-          username: ProfileStore.profiles[message.authorId].name,
+          username: username,
           date: this.$dateFormatter.date(message.sentAt),
           timestamp: this.$dateFormatter.time(message.sentAt),
           system: false,

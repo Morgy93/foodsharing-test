@@ -1194,6 +1194,7 @@ chat:
   no_conversation: "Keine Unterhaltung ausgewählt"
   start_of_conversation: "Konversation gestartet am:"
   display_all_messages: "Alle Nachrichten anzeigen"
+  unknown_username: "unbekannter Name"
 
 wall:
   name: "Pinnwand"
