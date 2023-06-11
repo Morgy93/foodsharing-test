@@ -101,7 +101,7 @@
 # Release "Icecream", 2022-12-18
 
 ## Features
-- The number of unread mails is now displayed as a red badge. !2188 !2230 @AntonBallmaier
+- The number of unread mails is now displayed as a red badge. !2188 !2230 !2715 @AntonBallmaier @chriswalg
 - The housenumber of companys shouldn't be saved seperately anymore. #1146 !2222 !2413 @martincodes-de
 - Improved Calendar exports. Events are now included and pickup descriptions contain links. !2182 @AntonBallmaier
 - Past events are shown now below current and upcoming events within the overview !2162 !2531 @merhoc @chriswalg
