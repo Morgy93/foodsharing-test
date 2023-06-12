@@ -4,6 +4,7 @@
 - Ongoing polls a user has not yet voted in are displayed on the dashboard. !2349 @AntonBallmaier
 - Provide RestApi to edit store !2515 !2625 @KoeMai
 - New UI for Stores information and modification of stores !2645 !2685 !2688 @KoeMai
+- Added turkish translation !2720 @Evren
 
 ## Changes
 - Make menubar sticky on mobile !2411 @AntonBallmaier
