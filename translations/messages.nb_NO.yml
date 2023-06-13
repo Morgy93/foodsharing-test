@@ -1513,7 +1513,7 @@ group:
     disclaimer: "Ved å sende en melding til denne arbeidsgruppen vil alle\nadministratorer
       av arbeidsgruppen se e-postadressen din,\nsom du skrev inn på foodsharing-profilen
       din.\nEn kopi av denne meldingen vil bli sendt til deg på e-post.\n"
-  applications_for: Søknader for %name%
+  applications_for: Søknader for {name}
   applications: Applikasjoner
   photo: Bilde
   description: Beskrivelse

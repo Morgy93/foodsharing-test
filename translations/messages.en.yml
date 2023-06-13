@@ -3,7 +3,7 @@ group:
   description: Description
   photo: photo
   applications: Applications
-  applications_for: Applications for %name%
+  applications_for: Applications for {name}
   mail_link_title:
     workgroup: e-mail inbox
     region: e-mail inbox

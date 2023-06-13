@@ -335,7 +335,7 @@ group:
   filter_by_last_activity: "Nicht aktiv in Monaten"
   role_name: "Rolle"
   applications: "Bewerbungen"
-  applications_for: "Bewerbungen für %name%"
+  applications_for: "Bewerbungen für {name}"
   application_region: "Bewerbung für "
   application_from: "von"
   motivation: "Motivations-Text"

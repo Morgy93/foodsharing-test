@@ -168,7 +168,7 @@ final class RegionControl extends Control
         }
 
         if ($this->mayAccessApplications($regionId)) {
-            if ($requests = $this->gateway->listRequests($regionId)) {
+            if ($requests = $this->gateway->listApplicants($regionId)) {
                 $menu['applications'] = ['name' => $this->translator->trans('group.applications') . ' (' . count($requests) . ')', 'href' => '/?page=bezirk&bid=' . $regionId . '&sub=applications'];
             }
         }
@@ -431,7 +431,7 @@ final class RegionControl extends Control
         $sub = $request->query->get('sub');
         $viewdata = $this->regionViewData($region, $sub);
         if ($this->mayAccessApplications($region['id'])) {
-            $viewdata['applications'] = $this->gateway->listRequests($region['id']);
+            $viewdata['applications'] = $this->gateway->listApplicants($region['id']);
         }
         $response->setContent($this->render('pages/Region/applications.twig', $viewdata));
     }

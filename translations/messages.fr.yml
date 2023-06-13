@@ -64,7 +64,7 @@ group:
     description_required: Merci de saisir une description.
     name_required: Merci de saisir un nom.
     description_placeholder: Description du groupe de travail
-  applications_for: Demandes pour %name%
+  applications_for: Demandes pour {name}
   applications: Demandes
   photo: Photo
   description: Description

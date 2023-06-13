@@ -6,6 +6,7 @@ const urls = {
   profile: (id) => `/profile/${id}`,
   profileNotes: (fsId) => `/profile/${fsId}/notes`,
   academy: () => '/?page=content&sub=academy',
+  application: (groupId, userId) => `/?page=application&bid=${groupId}&fid=${userId}`,
   basket: (basketId) => `/essenskoerbe/${basketId}`,
   baskets: () => '/essenskoerbe',
   blog: () => '/news',
