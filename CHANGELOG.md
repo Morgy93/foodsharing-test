@@ -40,7 +40,7 @@
 - Fix the vue import on the settings page #1618 !2691 @alex.simm
 - fixed kick message length #1540 !2694 @Morgy93
 - reduce font-size on the mobile index page #1624 !2704 @sefn
-- condition check for profileStore.profiles #1584 !2719 @chriswalg
+- condition check and fallback for profiles and avatars in chat components #1584 !2719 !2725 @chriswalg
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003

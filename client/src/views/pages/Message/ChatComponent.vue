@@ -111,6 +111,7 @@ export default {
   },
   data () {
     return {
+      defaultAvatar: '/img/mini_q_avatar.png',
       loadingRooms: true, // can be used to show/hide a spinner icon while rooms are loading the first time. Fetch more rooms don't need this boolean afterwards.
       currentUserId: DataUser.getters.getUserId(),
 
@@ -425,14 +426,21 @@ export default {
         }
 
         if (conv.lastMessage) {
+          let username = this.$i18n('chat.unknown_username')
+          let senderId = this.$i18n('chat.unknown_username')
+          if (conv.lastMessage.authorId && ProfileStore.profiles[conv.lastMessage.authorId]) {
+            username = ProfileStore.profiles[conv.lastMessage.authorId].name
+            senderId = String(conv.lastMessage.authorId)
+          }
+
           room = {
             ...room,
             avatar: null,
             index: conv.lastMessage.sentAt.getTime(), // use unix timestamp
             lastMessage: {
               content: conv.lastMessage.body,
-              senderId: String(conv.lastMessage.authorId),
-              username: ProfileStore.profiles[conv.lastMessage.authorId].name,
+              senderId: senderId,
+              username: username,
               timestamp: this.$dateFormatter.relativeTime(conv.lastMessage.sentAt, { short: true }),
               // saved: true, // can be activated when 'distributed' is also implemented in backend. Will otherwise confuse users when only 1 check is displayed.
               distributed: false,
@@ -444,10 +452,11 @@ export default {
 
         room.users = []
         for (const userId of conv.members) {
+          const profile = ProfileStore.profiles[userId]
           const user = {
             _id: userId,
-            username: ProfileStore.profiles[userId].name,
-            avatar: ProfileStore.profiles[userId].avatar,
+            username: profile && profile.name ? profile.name : this.$i18n('chat.unknown_username'),
+            avatar: profile && profile.avatar ? profile.avatar : this.defaultAvatar,
             status: {
               // The following properties could also be used in the vue-advanced-chat component when these are implemented in the backend.
               // state: 'offline',
