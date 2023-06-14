@@ -117,7 +117,7 @@
 import DataStores from '@/stores/stores.js'
 import DataPickups from '@/stores/pickups.js'
 import DataBaskets from '@/stores/baskets.js'
-import DataUser from '@/stores/user.js'
+import DataUser, { mutations } from '@/stores/user.js'
 import DataEvents from '@/stores/events.js'
 import DataBroadcast from '@/stores/broadcast.js'
 // Components
@@ -228,6 +228,7 @@ export default {
   async mounted () {
     this.visible = JSON.parse(localStorage.getItem('dashboard.visible')) || this.visible
     await DataBroadcast.mutations.fetch()
+    await mutations.fetchDetails()
   },
   methods: {
     resetHiding () {
