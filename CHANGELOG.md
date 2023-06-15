@@ -41,6 +41,7 @@
 - fixed kick message length #1540 !2694 @Morgy93
 - reduce font-size on the mobile index page #1624 !2704 @sefn
 - condition check and fallback for profiles and avatars in chat components #1584 !2719 !2725 @chriswalg
+- fixed map showing grey when zooming in too close #1632 @florianunsinn
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
