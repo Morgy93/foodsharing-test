@@ -5,6 +5,7 @@
 - Provide RestApi to edit store !2515 !2625 @KoeMai
 - New UI for Stores information and modification of stores !2645 !2685 !2688 @KoeMai
 - Added turkish translation !2720 @Evren
+- Store chains can now be manged from the website. The working group "Betriebsketten" contains a tabular overview of all chains. !2251 !2273 @AntonBallmaier
 
 ## Changes
 - Make menubar sticky on mobile !2411 @AntonBallmaier
@@ -122,7 +123,6 @@
 - On the login page, "Stay logged in for one day" is saved in local storage for the next logins. !2249 @NINI1988
 - Food-share-points are listed in the topbar search #1251 !2260 @alex.simm
 - On all external links is now a visible indicator !2280 @sefn
-- Store chains can now be manged from the website. The working group "Betriebsketten" contains a tabular overview of all chains. !2251 @AntonBallmaier
 - At stores under pickup history, storemanagers can now see the signed out foodsavers from pickup slots from past 7 days with the signout date. !2363 @martincodes-de
 - Voter Turnout Percentage can be seen if the poll has completed !2377 @viveknshah
 - Provide RestAPI to get backend defined common meta information for stores like "max count of slots per pickup" !1373 @koemai
