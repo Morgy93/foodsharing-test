@@ -1625,6 +1625,8 @@ content:
 map:
   title: "Karte"
   donates: "Betrieb spendet" #MapView
+  filters:
+    my_stores: "Nur meine Betriebe"
 
 messages:
   bread: "Nachrichten"
