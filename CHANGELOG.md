@@ -98,6 +98,7 @@
 - Made scripts work with docker-compose-plugin !1587 @andre161292
 - remove trailing whitespace from CHANGELOG.md !2690 @Morgy93
 - [DevDocs] Added follow-up link for local dev environment on getting ready page !2689 @Morgy93
+- cache bell request and limit to 1 minute !2722 @chriswalg
 - Cache userDetails, limit request to 1 minute and only load once on dashboard !2727 @chriswalg
 
 ## Development documentation
