@@ -71,6 +71,7 @@
 - Refactor edit pickup rules to vue component and moved it to storeInformationModal !2686 @chriswalg 
 - Refactor own store list in vue !2668 !2683 @chriswalg
 - Refactored the list of group applications to vue, which not also shows profile pictures #343 !2696 @alex.simm
+- Refactor the list of food share points in a region to vue !2702 @alex.simm
 
 ## Dev/Test/CI stuff
 - Fix given null parameter !2550 @BibaltiK
