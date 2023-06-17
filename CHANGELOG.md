@@ -23,6 +23,7 @@
 - Removed the additional button in the report modal #1599 !2677 @alex.simm
 - Show forum text if foodsaver deleted again !2697 @chriswalg
 - Add CTA on the profile-page for calendar export #1583 !2705 @sefn
+- Remove relative time from last pickup #1571 !2706 @sefn
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
@@ -44,6 +45,8 @@
 - reduce font-size on the mobile index page #1624 !2704 @sefn
 - condition check and fallback for profiles and avatars in chat components #1584 !2719 !2725 @chriswalg
 - fixed map showing grey when zooming in too close #1632 @florianunsinn
+- Bugfix for Date-Formatter #1571 !2706 @sefn
+
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
