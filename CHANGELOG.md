@@ -46,7 +46,7 @@
 - condition check and fallback for profiles and avatars in chat components #1584 !2719 !2725 @chriswalg
 - fixed map showing grey when zooming in too close #1632 @florianunsinn
 - Bugfix for Date-Formatter #1571 !2706 @sefn
-
+- Fixed push notifications button #1638 !2728 !2729 @florianunsinn
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
