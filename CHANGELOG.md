@@ -3,7 +3,7 @@
 ## Features
 - Ongoing polls a user has not yet voted in are displayed on the dashboard. !2349 @AntonBallmaier
 - Provide RestApi to edit store !2515 !2625 @KoeMai
-- New UI for Stores information and modification of stores !2645 !2685 !2688 @KoeMai
+- New UI for Stores information and modification of stores !2645 !2685 !2688 !2731 @KoeMai
 - Added turkish translation !2720 @Evren
 - Store chains can now be manged from the website. The working group "Betriebsketten" contains a tabular overview of all chains. !2251 !2273 @AntonBallmaier
 - Store markers on the map can be filtered by the user's membership #1025 !2682 @alex.simm
@@ -71,7 +71,7 @@
 - New vue component for blog posts !2676 !2687 @alex.simm
 - Changed forum post response to empty content #1499 !2638 @krauterisator
 - Refactor add pickup modal !2693 @chriswalg
-- Refactor edit pickup rules to vue component and moved it to storeInformationModal !2686 @chriswalg 
+- Refactor edit pickup rules to vue component and moved it to storeInformationModal !2686 !2731 @chriswalg 
 - Refactor own store list in vue !2668 !2683 @chriswalg
 - Refactored the list of group applications to vue, which not also shows profile pictures #343 !2696 @alex.simm
 - Refactor the list of food share points in a region to vue !2702 @alex.simm
