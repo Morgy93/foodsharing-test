@@ -275,6 +275,9 @@ settings:
         it?
       title: Generate a new token
       button: Generate a new token
+    export: Export calendar
+    export_tooltip: You can view your upcoming pickup dates using a calendar program
+      of your choice.
   saved: The changes were saved.
   changemail:
     done: Your e-mail address was changed.
@@ -1682,6 +1685,8 @@ basket:
 map:
   title: Map
   donates: company donates
+  filters:
+    my_stores: My stores only
 content:
   content: Content
   name: Unique name
@@ -2299,6 +2304,7 @@ chat:
   start_of_conversation: "Conversation started on:"
   display_all_messages: "Display all messages"
 
+  unknown_username: unknown name
 delete: Delete
 error_unexpected: An error has occurred
 register:
@@ -2749,7 +2755,7 @@ startpage:
   bedependable: Be dependable
   makeproposals: Make proposals
   proposals: We want to develop and consistently improve. Therefore we need you with
-    your many great ideas and tipps. Please send them to <a href='mailto:info@foodsharing.de'>info@foodsharing.de</a>
+    your many great ideas and tips. Please send them to <a href='mailto:info@foodsharing.de'>info@foodsharing.de</a>
   join_welcome: Nice that you want to join foodsharing!
   join_rules: Participate - Our Rules
   notallowed: The sharing of medicines (including homeopathic ones) is excluded on
