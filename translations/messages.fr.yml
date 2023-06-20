@@ -3076,7 +3076,7 @@ chain:
     name: Nom
     stores: Coopérations
     headquarters: Quartier général
-    kams: Responsables d’Affaires
+    kams: Responsables des chaînes de magasins
     notes: Remarques
   new: Créer une nouvelle chaîne
   allowpress: Dénomination publique autorisée.
@@ -3106,11 +3106,11 @@ chain:
         label: Fil de discussion du forum
         invalidfeedback: Entrée invalide. ID de fil ou lien requis.
       kam:
-        label: Responsables d’Affaires
+        label: Responsables des chaines de magasins
         invalidfeedback: Entrée non valide. Un ou plusieurs identifiants d'utilisateur
           sont requis.
-        description: ID utilisateur des gestionnaires de comptes clés, séparés par
-          des virgules si nécessaire.
+        description: ID utilisateur des gestionnaires de comptes clés (chaînes de
+          magasins), séparés par des virgules si nécessaire.
       notes:
         label: Remarques
         invalidfeedback: Les notes ne peuvent pas dépasser 200 caractères.
