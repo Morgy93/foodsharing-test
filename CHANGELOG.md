@@ -105,6 +105,7 @@
 - [DevDocs] Added follow-up link for local dev environment on getting ready page !2689 @Morgy93
 - cache bell request and limit to 1 minute !2722 @chriswalg
 - Cache userDetails, limit request to 1 minute and only load once on dashboard !2727 @chriswalg
+- switch from /bin/bash to /usr/bin/env to allow more setups like nixos !2708
 
 ## Development documentation
 
