@@ -23,7 +23,7 @@
 - Removed the additional button in the report modal #1599 !2677 @alex.simm
 - Show forum text if foodsaver deleted again !2697 @chriswalg
 - Add CTA on the profile-page for calendar export #1583 !2705 @sefn
-- Remove relative time from last pickup #1571 !2706 @sefn
+- Remove relative time from last pickup #1571 #1643 !2706 !2744 @sefn
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
