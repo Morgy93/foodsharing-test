@@ -47,6 +47,7 @@
 - fixed map showing grey when zooming in too close #1632 @florianunsinn
 - Bugfix for Date-Formatter #1571 !2706 @sefn
 - Fixed push notifications button #1638 !2728 !2729 @florianunsinn
+- In the user details, only include that a calendar token exists but not the token itself !2735 @alex.simm
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
