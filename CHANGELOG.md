@@ -60,7 +60,7 @@
 - added poppins font in Styleguide !2564 @Niklas003
 - Replace the region tree with a new vue component !2483 @alex.simm
 - Move uploadlogic and actions from controller to transactionclass for reuse !2478 @martncodes-de
-- Reimplement create new forum thread in vue js !2627 @chriswalg
+- Reimplement create new forum thread in vue js !2627 !2748 @chriswalg
 - New vue component for address search !2632 !2669 @alex.simm
 - Replaced get store information to rest api !1449 @KoeMai
 - Put Date and time in two lines at User Dashboard Card "Nächste Abholungen". #1448 !2588 !2707 @Niklas003 @sefn
