@@ -928,7 +928,7 @@ storeview:
   cooperation_status: "State of cooperation"
   common: "Common information"
   visible_for_public: "This text is visible for all foodsavers."
-  visible_for_team: "This text is visible for the pickup team of the store."
+  visible_for_team: "This text is visible for the team of the store."
   invalid_field: "Invalid field content. The change is not stored."
   contact:
     name: "Name/first name"
@@ -938,7 +938,7 @@ storeview:
   store: Store
   want_to_fetch: I would like to help in this team.
   public_and_statistics: "Public activites and statistical information"
-  no_permission_to_view: "No permission"
+  no_permission_to_view: "Only for store manager visible."
   groceries:
     label: Which kinds of food are allowed to be collected?
     select_tag: Choose food category

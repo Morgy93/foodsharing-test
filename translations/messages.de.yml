@@ -774,8 +774,8 @@ storeview:
   show_information: "Betriebsinformationen anzeigen"
   store: "Betrieb"
   common: "Allgemein"
-  visible_for_public: "Dieser Text ist für jeden Foodsaver sichtbar."
-  visible_for_team: "Dieser Text ist nur für das Abholteam sichtbar."
+  visible_for_public: "Dieser Text ist für jeden Foodsaver sichtbar, z.B. auf der Karte."
+  visible_for_team: "Dieser Text ist nur für das Betriebsteam sichtbar."
   invalid_field: "Ungültiger Feldinhalt. Die Änderung kann nicht gespeichert werden."
   contact:
     name: "Name/Vorname"
@@ -802,7 +802,7 @@ storeview:
   team: "Abholteam"
   want_to_fetch: "In diesem Team würde ich gerne helfen."
   public_and_statistics: "Statistik & Öffentlichkeitsarbeit"
-  no_permission_to_view: "Fehlende Berechtigung"
+  no_permission_to_view: "Nur für Betriebsverantwortliche sichtbar."
   groceries:
     label: "Welche Lebensmittel dürfen abgeholt werden?"
     select_tag: "Wähle Lebensmittelkategorie"
