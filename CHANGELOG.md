@@ -48,6 +48,7 @@
 - Bugfix for Date-Formatter #1571 !2706 @sefn
 - Fixed push notifications button #1638 !2728 !2729 @florianunsinn
 - In the user details, only include that a calendar token exists but not the token itself !2735 @alex.simm
+- Fixed undefined "mailbox" #1612 !2746 @chriswalg @alex.simm 
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
