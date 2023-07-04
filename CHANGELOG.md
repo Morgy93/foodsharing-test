@@ -49,6 +49,7 @@
 - Fixed push notifications button #1638 !2728 !2729 @florianunsinn
 - In the user details, only include that a calendar token exists but not the token itself !2735 @alex.simm
 - Fixed undefined "mailbox" #1612 !2746 @chriswalg @alex.simm 
+- Workaround for unvisible attachments because long mailbox names !2751 @chriswalg
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
