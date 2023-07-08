@@ -3,6 +3,7 @@ import { deleteBell, getBellList, markBellsAsRead } from '@/api/bells'
 import { getCache, getCacheInterval, setCache } from '@/helper/cache'
 
 const bellsRateLimitInterval = 60000 // 1 minute in milliseconds
+const cacheRequestName = 'bells'
 
 export const store = Vue.observable({
   bells: [],
@@ -15,7 +16,6 @@ export const getters = {
 
 export const mutations = {
   async fetch () {
-    const cacheRequestName = 'bells'
     try {
       if (await getCacheInterval(cacheRequestName, bellsRateLimitInterval)) {
         store.bells = await getBellList()
@@ -34,6 +34,8 @@ export const mutations = {
     try {
       await deleteBell(id)
       store.bells.splice(store.bells.indexOf(bell), 1)
+      await setCache(cacheRequestName, store.bells)
+      await this.fetch()
     } catch (err) {
       console.log(err)
       // this.$set(bell, 'isDeleting', false)
