@@ -50,6 +50,7 @@
 - In the user details, only include that a calendar token exists but not the token itself !2735 @alex.simm
 - Fixed undefined "mailbox" #1612 !2746 @chriswalg @alex.simm 
 - Workaround for unvisible attachments because long mailbox names !2751 @chriswalg
+- Fixed errors in delayed vue map initialisation #1637 !2750 @chriswalg 
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
