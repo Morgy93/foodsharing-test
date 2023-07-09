@@ -1166,6 +1166,7 @@ forum:
   quickreply:
     success: "Prima, deine Antwort wurde gespeichert."
     error: "Post konnte nicht gespeichert werden."
+  not_found: "Dieser Thread ist nicht vorhanden."
 
 chat:
   open_chat: "Nachricht schreiben"

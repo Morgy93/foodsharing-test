@@ -392,6 +392,10 @@ final class RegionControl extends Control
 
         if ($threadId = $request->query->getInt('tid')) {
             $thread = $this->forumGateway->getThreadInfo($threadId);
+            if (empty($thread)) {
+                $this->flashMessageHelper->error($this->translator->trans('forum.thread.not_found'));
+                $this->routeHelper->goAndExit('/?page=bezirk&sub=forum&bid=' . $region['id']);
+            }
             $this->pageHelper->addTitle($thread['title']);
             $viewdata['threadId'] = $threadId; // this triggers the rendering of the vue component `Thread`
         } elseif ($request->query->has('newthread')) {
