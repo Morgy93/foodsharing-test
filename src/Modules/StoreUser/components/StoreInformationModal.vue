@@ -160,12 +160,11 @@
             >
               <region-tree-v-form
                 v-if="region"
+                v-model="store.region"
                 modal-title="storeview.select_related_region"
                 input-name="regionId"
-                :initial-value="store.region"
                 :selectable-region-types="[1, 8, 9]"
                 :disabled="!editMode"
-                @update:initial-value="store.region = $event"
               />
             </b-form-group>
             <b-form-group
@@ -544,10 +543,10 @@ export default {
       else return this.store.publicInfo.length <= 180
     },
     region () {
-      if (this.store.region) {
+      if (!this.store.region.name) {
         return regionGetters.find(this.store.region.id)
       } else {
-        return ''
+        return this.store.region.name
       }
     },
     calendarInterval: {
@@ -630,6 +629,8 @@ export default {
       try {
         showLoader()
         const store = this.store
+        store.regionId = this.store.region.id
+        delete store.region
         store.groceries = this.storeFoodIds
         await updateStore(store)
         if (this.isUpdatedRegularPickup()) {

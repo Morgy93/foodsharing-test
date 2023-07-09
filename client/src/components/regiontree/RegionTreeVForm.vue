@@ -67,7 +67,7 @@ export default {
       type: String,
       required: true,
     },
-    initialValue: {
+    value: {
       type: Object,
       default: function () {
         return {
@@ -86,7 +86,7 @@ export default {
   data () {
     return {
       tmpSelectedRegion: null,
-      selectedRegion: regionGetters.find(this.initialValue.id),
+      selectedRegion: regionGetters.find(this.value.id),
     }
   },
   methods: {
@@ -95,7 +95,7 @@ export default {
     },
     onModalClosed (e) {
       this.selectedRegion = this.tmpSelectedRegion
-      this.$emit('update:initialValue', this.tmpSelectedRegion)
+      this.$emit('input', this.tmpSelectedRegion)
     },
   },
 }
