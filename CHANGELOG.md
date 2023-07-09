@@ -115,6 +115,7 @@
 - Cache userDetails, limit request to 1 minute and only load once on dashboard !2727 @chriswalg
 - switch from /bin/bash to /usr/bin/env to allow more setups like nixos !2708
 - Use one database dump before tests so that the tests are not depending on each other !2701 @koemai
+- Fix deprecated strtolower in MailsControl.php #1569 !2718 @stcz
 
 ## Development documentation
 
