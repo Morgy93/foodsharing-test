@@ -496,6 +496,11 @@ settings:
       quelques collectes, écris-le ;)\n"
     header: Fonction "sommeil"
     title: Mode sommeil
+    from: Du
+    until: au
+    message: Ici, vous pouvez laisser un court message pourquoi vous n’avez pas le
+      temps en ce moment.
+    status: Votre statut actuel
   account: Options du compte
   businesscard: Cartes de visite personnelles
   chatmail: "Lorsque tu reçois un message ou une notification interne à foodsharing
@@ -781,6 +786,7 @@ forum:
   new_thread: Ouvrir une nouvelle discussion
   from: de {name}
   deleted_user: utilisateur supprimé
+  not_found: Ce fil n’existe pas.
 fsp:
   info:
     mail: Cloche et notification par courriel
@@ -3088,6 +3094,7 @@ chain:
     headquarters: Quartier général
     kams: Responsables des chaînes de magasins
     notes: Remarques
+    estimatedStoreCount: Nombre prévu de magasins coopérants
   new: Créer une nouvelle chaîne
   allowpress: Dénomination publique autorisée.
   tooltips:
@@ -3110,13 +3117,13 @@ chain:
         placeholder:
           zip: Code postal
           city: Ville
-          country: ''
+          country: 'Pays'
       thread:
-        description: Id d'un fil de discussion du forum. Insérer un lien pour une
-          reconnaissance automatique.
+        description: Recherchez le nom du fil de discussion en saisissant au moins
+          3 caractères.
         label: Fil de discussion du forum
-        invalidfeedback: Entrée invalide. ID de fil ou lien requis.
-        placeholder: ''
+        invalidfeedback: ID de fil ou lien requis.
+        placeholder: 'Rechercher le nom du fil de discussion du forum'
       kam:
         label: Responsables des chaines de magasins
         invalidfeedback: Entrée non valide. Un ou plusieurs identifiants d'utilisateur
@@ -3136,6 +3143,10 @@ chain:
         label: 'Informations sur le magasin'
         description: 'Remarques affichées sur les pages de sites appartenant à la
           chaîne.'
+      estimatedStoreCount:
+        invalidfeedback: Seuls les nombres entiers sont autorisés comme valeurs d'entrée.
+        label: Nombre prévu de magasins coopérants
+        description: Nombre total de magasins de la chaîne susceptibles de coopérer
     cancel: Annuler
     ok: Sauvegarder
   detailsmodal:
@@ -3152,6 +3163,10 @@ chain:
     negotiating: en négociation
     notcooperating: ne coopère pas
   error:
-    create: La chaîne n’a pas pu être créée.
-    edit: La chaîne n’a pas pu être modifiée.
+    create: La chaîne n’a pas pu être créée ({error}).
+    edit: La chaîne n’a pas pu être modifiée ({error}).
     notfs: 'Vous devez être un Foodsaver pour voir cette liste.'
+usersearch:
+  no_tag_preset: Utilisateur non trouvé
+  select_tag: Rechercher des utilisateurs par nom
+  search_tag: Rechercher des utilisateurs
