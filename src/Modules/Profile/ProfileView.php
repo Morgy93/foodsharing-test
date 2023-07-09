@@ -147,7 +147,7 @@ class ProfileView extends View
                 'photo' => $this->foodsaver['photo'],
                 'fsId' => $this->foodsaver['id'],
                 'fsIdSession' => $this->session->id(),
-                'isSleeping' => (bool)$this->foodsaver['sleep_status'],
+                'isSleeping' => $this->dataHelper->parseSleepingState($this->foodsaver['sleep_status'], $this->foodsaver['sleep_from'], $this->foodsaver['sleep_until']),
                 'isNoBuddy' => $this->foodsaver['buddy'] === BuddyId::NO_BUDDY,
                 'mayAdmin' => $mayAdmin,
                 'mayHistory' => $maySeeHistory,

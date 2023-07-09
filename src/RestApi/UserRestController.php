@@ -32,6 +32,7 @@ use Foodsharing\Permissions\ReportPermissions;
 use Foodsharing\Permissions\StorePermissions;
 use Foodsharing\RestApi\Models\Group\UserGroupModel;
 use Foodsharing\RestApi\Models\Region\UserRegionModel;
+use Foodsharing\Utility\DataHelper;
 use Foodsharing\Utility\EmailHelper;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -76,7 +77,8 @@ class UserRestController extends AbstractFOSRestController
         private RegionPermissions $regionPermissions,
         private NewsletterEmailPermissions $newsletterEmailPermissions,
         private RegionTransactions $regionTransactions,
-        private GroupTransactions $groupTransactions
+        private GroupTransactions $groupTransactions,
+        private DataHelper $dataHelper
     ) {
         $this->session = $session;
         $this->loginGateway = $loginGateway;
@@ -101,6 +103,7 @@ class UserRestController extends AbstractFOSRestController
         $this->blogPermissions = $blogPermissions;
         $this->regionPermissions = $regionPermissions;
         $this->newsletterEmailPermissions = $newsletterEmailPermissions;
+        $this->dataHelper = $dataHelper;
     }
 
     /**
@@ -163,6 +166,7 @@ class UserRestController extends AbstractFOSRestController
         $response['foodsaver'] = ($this->session->mayRole(Role::FOODSAVER)) ? true : false;
         $response['isVerified'] = ($data['verified'] === 1) ? true : false;
         $response['regionId'] = $data['bezirk_id'];
+        $response['isSleeping'] = $this->dataHelper->parseSleepingState($data['sleep_status'], $data['sleep_from'], $data['sleep_until']);
         $response['regionName'] = ($data['bezirk_id'] === null) ? null : $this->regionGateway->getRegionName($data['bezirk_id']);
         $response['aboutMePublic'] = $data['about_me_public'];
 

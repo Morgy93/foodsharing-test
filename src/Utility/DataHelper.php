@@ -2,6 +2,9 @@
 
 namespace Foodsharing\Utility;
 
+use Carbon\Carbon;
+use Foodsharing\Modules\Core\DBConstants\Foodsaver\SleepStatus;
+
 class DataHelper
 {
     public function setEditData($data): void
@@ -65,5 +68,18 @@ class DataHelper
     public function commaSeparatedIds(array $ids): string
     {
         return implode(',', array_map('intval', $ids));
+    }
+
+    public function parseSleepingState(int $sleepState, ?string $sleepFrom, ?string $sleepUntil): bool
+    {
+        if ($sleepFrom === null) {
+            return false;
+        }
+
+        return match ($sleepState) {
+            SleepStatus::TEMP => !(Carbon::parse($sleepFrom) >= Carbon::now()) && (Carbon::parse($sleepUntil) <= Carbon::now()),
+            SleepStatus::FULL => true,
+            default => false,
+        };
     }
 }

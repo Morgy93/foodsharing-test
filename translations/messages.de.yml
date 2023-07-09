@@ -108,8 +108,6 @@ newsletter: "Newsletter"
 infomail_message: "Benachrichtigung über Chat-Nachrichten auf foodsharing"
 newmail: "Gib hier deine neue E-Mail-Adresse ein"
 passcheck: "Bestätige die Änderung bitte mit deinem Passwort"
-sleep_status: "Dein aktueller Status"
-sleep_msg: "Hier kannst du eine kurze Nachricht hinterlassen, warum du gerade keine Zeit hast."
 homepage: "Deine Webseite"
 #
 # FORM DATA KEYS: StoreView (team + pickup time management)
@@ -1695,6 +1693,10 @@ settings:
   sleep:
     title: "Schlafmütze"
     header: "Schlafmützenfunktion"
+    status: "Dein aktueller Status"
+    message: "Hier kannst du eine kurze Nachricht hinterlassen, warum du gerade keine Zeit hast."
+    from: "Von"
+    until: "bis"
     info: |
       Mit der Schlafmützenfunktion teilst du der Community mit, dass du zur Zeit verreist bist
       oder aus anderen Gründen gerade keine Zeit für das Retten von Lebensmitteln hast.

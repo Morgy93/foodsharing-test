@@ -16,18 +16,22 @@ use Foodsharing\Modules\Map\DTO\MapMarker;
 use Foodsharing\Modules\Region\RegionGateway;
 use Foodsharing\Modules\Store\DTO\Store;
 use Foodsharing\Modules\Store\DTO\StoreTeamMembership;
+use Foodsharing\Utility\DataHelper;
 
 class StoreGateway extends BaseGateway
 {
-    private RegionGateway $regionGateway;
+    private readonly RegionGateway $regionGateway;
+    private readonly DataHelper $dataHelper;
 
     public function __construct(
         Database $db,
-        RegionGateway $regionGateway
+        RegionGateway $regionGateway,
+        DataHelper $dataHelper
     ) {
         parent::__construct($db);
 
         $this->regionGateway = $regionGateway;
+        $this->dataHelper = $dataHelper;
     }
 
     public function addStore(Store $store): int
@@ -544,40 +548,44 @@ class StoreGateway extends BaseGateway
 
     public function getStoreTeam($storeId): array
     {
-        return $this->db->fetchAll('
-				SELECT  fs.`id`,
-						fs.`verified`,
-						fs.`active`,
-						fs.`telefon`,
-						fs.`handy`,
-						fs.photo,
-						fs.quiz_rolle,
-						fs.rolle,
-						CONCAT(fs.name," ",fs.nachname) AS name,
-						name as vorname,
-						t.`active` AS team_active,
-						t.`verantwortlich`,
-						t.`stat_last_update`,
-						t.`stat_fetchcount`,
-						t.`stat_first_fetch`,
-						t.`stat_add_date`,
-						UNIX_TIMESTAMP(t.`stat_last_fetch`) AS last_fetch,
-						UNIX_TIMESTAMP(t.`stat_add_date`) AS add_date,
-						fs.sleep_status
-
-				FROM 	`fs_betrieb_team` t
-				INNER JOIN `fs_foodsaver` fs
-				     	ON fs.id = t.foodsaver_id
-
-				WHERE	`betrieb_id` = :id
-				AND 	t.active  = :membershipStatus
-				AND		fs.deleted_at IS NULL
-
-				ORDER BY fs.id
-		', [
+        $members = $this->db->fetchAll('
+        SELECT  fs.`id`,
+                fs.`verified`,
+                fs.`active`,
+                fs.`telefon`,
+                fs.`handy`,
+                fs.photo,
+                fs.quiz_rolle,
+                fs.rolle,
+                CONCAT(fs.name," ",fs.nachname) AS name,
+                name as vorname,
+                t.`active` AS team_active,
+                t.`verantwortlich`,
+                t.`stat_last_update`,
+                t.`stat_fetchcount`,
+                t.`stat_first_fetch`,
+                t.`stat_add_date`,
+                UNIX_TIMESTAMP(t.`stat_last_fetch`) AS last_fetch,
+                UNIX_TIMESTAMP(t.`stat_add_date`) AS add_date,
+                fs.sleep_status,
+                fs.sleep_from,
+                fs.sleep_until
+        FROM    `fs_betrieb_team` t
+        INNER JOIN `fs_foodsaver` fs ON fs.id = t.foodsaver_id
+        WHERE   `betrieb_id` = :id
+        AND     t.active = :membershipStatus
+        AND     fs.deleted_at IS NULL
+        ORDER BY fs.id
+    ', [
             ':id' => $storeId,
             ':membershipStatus' => MembershipStatus::MEMBER
         ]);
+
+        foreach ($members as &$member) {
+            $member['sleep_status'] = $this->dataHelper->parseSleepingState($member['sleep_status'], $member['sleep_from'], $member['sleep_until']);
+        }
+
+        return $members;
     }
 
     public function getBetriebSpringer($storeId): array
