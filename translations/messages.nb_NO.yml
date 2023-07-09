@@ -938,6 +938,11 @@ settings:
     show: "Ved å bruke denne funksjonen godtar du at statusen din, fraværsperioden
       din\nog bortemeldingen vises på profilsiden din og et natthetteikon plasseres\n
       over profilbildet ditt.\n"
+    status: Din nåværende status
+    message: Her kan du legge igjen en kort melding om hvorfor du ikke har tid for
+      øyeblikket.
+    from: Fra
+    until: til
   header: Profilinnstillinger
   follow:
     thread: Bli varslet når det er noe nytt om «{thread}»?
@@ -2008,6 +2013,7 @@ forum:
     />Obs: Hvis du vil bruke en * i teksten, må du sette inn en omvendt skråstrek
     (&bsol;) foran den, for eksempel som i han&bsol;*hun.'
   deleted_user: Slettet bruker
+  not_found: Denne tråden eksisterer ikke.
 timepicker:
   labelNowButton: nå
   labelCloseButton: Lukk
