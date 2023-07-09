@@ -752,6 +752,8 @@ forum:
       title: Mail dispatch
       active: activated
       non_active: disabled
+      disable: disabled
+      activate: enabled
   post:
     delete: Delete post
     body: Message
