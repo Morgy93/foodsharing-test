@@ -855,6 +855,8 @@ store:
   mayAmb: "Hat das Botschafter*innen-Quiz bestanden."
   mayManage: "Hat das Quiz für Betriebsverantwortliche bestanden."
   particularities: "Besonderheiten"
+  particularities_chain: "Besonderheiten der Kette"
+  particularities_chain_tooltip: "Dieser Betrieb ist Teil einer Kette. Deshalb werden diese zusätzlichen Informationen angezeigt, die für alle Betriebe der Kette gelten."
   average_collection_quantity: "Abholmenge im Schnitt"
   attribution: "Namensnennung"
   may_referred_to_in_public: "Dieser Betrieb darf öffentlich genannt werden."

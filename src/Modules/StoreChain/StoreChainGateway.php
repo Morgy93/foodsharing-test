@@ -152,4 +152,16 @@ class StoreChainGateway extends BaseGateway
     {
         return $this->db->exists('fs_chain', ['id' => $chainId]);
     }
+
+    /**
+     * Returns the chain's description that is visible on the store page, or null if the chain does not exist.
+     */
+    public function getCommonStoreInformation(int $chainId): ?string
+    {
+        try {
+            return $this->db->fetchValueByCriteria('fs_chain', 'common_store_information', ['id' => $chainId]);
+        } catch (Exception $e) {
+            return null;
+        }
+    }
 }

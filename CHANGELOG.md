@@ -7,6 +7,7 @@
 - Added turkish translation !2720 @Evren
 - Store chains can now be manged from the website. The working group "Betriebsketten" contains a tabular overview of all chains. !2251 !2273 !2701 @AntonBallmaier
 - Store markers on the map can be filtered by the user's membership #1025 !2682 @alex.simm
+- Store chain information is visible on the store page !2742 @alex.simm 
 
 ## Changes
 - Make menubar sticky on mobile !2411 @AntonBallmaier
