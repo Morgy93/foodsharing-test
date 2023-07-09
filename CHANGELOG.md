@@ -54,6 +54,7 @@
 - Check if thread exist before display the thread #1650 !2756 @chriswalg
 - Fix no error messages on BadRequestHttpExceptions on beta !2701 @KoeMai
 
+- removed styleguide from non-dev environments #1636 !2745 @sefn
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
