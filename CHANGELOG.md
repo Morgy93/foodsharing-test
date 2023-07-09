@@ -59,6 +59,7 @@
 - Fix no error messages on BadRequestHttpExceptions on beta !2701 @KoeMai
 
 - removed styleguide from non-dev environments #1636 !2745 @sefn
+- fixed map storing chat status independantly from all other pages #1598 !2732 @florianunsinn
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
