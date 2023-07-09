@@ -1980,6 +1980,8 @@ forum:
       active: aktivert
       non_active: deaktivert
       title: Postlevering
+      disable: deaktivere
+      activate: aktivere
   post:
     body: Beskjed
     delete: Slett innlegget
@@ -2336,7 +2338,7 @@ storeview:
   status_notes: Statusnotater
   show_information: Vis bedriftsinformasjon
   common: Som regel
-  visible_for_public: Denne teksten er synlig for alle matreddere.
+  visible_for_public: Denne teksten er synlig for alle matreddere, f.eks. på kartet.
   visible_for_team: Denne teksten er bare synlig for innsamlingsteamet.
   invalid_field: Ugyldig feltinnhold. Endringen kan ikke lagres.
   contact:
@@ -2355,7 +2357,7 @@ storeview:
     single: 1 uke
     multiply: '{weeks} uker'
   cooperation_start: Samarbeid siden
-  no_permission_to_view: Manglende autorisasjon
+  no_permission_to_view: Kun synlig for de som er ansvarlige for driften.
   cooperation_status: Samarbeidsstatus
   team: Henteteam
   public_and_statistics: Statistikk og PR
