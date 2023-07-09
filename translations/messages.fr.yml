@@ -756,6 +756,8 @@ forum:
       non_active: désactivé
       title: Envoi de courrier
       active: activé
+      activate: activer
+      disable: désactiver
   follow:
     email: comme courriel
     bell: par la cloche
@@ -1250,7 +1252,7 @@ storeview:
   cooperation_start: Coopération depuis
   cooperation_status: Statut de la coopération
   team: Équipe de ramassage
-  no_permission_to_view: Absence d’autorisation
+  no_permission_to_view: Visible uniquement par les responsables d'établissement.
   groceries:
     label: Quels aliments peuvent être ramassés ?
     search_tag: Recherche par catégories d’aliments
