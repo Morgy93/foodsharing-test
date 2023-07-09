@@ -1607,7 +1607,7 @@ chain:
     notes: ''
     status: ''
   tooltips:
-    modification_date: ''
+    modificationDate: ''
     options: ''
   inputmodal:
     title:
@@ -1623,12 +1623,14 @@ chain:
         placeholder:
           zip: ''
           city: ''
+          country: ''
       status:
         label: ''
       thread:
         label: ''
         invalidfeedback: ''
         description: ''
+        placeholder: ''
       details:
         description: ''
         label: ''

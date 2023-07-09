@@ -7,12 +7,12 @@ use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 
-class NoHtmlValidator extends ConstraintValidator
+class NoMultiLineTextValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint): void
     {
-        if (!$constraint instanceof NoHtml) {
-            throw new UnexpectedTypeException($constraint, NoHtml::class);
+        if (!$constraint instanceof NoMultiLineText) {
+            throw new UnexpectedTypeException($constraint, NoMultiLineText::class);
         }
 
         // custom constraints should ignore null and empty values to allow
@@ -28,7 +28,7 @@ class NoHtmlValidator extends ConstraintValidator
             // throw new UnexpectedValueException($value, 'string|int');
         }
 
-        $escapedValue = strip_tags($value);
+        $escapedValue = str_replace(["\r", "\n"], '', $value);
         if ($escapedValue != $value) {
             // the argument must be a string or an object implementing __toString()
             $this->context->buildViolation($constraint->message)

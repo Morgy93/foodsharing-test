@@ -12,8 +12,10 @@ use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\TeamSearchStatus;
 use Foodsharing\Modules\Core\DBConstants\StoreTeam\MembershipStatus;
+use Foodsharing\Modules\Core\Pagination;
 use Foodsharing\Modules\Map\DTO\MapMarker;
 use Foodsharing\Modules\Region\RegionGateway;
+use Foodsharing\Modules\Store\DTO\MinimalStoreIdentifier;
 use Foodsharing\Modules\Store\DTO\Store;
 use Foodsharing\Modules\Store\DTO\StoreTeamMembership;
 use Foodsharing\Utility\DataHelper;
@@ -98,6 +100,24 @@ class StoreGateway extends BaseGateway
         }
 
         return $result;
+    }
+
+    /**
+     * Return all identifiers for stores of a store chain.
+     *
+     * @return MinimalStoreIdentifier[]
+     *
+     * @throws Exception
+     */
+    public function findAllStoresOfStoreChain(int $chainId, Pagination $pagination = new Pagination()): array
+    {
+        $results = $this->db->fetchAll('SELECT id, name
+            FROM fs_betrieb
+            WHERE kette_id = :chainId' .
+            $this->buildPaginationSqlLimit($pagination),
+            $this->addPaginationSqlLimitParameters($pagination, ['chainId' => $chainId]));
+
+        return array_map(function (array $item) { return MinimalStoreIdentifier::createFromArray($item); }, $results);
     }
 
     /**
@@ -586,6 +606,22 @@ class StoreGateway extends BaseGateway
         }
 
         return $members;
+    }
+
+    public function isStoreTeamMemberOfStoreChainStore(int $fsId): bool
+    {
+        return $this->db->fetch('
+				SELECT COUNT(*) as count
+				FROM `fs_betrieb_team` t
+				INNER JOIN `fs_betrieb` b
+				     	ON b.id = t.betrieb_id
+				WHERE	t.foodsaver_id = :fsId
+				AND 	t.active = :membershipStatus
+                AND     b.kette_id IS NOT NULL
+		', [
+            ':fsId' => $fsId,
+            ':membershipStatus' => MembershipStatus::MEMBER
+        ])['count'] != 0;
     }
 
     public function getBetriebSpringer($storeId): array

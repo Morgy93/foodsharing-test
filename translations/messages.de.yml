@@ -2712,20 +2712,26 @@ numbers:
   million_abbreviation: " Mio."
   billion_abbreviation: " Mrd."
 
+usersearch:
+  search_tag: 'Wähle Benutzer'
+  select_tag: 'Suche Benutzer über den Namen'
+  no_tag_preset: 'Benutzer nicht gefunden'
+
 chain:
   listheader: Betriebsketten
   filterplaceholder: Name / Adresse / KAM ID
   columns:
     status: Status
     name: Name
-    stores: Betriebe
+    estimatedStoreCount: Erwartete Anzahl von Betriebe
+    stores: Anzahl kooperierender Betriebe
     headquarters: Zentrale
     kams: KAMs
     notes: Hinweise
   new: Neue Kette eintragen
   allowpress: Öffentliche Nennung erlaubt.
   tooltips:
-    modification_date: Zuletzt bearbeitet
+    modificationDate: Zuletzt bearbeitet
     options: Optionen
   options:
     showstores: Betriebe anzeigen
@@ -2739,17 +2745,23 @@ chain:
         label: Name
         invalidfeedback: Name darf nicht leer sein
         placeholder: Name der Kette
+      estimatedStoreCount:
+        label: "Erwartete Anzahl von Betriebe"
+        invalidfeedback: "Nur Ganzzahlen sind erlaubt."
+        description: "Gesamtanzahl Betriebe der Kette"
       headquarters:
         label: Zentrale
         placeholder:
           zip: Plz.
           city: Stadt
+          country: Land
       status:
         label: Status
       thread:
         label: Forum-Thread
-        invalidfeedback: Ungültige Eingabe. Thread-Id oder Link benötigt.
-        description: Id eines Forum-Threads. Link einfügen zur automatischen Erkennung.
+        invalidfeedback: Thread-Id oder Link benötigt.
+        description: Suchen nach dem Forum durch die Eingabe von mindestens 3 Zeichen.
+        placeholder: Suche Forum-Thread-Name
       kam:
         label: KAMs
         invalidfeedback: Ungültige Eingabe. Ein oder mehrere Nutzer-Ids benötigt.
@@ -2776,8 +2788,8 @@ chain:
     notcooperating: Kooperiert nicht
     filterplaceholder: Status
   error:
-    create: Kette konnte nicht erstellt werden.
-    edit: Kette konnte nicht bearbeitet werden.
+    create: Kette konnte nicht erstellt werden ({error}).
+    edit: Kette konnte nicht bearbeitet werden ({error}).
     notfs: Zum ansehen dieser Liste musst du Foodsaver sein.
   bread:
     workinggroup: Betriebsketten

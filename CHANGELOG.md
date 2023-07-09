@@ -5,7 +5,7 @@
 - Provide RestApi to edit store !2515 !2625 @KoeMai
 - New UI for Stores information and modification of stores !2645 !2685 !2688 !2731 !2736 @KoeMai
 - Added turkish translation !2720 @Evren
-- Store chains can now be manged from the website. The working group "Betriebsketten" contains a tabular overview of all chains. !2251 !2273 @AntonBallmaier
+- Store chains can now be manged from the website. The working group "Betriebsketten" contains a tabular overview of all chains. !2251 !2273 !2701 @AntonBallmaier
 - Store markers on the map can be filtered by the user's membership #1025 !2682 @alex.simm
 
 ## Changes
@@ -52,6 +52,8 @@
 - Workaround for unvisible attachments because long mailbox names !2751 @chriswalg
 - Fixed errors in delayed vue map initialisation #1637 !2750 @chriswalg 
 - Check if thread exist before display the thread #1650 !2756 @chriswalg
+- Fix no error messages on BadRequestHttpExceptions on beta !2701 @KoeMai
+
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
@@ -112,6 +114,7 @@
 - cache bell request and limit to 1 minute !2722 !2755 @chriswalg
 - Cache userDetails, limit request to 1 minute and only load once on dashboard !2727 @chriswalg
 - switch from /bin/bash to /usr/bin/env to allow more setups like nixos !2708
+- Use one database dump before tests so that the tests are not depending on each other !2701 @koemai
 
 ## Development documentation
 

@@ -2909,14 +2909,15 @@ chain:
   columns:
     status: Status
     name: Name
-    stores: Stores
+    estimatedStoreCount: Estimated number of cooperating stores
+    stores: Count cooperating stores
     headquarters: Headquarters
     kams: KAMs
     notes: Notes
   new: Create new Chain
   allowpress: Public mentions allowed.
   tooltips:
-    modification_date: Last changed
+    modificationDate: Last changed
     options: Options
   options:
     showstores: Show stores
@@ -2930,17 +2931,22 @@ chain:
         label: Name
         invalidfeedback: Name must not be empty
         placeholder: Name of the chain
+      estimatedStoreCount:
+        label: "Estimated count of stores"
+        invalidfeedback: "Only digits are allowed."
+        description: "Number of stores in the store chain which may cooperate"
       headquarters:
         label: Headquarters
         placeholder:
           zip: Zip.
           city: City
+          country: ''
       status:
         label: Status
       thread:
         label: Forum-Thread
-        invalidfeedback: Invalid input. Thread-Id or link needed.
-        description: Id of a forum thread. Paste a link for automatic identification.
+        invalidfeedback: Thread is invalid
+        description: Search for forum thread name by entering at least 3 charaters
       kam:
         label: KAMs
         invalidfeedback: Invalid input. One or more user ids required.

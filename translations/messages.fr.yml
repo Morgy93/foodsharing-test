@@ -3089,7 +3089,7 @@ chain:
   new: Créer une nouvelle chaîne
   allowpress: Dénomination publique autorisée.
   tooltips:
-    modification_date: Dernière modification
+    modificationDate: Dernière modification
     options: Options
   options:
     showstores: Afficher les établissements
@@ -3108,11 +3108,13 @@ chain:
         placeholder:
           zip: Code postal
           city: Ville
+          country: ''
       thread:
         description: Id d'un fil de discussion du forum. Insérer un lien pour une
           reconnaissance automatique.
         label: Fil de discussion du forum
         invalidfeedback: Entrée invalide. ID de fil ou lien requis.
+        placeholder: ''
       kam:
         label: Responsables des chaines de magasins
         invalidfeedback: Entrée non valide. Un ou plusieurs identifiants d'utilisateur
