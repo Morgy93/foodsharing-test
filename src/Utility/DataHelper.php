@@ -72,12 +72,14 @@ class DataHelper
 
     public function parseSleepingState(int $sleepState, ?string $sleepFrom, ?string $sleepUntil): bool
     {
-        if ($sleepFrom === null) {
+        if ($sleepState === SleepStatus::TEMP && $sleepFrom === null) {
             return false;
         }
 
         return match ($sleepState) {
-            SleepStatus::TEMP => !(Carbon::parse($sleepFrom) >= Carbon::now()) && (Carbon::parse($sleepUntil) <= Carbon::now()),
+            SleepStatus::TEMP => Carbon::now()->isSameDay(Carbon::parse($sleepFrom))
+                || Carbon::now()->isAfter(Carbon::parse($sleepFrom)->startOfDay())
+                || (Carbon::now()->isBefore(Carbon::parse($sleepUntil)->addDay()) && Carbon::now()->isAfter(Carbon::parse($sleepFrom)->endOfDay())),
             SleepStatus::FULL => true,
             default => false,
         };

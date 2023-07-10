@@ -88,7 +88,7 @@
 - Refactor own store list in vue !2668 !2683 @chriswalg
 - Refactored the list of group applications to vue, which not also shows profile pictures #343 !2696 @alex.simm
 - Refactor the list of food share points in a region to vue !2702 @alex.simm
-- Refactor setting sleeping mode to vue !2749 @chriswalg
+- Refactor setting sleeping mode to vue !2749 !2760 @chriswalg
 
 ## Dev/Test/CI stuff
 - Fix given null parameter !2550 @BibaltiK
