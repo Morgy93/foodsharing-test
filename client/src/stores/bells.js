@@ -59,6 +59,7 @@ export const mutations = {
     for (const b of bellsToMarkAsRead) {
       b.isRead = true
       ids.push(b.id)
+      await setCache(cacheRequestName, store.bells)
     }
 
     await markBellsAsRead(ids)
