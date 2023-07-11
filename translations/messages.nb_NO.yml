@@ -2323,6 +2323,10 @@ store:
   jumping: Hopper
   member: Medlem
   isAppliedForTeam: Forespørsel
+  particularities_chain: Kjedens spesielle egenskaper
+  particularities_chain_tooltip: Dette etablissementet er en del av en kjede. Dette
+    er grunnen til at denne tilleggsinformasjonen vises, som gjelder for alle virksomheter
+    i kjeden.
 storeview:
   status: Nåværende status
   public_time_at_night: om natten
@@ -2512,6 +2516,7 @@ terminology:
     "0": matdeler
   pickup: Plukke opp
   store: Selskapet
+  n_home_regions: en med hjemdistrikt|%count% med hjemdistrikt
 gender:
   d: mangfoldig
   f: Fru
@@ -2939,11 +2944,12 @@ chain:
   listheader: Driftskjeder
   columns:
     name: Navn
-    stores: Bedrifter
+    stores: Antall samarbeidende Bedrifter
     status: Status
     headquarters: Sentral
     kams: KAM-er
     notes: Notater
+    estimatedStoreCount: Estimert antall samarbeidende butikker
   new: Gå inn i ny kjede
   allowpress: Offentlig navngivning tillatt.
   tooltips:
@@ -2966,12 +2972,12 @@ chain:
         placeholder:
           zip: Postnummer
           city: By
-          country: ''
+          country: 'Land'
       thread:
-        invalidfeedback: Ugyldig inndata. Tråd-ID eller lenke nødvendig.
-        description: Id for en forumtråd. Sett inn lenke for automatisk gjenkjenning.
+        invalidfeedback: Tråd-ID eller lenke nødvendig.
+        description: Søk etter navn på forumtråden ved å skrive inn minst 3 tegn.
         label: Forumtråd
-        placeholder: ''
+        placeholder: 'Søk på forumtrådens navn'
       kam:
         label: KAM-er
         invalidfeedback: Ugyldig inndata. En eller flere bruker-IDer kreves.
@@ -2989,6 +2995,10 @@ chain:
       press:
         label: Presse
         description: Tillat offentlig omtale av samarbeid
+      estimatedStoreCount:
+        label: Estimert antall samarbeidende butikker
+        invalidfeedback: Bare sifre er tillatt.
+        description: Totalt antall bedrifter i kjeden
     cancel: Avbryt
     ok: Lagre
   detailsmodal:
@@ -3003,9 +3013,13 @@ chain:
   filterplaceholder: Navn / adresse / KAM-ID
   error:
     notfs: Du må være matredder for å se denne listen.
-    create: Kjeden kunne ikke opprettes.
-    edit: Kjeden kunne ikke redigeres.
+    create: Kjeden kunne ikke opprettes ({error}).
+    edit: Kjeden kunne ikke redigeres ({error}).
   bread:
     workinggroup: Driftskjeder
     list: Oversikt
   pagetitle: Driftskjeder
+usersearch:
+  search_tag: Søk etter brukere
+  select_tag: Søk brukere etter navn
+  no_tag_preset: Bruker ikke funnet
