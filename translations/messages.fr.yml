@@ -921,6 +921,7 @@ terminology:
     "4": Personne gérant l'organisation
   pickup: Collecte
   store: 'Magasin'
+  n_home_regions: un(e) avec district d’origine|%count% avec district d’origine
 register:
   activation_success: <strong>Activation réussie.</strong> Connecte-toi maintenant
     avec ton adresse courriel et le mot de passe que tu as choisi.
@@ -1227,6 +1228,10 @@ store:
   jumping: Sauteur
   member: Membre
   isAppliedForTeam: Demande
+  particularities_chain: Particularités de la chaîne
+  particularities_chain_tooltip: Cet établissement fait partie d'une chaîne. Pour
+    cette raison, ces informations supplémentaires sont affichées, qui s'appliquent
+    à tous les établissements de cette chaîne.
 storeview:
   want_to_fetch: J'aimerais m'engager dans cette équipe.
   specials: Particularités
