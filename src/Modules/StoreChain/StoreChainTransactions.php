@@ -72,7 +72,7 @@ class StoreChainTransactions
             $changed = true;
         }
 
-        if (!empty($storeModel->status)) {
+        if (!is_null($storeModel->status)) {
             $status = StoreChainStatus::tryFrom($storeModel->status);
             if (!$status instanceof StoreChainStatus) {
                 throw new StoreChainTransactionException(StoreChainTransactionException::INVALID_STATUS);

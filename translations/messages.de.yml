@@ -2721,12 +2721,23 @@ usersearch:
   no_tag_preset: 'Benutzer nicht gefunden'
 
 chain:
+  errorCodes:
+    INVALID_STORECHAIN_ID: Betriebsketten Id ist ungültig
+    KEY_ACCOUNT_MANAGER_ID_NOT_EXISTS: Key Account Manager existiert nicht
+    KEY_ACCOUNT_MANAGER_ID_NOT_IN_GROUP: Key Account Manager gehört nicht zur AG Betriebsketten
+    THREAD_ID_NOT_EXISTS: Forum Thread existiert nicht
+    WRONG_FORUM: Forum Thread gehört nicht zur AG Betriebsketten
+    EMPTY_NAME: Namens-Feld ist leer
+    EMPTY_CITY: Stadt-Feld ist leer
+    EMPTY_COUNTRY: Land-Feld ist leer
+    EMPTY_ZIP: Postleitzahl-Feld ist leer
+    INVALID_STATUS: Status-Feld ist ungültig
   listheader: Betriebsketten
   filterplaceholder: Name / Adresse / KAM ID
   columns:
     status: Status
     name: Name
-    estimatedStoreCount: Erwartete Anzahl von Betriebe
+    estimatedStoreCount: Erwartete Anzahl von Betrieben
     stores: Anzahl kooperierender Betriebe
     headquarters: Zentrale
     kams: KAMs

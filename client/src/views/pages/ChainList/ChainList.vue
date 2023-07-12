@@ -346,8 +346,8 @@ export default {
           await mutations.createChain(data)
         } catch (err) {
           const errorDescription = err.jsonContent ?? { message: '' }
-          const errorMessage = `${errorDescription.message ?? 'Unknown'}`
-          pulseError(this.$i18n('chain.error.create', { error: errorMessage }))
+          const errorMessagePattern = `chain.errorCodes.${errorDescription.message ?? 'UNKNOWN'}`
+          pulseError(this.$i18n('chain.error.create', { error: this.$i18n(errorMessagePattern) }))
           return false
         }
       } else {
@@ -355,8 +355,8 @@ export default {
           await mutations.editChain(chainId, data)
         } catch (err) {
           const errorDescription = err.jsonContent ?? { message: '' }
-          const errorMessage = `${errorDescription.message ?? 'Unknown'}`
-          pulseError(this.$i18n('chain.error.edit', { error: errorMessage }))
+          const errorMessagePattern = `chain.errorCodes.${errorDescription.message ?? 'UNKNOWN'}`
+          pulseError(this.$i18n('chain.error.edit', { error: this.$i18n(errorMessagePattern) }))
           return false
         }
       }

@@ -4,16 +4,16 @@ namespace Foodsharing\Modules\StoreChain;
 
 class StoreChainTransactionException extends \Exception
 {
-    public const INVALID_STORECHAIN_ID = 'Store chain Id is not valid.';
-    public const KEY_ACCOUNT_MANAGER_ID_NOT_EXISTS = 'Store chain key account manager does not exist.';
-    public const KEY_ACCOUNT_MANAGER_ID_NOT_IN_GROUP = 'Store chain key account manager belong to AG Storechain.';
-    public const THREAD_ID_NOT_EXISTS = 'Store chain thread does not exist.';
-    public const WRONG_FORUM = 'Thread is from wrong forum.';
-    public const EMPTY_NAME = 'Name can not be empty';
-    public const EMPTY_CITY = 'City can not be empty';
-    public const EMPTY_COUNTRY = 'Country can not be empty';
-    public const EMPTY_ZIP = 'Zip code can not be empty';
-    public const INVALID_STATUS = 'status must be a valid status id';
+    public const INVALID_STORECHAIN_ID = 'INVALID_STORECHAIN_ID';
+    public const KEY_ACCOUNT_MANAGER_ID_NOT_EXISTS = 'KEY_ACCOUNT_MANAGER_ID_NOT_EXISTS';
+    public const KEY_ACCOUNT_MANAGER_ID_NOT_IN_GROUP = 'KEY_ACCOUNT_MANAGER_ID_NOT_IN_GROUP';
+    public const THREAD_ID_NOT_EXISTS = 'THREAD_ID_NOT_EXISTS';
+    public const WRONG_FORUM = 'WRONG_FORUM';
+    public const EMPTY_NAME = 'EMPTY_NAME';
+    public const EMPTY_CITY = 'EMPTY_CITY';
+    public const EMPTY_COUNTRY = 'EMPTY_COUNTRY';
+    public const EMPTY_ZIP = 'EMPTY_ZIP';
+    public const INVALID_STATUS = 'INVALID_STATUS';
 
     public function __construct(string $message = '', int $code = 0)
     {

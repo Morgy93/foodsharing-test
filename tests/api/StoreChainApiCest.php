@@ -44,7 +44,7 @@ class StoreChainApiCest
         $this->region = $I->createRegion();
         $this->agChain = $I->createWorkingGroup('AG Betriebsketten', ['id' => RegionIDs::STORE_CHAIN_GROUP]);
 
-        $I->haveInDatabase('fs_chain', ['id' => StoreChainApiCest::CHAIN_ID, 'name' => 'Chain']);
+        $I->haveInDatabase('fs_chain', ['id' => StoreChainApiCest::CHAIN_ID, 'name' => 'Chain', 'status' => 2]);
         $I->haveInDatabase('fs_chain', ['id' => StoreChainApiCest::CHAIN_ID_1, 'name' => 'Chain 1']);
         $I->haveInDatabase('fs_betrieb_kategorie', ['id' => 20, 'name' => 'Category']);
         $delete_at = new DateTime('now', new DateTimeZone('Europe/Berlin'));
@@ -785,7 +785,7 @@ class StoreChainApiCest
         $I->haveHttpHeader('Content-Type', 'application/json');
         $I->sendPATCH(self::API_BASE . '/' . StoreChainApiCest::CHAIN_ID, [
             'name' => 'MyChain GmbH',
-                'status' => 1,
+                'status' => 0,
                 'headquartersZip' => '48150',
                 'headquartersCity' => 'Münster 1',
                 'headquartersCountry' => 'Germany',
@@ -808,7 +808,7 @@ class StoreChainApiCest
                 'chain' => [
                   'id' => StoreChainApiCest::CHAIN_ID,
                   'name' => 'MyChain GmbH',
-                  'status' => 1,
+                  'status' => 0,
                   'headquartersZip' => '48150',
                   'headquartersCity' => 'Münster 1',
                   'headquartersCountry' => 'Germany',
