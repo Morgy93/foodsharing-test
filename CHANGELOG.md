@@ -11,6 +11,7 @@
 - New UI for Stores information and modification of stores !2645 !2685 !2688 @KoeMai
 - New UI for Stores information and modification of stores !2645 !2685 @KoeMai
 - Add home district count to region top #79 !2692 @Morgy93
+- Storemanagers can set a description for pickup slots #1653 !2757 @AntonBallmaier
 
 ## Changes
 - Make menubar sticky on mobile !2411 @AntonBallmaier
