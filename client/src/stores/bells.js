@@ -15,9 +15,9 @@ export const getters = {
 }
 
 export const mutations = {
-  async fetch () {
+  async fetch (withoutCache = false) {
     try {
-      if (await getCacheInterval(cacheRequestName, bellsRateLimitInterval)) {
+      if (await getCacheInterval(cacheRequestName, bellsRateLimitInterval) || withoutCache) {
         store.bells = await getBellList()
 
         await setCache(cacheRequestName, store.bells)
@@ -35,7 +35,8 @@ export const mutations = {
       await deleteBell(id)
       store.bells.splice(store.bells.indexOf(bell), 1)
       await setCache(cacheRequestName, store.bells)
-      await this.fetch()
+      const withoutCache = true
+      await this.fetch(withoutCache)
     } catch (err) {
       console.log(err)
       // this.$set(bell, 'isDeleting', false)
