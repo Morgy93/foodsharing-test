@@ -62,6 +62,8 @@
 - removed styleguide from non-dev environments #1636 !2745 @sefn
 - fixed map storing chat status independantly from all other pages #1598 !2732 @florianunsinn
 - Fixed the loading of wall posts associated with reports !2770 #1648 @alex.simm
+- catches bell-closing bug if no bell was found (symptom treatment) @martincodes_de
+- catches bell-closing bug if no bell was found (symptom treatment) !2766 @martincodes_de
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
