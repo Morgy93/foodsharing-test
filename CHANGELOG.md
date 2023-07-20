@@ -29,6 +29,7 @@
 - Show forum text if foodsaver deleted again !2697 @chriswalg
 - Add CTA on the profile-page for calendar export #1583 !2705 @sefn
 - Remove relative time from last pickup #1571 #1643 !2706 !2744 @sefn
+- Removed unused global report !2763 @chriswalg
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
@@ -58,7 +59,6 @@
 - Fixed errors in delayed vue map initialisation #1637 #1660 !2750 !2773 @chriswalg 
 - Check if thread exist before display the thread #1650 !2756 @chriswalg
 - Fix no error messages on BadRequestHttpExceptions on beta !2701 @KoeMai
-
 - removed styleguide from non-dev environments #1636 !2745 @sefn
 - fixed map storing chat status independantly from all other pages #1598 !2732 @florianunsinn
 - Fixed the loading of wall posts associated with reports !2770 #1648 @alex.simm
@@ -79,7 +79,6 @@
 - New vue component for address search !2632 !2669 @alex.simm
 - Replaced get store information to rest api !1449 @KoeMai
 - Put Date and time in two lines at User Dashboard Card "Nächste Abholungen". #1448 !2588 !2707 @Niklas003 @sefn
-
 - Replaced the history dialogs on profile pages with a vue component !2587 @alex.simm
 - Moved verification to memberlist !2646 !2698 @chriswalg
 - The broadcast banner fetches its content from the API #1284 !2661 @alex.simm
