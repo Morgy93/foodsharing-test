@@ -2251,6 +2251,7 @@ menu:
     dataprivacy: "Datenschutz"
     release-notes: "Was ist neu?"
     stores: "Betriebe" #also in MapView
+    security: "Security"
     helpwanted: "Helfer*innen gesucht" #MapView
     helpneeded: "Helfer*innen dringend gesucht" #MapView
     other_stores: "Andere Betriebe" #MapView
