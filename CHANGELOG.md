@@ -55,7 +55,7 @@
 - In the user details, only include that a calendar token exists but not the token itself !2735 @alex.simm
 - Fixed undefined "mailbox" #1612 !2746 @chriswalg @alex.simm 
 - Workaround for unvisible attachments because long mailbox names !2751 @chriswalg
-- Fixed errors in delayed vue map initialisation #1637 !2750 @chriswalg 
+- Fixed errors in delayed vue map initialisation #1637 #1660 !2750 !2773 @chriswalg 
 - Check if thread exist before display the thread #1650 !2756 @chriswalg
 - Fix no error messages on BadRequestHttpExceptions on beta !2701 @KoeMai
 
