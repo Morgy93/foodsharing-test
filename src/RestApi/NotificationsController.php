@@ -79,7 +79,7 @@ class NotificationsController extends AbstractFOSRestController
     #[Rest\Patch(path: 'notifications/regions')]
     #[Response(response: HttpResponse::HTTP_OK, description: 'Successful')]
     #[Response(response: HttpResponse::HTTP_FORBIDDEN, description: 'Forbidden')]
-    #[RequestBody(content: new JsonContent(items: new Items(ref: new Model(type: Region::class), type: 'array')))]
+    #[RequestBody(content: new JsonContent(type: 'array', items: new Items(ref: new Model(type: Region::class))))]
     #[ParamConverter(data: 'regions', class: 'array<Foodsharing\RestApi\Models\Notifications\Region>', converter: 'fos_rest.request_body')]
     public function updateRegionsAndWorkgroupsNotificationsAction(array $regions, ValidatorInterface $validator): HttpResponse
     {
@@ -112,7 +112,7 @@ class NotificationsController extends AbstractFOSRestController
     #[Rest\Patch(path: 'notifications/forum')]
     #[Response(response: HttpResponse::HTTP_OK, description: 'Successful')]
     #[Response(response: HttpResponse::HTTP_FORBIDDEN, description: 'Forbidden')]
-    #[RequestBody(content: new JsonContent(items: new Items(ref: new Model(type: Thread::class), type: 'array')))]
+    #[RequestBody(content: new JsonContent(type: 'array', items: new Items(ref: new Model(type: Thread::class))))]
     #[ParamConverter(data: 'threads', class: 'array<Foodsharing\RestApi\Models\Notifications\Thread>', converter: 'fos_rest.request_body')]
     public function setThreadsNotificationsAction(array $threads, ValidatorInterface $validator): HttpResponse
     {
@@ -145,7 +145,7 @@ class NotificationsController extends AbstractFOSRestController
     #[Rest\Patch(path: 'notifications/foodsharepoints')]
     #[Response(response: HttpResponse::HTTP_OK, description: 'Successful')]
     #[Response(response: HttpResponse::HTTP_FORBIDDEN, description: 'Forbidden')]
-    #[RequestBody(content: new JsonContent(items: new Items(ref: new Model(type: FoodSharePoint::class), type: 'array')))]
+    #[RequestBody(content: new JsonContent(type: 'array', items: new Items(ref: new Model(type: FoodSharePoint::class))))]
     #[ParamConverter(data: 'foodSharePoints', class: 'array<Foodsharing\RestApi\Models\Notifications\FoodSharePoint>', converter: 'fos_rest.request_body')]
     public function setFoodSharePointNotificationsAction(array $foodSharePoints, ValidatorInterface $validator): HttpResponse
     {
