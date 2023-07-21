@@ -103,9 +103,7 @@ compose_body: "Nachricht"
 #
 # FORM DATA KEYS: SettingsView
 # --
-newsletter: "Newsletter"
 # comment: "Anregungen, Kritik und Kommentare" # this looks very unused
-infomail_message: "Benachrichtigung über Chat-Nachrichten auf foodsharing"
 newmail: "Gib hier deine neue E-Mail-Adresse ein"
 passcheck: "Bestätige die Änderung bitte mit deinem Passwort"
 homepage: "Deine Webseite"
@@ -2956,3 +2954,27 @@ bootstrap-datepicker:
   labelCalendar: 'Kalender'
   labelNav: 'Kalendernavigation'
   labelHelp: 'Mit den Pfeiltasten durch den Kalender navigieren'
+
+notifications:
+  chat:
+    title: 'Chat Nachrichten'
+    description: 'Erhalte eine Benachrichtung bei neuen Chat-Nachrichten auch wenn du nicht eingeloggt bist.'
+  foodSharePoints:
+    title: 'Fairteiler'
+    description: 'Erhalte eine Benachrichtigung bei neuen Einträgen auf Fairteiler-Pinnwänden denen du folgst.'
+  threads:
+    title: 'Foren-Themen'
+  regions:
+    title: 'Bezirke'
+  groups:
+    title: 'Arbeitsgruppen'
+  newsletter:
+    title: 'Newsletter'
+    description: 'Erhalte ca. 1x monatlich aktuelle Informationen rund um foodsharing per E-Mail.'
+  checkbox_email: 'E-Mail'
+  checkbox_push: 'Push'
+  checkbox_bell: 'Glocke'
+  checkbox_disabled: 'Deaktiviert'
+  success: "Erfolgreich gespeichert"
+  config_button: 'einzeln konfigurieren'
+
