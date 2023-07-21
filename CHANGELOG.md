@@ -93,6 +93,7 @@
 - Refactor the list of food share points in a region to vue !2702 @alex.simm
 - Refactor notification settings page to vue and rest api !2700 @chriswalg
 - Refactor setting sleeping mode to vue !2749 !2760 @chriswalg
+- Refactor user passport generation page #1617 !2660 !2758 @chriswalg
 
 ## Dev/Test/CI stuff
 - Fix given null parameter !2550 @BibaltiK
