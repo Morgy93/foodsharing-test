@@ -345,7 +345,7 @@ class SettingsView extends View
             $regionPicker .= $this->vueComponent('region-tree-vform', 'RegionTreeVForm', [
                 'title' => $this->translator->trans('terminology.homeRegion'),
                 'inputName' => 'bezirk_id',
-                'initialValue' => $bezirk,
+                'value' => $bezirk,
                 'selectableRegionTypes' => [UnitType::CITY, UnitType::DISTRICT, UnitType::REGION, UnitType::WORKING_GROUP, UnitType::PART_OF_TOWN],
             ]);
             $position = $this->v_utils->v_form_text('position');

@@ -73,7 +73,7 @@
 - Move business logic for editing store into StoreTransaction !2515 @KoeMai
 - Fix TeamStoreStatus and move getStoreMarkers to StoreGateway !2560 @KoeMai
 - added poppins font in Styleguide !2564 @Niklas003
-- Replace the region tree with a new vue component !2483 !2747 @alex.simm
+- Replace the region tree with a new vue component #1623 !2483 !2747 !2774 @alex.simm
 - Move uploadlogic and actions from controller to transactionclass for reuse !2478 @martncodes-de
 - Reimplement create new forum thread in vue js !2627 !2748 @chriswalg
 - New vue component for address search !2632 !2669 @alex.simm
