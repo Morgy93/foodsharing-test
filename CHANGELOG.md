@@ -64,6 +64,7 @@
 - Fixed the loading of wall posts associated with reports !2770 #1648 @alex.simm
 - catches bell-closing bug if no bell was found (symptom treatment) @martincodes_de
 - catches bell-closing bug if no bell was found (symptom treatment) !2766 @martincodes_de
+- Temporarily disable store page and member page for Europe and Germany !2777 @alex.simm
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
