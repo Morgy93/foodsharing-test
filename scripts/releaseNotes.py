@@ -19,8 +19,8 @@ def findProject(projectId: int) -> Tuple[str, str]:
 
 # Returns the ID and name of a milestone for its number in the project, or None if the number does not exist
 def findMilestoneID(projectId: int, milestoneNumber: int) -> Tuple[int, str]:
-	url = API_URL + '/projects/{0}/milestones/?private_token={1}'
-	milestones = requests.get(url.format(projectId, personalToken)).json()
+	url = API_URL + '/projects/{0}/milestones/?private_token={1}&iids[]={2}'
+	milestones = requests.get(url.format(projectId, personalToken, milestoneNumber)).json()
 	matches = [m for m in milestones if m['iid'] == milestoneNumber]
 	if len(matches) > 0:
 		return matches[0]['id'], matches[0]['title']
