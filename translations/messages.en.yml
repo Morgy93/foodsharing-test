@@ -1155,7 +1155,7 @@ bell:
   new_quiz_comment_title: New quiz comment
   fs_sleepmode: '{name} {nachname} is now inactive'
   fs_sleepmode_title: New nightcap
-  store_cr_times: Pick-up times have changed
+  store_cr_times: Pick-up slots have changed
   store_new_request: Request for {name}
   forum_answer: '{user} responded to your comment'
   store_request_accept_wait: You were added to the list of standby foodsavers.

@@ -9,7 +9,7 @@
 - Store markers on the map can be filtered by the user's membership #1025 !2682 @alex.simm
 - Store chain information is visible on the store page !2742 @alex.simm
 - Add home district count to region top #79 !2692 @Morgy93
-- Storemanagers can set a description for pickup slots #1653 !2757 @AntonBallmaier
+- Storemanagers can set a description for pickup slots #1653 !2757 !2781 @AntonBallmaier
 
 ## Changes
 - Make menubar sticky on mobile !2411 @AntonBallmaier
