@@ -23,7 +23,7 @@
 - Support and orga-user can search users with e-mail !2651 !2663 @chriswalg @martincodes-de
 - focus foodsharing tab of the same kind if clicking a push notification !2671 @buntel
 - close push notification of the same thread or same kind if clicked !2671 @buntel
-- Removed the additional button in the report modal #1599 !2677 @alex.simm
+- Removed the additional button in the report modal #1599 !2677 !2782 @alex.simm
 - Show forum text if foodsaver deleted again !2697 @chriswalg
 - Add CTA on the profile-page for calendar export #1583 !2705 @sefn
 - Remove relative time from last pickup #1571 #1643 !2706 !2744 @sefn
