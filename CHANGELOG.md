@@ -86,7 +86,7 @@
 - Replace the region tree with a new vue component !2483 @alex.simm
 - New vue component for blog posts !2676 !2687 @alex.simm
 - Changed forum post response to empty content #1499 !2638 @krauterisator
-- Refactor add pickup modal !2693 @chriswalg
+- Refactor add pickup modal !2693 !2784 @chriswalg
 - Refactor edit pickup rules to vue component and moved it to storeInformationModal !2686 !2731 @chriswalg 
 - Refactor own store list in vue !2668 !2683 @chriswalg
 - Refactored the list of group applications to vue, which not also shows profile pictures #343 !2696 @alex.simm

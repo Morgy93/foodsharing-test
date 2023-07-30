@@ -911,7 +911,10 @@ store:
   team:
     isfull: "Team ist voll"
   filter: "Filtern nach …"
-  enterdate: "Abholtermin eintragen"
+  enter_date: "Einzelnen Abholtermin eintragen"
+  enter_date_description: "Nachdem du Datum, Uhrzeit und Abholendenzahl ausgewählt hast, kannst du einmalig für diesen Termin Slots einstellen. Solltest du regelmäßige (wöchentlich automatisch wiederkehrende) Slots erstellen wollen, nutze bitte das Menü 'Betriebsinformationen ansehen'."
+  delete_date: "Einzelnen Abholtermin löschen"
+  delete_date_description: "Solltest du regelmäßige (wöchentlich automatisch wiederkehrende) Slots in deinem Betrieb nutzen und verhindern wollen, dass ein bestimmter Termin (z.B. Feiertag) erzeugt wird, kannst du durch Angabe von Datum und Uhrzeit durch diese Funktion dafür sorgen. Solltest du bereits sichtbare Slots löschen wollen, ist dies auch direkt per Klick auf den Slot möglich, sofern kein:e Foodsaver:in eingetragen ist."
   enternumber: "Du musst noch die Anzahl der Abholer*innen auswählen."
   leaveinfo: "Hier kannst Du einige Infos für die Foodsaver angeben, die sich für das Team bewerben möchten."
   maxchar: "(max. 180 Zeichen)"
