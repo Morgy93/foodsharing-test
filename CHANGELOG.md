@@ -28,6 +28,7 @@
 - Add CTA on the profile-page for calendar export #1583 !2705 @sefn
 - Remove relative time from last pickup #1571 #1643 !2706 !2744 @sefn
 - Removed unused global report !2763 @chriswalg
+- Improved pickup table display on smaller devices !2779 @AntonBallmaier 
 - Added a validation for login form, to prevent send a api call. !2787 @chriswalg
 - Remove closed stores from map, dashboard and navigation #786 !2790 @chriswalg
 
@@ -64,6 +65,7 @@
 - Fixed the loading of wall posts associated with reports !2770 #1648 @alex.simm
 - catches bell-closing bug if no bell was found (symptom treatment) @martincodes_de
 - catches bell-closing bug if no bell was found (symptom treatment) !2766 @martincodes_de
+- Pickup options can no longer be loaded multiple times in the pickup table !2779 @AntonBallmaier
 - Temporarily disable store page and member page for Europe and Germany !2777 !2788 @alex.simm
 
 ## Refactoring
