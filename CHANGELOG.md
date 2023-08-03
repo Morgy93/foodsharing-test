@@ -29,6 +29,7 @@
 - Remove relative time from last pickup #1571 #1643 !2706 !2744 @sefn
 - Removed unused global report !2763 @chriswalg
 - Added a validation for login form, to prevent send a api call. !2787 @chriswalg
+- Remove closed stores from map, dashboard and navigation #786 !2790 @chriswalg
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
