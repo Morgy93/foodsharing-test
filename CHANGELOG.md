@@ -134,6 +134,7 @@
 - Added security page !2764 !2783 @martincodes_de
 - Add security.txt with contact information !2776 @stcz
 - added functionallity to new FoodsharingControllers to prepare and render vue components !2730 @martincodes-de
+- Updated some backend dependencies !2721 @chriswalg
 
 ## Development documentation
 
