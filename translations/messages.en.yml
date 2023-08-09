@@ -2479,7 +2479,7 @@ dashboard:
     reset: Reset
     grid_toggle:
       2_columns: Go to 2 columns view
-      3_columns: Go to 2 columns view
+      3_columns: Go to 3 columns view
   source_event: Appointment {0}
   showmore: Show more
   showless: Show less
