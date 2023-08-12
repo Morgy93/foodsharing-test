@@ -8,36 +8,41 @@
   Sleeping team members will come last in each of those sections.
   Check `tableSortFunction` (and StoreGateway:getStoreTeam) for details.
   -->
-  <div :class="['bootstrap store-team w-100', `team-${storeId}`]">
-    <div class="card rounded mb-2">
-      <div class="card-header text-white bg-primary">
-        <div class="row align-items-center">
-          <div class="col font-weight-bold">
-            {{ $i18n('store.teamName', { storeTitle }) }}
-          </div>
-
-          <div class="col col-4 text-right">
-            <button
-              v-if="mayEditStore"
-              v-b-tooltip.hover.top
-              :title="$i18n(managementModeEnabled ? 'store.sm.managementToggleOff' : 'store.sm.managementToggleOn')"
-              :class="[managementModeEnabled ? ['text-warning', 'active'] : 'text-light', 'btn', 'btn-primary', 'btn-sm']"
-              href="#"
-              @click.prevent="toggleManageControls"
-            >
-              <i class="fas fa-fw fa-cog" />
-            </button>
-            <button
-              class="px-1 d-md-none text-light btn btn-sm"
-              href="#"
-              @click.prevent="toggleTeamDisplay"
-            >
-              <i :class="['fas fa-fw', `fa-chevron-${displayMembers ? 'down' : 'left'}`]" />
-            </button>
-          </div>
-        </div>
+  <div>
+    <Container
+      :title="title"
+      :toggle-visiblity="filteredUser.length > defaultAmount"
+      tag="store_team"
+      class="bg-white store-team"
+      @show-full-list="showFullList"
+      @reduce-list="reduceList"
+    >
+      <div class="text-center mt-2 mb-2">
+        <button
+          v-if="mayEditStore"
+          v-b-tooltip.hover.top
+          :title="$i18n(managementModeEnabled ? 'store.sm.managementToggleOff' : 'store.sm.managementToggleOn')"
+          class="btn btn-primary btn-sm"
+          href="#"
+          @click.prevent="toggleManageControls"
+        >
+          {{ managementModeEnabled ? $i18n('store.sm.buttonManagementToggleOff') : $i18n('store.sm.buttonManagementToggleOn') }}
+        </button>
+        <button
+          class="px-1 d-md-none text-light btn btn-sm"
+          href="#"
+          @click.prevent="toggleTeamDisplay"
+        >
+          <i :class="['fas fa-fw', `fa-chevron-${displayMembers ? 'down' : 'left'}`]" />
+        </button>
       </div>
 
+      <div
+        v-if="managementModeEnabled"
+        class="text-center"
+      >
+        {{ activeMembers }} {{ activeText }} - {{ $i18n('store.of_that') }} {{ jumperCount }} {{ $i18n('store.jumping') }} <br> {{ unverifiedCount }} {{ unverifiedText }}
+      </div>
       <!-- preparation for more store-management features -->
       <StoreManagementPanel
         v-if="managementModeEnabled"
@@ -50,7 +55,7 @@
       <div class="card-body team-list">
         <b-table
           ref="teamlist"
-          :items="foodsaver"
+          :items="filteredList"
           :fields="tableFields"
           :class="{'d-none': !displayMembers}"
           details-td-class="col-actions"
@@ -181,7 +186,7 @@
                 size="sm"
                 variant="danger"
                 :block="!(wXS || wSM)"
-                @click="removeFromTeam(data.item.id, data.item.name)"
+                @click="openDeleteModal(data.item)"
               >
                 <i class="fas fa-fw fa-user-times" />
                 {{ $i18n('store.sm.removeFromTeam') }}
@@ -190,7 +195,19 @@
           </template>
         </b-table>
       </div>
-    </div>
+    </Container>
+    <b-modal
+      id="deleteModal"
+      ref="deleteModal"
+      :title="$i18n('store.sm.reallyRemove', { name: selectedDataItem ? selectedDataItem.name : '' })"
+      :cancel-title="$i18n('button.cancel')"
+      :ok-title="$i18n('button.yes_i_am_sure')"
+      cancel-variant="primary"
+      ok-variant="outline-danger"
+      @ok="removeFromTeam(selectedDataItem ? selectedDataItem.id : null, selectedDataItem ? selectedDataItem.name : '')"
+    >
+      {{ $i18n('really_delete') }}
+    </b-modal>
   </div>
 </template>
 
@@ -203,15 +220,17 @@ import phoneNumber from '@/helper/phone-numbers'
 import { chat, pulseSuccess, pulseError } from '@/script'
 import MediaQueryMixin from '@/mixins/MediaQueryMixin'
 
-import { legacyXhrCall } from './legacy'
-import StoreManagementPanel from './StoreManagementPanel'
-import StoreTeamAvatar from './StoreTeamAvatar'
-import StoreTeamInfo from './StoreTeamInfo'
-import StoreTeamInfotext from './StoreTeamInfotext'
+import StoreManagementPanel from '@/components/Stores/StoreTeam/StoreManagementPanel.vue'
+import StoreTeamAvatar from '@/components/Stores/StoreTeam/StoreTeamAvatar.vue'
+import StoreTeamInfo from '@/components/Stores/StoreTeam/StoreTeamInfo.vue'
+import StoreTeamInfotext from '@/components/Stores/StoreTeam/StoreTeamInfotext.vue'
+import StoreData from '@/stores/stores'
+import Container from '@/components/Container/Container.vue'
+import ListToggleMixin from '@/mixins/ContainerToggleMixin'
 
 export default {
-  components: { StoreManagementPanel, StoreTeamAvatar, StoreTeamInfo, StoreTeamInfotext },
-  mixins: [MediaQueryMixin],
+  components: { StoreManagementPanel, StoreTeamAvatar, StoreTeamInfo, StoreTeamInfotext, Container },
+  mixins: [MediaQueryMixin, ListToggleMixin],
   props: {
     fsId: { type: Number, required: true },
     mayEditStore: { type: Boolean, default: false },
@@ -228,9 +247,15 @@ export default {
       managementModeEnabled: false,
       displayMembers: true,
       isBusy: false,
+      selectedDataItem: null,
     }
   },
   computed: {
+    filteredUser () {
+      const data = this.foodsaver
+      this.setList(data)
+      return data
+    },
     tableFields () {
       const fields = [
         { key: 'ava', class: 'col-ava', sortable: true },
@@ -243,6 +268,31 @@ export default {
         fields.push({ key: 'call', class: 'col-call' })
       }
       return fields
+    },
+    jumperCount () {
+      const isJumperType = 2
+      return this.team.filter(member => member.team_active === isJumperType).length
+    },
+    unverifiedCount () {
+      const unverifiedState = 0
+      return this.team.filter(member => member.verified === unverifiedState).length
+    },
+    activeMembers () {
+      return this.team.length - this.jumperCount - this.unverifiedCount
+    },
+    unverifiedText () {
+      return this.unverifiedCount === 1 ? this.$i18n('store.unverified_member') : this.$i18n('store.unverified_members')
+    },
+    activeText () {
+      return this.activeMembers === 1 ? this.$i18n('store.one_active') : this.$i18n('store.active')
+    },
+    title () {
+      return `${this.$i18n('store.team_container')} (${this.activeMembers} ${this.activeText}) `
+    },
+  },
+  watch: {
+    team () {
+      this.foodsaver = this.team?.map(fs => this.foodsaverData(fs))
     },
   },
   methods: {
@@ -268,6 +318,9 @@ export default {
       if (user.id === this.fsId) return true
       return this.mayEditStore
     },
+    openDeleteModal (dataItem) {
+      this.$refs.deleteModal.show(dataItem)
+    },
     mayBecomeManager (user) {
       if (!user.mayManage) return false
       if (user.isJumper) return false
@@ -285,6 +338,7 @@ export default {
       })
       if (!wasOpen) {
         row.toggleDetails()
+        this.selectedDataItem = row.item
       }
     },
     openChat (fsId) {
@@ -310,7 +364,7 @@ export default {
         fs.isJumper = newStatusIsStandby
         fs.isActive = !newStatusIsStandby
         fs._showDetails = false
-        this.$set(this.team, index, fs)
+        this.foodsaver[index] = fs
       }
       this.isBusy = false
     },
@@ -322,7 +376,11 @@ export default {
       try {
         await promoteToStoreManager(this.storeId, fsId)
       } catch (e) {
-        pulseError(this.$i18n('error_unexpected'))
+        if (e.code === 422) {
+          pulseError(this.$i18n('store.sm.promoteToManagerNotPossible'))
+        } else {
+          pulseError(this.$i18n('error_unexpected'))
+        }
         this.isBusy = false
         return
       }
@@ -332,7 +390,7 @@ export default {
         fs.isManager = true
         fs._rowVariant = 'warning'
         fs._showDetails = false
-        this.$set(this.team, index, fs)
+        this.foodsaver[index] = fs
       }
       this.isBusy = false
     },
@@ -357,7 +415,7 @@ export default {
         fs.isManager = false
         fs._rowVariant = ''
         fs._showDetails = false
-        this.$set(this.team, index, fs)
+        this.foodsaver[index] = fs
       }
       this.isBusy = false
     },
@@ -436,18 +494,14 @@ export default {
         fetchCount: fs.stat_fetchcount,
       }
     },
-    legacyXhrCall,
     async removeFromTeam (fsId, fsName) {
       if (!fsId) {
-        return
-      }
-      if (!confirm(this.$i18n('store.sm.reallyRemove', { name: fsName }))) {
         return
       }
       this.isBusy = true
       try {
         await removeStoreMember(this.storeId, fsId)
-        window.location.reload()
+        await StoreData.mutations.loadStoreMember(this.storeId)
       } catch (e) {
         pulseError(this.$i18n('error_unexpected'))
         this.isBusy = false

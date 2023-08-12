@@ -1,9 +1,20 @@
 import Vue from 'vue'
-import { listStoresForCurrentUser, getStoreMetaData } from '@/api/stores'
+import {
+  listStoresForCurrentUser,
+  getStoreMetaData,
+  getStoreMember,
+  getStoreInformation,
+  getStorePermissions,
+} from '@/api/stores'
+import { getRegionOptions } from '@/api/regions'
 
 export const store = Vue.observable({
   stores: [],
   metadata: {},
+  storeMember: [],
+  storeInformation: null,
+  permissions: null,
+  regionPickupRule: {},
 })
 
 export const getters = {
@@ -65,6 +76,18 @@ export const getters = {
   has (id) {
     return store.stores.find(store => store.id === id)
   },
+  getStoreMember () {
+    return store.storeMember
+  },
+  getStoreInformation () {
+    return store.storeInformation
+  },
+  getStorePermissions () {
+    return store.permissions
+  },
+  getStoreRegionOptions () {
+    return store.regionPickupRule
+  },
 }
 
 export const mutations = {
@@ -73,6 +96,18 @@ export const mutations = {
       store.stores = await listStoresForCurrentUser()
       store.metadata = await getStoreMetaData()
     }
+  },
+  async loadStoreMember (storeId) {
+    store.storeMember = await getStoreMember(storeId)
+  },
+  async loadStoreInformation (storeId) {
+    store.storeInformation = await getStoreInformation(storeId)
+  },
+  async loadPermissions (storeId) {
+    store.permissions = await getStorePermissions(storeId)
+  },
+  async loadGetRegionOptions (regionId) {
+    store.regionPickupRule = await getRegionOptions(regionId)
   },
 }
 

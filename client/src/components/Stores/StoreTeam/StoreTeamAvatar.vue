@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import Avatar from '@/components/Avatar'
+import Avatar from '@/components/Avatar.vue'
 
 export default {
   components: { Avatar },

@@ -1,22 +1,26 @@
 <template>
-  <div class="store-desc bootstrap rounded list-group mb-2">
-    <StoreInformationModal :store-id="storeId" />
-    <div
-      class="list-group-item py-2 text-white font-weight-bold bg-primary d-flex justify-content-between"
-      v-html="$i18n('store.actions')"
+  <Container
+    class="bg-white"
+    :title="storeName"
+    tag="store_options"
+  >
+    <StoreInformationModal
+      :is-jumper="isJumper"
+      :store-id="storeId"
+      :may-do-pickup="mayDoPickup"
     />
     <button
-      v-if="teamConversionId != null && userIsInStore"
+      v-if="teamConversionId != null && isUserInStore"
       type="button"
       class="list-group-item list-group-item-action"
       @click="openChat(teamConversionId)"
       v-text="$i18n('store.chat.team')"
     />
     <button
-      v-if="springerConversationId != null && userIsInStore || isJumper"
+      v-if="jumperConversationId != null && isUserInStore || isJumper"
       type="button"
       class="list-group-item list-group-item-action"
-      @click="openChat(springerConversationId)"
+      @click="openChat(jumperConversationId)"
       v-html="$i18n('store.chat.jumper')"
     />
     <button
@@ -26,14 +30,14 @@
       v-text="$i18n('storeview.show_information')"
     />
     <button
-      v-if="mayLeaveStoreTeam && userIsInStore || isJumper"
+      v-if="mayLeaveStoreTeam && isUserInStore || isJumper"
       type="button"
       class="list-group-item list-group-item-action"
       href="#"
       @click="removeFromTeam(fsId, $i18n('storeedit.team.leave_myself'))"
       v-text="$i18n('storeedit.team.leave')"
     />
-  </div>
+  </Container>
 </template>
 
 <script>
@@ -41,20 +45,23 @@ import conversationStore from '@/stores/conversations'
 import { pulseError } from '@/script'
 import DataUser from '@/stores/user'
 import { removeStoreMember } from '@/api/stores'
-import StoreInformationModal from './StoreInformationModal.vue'
+import StoreInformationModal from '@/components/Modals/Store/StoreInformationModal.vue'
+import Container from '@/components/Container/Container.vue'
 
 export default {
   components: {
     StoreInformationModal,
+    Container,
   },
   props: {
+    storeName: { type: String, required: true },
     fsId: { type: Number, required: true },
     mayLeaveStoreTeam: { type: Boolean, default: false },
     teamConversionId: {
       type: Number,
       default: null,
     },
-    springerConversationId: {
+    jumperConversationId: {
       type: Number,
       default: null,
     },
@@ -66,8 +73,9 @@ export default {
       type: Number,
       default: null,
     },
-    userIsInStore: { type: Boolean, default: false },
+    isUserInStore: { type: Boolean, default: false },
     isJumper: { type: Boolean, default: false },
+    mayDoPickup: { type: Boolean, default: false },
   },
   methods: {
     openChat (conversationId) {

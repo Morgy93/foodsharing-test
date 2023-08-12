@@ -245,8 +245,8 @@ import { BFormTextarea, BModal, VBTooltip } from 'bootstrap-vue'
 
 import { listSameDayPickupsForUser, checkPickupRuleStore } from '@/api/pickups'
 
-import TakenSlot from './TakenSlot'
-import EmptySlot from './EmptySlot'
+import TakenSlot from '@/components/Stores/Pickup/TakenSlot.vue'
+import EmptySlot from '@/components/Stores/Pickup/EmptySlot.vue'
 
 export default {
   components: { EmptySlot, TakenSlot, BFormTextarea, BModal },

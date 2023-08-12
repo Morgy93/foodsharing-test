@@ -9,6 +9,7 @@ use Foodsharing\Modules\Bell\BellGateway;
 use Foodsharing\Modules\Bell\DTO\Bell;
 use Foodsharing\Modules\Core\DatabaseNoValueFoundException;
 use Foodsharing\Modules\Core\DBConstants\Bell\BellType;
+use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
 use Foodsharing\Modules\Core\DBConstants\Store\Milestone;
 use Foodsharing\Modules\Core\DBConstants\Store\StoreLogAction;
 use Foodsharing\Modules\Foodsaver\FoodsaverGateway;
@@ -184,6 +185,85 @@ class StoreRestController extends AbstractFOSRestController
             $result = $this->storeTransactions->getStore($storeId, $maySeeDetails, $maySeeSensitiveDetails);
 
             return $this->handleView($this->view($result, 200));
+        } catch (DatabaseNoValueFoundException $ex) {
+            throw new NotFoundHttpException('Store not found.');
+        }
+    }
+
+    /**
+     * Provides store members.
+     *
+     * Depending on the access permission some information are not provided.
+     *
+     * @OA\Tag(name="stores")
+     * @OA\Response(response="200", description="Success")
+     * @OA\Response(response="401", description="Not logged in")
+     * @OA\Response(response="403", description="Not allowed to see/list stores")
+     * @OA\Response(response="404", description="Store not found")
+     * @Rest\Get("/stores/{storeId}/member", requirements={"storeId" = "\d+"})
+     */
+    public function getStoreMembersAction(int $storeId)
+    {
+        $userId = $this->session->id();
+        if (!$userId) {
+            throw new UnauthorizedHttpException('');
+        }
+
+        try {
+            $maySeeDetails = $this->storePermissions->maySeePhoneNumbers($storeId);
+            $result = $this->storeTransactions->getMyStoreTeam($userId, $storeId, $maySeeDetails);
+
+            return $this->handleView($this->view($result, 200));
+        } catch (DatabaseNoValueFoundException $ex) {
+            throw new NotFoundHttpException('Store not found.');
+        }
+    }
+
+    /**
+     * Provides store permissions.
+     **
+     * @OA\Tag(name="stores")
+     * @OA\Response(response="200", description="Success")
+     * @OA\Response(response="401", description="Not logged in")
+     * @OA\Response(response="403", description="Not allowed to see/list stores")
+     * @OA\Response(response="404", description="Store not found")
+     * @Rest\Get("/stores/{storeId}/permissions", requirements={"storeId" = "\d+"})
+     */
+    public function getStorePermissionsAction(int $storeId)
+    {
+        $userId = $this->session->id();
+        if (!$userId) {
+            throw new UnauthorizedHttpException('');
+        }
+
+        try {
+            $store = $this->storeGateway->getMyStore($this->session->id(), $storeId);
+
+            $teamConversionId = null;
+            if ($this->storePermissions->mayChatWithRegularTeam($store)) {
+                $teamConversionId = $store['team_conversation_id'];
+            }
+
+            $jumperConversationId = null;
+            if ($this->storePermissions->mayChatWithJumperWaitingTeam($store)) {
+                $jumperConversationId = $store['springer_conversation_id'];
+            }
+
+            $params = [
+                'mayDoPickup' => $this->storePermissions->mayDoPickup($storeId),
+                'teamConversionId' => $teamConversionId,
+                'jumperConversationId' => $jumperConversationId,
+                'mayEditStore' => $this->storePermissions->mayEditStore($storeId),
+                'mayLeaveStoreTeam' => $this->storePermissions->mayLeaveStoreTeam($storeId, $this->session->id()),
+                'storeId' => $storeId,
+                'maySeePickupHistory' => $this->storePermissions->maySeePickupHistory($storeId),
+                'mayReadStoreWall' => $this->storePermissions->mayReadStoreWall($storeId),
+                'mayWritePost' => $this->storePermissions->mayWriteStoreWall($storeId),
+                'mayDeleteEverything' => $this->storePermissions->mayDeleteStoreWall($storeId),
+                'maySeePickups' => $this->storePermissions->maySeePickups($storeId) && $store['betrieb_status_id'] === CooperationStatus::COOPERATION_STARTING || $store['betrieb_status_id'] === CooperationStatus::COOPERATION_ESTABLISHED,
+            ];
+
+            return $this->handleView($this->view($params, 200));
         } catch (DatabaseNoValueFoundException $ex) {
             throw new NotFoundHttpException('Store not found.');
         }

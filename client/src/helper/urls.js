@@ -61,7 +61,7 @@ const urls = {
   settingsCalendar: () => '/?page=settings&sub=calendar',
   settingsNotifications: () => '/?page=settings&sub=info',
   statistics: () => '/statistik',
-  store: (storeId) => `/?page=fsbetrieb&id=${storeId}`,
+  store: (storeId) => `/store/${storeId}`,
   storeList: () => '/?page=fsbetrieb',
   storeOwnList: () => '/?page=betrieb&a=own',
 

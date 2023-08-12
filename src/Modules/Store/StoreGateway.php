@@ -379,6 +379,10 @@ class StoreGateway extends BaseGateway
         return $result;
     }
 
+    /**
+     * @deprecated The function is too complex. It needs be replaced with a function that uses DTOs and the logic
+     * should be moved into a transaction class.
+     */
     public function getMyStore(int $fs_id, int $storeId): array
     {
         $result = $this->db->fetch('

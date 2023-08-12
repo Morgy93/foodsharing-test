@@ -72,6 +72,20 @@ class StoreTransactions
     ) {
     }
 
+    /**
+     * Returns a store's data including the team members in a format suitable for the frontend.
+     *
+     * @param int $userId the user who is requesting the data
+     * @param int $storeId the store
+     * @param bool $includeUserDetails whether to include phone numbers and last fetch dates for the team members
+     */
+    public function getMyStoreTeam(int $userId, int $storeId, bool $includeUserDetails): array
+    {
+        $store = $this->storeGateway->getMyStore($userId, $storeId);
+
+        return $this->getDisplayedStoreTeam($store, $includeUserDetails);
+    }
+
     public function getCommonStoreMetadata($supressStoreChains = true): CommonStoreMetadata
     {
         $store = new CommonStoreMetadata();
@@ -982,5 +996,34 @@ class StoreTransactions
         }
 
         return true;
+    }
+
+    /**
+     * Returns all team member of the store (active and waiting list) and makes sure that details like the phone
+     * number are only included if allowed.
+     *
+     * @param array $store store data from the database
+     * @param bool $includeUserDetails whether to include or omit phone numbers and last fetch date
+     */
+    private function getDisplayedStoreTeam(array $store, bool $includeUserDetails): array
+    {
+        $allowedFields = [
+            // personal info
+            'id', 'name', 'photo', 'quiz_rolle', 'sleep_status', 'verified',
+            // team-related info
+            'verantwortlich', 'team_active', 'stat_fetchcount', 'add_date',
+        ];
+        if ($includeUserDetails) {
+            array_push($allowedFields, 'handy', 'telefon', 'last_fetch');
+        }
+
+        return array_map(
+            function ($teamMember) use ($allowedFields) {
+                return array_filter($teamMember, function ($key) use ($allowedFields) {
+                    return in_array($key, $allowedFields);
+                }, ARRAY_FILTER_USE_KEY);
+            },
+            array_merge($store['foodsaver'], $store['springer']),
+        );
     }
 }

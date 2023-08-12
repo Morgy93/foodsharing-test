@@ -829,8 +829,14 @@ store:
   tooltip_managing: "Du bist verantwortlich für diesen Betrieb"
   tooltip_jumping: "Du bist Springer für diesen Betrieb"
   managing: "Betriebsverantwortung"
+  team_container: "Team"
   jumping: "Springer"
   member: "Mitglied"
+  active: "Aktive"
+  one_active: "Aktiver"
+  of_that: "davon"
+  unverified_member: "unverifizierter"
+  unverified_members: "unverifizierte"
   isAppliedForTeam: "Anfrage"
   allStoresOfRegion: "Alle Betriebe aus dem Bezirk"
   ownStores: "Eigene Betriebe"
@@ -870,6 +876,8 @@ store:
   regionPickupRulesInactive: "Die zusätzlichen Bezirksregeln für Abholungen sind nicht aktiv"
   regionPickupRuleLong: "Innerhalb von {regionPickupRuleTimespan} Tagen dürfen nicht mehr als insgesamt {regionPickupRuleLimit} Abholungen unter Berücksichtigung aller Betriebe mit Bezirksregeln durchgeführt werden. Pro Tag darf höchstens insgesamt {regionPickupRuleLimitDay}-mal bei diesen Betrieben abgeholt werden. {regionPickupRuleInactive} Stunden vor der Abholung wird diese Regel nicht berücksichtigt."
   sm:
+    buttonManagementToggleOn: "BV-Modus aktivieren"
+    buttonManagementToggleOff: "BV-Modus deaktivieren"
     managementToggleOn: "Ansicht für Betriebsverantwortliche aktivieren"
     managementToggleOff: "Zurück zur Standard-Ansicht"
     managementEffect: "Sortierung nach letztem Abholdatum:"
@@ -887,6 +895,7 @@ store:
     makeJumper: "Auf die Springerliste"
     makeRegularTeamMember: "In das Team aufnehmen"
     promoteToManager: "Verantwortlich machen"
+    promoteToManagerNotPossible: "Die Person kann nicht verantwortlich gemacht werden, da es schon drei Betriebsverantwortliche gibt oder die Person noch nicht das Quiz bestanden hat."
     demoteAsManager: "Als Betriebsverantwortliche*n entfernen"
     reallyDemote: "Möchtest du wirklich {name} die Verantwortung für diesen Betrieb entziehen?"
     reloadRequired: "Zum Aktualisieren der Team-Infos:"
@@ -903,10 +912,12 @@ store:
     to-team: "Aufnehmen"
     to-jumper: "Springerliste"
     to-nowhere: "Ablehnen"
+  info_container: "Informationen"
 #
 # Store and StoreUser
 # --
-  willgetcontacted: "Du bist momentan auf der Springerliste. Sobald Hilfe benötigt wird, wirst Du kontaktiert."
+  willgetcontacted: "Du bist momentan auf der Springerliste. Daher kannst du keine Telefonnummern von Teammitgliedern, keine Pinnwand-Einträge, keinen Team-Chat und keine Slots sehen. Du hast die Möglichkeit, den Springer-Chat zu schreiben."
+  not_verified: "Du bist unverifiziert. Daher kannst du keine keine Slots und keine Telefonnummern von Teammitgliedern sehen."
   team:
     isfull: "Team ist voll"
   filter: "Filtern nach …"
@@ -1207,7 +1218,6 @@ chat:
 
 wall:
   name: "Pinnwand"
-  message_placeholder: "Nachricht schreiben…"
   see-more: "Alle Beiträge anzeigen"
   delete: "Eintrag löschen"
   confirm-deletion: "Soll der folgende Pinnwand-Eintrag von {name} wirklich entfernt werden?"
