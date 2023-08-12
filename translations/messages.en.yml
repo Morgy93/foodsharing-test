@@ -1820,6 +1820,8 @@ store:
     demoteAsManager: Remove as Store Coordinator
     promoteToManager: Make Store Coordinator
     searchPlaceholder: Name or ID
+    buttonManagementToggleOn: toggle management mode
+    buttonManagementToggleOff: back to normal mode
   address: Address
   may_referred_to_in_public: This store may be referred to in public.
   isNotVerified: Is not yet verified.
@@ -1921,6 +1923,12 @@ store:
     slots to be removed from your series. If you want to delete slots that are already
     visible, you can also do this directly by clicking on the slot as long as no one
     is already registered.
+  team_container: Team
+  one_active: active
+  of_that: of that
+  unverified_member: unverified
+  unverified_members: unverified
+  active: active
 search:
   mygroups: My groups
   mybuddies: My buddies
@@ -2141,23 +2149,21 @@ legal:
     you must take note of the data protection declaration described.
   acknowledge: Do you take note of the agreement?
   if_delete:
-    legal_1: Here is <a href="https://foodsharing.de/?page=legal" target="_blank">our
-      current data protection agreement.</a>
+    legal_1: our current privacy policy
     this_gets_deleted_main: 'The following information will be deleted from you and
       cannot be recovered:'
-    this_gets_deleted_stores: <ul><li>Stores you had joined.</ul></li>
-    this_gets_deleted_quiz: <ul><li>Your foodsaver-Quiz will be removed.</ul></li>
-    this_gets_deleted_trustbananas: <ul><li>Bananas that you gave to others will be
-      removed.</ul></li>
-    this_doesnt_get_deleted_name: <ul><li>Your Name</ul></li>
-    this_doesnt_get_deleted_address: <ul><li>Your Address</ul></li>
-    this_doesnt_get_deleted_history: <ul><li>Your verification history</ul></li>
-    this_gets_deleted_verify: <ul><li>Your verification will be removed.</ul></li>
-    this_gets_deleted_friendlist: <ul><li>Your friends list will be removed.</ul></li>
+    this_gets_deleted_stores: Stores you had joined.
+    this_gets_deleted_quiz: All your quizzes will be removed.
+    this_gets_deleted_trustbananas: Bananas that you gave to others will be removed.
+    this_doesnt_get_deleted_name: Your Name
+    this_doesnt_get_deleted_address: Your Address
+    this_doesnt_get_deleted_history: Your verification history
+    this_gets_deleted_verify: Your verification will be removed.
+    this_gets_deleted_friendlist: Your friends list will be removed.
     this_doesnt_get_deleted: 'The following information is no longer available in
       the active system, but is archived separately based on Article 17 paragraph
       3 sentence 1 letter b GDPR:'
-    legal_2: Thank you.
+    legal_2: Laws on retention periods (page in German)
 answers: Which answers are correct?
 name: Name
 bcard:
