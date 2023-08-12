@@ -98,6 +98,7 @@
 - Refactor setting sleeping mode to vue !2749 !2760 @chriswalg
 - Refactor user passport generation page #1617 !2660 !2758 @chriswalg
 - Replaced the form for changing the email address with a vue component !2753 @alex.simm
+- Refactor account deletion to vue !2775 @chriswalg
 
 ## Dev/Test/CI stuff
 - Fix given null parameter !2550 @BibaltiK

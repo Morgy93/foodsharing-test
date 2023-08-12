@@ -17,8 +17,13 @@ import Passport from './components/Passport.vue'
 import Notifications from './components/Notifications.vue'
 import SleepingMode from './components/SleepingMode.vue'
 import ChangeEmailForm from './components/ChangeEmailForm'
+import DeleteAccount from './components/DeleteAccount.vue'
 
 switch (GET('sub')) {
+  case 'deleteaccount':
+    vueRegister({ DeleteAccount })
+    vueApply('#delete-account')
+    break
   case 'info':
     vueRegister({ Notifications })
     vueApply('#notifications')

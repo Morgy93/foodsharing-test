@@ -349,7 +349,7 @@ class SettingsControl extends Control
         }
     }
 
-    public function deleteaccount()
+    public function deleteaccount(): void
     {
         $this->pageHelper->addBread($this->translator->trans('foodsaver.delete_account'));
         $this->pageHelper->addContent($this->view->delete_account($this->session->id()));
