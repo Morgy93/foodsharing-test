@@ -13,7 +13,7 @@
       :title="title"
       :toggle-visiblity="filteredUser.length > defaultAmount"
       tag="store_team"
-      class="bg-white store-team"
+      class="store-team"
       @show-full-list="showFullList"
       @reduce-list="reduceList"
     >
@@ -28,36 +28,55 @@
         >
           {{ managementModeEnabled ? $i18n('store.sm.buttonManagementToggleOff') : $i18n('store.sm.buttonManagementToggleOn') }}
         </button>
-        <button
-          class="px-1 d-md-none text-light btn btn-sm"
-          href="#"
-          @click.prevent="toggleTeamDisplay"
-        >
-          <i :class="['fas fa-fw', `fa-chevron-${displayMembers ? 'down' : 'left'}`]" />
-        </button>
       </div>
 
-      <div
-        v-if="managementModeEnabled"
-        class="text-center"
-      >
-        {{ activeMembers }} {{ activeText }} - {{ $i18n('store.of_that') }} {{ jumperCount }} {{ $i18n('store.jumping') }} <br> {{ unverifiedCount }} {{ unverifiedText }}
+      <div class="text-center mb-1">
+        <template v-for="filterButton in updatedFilterButtons">
+          <b-button
+            :key="filterButton.key"
+            v-b-tooltip.hover.bottom="filterButton.tooltip"
+            class="mr-2"
+            size="sm"
+            :variant="getFilterButtonClass(isFilterActive(filterButton.state))"
+            @click="applyFilter(filterButton.state)"
+          >
+            {{ filterButton.count }} <i :class="filterButton.icon" />
+          </b-button>
+        </template>
+      </div>
+
+      <div class="search-container">
+        <input
+          v-model="userSearchString"
+          type="text"
+          class="form-control-sm"
+          :placeholder="$i18n('store.team.search_input')"
+          @input="userSearch"
+        >
+        <b-button
+          v-b-tooltip.hover.top
+          variant="outline-secondary"
+          size="sm"
+          :title="$i18n('store.team.search_reset')"
+          @click="resetUserSearchString"
+        >
+          <i class="fas fa-trash-alt" />
+        </b-button>
       </div>
       <!-- preparation for more store-management features -->
       <StoreManagementPanel
         v-if="managementModeEnabled"
         :store-id="storeId"
         :team="team"
-        classes="p-2 team-management"
+        classes="pt-2 team-management"
         :region-id="regionId"
       />
 
       <div class="card-body team-list">
         <b-table
           ref="teamlist"
-          :items="filteredList"
+          :items="sortedFilteredList"
           :fields="tableFields"
-          :class="{'d-none': !displayMembers}"
           details-td-class="col-actions"
           primary-key="id"
           thead-class="d-none"
@@ -155,7 +174,7 @@
                 :block="!(wXS || wSM)"
                 @click="toggleStandbyState(data.item.id, true)"
               >
-                <i class="fas fa-fw fa-mug-hot" />
+                <i class="fas fa-running" />
                 {{ $i18n('store.sm.makeJumper') }}
               </b-button>
 
@@ -224,7 +243,7 @@ import StoreManagementPanel from '@/components/Stores/StoreTeam/StoreManagementP
 import StoreTeamAvatar from '@/components/Stores/StoreTeam/StoreTeamAvatar.vue'
 import StoreTeamInfo from '@/components/Stores/StoreTeam/StoreTeamInfo.vue'
 import StoreTeamInfotext from '@/components/Stores/StoreTeam/StoreTeamInfotext.vue'
-import StoreData from '@/stores/stores'
+import StoreData, { STORE_TEAM_STATE } from '@/stores/stores'
 import Container from '@/components/Container/Container.vue'
 import ListToggleMixin from '@/mixins/ContainerToggleMixin'
 
@@ -245,12 +264,71 @@ export default {
       sortfun: this.tableSortFunction,
       sortdesc: true,
       managementModeEnabled: false,
-      displayMembers: true,
       isBusy: false,
       selectedDataItem: null,
+      userSearchString: null,
+      activeFilter: null,
+      defaultAmountForDesktop: 30,
+      defaultAmountForMobile: 10,
+      filterButtons: [
+        {
+          key: 'all',
+          tooltip: this.$i18n('store.sm.filterAll'),
+          state: null,
+          count: null,
+          icon: 'fas fa-users',
+        },
+        {
+          key: 'active',
+          tooltip: this.$i18n('store.sm.filterActive'),
+          state: STORE_TEAM_STATE.ACTIVE,
+          count: null,
+          icon: 'fas fa-user',
+        },
+        {
+          key: 'jumper',
+          tooltip: this.$i18n('store.sm.filterJumper'),
+          state: STORE_TEAM_STATE.JUMPER,
+          count: null,
+          icon: 'fas fa-running',
+        },
+        {
+          key: 'unverified',
+          tooltip: this.$i18n('store.sm.filterUnverified'),
+          state: STORE_TEAM_STATE.UNVERIFIED,
+          count: null,
+          icon: 'fas fa-user-alt-slash',
+        },
+      ],
+      isReduced: true,
     }
   },
   computed: {
+    updatedFilterButtons () {
+      return this.filterButtons.map(filter => {
+        if (filter.state === null) {
+          return { ...filter, count: this.foodsaver.length }
+        } else if (filter.state === STORE_TEAM_STATE.ACTIVE) {
+          return { ...filter, count: this.activeMembers }
+        } else if (filter.state === STORE_TEAM_STATE.JUMPER) {
+          return { ...filter, count: this.jumperCount }
+        } else if (filter.state === STORE_TEAM_STATE.UNVERIFIED) {
+          return { ...filter, count: this.unverifiedCount }
+        }
+        return filter
+      })
+    },
+    isFilterActive () {
+      return (value) => this.activeFilter === value
+    },
+    getFilterButtonClass () {
+      return (value) => (value ? 'primary' : 'secondary')
+    },
+    sortedFilteredList () {
+      return this.filteredList.slice().sort((a, b) => {
+        return this.sortdesc ? this.sortfun(b, a) : this.sortfun(a, b)
+      })
+    },
     filteredUser () {
       const data = this.foodsaver
       this.setList(data)
@@ -270,15 +348,13 @@ export default {
       return fields
     },
     jumperCount () {
-      const isJumperType = 2
-      return this.team.filter(member => member.team_active === isJumperType).length
+      return this.foodsaver.filter(member => member.isJumper).length
     },
     unverifiedCount () {
-      const unverifiedState = 0
-      return this.team.filter(member => member.verified === unverifiedState).length
+      return this.foodsaver.filter(member => member.isVerified === false).length
     },
     activeMembers () {
-      return this.team.length - this.jumperCount - this.unverifiedCount
+      return this.foodsaver.filter(member => member.isActive).length
     },
     unverifiedText () {
       return this.unverifiedCount === 1 ? this.$i18n('store.unverified_member') : this.$i18n('store.unverified_members')
@@ -286,22 +362,83 @@ export default {
     activeText () {
       return this.activeMembers === 1 ? this.$i18n('store.one_active') : this.$i18n('store.active')
     },
+    activeFilterText () {
+      switch (this.activeFilter) {
+        case STORE_TEAM_STATE.ACTIVE:
+          return this.activeText
+        case STORE_TEAM_STATE.JUMPER:
+          return this.$i18n('store.jumping')
+        case STORE_TEAM_STATE.UNVERIFIED:
+          return this.unverifiedText
+        default:
+          return this.$i18n('store.sm.filterAll')
+      }
+    },
     title () {
-      return `${this.$i18n('store.team_container')} (${this.activeMembers} ${this.activeText}) `
+      return `${this.$i18n('store.team_container')} (${this.activeFilterText})`
     },
   },
   watch: {
     team () {
       this.foodsaver = this.team?.map(fs => this.foodsaverData(fs))
     },
+    userSearchString (newValue) {
+      this.resetUserList()
+      this.userSearch(newValue)
+    },
+  },
+  mounted () {
+    this.setDefaultAmountForDesktop(this.defaultAmountForDesktop)
+    this.setDefaultAmountForMobile(this.defaultAmountForMobile)
   },
   methods: {
+    applyFilter (state) {
+      if (state === null) {
+        this.resetUserList()
+      } else if (state === STORE_TEAM_STATE.ACTIVE) {
+        this.filterByActive()
+      } else if (state === STORE_TEAM_STATE.JUMPER) {
+        this.filterByJumper()
+      } else if (state === STORE_TEAM_STATE.UNVERIFIED) {
+        this.filterByUnverified()
+      }
+    },
+    resetUserSearchString () {
+      this.userSearchString = null
+    },
+    filterByActive () {
+      this.resetUserList()
+      this.foodsaver = this.team.filter(member => member.team_active === STORE_TEAM_STATE.ACTIVE).map(fs => this.foodsaverData(fs))
+      this.activeFilter = STORE_TEAM_STATE.ACTIVE
+    },
+    filterByUnverified () {
+      this.resetUserList()
+      this.foodsaver = this.team.filter(member => member.verified === STORE_TEAM_STATE.UNVERIFIED).map(fs => this.foodsaverData(fs))
+      this.activeFilter = STORE_TEAM_STATE.UNVERIFIED
+    },
+    filterByJumper () {
+      this.resetUserList()
+      this.foodsaver = this.team.filter(member => member.team_active === STORE_TEAM_STATE.JUMPER).map(fs => this.foodsaverData(fs))
+      this.activeFilter = STORE_TEAM_STATE.JUMPER
+    },
+    resetUserList () {
+      this.foodsaver = this.team?.map(fs => this.foodsaverData(fs))
+      this.activeFilter = null
+    },
+    userSearch () {
+      if (this.userSearchString !== null) {
+        const searchString = this.userSearchString.trim().toLowerCase()
+        this.foodsaver = this.foodsaver.filter(member => {
+          return (
+            member.name.toLowerCase().includes(searchString) ||
+              (member.phoneNumberIsValid && member.phoneNumber.includes(searchString))
+          )
+        })
+      }
+    },
     toggleManageControls () {
       this.sortfun = this.managementModeEnabled ? this.tableSortFunction : this.pickupSortFunction
       this.managementModeEnabled = !this.managementModeEnabled
-    },
-    toggleTeamDisplay () {
-      this.displayMembers = !this.displayMembers
     },
     canCopy () {
       return !!navigator.clipboard
@@ -494,7 +631,7 @@ export default {
         fetchCount: fs.stat_fetchcount,
       }
     },
-    async removeFromTeam (fsId, fsName) {
+    async removeFromTeam (fsId) {
       if (!fsId) {
         return
       }
@@ -514,6 +651,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  width: 100%;
+}
+
 .store-team .team-management {
   border-bottom: 2px solid var(--fs-color-warning-500);
 }

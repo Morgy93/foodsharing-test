@@ -3,7 +3,6 @@
     <Container
       :title="$i18n('pickup.dates')"
       tag="pickup_list"
-      class="bg-white"
     >
       <div class="text-right mt-2">
         <button
@@ -101,7 +100,7 @@ export default {
       type: Boolean,
       default: null,
     },
-    mayDoPickup: {
+    mayEditStore: {
       type: Boolean,
       default: null,
     },
@@ -122,11 +121,11 @@ export default {
   },
   watch: {
     isJumper (newValue) {
-      if (newValue === false && this.mayDoPickup) {
+      if (newValue === false && this.mayEditStore) {
         this.loadPickups()
       }
     },
-    mayDoPickup (newValue) {
+    mayEditStore (newValue) {
       if (newValue && this.isJumper === false) {
         this.loadPickups()
       }
@@ -140,7 +139,7 @@ export default {
   },
   methods: {
     async loadPickups () {
-      if (this.isJumper === false && this.mayDoPickup) {
+      if (this.isJumper === false && this.mayEditStore) {
         await this.tryLoadPickups()
         // pull for updates every 30 seconds
         this.interval = setInterval(() => {

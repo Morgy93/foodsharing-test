@@ -1,13 +1,12 @@
 <template>
   <Container
-    class="bg-white"
     :title="storeName"
     tag="store_options"
   >
     <StoreInformationModal
       :is-jumper="isJumper"
       :store-id="storeId"
-      :may-do-pickup="mayDoPickup"
+      :may-edit-store="mayEditStore"
     />
     <button
       v-if="teamConversionId != null && isUserInStore"
@@ -67,7 +66,7 @@ export default {
     },
     mayEditStore: {
       type: Boolean,
-      default: false,
+      default: null,
     },
     storeId: {
       type: Number,

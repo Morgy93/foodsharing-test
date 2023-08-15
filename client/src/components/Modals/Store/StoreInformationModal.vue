@@ -479,7 +479,7 @@ export default {
   props: {
     isJumper: { type: Boolean, default: null },
     storeId: { type: Number, default: null },
-    mayDoPickup: { type: Boolean, default: null },
+    mayEditStore: { type: Boolean, default: null },
   },
   data () {
     return {
@@ -564,12 +564,12 @@ export default {
   },
   watch: {
     isJumper (newValue) {
-      if (newValue === false && this.mayDoPickup) {
+      if (newValue === false && this.mayEditStore) {
         PickupsData.mutations.fetchRegularPickup(this.storeId)
         this.editPickups = this.regularPickup()
       }
     },
-    mayDoPickup (newValue) {
+    mayEditStore (newValue) {
       if (newValue && this.isJumper === false) {
         PickupsData.mutations.fetchRegularPickup(this.storeId)
         this.editPickups = this.regularPickup()
@@ -579,7 +579,7 @@ export default {
   created () {
     // Load data
     this.store = this.storeInformation
-    if (this.isJumper === false && this.mayDoPickup) {
+    if (this.isJumper === false && this.mayEditStore) {
       PickupsData.mutations.fetchRegularPickup(this.storeId)
       this.editPickups = this.regularPickup()
     }

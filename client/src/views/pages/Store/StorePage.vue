@@ -4,7 +4,7 @@
     class="container my-3 my-sm-5"
   >
     <div class="row">
-      <div class="col-lg-3">
+      <div class="col-lg-3 mr-lg-4 mr-xl-0">
         <StoreOptions
           :store-name="storeInformation.name"
           :team-conversion-id="permissions.teamConversionId"
@@ -13,11 +13,20 @@
           :is-user-in-store="isUserInStore"
           :may-leave-store-team="permissions.mayLeaveStoreTeam"
           :is-jumper="isJumper"
-          :may-do-pickup="permissions.mayDoPickup"
           :fs-id="userId"
           :store-id="storeId"
         />
+        <StoreWall
+          v-if="viewIsMobile"
+          :may-edit-store="permissions.mayEditStore"
+          :is-jumper="isJumper"
+          :store-id="storeId"
+          :managers="storeManagers"
+          :may-write-post="permissions.mayWritePost"
+          :may-delete-everything="permissions.mayDeleteEverything"
+        />
         <StoreTeam
+          v-if="!viewIsMobile"
           :fs-id="userId"
           :may-edit-store="permissions.mayEditStore"
           :team="storeMember"
@@ -42,12 +51,13 @@
           {{ $i18n('store.not_verified') }}
         </div>
         <PickupHistory
-          v-if="isCoordinator"
+          v-if="permissions.maySeePickupHistory"
           :store-id="storeId"
           :coop-start="storeInformation.cooperationStart"
         />
         <StoreWall
-          :may-do-pickup="permissions.mayDoPickup"
+          v-if="!viewIsMobile"
+          :may-edit-store="permissions.mayEditStore"
           :is-jumper="isJumper"
           :store-id="storeId"
           :managers="storeManagers"
@@ -73,26 +83,44 @@
           :region-pickup-rule-inactive="regionPickupRule.regionPickupRuleInactive"
         />
         <PickupList
-          v-if="!isJumper && permissions.mayDoPickup"
-          :may-do-pickup="permissions.mayDoPickup"
+          v-if="!isJumper && permissions.mayEditStore"
+          :may-edit-store="permissions.mayEditStore"
           :is-jumper="isJumper"
           :store-id="storeId"
           :is-coordinator="isCoordinator"
         />
+        <StoreTeam
+          v-if="viewIsMobile"
+          :fs-id="userId"
+          :may-edit-store="permissions.mayEditStore"
+          :team="storeMember"
+          :store-id="storeId"
+          :store-title="storeInformation.name"
+          :region-id="storeInformation.region.id"
+        />
       </div>
     </div>
+    <StoreApplications
+      :store-id="storeId"
+      :store-title="storeInformation.name"
+      :request-count="applications.requestCount"
+      :store-requests="applications.storeRequests"
+    />
   </section>
 </template>
 
 <script>
+import MediaQueryMixin from '@/mixins/MediaQueryMixin'
 import StoreOptions from '@/components/Stores/StoreOptions.vue'
 import StoreTeam from '@/components/Stores/StoreTeam/StoreTeam.vue'
 import StoreInfos from '@/components/Stores/StoreInfos.vue'
 import PickupHistory from '@/components/Stores/PickupHistory.vue'
 import StoreWall from '@/components/Stores/StoreWall.vue'
 import PickupList from '@/components/Stores/PickupList.vue'
+import StoreApplications from '@/components/Modals/Store/StoreApplications.vue'
 import DataUser from '@/stores/user'
 import StoreData from '@/stores/stores'
+import { pulseInfo } from '@/script'
 
 export default {
   components: {
@@ -102,7 +130,9 @@ export default {
     PickupHistory,
     StoreWall,
     PickupList,
+    StoreApplications,
   },
+  mixins: [MediaQueryMixin],
   props: {
     storeId: { type: Number, required: true },
     collectionQuantity: { type: String, default: '' },
@@ -132,18 +162,34 @@ export default {
     regionPickupRule () {
       return StoreData.getters.getStoreRegionOptions()
     },
+    applications () {
+      return StoreData.getters.getStoreApplications()
+    },
   },
   async mounted () {
     await StoreData.mutations.loadPermissions(this.storeId)
     await StoreData.mutations.loadStoreInformation(this.storeId)
     await StoreData.mutations.loadGetRegionOptions(this.storeInformation.region.id)
     await StoreData.mutations.loadStoreMember(this.storeId)
+    await StoreData.mutations.loadStoreApplications(this.storeId)
     this.getIsJumper()
     this.checkIsUserInStore()
     this.getLastFetchDate()
     this.getIsCoordinator()
+    this.loadRightsInfo()
   },
   methods: {
+    loadRightsInfo () {
+      if (!this.isUserInStore && this.permissions.mayEditStore) {
+        if (this.permissions.isOrgUser) {
+          pulseInfo(this.$i18n('storeedit.team.orga'))
+        } else if (this.permissions.isCoordinator) {
+          pulseInfo(this.$i18n('storeedit.team.coordinator'))
+        } else if (this.permissions.isAmbassador) {
+          pulseInfo(this.$i18n('storeedit.team.amb'))
+        }
+      }
+    },
     getIsJumper () {
       this.isJumper = this.storeMember.some(item => item.id === this.userId && item.team_active === 2)
     },

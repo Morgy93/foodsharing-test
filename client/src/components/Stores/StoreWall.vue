@@ -1,7 +1,6 @@
 <template>
   <Container
     v-if="filteredPosts"
-    class="bg-white"
     :title="$i18n('wall.name')"
     tag="store_wall"
     :toggle-visiblity="filteredPosts.length > defaultAmount"
@@ -78,7 +77,7 @@ export default {
     mayDeleteEverything: { type: Boolean, required: true },
     numberOfVisiblePostsPerExcerptIteration: { type: Number, default: 3 },
     isJumper: { type: Boolean, default: null },
-    mayDoPickup: { type: Boolean, default: null },
+    mayEditStore: { type: Boolean, default: null },
   },
   data () {
     return {
@@ -105,18 +104,18 @@ export default {
   },
   watch: {
     isJumper (newValue) {
-      if (newValue === false && this.mayDoPickup) {
+      if (newValue === false && this.mayEditStore) {
         this.loadPosts()
       }
     },
-    mayDoPickup (newValue) {
+    mayEditStore (newValue) {
       if (newValue && this.isJumper === false) {
         this.loadPosts()
       }
     },
   },
   created () {
-    if (this.isJumper === false && this.mayDoPickup) {
+    if (this.isJumper === false && this.mayEditStore) {
       this.loadPosts()
     }
   },

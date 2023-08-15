@@ -1,7 +1,7 @@
 <template>
   <Container
     v-if="data && data.length > 0"
-    tag="title"
+    :tag="title"
     :title="$i18n('dashboard.polls')"
     :toggle-visiblity="data && data.length > defaultAmount"
     @show-full-list="showFullList"
