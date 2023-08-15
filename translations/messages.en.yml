@@ -431,17 +431,17 @@ profile:
     textMay: and is therefore allowed to accept food on behalf of foodsharing.
   regions: '{name} is a foodsaver in'
   stats:
-    baskets: Food baskets
+    baskets: food baskets
     weight: saved
-    posts: Posts
-    count: picked up
+    posts: posts
+    count: pick-ups
   infos:
     buddies: Buddies
     never: Never
     lastActivity: Last activity
     fetchrate: Fetch rate
     registrationDate: Registration date
-    title: Informations
+    title: Information
     foodsharerId: Foodsharer ID
     foodsaverId: Foodsaver ID
     fsMail: Internal mailbox
@@ -453,7 +453,7 @@ profile:
   report:
     sent: Report was sent
     send: Send report
-    title: 'Reports about {name}'
+    title: 'Report about {name}'
     reporterAdminNoArbitration: You are admin of the local reporting group and since
       there is no local arbitration board, you cannot submit a report.
     reportedAdminNoArbitration: You cannot submit a report about {name} because he*she
@@ -582,7 +582,7 @@ profile:
   sleepinfo: '{name} is inactive from {from} to {until}'
   sleeping: '{name} is inactive for an indefinite period'
   workgroups: '{name} is responsible for the following working groups'
-  homeRegion: home district of {name}
+  homeRegion: Home district of {name}
   ambRegions: '{name} is {role} for'
   online: '{name} is online.'
   mailBounceWarning_3: will remove this block.
@@ -619,7 +619,7 @@ profile:
     week_3: Last week
     week_4: Two weeks ago
     calenderWeek: CW
-    title: Engagement stats
+    title: Commitment stats
     securePickupWeek: Thanks for {count} stepping in and securing pick-ups on short
       notice!
     pickupCount: '# of pick-ups'
@@ -631,7 +631,7 @@ profile:
       A total of {weight} kg was shared.
     respActStores: 'Thanks for coordinating {count} active '
     basketsSharedWeek: 'The food baskets were shared with {count} persons. '
-    tooltip_visibility: The engagement statistic is visible from the role of Store
+    tooltip_visibility: The commitment statistic is visible from the role of Store
       Coordinator upwards. It's limited to joint home districts or joint stores.
     weekDesc: Calendar week {week}, from {weekStart} to {weekEnd}
   deletesuccess: Single pickup slot deleted
@@ -1834,6 +1834,8 @@ store:
     promoteToManagerNotPossible: This person can not be promoted to store manager
       because either this store already has three managers or the person has not passed
       the quiz yet.
+    filterAll: All
+    filterActive: Active
   address: Address
   may_referred_to_in_public: This store may be referred to in public.
   isNotVerified: Is not yet verified.
@@ -1882,6 +1884,7 @@ store:
     pickup slots. You can write in the chat for standby foodsavers.
   team:
     isfull: Team is full
+    search_input: Search for name / phone number
   filter: Filter by …
   enterdate: Add pick-up date
   enternumber: You need to select the number of people who can pick up.
@@ -1917,7 +1920,7 @@ store:
     hours before the pick-up, this rule is not taken into account.
   regionPickupRules: additional rule for much sought-after slots
   ownStores: My stores
-  managing: Corporate responsibility
+  managing: Store coordinator
   member: Member
   isAppliedForTeam: Request
   jumping: Standby
@@ -2514,7 +2517,7 @@ dashboard:
   empty_section: You don't have a {type} yet
   activity_filter_info: Here you can indicate which updates should be displayed on
     your start page.
-  no_more_updates_store: No more store informations
+  no_more_updates_store: No further store information
   no_more_updates_mailbox: No more mailbox messages
   no_more_updates_friendWall: No more status messages
   no_more_updates_forum: No further forum entries
@@ -2703,9 +2706,9 @@ mail:
   noreply_addresses_not_allowed: Emails to "noreply@…" cannot be delivered.<br Please
     check the recipient address.
 regionOptions:
-  enableMediationButton: Enable mediation request link on the profiles of the home
-    users of this district.
-  enableReportButton: Enable report link on the profiles of the home users of this
+  enableMediationButton: Enable mediation request link on the profiles of foodsavers
+    with this home district.
+  enableReportButton: Enable report link on the profiles of foodsavers with this home
     district.
   save: Save options
   success: Options saved successfully
