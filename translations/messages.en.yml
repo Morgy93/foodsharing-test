@@ -1885,6 +1885,7 @@ store:
   team:
     isfull: Team is full
     search_input: Search for name / phone number
+    search_reset: reset search
   filter: Filter by …
   enterdate: Add pick-up date
   enternumber: You need to select the number of people who can pick up.
