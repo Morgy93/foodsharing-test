@@ -962,7 +962,7 @@ storeview:
   store: Store
   want_to_fetch: I would like to help in this team.
   public_and_statistics: "Public activites and statistical information"
-  no_permission_to_view: "Only for store manager visible."
+  no_permission_to_view: "Only visible to store managers."
   groceries:
     label: Which kinds of food are allowed to be collected?
     select_tag: Choose food category
@@ -2964,8 +2964,8 @@ chain:
   errorCodes:
     INVALID_STORECHAIN_ID: Store chain Id is not valid
     KEY_ACCOUNT_MANAGER_ID_NOT_EXISTS: Store chain key account manager does not exist
-    KEY_ACCOUNT_MANAGER_ID_NOT_IN_GROUP: Store chain key account manager belong to
-      AG Storechain
+    KEY_ACCOUNT_MANAGER_ID_NOT_IN_GROUP: This key account manager is not part of the
+      Working Group for business chains/companies
     THREAD_ID_NOT_EXISTS: Store chain thread does not exist
     WRONG_FORUM: Thread is from wrong forum
     EMPTY_NAME: Name can not be empty
