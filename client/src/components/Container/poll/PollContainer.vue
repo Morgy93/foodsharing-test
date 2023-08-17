@@ -33,11 +33,8 @@ export default {
   },
   mixins: [ListToggleMixin],
   data () {
-    const defaultAmount = 2
     return {
       title: 'dashboard.my.polls',
-      defaultAmount,
-      amount: defaultAmount,
     }
   },
   computed: {

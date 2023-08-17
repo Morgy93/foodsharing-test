@@ -243,9 +243,9 @@ class StoreRestController extends AbstractFOSRestController
         try {
             $store = $this->storeGateway->getMyStore($this->session->id(), $storeId);
 
-            $teamConversionId = null;
+            $teamConversationId = null;
             if ($this->storePermissions->mayChatWithRegularTeam($store)) {
-                $teamConversionId = $store['team_conversation_id'];
+                $teamConversationId = $store['team_conversation_id'];
             }
 
             $jumperConversationId = null;
@@ -272,8 +272,9 @@ class StoreRestController extends AbstractFOSRestController
                 'isCoordinator' => $isCoordinator,
                 'isAmbassador' => $isAmbassador,
                 'isOrgUser' => $isOrgUser,
+                'isJumper' => $store['jumper'],
                 'mayDoPickup' => $this->storePermissions->mayDoPickup($storeId),
-                'teamConversionId' => $teamConversionId,
+                'teamConversationId' => $teamConversationId,
                 'jumperConversationId' => $jumperConversationId,
                 'mayEditStore' => $this->storePermissions->mayEditStore($storeId),
                 'mayLeaveStoreTeam' => $this->storePermissions->mayLeaveStoreTeam($storeId, $this->session->id()),

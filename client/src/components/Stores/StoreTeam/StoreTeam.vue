@@ -11,7 +11,7 @@
   <div>
     <Container
       :title="title"
-      :toggle-visiblity="filteredUser.length > defaultAmount"
+      :toggle-visiblity="list.length > defaultAmount"
       tag="store_team"
       class="store-team"
       @show-full-list="showFullList"
@@ -19,7 +19,7 @@
     >
       <div class="text-center mt-2 mb-2">
         <button
-          v-if="mayEditStore"
+          v-if="(isCoordinator || mayEditStore)"
           v-b-tooltip.hover.top
           :title="$i18n(managementModeEnabled ? 'store.sm.managementToggleOff' : 'store.sm.managementToggleOn')"
           class="btn btn-primary btn-sm"
@@ -51,7 +51,7 @@
           type="text"
           class="form-control-sm"
           :placeholder="$i18n('store.team.search_input')"
-          @input="userSearch"
+          @input="updateList"
         >
         <b-button
           v-b-tooltip.hover.top
@@ -75,15 +75,14 @@
       <div class="card-body team-list">
         <b-table
           ref="teamlist"
-          :items="sortedFilteredList"
+          :items="filteredList"
           :fields="tableFields"
           details-td-class="col-actions"
           primary-key="id"
           thead-class="d-none"
           sort-by="ava"
           :busy="isBusy"
-          :sort-desc.sync="sortdesc"
-          :sort-compare="sortfun"
+          :empty-text="$i18n('store.team.no_record')"
           show-empty
           sort-null-last
         >
@@ -102,6 +101,7 @@
           <template #cell(mobinfo)="data">
             <StoreTeamInfotext
               :member="data.item"
+              :is-coordinator="isCoordinator"
               :may-edit-store="mayEditStore"
             />
           </template>
@@ -131,6 +131,7 @@
             <StoreTeamInfotext
               v-if="wXS"
               :member="data.item"
+              :is-coordinator="isCoordinator"
               :may-edit-store="mayEditStore"
               classes="text-center"
             />
@@ -157,7 +158,7 @@
               </b-button>
 
               <b-button
-                v-if="mayEditStore && data.item.isJumper"
+                v-if="(isCoordinator || mayEditStore) && data.item.isJumper"
                 size="sm"
                 variant="primary"
                 :block="!(wXS || wSM)"
@@ -168,7 +169,7 @@
               </b-button>
 
               <b-button
-                v-if="mayEditStore && data.item.isActive && !data.item.isManager"
+                v-if="(isCoordinator || mayEditStore) && data.item.isActive && !data.item.isManager"
                 size="sm"
                 variant="primary"
                 :block="!(wXS || wSM)"
@@ -253,6 +254,7 @@ export default {
   props: {
     fsId: { type: Number, required: true },
     mayEditStore: { type: Boolean, default: false },
+    isCoordinator: { type: Boolean, default: false },
     team: { type: Array, required: true },
     storeId: { type: Number, required: true },
     storeTitle: { type: String, default: '' },
@@ -262,7 +264,6 @@ export default {
     return {
       foodsaver: this.team?.map(fs => this.foodsaverData(fs)),
       sortfun: this.tableSortFunction,
-      sortdesc: true,
       managementModeEnabled: false,
       isBusy: false,
       selectedDataItem: null,
@@ -324,15 +325,16 @@ export default {
     getFilterButtonClass () {
       return (value) => (value ? 'primary' : 'secondary')
     },
-    sortedFilteredList () {
-      return this.filteredList.slice().sort((a, b) => {
-        return this.sortdesc ? this.sortfun(b, a) : this.sortfun(a, b)
-      })
-    },
-    filteredUser () {
-      const data = this.foodsaver
-      this.setList(data)
-      return data
+    filteredUsers () {
+      let filtered = this.foodsaver ?? []
+      if (this.activeFilter === STORE_TEAM_STATE.ACTIVE) {
+        filtered = filtered.filter(member => member.isActive)
+      } else if (this.activeFilter === STORE_TEAM_STATE.JUMPER) {
+        filtered = filtered.filter(member => member.isJumper)
+      } else if (this.activeFilter === STORE_TEAM_STATE.UNVERIFIED) {
+        filtered = filtered.filter(member => !member.isVerified)
+      }
+      return filtered
     },
     tableFields () {
       const fields = [
@@ -381,10 +383,7 @@ export default {
   watch: {
     team () {
       this.foodsaver = this.team?.map(fs => this.foodsaverData(fs))
-    },
-    userSearchString (newValue) {
-      this.resetUserList()
-      this.userSearch(newValue)
+      this.updateList()
     },
   },
   mounted () {
@@ -392,53 +391,44 @@ export default {
     this.setDefaultAmountForMobile(this.defaultAmountForMobile)
   },
   methods: {
-    applyFilter (state) {
-      if (state === null) {
-        this.resetUserList()
-      } else if (state === STORE_TEAM_STATE.ACTIVE) {
-        this.filterByActive()
-      } else if (state === STORE_TEAM_STATE.JUMPER) {
-        this.filterByJumper()
-      } else if (state === STORE_TEAM_STATE.UNVERIFIED) {
-        this.filterByUnverified()
-      }
-    },
-    resetUserSearchString () {
-      this.userSearchString = null
-    },
-    filterByActive () {
-      this.resetUserList()
-      this.foodsaver = this.team.filter(member => member.team_active === STORE_TEAM_STATE.ACTIVE).map(fs => this.foodsaverData(fs))
-      this.activeFilter = STORE_TEAM_STATE.ACTIVE
-    },
-    filterByUnverified () {
-      this.resetUserList()
-      this.foodsaver = this.team.filter(member => member.verified === STORE_TEAM_STATE.UNVERIFIED).map(fs => this.foodsaverData(fs))
-      this.activeFilter = STORE_TEAM_STATE.UNVERIFIED
-    },
-    filterByJumper () {
-      this.resetUserList()
-      this.foodsaver = this.team.filter(member => member.team_active === STORE_TEAM_STATE.JUMPER).map(fs => this.foodsaverData(fs))
-      this.activeFilter = STORE_TEAM_STATE.JUMPER
-    },
-    resetUserList () {
-      this.foodsaver = this.team?.map(fs => this.foodsaverData(fs))
-      this.activeFilter = null
-    },
-    userSearch () {
+    /**
+     * Calculates and sorts the list of users, filtered by buttons and search string, and sets it in the mixin where
+     * it can be collapsed or expanded by the "show more" button.
+     */
+    updateList () {
+      // filter by selected button
+      let newList = this.filteredUsers
+
+      // filter by name
       if (this.userSearchString !== null) {
         const searchString = this.userSearchString.trim().toLowerCase()
-        this.foodsaver = this.foodsaver.filter(member => {
+        newList = newList.filter(member => {
           return (
             member.name.toLowerCase().includes(searchString) ||
-              (member.phoneNumberIsValid && member.phoneNumber.includes(searchString))
+            (member.phoneNumberIsValid && member.phoneNumber.includes(searchString))
           )
         })
       }
+
+      // sort
+      newList = newList.sort((a, b) => {
+        return this.sortfun(a, b)
+      })
+
+      this.setList(newList)
+    },
+    applyFilter (state) {
+      this.activeFilter = state
+      this.updateList()
+    },
+    resetUserSearchString () {
+      this.userSearchString = null
+      this.updateList()
     },
     toggleManageControls () {
       this.sortfun = this.managementModeEnabled ? this.tableSortFunction : this.pickupSortFunction
       this.managementModeEnabled = !this.managementModeEnabled
+      this.updateList()
     },
     canCopy () {
       return !!navigator.clipboard
@@ -493,6 +483,8 @@ export default {
         pulseError(this.$i18n('error_unexpected'))
         this.isBusy = false
         return
+      } finally {
+        await StoreData.mutations.loadStoreMember(this.storeId)
       }
       const index = this.team.findIndex(fs => fs.id === fsId)
       if (index >= 0) {
@@ -529,6 +521,7 @@ export default {
         fs._showDetails = false
         this.foodsaver[index] = fs
       }
+      await StoreData.mutations.loadStoreMember(this.storeId)
       this.isBusy = false
     },
     async demoteAsManager (fsId, fsName) {
@@ -554,6 +547,7 @@ export default {
         fs._showDetails = false
         this.foodsaver[index] = fs
       }
+      await StoreData.mutations.loadStoreMember(this.storeId)
       this.isBusy = false
     },
     /* eslint-disable brace-style */

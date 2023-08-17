@@ -7,19 +7,19 @@
       <div class="col-lg-3 mr-lg-4 mr-xl-0">
         <StoreOptions
           :store-name="storeInformation.name"
-          :team-conversion-id="permissions.teamConversionId"
+          :team-conversation-id="permissions.teamConversationId"
           :jumper-conversation-id="permissions.jumperConversationId"
           :may-edit-store="permissions.mayEditStore"
           :is-user-in-store="isUserInStore"
           :may-leave-store-team="permissions.mayLeaveStoreTeam"
-          :is-jumper="isJumper"
+          :is-jumper="permissions.isJumper"
           :fs-id="userId"
           :store-id="storeId"
+          :is-coordinator="isCoordinator"
         />
         <StoreWall
           v-if="viewIsMobile"
-          :may-edit-store="permissions.mayEditStore"
-          :is-jumper="isJumper"
+          :may-read-store-wall="permissions.mayReadStoreWall"
           :store-id="storeId"
           :managers="storeManagers"
           :may-write-post="permissions.mayWritePost"
@@ -28,6 +28,7 @@
         <StoreTeam
           v-if="!viewIsMobile"
           :fs-id="userId"
+          :is-coordinator="isCoordinator"
           :may-edit-store="permissions.mayEditStore"
           :team="storeMember"
           :store-id="storeId"
@@ -37,14 +38,14 @@
       </div>
       <div class="col">
         <div
-          v-if="isJumper"
+          v-if="permissions.isJumper"
           class="alert alert-info"
           role="alert"
         >
           {{ $i18n('store.willgetcontacted') }}
         </div>
         <div
-          v-if="!permissions.mayDoPickup && !isJumper"
+          v-if="!permissions.mayDoPickup && !permissions.isJumper"
           class="alert alert-info"
           role="alert"
         >
@@ -57,8 +58,7 @@
         />
         <StoreWall
           v-if="!viewIsMobile"
-          :may-edit-store="permissions.mayEditStore"
-          :is-jumper="isJumper"
+          :may-read-store-wall="permissions.mayReadStoreWall"
           :store-id="storeId"
           :managers="storeManagers"
           :may-write-post="permissions.mayWritePost"
@@ -83,15 +83,19 @@
           :region-pickup-rule-inactive="regionPickupRule.regionPickupRuleInactive"
         />
         <PickupList
-          v-if="!isJumper && permissions.mayEditStore"
-          :may-edit-store="permissions.mayEditStore"
-          :is-jumper="isJumper"
+          v-if="!permissions.isJumper && permissions.mayDoPickup"
+          :is-jumper="permissions.isJumper"
+          :may-do-pickup="permissions.mayDoPickup"
           :store-id="storeId"
+          :store-title="storeInformation.name"
           :is-coordinator="isCoordinator"
+          :may-edit-store="permissions.mayEditStore"
+          :team-conversation-id="permissions.teamConversationId"
         />
         <StoreTeam
           v-if="viewIsMobile"
           :fs-id="userId"
+          :is-coordinator="isCoordinator"
           :may-edit-store="permissions.mayEditStore"
           :team="storeMember"
           :store-id="storeId"
@@ -171,8 +175,9 @@ export default {
     await StoreData.mutations.loadStoreInformation(this.storeId)
     await StoreData.mutations.loadGetRegionOptions(this.storeInformation.region.id)
     await StoreData.mutations.loadStoreMember(this.storeId)
-    await StoreData.mutations.loadStoreApplications(this.storeId)
-    this.getIsJumper()
+    if (this.permissions.mayEditStore) {
+      await StoreData.mutations.loadStoreApplications(this.storeId)
+    }
     this.checkIsUserInStore()
     this.getLastFetchDate()
     this.getIsCoordinator()
@@ -180,7 +185,7 @@ export default {
   },
   methods: {
     loadRightsInfo () {
-      if (!this.isUserInStore && this.permissions.mayEditStore) {
+      if (this.permissions.mayEditStore) {
         if (this.permissions.isOrgUser) {
           pulseInfo(this.$i18n('storeedit.team.orga'))
         } else if (this.permissions.isCoordinator) {
@@ -189,9 +194,6 @@ export default {
           pulseInfo(this.$i18n('storeedit.team.amb'))
         }
       }
-    },
-    getIsJumper () {
-      this.isJumper = this.storeMember.some(item => item.id === this.userId && item.team_active === 2)
     },
     getIsCoordinator () {
       this.isCoordinator = this.storeMember.some(item => item.id === this.userId && item.verantwortlich === 1)

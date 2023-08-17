@@ -6,7 +6,7 @@
     >
       <div class="text-right mt-2">
         <button
-          v-if="isCoordinator"
+          v-if="(isCoordinator || mayEditStore)"
           v-b-tooltip
           :title="$i18n('pickup.add_onetime_pickup')"
           class="btn btn-primary btn-sm"
@@ -15,7 +15,7 @@
           <i class="fas fa-plus" />
         </button>
         <button
-          v-if="isCoordinator"
+          v-if="(isCoordinator || mayEditStore)"
           v-b-tooltip
           :title="$i18n('store.delete_date')"
           class="btn btn-primary btn-sm"
@@ -38,6 +38,7 @@
             v-bind="pickup"
             :store-id="storeId"
             :store-title="storeTitle"
+            :may-edit-store="mayEditStore"
             :is-coordinator="isCoordinator"
             :user="user"
             :description="pickup.description"
@@ -100,6 +101,10 @@ export default {
       type: Boolean,
       default: null,
     },
+    mayDoPickup: {
+      type: Boolean,
+      default: null,
+    },
     mayEditStore: {
       type: Boolean,
       default: null,
@@ -121,11 +126,11 @@ export default {
   },
   watch: {
     isJumper (newValue) {
-      if (newValue === false && this.mayEditStore) {
+      if (newValue === false && this.mayDoPickup) {
         this.loadPickups()
       }
     },
-    mayEditStore (newValue) {
+    mayDoPickup (newValue) {
       if (newValue && this.isJumper === false) {
         this.loadPickups()
       }
@@ -139,7 +144,7 @@ export default {
   },
   methods: {
     async loadPickups () {
-      if (this.isJumper === false && this.mayEditStore) {
+      if (this.isJumper === false && this.mayDoPickup) {
         await this.tryLoadPickups()
         // pull for updates every 30 seconds
         this.interval = setInterval(() => {

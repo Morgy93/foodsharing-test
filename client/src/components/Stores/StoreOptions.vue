@@ -7,12 +7,13 @@
       :is-jumper="isJumper"
       :store-id="storeId"
       :may-edit-store="mayEditStore"
+      :is-coordinator="isCoordinator"
     />
     <button
-      v-if="teamConversionId != null && isUserInStore"
+      v-if="teamConversationId != null && isUserInStore"
       type="button"
       class="list-group-item list-group-item-action"
-      @click="openChat(teamConversionId)"
+      @click="openChat(teamConversationId)"
       v-text="$i18n('store.chat.team')"
     />
     <button
@@ -56,7 +57,7 @@ export default {
     storeName: { type: String, required: true },
     fsId: { type: Number, required: true },
     mayLeaveStoreTeam: { type: Boolean, default: false },
-    teamConversionId: {
+    teamConversationId: {
       type: Number,
       default: null,
     },
@@ -65,6 +66,10 @@ export default {
       default: null,
     },
     mayEditStore: {
+      type: Boolean,
+      default: null,
+    },
+    isCoordinator: {
       type: Boolean,
       default: null,
     },

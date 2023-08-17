@@ -76,8 +76,7 @@ export default {
     mayWritePost: { type: Boolean, required: true },
     mayDeleteEverything: { type: Boolean, required: true },
     numberOfVisiblePostsPerExcerptIteration: { type: Number, default: 3 },
-    isJumper: { type: Boolean, default: null },
-    mayEditStore: { type: Boolean, default: null },
+    mayReadStoreWall: { type: Boolean, default: null },
   },
   data () {
     return {
@@ -103,19 +102,14 @@ export default {
     },
   },
   watch: {
-    isJumper (newValue) {
-      if (newValue === false && this.mayEditStore) {
-        this.loadPosts()
-      }
-    },
-    mayEditStore (newValue) {
-      if (newValue && this.isJumper === false) {
+    mayReadStoreWall (newValue) {
+      if (newValue) {
         this.loadPosts()
       }
     },
   },
   created () {
-    if (this.isJumper === false && this.mayEditStore) {
+    if (this.mayReadStoreWall) {
       this.loadPosts()
     }
   },
