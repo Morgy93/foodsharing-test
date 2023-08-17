@@ -555,8 +555,10 @@ export default {
   async created () {
     // Load data
     this.store = this.storeInformation
-    await PickupsData.mutations.fetchRegularPickup(this.storeId)
-    this.editPickups = this.regularPickup()
+    if (!this.isJumper) {
+      await PickupsData.mutations.fetchRegularPickup(this.storeId)
+      this.editPickups = this.regularPickup()
+    }
   },
   methods: {
     regularPickup () {
