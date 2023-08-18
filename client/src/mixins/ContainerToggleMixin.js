@@ -6,7 +6,7 @@ export default {
       defaultAmountForMobileMixin: null,
       defaultAmountForDesktopMixin: null,
       amount: this.defaultAmount,
-      isReduced: false,
+      isReduced: true,
     }
   },
   computed: {
