@@ -284,7 +284,7 @@
                 id="description"
                 v-model="store.description"
                 rows="5"
-                max-rows="100"
+                max-rows="18"
                 :disabled="!editMode"
               />
               <div
