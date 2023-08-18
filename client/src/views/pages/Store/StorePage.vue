@@ -15,7 +15,7 @@
           :is-jumper="permissions.isJumper"
           :fs-id="userId"
           :store-id="storeId"
-          :is-coordinator="isCoordinator"
+          :is-coordinator="permissions.isCoordinator"
         />
         <StoreWall
           v-if="viewIsMobile"
@@ -28,7 +28,7 @@
         <StoreTeam
           v-if="!viewIsMobile"
           :fs-id="userId"
-          :is-coordinator="isCoordinator"
+          :is-coordinator="permissions.isCoordinator"
           :may-edit-store="permissions.mayEditStore"
           :team="storeMember"
           :store-id="storeId"
@@ -88,14 +88,14 @@
           :may-do-pickup="permissions.mayDoPickup"
           :store-id="storeId"
           :store-title="storeInformation.name"
-          :is-coordinator="isCoordinator"
+          :is-coordinator="permissions.isCoordinator"
           :may-edit-store="permissions.mayEditStore"
           :team-conversation-id="permissions.teamConversationId"
         />
         <StoreTeam
           v-if="viewIsMobile"
           :fs-id="userId"
-          :is-coordinator="isCoordinator"
+          :is-coordinator="permissions.isCoordinator"
           :may-edit-store="permissions.mayEditStore"
           :team="storeMember"
           :store-id="storeId"
@@ -147,7 +147,7 @@ export default {
       isUserInStore: false,
       lastFetchDate: null,
       isJumper: null,
-      isCoordinator: null,
+      isManager: null,
     }
   },
   computed: {
@@ -180,12 +180,12 @@ export default {
     }
     this.checkIsUserInStore()
     this.getLastFetchDate()
-    this.getIsCoordinator()
+    this.getIsManager()
     this.loadRightsInfo()
   },
   methods: {
     loadRightsInfo () {
-      if (this.permissions.mayEditStore) {
+      if (this.permissions.mayEditStore && !this.isManager) {
         if (this.permissions.isOrgUser) {
           pulseInfo(this.$i18n('storeedit.team.orga'))
         } else if (this.permissions.isCoordinator) {
@@ -195,8 +195,8 @@ export default {
         }
       }
     },
-    getIsCoordinator () {
-      this.isCoordinator = this.storeMember.some(item => item.id === this.userId && item.verantwortlich === 1)
+    getIsManager () {
+      this.isManager = this.storeMember.some(item => item.id === this.userId && item.verantwortlich === 1)
     },
     checkIsUserInStore () {
       this.isUserInStore = this.storeMember.some(item => item.id === this.userId)
