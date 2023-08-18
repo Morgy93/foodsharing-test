@@ -31,7 +31,11 @@
       </div>
 
       <div class="text-center mb-2">
-        <template v-for="filterButton in updatedFilterButtons">
+        <template v-for="(filterButton, index) in updatedFilterButtons">
+          <br
+            v-if="index === 4"
+            :key="index"
+          >
           <b-button
             v-if="(filterButton.manageMode && managementModeEnabled) || filterButton.manageMode === false"
             :key="filterButton.key"
