@@ -2492,7 +2492,7 @@ storeview:
   managers: Sorumlu Foodsaver
   team: Kurtarma Ekibi
   public_and_statistics: İstatistik ve Halkla İlişkiler
-  no_permission_to_view: Yetki eksikliği
+  no_permission_to_view: Sadece işletme sorumluları tarafından görülebilir
   groceries:
     label: Hangi yiyecekler alınabilir?
     select_tag: Yiyecek kategorisini seçin
