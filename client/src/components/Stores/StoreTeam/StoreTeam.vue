@@ -60,7 +60,7 @@
           :title="$i18n('store.team.search_reset')"
           @click="resetUserSearchString"
         >
-          <i class="fas fa-trash-alt" />
+          <i class="fas fa-times" />
         </b-button>
       </div>
       <!-- preparation for more store-management features -->
