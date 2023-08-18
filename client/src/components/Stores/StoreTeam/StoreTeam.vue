@@ -26,13 +26,14 @@
           href="#"
           @click.prevent="toggleManageControls"
         >
-          {{ $i18n('store.sm.buttonManagementToggle') }}
+          {{ managementModeEnabled ? $i18n('store.sm.buttonManagementToggleOn') : $i18n('store.sm.buttonManagementToggleOff') }}
         </button>
       </div>
 
       <div class="text-center mb-2">
         <template v-for="filterButton in updatedFilterButtons">
           <b-button
+            v-if="(filterButton.manageMode && managementModeEnabled) || filterButton.manageMode === false"
             :key="filterButton.key"
             v-b-tooltip.hover.bottom="filterButton.tooltip"
             class="mr-2 mb-1"
@@ -278,6 +279,7 @@ export default {
           state: null,
           count: null,
           icon: 'fas fa-users',
+          manageMode: false,
         },
         {
           key: 'active',
@@ -285,6 +287,7 @@ export default {
           state: STORE_TEAM_STATE.ACTIVE,
           count: null,
           icon: 'fas fa-user',
+          manageMode: false,
         },
         {
           key: 'jumper',
@@ -292,20 +295,31 @@ export default {
           state: STORE_TEAM_STATE.JUMPER,
           count: null,
           icon: 'fas fa-running',
+          manageMode: false,
         },
         {
-          key: 'unverified',
+          key: 'sleeping',
           tooltip: this.$i18n('store.sm.filterSleeping'),
           state: STORE_TEAM_STATE.SLEEPING,
           count: null,
           icon: 'fas fa-bed',
+          manageMode: false,
         },
         {
-          key: 'sleeping',
+          key: 'unverified',
           tooltip: this.$i18n('store.sm.filterUnverified'),
           state: STORE_TEAM_STATE.UNVERIFIED,
           count: null,
           icon: 'fas fa-user-alt-slash',
+          manageMode: true,
+        },
+        {
+          key: 'manage_role',
+          tooltip: this.$i18n('store.sm.filterManage'),
+          state: STORE_TEAM_STATE.MANAGE_ROLE,
+          count: null,
+          icon: 'fas fa-gem',
+          manageMode: true,
         },
       ],
       isReduced: true,
@@ -324,6 +338,8 @@ export default {
           return { ...filter, count: this.unverifiedCount }
         } else if (filter.state === STORE_TEAM_STATE.SLEEPING) {
           return { ...filter, count: this.sleepingMembers }
+        } else if (filter.state === STORE_TEAM_STATE.MANAGE_ROLE) {
+          return { ...filter, count: this.membersHasStoreMangerQuizRole }
         }
         return filter
       })
@@ -342,6 +358,10 @@ export default {
         filtered = filtered.filter(member => member.isJumper)
       } else if (this.activeFilter === STORE_TEAM_STATE.UNVERIFIED) {
         filtered = filtered.filter(member => !member.isVerified)
+      } else if (this.activeFilter === STORE_TEAM_STATE.MANAGE_ROLE) {
+        filtered = filtered.filter(member => member.mayManage)
+      } else if (this.activeFilter === STORE_TEAM_STATE.SLEEPING) {
+        filtered = filtered.filter(member => member.sleepStatus)
       }
       return filtered
     },
@@ -370,6 +390,9 @@ export default {
     sleepingMembers () {
       return this.foodsaver.filter(member => member.sleepStatus).length
     },
+    membersHasStoreMangerQuizRole () {
+      return this.foodsaver.filter(member => member.mayManage).length
+    },
     unverifiedText () {
       return this.unverifiedCount === 1 ? this.$i18n('store.unverified_member') : this.$i18n('store.unverified_members')
     },
@@ -384,6 +407,10 @@ export default {
           return this.$i18n('store.jumping')
         case STORE_TEAM_STATE.UNVERIFIED:
           return this.unverifiedText
+        case STORE_TEAM_STATE.MANAGE_ROLE:
+          return this.$i18n('store.sm.filterManage')
+        case STORE_TEAM_STATE.SLEEPING:
+          return this.$i18n('store.sm.filterSleeping')
         default:
           return this.$i18n('store.sm.filterAll')
       }
