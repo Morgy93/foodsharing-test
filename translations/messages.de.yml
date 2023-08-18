@@ -876,8 +876,7 @@ store:
   regionPickupRulesInactive: "Die zusätzlichen Bezirksregeln für Abholungen sind nicht aktiv"
   regionPickupRuleLong: "Innerhalb von {regionPickupRuleTimespan} Tagen dürfen nicht mehr als insgesamt {regionPickupRuleLimit} Abholungen unter Berücksichtigung aller Betriebe mit Bezirksregeln durchgeführt werden. Pro Tag darf höchstens insgesamt {regionPickupRuleLimitDay}-mal bei diesen Betrieben abgeholt werden. {regionPickupRuleInactive} Stunden vor der Abholung wird diese Regel nicht berücksichtigt."
   sm:
-    buttonManagementToggleOn: "BV-Modus aktivieren"
-    buttonManagementToggleOff: "BV-Modus deaktivieren"
+    buttonManagementToggle: "BV-Modus"
     managementToggleOn: "Ansicht für Betriebsverantwortliche aktivieren"
     managementToggleOff: "Zurück zur Standard-Ansicht"
     managementEffect: "Sortierung nach letztem Abholdatum:"
@@ -890,6 +889,7 @@ store:
     filterAll: "Alle"
     filterActive: "Aktive"
     filterUnverified: "Unverifizierte"
+    filterSleeping: "Schlafmütze"
     filterJumper: "Springer"
     filterQuizSM: "Quiz für Betriebsverantwortliche bestanden"
     removeFromTeam: "Aus dem Team entfernen"

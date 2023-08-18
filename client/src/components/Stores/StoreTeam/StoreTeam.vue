@@ -26,16 +26,16 @@
           href="#"
           @click.prevent="toggleManageControls"
         >
-          {{ managementModeEnabled ? $i18n('store.sm.buttonManagementToggleOff') : $i18n('store.sm.buttonManagementToggleOn') }}
+          {{ $i18n('store.sm.buttonManagementToggle') }}
         </button>
       </div>
 
-      <div class="text-center mb-1">
+      <div class="text-center mb-2">
         <template v-for="filterButton in updatedFilterButtons">
           <b-button
             :key="filterButton.key"
             v-b-tooltip.hover.bottom="filterButton.tooltip"
-            class="mr-2"
+            class="mr-2 mb-1"
             size="sm"
             :variant="getFilterButtonClass(isFilterActive(filterButton.state))"
             @click="applyFilter(filterButton.state)"
@@ -295,6 +295,13 @@ export default {
         },
         {
           key: 'unverified',
+          tooltip: this.$i18n('store.sm.filterSleeping'),
+          state: STORE_TEAM_STATE.SLEEPING,
+          count: null,
+          icon: 'fas fa-bed',
+        },
+        {
+          key: 'sleeping',
           tooltip: this.$i18n('store.sm.filterUnverified'),
           state: STORE_TEAM_STATE.UNVERIFIED,
           count: null,
@@ -315,6 +322,8 @@ export default {
           return { ...filter, count: this.jumperCount }
         } else if (filter.state === STORE_TEAM_STATE.UNVERIFIED) {
           return { ...filter, count: this.unverifiedCount }
+        } else if (filter.state === STORE_TEAM_STATE.SLEEPING) {
+          return { ...filter, count: this.sleepingMembers }
         }
         return filter
       })
@@ -357,6 +366,9 @@ export default {
     },
     activeMembers () {
       return this.foodsaver.filter(member => member.isActive).length
+    },
+    sleepingMembers () {
+      return this.foodsaver.filter(member => member.sleepStatus).length
     },
     unverifiedText () {
       return this.unverifiedCount === 1 ? this.$i18n('store.unverified_member') : this.$i18n('store.unverified_members')

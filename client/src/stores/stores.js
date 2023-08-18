@@ -13,6 +13,7 @@ export const STORE_TEAM_STATE = Object.freeze({
   UNVERIFIED: 0,
   ACTIVE: 1,
   JUMPER: 2,
+  SLEEPING: 3,
 })
 export const store = Vue.observable({
   stores: [],
