@@ -16,6 +16,7 @@
           :fs-id="userId"
           :store-id="storeId"
           :is-coordinator="permissions.isCoordinator"
+          :is-verified="isVerified"
         />
         <StoreWall
           v-if="viewIsMobile"
@@ -148,6 +149,7 @@ export default {
       lastFetchDate: null,
       isJumper: null,
       isManager: null,
+      isVerified: null,
     }
   },
   computed: {
@@ -181,6 +183,7 @@ export default {
     this.checkIsUserInStore()
     this.getLastFetchDate()
     this.getIsManager()
+    this.getIsVerified()
     this.loadRightsInfo()
   },
   methods: {
@@ -194,6 +197,9 @@ export default {
           pulseInfo(this.$i18n('storeedit.team.amb'))
         }
       }
+    },
+    getIsVerified () {
+      this.isVerified = this.storeMember.some(item => item.id === this.userId && item.verified === 1)
     },
     getIsManager () {
       this.isManager = this.storeMember.some(item => item.id === this.userId && item.verantwortlich === 1)

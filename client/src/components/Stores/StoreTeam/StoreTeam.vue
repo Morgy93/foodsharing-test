@@ -26,7 +26,13 @@
           href="#"
           @click.prevent="toggleManageControls"
         >
-          {{ managementModeEnabled ? $i18n('store.sm.buttonManagementToggleOn') : $i18n('store.sm.buttonManagementToggleOff') }}
+          {{ $i18n('store.sm.buttonManagementToggle') }}
+        </button>
+        <button
+          class="btn btn-primary btn-sm"
+          @click="toogleIsReducedState"
+        >
+          {{ toogleIsReducedStateText }}
         </button>
       </div>
 
@@ -333,7 +339,7 @@ export default {
     updatedFilterButtons () {
       return this.filterButtons.map(filter => {
         if (filter.state === null) {
-          return { ...filter, count: this.foodsaver.length }
+          return { ...filter, count: this.allMembers }
         } else if (filter.state === STORE_TEAM_STATE.ACTIVE) {
           return { ...filter, count: this.activeMembers }
         } else if (filter.state === STORE_TEAM_STATE.JUMPER) {
@@ -388,6 +394,9 @@ export default {
     unverifiedCount () {
       return this.foodsaver.filter(member => member.isVerified === false).length
     },
+    allMembers () {
+      return this.foodsaver.length + this.unverifiedCount
+    },
     activeMembers () {
       return this.foodsaver.filter(member => member.isActive).length
     },
@@ -402,6 +411,9 @@ export default {
     },
     activeText () {
       return this.activeMembers === 1 ? this.$i18n('store.one_active') : this.$i18n('store.active')
+    },
+    toogleIsReducedStateText () {
+      return this.isReduced ? this.$i18n('store.sm.toogleIsReducedStateOpen') : this.$i18n('store.sm.toogleIsReducedStateClosed')
     },
     activeFilterText () {
       switch (this.activeFilter) {
@@ -467,6 +479,10 @@ export default {
     resetUserSearchString () {
       this.userSearchString = null
       this.updateList()
+    },
+    toogleIsReducedState () {
+      this.isReduced = !this.isReduced
+      this.isReduced ? this.reduceList() : this.showFullList()
     },
     toggleManageControls () {
       this.sortfun = this.managementModeEnabled ? this.tableSortFunction : this.pickupSortFunction

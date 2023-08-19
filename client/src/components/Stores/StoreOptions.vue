@@ -8,6 +8,7 @@
       :store-id="storeId"
       :may-edit-store="mayEditStore"
       :is-coordinator="isCoordinator"
+      :is-verified="isVerified"
     />
     <button
       v-if="teamConversationId != null && isUserInStore"
@@ -80,6 +81,7 @@ export default {
     isUserInStore: { type: Boolean, default: false },
     isJumper: { type: Boolean, default: false },
     mayDoPickup: { type: Boolean, default: false },
+    isVerified: { type: Boolean, default: false },
   },
   methods: {
     openChat (conversationId) {

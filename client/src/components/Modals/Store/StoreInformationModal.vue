@@ -473,6 +473,7 @@ export default {
     storeId: { type: Number, default: null },
     mayEditStore: { type: Boolean, default: null },
     isCoordinator: { type: Boolean, default: null },
+    isVerified: { type: Boolean, default: false },
   },
   data () {
     return {
@@ -555,7 +556,7 @@ export default {
   async created () {
     // Load data
     this.store = this.storeInformation
-    if (!this.isJumper) {
+    if (!this.isJumper && this.isVerified) {
       await PickupsData.mutations.fetchRegularPickup(this.storeId)
       this.editPickups = this.regularPickup()
     }
