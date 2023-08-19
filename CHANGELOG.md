@@ -70,6 +70,7 @@
 - Restricted the search permissions by role and regions #1642 !2768 @alex.simm
 - Fixed the old paths of working group pictures !2809 @alex.simm 
 - Disable send button in NewThread.vue if body and title is empty !2810 @chriswalg
+- Update member list after adding a member !2811 @chriswalg
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
