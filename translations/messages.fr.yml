@@ -1150,6 +1150,11 @@ store:
       il y a déjà trois managers ou la personne n’a pas encore réussi le quiz.
     filterAll: Tous
     filterActive: actifs
+    buttonManagementToggle: Mode de gestion
+    toogleIsReducedStateOpen: développer la liste
+    filterSleeping: bonnet de couchage
+    toogleIsReducedStateClosed: réduire la liste
+    filterManage: Quiz de responsable de magasin ou supérieur
   springer_conversation_name: Replaçant(e) {name}
   team_conversation_name: Équipe {name}
   days_before: avant
@@ -1235,6 +1240,7 @@ store:
     isfull: L'équipe est pleine
     search_input: Recherche par nom / numéro de téléphone
     search_reset: Réinitialiser la recherche
+    no_record: Aucune entrée n'a été trouvée.
   leaveinfo: Ici, tu peux indiquer quelques informations pour les collecteurs.rices
     qui souhaitent postuler pour faire partie de l'équipe.
   prefetchfour: 4 semaines
