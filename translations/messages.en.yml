@@ -1836,6 +1836,11 @@ store:
       the quiz yet.
     filterAll: All
     filterActive: Active
+    buttonManagementToggle: Management mode
+    toogleIsReducedStateOpen: expand list
+    filterManage: Store manager quiz or above
+    toogleIsReducedStateClosed: collapse list
+    filterSleeping: sleepyhead
   address: Address
   may_referred_to_in_public: This store may be referred to in public.
   isNotVerified: Is not yet verified.
@@ -1886,6 +1891,7 @@ store:
     isfull: Team is full
     search_input: Search for name / phone number
     search_reset: reset search
+    no_record: No record found.
   filter: Filter by …
   enterdate: Add pick-up date
   enternumber: You need to select the number of people who can pick up.
