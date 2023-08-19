@@ -2245,6 +2245,11 @@ store:
       er tre ledere eller personen ennå ikke har bestått quizen.
     filterAll: alle
     filterActive: aktive
+    filterSleeping: Søvnhode
+    buttonManagementToggle: administrere
+    toogleIsReducedStateOpen: utvide listen
+    toogleIsReducedStateClosed: kollaps liste
+    filterManage: Samarbeidsoffiser-quiz eller høyere
   address: Adresse
   attribution: Attribusjon
   unknownDate: ukjent
@@ -2308,6 +2313,7 @@ store:
     isfull: Laget er fullt
     search_input: Søk på navn/tlf.nr.
     search_reset: tilbakestill søket
+    no_record: Ingen post funnet.
   enterdate: Skriv inn hentedato
   maxchar: (maks. 180 tegn)
   nodetails: Ikke oppgi nøyaktige hentetider her.
