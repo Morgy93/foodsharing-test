@@ -3256,6 +3256,8 @@ notifications:
   checkbox_push: notifications push
   foodSharePoints:
     title: Frigo solidaire
+    description: Reçois des notifications de nouveaux messages sur les tableau Fairteiler
+      que tu suis.
   checkbox_bell: Cloche
   checkbox_disabled: désactivé
   success: Enregistré avec succès
