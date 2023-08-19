@@ -914,6 +914,7 @@ store:
     no-duplicate: 'Es existiert bereits eine Anfrage.'
     title: "Anfragen für {storeTitle}"
     verified: "Nutzer*in ist verifiziert"
+    unverified: "Nutzer*in ist nicht verifiziert"
     to-team: "Aufnehmen"
     to-jumper: "Springerliste"
     to-nowhere: "Ablehnen"

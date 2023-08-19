@@ -97,10 +97,6 @@ export default {
       type: Number,
       default: null,
     },
-    isJumper: {
-      type: Boolean,
-      default: null,
-    },
     mayDoPickup: {
       type: Boolean,
       default: null,
@@ -124,27 +120,15 @@ export default {
       return PickupsData.getters.getPickups()
     },
   },
-  watch: {
-    isJumper (newValue) {
-      if (newValue === false && this.mayDoPickup) {
-        this.loadPickups()
-      }
-    },
-    mayDoPickup (newValue) {
-      if (newValue && this.isJumper === false) {
-        this.loadPickups()
-      }
-    },
-  },
-  created () {
-    this.loadPickups()
+  async created () {
+    await this.loadPickups()
   },
   destroyed () {
     clearInterval(this.interval)
   },
   methods: {
     async loadPickups () {
-      if (this.isJumper === false && this.mayDoPickup) {
+      if (this.mayDoPickup) {
         await this.tryLoadPickups()
         // pull for updates every 30 seconds
         this.interval = setInterval(() => {

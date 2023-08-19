@@ -30,7 +30,7 @@
 
         <div class="name font-weight-bolder flex-grow-1 mx-3">
           <i
-            v-b-tooltip.hover="$i18n('store.request.verified')"
+            v-b-tooltip.hover="request.verified ? $i18n('store.request.verified') : $i18n('store.request.unverified')"
             class="fas fa-fw mr-1"
             :class="{'fa-user-check': request.verified, 'fa-user-slash': !request.verified}"
           />

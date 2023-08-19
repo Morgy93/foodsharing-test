@@ -28,18 +28,12 @@
         >
           {{ $i18n('store.sm.buttonManagementToggle') }}
         </button>
-        <button
-          class="btn btn-primary btn-sm"
-          @click="toogleIsReducedState"
-        >
-          {{ toogleIsReducedStateText }}
-        </button>
       </div>
 
       <div class="text-center mb-2">
         <template v-for="(filterButton, index) in updatedFilterButtons">
           <br
-            v-if="index === 4"
+            v-if="index === 3"
             :key="index"
           >
           <b-button
@@ -313,7 +307,7 @@ export default {
           state: STORE_TEAM_STATE.SLEEPING,
           count: null,
           icon: 'fas fa-bed',
-          manageMode: false,
+          manageMode: true,
         },
         {
           key: 'unverified',
@@ -395,7 +389,7 @@ export default {
       return this.foodsaver.filter(member => member.isVerified === false).length
     },
     allMembers () {
-      return this.foodsaver.length + this.unverifiedCount
+      return this.activeMembers + this.jumperCount
     },
     activeMembers () {
       return this.foodsaver.filter(member => member.isActive).length
@@ -479,10 +473,6 @@ export default {
     resetUserSearchString () {
       this.userSearchString = null
       this.updateList()
-    },
-    toogleIsReducedState () {
-      this.isReduced = !this.isReduced
-      this.isReduced ? this.reduceList() : this.showFullList()
     },
     toggleManageControls () {
       this.sortfun = this.managementModeEnabled ? this.tableSortFunction : this.pickupSortFunction

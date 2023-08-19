@@ -39,7 +39,7 @@
       </div>
       <div class="col">
         <div
-          v-if="permissions.isJumper"
+          v-if="permissions.isJumper && !permissions.mayEditStore"
           class="alert alert-info"
           role="alert"
         >
@@ -84,8 +84,7 @@
           :region-pickup-rule-inactive="regionPickupRule.regionPickupRuleInactive"
         />
         <PickupList
-          v-if="!permissions.isJumper && permissions.mayDoPickup"
-          :is-jumper="permissions.isJumper"
+          v-if="permissions.mayDoPickup"
           :may-do-pickup="permissions.mayDoPickup"
           :store-id="storeId"
           :store-title="storeInformation.name"

@@ -259,7 +259,7 @@ class StoreRestController extends AbstractFOSRestController
 
             if (!$isOrgUser) {
                 $storeGroup = $this->groupFunctionGateway->getRegionFunctionGroupId($store['bezirk_id'], WorkgroupFunction::STORES_COORDINATION);
-                if (empty($storeGroup)) {
+                if (!empty($storeGroup)) {
                     if ($this->session->isAdminFor($store['bezirk_id'])) {
                         $isAmbassador = true;
                     }
