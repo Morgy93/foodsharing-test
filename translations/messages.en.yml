@@ -1806,6 +1806,7 @@ store:
     got-it: The responsibles have been informed of your request and will get in touch
       with you.
     no-duplicate: There is already a request.
+    unverified: User is not verified
   sm:
     reallyRemove: Do you really want to remove {name} from the store team?
     removeFromTeam: Remove from the team
