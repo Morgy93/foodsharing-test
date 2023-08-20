@@ -2269,6 +2269,7 @@ store:
     withdrawn: Søknaden ble trukket.
     no-duplicate: En forespørsel eksisterer allerede.
     verified: Brukeren er bekreftet
+    unverified: Brukeren er ikke verifisert
   team_conversation_name: '{name}-laget'
   appliedFor: Forespørsel fremsatt
   bread: Alle virksomheter
