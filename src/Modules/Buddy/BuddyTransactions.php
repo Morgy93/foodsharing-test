@@ -52,7 +52,7 @@ class BuddyTransactions
         $this->bellGateway->addBell($userId, Bell::create(
             'buddy_request_title',
             'buddy_request',
-            $this->session->user('photo'),
+            $this->session->user('photo') ?? '',
             ['href' => '/profile/' . (int)$this->session->id()],
             ['name' => $this->session->user('name')],
             BellType::createIdentifier(BellType::BUDDY_REQUEST, $this->session->id(), $userId)
