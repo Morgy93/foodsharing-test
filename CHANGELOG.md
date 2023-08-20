@@ -67,7 +67,7 @@
 - catches bell-closing bug if no bell was found (symptom treatment) !2766 @martincodes_de
 - Pickup options can no longer be loaded multiple times in the pickup table !2779 @AntonBallmaier
 - Temporarily disable store page and member page for Europe and Germany !2777 !2788 @alex.simm
-- Restricted the search permissions by role and regions #1642 !2768 @alex.simm
+- Restricted the search permissions by role and regions #1642 !2768 !2815 @alex.simm
 - Fixed the old paths of working group pictures !2809 @alex.simm 
 - Disable send button in NewThread.vue if body and title is empty !2810 @chriswalg
 - Update member list after adding a member !2811 @chriswalg
