@@ -16,7 +16,7 @@
           :fs-id="userId"
           :store-id="storeId"
           :is-coordinator="permissions.isCoordinator"
-          :is-verified="isVerified"
+          :is-verified="isVerified()"
         />
         <StoreWall
           v-if="viewIsMobile"
@@ -104,12 +104,6 @@
         />
       </div>
     </div>
-    <StoreApplications
-      :store-id="storeId"
-      :store-title="storeInformation.name"
-      :request-count="applications.requestCount"
-      :store-requests="applications.storeRequests"
-    />
   </section>
 </template>
 
@@ -121,7 +115,6 @@ import StoreInfos from '@/components/Stores/StoreInfos.vue'
 import PickupHistory from '@/components/Stores/PickupHistory.vue'
 import StoreWall from '@/components/Stores/StoreWall.vue'
 import PickupList from '@/components/Stores/PickupList.vue'
-import StoreApplications from '@/components/Modals/Store/StoreApplications.vue'
 import DataUser from '@/stores/user'
 import StoreData from '@/stores/stores'
 import { pulseInfo } from '@/script'
@@ -134,7 +127,6 @@ export default {
     PickupHistory,
     StoreWall,
     PickupList,
-    StoreApplications,
   },
   mixins: [MediaQueryMixin],
   props: {
@@ -146,12 +138,12 @@ export default {
     return {
       isUserInStore: false,
       lastFetchDate: null,
-      isJumper: null,
-      isManager: null,
-      isVerified: null,
     }
   },
   computed: {
+    isVerified () {
+      return DataUser.getters.isVerified
+    },
     userId () {
       return DataUser.getters.getUserId()
     },
@@ -167,27 +159,20 @@ export default {
     regionPickupRule () {
       return StoreData.getters.getStoreRegionOptions()
     },
-    applications () {
-      return StoreData.getters.getStoreApplications()
-    },
   },
   async mounted () {
     await StoreData.mutations.loadPermissions(this.storeId)
+    await DataUser.mutations.fetchDetails()
     await StoreData.mutations.loadStoreInformation(this.storeId)
     await StoreData.mutations.loadGetRegionOptions(this.storeInformation.region.id)
     await StoreData.mutations.loadStoreMember(this.storeId)
-    if (this.permissions.mayEditStore) {
-      await StoreData.mutations.loadStoreApplications(this.storeId)
-    }
     this.checkIsUserInStore()
     this.getLastFetchDate()
-    this.getIsManager()
-    this.getIsVerified()
     this.loadRightsInfo()
   },
   methods: {
     loadRightsInfo () {
-      if (this.permissions.mayEditStore && !this.isManager) {
+      if (this.permissions.mayEditStore && !this.permissions.isManager) {
         if (this.permissions.isOrgUser) {
           pulseInfo(this.$i18n('storeedit.team.orga'))
         } else if (this.permissions.isCoordinator) {
@@ -196,12 +181,6 @@ export default {
           pulseInfo(this.$i18n('storeedit.team.amb'))
         }
       }
-    },
-    getIsVerified () {
-      this.isVerified = this.storeMember.some(item => item.id === this.userId && item.verified === 1)
-    },
-    getIsManager () {
-      this.isManager = this.storeMember.some(item => item.id === this.userId && item.verantwortlich === 1)
     },
     checkIsUserInStore () {
       this.isUserInStore = this.storeMember.some(item => item.id === this.userId)

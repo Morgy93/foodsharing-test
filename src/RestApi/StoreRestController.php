@@ -273,6 +273,7 @@ class StoreRestController extends AbstractFOSRestController
                 'isAmbassador' => $isAmbassador,
                 'isOrgUser' => $isOrgUser,
                 'isJumper' => $store['jumper'],
+                'isManager' => $store['verantwortlich'],
                 'mayDoPickup' => $this->storePermissions->mayDoPickup($storeId),
                 'teamConversationId' => $teamConversationId,
                 'jumperConversationId' => $jumperConversationId,

@@ -3,7 +3,6 @@
   <div class="store-applications bootstrap">
     <b-modal
       id="requests"
-      :visible="!!requests.length"
       :title="$i18n('store.request.title', { storeTitle })"
       header-class="d-flex"
       hide-footer
@@ -77,7 +76,6 @@ export default {
     storeId: { type: Number, required: true },
     storeTitle: { type: String, default: '' },
     storeRequests: { type: Array, default: () => [] },
-    requestCount: { type: Number, default: 99999 },
   },
   data () {
     return {

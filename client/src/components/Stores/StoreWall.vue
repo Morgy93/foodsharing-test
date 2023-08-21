@@ -101,16 +101,9 @@ export default {
       return (this.showOnlyExcerpt && !this.isExcerptListExpanded) ? (this.posts && this.posts.length > this.numberOfVisiblePostsPerExcerptIteration) : false
     },
   },
-  watch: {
-    mayReadStoreWall (newValue) {
-      if (newValue) {
-        this.loadPosts()
-      }
-    },
-  },
-  created () {
+  async created () {
     if (this.mayReadStoreWall) {
-      this.loadPosts()
+      await this.loadPosts()
     }
   },
   methods: {

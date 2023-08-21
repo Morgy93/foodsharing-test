@@ -473,7 +473,7 @@ export default {
     storeId: { type: Number, default: null },
     mayEditStore: { type: Boolean, default: null },
     isCoordinator: { type: Boolean, default: null },
-    isVerified: { type: Boolean, default: false },
+    isVerified: { type: Boolean, default: null },
   },
   data () {
     return {

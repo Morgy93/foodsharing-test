@@ -813,7 +813,7 @@ storeview:
 
 store:
   bread: "Alle Betriebe" #also in MapView
-  actions: "Optionen"
+  requests: "Offene Anfragen ({count})"
   chat:
     team: "Nachricht ans Team"
     jumper: "Nachricht an Springer"
