@@ -144,6 +144,7 @@
 - added functionallity to new FoodsharingControllers to prepare and render vue components !2730 @martincodes-de
 - Updated some backend dependencies !2721 @chriswalg
 - Remove migration to remove linebreaks in forum posts #1438 !2817 @chriswalg
+- Show beta or dev in Logo !2812 @chriswalg
 
 ## Development documentation
 
