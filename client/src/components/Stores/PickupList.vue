@@ -28,10 +28,10 @@
         :class="{disabledLoading: isLoading}"
         class="pickup-list card-body"
       >
-        <div v-if="!hasPickups">
+        <div v-if="pickups.length <= 0">
           {{ $i18n('pickup.no_slots_available') }}
         </div>
-        <div v-if="hasPickups">
+        <div v-if="pickups.length">
           <Pickup
             v-for="pickup in pickups"
             :key="pickup.date.valueOf()"
@@ -108,7 +108,6 @@ export default {
   },
   data () {
     return {
-      hasPickups: false,
       isLoading: false,
       isModalOpen: false,
       user: DataUser.getters.getUser(),
@@ -142,7 +141,6 @@ export default {
       if (!silent) this.isLoading = true
       try {
         await PickupsData.mutations.loadPickups(this.storeId)
-        this.hasPickups = this.pickups.length > 0
       } catch (e) {
         pulseError(this.$i18n('pickuplist.error_loadingPickup') + e)
       }

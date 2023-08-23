@@ -28,6 +28,14 @@
         >
           {{ $i18n('store.sm.buttonManagementToggle') }}
         </button>
+        <button
+          v-if="applications.storeRequests && applications.storeRequests.length > 0"
+          class="btn btn-danger btn-sm"
+          href="#"
+          @click="$bvModal.show('requests')"
+        >
+          {{ $i18n('store.requests', { count: applications.storeRequests.length}) }}
+        </button>
       </div>
 
       <div class="text-center mb-2">
@@ -233,6 +241,11 @@
     >
       {{ $i18n('really_delete') }}
     </b-modal>
+    <StoreApplications
+      :store-id="storeId"
+      :store-title="storeTitle"
+      :store-requests="applications.storeRequests"
+    />
   </div>
 </template>
 
@@ -244,7 +257,6 @@ import {
 import phoneNumber from '@/helper/phone-numbers'
 import { chat, pulseSuccess, pulseError } from '@/script'
 import MediaQueryMixin from '@/mixins/MediaQueryMixin'
-
 import StoreManagementPanel from '@/components/Stores/StoreTeam/StoreManagementPanel.vue'
 import StoreTeamAvatar from '@/components/Stores/StoreTeam/StoreTeamAvatar.vue'
 import StoreTeamInfo from '@/components/Stores/StoreTeam/StoreTeamInfo.vue'
@@ -252,9 +264,10 @@ import StoreTeamInfotext from '@/components/Stores/StoreTeam/StoreTeamInfotext.v
 import StoreData, { STORE_TEAM_STATE } from '@/stores/stores'
 import Container from '@/components/Container/Container.vue'
 import ListToggleMixin from '@/mixins/ContainerToggleMixin'
+import StoreApplications from '@/components/Modals/Store/StoreApplications.vue'
 
 export default {
-  components: { StoreManagementPanel, StoreTeamAvatar, StoreTeamInfo, StoreTeamInfotext, Container },
+  components: { StoreManagementPanel, StoreTeamAvatar, StoreTeamInfo, StoreTeamInfotext, Container, StoreApplications },
   mixins: [MediaQueryMixin, ListToggleMixin],
   props: {
     fsId: { type: Number, required: true },
@@ -330,6 +343,9 @@ export default {
     }
   },
   computed: {
+    applications () {
+      return StoreData.getters.getStoreApplications()
+    },
     updatedFilterButtons () {
       return this.filterButtons.map(filter => {
         if (filter.state === null) {
@@ -435,7 +451,10 @@ export default {
       this.updateList()
     },
   },
-  mounted () {
+  async mounted () {
+    if (this.mayEditStore) {
+      await StoreData.mutations.loadStoreApplications(this.storeId)
+    }
     this.setDefaultAmountForDesktop(this.defaultAmountForDesktop)
     this.setDefaultAmountForMobile(this.defaultAmountForMobile)
   },

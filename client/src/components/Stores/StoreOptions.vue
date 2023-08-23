@@ -1,58 +1,44 @@
 <template>
-  <div>
-    <Container
-      :title="storeName"
-      tag="store_options"
-    >
-      <StoreInformationModal
-        :is-jumper="isJumper"
-        :store-id="storeId"
-        :may-edit-store="mayEditStore"
-        :is-coordinator="isCoordinator"
-        :is-verified="isVerified"
-      />
-      <button
-        v-if="applications.storeRequests && applications.storeRequests.length > 0"
-        type="button"
-        class="list-group-item list-group-item-action"
-        @click="$bvModal.show('requests')"
-        v-text="$i18n('store.requests', { count: applications.storeRequests.length})"
-      />
-      <button
-        v-if="teamConversationId != null && isUserInStore"
-        type="button"
-        class="list-group-item list-group-item-action"
-        @click="openChat(teamConversationId)"
-        v-text="$i18n('store.chat.team')"
-      />
-      <button
-        v-if="jumperConversationId != null && isUserInStore || isJumper"
-        type="button"
-        class="list-group-item list-group-item-action"
-        @click="openChat(jumperConversationId)"
-        v-html="$i18n('store.chat.jumper')"
-      />
-      <button
-        type="button"
-        class="list-group-item list-group-item-action"
-        @click="$bvModal.show('storeInformationModal')"
-        v-text="$i18n('storeview.show_information')"
-      />
-      <button
-        v-if="mayLeaveStoreTeam && isUserInStore || isJumper"
-        type="button"
-        class="list-group-item list-group-item-action"
-        href="#"
-        @click="removeFromTeam(fsId, $i18n('storeedit.team.leave_myself'))"
-        v-text="$i18n('storeedit.team.leave')"
-      />
-    </Container>
-    <StoreApplications
+  <Container
+    :title="storeName"
+    tag="store_options"
+  >
+    <StoreInformationModal
+      :is-jumper="isJumper"
       :store-id="storeId"
-      :store-title="storeName"
-      :store-requests="applications.storeRequests"
+      :may-edit-store="mayEditStore"
+      :is-coordinator="isCoordinator"
+      :is-verified="isVerified"
     />
-  </div>
+    <button
+      v-if="teamConversationId != null && isUserInStore"
+      type="button"
+      class="list-group-item list-group-item-action"
+      @click="openChat(teamConversationId)"
+      v-text="$i18n('store.chat.team')"
+    />
+    <button
+      v-if="jumperConversationId != null && isUserInStore || isJumper"
+      type="button"
+      class="list-group-item list-group-item-action"
+      @click="openChat(jumperConversationId)"
+      v-html="$i18n('store.chat.jumper')"
+    />
+    <button
+      type="button"
+      class="list-group-item list-group-item-action"
+      @click="$bvModal.show('storeInformationModal')"
+      v-text="$i18n('storeview.show_information')"
+    />
+    <button
+      v-if="mayLeaveStoreTeam && isUserInStore || isJumper"
+      type="button"
+      class="list-group-item list-group-item-action"
+      href="#"
+      @click="removeFromTeam(fsId, $i18n('storeedit.team.leave_myself'))"
+      v-text="$i18n('storeedit.team.leave')"
+    />
+  </Container>
 </template>
 
 <script>
@@ -62,12 +48,9 @@ import DataUser from '@/stores/user'
 import { removeStoreMember } from '@/api/stores'
 import StoreInformationModal from '@/components/Modals/Store/StoreInformationModal.vue'
 import Container from '@/components/Container/Container.vue'
-import StoreApplications from '@/components/Modals/Store/StoreApplications.vue'
-import StoreData from '@/stores/stores'
 
 export default {
   components: {
-    StoreApplications,
     StoreInformationModal,
     Container,
   },
@@ -99,16 +82,6 @@ export default {
     isJumper: { type: Boolean, default: false },
     mayDoPickup: { type: Boolean, default: false },
     isVerified: { type: Boolean, default: false },
-  },
-  computed: {
-    applications () {
-      return StoreData.getters.getStoreApplications()
-    },
-  },
-  async mounted () {
-    if (this.mayEditStore) {
-      await StoreData.mutations.loadStoreApplications(this.storeId)
-    }
   },
   methods: {
     openChat (conversationId) {

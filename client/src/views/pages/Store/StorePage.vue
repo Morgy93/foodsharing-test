@@ -16,7 +16,7 @@
           :fs-id="userId"
           :store-id="storeId"
           :is-coordinator="permissions.isCoordinator"
-          :is-verified="isVerified()"
+          :is-verified="isVerified"
         />
         <StoreWall
           v-if="viewIsMobile"
@@ -46,7 +46,7 @@
           {{ $i18n('store.willgetcontacted') }}
         </div>
         <div
-          v-if="!permissions.mayDoPickup && !permissions.isJumper"
+          v-if="!permissions.mayDoPickup && !permissions.isJumper && !isVerified"
           class="alert alert-info"
           role="alert"
         >
@@ -142,7 +142,7 @@ export default {
   },
   computed: {
     isVerified () {
-      return DataUser.getters.isVerified
+      return DataUser.getters.isVerified()
     },
     userId () {
       return DataUser.getters.getUserId()

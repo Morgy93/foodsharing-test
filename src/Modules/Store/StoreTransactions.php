@@ -912,7 +912,7 @@ class StoreTransactions
         $storeName = $this->storeGateway->getStoreName($storeId);
 
         $bellData = Bell::create('store_new_request_title', 'store_new_request', 'fas fa-user-plus', [
-            'href' => '/?page=fsbetrieb&id=' . $storeId,
+            'href' => '/store/' . $storeId,
         ], [
             'user' => $this->session->user('name'),
             'name' => $storeName,

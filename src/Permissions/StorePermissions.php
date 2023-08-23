@@ -117,7 +117,7 @@ class StorePermissions
 
         $storeRegion = $this->storeGateway->getStoreRegionId($storeId);
         $storeGroup = $this->groupFunctionGateway->getRegionFunctionGroupId($storeRegion, WorkgroupFunction::STORES_COORDINATION);
-        if (!empty($storeGroup)) {
+        if (empty($storeGroup)) {
             if ($this->session->isAdminFor($storeRegion)) {
                 return true;
             }
@@ -228,7 +228,7 @@ class StorePermissions
         // Check store mannager role by group of region
         $storeRegion = $this->storeGateway->getStoreRegionId($storeId);
         $storeGroup = $this->groupFunctionGateway->getRegionFunctionGroupId($storeRegion, WorkgroupFunction::STORES_COORDINATION);
-        if (!empty($storeGroup)) {
+        if (empty($storeGroup)) {
             if ($this->session->isAdminFor($storeRegion)) {
                 return true;
             }
