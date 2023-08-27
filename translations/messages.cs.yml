@@ -1094,6 +1094,7 @@ bell:
   new_foodsaver_title: ''
   new_foodsaver: ''
   store_wallpost: ''
+  forum_post_title: '{title}'
 genderlist:
   home_district_tab: ''
   gender_female: ''
