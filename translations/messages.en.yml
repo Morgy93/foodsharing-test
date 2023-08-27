@@ -1180,6 +1180,10 @@ bell:
   store_request_imposed_title: '{name}'
   foodsaver_verified_title: You are now verified!
   foodsaver_verified: check your ID at...
+  forum_post_title: '{title}'
+  forum_post:
+    one: New post by {user} in forum {forum}
+    many: '{count} new posts in the forum {forum}'
 reports:
   time: Time
   region: Home district
@@ -1957,6 +1961,7 @@ store:
   info_container: Information
   not_verified: You are unverified. Therefore you cannot see pickup slots and phone
     numbers of team members.
+  requests: Open requests ({count})
 search:
   mygroups: My groups
   mybuddies: My buddies
