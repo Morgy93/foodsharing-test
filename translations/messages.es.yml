@@ -1188,6 +1188,7 @@ bell:
   store_new_title: ''
   no_bells: ''
   blog_new_check: ''
+  forum_post_title: '{title}'
 foodsaver:
   restricted: ''
   upgrade:
