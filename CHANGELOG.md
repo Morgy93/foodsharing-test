@@ -72,6 +72,7 @@
 - Disable send button in NewThread.vue if body and title is empty !2810 @chriswalg
 - Update member list after adding a member !2811 @chriswalg
 - Fix missing thumbnails in store team list !2818 @chriswalg
+- Fix that the region chooser does not show lower regions when changing a higher region !2823 @alex.simm
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
