@@ -1276,6 +1276,7 @@ store:
     ».
   not_verified: Vous n'êtes pas encore vérifié. Par conséquent, vous ne pouvez pas
     voir les créneaux horaires et les numéros de téléphone des membres de l'équipe.
+  requests: Demandes ouvertes ({count})
 storeview:
   want_to_fetch: J'aimerais m'engager dans cette équipe.
   specials: Particularités
@@ -2348,6 +2349,10 @@ bell:
   foodsaver_verified_title: Tu es désormais vérifié !
   new_foodsaver_needs_verification: Doit être vérifié
   foodsaver_verified: Récupère ta carte de collecteur.rice ici...
+  forum_post_title: '{title}'
+  forum_post:
+    one: Nouveau message de {user} dans le forum {forum}
+    many: '{count} nouveaux messages sur le forum {forum}'
 personal_data:
   landline: Numéro de fixe
   mobile: Numéro de portable
@@ -2493,9 +2498,10 @@ releases:
   "2020-12": Version « fruit du dragon » (décembre 2020)
   "2021-03": Version « fraise » 🍓 (mars 2021)
   "2021-09": Version « Figue » 🥧 (septembre 2021)
-  "2022-01": Version "Grapefruit" 🍋 (janvier 2022)
+  "2022-01": Version « Grapefruit » 🍋 (janvier 2022)
   "2022-05": Version "myrtille" 🍇 (mai 2022)
-  "2022-12": Version "Icecream" 🍨 (décembre 2022)
+  "2022-12": Version « Icecream » 🍨 (décembre 2022)
+  "2023-08": Version « Jacquier » 🍈 (août 2023)
 startpage:
   donate:
     text: "Nous nous efforçons de faire parrainer toutes nos dépenses. Cependant,
