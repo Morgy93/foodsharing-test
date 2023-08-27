@@ -1691,6 +1691,7 @@ bell:
   foodsaver_verified_title: ''
   foodsaver_verified: ''
   new_foodsaver_needs_verification: ''
+  forum_post_title: '{title}'
 content:
   edit: Modifica pagina
   new_success: La pagina è stata creata
