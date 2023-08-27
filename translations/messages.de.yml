@@ -2072,8 +2072,8 @@ dashboard:
     regions: "Deine Bezirke" #also in searchindexgenerator
     groups: "Deine Gruppen" #also in searchindexgenerator
     stores: "Deine Betriebe"
-    managing_stores: "Deine verantwortlichen Betriebe"
-    jumping_stores: "Deine Springer Betriebe"
+    managing_stores: "Deine Betriebsverantwortungen"
+    jumping_stores: "Deine Springerbetriebe"
     events: "Events"
     baskets: "Essenskörbe"
     pending: "Anfragen gestellt bei"
