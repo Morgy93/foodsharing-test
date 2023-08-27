@@ -1234,6 +1234,10 @@ bell:
   foodsaver_verified_title: Du er nå verifisert!
   new_foodsaver_needs_verification: må verifiseres
   foodsaver_verified: Hent ID-en din under...
+  forum_post_title: '{title}'
+  forum_post:
+    one: Nytt innlegg av {user} i forumet {forum}
+    many: '{count} nye innlegg i forumet {forum}'
 reports:
   when: Tid
   time: Tid
@@ -2377,6 +2381,7 @@ store:
   not_verified: Du er ikke bekreftet ennå. Derfor kan du ikke se noen spilleautomater
     og telefonnumre til teammedlemmer.
   info_container: Informasjon
+  requests: Åpne forespørsler ({count})
 storeview:
   status: Nåværende status
   public_time_at_night: om natten
@@ -2726,6 +2731,7 @@ releases:
   "2022-05": Versjon "Blåbær" 🍇 (Mai 2022)
   "2022-01": Versjon "Grapefrukt" 🍋 (Januar 2022)
   "2022-12": Utgivelse "Iskrem" 🍨 (desember 2022)
+  "2023-08": Versjon «Jackfrukt» 🍈 (august 2023)
 push_notifications:
   test_notification_title: Push-varsler er aktivert
   test_notification_body: Flott, det ser ut til å ha fungert :)
