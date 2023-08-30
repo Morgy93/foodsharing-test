@@ -152,7 +152,7 @@ class StoreCest
                 'active' => MembershipStatus::MEMBER,
                 'verantwortlich' => 1,
             ]);
-            $I->see('Deine verantwortlichen Betriebe', ['css' => '.list-group-header']);
+            $I->see('Deine Betriebsverantwortungen', ['css' => '.list-group-header']);
             $I->see($this->store['name'], ['css' => '.field-headline']);
             $I->seeElement('.fas.fa-cog');
         }
