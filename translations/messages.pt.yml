@@ -24,3 +24,7 @@ fs_id: ID-Foodsharing
 lat: Latitude
 lon: Longitude
 telefon: Número de telefone fixo (com código do país, começa com +)
+stadt: Sua cidade ou município
+bezirk: Distrito
+betrieb: Cooperação comercial
+active: Activado
