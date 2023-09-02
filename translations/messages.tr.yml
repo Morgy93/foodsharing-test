@@ -1043,6 +1043,9 @@ store:
   maxchar: (maks. 180 İşaret)
   team:
     isfull: Grup dolu
+    search_input: Ada/telefon numarasına göre ara
+    search_reset: Arama formunu sıfırla
+    no_record: Arama sonucu yok.
   enternumber: Alacak insan sayısını belirlemeniz gerekiyor.
   prefetchone: 1 Hafta
   leaveinfo: Burada ekibe başvurmak isteyen Foodsaverlar için bazı bilgiler verebilirsiniz.
@@ -1122,6 +1125,8 @@ store:
   particularities_chain: Zincirin özellikleri
   info_container: Bilgiler
   requests: Açık istekler ({count})
+  not_verified: Doğrulanmadınız. Bu nedenle ekip üyelerinin slotlarını ve telefon
+    numaralarını göremezsiniz.
 polls:
   title: Başlık
   new_poll: Yeni Anket oluştur
@@ -2426,6 +2431,7 @@ terminology:
     f: Organizatör
     d: Organizatör
   reports: Raporlama Görünümü (Yerel raporlama grubu)
+  n_home_regions: o ana bölgeye sahip bir kişi|İşte %count% kişilik ana bölge
 legal:
   if_delete:
     this_doesnt_get_deleted: 'Aşağıdaki bilgiler artık aktif sistemde mevcut değildir,
@@ -2685,6 +2691,7 @@ pickup:
     slotscount: '{count} Toplayıcılar'
     disable_auto_slot: Otomatik Slot gelecekteki devre dışı bırakılsın.
     slot_titel: Slotlar
+    description_titel: Açıklama
   overview:
     status:
       confirmed: Onaylandı
@@ -2782,6 +2789,8 @@ pickup:
   leave: Çıkış yap
   really_leave_date: Bu alımdan siz sorumlusunuz. Lütfen yerinize birilerini ayarlayın.
   leave_pickup_ok: Yedek birini buldum bile
+  description_optional: Açıklama (isteğe bağlı)
+  description: Açıklamayı düzenle
 calendar:
   export:
     pickup:
