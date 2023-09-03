@@ -561,6 +561,9 @@ bell:
   banana_given: ''
   banana_given_title: ''
   forum_post_title: '{title}'
+  forum_post:
+    many: “{forum}” forumunda {count} yeni gönderi
+    one: '{user} “{forum}” forumunda yeni bir yazı yazdı'
 sig:
   buddies: Tanıdığın insanlar
 error:
@@ -1982,6 +1985,7 @@ forum:
       non_active: devre dışı
       title: Posta gönderimi
       active: aktifleştirildi
+      activate: etkinleştir
     with_mail: Konu açıldı ve herkes bu konuda e-posta ile bilgilendirildi
     activate: Konuyu etkinleştir
     too_big_to_mail: Bu konu için, bir ülke veya eyalet olduğundan, dolayı e-posta
@@ -2790,7 +2794,8 @@ pickup:
   really_leave_date: Bu alımdan siz sorumlusunuz. Lütfen yerinize birilerini ayarlayın.
   leave_pickup_ok: Yedek birini buldum bile
   description_optional: Açıklama (isteğe bağlı)
-  description: Açıklamayı düzenle
+  description: Açıklaması
+  edit_description: Açıklamayı düzenle
 calendar:
   export:
     pickup:
