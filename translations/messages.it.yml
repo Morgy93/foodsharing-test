@@ -650,8 +650,7 @@ legal:
     this_gets_deleted_stores: Aziende a cui ti sei uniti.
     this_gets_deleted_quiz: Il tuo quiz Foodsaver sarà rimosso.
     this_gets_deleted_verify: La tua verifica sarà rimossa.
-    legal_2: Qui puoi trovare <a href="https://www.dsgvo.tools/aufbewahrungsfristen/"
-      target="_blank">come le leggi si relazionano tra loro. (Pagina in tedesco)</a>
+    legal_2: Leggi sui periodi di conservazione (Pagina in tedesco)
 fsp:
   followName: seguire il divisore {name}
   follow: Segui questo equo divisore
