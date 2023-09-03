@@ -65,7 +65,6 @@
 - removed styleguide from non-dev environments #1636 !2745 @sefn
 - fixed map storing chat status independantly from all other pages #1598 !2732 @florianunsinn
 - Fixed the loading of wall posts associated with reports !2770 #1648 @alex.simm
-- catches bell-closing bug if no bell was found (symptom treatment) @martincodes_de
 - catches bell-closing bug if no bell was found (symptom treatment) !2766 @martincodes_de
 - Pickup options can no longer be loaded multiple times in the pickup table !2779 @AntonBallmaier
 - Temporarily disable store page and member page for Europe and Germany !2777 !2788 @alex.simm
@@ -83,7 +82,6 @@
 - Use Store DTO in StoreGateway !2515 !2611 @KoeMai
 - Move business logic for editing store into StoreTransaction !2515 @KoeMai
 - Fix TeamStoreStatus and move getStoreMarkers to StoreGateway !2560 @KoeMai
-- added poppins font in Styleguide !2564 @Niklas003
 - Replace the region tree with a new vue component #1623 !2483 !2747 !2774 @alex.simm
 - Move uploadlogic and actions from controller to transactionclass for reuse !2478 @martncodes-de
 - Reimplement create new forum thread in vue js !2627 !2748 @chriswalg
@@ -93,11 +91,8 @@
 - Replaced the history dialogs on profile pages with a vue component !2587 @alex.simm
 - Moved verification to memberlist !2646 !2698 @chriswalg
 - The broadcast banner fetches its content from the API #1284 !2661 @alex.simm
-- added poppins font in Styleguide !2564 @Niklas003
-- Replace the region tree with a new vue component !2483 @alex.simm
 - New vue component for blog posts !2676 !2687 @alex.simm
 - Changed forum post response to empty content #1499 !2638 @krauterisator
-- Refactor add pickup modal !2693 @chriswalg
 - Refactored store !2458 !2798 !2802 !2806 !2807 !2814 !2816 !2820 !2824 @chriswalg @alex.simm
 - Refactor add pickup modal !2693 !2784 @chriswalg
 - Refactor edit pickup rules to vue component and moved it to storeInformationModal !2686 !2731 @chriswalg 
@@ -122,7 +117,7 @@
 - Add a infrastructure documentation !2579 @stcz
 - Update Symfony to latest patch versions !2604 @\_fridtjof_
 - Update deployer to v7.1.3 !2600 @chriswalg
-- Update some backend dependencies !2601 @chriswalg
+- Update some backend dependencies(09-2023) !2601 @chriswalg
 - Bump socket.io (client and server) to v4 (credits to @janopae), superagent to v9, node-dev to v8, and ts-node-dev to v2 !2614 !2630 @peter.toennies
 - Improve CI to not build same things multiple times !2569 @stcz
 - Get rid of includes/setup.php !2609 @\_fridtjof_
@@ -162,8 +157,6 @@
 - Events show the year in event list !2531 @chriswalg
 - Commitment statistics on profile !2208 !2217 !2353 !2359 !2435 !2557 @fs_k
 - Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 #chriswalg
-- Commitment statistics on profile !2208 !2217 !2353 !2359 !2435 @fs_k
-- Allow the foodsaver, which is verifiable, to create itself in the profile settings (without cut markers) !2198 @chriswalg
 - The profile page now contains one unified pickup section. Future pickup options are now visible in that section. !2211 !2226 @AntonBallmaier
 - Pickup statistics on profile !2208 @fs_k
 - Added buttons to thread view to navigate faster to the first and last post in this thread - the thread has to be min. 3 posts !1250 @martincodes-de
@@ -326,7 +319,7 @@
 - Fix maintenance script test #1430 !2429 @rnoennig
 - Update php to version 8.1 !2358 !2491 @chriswalg
 - Remove unused triage bot in CI !2444 @chriswalg
-- Update backend dependencies !2441 @chriswalg
+- Update backend dependencies(12-2022) !2441 @chriswalg
 - Fix "bid" contains a number !2476 @BibaltiK
 - Fix use Statemen !2500 @BibaltiK
 - Added setting for the cs-fixer to sort the usage imports !2509 @BibaltiK
@@ -502,9 +495,9 @@
 
 ## Dev/Test/CI stuff
 - Update mdbook to 0.4.7 !1938 @chriwalg
-- Update some frontend dependencies !1892 !1939 !1950 @chriswalg
+- Update some frontend dependencies(09-2021) !1892 !1939 !1950 @chriswalg
 - Fixed restart behavior for some docker containers !1937 @\_fridtjof_
-- Update some backend dependencies !1942 @chriswalg
+- Update some backend dependencies(09-2021) !1942 @chriswalg
 - Update minishlink WebPush to version 6 !1745 @peter.toennies
 - Remove obsolete code for picture uploads !1969 @alex.simm
 - Update chat dependencies !1962 !1751 @chriswalg
@@ -603,8 +596,8 @@
 - Bumped some container versions !1865 @\_fridtjof_
 - Updated mdbook to 0.4.6 !1876 @chriswalg
 - upgrade webpack-cli and webpack-bundle-analyzer to v 4 !1767 @peter.toennies
-- Update some frontend dependencies !1842 !1881 !1890 !1892 @chriswalg @\_fridtjof_
-- Update some backend dependencies !1885 !1897 @chriswalg
+- Update some frontend dependencies(03-2021) !1842 !1881 !1890 !1892 @chriswalg @\_fridtjof_
+- Update some backend dependencies(03-2021) !1885 !1897 @chriswalg
 - Fixed Xdebug !1883 @\_fridtjof_
 - Improved table cleanup during seed command !1859 @scarya
 
@@ -684,7 +677,7 @@ and persistent session disabled after each request, so that LastLogin is set cor
 ## Dev/Test/CI stuff
 - Update many frontend dependencies !1723 @chriswalg
 - JS linter now asks for dangling comma !1728 @ChrisOelmueller
-- Update backend dependencies !1732 !1740 @chriswalg
+- Update backend dependencies(12-2020) !1732 !1740 @chriswalg
 - Update Composer to version 2 and PHP to version 7.4.11 !1734 @peter.toennies
 - Fixed `rm` and `clean` scripts !1737 @\_fridtjof_
 - Increase phpstan analysis level to 5 and fix all issues !1674 !1729 @ChrisOelmueller
