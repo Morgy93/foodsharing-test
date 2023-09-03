@@ -558,8 +558,8 @@ bell:
   passgen_failed: Lütfen bir fotoğraf yükleyin, sonra çalışacaktır.
   new_foodsaver_verified_title: '{name}, {bezirk} bölgesinde yeni'
   new_foodsaver_verified: Zaten doğrulanmış - Hemen başlayabilir
-  banana_given: ''
-  banana_given_title: ''
+  banana_given: '{name} sana bir güven fidanı verdi.'
+  banana_given_title: 'Yeni güven fidanı'
   forum_post_title: '{title}'
   forum_post:
     many: “{forum}” forumunda {count} yeni gönderi
@@ -937,8 +937,12 @@ regionOptions:
   regionPickupLimitDayNumber: Lütfen BİR GÜN için toplam maksimum alım sayısını girin
   regionPickupInactiveHours: Lütfen düzenlemenin artık geçerli olmayacağı bir alımdan
     önceki saat sayısını girin
-  regionPickupRuleActive: ''
-  regionPickupRuleActiveStoreList: ''
+  regionPickupRuleActive: 'Bölge çapında adalet kuralına sahip (nadir, genellikle
+    efsanevi, özellikle sıra dışı, son derece popüler, yararlı) işletmelerdeki alımlar
+    için aşağıdaki bölge kuralını etkinleştirin:'
+  regionPickupRuleActiveStoreList: 'İlçe çapında adalet kuralı açısından dikkate alınan
+    ilçedeki işletmelerin listesi. DİKKAT: Listelenen firmalara ait tüm tahsilatlar
+    birbirine eklenir ve kurala göre dikkate alınır.'
 validate:
   required: '{it} boş kalamaz'
 select: Lütfen seçiniz
@@ -1130,6 +1134,17 @@ store:
   requests: Açık istekler ({count})
   not_verified: Doğrulanmadınız. Bu nedenle ekip üyelerinin slotlarını ve telefon
     numaralarını göremezsiniz.
+  enter_date_description: Alınacak tarih, saat ve kişi sayısını seçtikten sonra bu
+    randevu için bir defaya mahsus slot ayarlayabilirsiniz. Düzenli (haftalık olarak
+    otomatik olarak yinelenen) slotlar oluşturmak istiyorsanız lütfen 'Şirket bilgilerini
+    görüntüle' menüsünü kullanın.
+  enter_date: Bireysel teslim alma tarihlerini girin
+  delete_date: Bireysel alım randevusunu sil
+  delete_date_description: Şirketinizde düzenli (haftalık olarak otomatik olarak yinelenen)
+    slotlar kullanıyorsanız ve belirli bir tarihin (örneğin resmi tatil) oluşturulmasını
+    engellemek istiyorsanız, tarih ve saati belirterek bunu sağlamak için bu işlevi
+    kullanabilirsiniz. Halihazırda görünen slotları silmek isterseniz, foodsaver yazılı
+    olmadığı sürece doğrudan slota tıklayarak da bu işlemi gerçekleştirebilirsiniz.
 polls:
   title: Başlık
   new_poll: Yeni Anket oluştur
@@ -1890,6 +1905,7 @@ settings:
       göremezsiniz.
     from: den
     until: kadar
+    status: Şu anki durumunuz
   follow:
     thread: '{thread} forum konusundan haberdar olmak ister misiniz?'
     mail: Evet, yeni yazılardan e-posta ile haberdar olmak istiyorum.
@@ -1986,6 +2002,7 @@ forum:
       title: Posta gönderimi
       active: aktifleştirildi
       activate: etkinleştir
+      disable: devre dışı bırak
     with_mail: Konu açıldı ve herkes bu konuda e-posta ile bilgilendirildi
     activate: Konuyu etkinleştir
     too_big_to_mail: Bu konu için, bir ülke veya eyalet olduğundan, dolayı e-posta
@@ -2019,6 +2036,7 @@ forum:
     body: Mesaj
   new_thread: Yeni bir konu oluştur
   deleted_user: Silinmiş üye
+  not_found: Bu konu mevcut değil.
 chat:
   open_chat: Bir mesaj yaz
   new_messages: Yeni Mesajlar
@@ -2318,6 +2336,8 @@ stats:
 map:
   title: Harita
   donates: İşletme bağışlıyor
+  filters:
+    my_stores: Yalnızca benim işletmelerim
 buddy:
   request_sent: İstek gönderildi.
   request_accepted: Artık birbirinizi tanıyorsunuz.
@@ -2696,6 +2716,7 @@ pickup:
     disable_auto_slot: Otomatik Slot gelecekteki devre dışı bırakılsın.
     slot_titel: Slotlar
     description_titel: Açıklama
+    disable_auto_slot_titel: Devre dışı bırakma
   overview:
     status:
       confirmed: Onaylandı
@@ -2796,6 +2817,8 @@ pickup:
   description_optional: Açıklama (isteğe bağlı)
   description: Açıklaması
   edit_description: Açıklamayı düzenle
+  description_max_length_info: Maksimum açıklama uzunluğuna ulaşıldı (100 karakter)
+  description_modal_text: 'Yeni bir teslim alma açıklaması girin:'
 calendar:
   export:
     pickup:
