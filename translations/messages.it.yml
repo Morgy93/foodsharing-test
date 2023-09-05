@@ -1016,7 +1016,7 @@ storeview:
   status_notes: Note di stato
   team: Squadra di ritiro
   public_and_statistics: Statistiche e relazioni pubbliche
-  no_permission_to_view: Autorizzazione mancante
+  no_permission_to_view: Autorizzazione mancante.
   groceries:
     label: Quali alimenti possono essere ritirati?
     search_tag: Ricerca per categoria di alimenti
