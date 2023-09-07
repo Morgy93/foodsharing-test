@@ -34,6 +34,7 @@
 - Add user id to bbb conference name !2821 @chriswalg
 - Truncate only if title is longer than 150 characters !2819 @chriswalg
 
+
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
 - Outgoing mails were sent out with an invalid charset !2572 @\_fridtjof_
