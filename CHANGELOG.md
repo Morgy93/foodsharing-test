@@ -33,6 +33,7 @@
 - Remove closed stores from map, dashboard and navigation #786 !2790 @chriswalg
 - Add user id to bbb conference name !2821 @chriswalg
 - Truncate only if title is longer than 150 characters !2819 @chriswalg
+- added a checkbox doesNotAffectStore in report form !2839 @chriswalg
 
 
 ## Bugfixes

@@ -1947,6 +1947,7 @@ profile:
   report:
     title: "Meldung über {name}"
     info: "Bitte gib Datum, Ort und Uhrzeit des Vorfalles an. Bitte überprüfe, ob du die dir verfügbaren Kommunikationswege probiert hast, um den Vorfall bei der Person direkt anzusprechen und den Sachverhalt zu klären. Gib bitte an, wie du am besten für Rückfragen bei der Bearbeitung zu erreichen bist."
+    doesNotAffectStore: "Betrifft keinen oder anderen Betrieb"
     send: "Meldung abschicken"
     sent: "Meldung wurde versendet"
     mail: "Du erreichst deine lokale Meldungsgruppe auch unter folgender E-Mail-Adresse:"
