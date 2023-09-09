@@ -1,4 +1,4 @@
-# Release "Jackfruit", 2023-09-08
+# Release "Jackfruit", 2023-09-09
 
 ## Features
 - Ongoing polls a user has not yet voted in are displayed on the dashboard. !2349 @AntonBallmaier
@@ -12,10 +12,8 @@
 - Storemanagers can set a description for pickup slots #1653 !2757 !2781 @AntonBallmaier
 
 ## Changes
-- Make menubar sticky on mobile !2411 @AntonBallmaier
 - Added a new content page for it infos to menu !2590 @chriswalg
 - Removed freshdesk link to Support and renamed contact to contact & support !2590 @chriswalg
-- Changed persistent cookie timespan from 14 days to 38 years !2626 @chriswalg
 - Updated the number of registered users on the start page !2629 @alex.simm
 - Added home region and verified columns to member tables of regions and working groups !2602 #1548 @alex.simm
 - Minor updates in the frontend of the voting tool #975 !2640 @alex.simm
