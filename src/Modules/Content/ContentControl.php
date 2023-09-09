@@ -249,7 +249,7 @@ class ContentControl extends Control
 
     public function releaseNotes(): void
     {
-        $releaseIds = ['2023-08', '2022-12', '2022-05', '2022-01', '2021-09', '2021-03', '2020-12', '2020-10',
+        $releaseIds = ['2023-09', '2022-12', '2022-05', '2022-01', '2021-09', '2021-03', '2020-12', '2020-10',
             '2020-08', '2020-05'];
         $releaseList = array_map(function ($id) {
             return [
