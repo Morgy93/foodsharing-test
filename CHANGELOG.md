@@ -74,6 +74,7 @@
 - Update member list after adding a member !2811 @chriswalg
 - Fix missing thumbnails in store team list !2818 @chriswalg
 - Fix that the region chooser does not show lower regions when changing a higher region !2823 @alex.simm
+- Fix condition check for date in release banner !2846 @chriswalg
 
 ## Refactoring
 - added poppins font in Styleguide !2564 @Niklas003
