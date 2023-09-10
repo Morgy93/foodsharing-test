@@ -60,8 +60,6 @@ export default {
 
     isNew () {
       const storage = JSON.parse(localStorage.getItem(`${this.tag}_time`))
-      console.log('Storage Value:', storage)
-      console.log('Current Date:', new Date())
       return new Date() > new Date(storage)
     },
   },
