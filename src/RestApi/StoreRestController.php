@@ -397,8 +397,10 @@ class StoreRestController extends AbstractFOSRestController
 
         $this->throwBadRequestExceptionOnError($validationErrors);
 
-        if (!empty($storeModel->regionId) && !$this->regionGateway->hasMember($this->session->id(), $storeModel->regionId)) {
-            throw new AccessDeniedHttpException('no member of other region');
+        if (!$this->session->mayRole(Role::ORGA)) {
+            if (!empty($storeModel->regionId) && !$this->regionGateway->hasMember($this->session->id(), $storeModel->regionId)) {
+                throw new AccessDeniedHttpException('no member of other region');
+            }
         }
 
         try {
