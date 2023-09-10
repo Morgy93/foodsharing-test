@@ -2069,6 +2069,11 @@ dashboard:
   foodsaver_amount: Du hast <b>{pickups} x</b> Lebensmittel abgeholt und damit <b>{weight} kg</b> gerettet.
   full_subline: Du hast <b>{pickups} x</b> Lebensmittel abgeholt und damit <b>{weight} kg</b> gerettet. Dein Stammbezirk ist <b>{region}</b>.
 
+  release:
+    for_release_notes: "Die wichtigsten Änderungen findet ihr auf"
+    for_news_from_it: "Falls es Fragen oder Herausforderungen gibt, schaut erstmal unter"
+    for_support: "Ansonsten findet Ihr Kontakt zu uns unter"
+
   my:
     regions: "Deine Bezirke" #also in searchindexgenerator
     groups: "Deine Gruppen" #also in searchindexgenerator

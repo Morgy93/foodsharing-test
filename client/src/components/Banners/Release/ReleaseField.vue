@@ -15,10 +15,24 @@
         />
       </div>
       <div class="releasefield__links">
+        {{ $i18n('dashboard.release.for_release_notes') }}
         <a
           class="releasefield__link"
           :href="$url('release_notes')"
           v-text="$i18n('menu.entry.release-notes')"
+        /><br>
+        {{ $i18n('dashboard.release.for_news_from_it') }}
+        <a
+          class="releasefield__link"
+          :href="$url('newsFromIT')"
+          v-text="$i18n('navigation.news_from_it')"
+        />
+        <br>
+        {{ $i18n('dashboard.release.for_support') }}
+        <a
+          class="releasefield__link"
+          :href="$url('contact')"
+          v-text="$i18n('navigation.contact')"
         />
       </div>
     </div>
