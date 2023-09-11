@@ -3,6 +3,7 @@
 ## Features
 
 ## Changes
+- Changed team state translation from full to closed !2831 @chriswalg
 
 ## Bugfixes
 
@@ -47,7 +48,6 @@
 - Add user id to bbb conference name !2821 @chriswalg
 - Truncate only if title is longer than 150 characters !2819 @chriswalg
 - added a checkbox doesNotAffectStore in report form !2839 @chriswalg
-
 
 ## Bugfixes
 - Reimplementation of the StoreManager empty pickup E-Mail notification !2574 @KoeMai
