@@ -1,3 +1,18 @@
+# Unreleased
+
+## Features
+
+## Changes
+
+## Bugfixes
+
+## Refactoring
+
+## Dev/Test/CI stuff
+
+## Development documentation
+
+
 # Release "Jackfruit", 2023-09-09
 
 ## Features
