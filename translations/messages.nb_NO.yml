@@ -2723,15 +2723,16 @@ quizusercomment: "Gi oss tilbakemelding på dette spørsmålet.\nVar det for let
   vanskelig, uforståelig?\nEller er individuelle svar eller forklaringer feil?\n"
 releases:
   "2020-12": Versjon «dragefrukt» (desember 2020)
-  "2021-03": Release «jordbær» 🍓 (mars 2021)
+  "2021-03": Versjon «jordbær» 🍓 (mars 2021)
   "2021-09": Versjon "fig" 🥧 (september 2021)
   "2020-08": Versjon «pære» (august 2020)
   "2020-05": Versjon «appelsin» (mai 2020)
   "2020-10": Versjon «cranberry» (oktober 2020)
   "2022-05": Versjon "Blåbær" 🍇 (Mai 2022)
   "2022-01": Versjon "Grapefrukt" 🍋 (Januar 2022)
-  "2022-12": Utgivelse "Iskrem" 🍨 (desember 2022)
+  "2022-12": Versjon "Iskrem" 🍨 (desember 2022)
   "2023-08": Versjon «Jackfrukt» 🍈 (september 2023)
+  "2023-09": Versjon «Jackfrukt» 🍈 (september 2023)
 push_notifications:
   test_notification_title: Push-varsler er aktivert
   test_notification_body: Flott, det ser ut til å ha fungert :)
