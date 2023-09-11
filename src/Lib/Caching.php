@@ -1,31 +1,28 @@
 <?php
 
-namespace Foodsharing\Lib\Cache;
+namespace Foodsharing\Lib;
 
 use Foodsharing\Lib\Db\Mem;
-use Foodsharing\Lib\Session;
 use Foodsharing\Modules\Core\InfluxMetrics;
 
 class Caching
 {
-    private $cacheRules;
-    private $cacheMode;
-    private $session;
-    private $mem;
-    private $metrics;
+    private array $cacheRules;
+    private string $cacheMode;
 
-    public function __construct($cache_rules, Session $session, Mem $mem, InfluxMetrics $metrics)
-    {
-        $this->session = $session;
-        $this->mem = $mem;
-        $this->cacheRules = $cache_rules;
+    public function __construct(
+        $cacheRules,
+        private readonly Session $session,
+        private readonly Mem $mem,
+        private readonly InfluxMetrics $metrics,
+    ) {
+        $this->cacheRules = $cacheRules;
         $this->cacheMode = $this->session->mayRole() ? 'u' : 'g';
-        $this->metrics = $metrics;
     }
 
-    public function lookup()
+    public function lookup(): void
     {
-        if (isset($this->cacheRules[$_SERVER['REQUEST_URI']][$this->cacheMode]) && ($page = $this->mem->getPageCache($this->session->id())) !== false && !isset($_GET['flush'])) {
+        if ($this->shouldCache() && ($page = $this->mem->getPageCache($this->session->id())) !== false && !isset($_GET['flush'])) {
             $this->metrics->addPageStatData(['cached' => 1]);
             if ($page[0] == '{' || $page[0] == '[') {
                 // just assume it's an JSON, to prevent the browser from interpreting it as
@@ -40,12 +37,12 @@ class Caching
         }
     }
 
-    public function shouldCache()
+    public function shouldCache(): bool
     {
         return isset($this->cacheRules[$_SERVER['REQUEST_URI']][$this->cacheMode]);
     }
 
-    public function cache($content)
+    public function cache($content): void
     {
         $this->mem->setPageCache(
             $content,

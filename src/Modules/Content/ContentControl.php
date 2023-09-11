@@ -44,7 +44,7 @@ class ContentControl extends Control
                 $this->pageHelper->addContent($this->content_form());
 
                 $this->pageHelper->addContent($this->v_utils->v_field($this->v_utils->v_menu([
-                    $this->routeHelper->pageLink('content')
+                    ['href' => '/?page=content', $this->translator->trans('bread.backToOverview')]
                 ]), $this->translator->trans('content.actions')), CNT_RIGHT);
             } elseif ($id = $this->identificationHelper->getActionId('delete')) {
                 if ($this->contentGateway->delete($id)) {
@@ -66,7 +66,7 @@ class ContentControl extends Control
                 $this->pageHelper->addContent($this->content_form());
 
                 $this->pageHelper->addContent($this->v_utils->v_field($this->v_utils->v_menu([
-                    $this->routeHelper->pageLink('content')
+                    ['href' => '/?page=content', $this->translator->trans('bread.backToOverview')]
                 ]), $this->translator->trans('content.actions')), CNT_RIGHT);
             } elseif ($id = $this->identificationHelper->getActionId('view')) {
                 $this->addContent($id);
@@ -109,16 +109,15 @@ class ContentControl extends Control
 
     public function legacyToolbar($id, string $contentName): string
     {
-        $page = $this->routeHelper->getPage();
         // edit
-        $out = '<li onclick="goTo(\'/?page=' . $page . '&id=' . $id . '&a=edit\');"'
+        $out = '<li onclick="goTo(\'/?page=content&id=' . $id . '&a=edit\');"'
             . ' title="' . $this->translator->trans('button.edit') . '" class="ui-state-default ui-corner-left">'
             . '<span class="ui-icon ui-icon-wrench"></span>'
             . '</li>';
 
         // delete
         $confirmMsg = $this->translator->trans('content.delete', ['{name}' => $contentName]);
-        $link = "'/?page=" . $page . '&a=delete&id=' . $id . "'";
+        $link = "'/?page=content&a=delete&id=" . $id . "'";
         $out .= '<li class="ui-state-default ui-corner-right"'
             . ' title="' . $this->translator->trans('button.delete') . '"'
             . ' onclick="ifconfirm(' . $link . ',\'' . $confirmMsg . '\');">'
