@@ -8,6 +8,7 @@
 ## Bugfixes
 
 ## Refactoring
+- Use REST for quickreplying to wall posts !2795 @alex.simm
 
 ## Dev/Test/CI stuff
 
