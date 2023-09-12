@@ -12,6 +12,7 @@
 - Use REST for quickreplying to wall posts !2795 @alex.simm
 - Cleaned up a lot of core code all over the place !2738 @\_fridtjof_
 - Preparations to routing/link building code for future porting to Symfony controllers !2738 @\_fridtjof_
+- Moved the database connection to Doctrine DBAL !2801 @\_fridtjof_
 
 ## Dev/Test/CI stuff
 
