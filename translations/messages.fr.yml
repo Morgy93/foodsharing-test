@@ -1242,6 +1242,7 @@ store:
     search_input: Recherche par nom / numéro de téléphone
     search_reset: Réinitialiser la recherche
     no_record: Aucune entrée n'a été trouvée.
+    is_closed: L'équipe est fermée
   leaveinfo: Ici, tu peux indiquer quelques informations pour les collecteurs.rices
     qui souhaitent postuler pour faire partie de l'équipe.
   prefetchfour: 4 semaines
@@ -1506,6 +1507,11 @@ dashboard:
   invitationCount: Tu as reçu une invitation ({count})
   polls: Tes votations en cours
   settings: Préférences
+  release:
+    for_news_from_it: Si vous avez des questions ou des défis, jetez d'abord un coup
+      d'œil sur
+    for_support: Sinon, vous pouvez nous contacter sur
+    for_release_notes: Vous trouverez les changements les plus importants sur
 profile:
   report:
     arbAdminAgainstRepAdmin: Tu es admin dans un groupe d'arbitrage et tu essayes
@@ -1604,6 +1610,7 @@ profile:
     readup: "Vous pouvez lire ici des indications sur le traitement d'un signalement
       : <a href='https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.29_Bearbeitung_einer_Meldung'>
       Traitement d'un signalement</a>"
+    doesNotAffectStore: N’affecte aucune ou une autre magasin
   mediation:
     no_group: Il n'existe malheureusement pas encore de groupe local de médiation
       pour le secteur géographique choisi. Tu peux aborder ce thème lors d'un prochain
@@ -2026,8 +2033,8 @@ storeedit:
   fetch:
     teamStatus2: Besoin de renforts urgent
     teamStatus1: Ton aide est la bienvenue
-    teamStatus0: Cette équipe est complète et n'a pas besoin d'aide supplémentaire
-      pour le moment
+    teamStatus0: Cette équipe est fermée et n’a pas besoin d’aide supplémentaire pour
+      le moment
     teamStatus: Statut de l'équipe
   store:
     status: Statut
