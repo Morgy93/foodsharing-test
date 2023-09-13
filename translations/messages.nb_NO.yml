@@ -650,6 +650,10 @@ dashboard:
     kg</b>. Hjemmedistriktet ditt er <b>{region}</b>.
   eventCount: Neste hendelser ({count})
   polls: Dine pågående avstemninger
+  release:
+    for_news_from_it: Hvis det er noen spørsmål eller utfordringer, se først på
+    for_support: Ellers kan du kontakte oss på
+    for_release_notes: Du finner de viktigste endringene på
 search:
   persons: personer
   groups: grupper
@@ -855,6 +859,7 @@ profile:
     cancellation: Hyppige kanselleringer av samlinger på kort varsel uten å lete etter
       en erstatning
     sells: Personen selger berget mat
+    doesNotAffectStore: Påvirker ikke noe eller et annet selskap
   notFound: Denne brukerprofilen eksisterer ikke eller eksisterer ikke lenger
   go: Gå til profilsiden
   workgroups_member: Du og {name} er i følgende arbeidsgrupper
@@ -2319,6 +2324,7 @@ store:
     search_input: Søk på navn/tlf.nr.
     search_reset: tilbakestill søket
     no_record: Ingen post funnet.
+    is_closed: Laget er stengt
   enterdate: Skriv inn hentedato
   maxchar: (maks. 180 tegn)
   nodetails: Ikke oppgi nøyaktige hentetider her.
