@@ -543,6 +543,7 @@ profile:
     cancellation: Frequent late cancellation of appointments without finding a replacement
     readup: "Find advice on processing a report here: <a href='https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.29_Bearbeitung_einer_Meldung'>Processing
       a report</a>"
+    doesNotAffectStore: Does not affect any or a different company
   history:
     wasVerified: Verified
     lostVerification: De-verified
@@ -1898,6 +1899,7 @@ store:
     search_input: Search for name / phone number
     search_reset: reset search
     no_record: No record found.
+    is_closed: Team is closed
   filter: Filter by …
   enterdate: Add pick-up date
   enternumber: You need to select the number of people who can pick up.
@@ -2584,6 +2586,10 @@ dashboard:
   full_subline: You have picked up food <b>{pickups} </b> times and saved <b>{weight}
     kg</b>. Your home district is <b>{region}</b>.
   polls: Your ongoing polls
+  release:
+    for_news_from_it: If there are any questions or challenges, first look at
+    for_support: Otherwise you can contact us at
+    for_release_notes: You can find the most important changes at
 pronoun:
   "3": he*she
   "2": she
