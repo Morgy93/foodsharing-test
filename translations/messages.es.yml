@@ -2608,6 +2608,6 @@ text: 'Texto'
 deletelow: ''
 notifications:
   checkbox_disabled: Desactivado
-  config_button: configurar individual
-  success: Guardada exitosamente
+  config_button: configurar por separado
+  success: Registro exitoso
   checkbox_bell: campana
