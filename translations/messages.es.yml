@@ -2598,8 +2598,8 @@ fetch_count: '¿Cuántas recogidas debería haber hecho un solicitante?'
 store_status_impact_explanation: ''
 nofp: 'no error puntos (pregunta de broma)'
 filter_by: 'filtrar por'
-presse: '¿La empresa/tienda/asociación esta de acuerdo con que se mencionará en la
-  prensa?'
+presse: '¿Está de acuerdo la empresa/tienda/asociación de ser mencionada por la prensa
+  y foodsharing.de?'
 prefetchtime: '¿Cuantas semanas antes foodsaver pueden apuntarse por vacantes automáticos?'
 public_info: 'información pública de la empresa'
 list:
