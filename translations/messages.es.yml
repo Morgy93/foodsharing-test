@@ -2574,7 +2574,8 @@ formatting:
   md: ''
 sig:
   buddies: ''
-sticker: ''
+sticker: '¿La empresa/tienda/asociación esta de acuerdo con poner una pegatina visible
+  en la entrada o en otro lugar?'
 day: ''
 ansprechpartner: 'Persona/s de contacto del empresa (gerente de tienda etc.)'
 explanation: 'Explicación'
@@ -2594,12 +2595,13 @@ fetch_count: '¿Cuántas recogidas debería haber hecho un solicitante?'
 store_status_impact_explanation: ''
 nofp: ''
 filter_by: ''
-presse: ''
+presse: '¿La empresa/tienda/asociación esta de acuerdo con que se mencionará en la
+  prensa?'
 prefetchtime: ''
 public_info: 'información pública de la empresa'
 list:
   filter_for: ''
-ueberzeugungsarbeit: ''
+ueberzeugungsarbeit: '¿Era fácil convencer un/unos encargado/s a cooperar con foodsharing?'
 banana_count: '¿Cuántas bananas de confianza necesita un miembro?'
 success: ''
 text: 'Texto'
