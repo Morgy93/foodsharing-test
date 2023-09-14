@@ -323,75 +323,76 @@ besonderheiten: Particolarità
 begin: Inizio della collaborazione
 lebensmittel: Quale cibo può essere ritirato?
 fax: Fax
-ansprechpartner: responsabile della filiale di contatto dell'azienda
-betrieb_status_id: stato
-betrieb_kategorie_id: categoria
-kette_id: catena operativa
+ansprechpartner: Referenti aziendali (responsabili di filiale, ecc.)
+betrieb_status_id: Stato
+betrieb_kategorie_id: Categoria
+kette_id: Catena operativa
 fetchercount: Numero di raccoglitori
-team_status: stato della squadra
-storemanagers: Responsabili delle operazioni
+team_status: Stato della squadra
+storemanagers: Responsabili degli Store
 verantwortlicher: Membri responsabili
 homepage: Il tuo sito web
 sleep_msg: Qui puoi lasciare un breve messaggio sul perché non hai tempo in questo
   momento.
 sleep_status: il tuo stato attuale
-passcheck: Conferma la modifica con la tua password
+passcheck: Si prega di confermare la modifica con la password
 newmail: Inserisci qui il tuo nuovo indirizzo e-mail
 infomail_message: Notifica di messaggi su chat Foodsharing
 newsletter: Bollettino
-compose_body: Messagio
-pass2: Ripetizione dell password
+compose_body: Messaggio
+pass2: Ripetere la password
 pass1: La tua nuova password desiderata
-fspmanagers: Foodsaver, la/le persona/e di contatto per il divisore
-fsp_bezirk_id: In quale quartiere si trova il divisore ?
+fspmanagers: Foodsaver, ovvero la/le persona/e di riferimento per il distributore
+  di cibo
+fsp_bezirk_id: In quale quartiere si trova il distributore di cibo?
 infotype: Notifica
-position: Posizione in Foodsharing (pubblico)
+position: Posizione nella condivisione di cibo (pubblico)
 orgateam: Organizzazione nazionale
 dateend: Data di fine
-online_type: L'evento si svolge offline o online?
-location_name: Luogo / sala conferenza
+online_type: L'evento si svolge dal vivo o online?
+location_name: Luogo dell'evento / sala conferenze
 mailbox_id: Indirizzo e-mail del mittente
-testemail: Indirizzo e-mail come prova
+testemail: Indirizzo e-mail di prova
 opt: Opzioni
 bezirk_id: Per quale regione è rilevante l'articolo?
 teaser: Estratto
-lifetime: Per quanto tempo dovrebbe essere valido il tuo paniere alimentare?
+lifetime: Per quanto tempo vuoi che rimanga valido il tuo cestino?
 contact_type: Come vorresti essere contattato/a?
 fetchstate: È andato tutto bene?
-food_art: Cosa si applica al cibo?
-food_type: Quali tipi di cibo sono inclusi?
+food_art: Che tipo di alimenti sono?
+food_type: Quali tipi di alimenti sono inclusi?
 weight: Peso stimato
-about_me_intern: Breve descrizione
+about_me_intern: Descrizione breve
 about_me_public: Breve descrizione pubblica
-regions: Quartieri
+regions: Zone
 daterange: Periodo
-ort: Città / comune (automaticamente dalla mappa sopra)
-photo: foto
+ort: Città / comune (in automatico dalla mappa sopra)
+photo: Foto
 info: Informazioni
 status: Stato attuale
 body: Messaggio
-title: Intestazione
+title: Titolo
 rolle: Ruolo utente
 mailbox_name: Nome della casella postale
 betrieb: Società di cooperazione
 active: Attivato
-bezirk: Distretto
-stadt: La tua città o comune
-lon: longitudine
-lat: latitudine
+bezirk: Zona
+stadt: La tua città o paese
+lon: Longitudine
+lat: Latitudine
 fs_id: foodsharing-ID
 parent_id: Distretto genitore
 picture: Immagine
 options: Opzioni
 botschafter: Ambasciatore
 geschlecht: Genere
-anschrift: Via e numero civico (automaticamente dalla mappa sopra, correggere successivamente
+anschrift: Via e numero civico (in automatico dalla mappa sopra, correggibile successivamente
   se necessario)
 handy: Numero di cellulare (incluso il prefisso internazionale, inizia con +)
 telefon: Numero di rete fissa (incluso il prefisso internazionale, inizia con +)
 attachement: Allegato
 email: Indirizzo e-mail
-plz: Codice postale (automaticamente dalla mappa sopra)
+plz: Codice postale (in automatico dalla mappa sopra)
 description: Descrizione
 desc: Descrizione
 edit: modifica
@@ -560,12 +561,12 @@ register:
   title: Registrazione
   topbar: Prendi parte
   landline_example: Esempio +49 30 12345678
-store_status_impact_explanation: "Dopo ogni contatto aziendale (<a href=\"https://wiki.foodsharing.de/Kooperationsaufbau_-_Checkliste\"\
-  \ target=\"_blank\"> Wiki: Kooperationsaufbau - Checkliste</a>) lo stato (<a href=\"\
-  https ://wiki.foodsharing.de/Betrieb\"target=\"_blank\">Wiki: Betrieb</a>) dell'azienda,
-  in modo che lo stato dell'indirizzo sia visibile a tutti.<br> <br>Solo aziende la
-  disponibilità a collaborare verrà successivamente visualizzata nella parte superiore
-  del menu operativo della barra di navigazione."
+store_status_impact_explanation: "Si prega di aggiornare dopo ogni contatto operativo
+  (<a href=\"https://wiki.foodsharing.de/Kooperationsaufbau_-_Checkliste\" target=\"\
+  _blank\"> Wiki: Kooperationsaufbau - Checkliste</a>) lo stato (<a href=\"https ://wiki.foodsharing.de/Betrieb\"\
+  target=\"_blank\">Wiki: Betrieb</a>) dell'azienda, in modo che lo stato dell'indirizzo
+  sia visibile a tutti.<br> <br>Solo le aziende disposte a collaborare verranno successivamente
+  visualizzate nella parte superiore del menu delle operazioni nella barra di navigazione."
 gender:
   d: Entrambi o qualcos'altro
   f: Donna
@@ -1031,7 +1032,7 @@ storeview:
 message_text_to_group_admin_workgroup: 'La regione/gruppo di lavoro <b>{groupName}</b>
   non <b>ha più </b> ambasciatori/amministratori.<br><br><br>Ha la seguente struttura
   ID:<br>{idStructureList}<br><br> L''ID è:{groupId}<br><br>URL: "<a href="https://foodsharing.de/?page=bezirk&bid={groupId}&sub=forum"
-  target="_blank">clica qui per andare alla regione/gruppo di lavoro</a>'
+  target="_blank">Clicca qui per andare alla regione/gruppo di lavoro</a>'
 startpage:
   towns:
     title: Città foodsharing
@@ -2043,7 +2044,7 @@ dashboard:
 search:
   mystores: Le mie aziende
   mybuddies: I miei Buddies
-  thread-title-only: Si cercano solo i titoli, non il testo dei post.
+  thread-title-only: Vengono ricercati solo i titoli, non il testo dei post.
   forum: Cerca per titolo…
   placeholder: Avvia la ricerca ora ...
   persons: Persone
@@ -2054,7 +2055,7 @@ search:
   title: Ricerca
   user_search:
     placeholder: Nome o ID
-  informations: ''
+  informations: 'Puoi cercare persone, gruppi, aziende, quartieri e punti Food-Share.'
 profile:
   report:
     arbAdminAgainstRepAdmin: Sei un amministratore del collegio arbitrale e vuoi segnalare
@@ -2686,7 +2687,7 @@ regionPin:
   text_desc: Si prega di fornire una descrizione del gruppo locale o dell'opzione
     di contatto qui. Questo è mostrato nel popup del pin dalla …
 edit_websites: Modificare siti web pubblici
-request_time: 'Momento della richiesta:'
+request_time: 'Orario della richiesta:'
 quiz:
   question: Domanda
   questions: Domande
@@ -2811,30 +2812,31 @@ globals:
     signup: ''
   close: ''
   select: ''
-  you: ''
+  you: 'Tu'
   show_less: ''
   save: ''
   show_more: ''
 activitypost:
-  response: ''
-  quickreply_info: ''
-  write: ''
-  quickreply_button: ''
-  Response: ''
+  response: 'risposta'
+  quickreply_info: '<code class="key">Maiusc + Invio</code> per aggiungere una nuova
+    riga.'
+  write: 'Scrivi una risposta…'
+  quickreply_button: 'Invia ora<br>o <code class="key">premi Invio</code>.'
+  Response: 'Risposta'
 bootstrap-datepicker:
-  labelPrevYear: ''
-  labelNextYear: ''
-  labelCalendar: ''
-  labelToday: ''
-  labelPrevDecade: ''
-  labelNextDecade: ''
-  labelHelp: ''
-  labelPrevMonth: ''
-  labelCurrentMonth: ''
-  labelNextMonth: ''
-  labelSelected: ''
-  labelNoDateSelected: ''
-  labelNav: ''
+  labelPrevYear: 'Anno precedente'
+  labelNextYear: 'L''anno prossimo'
+  labelCalendar: 'Calendario'
+  labelToday: 'Oggi'
+  labelPrevDecade: 'Decennio precedente'
+  labelNextDecade: 'Il prossimo decennio'
+  labelHelp: 'Naviga nel calendario utilizzando i tasti freccia'
+  labelPrevMonth: 'Mese precedente'
+  labelCurrentMonth: 'Mese corrente'
+  labelNextMonth: 'Il prossimo mese'
+  labelSelected: 'Data selezionata'
+  labelNoDateSelected: 'Nessuna data scelta'
+  labelNav: 'Navigazione del calendario'
 navigation:
   styleguide: ''
   stores: ''
@@ -2970,3 +2972,28 @@ addreaction: ''
 sig:
   buddies: ''
 timefrom: ''
+notifications:
+  newsletter:
+    description: Ricevi via e-mail le ultime informazioni sul foodsharing circa una
+      volta al mese.
+    title: Newsletter
+  foodSharePoints:
+    title: Punti Food-Share
+    description: Ricevi una notifica in caso di nuovi post sulle bacheche dei punti
+      Food-Share che segui.
+  groups:
+    title: Gruppi di lavoro
+  checkbox_push: Spingere
+  checkbox_disabled: Disabilitato
+  regions:
+    title: Zone
+  chat:
+    description: Ricevi notifiche di nuovi messaggi di chat anche quando non hai effettuato
+      l'accesso.
+    title: Messaggi di chat
+  threads:
+    title: Argomenti del forum
+  config_button: Configura singolarmente
+  success: Salvataggio riuscito
+  checkbox_email: E-Mail
+  checkbox_bell: Campanella
