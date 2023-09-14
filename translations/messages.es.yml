@@ -2576,12 +2576,12 @@ sig:
   buddies: ''
 sticker: ''
 day: ''
-ansprechpartner: ''
+ansprechpartner: 'Persona/s de contacto del empresa (gerente de tienda etc.)'
 explanation: 'Explicación'
 error_unexpected: ''
 fp: ''
 yes: ''
-teaser: ''
+teaser: 'teaser'
 questcount: ''
 use_region_pickup_rule: ''
 savewithus: ''
@@ -2596,7 +2596,7 @@ nofp: ''
 filter_by: ''
 presse: ''
 prefetchtime: ''
-public_info: ''
+public_info: 'información pública de la empresa'
 list:
   filter_for: ''
 ueberzeugungsarbeit: ''
@@ -2604,3 +2604,8 @@ banana_count: '¿Cuántas bananas de confianza necesita un miembro?'
 success: ''
 text: 'Texto'
 deletelow: ''
+notifications:
+  checkbox_disabled: Desactivado
+  config_button: configurar individual
+  success: Guardada exitosamente
+  checkbox_bell: campana
