@@ -9,6 +9,7 @@
 ## Bugfixes
 
 ## Refactoring
+- Refactor mailbox modul to vue and rest api !2580 @chriswalg @alex.simm
 - Use REST for quickreplying to wall posts !2795 @alex.simm
 - Cleaned up a lot of core code all over the place !2738 @\_fridtjof_
 - Preparations to routing/link building code for future porting to Symfony controllers !2738 @\_fridtjof_

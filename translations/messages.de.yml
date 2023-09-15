@@ -671,7 +671,7 @@ terminology:
   group: "Arbeitsgruppe"
   subgroups: "Untergruppen"
   settings: "Einstellungen"
-  mailboxes: "Mailboxen"
+  mailboxes: "E-Mail-Postfächer"
   n_foodsaver: "Ein Foodsaver|%count% Foodsaver"
   n_home_regions: "eine(r) mit Stammbezirk|%count% mit Stammbezirk"
   n_sleeping: "Eine Schlafmütze|%count% Schlafmützen"
@@ -1664,14 +1664,15 @@ messages:
   bread: "Nachrichten"
 
 mailbox:
-  mail: "E-Mails"
-  title: "Mailboxen"
+  mails: "E-Mails"
+  mail: "E-Mail"
+  title: "E-Mail-Postfächer"
   inbox: "Posteingang"
   sent: "Gesendet"
   trash: "Papierkorb"
   empty: "Noch keine Nachrichten in dieser Mailbox"
-  reply: "Antworten"
   delete: "In die Tonne"
+  move_to: "Verschieben nach"
   sender: "Absender"
   recipient: "Empfänger*in"
   date: "Datum"
@@ -1680,6 +1681,9 @@ mailbox:
   member: "Mailbox-Benutzer*in"
   refresh: "Aktualisieren"
   write: "Neue E-Mail"
+  reply:
+    full: "E-Mail beantworten"
+    short: "Antworten"
   attach: "Datei anhängen (maximal 1,2 MB)"
   claim: "foodsharing.de - verwenden statt verschwenden"
   signature: "Nachricht vom {date}"
@@ -1702,10 +1706,27 @@ mailbox:
   ratelimit: "Du kannst nur eine E-Mail pro 15 Sekunden versenden, bitte warte einen Augenblick…"
   filetype: "Dieser Dateityp ist nicht erlaubt"
   filesize: "Sorry, die Datei ist zu groß."
-  mark_as_unread: "Als ungelesen markieren"
+  mark_as_unread: "E-Mail ungelesen markieren"
+  mark_all: "alle markieren"
+  delete_selected: "Auswahl löschen"
+  close_edit_mode: "Bearbeiten beenden"
   from: "Von" #MailboxXhr
   to: "An"
   fromto: "Von/An"
+  tag_recipient_hint: "Empfänger (mehrere mit Semikolon getrennt)"
+  for_quoting:
+    written_text: "geschrieben"
+    has_from: "hat am"
+  attachment:
+    not_found: "nicht gefunden"
+    not_found_explanation: "Die angehängte Datei konnte auf dem Server nicht mehr gefunden werden"
+  conformation_modal:
+    title: "Bestätigung"
+    message: "Sind Sie sicher, dass Sie die E-Mail löschen möchten?"
+  search: "Durchsuchen"
+  add: "Hinzufügen"
+  mailsend_unsuccess: "E-Mail konnten nicht versendet werden. {error}"
+
 settings:
   title: "Einstellungen"
   header: "Profil Einstellungen"

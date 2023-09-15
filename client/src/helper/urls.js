@@ -67,6 +67,7 @@ const urls = {
 
   team: () => '/team',
   transparency: () => '/?page=content&sub=transparency',
+  upload: (uuid) => `/api/uploads/${uuid}`,
 
   workingGroupEdit: (groupId) => `/?page=groups&sub=edit&id=${groupId}`,
   workshops: () => '/?page=content&sub=workshops',
