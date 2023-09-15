@@ -642,14 +642,16 @@ test:
   vars: 'My name is {NAME} and I am {AGE} years old'
 mailbox:
   recipients: Too many recipients
-  mark_as_unread: Mark as unread
+  mark_as_unread: Mark email as unread
   attach: Attach file (max. 1.2 MB)
   refresh: Refresh
   subject: Subject
   date: Date
   recipient: Recipient
   sender: Sender
-  reply: Reply
+  reply:
+    full: Answer email
+    short: Answer
   trash: Trash
   sent: Sent
   inbox: Inbox
@@ -657,7 +659,7 @@ mailbox:
   member: Mailbox user
   actions: Options
   title: Mailboxes
-  mail: Emails
+  mail: Email
   claim: foodsharing.de - sharing is caring
   sm-quiz: Quiz for Store Coordinators
   not-available: "You have to be {role} to access e-mail inboxes.\nSolve the {quiz}
@@ -682,6 +684,20 @@ mailbox:
   to: To
   fromto: From/To
   from: From
+  search: Search
+  delete_selected: Delete selected emails
+  conformation_modal:
+    title: Confirmation
+    message: Do you really want to delete this email?
+  mark_all: select all
+  tag_recipient_hint: Recipients (separated by semicolon)
+  attachment:
+    not_found_explanation: The attachment could not be found on the server
+    not_found: not found
+  move_to: Move to
+  close_edit_mode: Stop editing
+  add: Add
+  mails: Emails
 events:
   description: Description
   create:
