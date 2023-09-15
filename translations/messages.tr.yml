@@ -906,7 +906,7 @@ date:
   wednesday: Çarşamba
   friday: Cuma
   to: kadar
-  clock: Saat
+  clock:  
   from: -den
   time: '{time} Saat'
 date_short:
