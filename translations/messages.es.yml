@@ -1127,7 +1127,7 @@ date:
   monday: ''
   from: ''
   time: ''
-  clock: ''
+  clock: ' '
   today: ''
   friday: ''
   tuesday: ''
