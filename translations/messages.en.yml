@@ -2023,7 +2023,7 @@ date:
   to: to
   from: from
   time: "{time} o'clock"
-  clock: clock
+  clock: o'clock
 wall:
   error-create: Your pinboard post could not be saved.
   created: Great! Your pinboard post was saved.
