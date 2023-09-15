@@ -15,6 +15,7 @@
 - Moved the database connection to Doctrine DBAL !2801 @\_fridtjof_
 
 ## Dev/Test/CI stuff
+- removed CHANGELOG.md merge=union !2866 @chriswalg
 
 ## Development documentation
 
