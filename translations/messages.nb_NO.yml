@@ -1858,7 +1858,7 @@ date:
   to: til
   from: fra
   time: '{time}'
-  clock: klokka
+  clock:  
 recipients:
   unknown: ukjent
   confirm: Send e-post?
