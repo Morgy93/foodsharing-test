@@ -265,7 +265,7 @@ quiz:
     bv: ''
     bot: ''
   heavysigh: '¡Hecho!'
-  not_passed_details: 'Lamentablemente no has pasado. Tuviste {points} del máximo
+  not_passed_details: 'Lamentablemente no has aprobado. Tuviste {points} de los máximos
     {max_points} puntos de error!'
   wikilink: ''
   threestrikes: ''
