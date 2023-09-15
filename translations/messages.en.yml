@@ -543,6 +543,7 @@ profile:
     cancellation: Frequent late cancellation of appointments without finding a replacement
     readup: "Find advice on processing a report here: <a href='https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.29_Bearbeitung_einer_Meldung'>Processing
       a report</a>"
+    doesNotAffectStore: Does not affect any or a different company
   history:
     wasVerified: Verified
     lostVerification: De-verified
@@ -1180,6 +1181,10 @@ bell:
   store_request_imposed_title: '{name}'
   foodsaver_verified_title: You are now verified!
   foodsaver_verified: check your ID at...
+  forum_post_title: '{title}'
+  forum_post:
+    one: New post by {user} in forum {forum}
+    many: '{count} new posts in the forum {forum}'
 reports:
   time: Time
   region: Home district
@@ -1894,6 +1899,7 @@ store:
     search_input: Search for name / phone number
     search_reset: reset search
     no_record: No record found.
+    is_closed: Team is closed
   filter: Filter by …
   enterdate: Add pick-up date
   enternumber: You need to select the number of people who can pick up.
@@ -1957,6 +1963,7 @@ store:
   info_container: Information
   not_verified: You are unverified. Therefore you cannot see pickup slots and phone
     numbers of team members.
+  requests: Open requests ({count})
 search:
   mygroups: My groups
   mybuddies: My buddies
@@ -2016,7 +2023,7 @@ date:
   to: to
   from: from
   time: "{time} o'clock"
-  clock: clock
+  clock: o'clock
 wall:
   error-create: Your pinboard post could not be saved.
   created: Great! Your pinboard post was saved.
@@ -2579,6 +2586,10 @@ dashboard:
   full_subline: You have picked up food <b>{pickups} </b> times and saved <b>{weight}
     kg</b>. Your home district is <b>{region}</b>.
   polls: Your ongoing polls
+  release:
+    for_news_from_it: If there are any questions or challenges, first look at
+    for_support: Otherwise you can contact us at
+    for_release_notes: You can find the most important changes at
 pronoun:
   "3": he*she
   "2": she

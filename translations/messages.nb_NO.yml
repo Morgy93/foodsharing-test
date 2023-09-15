@@ -650,6 +650,10 @@ dashboard:
     kg</b>. Hjemmedistriktet ditt er <b>{region}</b>.
   eventCount: Neste hendelser ({count})
   polls: Dine pågående avstemninger
+  release:
+    for_news_from_it: Hvis det er noen spørsmål eller utfordringer, se først på
+    for_support: Ellers kan du kontakte oss på
+    for_release_notes: Du finner de viktigste endringene på
 search:
   persons: personer
   groups: grupper
@@ -855,6 +859,7 @@ profile:
     cancellation: Hyppige kanselleringer av samlinger på kort varsel uten å lete etter
       en erstatning
     sells: Personen selger berget mat
+    doesNotAffectStore: Påvirker ikke noe eller et annet selskap
   notFound: Denne brukerprofilen eksisterer ikke eller eksisterer ikke lenger
   go: Gå til profilsiden
   workgroups_member: Du og {name} er i følgende arbeidsgrupper
@@ -1234,6 +1239,10 @@ bell:
   foodsaver_verified_title: Du er nå verifisert!
   new_foodsaver_needs_verification: må verifiseres
   foodsaver_verified: Hent ID-en din under...
+  forum_post_title: '{title}'
+  forum_post:
+    one: Nytt innlegg av {user} i forumet {forum}
+    many: '{count} nye innlegg i forumet {forum}'
 reports:
   when: Tid
   time: Tid
@@ -1849,7 +1858,7 @@ date:
   to: til
   from: fra
   time: '{time}'
-  clock: klokka
+  clock:  
 recipients:
   unknown: ukjent
   confirm: Send e-post?
@@ -2315,6 +2324,7 @@ store:
     search_input: Søk på navn/tlf.nr.
     search_reset: tilbakestill søket
     no_record: Ingen post funnet.
+    is_closed: Laget er stengt
   enterdate: Skriv inn hentedato
   maxchar: (maks. 180 tegn)
   nodetails: Ikke oppgi nøyaktige hentetider her.
@@ -2377,6 +2387,7 @@ store:
   not_verified: Du er ikke bekreftet ennå. Derfor kan du ikke se noen spilleautomater
     og telefonnumre til teammedlemmer.
   info_container: Informasjon
+  requests: Åpne forespørsler ({count})
 storeview:
   status: Nåværende status
   public_time_at_night: om natten
@@ -2718,14 +2729,16 @@ quizusercomment: "Gi oss tilbakemelding på dette spørsmålet.\nVar det for let
   vanskelig, uforståelig?\nEller er individuelle svar eller forklaringer feil?\n"
 releases:
   "2020-12": Versjon «dragefrukt» (desember 2020)
-  "2021-03": Release «jordbær» 🍓 (mars 2021)
+  "2021-03": Versjon «jordbær» 🍓 (mars 2021)
   "2021-09": Versjon "fig" 🥧 (september 2021)
   "2020-08": Versjon «pære» (august 2020)
   "2020-05": Versjon «appelsin» (mai 2020)
   "2020-10": Versjon «cranberry» (oktober 2020)
   "2022-05": Versjon "Blåbær" 🍇 (Mai 2022)
   "2022-01": Versjon "Grapefrukt" 🍋 (Januar 2022)
-  "2022-12": Utgivelse "Iskrem" 🍨 (desember 2022)
+  "2022-12": Versjon "Iskrem" 🍨 (desember 2022)
+  "2023-08": Versjon «Jackfrukt» 🍈 (september 2023)
+  "2023-09": Versjon «Jackfrukt» 🍈 (september 2023)
 push_notifications:
   test_notification_title: Push-varsler er aktivert
   test_notification_body: Flott, det ser ut til å ha fungert :)

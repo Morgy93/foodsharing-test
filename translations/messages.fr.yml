@@ -1242,6 +1242,7 @@ store:
     search_input: Recherche par nom / numéro de téléphone
     search_reset: Réinitialiser la recherche
     no_record: Aucune entrée n'a été trouvée.
+    is_closed: L'équipe est fermée
   leaveinfo: Ici, tu peux indiquer quelques informations pour les collecteurs.rices
     qui souhaitent postuler pour faire partie de l'équipe.
   prefetchfour: 4 semaines
@@ -1276,6 +1277,7 @@ store:
     ».
   not_verified: Vous n'êtes pas encore vérifié. Par conséquent, vous ne pouvez pas
     voir les créneaux horaires et les numéros de téléphone des membres de l'équipe.
+  requests: Demandes ouvertes ({count})
 storeview:
   want_to_fetch: J'aimerais m'engager dans cette équipe.
   specials: Particularités
@@ -1505,6 +1507,11 @@ dashboard:
   invitationCount: Tu as reçu une invitation ({count})
   polls: Tes votations en cours
   settings: Préférences
+  release:
+    for_news_from_it: Si vous avez des questions ou des défis, jetez d'abord un coup
+      d'œil sur
+    for_support: Sinon, vous pouvez nous contacter sur
+    for_release_notes: Vous trouverez les changements les plus importants sur
 profile:
   report:
     arbAdminAgainstRepAdmin: Tu es admin dans un groupe d'arbitrage et tu essayes
@@ -1603,6 +1610,7 @@ profile:
     readup: "Vous pouvez lire ici des indications sur le traitement d'un signalement
       : <a href='https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.29_Bearbeitung_einer_Meldung'>
       Traitement d'un signalement</a>"
+    doesNotAffectStore: N’affecte aucune ou une autre magasin
   mediation:
     no_group: Il n'existe malheureusement pas encore de groupe local de médiation
       pour le secteur géographique choisi. Tu peux aborder ce thème lors d'un prochain
@@ -2025,8 +2033,8 @@ storeedit:
   fetch:
     teamStatus2: Besoin de renforts urgent
     teamStatus1: Ton aide est la bienvenue
-    teamStatus0: Cette équipe est complète et n'a pas besoin d'aide supplémentaire
-      pour le moment
+    teamStatus0: Cette équipe est fermée et n’a pas besoin d’aide supplémentaire pour
+      le moment
     teamStatus: Statut de l'équipe
   store:
     status: Statut
@@ -2348,6 +2356,10 @@ bell:
   foodsaver_verified_title: Tu es désormais vérifié !
   new_foodsaver_needs_verification: Doit être vérifié
   foodsaver_verified: Récupère ta carte de collecteur.rice ici...
+  forum_post_title: '{title}'
+  forum_post:
+    one: Nouveau message de {user} dans le forum {forum}
+    many: '{count} nouveaux messages sur le forum {forum}'
 personal_data:
   landline: Numéro de fixe
   mobile: Numéro de portable
@@ -2487,15 +2499,17 @@ storestatus:
   "3a": Le magasin est prêt à faire des dons. :-)
   "5a": Le magasin fait déjà des dons
 releases:
-  "2020-05": Version « orange » (mai 2020)
-  "2020-08": Version « poire » (août 2020)
-  "2020-10": Version « Canneberge » (octobre 2020)
-  "2020-12": Version « fruit du dragon » (décembre 2020)
-  "2021-03": Version « fraise » 🍓 (mars 2021)
+  "2020-05": Version « Orange » (mai 2020)
+  "2020-08": Version « Poire » (août 2020)
+  "2020-10": Version « Canneberge » (octobre 2020)
+  "2020-12": Version « Fruit du dragon » (décembre 2020)
+  "2021-03": Version « Fraise » 🍓 (mars 2021)
   "2021-09": Version « Figue » 🥧 (septembre 2021)
-  "2022-01": Version "Grapefruit" 🍋 (janvier 2022)
-  "2022-05": Version "myrtille" 🍇 (mai 2022)
-  "2022-12": Version "Icecream" 🍨 (décembre 2022)
+  "2022-01": Version « Grapefruit » 🍋 (janvier 2022)
+  "2022-05": Version « Myrtille » 🍇 (mai 2022)
+  "2022-12": Version « Icecream » 🍨 (décembre 2022)
+  "2023-08": Version « Jacquier » 🍈 (septembre 2023)
+  "2023-09": Version « Jacquier » 🍈 (septembre 2023)
 startpage:
   donate:
     text: "Nous nous efforçons de faire parrainer toutes nos dépenses. Cependant,
