@@ -737,6 +737,8 @@ store:
     request: ''
     to-team: ''
     got-it: ''
+    distance: bydlí asi {distance} km daleko
+    distance_close: bydlí méně než 1 km daleko
   important: ''
   nochains: ''
   all_of_my_stores: ''
