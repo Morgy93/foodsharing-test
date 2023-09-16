@@ -1122,6 +1122,8 @@ store:
     request: Je souhaite aider dans cette équipe.
     no-duplicate: Il existe déjà une demande.
     unverified: L'utilisateur*rice n'est pas vérifié
+    distance: habite à environ {distance} km
+    distance_close: habite à moins de 1 km
   sm:
     makeRegularTeamMember: Intégrer dans l'équipe
     makeJumper: Nommer remplaçant(e)
