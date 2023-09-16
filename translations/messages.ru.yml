@@ -1318,6 +1318,8 @@ store:
     got-it: ''
     to-team: ''
     verified: ''
+    distance: живет примерно в {distance} км отсюда
+    distance_close: живет менее чем в 1 км
   convince:
     none: ''
     some: ''
