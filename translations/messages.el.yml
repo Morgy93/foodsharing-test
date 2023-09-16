@@ -869,6 +869,8 @@ store:
     request: ''
     verified: ''
     got-it: ''
+    distance: περίπου {distance} χλμ. μακριά
+    distance_close: ζει λιγότερο από 1 χλμ. μακριά
   particularities: ''
   chat:
     team: ''
