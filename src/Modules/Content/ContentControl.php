@@ -44,7 +44,7 @@ class ContentControl extends Control
                 $this->pageHelper->addContent($this->content_form());
 
                 $this->pageHelper->addContent($this->v_utils->v_field($this->v_utils->v_menu([
-                    ['href' => '/?page=content', $this->translator->trans('bread.backToOverview')]
+                    ['href' => '/?page=content', 'name' => $this->translator->trans('bread.backToOverview')]
                 ]), $this->translator->trans('content.actions')), CNT_RIGHT);
             } elseif ($id = $this->identificationHelper->getActionId('delete')) {
                 if ($this->contentGateway->delete($id)) {
@@ -66,7 +66,7 @@ class ContentControl extends Control
                 $this->pageHelper->addContent($this->content_form());
 
                 $this->pageHelper->addContent($this->v_utils->v_field($this->v_utils->v_menu([
-                    ['href' => '/?page=content', $this->translator->trans('bread.backToOverview')]
+                    ['href' => '/?page=content', 'name' => $this->translator->trans('bread.backToOverview')]
                 ]), $this->translator->trans('content.actions')), CNT_RIGHT);
             } elseif ($id = $this->identificationHelper->getActionId('view')) {
                 $this->addContent($id);
@@ -74,57 +74,12 @@ class ContentControl extends Control
                 $this->routeHelper->goAndExit('/?page=content&a=edit&id=' . (int)$_GET['id']);
             } else {
                 $this->pageHelper->addBread($this->translator->trans('content.public'), '/?page=content');
-
-                $contentIds = $this->contentPermissions->getEditableContentIds();
-                if ($data = $this->contentGateway->list($contentIds)) {
-                    $rows = [];
-                    foreach ($data as $d) {
-                        $link = '<a class="linkrow ui-corner-all" href="/?page=content&id=' . $d['id'] . '">';
-                        $rows[] = [
-                            ['cnt' => $d['id']],
-                            ['cnt' => $link . $d['name'] . '</a>'],
-                            ['cnt' => $this->legacyToolbar($d['id'], $d['name'])],
-                        ];
-                    }
-
-                    $table = $this->v_utils->v_tablesorter([
-                        ['name' => 'ID', 'width' => 30],
-                        ['name' => $this->translator->trans('content.name')],
-                        ['name' => $this->translator->trans('content.actions'), 'sort' => false, 'width' => 50]
-                    ], $rows);
-
-                    $this->pageHelper->addContent($this->v_utils->v_field($table, $this->translator->trans('edit_websites')));
-                } else {
-                    $this->flashMessageHelper->info($this->translator->trans('content.empty'));
-                }
-
-                if ($this->contentPermissions->mayCreateContent()) {
-                    $this->pageHelper->addContent($this->v_utils->v_field($this->v_utils->v_menu([
-                        ['href' => '/?page=content&a=neu', 'name' => $this->translator->trans('content.new')]
-                    ]), $this->translator->trans('content.actions')), CNT_RIGHT);
-                }
+                $this->pageHelper->addContent($this->view->vueComponent('content-list', 'ContentList', [
+                    'mayEditContent' => $this->contentPermissions->mayEditContent(),
+                    'mayCreateContent' => $this->contentPermissions->mayCreateContent(),
+                ]));
             }
         }
-    }
-
-    public function legacyToolbar($id, string $contentName): string
-    {
-        // edit
-        $out = '<li onclick="goTo(\'/?page=content&id=' . $id . '&a=edit\');"'
-            . ' title="' . $this->translator->trans('button.edit') . '" class="ui-state-default ui-corner-left">'
-            . '<span class="ui-icon ui-icon-wrench"></span>'
-            . '</li>';
-
-        // delete
-        $confirmMsg = $this->translator->trans('content.delete', ['{name}' => $contentName]);
-        $link = "'/?page=content&a=delete&id=" . $id . "'";
-        $out .= '<li class="ui-state-default ui-corner-right"'
-            . ' title="' . $this->translator->trans('button.delete') . '"'
-            . ' onclick="ifconfirm(' . $link . ',\'' . $confirmMsg . '\');">'
-            . '<span class="ui-icon ui-icon-trash"></span>'
-        . '</li>';
-
-        return '<ul class="toolbar" class="ui-widget ui-helper-clearfix">' . $out . '</ul>';
     }
 
     public function partner(): void

@@ -1656,6 +1656,10 @@ content:
   content: "Inhalt"
   empty: "Bisher wurde keine Seite eingetragen."
   changelog: "Aktuelles Changelog"
+  id: "ID"
+  title: "Titel"
+  last_modified: "Zuletzt bearbeitet"
+  delete_tooltip: "Seite löschen"
 
 map:
   title: "Karte"

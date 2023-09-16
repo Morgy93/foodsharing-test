@@ -15,6 +15,7 @@
 - Cleaned up a lot of core code all over the place !2738 @\_fridtjof_
 - Preparations to routing/link building code for future porting to Symfony controllers !2738 @\_fridtjof_
 - Moved the database connection to Doctrine DBAL !2801 @\_fridtjof_
+- Refactored the list of editable content to vue !2862 @alex.simm
 
 ## Dev/Test/CI stuff
 - removed CHANGELOG.md merge=union !2866 @chriswalg

@@ -19,6 +19,8 @@ const urls = {
   communitiesSwitzerland: () => '/?page=content&sub=communitiesSwitzerland',
   contact: () => '/?page=content&sub=contact',
   contentEdit: () => '/?page=content',
+  contentEditEntry: (id) => `/?page=content&a=edit&id=${id}`,
+  contentNew: () => '/?page=content&a=neu',
   conversations: (conversationId = null) => `/?page=msg${conversationId ? `&cid=${conversationId}` : ''}`,
   dashboard: () => '/?page=dashboard',
   dataprivacy: () => '/?page=legal',
