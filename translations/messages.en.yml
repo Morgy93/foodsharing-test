@@ -1834,7 +1834,7 @@ store:
       with you.
     no-duplicate: There is already a request.
     unverified: User is not verified
-    distance_close: Is located less than 1 km away
+    distance_close: lives less than 1 km away
     distance_unknown: no place of residence provided
     distance: lives about {distance} km away
   sm:
