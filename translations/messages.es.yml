@@ -944,6 +944,8 @@ store:
     to-jumper: ''
     title: ''
     withdrawn: ''
+    distance: vive a unos {distance} km de distancia
+    distance_close: vive a menos de 1 km de distancia
   all_of_my_stores: ''
   prefetchone: ''
   go: ''
