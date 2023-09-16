@@ -892,8 +892,8 @@ store:
       contatteranno.
     unverified: L'utente non è verificato
     distance_unknown: Nessun luogo di residenza inserito
-    distance: Si trova a circa {distance} km di distanza
-    distance_close: Si trova a meno di 1 km di distanza
+    distance: Si trova a circa {distance} km di distanza
+    distance_close: Si trova a meno di 1 km di distanza
   sm:
     removeFromTeam: Rimuovare dal team
     filterUnverified: Non verificate
