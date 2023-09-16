@@ -9,6 +9,7 @@
       static
       centered
       scrollable
+      size="lg"
     >
       <div
         v-for="(request, index) in requests"
@@ -36,6 +37,9 @@
           <a :href="$url('profile', request.id)">
             {{ request.name }}
           </a>
+          <p>
+            {{ formatDistance(request.distance) }}
+          </p>
         </div>
 
         <b-button-group class="request-actions my-1" size="sm">
@@ -115,6 +119,15 @@ export default {
       } finally {
         hideLoader()
       }
+    },
+    formatDistance (distance) {
+      if (distance === null) {
+        return this.$i18n('store.request.distance_unknown')
+      }
+      if (distance === 0) {
+        return this.$i18n('store.request.distance_close')
+      }
+      return this.$i18n('store.request.distance', { distance })
     },
   },
 }

@@ -918,6 +918,9 @@ store:
     to-team: "Aufnehmen"
     to-jumper: "Springerliste"
     to-nowhere: "Ablehnen"
+    distance: "Wohnt ca. {distance}\xa0km entfernt"
+    distance_unknown: "Kein Wohnort eingetragen"
+    distance_close: "Wohnt weniger als 1\xa0km entfernt"
   info_container: "Informationen"
 #
 # Store and StoreUser

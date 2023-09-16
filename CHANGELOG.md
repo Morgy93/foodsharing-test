@@ -1,6 +1,7 @@
 # Unreleased
 
 ## Features
+- Storemanagers see how far applicants to the store live away #1661 !2772 @Anton Ballmaier
 
 ## Changes
 - Changed team state translation from full to closed !2831 @chriswalg
