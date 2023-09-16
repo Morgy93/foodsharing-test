@@ -2968,8 +2968,8 @@ globals:
   type:
     mailboxes: Mailboxen
     my_mailboxes: Meine Mailboxen
-    buddies: Buddies
-    my_buddies: Meine Buddies
+    buddies: Bekannte
+    my_buddies: Meine Bekannten
     stores: Betriebe
     my_stores: Meine Betriebe
     regions: Bezirke
