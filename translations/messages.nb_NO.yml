@@ -1025,7 +1025,9 @@ mailbox:
   inbox: Innboks
   title: Postkasser
   mail: E-post
-  reply: Svar
+  reply:
+    full: Svar på e-post
+    short: Svar
   subject: Emne
   actions: Alternativer
   refresh: Forfriske
@@ -1041,7 +1043,7 @@ mailbox:
   not-available: "Du må være {role} for å få tilgang til e-postinnbokser.\nLøs {quiz}
     her når du er klar.\n"
   sm-quiz: Quiz for Samarbeidsoffisere
-  mark_as_unread: Merk som ulest
+  mark_as_unread: Merk e-post som ulest
   create: Lag postkasse
   new: Ny postkasse
   delete: Flytt til søppel
@@ -1058,6 +1060,14 @@ mailbox:
   fromto: Fra/på
   from: Fra
   to: På
+  delete_selected: Slett valgte e-poster
+  mark_all: Merk alle
+  tag_recipient_hint: Mottakere (flere atskilt med semikolon)
+  for_quoting:
+    written_text: skrevet
+  move_to: flytte til
+  close_edit_mode: Slutt å redigere
+  mails: E-poster
 map:
   title: Kart
   donates: Selskapet donerer
@@ -1077,6 +1087,10 @@ content:
   name: Unikt navn
   edit: Rediger side
   public: Offentlige sider
+  id: ID
+  title: Tittel
+  last_modified: sist redigert
+  delete_tooltip: Slett siden
 foodsaver:
   manage:
     actions: Alternativer
@@ -2279,6 +2293,9 @@ store:
     no-duplicate: En forespørsel eksisterer allerede.
     verified: Brukeren er bekreftet
     unverified: Brukeren er ikke verifisert
+    distance_unknown: ikke oppgitt bosted
+    distance: bor ca {distance} km unna
+    distance_close: bor mindre enn 1 km unna
   team_conversation_name: '{name}-laget'
   appliedFor: Forespørsel fremsatt
   bread: Alle virksomheter
