@@ -437,7 +437,7 @@ terminology:
   n_ambassadors: Un ambasciatore|% count% ambasciatori
   n_sleeping: Un dormiglione|%count%dormiglione
   n_foodsaver: Un Foodsaver|%count% Foodsaver
-  mailboxes: Cassette e-mail
+  mailboxes: Caselle e-mail
   settings: impostazioni
   subgroups: Sottogruppi
   group: Gruppo di lavoro
@@ -889,6 +889,9 @@ store:
     got-it: Le persone responsabili sono state informate della tua richiesta e ti
       contatteranno.
     unverified: L'utente non è verificato
+    distance_unknown: Nessun luogo di residenza inserito
+    distance: Si trova a circa {distance} km di distanza
+    distance_close: Si trova a meno di 1 km di distanza
   sm:
     removeFromTeam: Rimuovare dal team
     filterUnverified: Non verificate
@@ -2542,7 +2545,7 @@ settings:
       solo per i foodsavers verificati.'
     button: 'Scarica il passaporto'
 mailbox:
-  mark_as_unread: Contrassegnare come non letto
+  mark_as_unread: Contrassegna l'e-mail come non letta
   filesize: Scusa, il file è troppo grande.
   filetype: Questo tipo di file non è permesso
   ratelimit: Puoi inviare solo un'email ogni 15 secondi, per favore aspetta un momento…
@@ -2572,7 +2575,9 @@ mailbox:
   recipient: Ricevente
   sender: Mittente
   delete: Nel barile
-  reply: Rispondi
+  reply:
+    full: Rispondi all'e-mail
+    short: Risposta
   empty: Non ci sono ancora messaggi in questa casella di posta
   trash: Cestino elettronico
   sent: Inviato
@@ -2583,6 +2588,24 @@ mailbox:
   to: 'A'
   fromto: 'Da/A'
   from: 'Da'
+  search: Ricerca
+  delete_selected: Elimina la selezione
+  conformation_modal:
+    title: Conferma
+    message: Sei sicuro di voler eliminare l'e-mail?
+  for_quoting:
+    has_from: ha da
+    written_text: scritto
+  mark_all: Seleziona tutto
+  tag_recipient_hint: Destinatari (separati da punto e virgola)
+  mailsend_unsuccess: Non è stato possibile inviare l'e-mail. {error}
+  attachment:
+    not_found_explanation: Impossibile trovare il file allegato sul server
+    not_found: non trovato
+  move_to: Sposta in
+  close_edit_mode: Termina la modifica
+  add: Aggiungi
+  mails: E-mails
 messages:
   bread: Notizie
 map:
@@ -2966,11 +2989,11 @@ globals:
     my_mailboxes: 'Le mie caselle postali'
     regions: 'Regioni'
     my_regions: 'Le mie regioni'
-    buddies: 'Compagni'
+    buddies: 'Conoscenze'
     groups: 'Gruppi'
     my_groups: 'I miei gruppi'
     persons: 'Persone'
-    my_buddies: 'I miei compagni'
+    my_buddies: 'Le mie conoscenze'
     stores: 'Aziende'
     my_persons: 'I miei amici'
     my_stores: 'Le mie aziende'
@@ -3009,7 +3032,7 @@ bootstrap-datepicker:
   labelNav: 'Navigazione del calendario'
 navigation:
   styleguide: 'Guida allo stile'
-  stores: 'Aziende'
+  stores: 'Negozi'
   conversations: 'Conversazioni'
   regions: 'Regioni'
   basket: 'Ceste di cibo'
