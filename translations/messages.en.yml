@@ -698,6 +698,7 @@ mailbox:
   close_edit_mode: Stop editing
   add: Add
   mails: Emails
+  mailsend_unsuccess: Email could not be sent. {error}
 events:
   description: Description
   create:
@@ -1748,6 +1749,10 @@ content:
   changelog: Latest changelog
   empty: No page has been entered yet.
   delete: Are you sure you want to delete {name}?
+  id: ID
+  title: Title
+  last_modified: Last edited
+  delete_tooltip: Delete page
 foodsaver:
   kicked: Foodsaver removed
   list:
@@ -1829,6 +1834,7 @@ store:
       with you.
     no-duplicate: There is already a request.
     unverified: User is not verified
+    distance_close: Is located less than 1 km away
   sm:
     reallyRemove: Do you really want to remove {name} from the store team?
     removeFromTeam: Remove from the team
