@@ -281,43 +281,45 @@ upload:
   crop_dialog_title: ritaglia l'immagine
   new_file: carica un nuovo file
   choose_file: Caricare un file
-  file: Caricare un file
+  file: Carica file
   new_image: Carica una nuova immagine
   image: Carica immagine
-  preview_image: anteprima
+  preview_image: Anteprima
   no_image_chosen: Nessun file ancora selezionato
   no_image_yet: Nessuna immagine ancora caricata
   no_image: Il file caricato non è una foto. Scegli un altro file.
 picture_upload_widget:
   choose_picture: Scegli un'immagine dal tuo computer.
-  picture_upload: Caricamento di foto
+  picture_upload: Caricamento foto
 image: Foto
-quizusercomment: "Rispondi a questa domanda.\nEra troppo facile, troppo difficile,
-  incomprensibile?\nOppure le risposte o le spiegazioni individuali sono errate?\n"
-wikilink: Collegamento alla pagina wiki
+quizusercomment: "Dacci un feedback su questa domanda.\nEra troppo facile, troppo
+  difficile, incomprensibile?\nOppure le risposte o le spiegazioni individuali sono
+  errate?\n"
+wikilink: Link alla pagina wiki
 questcount: Quante domande dovrebbero essere poste durante l'esame?
 maxfp: Numero massimo di punti di errore da superare
 answers: Quali risposte sono corrette?
-duration: Tempo per rispondere
+duration: È ora di rispondere
 explanation: Spiegazione
 fp: Punti di errore
 text: Testo
 right: Valutazione
-week_num: Quante settimane avrebbe dovuto essere un candidato con noi?
-fetch_count: Quanti ritiri dovrebbe aver effettuato un richiedente?
+week_num: Per quante settimane deve essere registrato un candidato?
+fetch_count: Quanti ritiri deve aver effettuato un richiedente?
 banana_count: Di quante banane fiducia ha bisogno un membro?
-apply_type: Chi può registrarsi per questo gruppo?
+apply_type: Chi può iscriversi a questo gruppo?
 leader: Amministratori dei gruppi
 member: Membri
-abholmenge: Quanti chili circa sono da portare per ogni raccolta?
-prefetchtime: Con quante settimane di anticipo Foodsaver può registrarsi utilizzando
+abholmenge: Approssimativamente, quanti chilogrammi di cibo vengono prelevati per
+  ogni ritiro?
+prefetchtime: Con quante settimane di anticipo può un foodsaver registrarsi utilizzando
   gli slot automatici?
-sticker: L'azienda / negozio / club ecc. È disposta ad attaccare un adesivo in modo
-  visibile all'ingresso o da qualche altra parte?
-presse: L'azienda / negozio / club è pronto per essere menzionato sulla stampa e su
-  Foodsharing.de?
-ueberzeugungsarbeit: È stato facile convincere qualcuno incaricato a collaborare con
-  il foodharing?
+sticker: L'azienda / negozio / associazione ecc. è disposta ad esporre un adesivo
+  all'ingresso o altrove?
+presse: L'azienda / negozio / associazione è disposta ad essere menzionata sulla stampa
+  e su foodsharing.de?
+ueberzeugungsarbeit: È stato facile convincere una persona responsabile a collaborare
+  con foodsharing?
 public_time: Orario approssimativo per la raccolta
 public_info: Informazioni pubbliche sull'azienda
 besonderheiten: Particolarità
@@ -1612,7 +1614,7 @@ forum:
     a conferma da parte di un ambasciatore/moderatore.
   not_found: Questa discussione non esiste.
   deleted_user: utente eliminato
-first_post: Primo inserimento nella bacheca
+first_post: Primo post in bacheca
 events:
   rsvp:
     no: "Stato dell'invito modificato: non parteciperai ora."
