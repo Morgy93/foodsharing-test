@@ -318,11 +318,11 @@ presse: L'azienda / negozio / club è pronto per essere menzionato sulla stampa 
   Foodsharing.de?
 ueberzeugungsarbeit: È stato facile convincere qualcuno incaricato a collaborare con
   il foodharing?
-public_time: Orario approssimativa per la raccolta
+public_time: Orario approssimativo per la raccolta
 public_info: Informazioni pubbliche sull'azienda
 besonderheiten: Particolarità
 begin: Inizio della collaborazione
-lebensmittel: Quale cibo può essere ritirato?
+lebensmittel: Quali alimenti possono essere raccolti?
 fax: Fax
 ansprechpartner: Referenti aziendali (responsabili di filiale, ecc.)
 betrieb_status_id: Stato
@@ -497,7 +497,7 @@ terminology:
   store: Azienda
   pickup: Ritiro
   boardAdmins: Consiglio di amministrazione
-  fsps: 'Punti Food-Share'
+  fsps: 'Frigo solidali'
   n_home_regions: uno con il distretto di residenza|%count% con il distretto di residenza
 register:
   woman: femmina
@@ -847,7 +847,7 @@ storeedit:
     teamStatus2: Gli aiutanti sono urgentemente necessari
     teamStatus1: Gli aiutanti sono ancora desiderati
     teamStatus: stato del team
-    teamStatus0: Questo team è chiuso e al momento non cerca altri aiutanti.
+    teamStatus0: Questo team è chiuso e al momento non cerca altri aiutanti
   store:
     status: stato
   team:
@@ -1224,9 +1224,9 @@ startpage:
     cosmetici, prodotti chimici domestici, giocattoli e altri prodotti non alimentari
     non possono essere scambiati o condivisi tramite foodsharing. La piattaforma foodsharing
     si riserva il diritto di eliminare tali offerte.'
-  dependability: 'In molte città ci sono punti Food-Share dove il cibo viene condiviso.
-    Puoi incontrarti lì o in altri luoghi neutrali per condividere. Se volete consegnare
-    o prendere in consegna del cibo siate affidabili e puntuali, non lasciate nessuno
+  dependability: 'In molte città ci sono i Frigo solidali dove il cibo viene condiviso.
+    Puoi incontrarti lì o in altri luoghi neutrali per condividere. Se vuoi consegnare
+    o prendere in consegna del cibo sii affidabile e puntuale, non lasciare nessuno
     fuori sotto la pioggia.'
 poll:
   results:
@@ -1815,6 +1815,10 @@ content:
   delete: Vuoi davvero che {nome} venga cancellato?
   edit_success: La pagina è stata salvata.
   public: Pagine pubbliche
+  id: ID
+  title: Titolo
+  last_modified: Ultima modifica
+  delete_tooltip: Elimina pagina
 regionOptions:
   save: Salvare opzioni
   success: Opzioni salvate correttamente
@@ -1828,14 +1832,13 @@ regionOptions:
   regionPickupLimitDayNumber: 'Si prega di indicare il numero massimo di ritiri per
     UN GIORNO'
   regionPickupRuleActive: 'Attiva la seguente regola distrettuale per le raccolte
-    dalle attività RASMR (Rare Spesso Favolose In particolare Non Comuni Estremamente
-    Popolari Utili):'
+    dai negozi PASTA (Particolarmente Apprezzati e Sempre Troppo Ambìti):'
   regionPickupInactiveHours: 'Si prega di indicare quante ore prima del ritiro questa
     regola non è più applicabile'
   regionPickupTimespan: 'Inserisci l''intervallo di tempo in giorni per il quale si
     applica la regola'
   regionPickupRuleActiveStoreList: 'Elenco delle aziende del distretto che verranno
-    prese in considerazione per la regola RASMR. ATTENZIONE: Tutti i ritiri dalle
+    prese in considerazione per la regola PASTA. ATTENZIONE: Tutti i ritiri dalle
     aziende elencate vengono sommati e presi in considerazione per la regola.'
 ageBandList:
   NumberOfAgeband: Numero
@@ -2178,7 +2181,7 @@ search:
   title: Ricerca
   user_search:
     placeholder: Nome o ID
-  informations: 'Puoi cercare persone, gruppi, aziende, quartieri e punti Food-Share.'
+  informations: 'Puoi cercare persone, gruppi, aziende, quartieri e frigo solidali.'
 profile:
   report:
     arbAdminAgainstRepAdmin: Sei un amministratore del collegio arbitrale e vuoi segnalare
@@ -2217,7 +2220,7 @@ profile:
     view:
       thief: 'Ha preso cose che non erano destinate a lui/lei'
       tardy: 'Arrivato/a in ritardo per il ritiro'
-      noshow: 'Non si è presentato/a al ritiro'
+      noshow: 'Non si è nemmeno presentato/a al ritiro'
       dirty: 'Non ha lasciato pulito il luogo del ritiro'
       bossy: 'Comportamento esigente/offensivo'
       vsstore: 'nei confronti dei dipendenti dell’azienda'
@@ -2577,18 +2580,18 @@ mailbox:
   delete: Nel barile
   reply:
     full: Rispondi all'e-mail
-    short: Risposta
+    short: Rispondi
   empty: Non ci sono ancora messaggi in questa casella di posta
   trash: Cestino elettronico
   sent: Inviato
   inbox: Posta in arrivo
-  title: Caselle postali
+  title: Caselle email
   mail: Email
   member: Utente Mailbox
   to: 'A'
   fromto: 'Da/A'
   from: 'Da'
-  search: Ricerca
+  search: Sfoglia
   delete_selected: Elimina la selezione
   conformation_modal:
     title: Conferma
@@ -2984,7 +2987,7 @@ error:
     title: 'Seleziona un distretto di residenza.'
 globals:
   type:
-    foodshare_points: 'Punti Food-Share'
+    foodshare_points: 'Frigo solidali'
     mailboxes: 'Caselle postali'
     my_mailboxes: 'Le mie caselle postali'
     regions: 'Regioni'
@@ -2997,7 +3000,7 @@ globals:
     stores: 'Aziende'
     my_persons: 'I miei amici'
     my_stores: 'Le mie aziende'
-    my_foodshare_points: 'I miei punti Food-Share'
+    my_foodshare_points: 'I miei frigo solidali'
   reset: 'Resetta'
   account:
     signout: 'Esci'
@@ -3203,9 +3206,9 @@ notifications:
       volta al mese.
     title: Newsletter
   foodSharePoints:
-    title: Punti Food-Share
-    description: Ricevi una notifica in caso di nuovi post sulle bacheche dei punti
-      Food-Share che segui.
+    title: Frigo solidali
+    description: Ricevi una notifica in caso di nuovi post sulle bacheche dei frigo
+      solidali che segui.
   groups:
     title: Gruppi di lavoro
   checkbox_push: Spingere
