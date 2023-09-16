@@ -28,3 +28,7 @@ stadt: Sua cidade ou município
 bezirk: Distrito
 betrieb: Cooperação comercial
 active: Activado
+store:
+  request:
+    distance: mora a cerca de {distance} km de distância
+    distance_close: mora a menos de 1 km de distância
