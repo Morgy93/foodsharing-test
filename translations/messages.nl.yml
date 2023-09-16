@@ -609,6 +609,8 @@ store:
     verified: ''
     got-it: ''
     to-nowhere: ''
+    distance: woont ongeveer {distance} km verderop
+    distance_close: woont op minder dan 1 km afstand
   filter: ''
   enterdate: ''
   short_tooltip_red: ''
