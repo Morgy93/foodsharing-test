@@ -1030,6 +1030,8 @@ store:
     to-team: Kabul et
     to-nowhere: Reddet
     unverified: Kullanıcı doğrulanmadı
+    distance: yaklaşık {distance} km uzakta yaşıyor
+    distance_close: 1 km'den daha yakın bir mesafede yaşıyor
   filter: … göre filtrele
   enterdate: Alım tarihini girin
   important: 'Önemli:'
