@@ -224,7 +224,7 @@ class MailboxTransactions
      */
     private function getAttachmentFilePath(EmailAttachment $attachment): string
     {
-        $fileOld = self::OLD_EMAIL_ATTACHMENT_DIRECTORY . $attachment->fileName;
+        $fileOld = self::OLD_EMAIL_ATTACHMENT_DIRECTORY . $attachment->hashedFileName;
         if (file_exists($fileOld)) {
             return $fileOld;
         } else {
