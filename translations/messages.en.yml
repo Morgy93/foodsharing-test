@@ -700,8 +700,8 @@ mailbox:
   mails: Emails
   mailsend_unsuccess: Email could not be sent. {error}
   for_quoting:
-    has_from: has from
-    written_text: written
+    has_from: wrote on
+    written_text:  
 events:
   description: Description
   create:
