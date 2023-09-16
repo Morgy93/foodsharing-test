@@ -137,6 +137,8 @@ store:
     verified: ''
     no-duplicate: ''
     to-team: ''
+    distance: wunnt ongeféier {distance} km ewech
+    distance_close: wunnt manner wéi 1 km ewech
   nodetails: ''
   nochains: ''
   nodeclaration: ''
