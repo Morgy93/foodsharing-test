@@ -3094,7 +3094,7 @@ navigation:
   stores: Magasins
   search: Recherche
   map: Carte
-  profil: 👋 Salut {name} !
+  profil: 👋 Salut {name} !
   contact: Contact et assistance
   whats_new: Quoi de neuf ?
   styleguide: Styleguide
