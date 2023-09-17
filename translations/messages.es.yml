@@ -154,18 +154,18 @@ reports:
   reportmessage: ''
 month:
   short:
-    "12": diciembre
-    "11": noviembre
-    "10": octubre
-    "9": septiembre
-    "8": agosto
-    "7": julio
-    "6": junio
-    "2": ''
-    "4": ''
-    "1": ''
-    "5": ''
-    "3": ''
+    "12": dec.
+    "11": nov.
+    "10": oct.
+    "9": sep.
+    "8": ago.
+    "7": jul.
+    "6": jun.
+    "2": 'feb.'
+    "4": 'abr.'
+    "1": 'ene.'
+    "5": 'may.'
+    "3": 'mar.'
   "1": 'enero'
   "3": 'marzo'
   "7": 'julio'
@@ -356,7 +356,7 @@ terminology:
   n_foodsaver: ''
   reportAdmins: ''
 groups:
-  empty: ¿Aún no estás en ningún grupo de trabajo?
+  empty: Aún no estás en ningún grupo de trabajo
 position: Puesto en foodsharing (público)
 infomail_message: Notificación de mensajes de chat sobre foodsharing
 kette_id: cadena corporativa
@@ -1122,15 +1122,15 @@ pickup:
   join_title_date: ''
 date:
   wednesday: 'miércoles'
-  to: ''
+  to: 'al'
   sunday: 'domingo'
-  Today: ''
+  Today: 'Hoy'
   yesterday: 'ayer'
   monday: 'lunes'
-  from: ''
+  from: 'del'
   time: ''
   clock: ' '
-  today: ''
+  today: 'hoy'
   friday: 'viernes'
   tuesday: 'martes'
   -- Yesterday: 'Ayer'
@@ -2470,7 +2470,7 @@ navigation:
   news_from_it: ''
   basket: ''
   whats_new: ''
-  profil: ''
+  profil: '👋 ¡Hola {name}!'
   stores: ''
   help_needed: ''
   contact: ''
@@ -2566,8 +2566,8 @@ answers: '¿Qué respuestas son correctas?'
 fpcapital: 'PF'
 abholmenge: '¿Aproximadamente cuántos kilogramos se toman por recogida?'
 duration: 'Tiempo para responder'
-message_text_to_group_admin_workgroup: 'La región/grupo de trabajo no tiene ni embajador(-a)
-  ni administrador-(a).'
+message_text_to_group_admin_workgroup: 'La región/grupo de trabajo <b>{groupName}</b>
+  no tiene ni embajador(-a) ni administrador(-a).<br>'
 ui:
   switch:
     off: 'inactivo'
