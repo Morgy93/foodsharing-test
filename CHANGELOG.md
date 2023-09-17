@@ -19,6 +19,8 @@
 
 ## Dev/Test/CI stuff
 - removed CHANGELOG.md merge=union !2866 @chriswalg
+- Updated quality tools !2867 @\_fridtjof_
+- Show CS Fixer results in gitlab !2867 @\_fridtjof_
 
 ## Development documentation
 

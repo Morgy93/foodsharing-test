@@ -171,6 +171,10 @@ build:backend-dev:
     paths:
       - assets
       - vendor
+    reports:
+      codequality: gitlab-ci-cs-report.json
+      # we could have both in theory, but in practice: https://gitlab.com/gitlab-org/gitlab/-/issues/351546
+      #- gitlab-ci-phpstan-report.json
 
 build:websocket:
   extends:
