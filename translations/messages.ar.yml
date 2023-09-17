@@ -1452,7 +1452,7 @@ navigation:
   promotion: ''
   system_administration: ''
   map: ''
-  profil: ''
+  profil: '👋 مرحبا {name}!'
   help_needed: ''
   support: ''
 globals:
