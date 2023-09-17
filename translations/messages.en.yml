@@ -1838,7 +1838,7 @@ store:
     no-duplicate: There is already a request.
     unverified: User is not verified
     distance_close: lives less than 1 km away
-    distance_unknown: no place of residence provided
+    distance_unknown: No residence entered
     distance: Is located about {distance} km away
   sm:
     reallyRemove: Do you really want to remove {name} from the store team?
