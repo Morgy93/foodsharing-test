@@ -1447,6 +1447,7 @@ content:
   new: Yeni sayfa oluştur
   new_success: Sayfa oluşturuldu
   edit: Sayfayı düzenle
+  id: İD
 mailbox:
   empty: Bu posta kutusunda henüz mesaj yok
   to: Kime
@@ -1484,12 +1485,16 @@ mailbox:
   attach: Dosya ekle (maksimum 1,2 MB)
   claim: İsraf etmek yerine foodsharing.de kullanın
   recipients: Çok fazla alıcı var
-  mail: E-Postalar
+  mail: E-Posta
   already_exists: Bu ada sahip bir posta kutusu zaten var
   not-allowed: Bunu yapmak için gerekli haklara sahip değilsiniz.
   okay: E-posta başarıyla gönderildi.
   failed: E-posta gönderilemedi.
   from: -den
+  for_quoting:
+    has_from:  
+    written_text: "'de şunu yazdı"
+  mails: E-Postalar
 basket:
   sent_request: Başvuru gönderildi
   n_requests: 'Şimdiye kadar ki başvurular: <strong>{count}</strong>'
