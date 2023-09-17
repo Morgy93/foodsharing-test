@@ -632,17 +632,37 @@ mailbox:
   date: Date
   recipient: Destinataire
   sender: Expéditeur
-  reply: Répondre
+  reply:
+    full: Répondre à l’e-mail
+    short: Répondre
   empty: Aucun message dans cette boîte de réception
   trash: Corbeille
   sent: Envoyés
   inbox: Boîte de réception
   title: Messageries
-  mail: Courriels
+  mail: Courriel
   delete: À la corbeille
   from: De
   to: À
   fromto: De/À
+  search: Recherche
+  delete_selected: Supprimer les e-mails sélectionnés
+  conformation_modal:
+    title: Confirmation
+    message: Voulez-vous vraiment supprimer cet e-mail ?
+  for_quoting:
+    has_from: a écrit le
+    written_text:  
+  mark_all: tout sélectionner
+  tag_recipient_hint: Destinataires (plusieurs séparés par des points-virgules)
+  mailsend_unsuccess: Le mail n’a pas pu être envoyé. {error}
+  attachment:
+    not_found_explanation: Le fichier joint n’est plus trouvé sur le serveur
+    not_found: pas trouvé
+  move_to: déménager à
+  close_edit_mode: Arrêter de modifier
+  add: Ajouter
+  mails: Courriels
 foodsaver:
   mailchange_error: L'activation de votre nouvelle adresse électronique a échoué.
     Veuillez réessayer.
@@ -1124,6 +1144,7 @@ store:
     unverified: L'utilisateur*rice n'est pas vérifié
     distance: habite à environ {distance} km
     distance_close: habite à moins de 1 km
+    distance_unknown: Aucun lieu de résidence précisé
   sm:
     makeRegularTeamMember: Intégrer dans l'équipe
     makeJumper: Nommer remplaçant(e)
@@ -2252,6 +2273,10 @@ content:
   actions: Actions
   public: Pages publiques
   bread: Toutes les pages
+  id: ID
+  title: Titre
+  last_modified: dernière édition
+  delete_tooltip: Supprimer la page
 genderlist:
   gender_district_table_caption: Répartition de la caractéristique "sexe" à tous les
     collecteur.ice.s du secteur géographique.
