@@ -8,7 +8,7 @@ services:
         resource: '../../src/*'
         exclude:
          - '../../src/Lib/{Flourish,Caching.php,View/v*}'
-         - '../../src/{Dev,Debug}'
+         - '../../src/Dev'
          - '../../src/Kernel.php'
          - '../../src/Modules/{PushNotification/Notification,Foodsaver/Profile.php,Message/Message.php}'
          - '../../src/Modules/Uploads/DTO/'
