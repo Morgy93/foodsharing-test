@@ -9,8 +9,8 @@ edit: Editar
 edit_websites: Editar sites públicos
 desc: Descrição
 description: Descrição
-plz: Código postal (automaticamente a partir do mapa acima)
-email: E-Mail
+plz: Código postal (Automaticamente a partir do mapa acima)
+email: E-mail
 attachement: Anexo
 handy: Número de celular (com código do país, começa com +)
 anschrift: Rua e número da casa (automático a partir do mapa acima, se necessário,
