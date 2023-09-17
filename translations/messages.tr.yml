@@ -227,7 +227,7 @@ quiz:
   days: Günler
   session_deleted: Test iki haftadan uzun bir süre önce tamamlandığından, bu testin
     sonuçları silindi.
-  quizleft: ' - Şimdi sadece bu testi başarmak kaldı !'
+  quizleft: ' - Şimdi sadece bu testi başarmak kaldı !'
   nownownow: Testi şimdi başlat
   not_passed_details: Maalesef başaramadınız. Maksimum {max_points} hata puanından
     {points} aldınız!
@@ -287,7 +287,7 @@ pass:
     hasPickup: Hala kurtarmak için kayıtlı
     undo: '{name} ({id}) onaylamasını iptal edin'
     confirm: Emin misiniz?
-    text: "Kişisel veriler kontrol edildi mi? <br/>\nKimlik teslim edilsin mi?\n"
+    text: "Kişisel veriler kontrol edildi mi? <br>\nKimlik teslim edilsin mi?\n"
     failed: Bir sorun oluştu
     checkPickups: Doğrulamayı iptal etmeden önce, girilen kurtarma tarihlerini kontrol
       etmelisiniz.
@@ -550,7 +550,7 @@ bell:
   new_foodsaver_needs_verification: Doğrulanması gerekir
   new_foodsaver_needs_introduction: Tanıtım amaçlı alımlar gerekiyor
   foodsaver_verified_title: Artık doğrulandınız!
-  foodsaver_verified: Kimliğinizi burdan arayın...
+  foodsaver_verified: Kimliğinizi burdan arayın …
   betrieb_fetch_title: '{betrieb}'
   betrieb_fetch: '{count} onaylanmamış alım zamanı'
   sharepoint_activate: '{name} yazıldı'
@@ -966,10 +966,10 @@ reports:
   no_reports_fallback: Henüz rapor yok
   in-store: Rapor, {user} alımın olduğu bir İşletme ile mi ilgili?
   when: Zaman noktası
-  info: ' <br><br>!! Lütfen olayın <b>tarihini</b>, <b>yerini</b> ve <b>zamanını</b>
-    belirtin !! <br> Olayı doğrudan kişiyle ele almak ve konuyu açıklığa kavuşturmak
-    için lütfen size sunulan iletişim kanallarını deneyip denemediğinizi kontrol edin.
-    Lütfen soruları işleme almak için size ulaşmanın en uygun yolunu belirtin.'
+  info: ' !! Lütfen olayın <b>tarihini</b>, <b>yerini</b> ve <b>zamanını</b> belirtin
+    !! <br> Olayı doğrudan kişiyle ele almak ve konuyu açıklığa kavuşturmak için lütfen
+    size sunulan iletişim kanallarını deneyip denemediğinizi kontrol edin. Lütfen
+    soruları işleme almak için size ulaşmanın en uygun yolunu belirtin.'
   message: Açıklama
 message_text_to_group_admin_workgroup: '<b>{groupName}</b> bölgesi/çalışma grubu artık
   <b>herhangi bir</b> Elçiye/Yöneticiye sahip değil.<br><br><br>Şu kimlik yapısına
@@ -1043,9 +1043,8 @@ store:
     some: İkna ettikten sonra katılmayı kabul etti.
   complete: eksiksiz veritabanı
   nodetails: Burada kesin teslim alma saatlerini paylaşmayın.
-  willgetcontacted: Şu anda yedek listesindesiniz. Bu nedenle ekip üyelerinin telefon
-    numaralarını, duvar gönderilerini, ekip sohbetini veya slotları göremezsiniz.
-    Yedek Chatinde yazma seçeneğiniz vardır.
+  willgetcontacted: Şu anda yedek listesindesiniz. Yardıma ihtiyaç duyulduğunda sizinle
+    iletişime geçilecektir.
   nochains: Lütfen yalnızca sahibi tarafından yönetilen ve en fazla 3 şubeye sahip
     işletmelere hitap edin, asla daha büyük bir zincirin şubelerine hitap etmeyin!
     İşletme zinciri kurallarına uyun!
@@ -1483,7 +1482,7 @@ mailbox:
   refresh: Güncelle
   write: Yeni E-Posta
   attach: Dosya ekle (maksimum 1,2 MB)
-  claim: İsraf etmek yerine foodsharing.de kullanın
+  claim: İsraf etmek yerine foodsharing.network kullanın
   recipients: Çok fazla alıcı var
   mail: E-Posta
   already_exists: Bu ada sahip bir posta kutusu zaten var
@@ -2029,9 +2028,9 @@ forum:
   inform_per_email: Bu yeni konunun oluşturulması hakkında son 6 ayda aktif olan tüm
     forum üyelerine e-posta gönderin. Bu sadece denetlenmeyen forumlarda mümkündür
   no_threads: Henüz konu açılmadı
-  markdown_description: '*<i>kursivem</i>* oder **<b>fettem</b>** metini biçimlendirmek
+  markdown_description: '*<i>italik</i>* oder **<b>kalın</b>** metini biçimlendirmek
     için <a href="https://de.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a>
-    kullanabilirsiniz.<br />Dikkat: Metninizde * kullanmak istiyorsanız, başına &bsol;
+    kullanabilirsiniz.<br>Dikkat: Metninizde * kullanmak istiyorsanız, başına &bsol;
     eklemelisiniz. Bunu örneğin, elçi kelimesini cinsiyetlendirirken kullanabilirsiniz.'
   from: '{name} den'
   threads: Konular
@@ -2079,7 +2078,7 @@ password:
 base:
   keywords: foodsharing, yiyecek, gıda, son kullanma tarihi, yiyecek israfı, yiyecek
     atmak, bağış yapmak, yiyecek takası
-  slogan: Yiyecekleri atmak yerine paylaşmak - foodsharing Almanya
+  slogan: Yiyecekleri atmak yerine paylaşmak - foodsharing
   whatfor: Foodsharing.de'de yiyeceklerinizi son kullanma tarihi geçmeden önce sosyal
     kuruluşlara veya diğer kişilere verebilirsiniz
   jsrequired: Ne yazık ki, JavaScript olmadan burada hiçbir şey çalışmıyor.
@@ -2116,7 +2115,7 @@ profile:
       sağladığınız için teşekkürler!
     basketsSharedWeek: 'Yemek sepetleri {count} kişiyle paylaşıldı. '
     respActStores: 'Aktif olanları {count} koordine ettiğiniz için teşekkürler '
-    eventsCreatedWeek: 'Bu hafta {count} kez etkinlik oluşturduğunuz için teşekkürler. '
+    eventsCreatedWeek: 'Bu hafta {count} kez etkinlik oluşturduğunuz için teşekkürler.'
     calenderWeek: 'Takvim haftası'
   report:
     view:
@@ -2610,7 +2609,7 @@ storeview:
   status: Güncel durum
   cooperation: '{startTime} tarihinden beri işbirliği.'
   store: İşletme
-  visible_for_public: 'Bu metin her Foodsaver tarafından görülebilir.Örnek : Haritada.'
+  visible_for_public: 'Bu metin her Foodsaver tarafından görülebilir. Örnek : Haritada.'
   invalid_field: Geçersiz alan içeriği. Değişiklik kaydedilemiyor.
   management: Yönetim
   select_related_region: Sorumlu bölgenin seçimi
