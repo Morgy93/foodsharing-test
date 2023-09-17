@@ -2566,7 +2566,8 @@ answers: '¿Qué respuestas son correctas?'
 fpcapital: 'PF'
 abholmenge: '¿Aproximadamente cuántos kilogramos se toman por recogida?'
 duration: 'Tiempo para responder'
-message_text_to_group_admin_workgroup: ''
+message_text_to_group_admin_workgroup: 'La región/grupo de trabajo no tiene ni embajador(-a)
+  ni administrador-(a).'
 ui:
   switch:
     off: 'inactivo'
