@@ -1,35 +1,35 @@
 group:
   mail_link_title:
-    region: Casella postale del distretto
-    workgroup: Casella postale di gruppo
+    region: Casella email del distretto
+    workgroup: Casella email del gruppo di lavoro
   saved: I cambiamenti sono stati salvati
   apply:
     title: Domanda per {group}
     declined: Domanda rifiutata
-    accepted: domanda accettata
+    accepted: Domanda accettata
     sent: La candidatura è stata inviata.
-    send: inviare la candidatura
+    send: Inviare la candidatura
     time:
       "5": 5 o più ore
       "3": 3-4 ore
       "2": 2-3 ore
       "1": 1-2 ore
     zeit: Quante ore alla settimana hai tempo e voglia di dedicarci?
-    erfahrung: "Nel gruppo puoi attingere alle esperienze che hai acquisito altrove?\n
-      In caso affermativo, dove o cosa?\n"
-    faehigkeit: Quali sono le tue capacità che hai in questo settore?
-    motivation: Qual è la tua motivazione a partecipare al gruppo {group}?
-    summary: '{name} partecipare al gruppo di lavoro {group}.'
+    erfahrung: "Nel gruppo puoi attingere all'esperienza che hai acquisito altrove?\n
+      Se sì, dove o cosa?\n"
+    faehigkeit: Quali sono le competenze che possiedi in questo ambito?
+    motivation: Qual è la motivazione che ti spinge a partecipare al gruppo {group}?
+    summary: '{nome} vorrebbe unirsi al gruppo di lavoro {group}.'
     accept: Accettare candidatura
   contact:
-    send: Invia il messaggio
-    admins: '{count} referente:'
-    title: '{group} contattare'
+    send: Invia messaggio
+    admins: '{count} referenti:'
+    title: 'Contatta {group}'
     sent: Il messaggio è stato inviato con successo.
-    empty: Prima scrivi qualcosa;)
+    empty: Prima scrivi qualcosa ;)
     disclaimer: "Inviando un messaggio a questo gruppo di lavoro\ntutti gli amministratori
-      del gruppo di lavoro vedranno il tuo indirizzo e-mail,\nche hai specificato
-      nel tuo profilo di.\nUna copia di questo messaggio ti verrà inviata via e-mail.\n"
+      del gruppo vedranno il tuo indirizzo e-mail,\nche hai specificato nel tuo profilo
+      foodsharing.\nUna copia di questo messaggio ti verrà inviata via e-mail.\n"
   edit:
     title: Modificare {gruppo}
     name_required: Si prega di inserire un nome.
@@ -37,8 +37,8 @@ group:
     description_placeholder: Descrizione del gruppo di lavoro
   applications_for: Domande per {name}
   applications: Domande
-  photo: foto
-  description: descrizione
+  photo: Foto
+  description: Descrizione
   name: Nome
   show-all: Mostra tutto
   unique_function:
@@ -47,71 +47,71 @@ group:
     tooltip_function_region1811: Gli amministratori di questo gruppo di lavoro possono
       modificare le pagine «Partner», «Contatti» e «Team»
     tooltip_function_region432: Gli amministratori di questo gruppo di lavoro possono
-      visualizzare i messaggi
-    tooltip_function_region341: Gli amministratori di questo gruppo possono gestire
-      le domande del quiz
+      visualizzare le segnalazioni
+    tooltip_function_region341: Gli amministratori di questo gruppo di lavoro possono
+      gestire le domande del quiz
     tooltip_function_region331: Gli amministratori di questo gruppo di lavoro possono
       inviare newsletter
-    tooltip_function_region387: Gli amministratori di questo Gruppo di lavoro possono
-      cancellare le iscrizioni delle E-mail Bounceliste
+    tooltip_function_region387: Gli amministratori di questo gruppo possono rimuovere
+      le voci dall'elenco di rimbalzo delle e-mail
     tooltip_function_region327: Gli amministratori di questo gruppo di lavoro possono
       modificare i post del blog
     tooltip_function_region332: I membri di questo gruppo di lavoro hanno accesso
       all'elenco delle catene
   function:
-    tooltip_function_7: L'indirizzo e-mail di questo gruppo di lavoro viene visualizzato
-      sotto il pulsante «Richiedi mediazione». Gli amministratori non hanno diritti
-      speciali! Il team di segnalazione riceve questo
+    tooltip_function_7: Gli amministratori di questo gruppo di lavoro visualizzano
+      le segnalazioni che coinvolgono il team segnalazioni. Non verrà visualizzata
+      alcuna segnalazione che coinvolga gli amministratori! Le riceverà il team segnalazioni
     tooltip_function_9: Gli amministratori di questo gruppo di lavoro possono modificare
-      la descrizione del gruppo locale per la mappa.
+      la descrizione del gruppo locale sulla mappa.
     tooltip_function_6: L'indirizzo e-mail di questo gruppo di lavoro viene visualizzato
-      sotto il pulsante «Richiedi mediazione». Gli amministratori non hanno diritti
+      sotto il pulsante «Richiedi mediazione». Gli amministratori non hanno permessi
       speciali.
-    tooltip_function_2: Gli amministratori di questo AG possono creare votazioni per
-      il distretto
-    tooltip_function_1: Gli amministratori di questo gruppo di lavoro riceveranno
-      una notifica dei nuovi membri nel distretto
+    tooltip_function_2: Gli amministratori di questo gruppo di lavoro possono creare
+      votazioni per il distretto
+    tooltip_function_1: Gli amministratori di questo gruppo di lavoro verranno notificati
+      della presenza di nuovi membri nel distretto
     restricted_workgroup_function: Questa funzione del gruppo di lavoro può essere
-      elaborata solo dal gruppo di lavoro sovraregionale Crea
+      modificata solo dal gruppo di lavoro interregionale
     duplicate_moderation_team: Team di moderazione già creato! Può esserci un solo
       team di moderazione per distretto.
-    duplicate_pr_team: Team di relazioni pubbliche già create! Può esserci un solo
-      team di public relazioni per distretto.
+    duplicate_pr_team: Team di pubbliche relazioni già creato! Può esserci un solo
+      team di pubbliche relazioni per distretto.
     duplicate_fsmanagement_team: Team di amministrazione già creato! Può esserci un
       solo team amministrativo per distretto.
     duplicate_arbitration_team: Collegio arbitrale già creato! Può esserci un solo
       collegio arbitrale per distretto.
-    duplicate_mediation_team: Team di mediazione già creato! Può esserci solo una
-      squadra di mediazione per distretto.
+    duplicate_mediation_team: Team di mediazione già creato! Può esserci un solo team
+      di mediazione per distretto.
     duplicate_report_team: Team di segnalazione già creato! Può esserci un solo team
       di segnalazione per distretto.
-    duplicate_stores_team: Team di coordinamento delle operazioni già creato! Può
-      esserci un solo team di coordinamento delle operazioni per distretto.
-    duplicate_fsp_team: Squadra di divisori già creata! Può esserci solo una squadra
-      di divisore per distretto.
-    duplicate_voting_team: Squadra di votazione già creata! Può esserci solo una squadra
-      di voto per distretto.
-    duplicate_welcome_team: Team di benvenuto già creato! Può esserci solo una squadra
-      di benvenuto per distretto.
+    duplicate_stores_team: Team di coordinamento aziende già creato! Può esserci un
+      solo team di coordinamento aziende per distretto.
+    duplicate_fsp_team: Team di frigo solidali già creata! Può esserci un solo team
+      di frigo solidali per distretto.
+    duplicate_voting_team: Team di voto già creato! Può esserci un solo team di voto
+      per distretto.
+    duplicate_welcome_team: Team di benvenuto già creato! Può esserci solo un solo
+      team di benvenuto per distretto.
     invalid: A un distretto non può essere assegnata una funzione di gruppo di lavoro.
     moderation: Moderazione
-    pr: relazione pubblica
-    fsmanagement: amministrazione
-    arbitration: collegio arbitrale
+    pr: Pubbliche relazioni
+    fsmanagement: Management
+    arbitration: Collegio arbitrale
     mediation: Mediazione
-    report: Raporti
+    report: Segnalazioni
     stores: Aziende
-    fsp: Divisore
+    fsp: Frigo solidale
     voting: Sondaggio
     welcome: Benvenuto
     title: Funzione del gruppo di lavoro
-    tooltip_function_5: gli amministratori di questo gruppo di lavoro possono visualizzare
+    tooltip_function_5: Gli amministratori di questo gruppo di lavoro possono visualizzare
       le segnalazioni sui Foodsaver nel distretto. Non verrano mostrate segnalazioni
-      riguardanti gli amministratori stessi! L'ufficio arbitrale riceverà quest'ultime.
-    tooltip_function_4: gli amministratori di questo gruppo di lavoro possono visualizzare
-      e rielaborare le aziende nel distretto
-    tooltip_function_3: gli amministratori di questo gruppo di lavoro possono sia
-      abilitare i divisori del distretto sia rimuovere i contribuiti per il divisore
+      riguardanti gli amministratori stessi! Il collegio arbitrale riceverà quest'ultime.
+    tooltip_function_4: Gli amministratori di questo gruppo di lavoro possono visualizzare
+      e modificare le aziende del distretto
+    tooltip_function_3: Gli amministratori di questo gruppo di lavoro possono attivare
+      e modificare i frigo solidali del distretto così come rimuoverne i contributi
     tooltip_function_10: Gli amministratori di questo gruppo di lavoro possono attivare
       contributi nei forum moderati.
     board: Consiglio di amministrazione
@@ -119,50 +119,48 @@ group:
       distretto.
     tooltip_function_11: Gli amministratorə di questo gruppo di lavoro sono visualizzati
       nella visione d’insieme dei distretti.
-  delete_group_sure: Sei sicuro di voler eliminare il gruppo di lavoro / distretto
-    {groupName}?
-  quitting_home_district_warning: Sei sicuro di voler lasciare il tuo distretto di
-    origine% name%? Perdi la verifica e devi contattare il team degli ambasciatori
-    del tuo nuovo distretto di origine.
-  really_quit_district: Sei sicuro di voler lasciare il distretto% name%?
-  really_quit_workgroup: Sei sicuro di voler lasciare il gruppo di lavoro% name%?
-  quit: lasciare
-  quit_name_district: Lasciare il distretto% name%
-  quit_name_workgroup: Lasciare il team% name%
+  delete_group_sure: Vuoi davvero eliminare il gruppo di lavoro/distretto {groupName}?
+  quitting_home_district_warning: Vuoi davvero lasciare il tuo distretto di provenienza
+    %name%? Perderai la tua verifica e dovrai presentarti in seguito al team di ambasciatori
+    del tuo nuovo distretto di provenienza.
+  really_quit_district: Sei sicuro di voler lasciare il distretto di %name%?
+  really_quit_workgroup: Sei sicuro di voler lasciare il gruppo di lavoro %name%?
+  quit: Lascia il gruppo
+  quit_name_district: Lascia il distretto %name%
+  quit_name_workgroup: Lascia la squadra %name%
   no_groups: Non ci sono ancora gruppi di lavoro qui
   actions:
     safe: Salvare le modifiche
     join: Unisciti a questo gruppo di lavoro
-    apply: Candidare per questo gruppo di lavoro
-    go: al gruppo
-    edit: Modifica il gruppo
-    contact: contattare il gruppo
+    apply: Candidati a questo gruppo di lavoro
+    go: Visita la pagina del gruppo
+    edit: Modifica gruppo
+    contact: Contatti del gruppo
     save: Salvare le modifiche
   already_applied: Hai già fatto domanda per questo gruppo.
-  image: Foto per% name%
-  admin_count: '{0} Nessun amministratore |{1} Un amministratore | [2, Inf[% count%
+  image: Immagine di copertina per %name%
+  admin_count: '{0} Nessun amministratore|{1} Un amministratore| [2, Inf[ %count%
     amministratori'
-  member_count: '{0} Nessun collaboratore | {1} Un collaboratore | [2, Inf [% count%
-    collaboratori'
-  subtitle: qui troverai aiuto e tanto da fare …
-  title: gruppi di lavoro-foodsharing
-  administrators: amministratore del gruppo
+  member_count: '{0} Nessun collaboratore|{1} Un collaboratore| [2, Inf[ %count% contributori'
+  subtitle: Qui troverai aiuto e tante cose da fare…
+  title: Gruppi di lavoro foodsharing
+  administrators: Amministratori del gruppo
   members: Membri
   application_requirements:
-    not_fulfilled: Per candidarti a questo gruppo di lavoro, devi essere stato a foodsharing
-      per% weeks% settimane, aver già raccolto% bananas% banane fidate e aver già
-      preso parte alle raccolte% fetches%.
-    member_since_weeks: Quante settimane avrebbe dovuto essere un candidato con noi?
+    not_fulfilled: Per candidarti a questo gruppo di lavoro, devi aver collaborato
+      con Foodsharing per %weeks% settimane, aver già raccolto %bananas% banane fiducia
+      e aver già preso parte a %fetches% raccolte.
+    member_since_weeks: Da quante settimane deve essere iscritto/a un/a candidato/a?
     banana_count_errors:
-      max: Per favore, non aspettarti più di {{limit}} fidati delle banane.
-      min: Nessuno può avere meno di {{limit}} banane di fiducia.
-    banana_count: Di quante banane fiducia ha bisogno un candidato?
-    fetch_count: Quanti prelievi dovrebbe aver effettuato un richiedente?
-    open: Chiunque può partecipare senza candidare.
+      max: Per favore, non aspettarti più di {{limit}} banane fiducia.
+      min: Nessuno può avere meno di {{limit}} banane fiducia.
+    banana_count: Di quante banane fiducia ha bisogno un/a candidato/a?
+    fetch_count: Quanti ritiri deve aver effettuato un/a candidato/a?
+    open: Chiunque può aderire senza presentare domanda.
     everybody: Tutti possono candidarsi.
-    requires_properties: Chiunque soddisfi determinati punti di fiducia.
+    requires_properties: Chiunque soddisfi determinati requisiti di fiducia.
     nobody: Nessuno (gruppo chiuso).
-    requirements: Chi può registrarsi per questo gruppo?
+    requirements: Chi può iscriversi a questo gruppo?
   member_list:
     remove_title: Rimuovi membro
     remove_text: Vuoi davvero rimuovere {name} ({id}) dal gruppo di lavoro?
@@ -206,50 +204,50 @@ bcard:
     length: Il tuo indirizzo è troppo lungo. Indirizzo, codice postale e città insieme
       possono contenere un massimo di 49 caratteri.
   choose: Devi scegliere un'opzione
-  desc: Scegli qui per quale distretto o per quale ruolo vorresti creare il tuo biglietto
-    da visita.
-  claim: Genera, stampa e ritaglia facilmente …
-  generate: Creare biglietto da visita
-  actions: opzione
+  desc: Scegli qui per quale distretto o ruolo desideri creare il tuo biglietto da
+    visita.
+  claim: Genera, stampa e taglia facilmente qui…
+  generate: Crea biglietto da visita
+  actions: Opzioni
   for: '{role} per {region}'
-  card: Il tuo biglietto da visita
-  title: Generatore biglietto da visita
+  card: Il tuo biglietto da visita foodsharing
+  title: Generatore di biglietti da visita
   role: Rotolo/Distretto
 
 pass:
   button:
     check: Controlla gli appuntamenti
-    verify: Verificare
+    verify: Verifica
     unverify: Deverificare
   verify:
     checkPickups: Prima di annullare la verifica devi controllare le date di ritiro
-      registrate.
-    hasPickup: Ancora registrato per le collezioni
+      inserite.
+    hasPickup: Ancora registrato per i ritiri
     failed: Si è verificato un problema
-    text: "Dati personali controllati?<br/>\nConsegnato l'ID carta?\n"
-    confirm: sicuro?
+    text: "Dati personali controllati? <br/>\nConsegnare la carta d'identità?\n"
+    confirm: Sicuro?
     undo: Annulla verifica {name} ({id})
     do: Verifica l'account di {name} ({id})
   notGenerated: Non è stato possibile creare il tuo ID.
   noPhoto: 'Le seguenti persone non hanno ancora caricato una foto:'
   claim: Condividi il cibo invece di buttarlo via!
-  hintVerify: "I Foodshaver che hanno ricevuto un documento d'identità e hanno confermato
-    la correttezza dei propri dati personali possono essere verificati.\n"
-  hintSelect: "Con un clic sulla data di creazione, tutti i Foodsavers vengono contrassegnati
-    con la stessa data o senza una data di creazione.\n"
+  hintVerify: "Possono essere verificati i foodsaver che hanno ricevuto un documento
+    d'identità e confermato l'esattezza dei propri dati personali.\n"
+  hintSelect: "Cliccando sulla data di creazione vengono contrassegnati tutti i foodsavers
+    con la stessa data o senza data di creazione.\n"
   hint: Suggerimenti
   nav:
-    title: e ora inizia!
-    deselect: non segniare
-    select: Segna tutto
-    options: opzioni
-    generate: Generare la carta d´identitá contrassegnata
-  verified: verificato?
-  date: ultima creazione
-  name: nome
-  photo: foto
+    title: Cominciamo!
+    deselect: Deseleziona
+    select: Seleziona tutto
+    options: Opzioni
+    generate: Genera pass contrassegnati
+  verified: Verificato?
+  date: Ultimo creato
+  name: Nome
+  photo: Foto
   none: '- non ancora creato -'
-  bread: generatore di passaggi
+  bread: Generatore di pass
 ui:
   switch:
     off: inattivo
@@ -258,28 +256,28 @@ bread:
   backToOverview: Torna alla panoramica
   backToStore: ritorno all’azienda
 button:
-  clear_filter: filtro pulito
-  create: creare
-  answer: rispondere
-  send: spedire
-  cancel: abortire
-  apply: acettare
-  yes_i_am_sure: sì, sono sicuro
-  permadelete: eliminare irrevocabilmente
-  delete: cancellare
+  clear_filter: Pulisci filtro
+  create: Crea
+  answer: Rispondi
+  send: Invia
+  cancel: Annulla
+  apply: Applica
+  yes_i_am_sure: Sì, sono sicuro
+  permadelete: Elimina definitivamente
+  delete: Cancella
   edit: Modifica
-  new: nuovo
-  upload: caricare
-  rotate_right: ruotare in senso orario
-  attach_image: Caricare l'immagine (formato png o jpg)
-  change_picture: cambia immagine
-  next: avanti
-  save: salvare
+  new: Nuovo
+  upload: Carica
+  rotate_right: Ruota in senso orario
+  attach_image: Carica immagine (formato png o jpg)
+  change_picture: Cambia immagine
+  next: Avanti
+  save: Salva
 upload:
   image-problem: Il tuo file non sembra essere a posto, è meglio usare una normale
     immagine jpg
-  crop_dialog_title: ritaglia l'immagine
-  new_file: carica un nuovo file
+  crop_dialog_title: Ritaglia l'immagine
+  new_file: Carica un nuovo file
   choose_file: Caricare un file
   file: Carica file
   new_image: Carica una nuova immagine
@@ -524,26 +522,26 @@ register:
   select_your_gender: Per il saluto …
   check_mail: Controlla ora la tua casella di posta elettronica per completare la
     registrazione!
-  join_error: La tua registrazione non era possibile.
+  join_error: La tua registrazione non è andata a buon fine.
   join_success_message: Hai completato con successo la tua registrazione a Foodsharing.
     Ora puoi accedere con la tua e-mail e password.
   join_success: La tua registrazione è andata a buon fine.
   finish: Invia la registrazione
   next: avanti
-  prev: ritorno
+  prev: indietro
   have_read_the_legal_stuff2: notato
-  have_read_the_legal_stuff1: io ho la
+  have_read_the_legal_stuff1: Io ho la
   forgotten_password: Password dimenticata?
   phone_not_valid: Il numero di telefono inserito non è valido.
   phone_example: Esempio +49 179 12345678
-  login_phone_info: Può essere utile condividere il tuo numero di telefono con altre
-    persone di foodsharing
-  lastname_minLength: Il cognome deve essere composto da almeno 2 lettere.
+  login_phone_info: Può essere utile condividere il tuo numero di telefono con altri
+    foodsharer
+  lastname_minLength: Il cognome deve essere composto da almeno 2 caratteri.
   login_passwd1: Password (al massimo 8 lettere)
-  password_minLength: La password deve essere composta da almeno 8 lettere.
+  password_minLength: La password deve essere composta da almeno 8 caratteri.
   firstname_required: Per favore inserisci il tuo nome.
   lastname_required: Per favore inserisci il tuo cognome.
-  firstname_minLength: Il nome deve essere composto da almeno 2 lettere.
+  firstname_minLength: Il nome deve essere composto da almeno 2 caratteri.
   login_surname: Il tuo cognome
   login_name: Il tuo nome
   login_location: Il tuo indirizzo
@@ -551,19 +549,19 @@ register:
   geb_datum: La tua data di nascita
   confirmPassword_sameAsPassword: La password deve corrispondere.
   confirmPassword_required: Ripeti la password.
-  password_required: È richiesto un password.
-  login_passwd2: Ripetizione del password
+  password_required: È richiesta una password.
+  login_passwd2: Ripetizione della password
   email_invalid: L'indirizzo e-mail non è valido.
   login_email: Indirizzo e-mail
   email_required: È richiesto un indirizzo e-mail.
   birthdate_hint: Puoi trovare ulteriori informazioni nella <a href="/?page=legal"
     target="_blank">Protezione dati</a> al punto 2d) quando ti registri come foodsharer
     o foodsaver.
-  requiredFields: Informazione obbligatoria
-  mail_hint: 'Importante: attenzione alla corretta ortografia!'
+  requiredFields: Campo obbligatorio
+  mail_hint: 'Importante: prestare attenzione all''ortografia!'
   register_button_label: Registrati
   title: Registrazione
-  topbar: Prendi parte
+  topbar: Partecipa anche tu
   landline_example: Esempio +49 30 12345678
 store_status_impact_explanation: "Si prega di aggiornare dopo ogni contatto operativo
   (<a href=\"https://wiki.foodsharing.de/Kooperationsaufbau_-_Checkliste\" target=\"\
@@ -577,29 +575,28 @@ gender:
   m: Uomo
 login:
   pwreset:
-    mismatch: Spiacente, le password non corrispondono.
-    error: Spiacente, c'è un problema con i tuoi dati.
+    mismatch: Siamo spiacenti, le password non corrispondono.
+    error: Siamo spiacenti, c'è un problema con i tuoi dati.
     expired: Scusa, hai aspettato un po' troppo. Si prega di richiedere nuovamente
       una nuova password.
-    tooShort: Spiacente, la password che hai scelto è troppo corta.
+    tooShort: Siamo spiacenti, la password scelta è troppo corta.
     success: Ottimo, la tua password è stata modificata con successo. Ora puoi accedere.
-    mailSent: Bene, ti è stato inviato un collegamento tramite e-mail per modificare
-      la password.
+    mailSent: Bene, ti è stato inviato un link tramite e-mail per modificare la password.
     wrongMail: Purtroppo non riusciamo a trovare questo indirizzo e-mail, per favore
       riprova.
     bread: Reimposta la password
-  logout: logout
-  success: <b>Buona giornata, {user_name}!</b>
-  error_no_auth: Purtroppo non riusciamo a trovare questo indirizzo e-mail o la password,
+  logout: Logout
+  success: <b>Ti auguriamo una splendida giornata, {user_name}!</b>
+  error_no_auth: Purtroppo non riusciamo a trovare questo indirizzo e-mail o password,
     per favore riprova.
   error_no_password: Per favore inserisci la tua password.
   error_no_email: Inserisci il tuo indirizzo e-mail.
   save_password: Salva la password
   login_button_label: Accedi
   forgotten_password_label: Password dimenticata?
-  password: password
+  password: Password
   email_address: Indirizzo e-mail
-  form_title: registrare Ben tornato
+  form_title: Bentornato
   topbar: Accedi
   submit_btn: Accedi
   steady_login: Resta connesso
@@ -607,39 +604,39 @@ salutation:
   "3": Cara/o
   "2": Cara
   "1": Caro
-  "0": Cara/o
+  "0": Caro/a
 pronoun:
   "3": lui*lei
   "2": lei
   "1": lui
   "0": lui/lei
 legal:
-  are_you_sure_to_downgrade: 'Avvertenza: hai scelto di essere retrocesso a Foodsaver.
+  are_you_sure_to_downgrade: 'Attenzione: hai scelto di essere declassato a Foodsaver.
     Sei sicuro?'
   legal_agreement: Accordo legale
   not_acknowledge_pn_description: Se non sei d'accordo con l'insegnamento, verrai
-    declassato a un risparmiatore di cibo. Ciò significa che non sei più un ambasciatore
-    di distretti, che perdi le tue responsabilità operative e che devi sostenere il
-    quiz per diventare di nuovo un manager operativo / ambasciatore.
+    declassato a foodsaver. Ciò significa che non sarai più un ambasciatore distrettuale,
+    perderai le tue responsabilità operative e dovrai sostenere nuovamente il quiz
+    per diventare un manager operativo / ambasciatore.
   privacy_notice_agree:
-    not_acknowledge: Non sono d'accordo e vorrei essere retrocesso a Foodsaver
-    acknowledge: sono d'accordo
+    not_acknowledge: Non sono d'accordo e vorrei essere declassato a Foodsaver
+    acknowledge: Sono d'accordo
     select: Si prega di selezionare
   privacy_notice: Istruzioni sulla protezione dei dati
-  must_accept_pp: Per partecipare a Foodsharing, devi accettare le condizioni di protezione
-    dei dati.
+  must_accept_pp: Per partecipare a Foodsharing è necessario accettare le condizioni
+    di protezione dei dati.
   actions:
     safe: Salva le impostazioni
   delete_account: Voglio eliminare il mio account.
   agree_privacy_policy: Ho letto l'accordo sulla protezione dei dati.
   dont_agree: Non acconsento al trattamento dei miei dati e
-  not_acknowledge_pp_description: Per poter utilizzare la piattaforma Foodsharing,
-    è necessario prendere atto della dichiarazione sulla protezione dei dati descritta.
-  acknowledge: Prendi nota dell'accordo?
-  pp: Protezione dati
+  not_acknowledge_pp_description: Per utilizzare la piattaforma Foodsharing è necessario
+    leggere la dichiarazione sulla protezione dei dati descritta.
+  acknowledge: Accetti l'accordo?
+  pp: Privacy policy
   agree_privacy_notice: Sono stato informato dell'obbligo di riservatezza dei dati
-    personali e del comportamento conseguente. Riceverò una conferma di ciò tramite
-    e-mail per i miei documenti all'indirizzo che ho fornito.
+    personali e dei comportamenti che ne derivano. Riceverò conferma di ciò via e-mail
+    all'indirizzo che ho fornito come riferimento.
   if_delete:
     this_gets_deleted_friendlist: La tua lista di amici viene eliminata.
     this_doesnt_get_deleted_address: Il tuo indirizzo
