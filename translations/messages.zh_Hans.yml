@@ -2104,7 +2104,7 @@ navigation:
   regions: ''
   notifications: ''
   wiki: ''
-  profil: ''
+  profil: '👋 你好{name}！'
   help_needed: ''
   map: ''
   whats_new: ''
