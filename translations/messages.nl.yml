@@ -1562,7 +1562,7 @@ navigation:
   styleguide: ''
   whats_new: ''
   news_from_it: ''
-  profil: ''
+  profil: '👋 Hallo {name}!'
   groups: ''
   wiki: ''
   map: ''
