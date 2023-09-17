@@ -2399,7 +2399,7 @@ navigation:
   promotion: ''
   contact: ''
   regions: ''
-  profil: ''
+  profil: '👋 Γεια σου {name}!'
   wiki: ''
   basket: ''
   system_administration: ''
