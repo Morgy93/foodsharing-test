@@ -2341,7 +2341,7 @@ navigation:
   help: ''
   basket: ''
   search: ''
-  profil: ''
+  profil: '👋 Moien {name}!'
   system_administration: ''
   wiki: ''
   promotion: ''
