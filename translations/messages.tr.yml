@@ -66,10 +66,10 @@ dashboard:
     ack: 'Uyarı okundu ve tekrar gösterme'
     go: 'Teste git'
   polls: 'Devam eden anketleriniz'
-  full_subline: '<b>{pickups} x</b> yiyecek aldınız ve <b>{weight} kg</b> kurtardınız.
+  full_subline: '<b>{pickups} x</b> yiyecek aldınız ve <b>{weight} kg</b> kurtardınız.
     Yaşadığınız bölge <b>{region}</b>.'
   chooseHomeRegion: 'Lütfen bir ana bölgesi seçin.'
-  foodsaver_amount: '<b>{pickups} x</b> yiyecek aldınız ve <b>{weight} kg</b> kurtardınız.'
+  foodsaver_amount: '<b>{pickups} x</b> yiyecek aldınız ve <b>{weight} kg</b> kurtardınız.'
   source_foodsharepoint: 'Dağtım Noktası {0}'
   activation_mail_failure: 'Yeni bir etkinleştirme bağlantısı gönderilemedi'
   source_event: 'Randevu {0}'
@@ -723,10 +723,10 @@ startpage:
     title: 'Üye olarak'
     text: 'Fazla yiyeceklerinizi foodsharing topluluğuyla paylaşın veya şirketlerin
       gözden çıkardığı yiyecekleri kurtarın.'
-  followrules_c: 'Tüm ayrıntılar <a href=''https://wiki.foodsharing.de/Hygieneregeln''
-    target=''_blank'' rel=''noopener noreferrer nofollow''>foodsharing hijyen kurallarında</a>
-    bulunabilir. Talimatlar ayrıca <a href=''https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel''
-    target=''_blank'' rel=''noopener noreferrer nofollow''>kılavuzda</a> bulunabilir.'
+  followrules_c: 'Tüm ayrıntılar <a href="https://wiki.foodsharing.de/Hygieneregeln"
+    target="_blank" rel="noopener noreferrer nofollow">foodsharing hijyen kurallarında</a>
+    bulunabilir. Talimatlar ayrıca <a href="https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel"
+    target="_blank" rel="noopener noreferrer nofollow">kılavuzda</a> bulunabilir.'
   beresponsible: 'Sorumluluk sahibi ol'
   slogan_2: 'hep birlikte, sürdürülebilir & takdir edilebilir'
   notallowed: 'İlaçların paylaşımı ve dağıtımı (homeopatik ilaçlar dahil) foodsharing
@@ -747,8 +747,8 @@ startpage:
   responsibility: 'tüm yiyecekler sonunda çöpe gidiyor. Bu nihayet son bulmalı. Hiçbir
     şeyi atmak istemiyoruz! Yiyecekleri sorumlu bir şekilde ele almak istiyoruz ve
     bize katıldığınız için mutluyuz.'
-  followrules_a: 'Yiyecekleri başkalarına dağıtma kurallarına ve <a href=''https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel''
-    target=''_blank'' rel=''noopener noreferrer nofollow''>kılavuz</a>a uyun'
+  followrules_a: 'Yiyecekleri başkalarına dağıtma kurallarına ve <a href="https://wiki.foodsharing.de/Hygiene-Ratgeber_für_Lebensmittel"
+    target="_blank" rel="noopener noreferrer nofollow">kılavuz</a>a uyun'
   how_we_work:
     text: '"Bütün bunlar gönüllü olarak ve ücretsiz, bağımsız ve reklamsız yapılıyor.
       Platform bizim topluluğumuz kalbini
@@ -766,7 +766,7 @@ startpage:
     teslim etmek veya teslim almak istiyorsanız, lütfen güvenilir ve dakik olun, kimseyi
     "yağmurda" bırakmayın.'
   proposals: 'Kendimizi geliştirmek, daha iyiye doğru ilerlemek istiyoruz. Bunun için
-    birçok iyi fikir ve öneri ile size ihtiyacımız var. Bunları <a href=''mailto:info@foodsharing.de''>info@foodsharing.de</a>
+    birçok iyi fikir ve öneri ile size ihtiyacımız var. Bunları <a href="mailto:info@foodsharing.de">info@foodsharing.de</a>
     adresine gönderebilirsiniz'
   call_to_action:
     text: '2012 yılında kurulduk ve şu anda Almanya, Avusturya, İsviçre ve diğer Avrupa
@@ -790,7 +790,7 @@ startpage:
   forstores: 'Şirketler ve işletmeler için'
   together: 'Foodsharing ile birlikte, ayıklanmış ve satılamayan yiyeceklerin çöpe
     atılması yerine, iyi bir şekilde değerlendirilmesini sağlamak için çalışabilirsiniz.
-    Daha fazla bilgiyi <a href=''/İşletmeler için''>burada</a> bulabilirsiniz'
+    Daha fazla bilgiyi <a href="/fuer-unternehmen">burada</a> bulabilirsiniz.'
   followrules_b: 'Yasal sebeplerden dolayı sadece belirli yiyeceklerin ve diğer ürünlerin
     sunulmasına ve paylaşılmasına belirli koşullar altında izin verdiğimizi açıkça
     belirtiriz. Bu özellikle çiğ balık, çiğ et, çiğ yumurtalı yemekler ve hazır yiyecekler
@@ -941,8 +941,8 @@ regionOptions:
     efsanevi, özellikle sıra dışı, son derece popüler, yararlı) işletmelerdeki alımlar
     için aşağıdaki bölge kuralını etkinleştirin:'
   regionPickupRuleActiveStoreList: 'İlçe çapında adalet kuralı açısından dikkate alınan
-    ilçedeki işletmelerin listesi. DİKKAT: Listelenen firmalara ait tüm tahsilatlar
-    birbirine eklenir ve kurala göre dikkate alınır.'
+    ilçedeki işletmelerin listesi. Listelenen firmalara ait tüm tahsilatlar birbirine
+    eklenir ve kurala göre dikkate alınır.'
 validate:
   required: '{it} boş kalamaz'
 select: Lütfen seçiniz
@@ -1426,10 +1426,9 @@ foodsaver:
     buraya daha sonra hesabın neden silindiğini anlamak için bir neden girebilirsiniz:'
   mailchange_error: Yeni e-posta adresinizin etkinleştirilmesi başarısız oldu. Lütfen
     tekrar deneyin.
-  about_me_public: "Bu kısa açıklama, <a href=\"https://foodsharing.de/team\">Ekibindeki</a>
-    herkes tarafından kullanılabilir.\nve <a href=\"https://foodsharing.de/team/ehemals\"\
-    >eski üyeler sayfasında</a>\nkişiler ve web sitesinde bulunan herkes tarafından
-    görüntülenebilir.\n"
+  about_me_public: "Bu kısa açıklama, <a href=\"/team\">Ekibindeki</a> herkes tarafından
+    kullanılabilir.\nve <a href=\"/team/ehemals\">eski üyeler sayfasında</a>\nkişiler
+    ve web sitesinde bulunan herkes tarafından görüntülenebilir.\n"
   kicked: Foodsaver kaldırıldı
   bread: Tüm Foodsaverlar
 content:
@@ -1697,7 +1696,7 @@ footer:
   infosCompany: İşletmeler için
   about_us: Hakkımızda
   partner_names:
-    denns: Denn's Biomarkt
+    denns: Denn’s Biomarkt
     lebensministerium: Federal Tarım, Bölgeler ve Turizm Bakanlığı
     wiener_tafel: 'Tafel Viyana'
   contact: İletişim
@@ -1705,16 +1704,16 @@ footer:
   dataprivacy: 'Veri gizliliği'
 releases:
   "2022-12": Release "Icecream" 🍨 (Aralık 2022)
-  "2020-05": Release 'Portakal' (Mayıs 2020)
+  "2020-05": Release "Portakal" (Mayıs 2020)
   "2022-05": Release "Yaban Mersini" 🍇 (Mayıs 2022)
   "2021-09": Release "İncir" 🥧 (Eylül 2021)
-  "2020-12": Release 'Pitaya' (Aralık 2020)
+  "2020-12": Release "Pitaya" (Aralık 2020)
   "2022-01": Release "Greyfurt" 🍋 (Ocak 2022)
   "2021-03": Release "Çilek" 🍓 (Mart 2021)
-  "2020-10": Release 'Cranberry' (Ekim 2020)
-  "2020-08": Release 'Armut' (Augustos 2020)
+  "2020-10": Release "Cranberry" (Ekim 2020)
+  "2020-08": Release "Armut" (Augustos 2020)
   "2023-08": Release 'Jackfruit' 🍈 (Eylül 2023)
-  "2023-09": Release 'Jackfruit' 🍈 (Eylül 2023)
+  "2023-09": Release "Jackfruit" 🍈 (Eylül 2023)
 storestatus:
   "5": İşletme bizimle işbirliği halinde
   "2": Görüşmeler devam ediyor
@@ -1819,7 +1818,7 @@ email_template:
     address: "foodsharing e.V.\n  Neven-DuMont-Str. 14\n  50667 Köln\n  İle temsil
       edilen:\n\n  Frank Bowinkelmann\n  Temas etmek:\n  E-posta: info@foodsharing.de\n\
       \  Kayıt girişi:\n\n  Derneklerin siciline giriş\n  Kayıt mahkemesi: Köln Bölge
-      Mahkemesi\n  Kayıt numarası: VR 17439\n  § 55 Abs.2 RStV'ye göre içerikten sorumlu:\n\
+      Mahkemesi\n  Kayıt numarası: VR 17439\n  § 58 MStV'ye göre içerikten sorumlu:\n\
       \   Frank Bowinkelmann"
     general_information_requirements: § 5 Telemedya Yasasına göre bilgiler
     title: Künye
@@ -1918,7 +1917,7 @@ settings:
     mail: Evet, yeni yazılardan e-posta ile haberdar olmak istiyorum.
     none: Lütfen yeni gönderileri bana e-posta ile bildirmeyi bırakın.
   calendar:
-    link_title: 'ICS/ICAL/WebCal:'
+    link_title: 'ics/iCal/WebCal:'
     title: Alım takviminiz
     menu: Takvim
     event_link_desc: (etkinlikler dahil)
@@ -1976,15 +1975,15 @@ settings:
       doğrudan cihazınıza teslim edilmez.\nGiriş yapmadıysanız, cihazınız artık bildirim
       göstermeyecek\nve artık bir ton veya titreşimle yanıt vermeyecektir.\n"
   name_change:
-    foodsharer_info: Adınızı değiştirmek için <a {link}>Destek Formunda</a> bize bir
-      başvuruda bulunmalısınız.
+    foodsharer_info: Adınızı değiştirmek için <a href="{link}">Destek Formunda</a>
+      bize bir başvuruda bulunmalısınız.
     title: Ad (ad ve soyadı)
-    desc: Kendi adınızı kendiniz değiştiremezsiniz. Ancak <a {link}">ad değişikliği
+    desc: Kendi adınızı kendiniz değiştiremezsiniz. Ancak <a href="{link}">ad değişikliği
       talebinde bulunabilirsiniz</a>.
     request: İsim değişikliği talep edin
     foodsaver_info: Adınızı değiştirmek için, kendi bölgenizden bir elçi ile iletişime
-      geçmelisiniz. Bu kişi, adınızı değiştirebilir.<hr/>Sol kenar çubuğundaki <a
-      {link}>bölgenizin forumunda</a> kendi bölgenizdeki elçinin kim olduğunu görebilirsiniz.
+      geçmelisiniz. Bu kişi, adınızı değiştirebilir.<hr>Sol kenar çubuğundaki <a href="{link}">bölgenizin
+      forumunda</a> kendi bölgenizdeki elçinin kim olduğunu görebilirsiniz.
   chatmail: "Foodsharing ana sayfasında dahili bir mesaj alırsanız,\nve o anda giriş
     yapmadıysanız, e-posta ile bilgilendirilebilirsiniz.\nBunu istiyor musunuz?\n"
   newsletter: "Yaklaşık ayda 1x yiyecek kurtarımı hakkında \ngünceli bilgileri bir
@@ -2104,7 +2103,7 @@ profile:
     tooltip_visibility: Etkileşim istatistikleri, işletme yöneticisinin rolünden görülebilir.
       Ortak ana bölgesi veya ortak işletme ile sınırlıdır.
     basketsOfferedWeek: "Bu hafta {count} kez yemek sepeti sunduğunuz için teşekkürler.
-      Toplam {weight} kg paylaşıldı."
+      Toplam {weight} kg paylaşıldı."
     eventsParticipatedWeek: 'Bu haftaki etkinliklere {count} katıldığınız için teşekkür
       ederiz. Toplam süre: {saat}:{dakika} '
     weekDesc: '{weekStart} ile {weekEnd} arasındaki {week} takvim haftası'
@@ -2173,8 +2172,8 @@ profile:
       reportID: Rapor Kimliği
       reportee: Tarafından rapor edildi
     readup: "Bir mesajın nasıl işleneceği hakkında buradan bilgi edinebilirsiniz:
-      <a href='https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.29_Bearbeitung_einer_Meldung'>
-      Bearbeitung einer Meldung </a>"
+      <a href=\"https://wiki.foodsharing.de/Regelverletzungen_-_Konsequenzen_und_Bearbeitung#D.29_Bearbeitung_einer_Meldung\"\
+      > Bearbeitung einer Meldung </a>"
     oldReportButton: Kural ihlalini bildir
     oldReportButtonTextPart2: Gerekirse, bölgenizdeki yerel raporlama grubuyla iletişime
       geçin.
@@ -2863,7 +2862,7 @@ genderlist:
   header_for_district: '{bezirk} Bölgesinde ki Foodsaverların Cinsiyete göre dağılımı'
   home_district_tab: Ana Bölge
   gender_district_table_caption: Bölgeye katılan tüm Foodsaverlara karakteristik 'cinsiyet'
-    tahsisi.
+    tahsisi
   gender_home_district_table_caption: Karakteristik 'cinsiyet'in ana bölge Foodsaverlarına
     tahsisi
   gender_divers: diğer
@@ -2877,7 +2876,7 @@ filterlist:
   some_in_all: ({all}'dan {some})
   filter_for_name_id: İsim veya İD
 mail:
-  noreply_addresses_not_allowed: '"noreply@" adreslerine gönderilen e-postalar teslim
+  noreply_addresses_not_allowed: '"noreply@…" adreslerine gönderilen e-postalar teslim
     edilemez.<br>Lütfen alıcı adresini kontrol edin.'
 food_art: Ne tür yiyecekler sözkonusu?
 orgateam: Ülke çapındaki yönetici ekibi
@@ -3017,18 +3016,18 @@ globals:
     my_persons: 'Arkadaşlarım'
     my_regions: 'Bölgelerim'
     groups: 'Gruplar'
-  select: 'Lütfen seçin...'
+  select: 'Lütfen seçin …'
   close: 'Kapat'
   show_more: 'Daha fazla göster'
   reset: 'Sıfırla'
   you: 'Sen'
   show_less: 'Daha az göster'
 search:
-  placeholder: 'Şimdi aramaya başlayın...'
+  placeholder: 'Şimdi aramaya başlayın …'
   informations: 'Kişileri, grupları, şirketleri, semtleri ve gıda dağıtım noktalarını
     arayabilirsiniz.'
   noresults: 'Sonuç bulunamadı'
-  forum: 'Başlığa göre ara…'
+  forum: 'Başlığa göre ara …'
   thread-title-only: 'Gönderilerin içeriği değil, yalnızca başlıklar aranır.'
   title: 'Arama'
   user_search:
