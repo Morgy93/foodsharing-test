@@ -867,7 +867,7 @@ profile:
   sleeping: '{name} er inaktiv på ubestemt tid'
   commitments_stat:
     eventsCreatedWeek: 'Takk for at du opprettet arrangementer {count} ganger denne
-      uken. '
+      uken.'
     calenderWeek: uke
     respActStores: 'Takk for at du koordinerte {count} aktive '
     basketsSharedWeek: 'Matkurvene ble delt med {count} personer. '
@@ -1036,7 +1036,7 @@ mailbox:
   member: Postboksbrukere
   write: Skrive epost
   attach: Legg ved fil (maks. 1,2 MB)
-  claim: foodsharing.de - deling er omsorg
+  claim: foodsharing.network – deling er omsorg
   manage: Postboksmanager
   saved: Endringene er lagret
   name: Vist navn
