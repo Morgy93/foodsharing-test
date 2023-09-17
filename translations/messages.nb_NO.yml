@@ -1064,10 +1064,20 @@ mailbox:
   mark_all: Merk alle
   tag_recipient_hint: Mottakere (flere atskilt med semikolon)
   for_quoting:
-    written_text: skrevet
+    written_text:  
+    has_from: skrev
   move_to: flytte til
   close_edit_mode: Slutt å redigere
   mails: E-poster
+  search: Søk
+  conformation_modal:
+    title: Bekreftelse
+    message: Vil du virkelig slette denne e-posten?
+  mailsend_unsuccess: E-poster kunne ikke sendes. {error}
+  attachment:
+    not_found_explanation: Den vedlagte filen ble ikke lenger funnet på serveren
+    not_found: ikke funnet
+  add: Legg til
 map:
   title: Kart
   donates: Selskapet donerer
