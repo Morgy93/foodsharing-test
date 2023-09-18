@@ -414,7 +414,7 @@ error_unexpected: C'è stato un errore
 error_permissions: Purtroppo non disponi delle autorizzazioni necessarie per questo
   processo.
 success: Completato con successo
-back: indietro
+back: Indietro
 no: No
 yes: Sì
 really_delete: Eliminare?
@@ -767,7 +767,7 @@ pickup:
   really_kick_user_info: "Vuoi davvero annullare l'iscrizione di {name} dalla raccolta
     il {date}?\n{name} riceverà il seguente messaggio su questo:\n"
   really_leave_date_title: Annullare l'iscrizione per {date}?
-  signout_confirm: Sei sicuro?
+  signout_confirm: Ne sei sicuro?
   signout_info: Tutte le date dei tuoi ritiri verranno eliminate.
   signout_sure: Vuoi lasciare questo team?
   copiedNumber: '«{numero}» è stato copiato negli appunti.'
@@ -919,7 +919,7 @@ store:
     promoteToManagerNotPossible: Questa persona non può essere promossa a responsabile
       del negozio perché questo negozio ha già tre responsabili o la persona non ha
       ancora superato il quiz.
-    filterActive: Attivo
+    filterActive: Attivi
     filterSleeping: Dormiglione
     buttonManagementToggle: Modalità gestione
     toogleIsReducedStateOpen: Espandi elenco
@@ -991,11 +991,11 @@ store:
     ci sarà bisogno di aiuto, sarei contattat.
   nodetails: Non indicare qui gli orari esatti di ritiro.
   ownStores: Aziende proprie
-  regionPickupRuleLong: Entro {regionPickupRuleTimespan} giorni, non possono essere
-    effettuati più di un totale di {regionPickupRuleLimit} ritiri, tenendo conto di
-    tutti le aziende con regole distrettuali. Da queste aziende non possono essere
-    prelevati più di {regionPickupRuleLimitDay} volte al giorno. {regionPickupRuleInactive}
-    ore prima del ritiro, questa regola non viene presa in considerazione.
+  regionPickupRuleLong: Entro ±{regionPickupRuleTimespan} giorni dalla data di ritiro
+    desiderata, non possono essere già registrati più di {regionPickupRuleLimit} ritiri
+    presso le aziende PASTA. Da questi negozi è possibile ritirare un massimo di {regionPickupRuleLimitDay}
+    al giorno. {regionPickupRuleInactive} ore prima del ritiro, questa regola non
+    viene più presa in considerazione.
   complete: 'banca dati completa'
   regionPickupRules: 'regola aggiuntiva RASMR (Regola Aggiuntiva Slot Molto Ricercati)'
   nodeclaration: 'Non specificato'
@@ -1154,12 +1154,13 @@ startpage:
     text: Siamo stati fondati nel 2012 e ora siamo un movimento internazionale con
       oltre 500.000 utenti in Germania, Austria, Svizzera e altri paesi europei.
   demands:
-    text: "\"Piano d'azione con l'aiuto ambientale tedesco\npubblicato in occasione
-      del 6° compleanno del foodsharing il 12.12.2018. Per salvare la Germania da
-      un'altra violazione della parola\n- come ha fatto con gli obiettivi di protezione
-      del clima per il 2020 - foodsharing e Deutsche Umwelthilfe stanno delineando
-      con un\npiano d'azione, senza il quale l'obiettivo di dimezzamento non può essere
-      raggiunto.\"\n"
+    text: "\"Per ridurre efficacemente lo spreco di cibo, non possiamo limitarci a
+      salvare gli avanzi delle aziende o ad educare i consumatori.\nAbbiamo bisogno
+      di un'azione politica: obiettivi vincolanti di riduzione dei rifiuti lungo l'intera
+      catena produttiva.\nInoltre, le norme commerciali attualmente in vigore devono
+      essere riconsiderate e rese meno rigide, e le organizzazioni che salvano gli
+      alimenti o che offrono un'educazione sui rifiuti devono essere in grado di fornire
+      un'assistenza adeguata.\"\n"
     title: Pretese
   store:
     text: Lavori in un supermercato, un ristorante, una mensa…? Registra la tua azienda
@@ -1169,7 +1170,7 @@ startpage:
     text: Combatti lo spreco di cibo nella tua famiglia. Forniamo informazioni in
       occasione di fiere ed eventi come.
     title: in privato
-  call_to_action_button: Partecipare
+  call_to_action_button: Partecipa
   slogan: Insieme per apprezzare in più il cibo
   slogan_3: foodsharing è e rimane gratuito.
   slogan_2: collaborativo, sostenibile e riconoscente
@@ -1322,13 +1323,11 @@ email_template:
     link: https://devdocs.foodsharing.network/it-tasks.html
     main: Per rivedere questa funzione, abbiamo bisogno del supporto di altri programmatori,
       tester e aiutanti del vostro distretto.
-  manual_slots_get_ignored: Purtroppo, al momento questa notifica viene inviata solo
-    se nessuno si è registrato per gli orari di ritiro regolari. Gli appuntamenti
-    aggiuntivi aggiunti individualmente e le fasce orarie sovrascritte o cancellate
-    non vengono ancora presi in considerazione. Per non ricevere più questa notifica,
-    rimuovete gli orari di ritiro regolari dalla pagina della vostra azienda facendo
-    clic sull'icona della matita accanto agli orari di ritiro e rimuovendo gli orari
-    di ritiro non necessari.
+  manual_slots_get_ignored: Questa notifica è attualmente inviata se nessuno si è
+    registrato agli orari di ritiro regolari. Le date aggiuntive inserite individualmente
+    e gli slot sovrascritti o cancellati non vengono attualmente presi in considerazione.
+    Per non ricevere più queste notifiche, rimuovi eventuali orari di ritiro regolari
+    che non sono più necessari nella configurazione di ritiro della tua struttura.
   information: Informazioni
   find_someone: Per favore, coinvolgi qualcuno del tuo team operativo il prima possibile
     in modo che il ritiro possa avvenire. Se non sei in grado di mobilitare nessuno,
@@ -1822,16 +1821,15 @@ regionOptions:
     un link di mediazione sui profili del foodsaver tribale del distretto.
   enableReportButton: Abilitare il supporto tecnico per le notifiche attraverso un
     link di notifica sui profili del foodsaver tribale del distretto.
-  regionPickupLimitNumber: 'Si prega di indicare il numero massimo di ritiri possibili
-    per questo periodo'
-  regionPickupLimitDayNumber: 'Si prega di indicare il numero massimo di ritiri per
-    UN GIORNO'
+  regionPickupLimitNumber: 'Numero massimo di ritiri PASTA consentiti per il periodo
+    selezionato'
+  regionPickupLimitDayNumber: 'Numero massimo di ritiri PASTA giornalieri'
   regionPickupRuleActive: 'Attiva la seguente regola distrettuale per le raccolte
     dai negozi PASTA (Particolarmente Apprezzati e Sempre Troppo Ambìti):'
   regionPickupInactiveHours: 'Si prega di indicare quante ore prima del ritiro questa
     regola non è più applicabile'
-  regionPickupTimespan: 'Inserisci l''intervallo di tempo in giorni per il quale si
-    applica la regola'
+  regionPickupTimespan: 'Periodo di tempo (giorni prima e dopo la data di ritiro desiderata)
+    a cui si applica la regola PASTA'
   regionPickupRuleActiveStoreList: 'Elenco delle aziende del distretto che verranno
     prese in considerazione per la regola PASTA. Tutti i ritiri dalle aziende elencate
     vengono sommati e presi in considerazione per la regola.'
@@ -1892,7 +1890,7 @@ menu:
     options: Opzioni
     language: Seleziona lingua
     friendcircle: Cerchia di amici
-    selfservice: Selfservice
+    selfservice: Self service
     donations: Donazioni
     conference: Videoconferenza
     fs: Foodsaver
@@ -2352,7 +2350,7 @@ profile:
     never: Mai prima
     registrationDate: Data di registrazione
     lastActivity: Ultimo accesso
-    title: Informazioni
+    title: Info
     buddycount_known: '{name} conosce {count} foodsavers'
     buddycount_followed: '{name} è conosciuto da {count} foodsavers'
   online: '{name} è online.'
@@ -2534,9 +2532,9 @@ settings:
     title: 'Nome (nome e cognome)'
   passport:
     menu: 'Carta d''identità'
-    verified_text: 'Questo badge viene scaricato senza segni di ritaglio. Il PDF è
-      protetto da stampa e modifica. Deve essere visualizzato solo sul proprio smartphone.
-      Se hai bisogno di un badge stampato, contatta i tuoi ambasciatori.'
+    verified_text: 'Questo badge è destinato all''uso da smartphone. Puoi salvarlo
+      lì e poi mostrarlo quando richiesto. Se non hai uno smartphone o hai bisogno
+      di un badge tradizionale per un altro motivo, contatta il tuo ambasciatore locale.'
     non_verified_text: 'Non sei ancora verificato. Il download del passaporto è disponibile
       solo per i foodsavers verificati.'
     button: 'Scarica il passaporto'
