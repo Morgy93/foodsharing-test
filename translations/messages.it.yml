@@ -72,7 +72,7 @@ group:
     tooltip_function_1: Gli amministratori di questo gruppo di lavoro verranno notificati
       della presenza di nuovi membri nel distretto
     restricted_workgroup_function: Questa funzione del gruppo di lavoro può essere
-      modificata solo dal gruppo di lavoro interregionale
+      modificata solo dal gruppo di lavoro nazionale «Crea gruppo di lavoro»
     duplicate_moderation_team: Team di moderazione già creato! Può esserci un solo
       team di moderazione per distretto.
     duplicate_pr_team: Team di pubbliche relazioni già creato! Può esserci un solo
@@ -153,7 +153,7 @@ group:
     member_since_weeks: Da quante settimane deve essere iscritto/a un/a candidato/a?
     banana_count_errors:
       max: Per favore, non aspettarti più di {{limit}} banane fiducia.
-      min: Nessuno può avere meno di {{limit}} banane fiducia.
+      min: Nessuno può avere meno di {{limit}} banane fiduciarie.
     banana_count: Di quante banane fiducia ha bisogno un/a candidato/a?
     fetch_count: Quanti ritiri deve aver effettuato un/a candidato/a?
     open: Chiunque può aderire senza presentare domanda.
@@ -536,12 +536,12 @@ register:
   phone_example: Esempio +49 179 12345678
   login_phone_info: Può essere utile condividere il tuo numero di telefono con altri
     foodsharer
-  lastname_minLength: Il cognome deve essere composto da almeno 2 caratteri.
+  lastname_minLength: Il cognome deve essere composto da almeno due caratteri.
   login_passwd1: Password (al massimo 8 lettere)
-  password_minLength: La password deve essere composta da almeno 8 caratteri.
+  password_minLength: La password deve essere composta da almeno otto caratteri.
   firstname_required: Per favore inserisci il tuo nome.
   lastname_required: Per favore inserisci il tuo cognome.
-  firstname_minLength: Il nome deve essere composto da almeno 2 caratteri.
+  firstname_minLength: Il nome deve essere composto da almeno due caratteri.
   login_surname: Il tuo cognome
   login_name: Il tuo nome
   login_location: Il tuo indirizzo
@@ -645,8 +645,8 @@ legal:
     this_gets_deleted_main: 'Le seguenti informazioni saranno eliminate dal vostro
       account e non potranno essere ripristinate:'
     this_doesnt_get_deleted: "Le seguenti informazioni non sono più disponibili nel
-      sistema attivo, ma vengono archiviate separatamente sulla base dell'articolo
-      17, paragrafo 3 del GDPR:"
+      sistema attivo, ma vengono archiviate separatamente sulla base dell'Articolo
+      17 Paragrafo 3 Frase 1 Lettera b GDPR:"
     this_doesnt_get_deleted_history: Storia della tua verifica
     legal_1: Il nostro attuale accordo sulla privacy
     this_gets_deleted_stores: Aziende a cui ti sei uniti.
@@ -1874,7 +1874,7 @@ genderlist:
   gender_home_district_table_caption: Assegnazione della caratteristica ‘genere’ a
     tutti Foodsaver del distretto
   gender_district_table_caption: Assegnazione della caratteristica 'genere' a tutti
-    i Foodsaver che sono entrati nel distretto.
+    i Foodsaver che sono entrati nel distretto
   home_district_tab: Distritto di origine
 memberlist:
   header_for_workgroup: Foodsaver nel gruppo di lavoro {distretto}
