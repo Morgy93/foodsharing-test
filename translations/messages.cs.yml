@@ -2387,7 +2387,7 @@ search:
   thread-title-only: ''
   user_search:
     placeholder: ''
-photo: ''
+photo: 'Fotka'
 ort: ''
 daterange: ''
 upload:
@@ -2585,7 +2585,7 @@ public_info: ''
 status: ''
 presse: ''
 contact_type: ''
-body: ''
+body: 'Zprávy'
 validate:
   required: ''
 kette_id: ''
