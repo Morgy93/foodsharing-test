@@ -12,7 +12,6 @@ class Routing
         'blog' => 'Blog',
         'buddy' => 'Buddy',
         'bcard' => 'BusinessCard',
-        'content' => 'Content',
         'dashboard' => 'Dashboard',
         'email' => 'Email',
         'event' => 'Event',
@@ -48,7 +47,9 @@ class Routing
         'chain' => 'StoreChain'
     ];
 
-    private const PORTED = [];
+    private const PORTED = [
+        'content'
+    ];
 
     private const RENAMES = [];
 
