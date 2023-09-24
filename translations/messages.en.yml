@@ -1084,7 +1084,7 @@ terminology:
   n_foodsaver: one foodsaver|%count% foodsavers
   n_home_regions: "one with home district|%count% with home district"
   storesAdmins: Store coordination team
-  n_sleeping: A nightcap |%count% nightcaps
+  n_sleeping: A nightcap|%count% nightcaps
   n_cooperating_stores: A running cooperation|%count% running cooperations
   options: Options
   reports: Reporting View (local reporting group)
@@ -1122,7 +1122,7 @@ login:
   password: Password
   email_address: E-mail address
   form_title: Welcome back
-  success: <b> Have a wonderful day, {user_name}! </b>
+  success: <b>Have a wonderful day, {user_name}!</b>
 salutation:
   "3": Dear
   "2": Dear
@@ -1355,7 +1355,7 @@ email_template:
   help_needed:
     support_mail: it@foodsharing.network
     or: or
-    link: https://devdocs.foodsharing.network/it-tasks_EN.html
+    link: https://devdocs.foodsharing.network/
     main: To revise this function, we need the support of other programmers, testers
       and helpers from your district.
   warning: Warning
@@ -2082,8 +2082,8 @@ pass:
   verify:
     failed: A problem occured
     confirm: Sure?
-    undo: Cancel verification of {name}
-    do: Verify {name}’s account
+    undo: Cancel verification of {name} ({id})
+    do: Verify {name}’s account ({id})
     checkPickups: Before de-verifying you have to check the pick-up dates entered.
     hasPickup: Still registered for pick-ups
     text: "Checked your personal data? <br>\nHand over member card?\n"
@@ -2357,7 +2357,7 @@ pickuplist:
   tryagain: Try again after reloading.
   tooslow: Unfortunately, the registration did not work. This is probably because
     someone else was faster.
-  header_for_district: 'Allocation of pick-ups in {district} '
+  header_for_district: 'Allocation of pick-ups in {bezirk} '
 genderlist:
   gender_female: female
   gender_male: male
@@ -2658,7 +2658,7 @@ abholmenge: How many kilograms are taken per pick-up approximately?
 prefetchtime: How many weeks in advance can food savers sign up using automatic slots?
 sticker: Is the store/shop/club etc. willing to display a sticker visibly at the entrance
   or elsewhere?
-presse: Is the store/shop/club willing to be mentioned in the press and foodsharing.de?
+presse: Is the store/shop/club willing to be mentioned in the press and on our website?
 ueberzeugungsarbeit: Was it easy to convince a responsible person to cooperate with
   foodsharing?
 public_time: Approximate time of day for pick-ups
@@ -2685,14 +2685,14 @@ team:
   former: Former
   ratelimit: Please wait {minutes} minutes before you can send the next message.
   contacted: Your message was sent successfully.
-  contact: '{name} via foodsharing.de contact form'
+  contact: '{name} via foodsharing contact form'
 home:
   home: Home
   title: Landing page
 message_text_to_group_admin_workgroup: 'The region/group <b>{groupName}</b> does not
   have an ambassador anymore.<br><br><br>It has the following ID-structure:<br>{idStructureList}<br><br>The
-  ID is: {groupId}<br><br>URL: <a href="https://foodsharing.de/?page=bezirk&bid={groupId}&sub=forum"
-  target="_blank">Click here to go to the region/group</a>'
+  ID is: {groupId}<br><br>URL: <a href="/?page=bezirk&bid={groupId}&sub=forum" target="_blank">Click
+  here to go to the region/group</a>'
 personal_data:
   label: Contact
   landline: Landline phone
