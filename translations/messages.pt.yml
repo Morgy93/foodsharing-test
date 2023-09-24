@@ -34,3 +34,29 @@ store:
     distance_close: mora a menos de 1 km de distância
 navigation:
   profil: 👋 Olá {name}!
+bell:
+  poll_new: '{title}'
+  workgroup_request_decline_title: '{name}'
+  workgroup_request_accept_title: '{name}'
+  blog_new_check: '{title}'
+  ft_update_title: '{name}'
+  new_quiz_comment: '{comment}'
+  betrieb_fetch_title: '{betrieb}'
+  store_cr_times_title: '{name}'
+  store_request_accept_title: '{name}'
+  forum_reply_title: '{forum}: {title}'
+  forum_post_title: '{title}'
+  report_reason: '{reason}'
+  store_request_deny_title: '{name}'
+  ft_update: '{teaser}'
+  store_request_imposed_title: '{name}'
+  store_wallpost_title: '{name}'
+  store_request_accept_wait_title: '{name}'
+email_template:
+  help_needed:
+    link: https://devdocs.foodsharing.network/
+footer:
+  meta:
+    version: 'Versão: {version}'
+dashboard:
+  source_mailbox: '{0}'
