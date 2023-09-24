@@ -216,7 +216,7 @@ email_template:
   help_needed:
     support_mail: it@foodsharing.network
     or: eller
-    link: https://devdocs.foodsharing.network/it-tasks_EN.html
+    link: https://devdocs.foodsharing.network/
     main: For å revidere denne funksjonen trenger vi støtte fra andre programmerere,
       testere og hjelpere fra ditt distrikt.
   information: Informasjon
@@ -556,7 +556,7 @@ team:
   former: Tidligere
   not-found: Side ikke funnet
   ratelimit: Vent {minutes} minutter før du kan sende neste melding.
-  contact: '{name} via foodsharing.de kontaktskjema'
+  contact: '{name} via foodsharing kontaktskjema'
 home:
   home: Hjem
   title: Hjemmeside
@@ -861,7 +861,7 @@ profile:
   notFound: Denne brukerprofilen eksisterer ikke eller eksisterer ikke lenger
   go: Gå til profilsiden
   workgroups_member: Du og {name} er i følgende arbeidsgrupper
-  sleepinfo: '{name} er inaktiv fra {from} til {til}'
+  sleepinfo: '{name} er inaktiv fra {from} til {until}'
   sleeping: '{name} er inaktiv på ubestemt tid'
   commitments_stat:
     eventsCreatedWeek: 'Takk for at du opprettet arrangementer {count} ganger denne
@@ -874,7 +874,7 @@ profile:
     basketsOfferedWeek: Takk for at du tilbyr matkurver {count} ganger denne uken.
       Totalt ble det delt {weight} kg.
     eventsParticipatedWeek: 'Takk for at du deltok på {count} arrangementer denne
-      uken. Total tid: {time}:{minutt} '
+      uken. Total tid: {hour}:{minute} '
     pickupCount: Frekvens
     week_3: forrige uke
     weekDesc: Kalenderuke {week}, fra {weekStart} til {weekEnd}
@@ -1855,7 +1855,7 @@ footer:
   call_to_donate: "Du ville likt å\nstøtte foodsharing?\n"
   meta:
     it_devdocs: av foodsharing IT
-    version: 'Versjon: ({version})'
+    version: 'Versjon: {version}'
     beta_testing_issues: Testoppgaver for betaversjonen
   infosDeveloper: For utviklere
   hosting:
@@ -2719,8 +2719,8 @@ list:
 mailbox_name: Postboksnavn
 message_text_to_group_admin_workgroup: 'Regionen/arbeidsgruppen <b>{groupName}</b>
   har <b>ingen</b> ambassadør/administrator lenger.<br><br><br>Den har følgende ID-struktur:<br>{idStructureList}<br><br>IDen
-  er: {groupId}<br><br>URL: <a href =" https://foodsharing.de/?page=bezirk&bid={groupId}&sub=forum"
-  target="_blank">Klikk her for å gå til regionen / arbeidsgruppen</a>'
+  er: {groupId}<br><br>URL: <a href ="/?page=bezirk&bid={groupId}&sub=forum" target="_blank">Klikk
+  her for å gå til regionen / arbeidsgruppen</a>'
 parent_id: Foreldredistriktet
 food_type: Hvilke typer matvarer er inkludert?
 orgateam: Landsdekkende Orga
@@ -2729,7 +2729,7 @@ newmail: Skriv inn din nye e-postadresse her
 sleep_msg: Her kan du legge igjen en kort melding om hvorfor du ikke har tid for øyeblikket.
 lebensmittel: Hvilke dagligvarer kan hentes?
 begin: Start av samarbeid
-presse: Er butikken/klubben villig til å bli nevnt i pressen og foodsharing.de?
+presse: Er butikken/klubben villig til å bli nevnt i pressen og på nettsiden vår?
 sticker: Ønsker butikken å sette et klistremerke ved inngangen eller andre steder?
 abholmenge: Hvor mange kilo tar du med deg per henting?
 fsp_bezirk_id: I hvilket distrikt er distribusjonsstasjon?
@@ -2961,7 +2961,7 @@ error:
     title: Det er et problem med profilbildet ditt.
     description: I september 2021 gjorde vi en teknisk endring, som påvirker profilbildene.
       Du må derfor laste opp profilbildet ditt på nytt. Hvis du vil bruke det gjeldende
-      bildet på nytt, kan du laste det ned <a href="{link}" nedlasting>her</a>. Beklager
+      bildet på nytt, kan du laste det ned <a href="{link}" download>her</a>. Beklager
       dette.
   missing_home_region:
     description: For at du skal kunne fortsette, er det nødvendig med et hjemdistrikt.
