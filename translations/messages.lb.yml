@@ -1622,7 +1622,6 @@ forum:
     delete: ''
   inform_per_email: ''
   new_thread: ''
-  markdown_description: ''
   hold_back_for_moderation: ''
 chat:
   open_chat: ''

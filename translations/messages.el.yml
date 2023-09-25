@@ -2109,7 +2109,6 @@ forum:
   new_thread: ''
   sending_error: ''
   hold_back_for_moderation: ''
-  markdown_description: ''
   from: ''
   no_posts: ''
 team:

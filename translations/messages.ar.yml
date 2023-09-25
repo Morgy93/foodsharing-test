@@ -857,7 +857,6 @@ forum:
     stick: ''
     close: ''
     closed: ''
-  markdown_description: ''
   quickreply:
     error: ''
     success: ''

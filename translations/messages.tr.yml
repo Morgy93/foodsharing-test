@@ -2022,10 +2022,6 @@ forum:
   inform_per_email: Bu yeni konunun oluşturulması hakkında son 6 ayda aktif olan tüm
     forum üyelerine e-posta gönderin. Bu sadece denetlenmeyen forumlarda mümkündür
   no_threads: Henüz konu açılmadı
-  markdown_description: '*<i>kursivem</i>* oder **<b>fettem</b>** metini biçimlendirmek
-    için <a href="https://de.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a>
-    kullanabilirsiniz.<br />Dikkat: Metninizde * kullanmak istiyorsanız, başına &bsol;
-    eklemelisiniz. Bunu örneğin, elçi kelimesini cinsiyetlendirirken kullanabilirsiniz.'
   from: '{name} den'
   threads: Konular
   follow:

@@ -188,7 +188,7 @@ class ForumPostCest
         $I->click('Neues Thema verfassen');
         $I->waitForPageBody();
         $I->fillField('#forum-create-thread-form-title', $title);
-        $I->fillField('#forum-create-thread-form-body', 'TestThreadPost');
+        $I->fillField('.md-input .md-text-area', 'TestThreadPost');
         $I->deleteAllMails();
         if (!$emailPossible) {
             $I->dontSee('Alle Forenmitglieder über die Erstellung dieses neuen Themas per E-Mail informieren');

@@ -1712,7 +1712,6 @@ forum:
   hold_back_for_moderation: ''
   no_threads: ''
   from: ''
-  markdown_description: ''
   no_posts: ''
 buddy:
   request_sent: ''

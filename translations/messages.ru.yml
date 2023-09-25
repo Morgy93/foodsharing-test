@@ -1562,7 +1562,6 @@ forum:
     delete: ''
     body: 'Сообщенияe'
   hold_back_for_moderation: ''
-  markdown_description: ''
   inform_per_email: ''
   sending_error: ''
 chat:

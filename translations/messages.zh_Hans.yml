@@ -1769,7 +1769,6 @@ forum:
     email: ''
     bell: ''
     header: ''
-  markdown_description: ''
   from: ''
   sending_error: ''
   new_thread: ''

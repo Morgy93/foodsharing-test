@@ -1194,7 +1194,6 @@ forum:
   no_posts: "Bisher keine Beiträge vorhanden"
   no_threads: "Noch keine Themen gepostet"
   sending_error: "Beim Senden ist ein Fehler aufgetreten"
-  markdown_description: "Zur Formatierung von *<i>kursivem</i>* oder **<b>fettem</b>** Text kannst du <a href=\"https://de.wikipedia.org/wiki/Markdown\" target=\"_blank\">Markdown</a> verwenden.<br>Achtung: Möchtest du ein * in deinem Text verwenden, so musst du ein &bsol; voranstellen. Zum Beispiel beim Gendern des Wortes Botschafter&bsol;*innen."
   inform_per_email: "Alle in den letzten sechs Monaten aktiven Forenmitglieder über die Erstellung dieses neuen Themas per E-Mail informieren, nur in unmoderierten Foren möglich"
   quickreply:
     success: "Prima, deine Antwort wurde gespeichert."
@@ -1238,6 +1237,7 @@ wall:
   error-delete: "Diesen Eintrag kannst du nicht entfernen."
   created: "Klasse, dein Pinnwandeintrag wurde gespeichert."
   error-create: "Dein Pinnwandeintrag konnte nicht gespeichert werden."
+  placeholder: "Neuen Pinnwandeintrag schreiben..."
 
 events:
   bread: "Termine"
@@ -3041,3 +3041,21 @@ notifications:
   success: "Erfolgreich gespeichert"
   config_button: 'einzeln konfigurieren'
 
+markdown_input:
+  tooltip:
+    bold: Fett
+    italic: Kursiv
+    strikethrough: Durchgestrichen
+    heading: Überschrift
+    link: Link
+    code: Code
+    quote: Zitat
+    unorderedList: Liste
+    orderedList: Nummerierte Liste
+    hrule: Trennlinie
+    preview: Vorschau
+  empty_preview_placeholder: "Dies ist die Formatierungsvorschau. Der Text wird hier so formatiert, wie er auch später angezeigt wird.
+    
+    ---
+
+    *Du hast aber noch keinen Text eingegeben, der hier angezeigt werden könnte.*"

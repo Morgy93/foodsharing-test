@@ -785,10 +785,6 @@ forum:
     email: by e-mail
     bell: by bell notification
   new_thread: Compose new thread
-  markdown_description: 'To format text *<i>italic</i>* or **<b>bold</b>** you can
-    use <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a>.<br
-    />Attention: If you want to use a * in your text, you have to put a &bsol; in
-    front of it, e.g. when gendering he&bsol;*she.'
   deleted_user: deleted user
   not_found: This thread does not exist.
 timepicker:

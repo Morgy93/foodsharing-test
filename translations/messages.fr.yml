@@ -780,10 +780,6 @@ forum:
   quickreply:
     error: Ta contribution n'a pas pu être sauvegardée.
     success: Super ! Ta réponse a été sauvegardée.
-  markdown_description: "Pour formater le texte en *<i>cursif</i>* ou **<b>gras</b>**,
-    utilise <a href=\"https://fr.wikipedia.org/wiki/Markdown\" target=\"_blank\">Markdown</a>.\n
-    <br />Attention : Si tu souhaites mettre une étoile au sein de ton texte, il faudra
-    ajouter un &bsol; avant l'étoile (&bsol;*) pour que celle-ci soit visible."
   sending_error: Une erreur est survenue lors de l'envoi
   no_threads: Aucune discussion
   no_posts: Aucune contribution à afficher

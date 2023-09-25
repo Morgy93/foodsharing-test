@@ -2269,7 +2269,6 @@ forum:
     navigate_to_oldest_post: ''
     with_mail: ''
   no_posts: ''
-  markdown_description: ''
   sending_error: ''
   hold_back_for_moderation: ''
   inform_per_email: ''
