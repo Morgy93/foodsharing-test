@@ -1972,6 +1972,7 @@ wall:
   see-more: Voir toutes les contributions
   message_placeholder: Écrire un message…
   name: Mur
+  placeholder: Écrivez une nouvelle entrée de mur …
 chat:
   confirm_draft_discard: "En changeant de conversation, le texte écrit jusqu’ici sera
     automatiquement supprimé.\n\nEn interrompant cet échange, ton brouillon sera automatiquement
@@ -3287,3 +3288,19 @@ notifications:
   success: Enregistré avec succès
   config_button: configurer individuellement
   checkbox_email: Courrier électronique
+markdown_input:
+  tooltip:
+    orderedList: liste numérotée
+    preview: aperçu
+    quote: citation
+    unorderedList: liste à puces
+    italic: italique
+    code: code
+    strikethrough: barré
+    bold: gras
+    hrule: ligne horizontale
+    link: lien
+    heading: titre
+  empty_preview_placeholder: "Il s’agit de l’aperçu du formatage. Le texte est formaté
+    ici tel qu’il sera affiché ultérieurement.\n---\n*Mais vous n’avez saisi aucun
+    texte susceptible d’être affiché ici.*"
