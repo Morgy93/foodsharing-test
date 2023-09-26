@@ -3152,3 +3152,16 @@ notifications:
   checkbox_push: Push
   groups:
     title: Çalışma grupları
+markdown_input:
+  tooltip:
+    orderedList: numaralı liste
+    preview: önizleme
+    quote: alıntı
+    unorderedList: maddeli liste
+    italic: italik
+    code: kod
+    strikethrough: üstü çizili
+    bold: kalın
+    hrule: yatay çizgi
+    link: bağlantı
+    heading: başlık
