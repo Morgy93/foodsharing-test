@@ -2596,3 +2596,16 @@ messages:
   bread: ''
 besonderheiten: ''
 deletefromregion: ''
+markdown_input:
+  tooltip:
+    orderedList: číslovaný seznam
+    preview: náhled
+    quote: citát
+    unorderedList: seznam s odrážkami
+    italic: kurzíva
+    code: kód
+    strikethrough: přeškrtnuté
+    bold: tučné
+    hrule: vodorovná čára
+    link: odkaz
+    heading: titulek
