@@ -40,7 +40,6 @@ class Routing
         'statistics' => 'Statistics',
         'betrieb' => 'Store',
         'fsbetrieb' => 'StoreUser',
-        'team' => 'Team',
         'wallpost' => 'WallPost',
         'groups' => 'WorkGroup',
         'store' => 'Store',
@@ -48,7 +47,8 @@ class Routing
     ];
 
     private const PORTED = [
-        'content'
+        'content',
+        'team',
     ];
 
     private const RENAMES = [];

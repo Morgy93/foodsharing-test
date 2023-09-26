@@ -31,21 +31,6 @@
 # The code that actually handles these parameters (Control::uri) only looks at the REQUEST_URI,
 # which is not changed by Symfony.
 
-team:
-  path: /team
-  controller: Foodsharing\Entrypoint\IndexController
-
-# specific user, see comment in TeamControl::index
-team_id:
-  path: /team/{id}
-  controller: Foodsharing\Entrypoint\IndexController
-  requirements:
-    id: '\d+'
-
-team_type:
-  path: /team/{type}
-  controller: Foodsharing\Entrypoint\IndexController
-
 recovery:
   path: /recovery
   controller: Foodsharing\Entrypoint\IndexController

@@ -18,12 +18,13 @@
 - Moved the database connection to Doctrine DBAL !2801 @\_fridtjof_
 - Refactored the list of editable content to vue !2862 @alex.simm
 - Modernized ContentControl to a Symfony controller !2876 @\_fridtjof_
+- Modernized TeamControl to a Symfony contorller !2881 @\_fridtjof_
 
 ## Dev/Test/CI stuff
 - removed CHANGELOG.md merge=union !2866 @chriswalg
 - Updated quality tools !2867 @\_fridtjof_
 - Show CS Fixer results in gitlab !2867 @\_fridtjof_
-- Added the Symfony profiler and debug toolbar !1580 @\_fridtjof
+- Added the Symfony profiler and debug toolbar !1580 @\_fridtjof_
 
 ## Development documentation
 
