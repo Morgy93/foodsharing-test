@@ -1675,6 +1675,7 @@ wall:
   confirm-deletion: Cancellare definitivamente l’immissione in bacheca da parte di
     {name}?
   name: Bacheca
+  placeholder: Scrivi una nuova voce sul muro…
 chat:
   confirm_draft_discard: "Passi a una nuova conversazione. Il testo nel campo della
     risposta viene scartato.\n\nSe interrompi questo dialogo, la tua bozza verrà invece
@@ -3217,3 +3218,16 @@ usersearch:
   search_tag: Cerca utenti
   no_tag_preset: Utente non trovato
   select_tag: Cerca utenti per nome
+markdown_input:
+  tooltip:
+    orderedList: elenco numerato
+    preview: anteprima
+    quote: citazione
+    unorderedList: elenco puntato
+    italic: corsivo
+    code: codice
+    strikethrough: barrato
+    bold: grassetto
+    hrule: linea orizzontale
+    link: collegamento
+    heading: titolo
