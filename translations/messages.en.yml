@@ -2062,6 +2062,7 @@ wall:
     {name}?
   info-logging: Please note that to avoid conflicts, the content and the person who
     carried it out are logged.
+  placeholder: Write a new entry on the wall…
 pass:
   nav:
     title: Let’s go!
@@ -3276,3 +3277,19 @@ notifications:
   checkbox_bell: Bell
   checkbox_disabled: Deactivated
   success: Saved successfully
+markdown_input:
+  tooltip:
+    orderedList: numbered list
+    preview: preview
+    quote: quote
+    unorderedList: bulleted list
+    italic: italics
+    code: code
+    strikethrough: strikethrough
+    bold: bold
+    hrule: horizontal rule
+    link: link
+    heading: heading
+  empty_preview_placeholder: "This is the formatting preview. The text is formatted
+    here as it will be displayed later.\n---\n*But you haven’t entered any text that
+    could be displayed here.*"
