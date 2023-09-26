@@ -1817,8 +1817,9 @@ wall:
   error-create: ''
   message_placeholder: ''
   info-somebody-else: ''
+  placeholder: Escribe una nueva entrada en el muro…
 events:
-  bread: ''
+  bread: 'Eventos'
   add_new_event: ''
   create:
     public: ''
@@ -1844,7 +1845,7 @@ events:
     guide: ''
     text: ''
     location: ''
-  past: ''
+  past: 'Eventos pasados'
   button:
     change: ''
     maybe: ''
@@ -2629,3 +2630,16 @@ notifications:
   config_button: configurar por separado
   success: Registro exitoso
   checkbox_bell: campana
+markdown_input:
+  tooltip:
+    orderedList: lista numerada
+    preview: avance
+    quote: cita
+    unorderedList: lista con viñetas
+    italic: cursiva
+    code: código
+    strikethrough: tachado
+    bold: negrita
+    hrule: línea divisoria horizontal
+    link: enlace
+    heading: titular
