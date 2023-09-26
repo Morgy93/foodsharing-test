@@ -2684,6 +2684,7 @@ wall:
   error-create: Veggoppføringen din kunne ikke lagres.
   info-logging: Vær oppmerksom på at for å unngå konflikter, logges innholdet og personen
     som har utført det.
+  placeholder: Skriv en ny vegginngang…
 sidenav:
   localgroups: Lokale grupper
   yourgroups: Dine grupper
@@ -3150,3 +3151,19 @@ notifications:
   config_button: konfigurere individuelt
   checkbox_bell: Klokke
   checkbox_disabled: deaktivert
+markdown_input:
+  tooltip:
+    orderedList: nummerert liste
+    preview: forhåndsvisning
+    quote: sitat
+    unorderedList: kuleliste
+    italic: kursiv
+    code: kode
+    strikethrough: gjennomstreket
+    bold: fet
+    hrule: horisontal skillelinje
+    link: link
+    heading: overskrift
+  empty_preview_placeholder: "Dette er forhåndsvisningen av formateringen. Teksten
+    vises her slik den vil vises senere.\n---\n*Men du har ikke skrevet inn noen tekst
+    som kan vises her.*"
