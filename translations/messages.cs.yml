@@ -58,6 +58,8 @@ settings:
     teaser: ''
     event_link_desc: ''
     token-warning: ''
+    include_invitations: Kalendář by měl obsahovat i pozvánky na schůzky, na které
+      jsem dosud nereagoval.
   changemail:
     passfail: ''
     sent: ''
@@ -1339,7 +1341,7 @@ profile:
   workgroups_admin: ''
   online: ''
   go: ''
-  warning: ''
+  warning: 'Varování'
   cantdeletethis: ''
   history:
     noActor: ''
