@@ -283,6 +283,8 @@ settings:
     export: Export calendar
     export_tooltip: You can view your upcoming pickup dates using a calendar program
       of your choice.
+    include_invitations: The calendar should also contain invitations to appointments
+      that I have not yet responded to.
   saved: The changes were saved.
   changemail:
     done: Your e-mail address was changed.
