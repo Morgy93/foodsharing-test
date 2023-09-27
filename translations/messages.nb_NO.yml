@@ -923,6 +923,8 @@ settings:
     export: Eksporter kalender
     export_tooltip: Dette lar deg se dine neste hentedatoer med et kalenderprogram
       du velger.
+    include_invitations: Kalenderen skal også inneholde invitasjoner til avtaler som
+      jeg ennå ikke har svart på.
   notifications: Varsler
   title: Innstillinger
   account: Kontoalternativer
