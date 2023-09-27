@@ -1819,6 +1819,7 @@ settings:
       button: Token löschen
       title: Token löschen
       message: Das bisherige Token wird hierdurch ungültig. Möchtest du das Token wirklich löschen?
+    include_invitations: Der Kalender soll auch Einladungen zu Terminen enthalten, die ich noch nicht beantwortet habe.
   photo:
     title: "Dein Foto"
     info: |

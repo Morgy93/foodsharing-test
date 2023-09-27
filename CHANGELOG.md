@@ -3,6 +3,7 @@
 ## Features
 - Added a MarkdownInput component, that is used every where md is used. !2865 @AntonBallmaier
 - Storemanagers see how far applicants to the store live away #1661 !2772 @Anton Ballmaier
+- Exported calendars can be filtered by the invitation status #1535 !2873 @alex.simm
 
 ## Changes
 - Changed team state translation from full to closed !2831 @chriswalg
