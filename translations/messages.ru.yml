@@ -723,7 +723,7 @@ profile:
   about_me_intern: ''
   choosestore: ''
   sleeping: ''
-  warning: ''
+  warning: 'Предупреждение'
   mediation:
     no_group: ''
     title: ''
