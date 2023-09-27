@@ -2453,6 +2453,8 @@ settings:
     export: Esporta calendario
     export_tooltip: Puoi visualizzare le date di ritiro utilizzando un software di
       calendario a tua scelta.
+    include_invitations: Il calendario dovrebbe contenere anche gli inviti ad appuntamenti
+      a cui non ho ancora risposto.
   photo:
     info: "Il tuo viso dovrebbe essere <a href=\"{link_photo}\">riconoscibile</a>
       nella tua foto del profilo,\nperché sarà usato per il foodsharing<a href=\"\
