@@ -1373,12 +1373,12 @@ profile:
     lostVerification: ''
   cantdeletethis: ''
   sleeping: ''
-  title: ''
+  title: 'Perfil'
   notes:
     title: ''
     bread: ''
     info: ''
-  warning: ''
+  warning: 'Advertencia'
   alldatesdeleted: ''
   banana:
     placeholder: ''
@@ -1967,13 +1967,13 @@ settings:
     mail: ''
     none: ''
   push:
-    success: ''
-    not-supported: ''
-    title: ''
-    disabled: ''
+    success: 'Notificaciones push habilitadas exitosamente'
+    not-supported: 'Su navegador no admite notificaciones automáticas.'
+    title: 'Notificaciones push'
+    disabled: 'Notificaciones push desactivadas con éxito'
     info-on: ''
-    enable: ''
-    disable: ''
+    enable: 'habilitar notificaciones push'
+    disable: 'desactivar notificaciones push'
     denied: ''
     info-off: ''
   email: ''
@@ -1984,8 +1984,8 @@ settings:
       title: ''
     delete_token:
       message: ''
-      button: ''
-      title: ''
+      button: 'eliminar token'
+      title: 'Eliminar token'
     token-warning: ''
     event_link_desc: ''
     menu: ''
@@ -1993,6 +1993,8 @@ settings:
     teaser: ''
     title: ''
     link_title: ''
+    include_invitations: El calendario también debe contener invitaciones a citas
+      a las que aún no he respondido.
   changemail:
     sent: ''
     done: ''
@@ -2025,10 +2027,10 @@ settings:
     foodsharer_info: ''
     desc: ''
     foodsaver_info: ''
-    request: ''
+    request: 'Solicitar cambio de nombre'
   photo:
     info: ''
-    title: ''
+    title: 'Tu foto'
   passport:
     button: ''
     menu: ''
