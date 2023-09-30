@@ -10,6 +10,7 @@
 - Add "call" (tel:) button visibility also for desktop, not only mobile" #1138 !2835 @chriswalg
 
 ## Bugfixes
+- Added error handling for cache helper for bell notifications or other requests !2869 @chriswalg
 
 ## Refactoring
 - Refactor mailbox modul to vue and rest api !2580 !2870 @chriswalg @alex.simm
