@@ -397,7 +397,7 @@ edit: modifier
 message: Message
 nachname: Nom
 add: ajouter
-geb_datum: Date de naissance (AAAA-MM-JJ)
+geb_datum: Date de naissance (AAA-MM-JJ)
 position: Position chez foodsharing (public)
 page:
   welcome_main_1: Nous sommes une initiative qui agit contre le gaspillage alimentaire.
@@ -436,7 +436,7 @@ settings:
     export_tooltip: Vous pouvez voir vos dates de ramassage avec un programme de calendrier
       de votre choix.
     include_invitations: Le calendrier doit également contenir des invitations à des
-      rendez-vous auxquels je’ai pas encore répondu.
+      rendez-vous auxquels je n’ai pas encore répondu.
   push:
     disabled: Les notifications push on été désactivées
     disable: Désactiver les notifications push
