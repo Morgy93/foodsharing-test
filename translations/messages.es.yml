@@ -216,8 +216,9 @@ regionPin:
   pin_visible: 'Pin visible en el mapa'
   desc: 'Descripción'
   success: 'Guardado exitosamente'
-  text_desc: ''
-  header_page: ''
+  text_desc: 'Proporcione una breve descripción del grupo local y una opción de contacto
+    aquí. Esto se muestra en el pin del mapa…'
+  header_page: 'Descripción del grupo local público de {bezirk}'
 storemanagers: Responsable de operaciones
 team_status: Estado del equipo
 edit_websites: Editar páginas web públicas
@@ -244,12 +245,12 @@ quiz:
       llevar a no pasar el examen si no lo respondes correctamente.'
     sadlywrong: 'De nuevo has respondido incorrectamente.'
     correctb: '¡Es falso! ¡Te has dado cuenta perfectamente de ello!'
-    percenta: 'lamentablemente solo has'
+    percenta: 'lamentablemente solo respondiste correctamente el'
     wronga: 'Esto hubiese sido lo correcto.'
     nresponses: 'Respuestas neutrales'
     wrongb: '¡Así no es!'
-    koquestion: 'Esa preguntar lamentablemente era especialmente importante y no le
-      has respondido correctamente.'
+    koquestion: 'Esta pregunta era particularmente importante y no la respondiste
+      correctamente.'
     answer: 'Respuesta'
     correcta: '¡Es correcto!'
     wresponses: 'Respuestas incorrectas'
@@ -261,7 +262,7 @@ quiz:
     responses: 'Respuestas'
     fpsum: 'Total de errores puntuales'
     cresponses: 'Respuestas correctas'
-    percentb: '% respondió correctamente.'
+    percentb: '%.'
     neut: 'Es neutro, por lo tanto, sin puntuación.'
   waitxdays: 'Puedes intentarlo otra vez después'
   learnbreak: 'Pausa de estudio'
@@ -281,17 +282,17 @@ quiz:
   heavysigh: '¡Hecho!'
   not_passed_details: 'Lamentablemente has reprobado. ¡Tuviste {points} del máximo
     permitido de {max_points} errores puntuales!'
-  wikilink: 'Relevante articulo de Wiki por esa tema'
+  wikilink: 'Artículo wiki relacionado sobre este tema'
   threestrikes: 'No has pasado el examen 3 veces.'
   failedbeforebut: ' veces no has pasado el examen hasta ahora. Aun tienes ese número
     de intentos:'
-  continuenow: 'Continuar responder el examen ahora!'
+  continuenow: '¡Continúa respondiendo el examen ahora!'
   quizleft: ' – ¡Ahora todo lo que tienes que hacer es aprobar el examen!'
   safeandsound: 'Sin problema. Tu sesión era guardada. Puedes continuar responder
     en cualquier momento.'
   resultsbelow: 'Encontras la valoración abajo.'
   finished: '¡Felicidades, lo lograste!'
-  notfinishedyet: 'Aun no has terminado el examen.'
+  notfinishedyet: 'Aún no has terminado el examen.'
   nownownow: 'Iniciar cuestionario ahora'
   regstart: 'Empezar el examen sin plazo y 20 preguntas'
 terminology:
@@ -304,9 +305,9 @@ terminology:
     f: 'Embajadora'
     d: 'Embajador*a'
   orga:
-    m: ''
-    d: ''
-    f: ''
+    m: 'Administrador global'
+    d: 'Administrador(a) global'
+    f: 'Administradora global'
   n_stores: 'Una cooperación|%count% cooperaciones'
   message: 'Mensaje'
   fspAdmins: ''
@@ -319,9 +320,9 @@ terminology:
   forum: 'foro'
   events: 'Eventos'
   storemanager:
-    m: ''
-    d: ''
-    f: ''
+    m: 'Responsable de empresas'
+    d: 'Responsable de empresas'
+    f: 'Responsable de empresas'
   groups: 'Grupos de trabajo'
   homeRegion: 'Distrito de origen'
   polls: 'Votos'
@@ -329,7 +330,7 @@ terminology:
   options: 'Opciones'
   ambassadors: 'Embajadores'
   ambassador_forum: 'Foro de embajador@s'
-  store: ''
+  store: 'Empresa'
   welcomeAdmins: 'Equipo de bienvenida'
   mailboxes: 'Buzones'
   group: 'Grupo de trabajo'
@@ -346,10 +347,10 @@ terminology:
   regions: 'Distritos'
   role:
     "0": ''
-    "4": ''
+    "4": 'Administrador(a) global'
     "1": ''
     "3": 'Embajador*a'
-    "2": ''
+    "2": 'Responsable de empresas'
   baskets: ''
   basket: ''
   threads: 'Hilos'
@@ -357,19 +358,20 @@ terminology:
   n_ambassadors: 'Un(a) embajador(a)|%count% embajador@s'
   profile_picture: 'Foto de perfil'
   n_cooperating_stores: 'Una cooperación en marcha|%count% cooperaciones en marcha'
-  reports: ''
+  reports: 'Vista de quejas (GQL)'
   community: 'Grupo local de {name}'
-  pickup: ''
+  pickup: 'Recogida'
   prAdmins: 'Equipo de relaciones publicas'
   wall: 'Tablón de anuncios'
-  storesAdmins: ''
+  storesAdmins: 'Equipo de responsables de empresas'
   pin: 'Descripción del grupo local'
   admins: 'Administrador@s'
   mediationAdmins: 'Equipo de mediación'
-  arbitration: ''
-  n_sleeping: ''
-  n_foodsaver: ''
+  arbitration: 'Vista de quejas (JAL)'
+  n_sleeping: 'un(a) dormilón(a)|%count% dormilon@s'
+  n_foodsaver: 'Un(a) ahorrador(a) de alimentos|%count% ahorrador@s de alimentos'
   reportAdmins: 'Equipo de manejo de quejas'
+  n_home_regions: un@ con distrito de origen|%count% con distrito de origen
 groups:
   empty: Aún no estás en ningún grupo de trabajo
 position: Puesto en foodsharing (público)
@@ -634,32 +636,45 @@ group:
   show-all: 'mostrar todo'
   function:
     pr: 'Relación pública'
-    tooltip_function_9: ''
-    duplicate_mediation_team: ''
-    duplicate_arbitration_team: ''
-    duplicate_fsmanagement_team: ''
+    tooltip_function_9: 'L@s administrador@s de este grupo de trabajo pueden editar
+      la descripción del grupo local para el mapa.'
+    duplicate_mediation_team: '¡Equipo de mediación ya creado! Sólo puede haber un
+      equipo de mediación por distrito.'
+    duplicate_arbitration_team: '¡Junta de arbitraje ya creada! Sólo podrá haber una
+      junta arbitral por distrito.'
+    duplicate_fsmanagement_team: '¡Equipo administrativo ya creado! Sólo puede haber
+      un equipo administrativo por distrito.'
     tooltip_function_2: 'L@s administrador@s de este grupo de trabajo pueden crear
       votos para el distrito'
-    tooltip_function_7: ''
+    tooltip_function_7: 'L@s administrador@s de este grupo de trabajo reciben quejas
+      que involucran al equipo de quejas. No se muestran quejas que involucren a l@s
+      administrador@s, estas son recibidas por el equipo de quejas'
     arbitration: 'junta de arbitraje'
     fsmanagement: 'Gestión'
-    duplicate_voting_team: ''
-    duplicate_pr_team: ''
+    duplicate_voting_team: '¡El equipo de votación ya está creado! Sólo puede haber
+      un equipo de votación por distrito.'
+    duplicate_pr_team: '¡Equipo de relaciones públicas ya creado! Sólo puede haber
+      un equipo de relaciones públicas por distrito.'
     fsp: ''
-    duplicate_moderation_team: ''
+    duplicate_moderation_team: '¡El equipo de moderación ya está creado! Sólo puede
+      haber un equipo de moderación por distrito.'
     report: 'Quejas'
-    restricted_workgroup_function: ''
-    tooltip_function_6: ''
+    restricted_workgroup_function: 'Esta función del grupo de trabajo sólo puede ser
+      editada por el grupo de trabajo supraregional “Crear AG”'
+    tooltip_function_6: 'La dirección de correo electrónico de este grupo de trabajo
+      se muestra debajo del botón “Solicitar mediación”. L@s administrador@s no tienen
+      permisos especiales.'
     tooltip_function_1: 'L@s administrador@s de este grupo de trabajo reciben una
       notificación cuando nuevos miembros se unen al distrito'
-    title: ''
+    title: 'Función del grupo de trabajo'
     welcome: 'Saludo'
     tooltip_function_3: ''
     stores: 'Cooperaciones'
     board: 'Junta'
     tooltip_function_11: 'L@s administrador@s de este grupo de trabajo se muestran
       en la descripción general del distrito.'
-    duplicate_welcome_team: ''
+    duplicate_welcome_team: '¡Bienvenido equipo ya creado! Sólo puede haber un equipo
+      de saludo por distrito.'
     tooltip_function_10: 'L@s administrador@s de este grupo de trabajo pueden activar
       contribuciones en foros moderados.'
     voting: 'Votación'
@@ -668,10 +683,14 @@ group:
     mediation: 'Mediación'
     duplicate_fsp_team: ''
     moderation: 'Moderación'
-    tooltip_function_4: ''
-    tooltip_function_5: ''
-    duplicate_report_team: ''
-    invalid: ''
+    tooltip_function_4: 'L@s administrador@s de este grupo de trabajo pueden ver y
+      editar empresas en el distrito'
+    tooltip_function_5: 'L@s administrador@s de este grupo de trabajo pueden ver quejas
+      sobre los rescatador@s de alimentos en el distrito. No se reportan denuncias
+      que involucren a l@s administrador@s, estas son recibidas por la junta arbitral.'
+    duplicate_report_team: '¡Equipo de quejas ya creado! Sólo puede haber un equipo
+      de quejas por distrito.'
+    invalid: 'A un distrito no se le puede asignar una función de grupo de trabajo.'
   actions:
     edit: 'Editar grupo'
     join: 'Unase a este grupo'
@@ -682,19 +701,22 @@ group:
   application_requirements:
     requirements: '¿Quién puede entrar en este grupo?'
     everybody: 'Todos pueden postularse.'
-    banana_count: ''
-    member_since_weeks: ''
+    banana_count: '¿Cuántos plátanos de confianza debe tener un solicitante?'
+    member_since_weeks: '¿Cuántas semanas necesita un solicitante para estar registrado
+      en la plataforma?'
     banana_count_errors:
-      max: ''
-      min: ''
-    not_fulfilled: ''
+      max: 'No espere más de {{ limit }} plátanos de confianza.'
+      min: 'Nadie debería tener menos de {{ limit }} plátanos de confianza.'
+    not_fulfilled: 'Para postularse para este grupo de trabajo, debes haber sido parte
+      de FoodSharing durante %weeks% semanas, haber recolectado ya %bananas% plátanos
+      de confianza y haber participado en %fetches% recogidas.'
     requires_properties: 'Cualquiera que cumpla ciertos puntos de confianza.'
     nobody: 'Nadie (grupo cerrado).'
-    fetch_count: ''
+    fetch_count: '¿Cuántas recogidas debe haber realizado un solicitante?'
     open: 'Cualquiera puede unirse directamente.'
   member_list:
     is_verified: 'verificad@'
-    is_home_region: ''
+    is_home_region: 'Distrito de origen'
     remove_title: 'eliminar miembro'
     remove_admin_text: '¿Estás seguro de que quieres eliminar {name} ({id}) como administrador(a)?'
     remove_ambassador_text: '¿Estás segura de que quieres eliminar {name} ({id}) como
@@ -748,7 +770,7 @@ group:
   entermotivation: 'Motivación:'
   mail_link_title:
     workgroup: 'Buzón de grupo de trabajo'
-    region: 'buzón de distrito'
+    region: 'Buzón de distrito'
   title: 'grupos de trabajo de foodsharing'
   image: 'Foto de portada de %name%'
   userId: 'ID'
@@ -766,7 +788,9 @@ group:
     title: 'Contacto {group}'
     disclaimer: ''
   applications_for: 'Aplicaciones para {name}'
-  quitting_home_district_warning: ''
+  quitting_home_district_warning: '¿Realmente deseas abandonar tu distrito de origen
+    %name%? Perderás tu verificación y tendrás que comunicarte con los embajadores
+    de tu nuevo distrito de origen más tarde.'
   really_quit_district: '¿Quiere realmente abandonar el distrito de %name%?'
   really_quit_workgroup: '¿Estás seguro de que quieres abandonar el grupo de trabajo
     %name%?'
@@ -775,7 +799,7 @@ group:
   enterskills: 'Habilidades:'
   saved: 'Se guardaron los cambios'
   quit_name_workgroup: 'Dejar el equipo %name%'
-  delete_group_sure: ''
+  delete_group_sure: '¿Realmente desea eliminar el grupo/el distrito {groupName}?'
   subtitle: 'Aquí encontrarás ayuda y mucho que hacer …'
   admin_count: '{0} sin administratores|{1} un(a) administrador(a)| [2, Inf[ %count%
     administrador@s'
@@ -823,25 +847,26 @@ register:
   topbar: 'Participar'
   lastname_minLength: 'El apellido debe constar de al menos dos caracteres.'
   requiredFields: 'Campo requerido'
-  next: ''
+  next: 'siguiente'
   geb_datum: 'Tu fecha de nacimiento'
-  have_read_the_legal_stuff2: 'anotado'
+  have_read_the_legal_stuff2: 'aquí'
   finish: 'Enviar inscripción'
-  login_phone_info: ''
+  login_phone_info: 'Puede resultar útil compartir su número de teléfono con otras
+    personas que comparten alimentos'
   email_invalid: 'La dirección de correo electrónico es inválida.'
   join_success: 'Su registro fue exitoso.'
   phone_example: 'Ejemplo: +43 612 34 56 78'
-  mail_hint: ''
+  mail_hint: 'Importante: ¡Presta atención a la ortografía correcta!'
   activation_failed: '<strong>La activación falló.</strong> ¿El enlace ingresado es
     correcto?'
   login_location: 'Su dirección'
   confirmPassword_required: 'Por favor repita la contraseña.'
   woman: 'femenino'
   firstname_required: 'Por favor, introduzca su nombre de pila.'
-  have_read_the_legal_stuff1: ''
+  have_read_the_legal_stuff1: 'He leído y acepto la'
   firstname_minLength: 'El nombre debe constar de al menos dos caracteres.'
-  register_button_label: ''
-  select_your_gender: ''
+  register_button_label: 'Registrarse'
+  select_your_gender: 'Para el saludo…'
   change-password: 'Ahora puedes cambiar tu contraseña.'
   confirmPassword_sameAsPassword: 'La contraseña debe coincidir.'
 button:
@@ -874,11 +899,15 @@ pass:
   verify:
     confirm: '¿Seguro?'
     failed: 'Ocurrió un problema'
-    do: ''
-    checkPickups: ''
-    hasPickup: ''
-    undo: ''
-    text: ''
+    do: 'Verificar la cuenta de {name} ({id})'
+    checkPickups: 'Antes de desverificar, debe verificar las fechas de recogida ingresadas.'
+    hasPickup: 'Todavía registrado para recogidas'
+    undo: 'Desverificar {name} ({id})'
+    text: '¿Datos personales comprobados? <br>
+
+      ¿Entregar su tarjeta de socio?
+
+      '
   button:
     verify: 'Verificar'
     check: 'Consultar citas'
@@ -886,7 +915,7 @@ pass:
   photo: 'Fotografía'
   hintVerify: ''
   hintSelect: ''
-  hint: 'anotaciones'
+  hint: 'Anotaciones'
   none: '– aún no creado –'
   date: 'Última creación'
   bread: 'Generador de tarjetas'
@@ -898,15 +927,16 @@ bcard:
   role: 'Función/Región'
   choose: 'Tienes que elegir una opción'
   for: '{role} para {region}'
-  desc: ''
+  desc: 'Elija aquí para qué distrito y función le gustaría crear su tarjeta de presentación.'
   error:
-    verified: ''
+    verified: 'Debes estar verificado para crear tu tarjeta de presentación.'
     length: 'Su dirección es demasiado larga. La dirección, el código postal y la
       ciudad juntos pueden tener un máximo de 49 caracteres.'
-    phone: ''
+    phone: 'Debe haber proporcionado un número de teléfono válido para crear su tarjeta
+      de presentación.'
   generate: 'Crear tarjetas de visita'
   info:
-    address_shortened: ''
+    address_shortened: 'Su dirección se acortará en la tarjeta de presentación.'
   title: 'Generador de tarjetas de visita'
   claim: 'Simplemente genere, imprima y corte aquí …'
   card: 'Tu tarjeta de presentación de foodsharing'
@@ -919,7 +949,7 @@ storeview:
   teamInfo: ''
   counter: '<strong>{count}<span style="white-space:nowrap"> </span>{suffix}</strong>'
   public_time_in_the_evening: 'por la tarde'
-  store: ''
+  store: 'Empresa'
   cooperation: 'Cooperación desde {startTime}.'
   public_time: 'Se recogerá {freq}. ¡Nunca vayas a la tienda sin acuerdo previo!'
   team: 'Equipo de recogida'
@@ -929,7 +959,7 @@ storeview:
     no_match: 'No se ha encontrado ninguna categoría de alimento adecuada'
     select_tag: 'Elige categoría de comida'
     no_tag_preset: 'No hay categoría de comida disponible'
-  visible_for_team: ''
+  visible_for_team: 'Este texto es sólo para el equipo de esta empresa.'
   contact:
     name: 'Nombre y apellido'
   calendar_interval:
@@ -938,20 +968,20 @@ storeview:
     not_set: 'No se especifica ningún período de tiempo'
   invalid_field: 'Contenido de campo no válido. El cambio no se puede guardar.'
   public_time_at_night: 'por la noche'
-  source_data: ''
+  source_data: 'Datos base'
   status: 'Estado actual'
-  common: ''
+  common: 'Generalmente'
   select_related_region: 'Seleccionar región relacionada'
   want_to_fetch: 'Me gustaría ayudar en este equipo.'
   management: 'Administración'
   cooperation_status: 'Estado de cooperación'
   status_notes: 'Notas de estado'
-  no_permission_to_view: ''
-  pickupCount: ''
+  no_permission_to_view: 'Sólo visible para l@s responsabl@s de la empresa.'
+  pickupCount: 'Recogimos {pickupCount} de esta empresa.'
   specials: 'Particularidades'
-  managers: ''
-  visible_for_public: ''
-  show_information: ''
+  managers: 'Ahorradores de alimentos responsables'
+  visible_for_public: 'Este texto es visible para todos los rescatadores de alimentos.'
+  show_information: 'Ver información de la empresa'
   cooperation_start: 'Cooperación desde'
 store:
   tooltip_red: 'Plazas disponibles hoy o mañana'
@@ -1003,15 +1033,15 @@ store:
     distance_close: vive a menos de 1 km de distancia
     distance_unknown: no se especifica el lugar de residencia
     unverified: Usuario no está verificad@
-  all_of_my_stores: ''
+  all_of_my_stores: 'Todas mis empresas'
   prefetchone: '1 semana'
   go: 'A la página del equipo'
   isManager: 'Responsable de esta tienda.'
-  noPickup: ''
+  noPickup: 'Nunca recogió nada aquí.'
   isJumper: ''
   isNotVerified: 'Aún no verificado.'
   bread: 'Todas las empresas'
-  addNewStoresButton: ''
+  addNewStoresButton: 'Ingresar nueva empresa'
   team_conversation_name: 'Equipo {name}'
   short_tooltip_yellow: 'Plazas disponibles en 5 días'
   enterdate: ''
@@ -1038,12 +1068,14 @@ store:
     some: ''
     much: ''
   my_last_pickup: 'Mi ultima recogida'
-  error: ''
+  error: 'No se pudo cargar la empresa.'
   ownStores: ''
   actions: ''
   particularities: 'Particularidades'
-  pickup_slot_unavailable: ''
-  may_not_referred_to_in_public: ''
+  pickup_slot_unavailable: 'Este slot está más lejano en el futuro de lo que pretendían
+    los responsables de esta empresa. Así que inténtelo de nuevo más tarde.'
+  may_not_referred_to_in_public: 'Por favor, nunca mencione esta empresa públicamente
+    (por ejemplo, en cestas de alimentos, Facebook o consultas de prensa).'
   team:
     isfull: ''
     no_record: Ningún record fue encontrado.
@@ -1057,12 +1089,12 @@ store:
   tooltip_yellow: 'Plazas disponibles en los próximos cinco días'
   days_before: 'hace'
   memberSince: 'En el equipo desde: {date}'
-  mayManage: ''
+  mayManage: 'Aprobó el examen de responsables para empresas.'
   mayAmb: 'Aprobó el cuestionario de embajador@s.'
   complete: ''
   short_tooltip_red: 'Plazas disponibles hoy o mañana'
   maxchar: '(máx. 180 caracteres)'
-  noStores: ''
+  noStores: 'Aún no hay empresas registradas'
   attribution: 'Atribución'
   lastPickup: 'Última colección: {date}'
   nochains: ''
@@ -1088,6 +1120,12 @@ store:
   particularities_chain: Particularidades de la cadena
   info_container: Informaciones
   delete_date: Eliminar cita de recogida individual
+  of_that: de ell@s
+  unverified_members: no verificadas
+  unverified_member: no verificados
+  particularities_chain_tooltip: Esta empresa es parte de una cadena. Por ello se
+    muestra esta información adicional, que aplica a todos los establecimientos de
+    esta cadena.
 pickup:
   overview:
     status:
@@ -1280,32 +1318,36 @@ bell:
 foodsaver:
   restricted: 'Lamentablemente, no tienes permiso para ver estos datos.'
   upgrade:
-    needs_fs: ''
-    fs_success: ''
-    quiz_error: ''
-    needs_region: ''
+    needs_fs: 'Primero tienes que convertirte en un ahorrador de alimentos'
+    fs_success: '¡Gracias, ahora eres un(a) ahorrador(a) de alimentos!'
+    quiz_error: '¡Error! No se pudieron cargar los datos del examen para su función.
+      Por favor contacte con el soporte de TI:'
+    needs_region: 'Seleccione en qué distrito le gustaría convertirse en embajador(a)'
     needs_sm: ''
-    amb_requested: ''
-    to_fs: ''
-    amb_success: ''
+    amb_requested: 'Solicitud enviada exitosamente.'
+    to_fs: 'Conviértete en un(a) ahorrador(a) de alimentos'
+    amb_success: 'Gracias por su motivación para asumir más responsabilidades. La
+      solicitud será procesada lo más rápido posible por el equipo de administración
+      global.'
     rv: 'Sí, he leído y acepto el acuerdo legal.'
-    needs_fs_quiz: ''
+    needs_fs_quiz: 'Primero debes realizar el examen de rescate alimentario'
     to_sm: ''
     sm_success: ''
     needs_publicinfo: 'Tu breve descripción está vacía'
-    ad_fs: ''
-    amb_region: ''
-    to_amb: ''
+    ad_fs: '¡Ahora quiero hacer el examen de ahorrador(a) de alimentos y convertirme
+      en ahorrador(a) de alimentos!'
+    amb_region: '¿En qué región le gustaría ser embajador(a)?'
+    to_amb: 'Conviértete en embajador(a)'
     learning: 'Mira ahora el vídeo explicativo'
     needs_rv: 'Tienes que aceptar el acuerdo legal.'
   url_error: 'Algo anda mal con la URL de tu página de inicio'
-  title: ''
-  actions: ''
+  title: 'Rescatadores de alimentos'
+  actions: 'Actividades'
   edit_failure: 'No se cambió nada o no se guardaron los cambios'
   list:
     summary: '{count) rescatador@s de alimentos en {region}'
-    inactive: ''
-  edit: ''
+    inactive: 'que no han estado activos en los últimos 6 meses:'
+  edit: 'Editar rescatador@s de alimentos'
   delete_account: 'Borrar cuenta'
   editName: 'Editar {name}'
   delete_own_account: 'Estás a punto de eliminar tu cuenta. ¿Estas realmente segur@?'
@@ -1316,17 +1358,24 @@ foodsaver:
     role: 'Papel'
     remove: 'Quitar del distrito'
     actions: 'Opciones'
-    orga: ''
+    orga: 'es parte del equipo de administración global'
   edit_success: 'Los cambios han sido guardados'
-  kicked: ''
-  mailchange_error: ''
+  kicked: 'Ahorr@ de alimentos eliminado'
+  mailchange_error: 'La activación de su nueva dirección de correo electrónico ha
+    fallado. Inténtalo de nuevo.'
   delete_account_now: 'Eliminar cuenta ahora'
-  bread: ''
+  bread: 'Todos l@s rescatador@s de alimentos'
   about_me_public: ''
   delete_account_sure: '¿Realmente quieres eliminar tu cuenta?'
-  delete_account_sure_reason: ''
+  delete_account_sure_reason: '¿Realmente debería eliminarse la cuenta de {name}?
+    Opcionalmente, puedes proporcionar un motivo aquí para que otros puedan entender
+    más adelante por qué se eliminó la cuenta:'
   profileBack: 'Volver al perfil'
-  about_me_intern: ''
+  about_me_intern: 'Esta breve descripción se mostrará en su página de perfil
+
+    y será visible para todos los miembros de la comunidad de foodsharing.
+
+    '
 profile:
   mail_bounce:
     warning_4: ''
@@ -1863,7 +1912,8 @@ fsp:
     bell: ''
     mail: ''
     descSettings: ''
-    descModal: ''
+    descModal: '¿Cómo le gustaría recibir información sobre las actualizaciones (por
+      ejemplo, entregas de alimentos)?'
   summaryRegion: ''
   unfollow: ''
   reject: ''
@@ -1889,7 +1939,7 @@ fsp:
   location: 'Ciudad postal'
   descLabel: ''
   inRegion: ''
-  acceptName: ''
+  acceptName: 'desbloquear {name}'
   noManager: ''
   new: ''
   addedBy: 'Añadid@ por'
@@ -2036,15 +2086,18 @@ recipients:
   all: ''
   unknown: 'desconocido'
 regionOptions:
-  enableMediationButton: ''
+  enableMediationButton: 'Habilitar enlace de solicitud de mediación en los perfiles
+    de ahorrador@s de este distrito de origen.'
   regionPickupLimitDayNumber: ''
   regionPickupTimespan: ''
   regionPickupRuleActive: ''
   save: 'Guardar ajustes'
   regionPickupLimitNumber: ''
   success: 'Opciones guardadas exitosamente'
-  regionPickupInactiveHours: ''
-  enableReportButton: ''
+  regionPickupInactiveHours: '¿Cuántas horas antes de la recogida debería dejar de
+    aplicarse la regla?'
+  enableReportButton: 'Habilitar enlace de quejas en los perfiles de ahorrador@s de
+    este distrito de origen.'
   header_page: 'Configuración para {bezirk}'
   regionPickupRuleActiveStoreList: ''
 mailbox:
@@ -2087,10 +2140,14 @@ mailbox:
   add_success: 'El buzón se creó correctamente.'
   already_exists: 'Ya existe un buzón con este nombre'
   signature: 'Mensaje del {date}'
-  not-available: ''
+  not-available: 'Debes ser {role} para acceder a los buzones de correo.
+
+    Resuelve el {quiz} aquí cuando estés listo.
+
+    '
   name: 'Nombre mostrado'
   failed: 'El correo electrónico no pudo ser enviado.'
-  subject: ''
+  subject: 'Asunto'
   search: Buscar
   delete_selected: Eliminar correos seleccionados
   conformation_modal:
@@ -2316,10 +2373,12 @@ legal:
   delete_account: 'quisiera eliminar mi cuenta.'
   pp: 'Política de privacidad'
   if_delete:
-    this_doesnt_get_deleted: ''
+    this_doesnt_get_deleted: 'La siguiente información ya no está disponible en el
+      sistema activo, pero se archiva por separado según el artículo 17, apartado
+      3, frase 1, letra b del RGPD:'
     legal_1: 'nuestra política de privacidad actual'
     legal_2: 'Leyes sobre plazos de conservación (página en alemán)'
-    this_gets_deleted_stores: ''
+    this_gets_deleted_stores: 'Empresas a las que se unió.'
     this_doesnt_get_deleted_name: 'Su nombre'
     this_doesnt_get_deleted_address: 'Su dirección'
     this_gets_deleted_main: 'La siguiente información se eliminará y no se podrá restaurar:'
@@ -2333,17 +2392,23 @@ legal:
     safe: 'aplicar configuraciones'
   must_accept_pp: 'Para participar en foodsharing es necesario aceptar las condiciones
     de protección de datos.'
-  are_you_sure_to_downgrade: ''
+  are_you_sure_to_downgrade: 'Atención: ha elegido ser degradado a rescatador de alimentos.
+    ¿Está seguro?'
   privacy_notice: 'Instrucciones de protección de datos'
   privacy_notice_agree:
-    not_acknowledge: ''
+    not_acknowledge: 'No estoy de acuerdo y quiero ser degradado a ahorrador de alimentos'
     acknowledge: 'Estoy de acuerdo'
     select: 'Por favor seleccione'
   not_acknowledge_pp_description: 'Para utilizar foodsharing, debe leer la declaración
     de protección de datos descrita.'
-  agree_privacy_notice: ''
+  agree_privacy_notice: 'He sido informado sobre la obligación de guardar confidencialidad
+    de los datos personales y la conducta resultante. Recibiré confirmación de esto
+    por correo electrónico a la dirección que proporcioné para mis registros.'
   agree_privacy_policy: 'He leído el acuerdo de protección de datos.'
-  not_acknowledge_pn_description: ''
+  not_acknowledge_pn_description: 'Si no está de acuerdo con las instrucciones, será
+    degradado a rescatador(a) de alimentos. Esto significa que ya no será embajador(a)
+    de distrito, perderá todas las responsabilidades de empresas y es posible que
+    deba volver a realizar el examen de embajador(a) o para responsables de empresas.'
   legal_agreement: 'Acuerdo legal'
 error_ajax: 'Eso no funcionó.
 
@@ -2373,7 +2438,7 @@ pickuplist:
   unclear: 'Estado poco claro'
   week_tab: 'Semana'
   header_for_district: ''
-  error_confirm: ''
+  error_confirm: 'La confirmación falló: '
   month_tab: 'Mes'
   error_leave: ''
   tryagain: ''
@@ -2385,7 +2450,7 @@ pickuplist:
   NumberOfSlots_table_header: ''
   NumberOfFoodSavers_table_header: 'Número de rescatadores de alimentos'
   NumberOfAppointments_table_header: 'Número de citas'
-  error_kick: ''
+  error_kick: 'Error al eliminar: '
 content:
   name: 'Nombre único'
   public: 'Paginas publicas'
@@ -2427,15 +2492,15 @@ footer:
       de forma neutra en CO<sub>2</sub>'
     tooltip: '<a href="https://www.manitu.de/webhosting/" title="Webhosting">Alojad@</a>
       de forma neutra en CO<sub>2</sub> en manitu'
-  infosDeveloper: 'Para desarrollador@s de software'
+  infosDeveloper: 'para desarrollador@s de software'
   imprint: 'Aviso legal'
   partner: 'Soci@s'
   donate:
     call_to: '¿Quieres apoyar el foodsharing?'
     cta: 'Done ahora'
   about_us: 'Sobre nosotr@s'
-  infosCompany: 'Para companias'
-  infosPrivatePersons: 'Para individuos'
+  infosCompany: 'para companias'
+  infosPrivatePersons: 'para individuos'
   call_to_action: 'Participar'
   guide: 'Guía de higiene'
   dataprivacy: 'Protección de Datos'
@@ -2533,7 +2598,7 @@ teamjs:
   wrongmail: 'Algo anda mal con tu dirección de correo electrónico.'
 statistics:
   kg_food_saved: '%count% kg de comida ahorrados'
-  num_fetches: ''
+  num_fetches: 'Durante una operación de rescate|En %count% operaciones de rescate'
 back: 'Atrás'
 chat:
   search: 'Buscar'
@@ -2616,7 +2681,8 @@ login:
   submit_btn: 'Entra'
   topbar: 'Acceso'
   email_address: 'Dirección de correo electrónico'
-  error_no_auth: ''
+  error_no_auth: 'Lamentablemente no podemos encontrar esta dirección de correo electrónico
+    o contraseña. Inténtalo de nuevo.'
   save_password: 'Guardar contraseña'
   logout: 'Cerrar sesión'
 gender:
@@ -2748,8 +2814,10 @@ memberlist:
   header_for_workgroup: 'Foodsaver en el grupo de trabajo {bezirk}'
   header_for_district: 'Foodsaver en el distrito {bezirk}'
 map:
-  donates: ''
+  donates: 'La empresa dona'
   title: 'Mapa'
+  filters:
+    my_stores: Solo mis empresas
 addreaction: 'Añadir una reacción'
 mail:
   noreply_addresses_not_allowed: ''
@@ -2791,9 +2859,9 @@ upload:
 public_time: 'Tiempo aproximado de recogida'
 quizusercomment: 'Danos retroalimentación por esa pregunta.
 
-  Era demasiado fácil, demasiado difícil, poco claro?
+  ¿Era demasiado fácil, demasiado difícil, poco claro?
 
-  O son unas respuestas respectivamente explicaciones falso?
+  ¿O son unas respuestas respectivamente explicaciones falso?
 
   '
 bread:
