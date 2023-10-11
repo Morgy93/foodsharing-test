@@ -228,7 +228,7 @@ pass:
     confirm: Sicuro?
     undo: Annulla verifica {name} ({id})
     do: Verifica l'account di {name} ({id})
-  notGenerated: Non è stato possibile creare la tua carta d'identificazione
+  notGenerated: Pertanto non è stato possibile creare le loro tessere associative.
   noPhoto: 'Le seguenti persone non hanno ancora caricato una foto:'
   claim: Condividi il cibo invece di buttarlo via!
   hintVerify: "Possono essere verificati i foodsaver che hanno ricevuto un documento
@@ -448,7 +448,7 @@ terminology:
   arbitration: Visualizzazione messaggio (LS)
   reports: Visualizzazione messaggio (LMG)
   statistic: statistiche
-  wall: albo
+  wall: Albo
   moderationAdmins: Team di moderazione
   prAdmins: Team di relazioni pubblici
   fsManagementAdmins: amministrazione
@@ -697,7 +697,7 @@ fsp:
   unfollow: divisore equi non seguiere più
   suggestSuccess: I divisori vengono proposti e devono poi essere confermati da un/a
     ambasciatore/trice o responsabile del divisore.
-  none: non sono ancora stati inseriti punti di condivisione
+  none: Non sono ancora stati inseriti punti di condivisione
   publicwall: Tieni presente, che i tuoi contributi sono visibili pubblicamente sulla
     bacheca del divisore.
   editSuccess: Il divisore è stato elaborato con successo
@@ -1859,7 +1859,7 @@ pickuplist:
   NumberOfStores_table_header: numero di agenzie
 genderlist:
   number_table_header: Numero
-  gender_female: donna
+  gender_female: Donna
   gender_male: Uomo
   gender_not_selected: non selezionato
   header_for_district: Distribuzione dei Foodsaver per sesso a {bezirk}
@@ -2654,8 +2654,8 @@ footer:
   contact: Contatto
   our_partner: I nostri partner
   partner: partner
-  infosPrivatePersons: Per privati
-  infosCompany: Per aziende
+  infosPrivatePersons: per privati
+  infosCompany: per aziende
   team: Team
   about_us: Su di noi
   call_to_action: Partecipare
@@ -2677,7 +2677,7 @@ footer:
     version: 'Versione: {version}'
     beta_testing_issues: 'Attività di test della versione beta'
     it_devdocs: 'by foodsharing IT'
-  infosDeveloper: 'Per gli sviluppatori'
+  infosDeveloper: 'per gli sviluppatori'
   hosting:
     tooltip: '<a href="https://www.manitu.de/webhosting/" title="Webhosting">ospitato</a>
       ad emissioni neutrali di CO<sub>2</sub> su manitu'
@@ -3232,3 +3232,6 @@ markdown_input:
     hrule: linea orizzontale
     link: collegamento
     heading: titolo
+  empty_preview_placeholder: "Questa è l'anteprima della formattazione. Il testo è
+    formattato qui come verrà visualizzato in seguito.\n---\n*Ma non hai inserito
+    alcun testo che possa essere visualizzato qui.*"
