@@ -1871,6 +1871,10 @@ forum:
     navigate_to_oldest_post: 'saltar a la primera publicación'
     closed: 'Tema cerrado'
     inactive: ''
+    sticky: hilo fijado
+    subscriptions:
+      subscribed: suscrito
+      subscribe: Suscribir
   new_thread: 'Componer un nuevo hilo'
   follow:
     bell: 'por campana'
@@ -2954,3 +2958,15 @@ usersearch:
   search_tag: Seleccionar usuario
   no_tag_preset: Usuario no encontrado
   select_tag: Buscar usuarios por nombre
+thread:
+  options:
+    rename: Cambiar título
+    unlock: Reabrir hilo
+    pin: Hilo de pasador
+    lock: Cerrar hilo
+    unpin: Desanclar el hilo
+  rename:
+    description_modal_text: 'Ingrese un nuevo título para este hilo:'
+    placeholder: Título
+    max_length_info: Se alcanzó la longitud máxima del título (260 caracteres)
+    edit_description: Editar título
