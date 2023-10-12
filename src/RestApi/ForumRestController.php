@@ -282,7 +282,7 @@ class ForumRestController extends AbstractFOSRestController
         }
         $isActive = $paramFetcher->get('isActive');
         if ($isActive === true) {
-            $this->forumTransactions->activateThread($threadId);
+            $this->forumGateway->activateThread($threadId);
         }
         $status = $paramFetcher->get('status');
         if (!is_null($status)) {
@@ -407,7 +407,7 @@ class ForumRestController extends AbstractFOSRestController
             throw new AccessDeniedHttpException();
         }
 
-        $this->forumGateway->deletePost($postId);
+        $this->forumTransactions->deletePostFromThread($postId, $this->session->id());
 
         return $this->handleView($this->view([]));
     }
