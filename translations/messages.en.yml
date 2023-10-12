@@ -5,8 +5,8 @@ group:
   applications: Applications
   applications_for: Applications for {name}
   mail_link_title:
-    workgroup: e-mail inbox
-    region: e-mail inbox
+    workgroup: E-mail inbox
+    region: E-mail inbox
   application_requirements:
     requirements: Who can enter this group?
     nobody: Nobody (closed group).
@@ -354,7 +354,7 @@ menu:
     mailbox: Mailbox
     donate: Donate
     press: Press
-    forcompanies: For companies
+    forcompanies: for companies
     imprint: Legal notice
     regionalgroups: Local groups
     Germany: Germany
@@ -363,7 +363,7 @@ menu:
     international: International
     forum: Forum
     BOTforum: Ambassador forum
-    wall: pinboard
+    wall: Pinboard
     events: Events
     members: Members
     workingGroupEdit: Manage group
@@ -391,7 +391,7 @@ menu:
     release-notes: What’s new?
     donations: Donations
     options: Options
-    friendcircle: circle of friends
+    friendcircle: Circle of friends
     selfservice: Self service
     fundraising: Fundraising
     pin: Description of local group
@@ -1036,7 +1036,7 @@ terminology:
   community: Local group {name}
   basket: Food basket
   statistic: Statistics
-  wall: pinboard
+  wall: Pinboard
   admins: Administrators
   ambassadors: Ambassadors
   ambassador:
@@ -1599,7 +1599,7 @@ footer:
   version: 'Version: {version}'
   donate:
     cta: Donate now
-    call_to: You want to support foodsharing?
+    call_to: Would you like to support foodsharing?
   statistics: Statistics
   blog: Blog
   wiki: Wiki
@@ -1609,9 +1609,9 @@ footer:
   call_to_donate: "You would like to\nsupport foodsharing?\n"
   our_partner: Our partners
   partner: Partners
-  infosPrivatePersons: For private persons
-  infosCompany: For companies
-  infosDeveloper: For developers
+  infosPrivatePersons: for private persons
+  infosCompany: for companies
+  infosDeveloper: for developers
   guide: Hygiene guide
   dataprivacy: Privacy
   imprint: Legal notice
@@ -2042,7 +2042,7 @@ date:
   monday: Monday
   yesterday: yesterday
   -- Yesterday: Yesterday
-  tomorrow: tomorrow
+  tomorrow: tmrw.
   -- Tomorrow: Tomorrow
   today: today
   Today: Today
@@ -2057,7 +2057,7 @@ wall:
   delete: Delete post
   see-more: Show all posts
   message_placeholder: Write a message…
-  name: pinboard
+  name: Pinboard
   info-somebody-else: This entry is older than a month. As a Store Coordinator you
     can remove it.
   confirm-deletion: Do you really want to delete the following pinboard post from
@@ -2777,7 +2777,7 @@ list:
 startpage:
   donate:
     title: Donate
-    link: support foodsharing
+    link: Support foodsharing
     text: "We seek sponsorship for any expenditure. In some cases, however, we are
       not or not fully successful, \ne.g. for the financing of events, legal advice
       or insurances.\nWe would be delighted in receiving any support.\n"
@@ -2797,8 +2797,8 @@ startpage:
       part3: you can find
       part2: map
       part4: Food-Share Points
-      part5: which are shelves or fridges where you can pick up and bring food for
-        free.
+      part5: ', which are shelves or fridges where you can pick up and bring food
+        for free.'
       part1: On the
     title: Close to you
     text2:
@@ -2974,7 +2974,7 @@ quiz:
     bv: Finish the signup process for store coordinators now.
     bot: Finish the ambassador signup process now.
   donecorrectly: you answered absolutely correct. Congrats!
-  wikilink: A wiki article to about this topic
+  wikilink: Related wiki article on this topic
   learnbreak: learning break
   safeandsound: No problem. Your session is saved. You can continue it at any time.
   continuetype: '-quiz: continue now'
