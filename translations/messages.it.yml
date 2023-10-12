@@ -1578,6 +1578,10 @@ forum:
       activate: attivato
     navigate_to_oldest_post: 'Vai al primo post'
     navigate_to_newest_post: 'Vai all''ultimo post'
+    sticky: filo appuntato
+    subscriptions:
+      subscribed: sottoscritto
+      subscribe: Sottoscrivi
   follow:
     email: come email
     bell: come una campana
@@ -3235,3 +3239,14 @@ markdown_input:
   empty_preview_placeholder: "Questa è l'anteprima della formattazione. Il testo è
     formattato qui come verrà visualizzato in seguito.\n---\n*Ma non hai inserito
     alcun testo che possa essere visualizzato qui.*"
+thread:
+  options:
+    rename: Modifica titolo
+    unlock: Riaprire la discussione
+    pin: Appuntare il filo
+    lock: Chiudi discussione
+  rename:
+    description_modal_text: 'Inserisci un nuovo titolo per questa discussione:'
+    placeholder: Titolo
+    max_length_info: Lunghezza massima del titolo raggiunta (260 caratteri)
+    edit_description: Modifica titolo
