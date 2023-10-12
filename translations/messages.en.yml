@@ -792,6 +792,10 @@ forum:
       non_active: disabled
       disable: disabled
       activate: enabled
+    sticky: pinned Thread
+    subscriptions:
+      subscribed: subscribed
+      subscribe: Subscribe
   post:
     delete: Delete post
     body: Message
@@ -805,8 +809,8 @@ forum:
     months about this topic by e-mail (only possible in forums without moderation)
   follow:
     header: 'Notification about new answers:'
-    email: by e-mail
-    bell: by bell notification
+    email: via e-mail
+    bell: as bell notification
   new_thread: Compose new thread
   deleted_user: deleted user
   not_found: This thread does not exist.
@@ -2474,7 +2478,7 @@ explanation: Explanation
 fp: Failure points
 text: text
 public_info: Public information of the store
-besonderheiten: Special features
+besonderheiten: Description
 begin: Start of cooperation
 fetchercount: Number of collectors
 team_status: Team status
@@ -3295,3 +3299,15 @@ markdown_input:
   empty_preview_placeholder: "This is the formatting preview. The text is formatted
     here as it will be displayed later.\n---\n*But you haven’t entered any text that
     could be displayed here.*"
+thread:
+  options:
+    rename: Rename
+    unlock: Reopen thread
+    pin: Pin thread
+    lock: Close thread
+    unpin: Unpin thread
+  rename:
+    description_modal_text: 'Enter a new title for this thread:'
+    placeholder: Title
+    max_length_info: Maximum title length reached (260 characters)
+    edit_description: Edit description
