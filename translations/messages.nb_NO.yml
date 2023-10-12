@@ -1844,8 +1844,8 @@ footer:
     call_to: Vil du støtte matdeling?
   partner: Partnere
   imprint: Impressum
-  infosCompany: For bedrifter
-  infosPrivatePersons: For privatpersoner
+  infosCompany: for bedrifter
+  infosPrivatePersons: for privatpersoner
   our_partner: Våre partnere
   lebensministerium_alt_text: Livsdepartementet
   donate_now: Donér nå
@@ -1859,7 +1859,7 @@ footer:
     it_devdocs: av foodsharing IT
     version: 'Versjon: {version}'
     beta_testing_issues: Testoppgaver for betaversjonen
-  infosDeveloper: For utviklere
+  infosDeveloper: for utviklere
   hosting:
     info: CO<sub>2</sub>-nøytral <a href="https://www.manitu.de/webhosting/" title="Webhosting">hosted</a>
     tooltip: CO<sub>2</sub>-nøytral <a href="https://www.manitu.de/webhosting/" title="Webhosting">hosted</a>
@@ -1878,7 +1878,7 @@ date:
   monday: mandag
   yesterday: i går
   -- Yesterday: i går
-  tomorrow: i morgen
+  tomorrow: i morgen
   -- Tomorrow: i morgen
   today: i dag
   Today: i dag
