@@ -789,6 +789,10 @@ forum:
       active: activé
       activate: activer
       disable: désactiver
+    sticky: fil épinglé
+    subscriptions:
+      subscribed: abonné
+      subscribe: s’abonner
   follow:
     email: comme courriel
     bell: par la cloche
@@ -3305,3 +3309,15 @@ markdown_input:
   empty_preview_placeholder: "Il s’agit de l’aperçu du formatage. Le texte est formaté
     ici tel qu’il sera affiché ultérieurement.\n---\n*Mais vous n’avez saisi aucun
     texte susceptible d’être affiché ici.*"
+thread:
+  options:
+    rename: Modifier le titre
+    unlock: Rouvrir la discussion
+    pin: épingler le fil
+    lock: Fermer la discussion
+    unpin: détacher le fil
+  rename:
+    description_modal_text: 'Entrez un nouveau titre pour ce fil :'
+    placeholder: Titre
+    max_length_info: Longueur maximale du titre atteinte (260 caractères)
+    edit_description: Modifier le titre
