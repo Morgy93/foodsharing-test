@@ -696,7 +696,7 @@ foodsaver:
     et sur la <a href=\"/team/ehemalige\">liste des anciens élèves</a>\net peut être
     consulté sur le site Web.\n"
   manage:
-    orga: Fait partie de l’équipe organisation nationale
+    orga: fait partie de l’équipe d’administration mondiale
     remove: Supprimer du secteur géographique
     actions: Options
     last-activity: Dernière activité
@@ -2193,8 +2193,8 @@ footer:
   contact: Contact
   our_partner: Nos partenaires
   partner: Partenaires
-  infosPrivatePersons: Pour les personnes privées
-  infosCompany: Pour les entreprises
+  infosPrivatePersons: pour les personnes privées
+  infosCompany: pour les entreprises
   guide: Conseils d’hygiène
   dataprivacy: Protection des données
   imprint: Mentions légales
@@ -2212,7 +2212,7 @@ footer:
     wiener_tafel: Banque alimentaire de Vienne
     denns: Denn’s Biomarkt
     lebensministerium: Bundesministerium für Landwirtschaft, Regionen und Tourismus
-  infosDeveloper: Pour les développeurs·euses
+  infosDeveloper: pour les développeurs·euses
   meta:
     version: 'Version : {version}'
     it_devdocs: by foodsharing IT
