@@ -68,7 +68,7 @@ class ForumGateway extends BaseGateway
 
 			ORDER BY    t.`sticky` DESC,
                         CASE WHEN sticky = 1 THEN t.`name` END ASC,
-                        CASE WHEN sticky = 0 THEN t.`time` END DESC
+                        CASE WHEN sticky = 0 THEN p.`time` END DESC
 
 			LIMIT :limit
 			OFFSET :offset
