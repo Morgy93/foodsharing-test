@@ -2031,6 +2031,10 @@ forum:
       title: Postlevering
       disable: deaktivere
       activate: aktivere
+    sticky: festet tråd
+    subscriptions:
+      subscribed: abonnerer
+      subscribe: Abonnere
   post:
     body: Beskjed
     delete: Slett innlegget
@@ -2628,7 +2632,7 @@ bread:
 apply_type: Hvem kan melde seg inn i denne gruppen?
 public_time: Omtrentlig tid på dagen for henting
 public_info: Offentlig info for butikken
-besonderheiten: Spesialfunksjoner
+besonderheiten: Beskrivelse
 fetchercount: Antall innsamlere
 team_status: Lagstatus
 verantwortlicher: Ansvarlige medlemmer
@@ -3169,3 +3173,15 @@ markdown_input:
   empty_preview_placeholder: "Dette er forhåndsvisningen av formateringen. Teksten
     vises her slik den vil vises senere.\n---\n*Men du har ikke skrevet inn noen tekst
     som kan vises her.*"
+thread:
+  options:
+    rename: Endre tittel
+    unlock: Åpne tråden
+    pin: Fest tråden
+    lock: Lukk tråden
+    unpin: Løsne tråden
+  rename:
+    description_modal_text: 'Skriv inn en ny tittel for denne tråden:'
+    placeholder: Tittel
+    max_length_info: Maksimal tittellengde er nådd (260 tegn)
+    edit_description: Rediger tittel
