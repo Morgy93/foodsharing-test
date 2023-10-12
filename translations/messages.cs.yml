@@ -1006,7 +1006,7 @@ recipients:
 date:
   -- Tomorrow: ''
   friday: 'pátek'
-  tomorrow: ''
+  tomorrow: 'zítra'
   yesterday: ''
   today: ''
   clock: ''
