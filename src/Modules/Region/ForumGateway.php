@@ -26,8 +26,8 @@ class ForumGateway extends BaseGateway
 
     public function listThreads(int $regionId, int $subforumId = 0, int $limit = 15, int $offset = 0): array
     {
-        $threads = $this->db->fetchAll('
-			SELECT 		t.id,
+        $threads = $this->db->fetchAll('SELECT
+                        t.id,
 						t.name as title,
 						t.`time`,
 						UNIX_TIMESTAMP(t.`time`) AS time_ts,
@@ -66,7 +66,9 @@ class ForumGateway extends BaseGateway
 			AND 		bt.bot_theme = :subforumId
 			AND 		t.`active` = 1
 
-			ORDER BY t.sticky DESC, t.last_post_id DESC
+			ORDER BY    t.`sticky` DESC,
+                        CASE WHEN sticky = 1 THEN t.`name` END ASC,
+                        CASE WHEN sticky = 0 THEN t.`time` END DESC
 
 			LIMIT :limit
 			OFFSET :offset
