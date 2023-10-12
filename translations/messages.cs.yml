@@ -1385,7 +1385,7 @@ dashboard:
   options:
     hide:
       tooltip: ''
-      text: ''
+      text: 'Změnit pohled'
     grid_toggle:
       2_columns: ''
       3_columns: ''
