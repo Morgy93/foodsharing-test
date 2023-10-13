@@ -272,7 +272,7 @@ base:
   slogan: Del mat i stedet for å kaste den – foodsharing
   keywords: foodsharing, matdeling, mat, matavfall, matsparer, matdeler, matredder,
     bytte mat, levere in mat, distribusjon
-  whatfor: På foodsharing.de kan du gi dagligvarene dine til sosiale institusjoner
+  whatfor: På foodsharing.network kan du gi dagligvarene dine til sosiale institusjoner
     eller andre mennesker før de utløper
 tablesorter:
   from: av
@@ -1197,12 +1197,10 @@ genderlist:
   gender_table_header: Kjønn
   district_tab: distrikt
   home_district_tab: Hjemdistrikt
-  gender_home_district_table_caption: Fordeling av attributtet «kjønn» blant matredderne
-    i hjemdistriktet
+  gender_home_district_table_caption: Kjønnsfordeling i hjemdistriktet
   gender_not_selected: ikke valgt
   header_for_district: Fordeling av matreddere etter kjønn i {bezirk}
-  gender_district_table_caption: Fordeling av attributtet «kjønn» blant alle matreddere
-    som har sluttet seg til distriktet
+  gender_district_table_caption: Kjønnsfordeling på alle matsparere i distriktet
 memberlist:
   header_for_district: Matreddere i distrikt {bezirk}
   header_for_workgroup: Matreddere i arbeidsgruppe {bezirk}
