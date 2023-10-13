@@ -990,11 +990,11 @@ store:
     ci sarà bisogno di aiuto, sarei contattat.
   nodetails: Non indicare qui gli orari esatti di ritiro.
   ownStores: Aziende proprie
-  regionPickupRuleLong: Entro ±{regionPickupRuleTimespan} giorni dalla data di ritiro
-    desiderata, non possono essere già registrati più di {regionPickupRuleLimit} ritiri
-    presso le aziende PASTA. Da questi negozi è possibile ritirare un massimo di {regionPickupRuleLimitDay}
-    al giorno. {regionPickupRuleInactive} ore prima del ritiro, questa regola non
-    viene più presa in considerazione.
+  regionPickupRuleLong: Non è possibile registrare più di {regionPickupRuleLimit}
+    ritiri da aziende famose entro {regionPickupRuleTimespan} giorni prima e dopo
+    la data di ritiro del cibo desiderata. Da questi negozi è possibile ritirare un
+    massimo di {regionPickupRuleLimitDay} al giorno. {regionPickupRuleInactive} ore
+    prima del ritiro, questa regola non viene più presa in considerazione.
   complete: 'banca dati completa'
   regionPickupRules: 'regola aggiuntiva RASMR (Regola Aggiuntiva Slot Molto Ricercati)'
   nodeclaration: 'Non specificato'
@@ -2145,7 +2145,7 @@ dashboard:
   options:
     hide:
       tooltip: 'Qui puoi nascondere e mostrare singole aree della dashboard.'
-      text: 'Gestisci annuncio'
+      text: 'Cambia punto di vista'
     grid_toggle:
       3_columns: 'Passa alla visualizzazione a 3 colonne'
       2_columns: 'Passa alla visualizzazione a 2 colonne'
@@ -2835,8 +2835,8 @@ base:
   slogan: Condividere il cibo invece di buttarlo via – foodsharing
   keywords: foodsharing, cibo, data di scadenza, spreco di cibo, buttare via il cibo,
     donare, scambio di cibo
-  whatfor: Su foodsharing.de puoi dare il tuo cibo alle istituzioni sociali o ad altre
-    persone prima che vada sprecato
+  whatfor: Su foodsharing.network puoi dare il tuo cibo alle istituzioni sociali o
+    ad altre persone prima che vada sprecato
 becomeregion:
   save: Salva
   enterregion:
