@@ -2535,11 +2535,11 @@ startpage:
     title: Faire un don
     link: Soutenir foodsharing
   towns:
-    text: "« Les villes participantes diffèrent selon qu’elles sont en route vers
-      la limitation du gaspillage alimentaire \nou qu’elles l’ont déjà atteinte. Ce
-      dernier est le cas lorsqu’il y a, à côté d’une équipe foodsharing sur place,
-      \nune déclaration de motivation, signée par la municipalité, symbolisant le
-      partenariat entre foodsharing \net les pouvoirs publics. »\n"
+    text: "Les villes participantes diffèrent selon qu’elles sont en route vers la
+      limitation du gaspillage alimentaire \nou qu’elles l’ont déjà atteinte. Ce dernier
+      est le cas lorsqu’il y a, à côté d’une équipe foodsharing sur place, \nune déclaration
+      de motivation, signée par la municipalité, symbolisant le partenariat entre
+      foodsharing \net les pouvoirs publics.\n"
     title: Villes foodsharing
   demands:
     text: "Pour endiguer efficacement le gaspillage alimentaire, il ne suffit pas
