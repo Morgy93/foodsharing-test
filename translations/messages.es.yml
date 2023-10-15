@@ -1303,21 +1303,21 @@ pickup:
     more: 'Agregar cita'
     slotscount: '{count} recogidas'
     added: 'Se ha introducido la fecha de recogida.'
-    many-people: 'Especificaste más de dos personas para recoger.
+    many-people: 'Has especificado más de dos personas para recoger.
 
       <br />
 
-      Envíe únicamente <strong>tantas recogidas a la empresa como sea necesario</strong>.
+      Por favor, envía <strong>sólo los cobradores necesarios</strong> a la empresa.
 
-      Demasiados reencuentros han llevado a menudo al fin de una cooperación.
+      Demasiados encuentros han llevado a menudo al final de una cooperación.
 
       <br />
 
-      Aclarar con la empresa el número máximo de recogidas posibles.
+      Aclara con la empresa el número máximo de recogidas posibles.
 
-      Los ayudantes adicionales necesarios pueden esperar con un
+      Se pueden llevar ayudantes adicionales con un remolque de bicicleta o similar.
 
-      remolque para bicicletas o algo similar fuera de la vista de la empresa.
+      Espera fuera de la vista de la empresa.
 
       '
     add: 'Ingrese los horarios de recogida'
