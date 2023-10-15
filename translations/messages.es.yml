@@ -1303,21 +1303,21 @@ pickup:
     more: 'Agregar cita'
     slotscount: '{count} recogidas'
     added: 'Se ha introducido la fecha de recogida.'
-    many-people: 'Has especificado más de dos personas para recoger.
+    many-people: 'Especificaste más de dos personas para recoger.
 
       <br />
 
-      Por favor, envía <strong>sólo los cobradores necesarios</strong> a la empresa.
+      Envíe únicamente <strong>tantas recogidas a la empresa como sea necesario</strong>.
 
-      Demasiados encuentros han llevado a menudo al final de una cooperación.
+      Demasiados reencuentros han llevado a menudo al fin de una cooperación.
 
       <br />
 
-      Aclara con la empresa el número máximo de recogidas posibles.
+      Aclarar con la empresa el número máximo de recogidas posibles.
 
-      Se pueden llevar ayudantes adicionales con un remolque de bicicleta o similar.
+      Los ayudantes adicionales necesarios pueden esperar con un
 
-      Espera fuera de la vista de la empresa.
+      remolque de bicicletas o algo similar fuera de la vista de la empresa.
 
       '
     add: 'Ingrese los horarios de recogida'
@@ -1500,7 +1500,10 @@ foodsaver:
     fallado. Inténtalo de nuevo.'
   delete_account_now: 'Eliminar cuenta ahora'
   bread: 'Todos l@s rescatistas'
-  about_me_public: ''
+  about_me_public: "Esta breve descripción se muestra y puede ser utilizada por todas
+    las personas\nque figuran en la <a href=\"/team\">página de personal</a> y en
+    la \n<a href=\"/team/former\">página de anteriormente activ@s</a>. Puede ser visto
+    por todos en el sitio web.\n"
   delete_account_sure: '¿Realmente quieres eliminar tu cuenta?'
   delete_account_sure_reason: '¿Realmente debería eliminarse la cuenta de {name}?
     Opcionalmente, puedes proporcionar un motivo aquí para que otros puedan entender
