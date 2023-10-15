@@ -1193,11 +1193,11 @@ store:
   days: 'días'
   prefetchthree: '3 semanas'
   not-in-team: 'Aún no estás en el equipo de esta empresa.'
-  regionPickupRuleLong: 'En el plazo de {regionPickupRuleTimespan} días antes y después
-    de la fecha de recogida deseada, no podrán haberse registrado ya más de {regionPickupRuleLimit}
-    cobros en empresas populares. Se podrán realizar un máximo de {regionPickupRuleLimitDay}
-    recogidas en estas empresas al día. {regionPickupRuleInactive} horas antes de
-    la recogida, esta regla ya no se tiene en cuenta.'
+  regionPickupRuleLong: 'En un plazo de ±{regionPickupRuleTimespan} días a partir
+    de la fecha de recogida solicitada, no se podrán registrar más recogidas en explotaciones
+    de pasas de las que ya se hayan registrado {regionPickupRuleLimit}. No podrán
+    recogerse más de {regionPickupRuleLimitDay} veces al día en total. {regionPickupRuleInactive}
+    horas antes de la recogida, esta regla ya no se tiene en cuenta.'
   appliedFor: 'Solicitud realizada'
   leaveinfo: 'Aquí puede proporcionar información a l@s rescatistas que deseen postularse
     para el equipo.'
