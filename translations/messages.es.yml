@@ -512,7 +512,18 @@ startpage:
       part3: 'puedes encontrar'
   towns:
     title: 'Ciudades de foodsharing'
-    text: ''
+    text: 'Las ciudades participantes se diferencian en si todavía están en camino
+      o ya han sido reconocidas como
+
+      una ciudad para compartir alimentos. Este es el caso cuando, además del equipo
+      de foodsharing in situ,
+
+      también hay una declaración de motivación firmada por la administración de la
+      ciudad como símbolo
+
+      de la colaboración entre foodsharing y el sector público.
+
+      '
   store:
     text: '¿Trabajas en un supermercado, restaurante o cantina? Registra tu empresa
       y ahorra alimentos.'
@@ -523,7 +534,12 @@ startpage:
     text: 'Fuimos fundados en 2012 y ahora somos un movimiento internacional con más
       de 500.000 usuari@s en Alemania, Austria, Suiza y otros países europeos.'
   more_infos: 'Aprende más'
-  respect: ''
+  respect: 'Dado que la comida nos mantiene vivos, también queremos tratarla con respeto.
+    Para que todo funcione de manera óptima para nosotros, a lo largo de los años
+    hemos definido algunas reglas de conducta. Dar comida a los demás es una actividad
+    humana pero también muy responsable. Siempre se aplica la regla básica: "No le
+    des a otros nada que no te comerías tú mismo". ¡Lea la etiqueta para compartir
+    alimentos!'
   followrules_b: 'Señalamos expresamente que por razones legales solo permitimos ofrecer
     y compartir ciertos alimentos y otros bienes bajo ciertas condiciones. Esto se
     aplica especialmente a los alimentos perecederos como el pescado crudo, la carne
@@ -578,7 +594,21 @@ startpage:
       comida de las empresas.'
   demands:
     title: 'Demandas'
-    text: ''
+    text: 'Para frenar eficazmente el desperdicio de alimentos, se necesita algo más
+      que simplemente
+
+      recogir los restos de comida de las empresas o educar a los consumidores.
+
+      En cambio, es necesario que suceda algo políticamente:
+
+      Necesitamos objetivos vinculantes de reducción de residuos a lo largo de toda
+      la cadena de valor.
+
+      Además, se deben reconsiderar y relajar las normas comerciales actuales y se
+      deben fortalecer las organizaciones que ahorran alimentos u ofrecen educación
+      sobre el tema de la nutrición.
+
+      '
   notallowed: 'Con foodsharing se excluye la transmisión de medicamentos (incluidos
     los remedios homeopáticos). La ropa, los cosméticos, los productos químicos domésticos,
     los juguetes y otros productos no alimentarios no se pueden intercambiar ni compartir
@@ -1193,11 +1223,11 @@ store:
   days: 'días'
   prefetchthree: '3 semanas'
   not-in-team: 'Aún no estás en el equipo de esta empresa.'
-  regionPickupRuleLong: 'En un plazo de ±{regionPickupRuleTimespan} días a partir
-    de la fecha de recogida solicitada, no se podrán registrar más recogidas en explotaciones
-    de pasas de las que ya se hayan registrado {regionPickupRuleLimit}. No podrán
-    recogerse más de {regionPickupRuleLimitDay} veces al día en total. {regionPickupRuleInactive}
-    horas antes de la recogida, esta regla ya no se tiene en cuenta.'
+  regionPickupRuleLong: 'En el plazo de {regionPickupRuleTimespan} días antes y después
+    de la fecha de recogida deseada, no podrán haberse registrado ya más de {regionPickupRuleLimit}
+    cobros en empresas populares. Se podrán realizar un máximo de {regionPickupRuleLimitDay}
+    recogidas en estas empresas al día. {regionPickupRuleInactive} horas antes de
+    la recogida, esta regla ya no se tiene en cuenta.'
   appliedFor: 'Solicitud realizada'
   leaveinfo: 'Aquí puede proporcionar información a l@s rescatistas que deseen postularse
     para el equipo.'
@@ -2572,7 +2602,9 @@ settings:
     header: 'Modo de sueño'
     tooltip: '{name} actualmente está tomando un descanso y está en modo de sueño'
     full: 'Voy a estar ausente indefinidamente'
-    info: ''
+    info: "Con el gorro de dormir le indicas a la comunidad que estás ausente\no que
+      no tienes tiempo para guardar comida por otros motivos. \nPuede ser útil saber
+      si puede responder mensajes \no incluso, a veces, recoger comida.\n"
     saved: 'La configuración fue guardada'
     title: 'Gorro de dormir'
     missing-date: 'Introduzca una fecha de inicio y una fecha de finalización para
@@ -2698,7 +2730,15 @@ join_region:
       una región o un distrito!'
     is_big_city: '<strong>Esta es una gran ciudad.</strong><br> ¡Seleccione una ciudad,
       una región o un distrito!'
-  description: ''
+  description: 'Puede unirse a su primer distrito haciendo clic desde su continente
+    hasta su distrito. Si no encuentras un distrito para ti, sube de nivel o únete
+    al distrito más cercano a ti. Si no tienes la oportunidad de formarte como rescatador
+    de alimentos en la zona, puedes considerar la posibilidad de crear tu propio distrito.
+    En este caso, lea atentamente la Wiki y especialmente el <a href="{href}">artículo
+    sobre la creación o reactivación de distritos<a>.Si desea que creemos el distrito
+    por usted o tiene preguntas específicas que el Wiki no responde, escríbanos <a
+    href="{mail}">un correo electrónico</a>. No somos el punto central de contacto
+    para preguntas generales, pero podemos ayudarlo con preguntas sobre distritos.'
 globals:
   show_less: 'Muestra menos'
   show_more: 'Mostrar más'
