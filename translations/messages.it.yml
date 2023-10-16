@@ -3245,6 +3245,7 @@ thread:
     unlock: Riaprire la discussione
     pin: Appuntare il filo
     lock: Chiudi discussione
+    unpin: Spillare il filo
   rename:
     description_modal_text: 'Inserisci un nuovo titolo per questa discussione:'
     placeholder: Titolo
