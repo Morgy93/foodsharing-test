@@ -1455,6 +1455,12 @@ bell:
   forum_post:
     one: "Neuer Beitrag von {user} im Forum {forum}"
     many: "{count} neue Beiträge im Forum {forum}"
+  forum_announcement_title: "Wichtige Mitteilung: {title}"
+  forum_announcement: "von {user} im Forum {forum}"
+  forum_mention_title: "{user} hat dich erwähnt ({forum})"
+  forum_mention: 'im Thema "{title}" des Forums {forum}'
+  forum_new_thread_title: "Neuer Beitrag: {title}"
+  forum_new_thread: "von {user} im Forum {forum}"
   blog_new_check_title: "Neuer Blogartikel"
   blog_new_check: "{title}"
   ft_update_title: "{name}"
