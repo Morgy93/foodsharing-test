@@ -705,6 +705,8 @@ mailbox:
   for_quoting:
     has_from: wrote on
     written_text:  
+  mark_as_read: Mark as read
+  unknown_sender: Unknown sender
 events:
   description: Description
   create:
