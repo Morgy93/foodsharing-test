@@ -2481,6 +2481,7 @@ mailbox:
   add: Agregar
   mails: Correos electrónicos
   mark_as_read: Marcar como leído
+  unknown_sender: Remitente desconocido
 settings:
   follow:
     thread: '¿Quiere mantenerse actualizado sobre el tema del foro “{thread}”?'
