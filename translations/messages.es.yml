@@ -2480,7 +2480,7 @@ mailbox:
   close_edit_mode: Dejar de editar
   add: Agregar
   mails: Correos electrónicos
-  mark_as_read: Marcar el correo electrónico como leído
+  mark_as_read: Marcar como leído
 settings:
   follow:
     thread: '¿Quiere mantenerse actualizado sobre el tema del foro “{thread}”?'
