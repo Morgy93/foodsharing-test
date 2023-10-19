@@ -659,6 +659,8 @@ mailbox:
   close_edit_mode: Arrêter de modifier
   add: Ajouter
   mails: Courriels
+  mark_as_read: Marquer comme lu
+  unknown_sender: Expéditeur inconnu
 foodsaver:
   mailchange_error: L’activation de votre nouvelle adresse électronique a échoué.
     Veuillez réessayer.
