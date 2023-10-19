@@ -1080,6 +1080,8 @@ mailbox:
     not_found_explanation: Den vedlagte filen ble ikke lenger funnet på serveren
     not_found: ikke funnet
   add: Legg til
+  mark_as_read: Merk som lest
+  unknown_sender: Ukjent avsender
 map:
   title: Kart
   donates: Selskapet donerer
