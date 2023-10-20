@@ -312,7 +312,7 @@ abholmenge: Approssimativamente, quanti chilogrammi di cibo vengono prelevati pe
   ogni ritiro?
 prefetchtime: Con quante settimane di anticipo può un foodsaver registrarsi utilizzando
   gli slot automatici?
-sticker: L'azienda / negozio / associazione ecc. è disposta ad esporre un adesivo
+sticker: L'attività/il negozio /l' associazione ecc. è disposta ad esporre un adesivo
   all'ingresso o altrove?
 presse: L'azienda / negozio / associazione è disposta ad essere menzionata sulla stampa
   e sul nostro sito web?
@@ -752,7 +752,7 @@ pickup:
   same_day_hint: 'Ti sei registrato il {day} per i seguenti ritiri:'
   join_title_date: Siccuro?
   team_message_success: Il messaggio al team è stato inviato con successo
-  team_message_send_and_leave: Invia e annulla l'iscrizione
+  team_message_send_and_leave: Invia e liberare lo slot
   leave_team_message_template: Carissimi, {data} …
   leave_team_message_title: Messaggio al team
   leave_pickup_message_team: Avvisa il team
@@ -838,7 +838,7 @@ storeedit:
     statuschanged: Cambio di stato il {date}
     dropped: '{user} non fa più parte del team'
     accepted: '{user} ora fa parte del team'
-    created: "{user} ha inserito l'agenzia il {date}"
+    created: "{user} ha inserito l'attività il {date}"
   edit_success: Le modifiche sono state salvate
   fetch:
     teamStatus2: Gli aiutanti sono urgentemente necessari
@@ -848,7 +848,7 @@ storeedit:
   store:
     status: stato
   team:
-    need-sm: Deve essere presente almeno una persona responsabile dell'agenzia.
+    need-sm: Ci deve essere presente almeno un responsabile dell'attività
     empty: Il team non può essere vuota
     cannot-leave: Sei ancora responsabile di questa azienda e quindi non puoi lasciarla.
     foodsaver: Foodsaver
@@ -859,10 +859,9 @@ storeedit:
     coordinator: "Non sei responsabile di questa agenzia.\nTuttavia, disponi di ampi
       diritti come parte del team di coordinamento dell´agenzia.\n"
     note: 'Suggerimento:'
-    unmanaged: "Attualmente non ci sono persone responsabili in questa agenzia.\n
-      Si prega di aggiungere fino a tre responsabili agenzie che si occuperanno di
-      questa agenzia in futuro.\n"
-    max-sm: Si prega di scegliere un massimo di tre responsabili agenzie
+    unmanaged: "Attualmente non ci sono persone responsabili in questa attività.\n
+      Si prega di aggiungere fino a tre responsabili, che in futuro gestiranno l'attività.\n"
+    max-sm: Si prega di scegliere un massimo di tre responsabili dell'attività
     leave: Annulla l'iscrizione del agenzia
     bread: modificare il team
     leave_myself: 'Te stesso'
@@ -964,7 +963,7 @@ store:
   mayAmb: Superato il quiz dell'ambasciatore.
   fetchCount: Ritirato qui {count}×.
   appliedFor: Richiesta effettuata
-  isJumper: È sulla lista dei intervenisti.
+  isJumper: È sulla lista dei joker.
   noPickup: Non ha mai ritirato qui.
   team:
     isfull: Il team è al completo
@@ -978,7 +977,7 @@ store:
     attive
   enterdate: Inserire la data di ritiro
   short_tooltip_yellow: Ritiri aperti in 5 giorni
-  tooltip_jumping: Sei un joker in questa  attività
+  tooltip_jumping: Sei un joker in questa attività
   maxchar: (max. 180 caratteri)
   important: 'Importante:'
   leaveinfo: Qui puoi fornire alcune informazioni ai/alle foodsaver che desiderano
@@ -1243,7 +1242,7 @@ poll:
     submit: Salvare il voto
     title: Modificare la riconciliazione
   eligible_votes_count: Numero di elettori
-  submit_vote_question: Davvero votare ora? La tua selezione non può essere cambiata
+  submit_vote_question: Davvero votare ora? La tua scelta non può essere cambiata
     in seguito.
   may_not_yet_vote: Questa votazione non è ancora iniziata.
   may_not_vote: Non puoi votare in questo sondaggio.
@@ -2628,7 +2627,7 @@ storelist:
   name: Nome
   status: Stato
   entered: 'Inserito:'
-  fetching: Agenzie da cui si ritira il cibo
+  fetching: attività dove fai recuperi
   managing: Aziende di cui è responsabile
   emptyfilters: Filtro vuoto
   nocontact: Nessun contatto ancora
@@ -3142,7 +3141,7 @@ chain:
   listheader: 'Catene di negozi'
   options:
     edit: 'Modifica'
-    showstores: 'Mostra negozi'
+    showstores: 'Mostra attività'
   filterplaceholder: 'Nome / Indirizzo / KAM ID'
   columns:
     name: 'Nome'
@@ -3237,9 +3236,9 @@ markdown_input:
     hrule: linea orizzontale
     link: collegamento
     heading: titolo
-  empty_preview_placeholder: "Questa è l'anteprima della formattazione. Il testo è
-    formattato qui come verrà visualizzato in seguito.\n---\n*Ma non hai inserito
-    alcun testo che possa essere visualizzato qui.*"
+  empty_preview_placeholder: "Questa è l'anteprima. Il testo è formattato qui come
+    verrà visualizzato in seguito.\n---\n*Non hai ancora inserito alcun testo che
+    possa essere visualizzato qui.*"
 thread:
   options:
     rename: Modifica titolo
