@@ -485,7 +485,7 @@ terminology:
     f: Organizzatrice
     m: Organizzatore
     d: organizzatore
-  community: Gruppo locale {nome}
+  community: Gruppo locale {name}
   pin: Descrizione del gruppo locale
   homepage: Pagina iniziale
   role:
