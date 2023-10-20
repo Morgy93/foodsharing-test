@@ -312,7 +312,7 @@ abholmenge: Approssimativamente, quanti chilogrammi di cibo vengono prelevati pe
   ogni ritiro?
 prefetchtime: Con quante settimane di anticipo può un foodsaver registrarsi utilizzando
   gli slot automatici?
-sticker: L'attività/il negozio /l' associazione ecc. è disposta ad esporre un adesivo
+sticker: L'attività/il negozio/l' associazione ecc. è disposta ad esporre un adesivo
   all'ingresso o altrove?
 presse: L'azienda / negozio / associazione è disposta ad essere menzionata sulla stampa
   e sul nostro sito web?
@@ -848,7 +848,7 @@ storeedit:
   store:
     status: stato
   team:
-    need-sm: Ci deve essere presente almeno un responsabile dell'attività
+    need-sm: Ci deve essere presente almeno un responsabile dell'attività.
     empty: Il team non può essere vuota
     cannot-leave: Sei ancora responsabile di questa azienda e quindi non puoi lasciarla.
     foodsaver: Foodsaver
@@ -2627,7 +2627,7 @@ storelist:
   name: Nome
   status: Stato
   entered: 'Inserito:'
-  fetching: attività dove fai recuperi
+  fetching: Attività dove fai recuperi
   managing: Aziende di cui è responsabile
   emptyfilters: Filtro vuoto
   nocontact: Nessun contatto ancora
@@ -3029,7 +3029,7 @@ bootstrap-datepicker:
   labelNav: 'Navigazione del calendario'
 navigation:
   styleguide: 'Guida allo stile'
-  stores: 'attività'
+  stores: 'Attività'
   conversations: 'Conversazioni'
   regions: 'Aree'
   basket: 'Cestini'
