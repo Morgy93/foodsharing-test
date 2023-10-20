@@ -2409,7 +2409,7 @@ profile:
   alldatesdeleted: 'Tutti gli appuntamenti sono stati cancellati'
   cantdeletethis: 'Non è possibile eliminare singoli appuntamenti!'
 mail:
-  noreply_addresses_not_allowed: le e-mail non sono consegnabili a indirizzi noreply@…
+  noreply_addresses_not_allowed: Le e-mail non sono consegnabili a indirizzi noreply@…
     .<br>Si prega di controllare l'indirizzo del destinatario.
 settings:
   push:
@@ -2552,7 +2552,7 @@ mailbox:
   not-allowed: Non hai i diritti per farlo.
   sm-quiz: Quiz per responsabili di cooperazioni e attività
   not-available: "Devi essere {role} per accedere alle caselle di posta elettronica.\n
-    fai il {quiz} qui quando sei pronto.\n"
+    Fai il {quiz} qui quando sei pronto.\n"
   name: Nome visualizzato
   already_exists: Esiste già una casella di posta con questo nome
   saved: Le modifiche sono state salvate
@@ -2930,7 +2930,7 @@ quiz:
     bv: Ora completa la registrazione dell'amministratore della fattoria.
     bot: 'Completa ora la registrazione come ambasciatore.'
   resultsbelow: La valutazione è disponibile di seguito.
-  donecorrectly: Hai risposto correttamente. Grande!
+  donecorrectly: hai risposto correttamente. Grande!
 deletelow: elimina
 filter_by: Filtrare per
 fpcapital: Punti di Errore
