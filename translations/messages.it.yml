@@ -470,7 +470,7 @@ terminology:
   storemanager:
     d: Responsabile delle operazioni
     f: Responsabile delle operazioni
-    m: Responsabile delle operazioni
+    m: Responsabile
   foodsaver:
     d: Foodsaver
     f: Foodsaver
@@ -2603,6 +2603,8 @@ mailbox:
   close_edit_mode: Termina la modifica
   add: Aggiungi
   mails: E-mails
+  mark_as_read: Segna come letto
+  unknown_sender: Mittente sconosciuto
 messages:
   bread: Notizie
 map:
