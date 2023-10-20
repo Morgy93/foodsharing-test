@@ -343,8 +343,7 @@ newsletter: Bollettino
 compose_body: Messaggio
 pass2: Ripetere la password
 pass1: La tua nuova password desiderata
-fspmanagers: Foodsaver, ovvero la/le persona/e di riferimento per il distributore
-  di cibo
+fspmanagers: Foodsaver, ovvero la/le persona/e di riferimento per il punto di condivisione
 fsp_bezirk_id: In quale quartiere si trova il distributore di cibo?
 infotype: Notifica
 position: Posizione nella condivisione di cibo (pubblico)
@@ -653,8 +652,8 @@ legal:
     this_gets_deleted_verify: La tua verifica sarà rimossa.
     legal_2: Leggi sui periodi di conservazione (Pagina in tedesco)
 fsp:
-  followName: seguire il divisore {name}
-  follow: Segui questo equo divisore
+  followName: seguire il punto di condivisione {name}
+  follow: Segui questo punto di condivisione
   summaryRegion: Ci sono {count} divisori nella {region} e in tutti i sottodistretti
   summary: Ci sono {count} divisori in tutti i distretti in cui sei attivo
   inRegion: tutti divisori in {region}
@@ -675,7 +674,7 @@ fsp:
   deleteSuccess: Il divisore è stato eliminato
   deleteConfirm: Vuoi davvero eliminare questo divisore?
   delete: Eliminare il divisore
-  noManager: Deve esserci almeno una persona responsabile di questo divisore.
+  noManager: Deve esserci almeno una persona responsabile per questo punto di condivisione.
   descLabel: Scrivi qui alcune informazioni di base sul divisore, soprattutto quando
     è accessibile/aperto.
   addedBy: Aggiunto da
@@ -688,13 +687,13 @@ fsp:
   acceptName: Attivare {name}
   suggest: Proponi divisori
   addSuccess: Il divisore è stato inserito con successo
-  addError: Impossibile inserire punto di condivisione. Hai compilato tutto correttamente?
+  addError: Impossibile inserire il punto di condivisione. Hai compilato tutto correttamente?
   add: Inserisci punto di condivisione
   new: Nuovo punto di condivisione
   description: descrizione
   followers: Seguiti
   managers: Referenti
-  unfollow: divisore equi non seguiere più
+  unfollow: punto di condivisione non seguire più
   suggestSuccess: I divisori vengono proposti e devono poi essere confermati da un/a
     ambasciatore/trice o responsabile del divisore.
   none: Non sono ancora stati inseriti punti di condivisione
@@ -705,7 +704,7 @@ fsp:
   edit: modificare il divisore
   rejectConfirm: Attenzione, se cancelli il divisore, non puoi più annullare. Continuare?
   reject: rifiutare il divisore
-  accept: Sbloccare il divisore
+  accept: Sbloccare il punto di condivisione
 formatting:
   md: Puoi utilizzare <a href="https://markdown.de/">Markdown </a> per la formattazione.
 day: Giorno
@@ -1562,11 +1561,11 @@ forum:
     closed: argomento chiuso
     open: riaprire l'argomento
     title: Titolo
-    stick: Fissare l argomento
+    stick: Fissare l'argomento
     inactive: "Questo argomento non è ancora attivo.\nQui puoi sbloccarlo e informare
       tutti i Foodsaver al riguardo.\n"
     delete: Eliminare argomento
-    activate: Attivare l´ argomento
+    activate: Attivare l'argomento
     too_big_to_mail: Non sono state inviate email per l'argomento perché si tratta
       di un paese o di una regione.
     no_mail: L'argomento è stato aperto senza inviare email
@@ -1874,7 +1873,7 @@ genderlist:
     tutti Foodsaver del distretto
   gender_district_table_caption: Assegnazione della caratteristica 'genere' a tutti
     i Foodsaver che sono entrati nel distretto
-  home_district_tab: Distritto di origine
+  home_district_tab: Distretto d'origine
 memberlist:
   header_for_workgroup: Foodsaver nel gruppo di lavoro {bezirk}
   header_for_district: Foodsaver nel distretto {bezirk}
