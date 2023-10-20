@@ -319,7 +319,7 @@ presse: L'azienda / negozio / associazione è disposta ad essere menzionata sull
 ueberzeugungsarbeit: È stato facile convincere una persona responsabile a collaborare
   con foodsharing?
 public_time: Orario approssimativo per la raccolta
-public_info: Informazioni pubbliche sull'azienda
+public_info: Informazioni pubbliche sull'attività
 besonderheiten: Particolarità
 begin: Inizio della collaborazione
 lebensmittel: Quali alimenti possono essere raccolti?
@@ -1546,7 +1546,7 @@ recipients:
   all_no_botschafter: Tutti Foodsaver senza Ambasciatore
   orga_team: Team organizzatori nazionali
   active_ambassadors: Tutti gli ambasciatori nazionali
-  all: Tutti i Foodsaver al mondo
+  all: Tutti i Foodsaver nel mondo
   recipients: Destinatario
   prepare: Preparare per spedire
   newsletter_all: Tutti gli abbonati alle Newsletter (Foodsharer, Foodsaver, tutti)
@@ -1643,13 +1643,13 @@ events:
     mumble: Multilocale su mumble.foodsharing.de
     online: Tramite video- o teleconferenza
     offline: Assolutamente normale nella vita reale
-    desc: Che tipo di evento è questo?
+    desc: Che tipo di evento è?
     endtime: Fine alle ore
     starttime: Ora di inizio
     multiday: L'evento dura diversi giorni
     delinvites: Eliminare gli inviti esistenti?
     cascading: Includere tutti i sottogruppi / distretti?
-    inviteAll: Invitare l'intero gruppo / distretto all'appuntamento?
+    inviteAll: Invitare l'intero gruppo/ distretto all'appuntamento?
     regions: I tuoi distretti
     groups: I tuoi gruppi di lavoro
     who: Per quale distretto o quale gruppo di lavoro dovrebbe essere creato l'evento?
@@ -1658,7 +1658,7 @@ events:
     title: Registra un nuovo evento
     date: Data
   edited: L'evento è stato modificato con successo.
-  edit: Modifica l´evento
+  edit: Modifica l'evento
   created: L'evento è stato inserito con successo.
   add_event: Nuovo appuntamento
   add_new_event: Inserisci un nuovo appuntamento adesso
@@ -2259,7 +2259,7 @@ profile:
       allofthem: 'Tutte le segnalazioni su'
       delivered: 'Segnalazione consegnata'
       reportee: 'Segnalato da'
-      reporting: 'Segnala su'
+      reporting: 'Segnalazione su'
       reportID: 'ID segnalazione'
       deleted: 'La segnalazione è stata eliminata!'
       plsconfirm: 'Eliminare davvero questa segnalazione?'
@@ -2336,7 +2336,7 @@ profile:
   regions: '{name} é Foodsaver in'
   stats:
     posts: Contributi
-    baskets: Cestino di cibo
+    baskets: Cestini alimentare
     count: ritirato
     weight: salvato
   infos:
@@ -2377,7 +2377,7 @@ profile:
     edit: Modifica profilo
   no_common_workgroups: Non sei in un gruppo con {name}.
   workgroups_member: Sei con {name} nei seguenti gruppi
-  workgroups_admin: '{name} è la persona di contatto per i gruppi'
+  workgroups_admin: '{name} è la persona di riferimento per i gruppi'
   cantdeleteall: 'Non puoi eliminare tutti gli appuntamenti!'
   commitments_stat:
     pickupCount: 'Numero di ritiri'
@@ -2409,8 +2409,8 @@ profile:
   alldatesdeleted: 'Tutti gli appuntamenti sono stati cancellati'
   cantdeletethis: 'Non è possibile eliminare singoli appuntamenti!'
 mail:
-  noreply_addresses_not_allowed: Le e-mail a indirizzi noreply@… non sono consegnabili.<br>Si
-    prega di controllare l'indirizzo del destinatario.
+  noreply_addresses_not_allowed: le e-mail non sono consegnabili a indirizzi noreply@…
+    .<br>Si prega di controllare l'indirizzo del destinatario.
 settings:
   push:
     disabled: Notifiche push disabilitate con successo
@@ -2550,9 +2550,9 @@ mailbox:
   failed: L'e-mail non può essere inviata.
   okay: L'e-mail è stata inviata con successo.
   not-allowed: Non hai i diritti per farlo.
-  sm-quiz: Quiz per i responsabili di agenzie
+  sm-quiz: Quiz per responsabili di cooperazioni e attività
   not-available: "Devi essere {role} per accedere alle caselle di posta elettronica.\n
-    Risolvi il {quiz} qui quando sei pronto.\n"
+    fai il {quiz} qui quando sei pronto.\n"
   name: Nome visualizzato
   already_exists: Esiste già una casella di posta con questo nome
   saved: Le modifiche sono state salvate
@@ -2884,7 +2884,7 @@ quiz:
     wronga: anche questo sarebbe stato corretto.
     wrongb: così non è corretto!
     answer: Risposta
-    fpsum: punti sbagliati raccolti
+    fpsum: punti sbagliati accumulati
     percentb: '% risposte corrette.'
     responses: Risposte
     nresponses: Risposte neutre
@@ -2894,9 +2894,9 @@ quiz:
     joke: era solo una domanda scherzosa e ovviamente non verrà valutata
     whatisko: Domande come questa hanno un peso particolare sulla valutazione e se
       vengono risposte in modo sbagliato comportano il non superamento del quiz.
-    correctb: non è corretto. L'hai riconosciuto correttamente!
+    correctb: non è corretto. Te ne sei accorto/a!
     cresponses: Risposte corrette
-    sadlywrong: purtroppo non è stata risposta correttamente.
+    sadlywrong: purtroppo la risposta non è corretta.
     koquestion: Questa domanda purtroppo era particolarmente importante e non l'hai
       risposta correttamente.
     alsowrong: purtroppo è stato classificato come errato perché non è stato selezionato
@@ -2928,9 +2928,9 @@ quiz:
   finishnow:
     fs: Completate subito la registrazione del Foodsaver.
     bv: Ora completa la registrazione dell'amministratore della fattoria.
-    bot: 'Completa ora la registrazione da ambasciatore.'
+    bot: 'Completa ora la registrazione come ambasciatore.'
   resultsbelow: La valutazione è disponibile di seguito.
-  donecorrectly: Hai risposto completamente corretto. Grande!
+  donecorrectly: Hai risposto correttamente. Grande!
 deletelow: elimina
 filter_by: Filtrare per
 fpcapital: Punti di Errore
