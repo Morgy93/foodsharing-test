@@ -424,16 +424,16 @@ statistics:
   kg_food_saved: '%count% kg di cibo risparmiato'
 terminology:
   options: Opzioni
-  buddies: Conoscenti
-  polls: Voto
+  buddies: Conoscente
+  polls: Votazioni
   homeRegion: Quartiere abituale
   message: Messaggio
-  threads: Soggetti
+  threads: Temi
   regions: Quartieri
   region: Quartiere
   profile_picture: foto del profilo
   n_cooperating_stores: Una cooperazione in corso|%count% cooperazione in corso
-  n_stores: Una azienda|%count% aziende
+  n_stores: Un'azienda|%count% aziende
   n_ambassadors: Un ambasciatore|%count% ambasciatori
   n_sleeping: Un dormiglione|%count% dormiglione
   n_foodsaver: Un Foodsaver|%count% Foodsaver
@@ -442,8 +442,8 @@ terminology:
   subgroups: Sottogruppi
   group: Gruppo di lavoro
   groups: Gruppi di lavoro
-  baskets: Cesti di cibo
-  basket: Cesto di cibo
+  baskets: Cestini alimentari
+  basket: Cestino alimentare
   fsp: Punto di condivisione
   arbitration: Visualizzazione messaggio (LS)
   reports: Visualizzazione messaggio (LMG)
@@ -485,7 +485,7 @@ terminology:
     f: Organizzatrice
     m: Organizzatore
     d: organizzatore
-  community: Gruppo locale {name}
+  community: Gruppo locale {nome}
   pin: Descrizione del gruppo locale
   homepage: Pagina iniziale
   role:
