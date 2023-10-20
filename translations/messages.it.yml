@@ -329,7 +329,7 @@ betrieb_status_id: Stato
 betrieb_kategorie_id: Categoria
 kette_id: Catena operativa
 fetchercount: Numero di raccoglitori
-team_status: Stato della squadra
+team_status: Stato del gruppo
 storemanagers: Responsabili degli Store
 verantwortlicher: Membri responsabili
 homepage: Il tuo sito web
@@ -497,7 +497,7 @@ terminology:
   store: Azienda
   pickup: Ritiro
   boardAdmins: Consiglio di amministrazione
-  fsps: 'Frigo solidali'
+  fsps: 'Punti di condivisione'
   n_home_regions: uno con il distretto di residenza|%count% con il distretto di residenza
 register:
   woman: femmina
