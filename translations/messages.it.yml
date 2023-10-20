@@ -375,7 +375,7 @@ body: Messaggio
 title: Titolo
 rolle: Ruolo utente
 mailbox_name: Nome della casella postale
-betrieb: Società di cooperazione
+betrieb: Cooperazione
 active: Attivato
 bezirk: Zona
 stadt: La tua città o paese
@@ -444,32 +444,32 @@ terminology:
   groups: Gruppi di lavoro
   baskets: Cesti di cibo
   basket: Cesto di cibo
-  fsp: Divisore di alimentari
+  fsp: punto di condivisione
   arbitration: Visualizzazione messaggio (LS)
   reports: Visualizzazione messaggio (LMG)
   statistic: statistiche
-  wall: Albo
-  moderationAdmins: Team di moderazione
-  prAdmins: Team di relazioni pubblici
+  wall: Bacheca
+  moderationAdmins: Team moderazione
+  prAdmins: Team relazioni pubbliche
   fsManagementAdmins: amministrazione
   arbitrationAdmins: collegio arbitrale
   mediationAdmins: Team di mediazione
   reportAdmins: Report team di elaborazione
   storesAdmins: Team di coordinamento delle operazioni
-  fspAdmins: Team del divisore
-  votingAdmins: Squadra di voto
-  welcomeAdmins: Team di benvenuto
+  fspAdmins: Team punti raccolta
+  votingAdmins: Team votazioni
+  welcomeAdmins: Team benvenuto
   admins: Amministratori
   forum: Forum
   ambassador_forum: Forum degli ambasciatori
-  ambassadors: Ambasciatore
+  ambassadors: Ambasciatori
   ambassador:
     d: Ambasciatore
-    f: Ambasciatore
+    f: Ambasciatrice
     m: Ambasciatore
   storemanager:
-    d: Responsabile delle operazioni
-    f: Responsabile delle operazioni
+    d: Responsabile
+    f: Responsabile
     m: Responsabile
   foodsaver:
     d: Foodsaver
@@ -482,7 +482,7 @@ terminology:
   stores: Agenzie
   events: Appuntamenti
   orga:
-    f: Organizzatore
+    f: Organizzatrice
     m: Organizzatore
     d: organizzatore
   community: Gruppo locale {name}
@@ -490,7 +490,7 @@ terminology:
   homepage: Pagina iniziale
   role:
     "4": Organizzatore
-    "2": Responsabile dell’azienda
+    "2": Responsabile
     "3": Ambasciatore
     "0": 'Foodsharer'
     "1": 'Foodsaver'
