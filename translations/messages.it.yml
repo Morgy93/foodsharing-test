@@ -652,7 +652,7 @@ legal:
     this_gets_deleted_verify: La tua verifica sarà rimossa.
     legal_2: Leggi sui periodi di conservazione (Pagina in tedesco)
 fsp:
-  followName: seguire il punto di condivisione {name}
+  followName: Seguire il punto di condivisione {name}
   follow: Segui questo punto di condivisione
   summaryRegion: Ci sono {count} divisori nella {region} e in tutti i sottodistretti
   summary: Ci sono {count} divisori in tutti i distretti in cui sei attivo
@@ -693,7 +693,7 @@ fsp:
   description: descrizione
   followers: Seguiti
   managers: Referenti
-  unfollow: punto di condivisione non seguire più
+  unfollow: Punto di condivisione non seguire più
   suggestSuccess: I divisori vengono proposti e devono poi essere confermati da un/a
     ambasciatore/trice o responsabile del divisore.
   none: Non sono ancora stati inseriti punti di condivisione
