@@ -978,7 +978,7 @@ store:
     attive
   enterdate: Inserire la data di ritiro
   short_tooltip_yellow: Ritiri aperti in 5 giorni
-  tooltip_jumping: Sei un saltatore per questa azienda
+  tooltip_jumping: Sei un joker in questa  attività
   maxchar: (max. 180 caratteri)
   important: 'Importante:'
   leaveinfo: Qui puoi fornire alcune informazioni ai/alle foodsaver che desiderano
@@ -1057,7 +1057,7 @@ storeview:
   teamInfo: Ci sono <strong>{active}</strong> attivi e <strong>{jumper}</strong> sostituti
     nella squadra.
   info: Informazioni
-  store: Azienda
+  store: Attività
   counter: <strong>{count}<span style="white-space:nowrap"> </span>{suffix}</strong>
   public_time: Sarà rilevato all'incirca {freq}. Si prega di non recarsi mai al negozio
     senza previa consultazione!
@@ -1597,8 +1597,8 @@ forum:
   post:
     delete: Elimina post
     body: Messaggio
-  new_thread: Componi un nuovo agromento
-  threads: Sogetti
+  new_thread: Scrivi su un nuovo tema
+  threads: Temi
   from: Di {name}
   hold_back_for_moderation: Il tema è stato salvato e verrà pubblicato in seguito
     a conferma da parte di un ambasciatore/moderatore.
@@ -3030,13 +3030,13 @@ bootstrap-datepicker:
   labelNav: 'Navigazione del calendario'
 navigation:
   styleguide: 'Guida allo stile'
-  stores: 'Negozi'
+  stores: 'attività'
   conversations: 'Conversazioni'
-  regions: 'Regioni'
-  basket: 'Ceste di cibo'
+  regions: 'Aree'
+  basket: 'Cestini'
   search: 'Cerca'
   whats_new: 'Cosa c''è di nuovo?'
-  news_from_it: 'Notizie e interruzioni'
+  news_from_it: 'attualità e inconvenienti'
   wiki: 'Wiki'
   groups: 'Gruppi'
   support: 'Supporto'
