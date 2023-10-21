@@ -49,6 +49,7 @@
 - Store chain information is visible on the store page !2742 @alex.simm
 - Add home district count to region top #79 !2692 @Morgy93
 - Storemanagers can set a description for pickup slots #1653 !2757 !2781 @AntonBallmaier
+- Improved bell menu #1684 #1685 #1686 #1687 !2832 @AntonBallmaier
 
 ## Changes
 - Added a new content page for it infos to menu !2590 @chriswalg
