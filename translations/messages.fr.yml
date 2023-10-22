@@ -1429,6 +1429,9 @@ menu:
     your_baskets: Tes paniers solidaires
     chainList: Aperçu des chaînes
     security: Sécurité
+    load_more: Charger plus
+    refresh: Actualiser
+    delete_read: Effacer tout ce qui a été lu
   content: modifier les contenus
   manage_mailboxes: gérer les boîtes de réception
   email: envoyer la lettre d'information
@@ -1436,6 +1439,10 @@ menu:
   quiz: Gérer le quiz
   blog: Modifier un article de blog
   manage_regions: Gérer les secteurs géographiques
+  bell:
+    delete_read_confirmation:
+      text: Tu veux vraiment supprimer {count} cloches lues ?
+      title: Supprimer les notifications ?
 dashboard:
   pickupdates: Prochaines collectes
   no_more_updates_event: Plus de nouveaux évènements
