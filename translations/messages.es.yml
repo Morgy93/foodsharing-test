@@ -1984,6 +1984,13 @@ menu:
     fundamentals: 'Principios'
     language: 'Elige tu idioma'
     security: Seguridad
+    load_more: Cargar más
+    refresh: Actualizar
+    delete_read: Borrar todo lo leído
+  bell:
+    delete_read_confirmation:
+      text: ¿Realmente quieres borrar {count} campanas leídas?
+      title: ¿Borrar notificaciones?
 stats:
   title: 'Estadísticas generales'
   total:
