@@ -443,6 +443,9 @@ menu:
     your_baskets: Matkurvene dine
     chainList: Kjedeoversikt
     security: Sikkerhet
+    load_more: Last mer
+    refresh: Oppdatere
+    delete_read: Slett alle lesninger
   content: Rediger innhold
   email: Send nyhetsbrev
   reports: Overtredelsesrapporter
@@ -450,6 +453,10 @@ menu:
   blog: Rediger blogginnlegg
   quiz: Administrer quizer
   manage_mailboxes: Administrer postkasser
+  bell:
+    delete_read_confirmation:
+      text: Vil du virkelig slette {count} leseklokker?
+      title: Slette varsler?
 personal_data:
   landline: Hustelefon
   mobile: Mobilnummer
