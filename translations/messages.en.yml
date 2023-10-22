@@ -402,6 +402,13 @@ menu:
     baskets: Food baskets
     chainList: Chain list
     security: Security
+    load_more: Load more
+    refresh: Refresh
+    delete_read: Delete all read
+  bell:
+    delete_read_confirmation:
+      text: Do you really want to delete {count} read bells?
+      title: Delete notifications?
 profile:
   banana:
     by: ' by '
