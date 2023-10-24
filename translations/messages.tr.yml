@@ -1699,6 +1699,13 @@ menu:
     group_overview: 'Küresel çalışma gruplarına genel bakış'
     chainList: 'İşletme zinciri listesi'
     security: Güvenlik
+    load_more: Daha fazla yükle
+    refresh: Güncelle
+    delete_read: Tüm okunmuş olanları sil
+  bell:
+    delete_read_confirmation:
+      text: '{count} okuma çanlarını silmek istediğinizden emin misiniz?'
+      title: Bildirimler temizlensin mi?
 footer:
   infosDeveloper: Geliştiriciler için
   wiki: Viki
