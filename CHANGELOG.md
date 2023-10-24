@@ -7,6 +7,7 @@
 - Threads can be renamed !2882 @AntonBallmaier
 - The button to jump to the start or end of a thread can be accessed from anywhere in the thread !2882 @AntonBallmaier
 - Exported calendars can be filtered by the invitation status #1535 !2873 @alex.simm
+- Added spanish translation !2892 @irgendwer
 
 ## Changes
 - Changed team state translation from full to closed !2831 @chriswalg
