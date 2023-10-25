@@ -1217,6 +1217,12 @@ bell:
   forum_post:
     one: New post by {user} in forum {forum}
     many: '{count} new posts in the forum {forum}'
+  forum_new_thread: by {user} in the forum {forum}
+  forum_announcement: by {user} in the forum {forum}
+  forum_mention_title: '{user} mentioned you ({forum})'
+  forum_new_thread_title: 'New thread: {title}'
+  forum_announcement_title: 'Important notice: {title}'
+  forum_mention: in the topic “{title}” of the forum {forum}
 reports:
   time: Time
   region: Home district
