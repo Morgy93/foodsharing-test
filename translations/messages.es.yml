@@ -1482,7 +1482,7 @@ bell:
     many: '{count} publicaciones nuevas en el foro {forum}'
   forum_new_thread: de {user} en el foro {forum}
   forum_announcement: por {user} en el foro {forum}
-  forum_mention_title: '{user} te mencionó ({forum})'
+  forum_mention_title: '{user} te ha mencionado ({forum})'
   forum_announcement_title: 'Aviso importante: {title}'
   forum_mention: en el tema "{title}" de los foros {forum}
   forum_new_thread_title: 'Nuovo tema: {title}'
