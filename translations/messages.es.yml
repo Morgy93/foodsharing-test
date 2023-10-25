@@ -1484,7 +1484,7 @@ bell:
   forum_announcement: por {user} en el foro {forum}
   forum_mention_title: '{user} te mencionó ({forum})'
   forum_announcement_title: 'Aviso importante: {title}'
-  forum_mention: en el tema “{title}” del foro {forum}
+  forum_mention: en el tema "{title}" de los foros {forum}
   forum_new_thread_title: 'Nuovo tema: {title}'
 foodsaver:
   restricted: 'Lamentablemente, no tienes permiso para ver estos datos.'
