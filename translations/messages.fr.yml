@@ -2386,6 +2386,12 @@ bell:
   forum_post:
     one: Nouveau message de {user} dans le forum {forum}
     many: '{count} nouveaux messages sur le forum {forum}'
+  forum_new_thread: de {user} dans le forum {forum}
+  forum_announcement: de {user} dans le forum {forum}
+  forum_mention_title: '{user} a parlé de toi ({forum})'
+  forum_new_thread_title: 'Nouveau fil de discussion : {title}'
+  forum_announcement_title: 'Message important : {title}'
+  forum_mention: dans le sujet « {title} » du forum {forum}
 personal_data:
   landline: Numéro de fixe
   mobile: Numéro de portable
