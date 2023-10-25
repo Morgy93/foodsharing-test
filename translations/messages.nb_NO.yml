@@ -488,7 +488,7 @@ basket:
   mapsearch: Søk etter en adresse …
   nearby: matkurver i nærheten
   recent: nyeste matkurver
-  all: alle matkurver
+  all: Alle matkurver
   description: Beskrivelse
   title: Matkurver
   date: Opprettelsesdato
@@ -1262,15 +1262,15 @@ bell:
   workgroup_request_decline: Du ble ikke tatt opp i arbeidsgruppen.
   poll_new_title: Ny avstemning
   store_cr_times: Pickup-spor er justert
-  new_foodsaver: trenger innledende pickuper
-  new_foodsaver_needs_introduction: trenger innledende pickuper
+  new_foodsaver: Trenger innledende pickuper
+  new_foodsaver_needs_introduction: Trenger innledende pickuper
   passgen_failed: Last opp et bilde, så fungerer det.
   new_quiz_comment_title: Ny quizkommentar
   store_new_title: Nytt selskap
   store_wallpost: Nytt innlegg på oppslagstavlen.
   fs_sleepmode_title: Ny nattlue
   foodsaver_verified_title: Du er nå verifisert!
-  new_foodsaver_needs_verification: må verifiseres
+  new_foodsaver_needs_verification: Må verifiseres
   foodsaver_verified: Hent medlemskortet ditt på …
   forum_post_title: '{title}'
   forum_post:
