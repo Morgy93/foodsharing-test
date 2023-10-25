@@ -569,6 +569,12 @@ bell:
   forum_post:
     many: “{forum}” forumunda {count} yeni gönderi
     one: '{user} “{forum}” forumunda yeni bir yazı yazdı'
+  forum_new_thread: '{forum} forumunda {user} tarafından'
+  forum_announcement: '{forum} forumunda {user} tarafından'
+  forum_mention_title: '{user} sizden bahsetti ({forum})'
+  forum_new_thread_title: 'Yeni Gönderi: {title}'
+  forum_announcement_title: 'Önemli mesaj: {title}'
+  forum_mention: '{forum} forumunun "{title}" konusunda'
 sig:
   buddies: Tanıdığın insanlar
 error:
