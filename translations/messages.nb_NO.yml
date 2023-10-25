@@ -1276,6 +1276,12 @@ bell:
   forum_post:
     one: Nytt innlegg av {user} i forumet {forum}
     many: '{count} nye innlegg i forumet {forum}'
+  forum_new_thread: fra {user} i forumet {forum}
+  forum_announcement: fra {user} i forumet {forum}
+  forum_mention_title: '{user} nevnte deg ({forum})'
+  forum_new_thread_title: 'Ny tråd: {title}'
+  forum_announcement_title: 'Viktig melding: {title}'
+  forum_mention: i emnet “{title}” i forumet {forum}
 reports:
   when: Tid
   time: Tid
