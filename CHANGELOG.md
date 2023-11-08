@@ -2,8 +2,8 @@
 
 ## Features
 - Improve bell notifications for forum posts #719 !2827 !2826 @AntonBallmaier
-- Added a MarkdownInput component, that is used every where md is used. !2865 @AntonBallmaier
-- Storemanagers see how far applicants to the store live away #1661 !2772 @Anton Ballmaier
+- Added a MarkdownInput component, that is used every where md is used. !2865 !2893 @AntonBallmaier
+- Storemanagers see how far applicants to the store live away #1661 !2772 !2893 @Anton Ballmaier
 - Threads can be renamed !2882 @AntonBallmaier
 - The button to jump to the start or end of a thread can be accessed from anywhere in the thread !2882 @AntonBallmaier
 - Exported calendars can be filtered by the invitation status #1535 !2873 @alex.simm

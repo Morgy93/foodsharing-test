@@ -517,7 +517,7 @@ class StoreGateway extends BaseGateway
                 foodsaver.sleep_status,
                 foodsaver.verified,
                 FLOOR(ST_DISTANCE_SPHERE(
-                    Point(foodsaver.lon, foodsaver.lat),
+                    Point(NULLIF(foodsaver.lon, ""), NULLIF(foodsaver.lat, "")),
                     Point(:storeLon, :storeLat)
                 ) / 1000) AS distance
 			FROM fs_betrieb_team betrieb_team

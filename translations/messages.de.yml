@@ -921,6 +921,7 @@ store:
     distance: "Wohnt ca. {distance}\xa0km entfernt"
     distance_unknown: "Kein Wohnort eingetragen"
     distance_close: "Wohnt weniger als 1\xa0km entfernt"
+    air_line: Die angezeigte Entfernung entspricht der Luftlinie.
   info_container: "Informationen"
 #
 # Store and StoreUser
