@@ -36,6 +36,7 @@
 - Updated quality tools !2867 @\_fridtjof_
 - Show CS Fixer results in gitlab !2867 @\_fridtjof_
 - Added the Symfony profiler and debug toolbar !1580 @\_fridtjof_
+- Added feature toggles !2633 @martincodes-de
 
 ## Development documentation
 
