@@ -1270,6 +1270,7 @@ store:
     search: Ver las acciones seleccionadas
     selected_log_types: '{amount} Tipos de acción seleccionados'
     title: Registro de las operaciones
+    log_types_placeholder: Seleccione las acciones que se mostrarán
 pickup:
   overview:
     status:
