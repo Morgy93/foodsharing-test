@@ -2459,6 +2459,23 @@ store:
     search: Liste valgte handlinger
     selected_log_types: '{amount} handlingstyper er valgt'
     title: Driftslogg
+    message:
+      6: '{actor} har lagt til [target} i det aktive teamet.'
+      1: '{actor} vil gjerne bli med på laget.'
+      3: '{actor} har akseptert medlemsforespørselen fra {target}.'
+      4: '{actor} har lagt til {target} manuelt.'
+      11: '{actor} har registrert seg for henting den {date}.'
+      7: '{actor} har fjernet {target} fra laget.'
+      13: '{actor} har skrevet ut {target} for henting {date}.'
+      13_with_reason: '{actor} har skrevet {target} ut for henting {date} med følgende
+        beskjed'
+      8: '{actor} har forlatt laget.'
+      16: '{actor} har trukket medlemskapssøknaden'
+      10: '{actor} har fjernet {target} som samarbeidsansvarlig.'
+      12: '{actor} meldte seg ut for henting {date}.'
+      2: '{actor} har avslått medlemsforespørselen fra {target}.'
+      5: '{actor} satte [target} på hoppelisten.'
+      9: '{actor} har utnevnt {target} til samarbeidsansvarlig.'
 storeview:
   status: Nåværende status
   public_time_at_night: om natten
