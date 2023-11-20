@@ -2066,8 +2066,33 @@ search:
   thread-title-only: Only titles are searched, not the content of the threads.
   user_search:
     placeholder: Name or ID
-  informations: You can search for people, groups, stores, regions, and Food-Share
-    Points.
+  informations: You can search for people, groups, stores, regions, chats, threads,
+    and Food-Share Points.
+  results:
+    region:
+      ambassador_tooltip: You are an ambassador for this district
+      home_region_tooltip: This is your home district
+      member_tooltip: You are a member of this district
+    working_group:
+      member_tooltip: You are a member of this working group
+      admin_tooltip: You are admin of this working group
+    thread:
+      closed_tooltip: Thread is closed
+      forum: Forum
+      sticky_tooltip: Thread is pinned
+      ambassador_forum: Ambassadors’ Forum
+      last_post: last post
+    in: in
+    chat:
+      chat_with: Chat with {names}
+      chat_with_others: others
+    user:
+      no_home_region: No home district
+    store:
+      manager_tooltip: You are responsible for this store
+      jumper_tooltip: You are on the standby list for this store
+      member_tooltip: You are a member of this store team
+    from: from
 month:
   short:
     "12": Dec.
@@ -3238,6 +3263,8 @@ globals:
     my_groups: My groups
     persons: Persons
     my_persons: My friends
+    threads: Threads
+    chats: Chats
   save: Save
   close: Close
   select: Please select …
