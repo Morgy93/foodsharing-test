@@ -151,6 +151,9 @@ search:
       closed_tooltip: Tema cerrado
       forum: Foro
       sticky_tooltip: Hilo fijado
+    store:
+      manager_tooltip: Eres responsable de esta empresa.
+      member_tooltip: Eres miembro de este negocio
 reports:
   reason: razón
   message: descripción
