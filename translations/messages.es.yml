@@ -1301,7 +1301,7 @@ store:
       16: '{actor} ha retirado la solicitud de afiliación'
       15: '{actor} ha eliminado la entrada del muro de {target} de {date}'
       5: '{actor} ha puesto a {target} en la lista de sustitutos.'
-      9: '{actor} ha entrado en {target} como responsable de operaciones.'
+      9: '{actor} ha asignado a {target} como responsable de la cooperación.'
       11: '{actor} se ha registrado para ser recogido el {date}.'
     type:
       3: Aceptar las solicitudes de unión
