@@ -152,7 +152,7 @@ search:
       forum: Foro
       sticky_tooltip: Hilo fijado
     store:
-      manager_tooltip: Eres responsable de esta empresa.
+      manager_tooltip: Eres responsable de esta colaboración
       member_tooltip: Eres miembro de este negocio
 reports:
   reason: razón
