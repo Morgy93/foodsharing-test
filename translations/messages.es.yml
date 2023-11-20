@@ -144,7 +144,9 @@ search:
   results:
     working_group:
       member_tooltip: Eres miembro de este grupo
-      admin_tooltip: Eres el administrador de este grupo
+      admin_tooltip: Eres administrador de este grupo
+    thread:
+      last_post: último mensaje
 reports:
   reason: razón
   message: descripción
