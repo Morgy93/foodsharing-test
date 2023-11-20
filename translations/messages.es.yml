@@ -147,6 +147,7 @@ search:
       admin_tooltip: Eres administrador de este grupo
     thread:
       last_post: último mensaje
+      ambassador_forum: BOT del foro
 reports:
   reason: razón
   message: descripción
