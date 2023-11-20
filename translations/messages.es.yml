@@ -155,8 +155,9 @@ search:
       manager_tooltip: Eres responsable de esta colaboración
       member_tooltip: Eres miembro de este negocio
     chat:
-      chat_with_others: más
+      chat_with_others: otros
       chat_with: Chatea con {names}
+    from: de
 reports:
   reason: razón
   message: descripción
