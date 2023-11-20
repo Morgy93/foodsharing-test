@@ -148,6 +148,9 @@ search:
     thread:
       last_post: último mensaje
       ambassador_forum: BOT del foro
+      closed_tooltip: Tema cerrado
+      forum: Foro
+      sticky_tooltip: El tema está fijado.
 reports:
   reason: razón
   message: descripción
