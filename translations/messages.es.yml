@@ -156,6 +156,7 @@ search:
       member_tooltip: Eres miembro de este negocio
     chat:
       chat_with_others: más
+      chat_with: Chatea con {names}
 reports:
   reason: razón
   message: descripción
