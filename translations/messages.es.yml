@@ -1303,6 +1303,7 @@ store:
       5: '{actor} ha puesto a {target} en la lista de sustitutos.'
       9: '{actor} ha asignado a {target} como responsable de la cooperación.'
       11: '{actor} se ha registrado para ser recogido el {date}.'
+      12: '{actor} firmó para recogerlo el {date}.'
     type:
       3: Aceptar las solicitudes de unión
       2: Rechazar las solicitudes de unión
