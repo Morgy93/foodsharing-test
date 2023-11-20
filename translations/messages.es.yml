@@ -154,6 +154,8 @@ search:
     store:
       manager_tooltip: Eres responsable de esta colaboración
       member_tooltip: Eres miembro de este negocio
+    chat:
+      chat_with_others: más
 reports:
   reason: razón
   message: descripción
