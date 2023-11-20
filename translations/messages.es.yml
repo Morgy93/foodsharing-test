@@ -141,6 +141,10 @@ search:
     foro.'
   placeholder: 'Iniciar busqueda …'
   title: 'Buscar'
+  results:
+    working_group:
+      member_tooltip: Eres miembro de este grupo
+      admin_tooltip: Eres el administrador de este grupo
 reports:
   reason: razón
   message: descripción
