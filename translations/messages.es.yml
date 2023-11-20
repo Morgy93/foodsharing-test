@@ -135,7 +135,8 @@ search:
   user_search:
     placeholder: 'Nombre o DNI'
   forum: 'Buscar por título …'
-  informations: 'Puedes buscar por personas, grupos, empresas, distritos y distribuidores.'
+  informations: 'Puedes buscar por personas, grupos, empresas, distritos, chats, temas
+    y distribuidores.'
   noresults: 'No se pudieron encontrar resultados'
   thread-title-only: 'Sólo se buscan títulos, no el texto de las publicaciones del
     foro.'
@@ -154,11 +155,18 @@ search:
     store:
       manager_tooltip: Eres responsable de esta colaboración
       member_tooltip: Eres miembro de este negocio
+      jumper_tooltip: Estás en la lista de sustitutos de esta empresa
     chat:
       chat_with_others: otros
       chat_with: Chatea con {names}
     from: de
     in: en
+    region:
+      ambassador_tooltip: Eres embajador de este distrito
+      home_region_tooltip: Este es su distrito de origen
+      member_tooltip: Eres miembro de este distrito
+    user:
+      no_home_region: Ningún distrito de origen
 reports:
   reason: razón
   message: descripción
@@ -1303,7 +1311,7 @@ store:
       5: '{actor} ha puesto a {target} en la lista de sustitutos.'
       9: '{actor} ha asignado a {target} como responsable de la cooperación.'
       11: '{actor} se ha registrado para ser recogido el {date}.'
-      12: '{actor} firmó para recogerlo el {date}.'
+      12: '{actor} firmó para la recogida el {date}.'
     type:
       3: Aceptar las solicitudes de unión
       2: Rechazar las solicitudes de unión
@@ -1320,6 +1328,7 @@ store:
       11: Regístrese para la recogida
       15: Eliminar una entrada del tablón de anuncios
       13: Firmar para recoger
+      5: Pasar a la lista de suplentes
     max_entries_message: Se mostrará un máximo de 100 entradas. Reduzca el rango de
       la búsqueda.
 pickup:
