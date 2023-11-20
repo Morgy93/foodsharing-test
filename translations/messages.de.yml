@@ -3047,17 +3047,50 @@ globals:
     my_groups: Meine Gruppen
     persons: Personen
     my_persons: Meine Personen
+    chats: Chats
+    threads: Themen
   you: Du
 
 search:
   title: Suche
   placeholder: Jetzt Suche starten …
-  informations: Du kannst nach Personen, Gruppen, Betrieben, Bezirken und Fairteilern suchen.
+  informations: Du kannst nach Personen, Gruppen, Betrieben, Bezirken, Chats, Forenbeiträgen und Fairteilern suchen.
   forum: Nach Titel suchen …
   noresults: Es konnten keine Ergebnisse gefunden werden
   thread-title-only: Es werden nur Titel durchsucht, nicht der Text von Beiträgen.
   user_search:
     placeholder: Name oder ID
+  results:
+    in: in
+    from: aus
+    chat:
+      chat_with: "Chat mit {names}"
+      chat_with_others: "weiteren"
+    region:
+      ambassador_tooltip: Du bist Botschafter dieses Bezirks
+      home_region_tooltip: Dies ist dein Stammbezirk
+      member_tooltip: Du bist Mitglied dieses Bezirks
+    store:
+      manager_tooltip: Du bist verantwortlich für diesen Betrieb
+      member_tooltip: Du bist Mitglied dieses Betriebs
+      jumper_tooltip: Du bist Springer dieses Betriebs
+    thread:
+      sticky_tooltip: Thema ist angeheftet
+      closed_tooltip: Thema ist geschlossen
+      forum: Forum
+      ambassador_forum: BOT-Forum
+      last_post: letzter Beitrag
+    user:
+      no_home_region: Kein Stammbezirk
+    working_group:
+      admin_tooltip: Du bist Admin dieser AG
+      member_tooltip: Du bist Mitglied dieser AG
+
+
+
+
+
+
 
 activitypost:
   Response: Antworten

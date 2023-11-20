@@ -1,21 +1,13 @@
-
 <?php
 
-use Foodsharing\Modules\Core\DBConstants\Region\RegionIDs;
-use Foodsharing\Modules\Core\DBConstants\Store\CooperationStatus;
-use Foodsharing\Modules\Core\DBConstants\Unit\UnitType;
-use Foodsharing\Modules\Search\SearchGateway;
-
-class SearchGatewayTest extends \Codeception\Test\Unit
+class SettingsCept
 {
-    protected UnitTester $tester;
-    protected SearchGateway $gateway;
     protected array $regions;
     protected array $users;
     protected array $groups;
     protected array $stores;
 
-    public function _before()
+    final public function _before()
     {
         $this->gateway = $this->tester->get(SearchGateway::class);
 
@@ -76,77 +68,24 @@ class SearchGatewayTest extends \Codeception\Test\Unit
         ];
     }
 
-    private function assertCorrectSearchResult($variableName, $expectedElements, $searchResult)
+    final public function canSearch(AcceptanceTester $I): void
     {
-        $this->assertEqualsCanonicalizing(
-            array_map(fn ($key) => $this->$variableName[$key]['id'], $expectedElements),
-            array_map(fn ($searchResultObj) => $searchResultObj->id, $searchResult)
-        );
-    }
+        $I->login($this->users['user-city1']['email']);
+        $I->amOnPage('/');
+        $I->waitForPageBody();
 
-    public function testSearchRegions()
-    {
-        // Basic example:
-        $this->assertCorrectSearchResult('regions', ['state1', 'state2'], $this->gateway->searchRegions('Sachsen', 1));
+        $I->click('a.nav-link .fa-search');
+        $I->waitForElementVisible('#searchBarModal .modal-dialog');
+        $I->fillField('#searchField', 'Nu');
+        $I->waitForActiveAPICalls();
+        $I->see('Du kannst nach Personen, Gruppen, Betrieben, Bezirken, Chats, Forenbeiträgen und Fairteilern suchen.');
+        $I->fillField('#searchField', 'Nutzer Bot');
+        $I->waitForActiveAPICalls();
 
-        // Not only word start:
-        $this->assertCorrectSearchResult('regions', ['city2', 'city4'], $this->gateway->searchRegions('berg', 1));
+        $I->see('Personen');
+        $I->see('Nutzer Bot');
 
-        // cAsE dOsN't MaTtEr:
-        $this->assertCorrectSearchResult('regions', ['city1'], $this->gateway->searchRegions('dRESDEN', 1));
-
-        // Searching for mail adress:
-        $this->assertCorrectSearchResult('regions', ['city1'], $this->gateway->searchRegions('dreeesden', 1));
-    }
-
-    public function testSearchWorkingGroups()
-    {
-        // Only find wgs in own regions
-        $this->assertCorrectSearchResult('groups', ['wg-city1'], $this->gateway->searchWorkingGroups('ag', $this->users['user-city1']['id'], false));
-
-        // Searching for mail adress:
-        $this->assertCorrectSearchResult('groups', ['wg-city1'], $this->gateway->searchWorkingGroups('ag-mail', $this->users['user-city1']['id'], false));
-
-        // except if searching globally:
-        $this->assertCorrectSearchResult('groups', ['wg-city1', 'wg-city2'], $this->gateway->searchWorkingGroups('ag', $this->users['user-city1']['id'], true));
-    }
-
-    public function testSearchStores()
-    {
-        // Only find active stores in own regions
-        $this->assertCorrectSearchResult('stores', ['store-city1'], $this->gateway->searchStores('Betrieb', $this->users['user-city1']['id'], false, false));
-
-        // Include inactive stores
-        $this->assertCorrectSearchResult('stores', ['store-city1', 'store-city1-closed'], $this->gateway->searchStores('Betrieb', $this->users['user-city1']['id'], true, false));
-
-        // Search global
-        $this->assertCorrectSearchResult('stores', ['store-city1', 'store-city2'], $this->gateway->searchStores('Betrieb', $this->users['user-city1']['id'], false, true));
-    }
-
-    public function testSearchFoodSharePoints()
-    {
-        // Only find food share points in own regions
-        $this->assertCorrectSearchResult('sharePoints', ['fsp-city1'], $this->gateway->searchFoodSharePoints('Fairteiler', $this->users['user-city1']['id'], false));
-
-        // Search global
-        $this->assertCorrectSearchResult('sharePoints', ['fsp-city1', 'fsp-city2'], $this->gateway->searchFoodSharePoints('Fairteiler', $this->users['user-city1']['id'], true));
-    }
-
-    public function testSearchChats()
-    {
-        // Only find chats the users is a member in
-        $this->assertCorrectSearchResult('chats', ['chat1'], $this->gateway->searchChats('Nutzer', $this->users['user-city1']['id'], false));
-    }
-
-    public function testSearchUsers()
-    {
-        // Find users in same region and users with common chat:
-        $this->assertCorrectSearchResult('users', ['user-city2', 'bot-city1'], $this->gateway->searchUsers('Nutzer', $this->users['user-city1']['id'], false));
-
-        // Search by last name as bot:
-        $this->assertCorrectSearchResult('users', ['user-city1'], $this->gateway->searchUsers('Nachname', $this->users['bot-city1']['id'], false));
-
-        // Search global, last name and region name as criteria:
-        $this->assertCorrectSearchResult('users', ['user-city3'], $this->gateway->searchUsers('Nachname Magdeburg', $this->users['bot-city1']['id'], true));
+        //Dont show empty categories
+        $I->dontSee('Betriebe');
     }
 }
