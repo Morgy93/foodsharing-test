@@ -158,6 +158,7 @@ search:
       chat_with_others: otros
       chat_with: Chatea con {names}
     from: de
+    in: en
 reports:
   reason: razón
   message: descripción
@@ -2821,6 +2822,8 @@ globals:
     persons: 'Personas'
     my_stores: 'Mis empresas'
     groups: 'Grupos'
+    threads: Hilos
+    chats: Chats
   you: 'Tú'
   account:
     signin: 'Iniciar sesión'
