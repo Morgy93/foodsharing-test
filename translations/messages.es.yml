@@ -150,7 +150,7 @@ search:
       ambassador_forum: Foro de Embajadores
       closed_tooltip: Tema cerrado
       forum: Foro
-      sticky_tooltip: El tema está fijado.
+      sticky_tooltip: Hilo fijado
 reports:
   reason: razón
   message: descripción
