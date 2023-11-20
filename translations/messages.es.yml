@@ -1312,6 +1312,10 @@ store:
       9: '{actor} ha asignado a {target} como responsable de la cooperación.'
       11: '{actor} se ha registrado para ser recogido el {date}.'
       12: '{actor} firmó para la recogida el {date}.'
+      14: '{actor} ha confirmado el horario de recogida de {target} el {date}.'
+      13: '{actor} ha firmado el envío de {target} para su recogida el {date}.'
+      13_with_reason: '{actor} ha firmado el envió de {target} para recogerse el {date}
+        con el siguiente mensaje'
     type:
       3: Aceptar las solicitudes de unión
       2: Rechazar las solicitudes de unión
