@@ -673,7 +673,33 @@ search:
     placeholder: Navn eller ID
   noresults: Ingen resultater ble funnet
   thread-title-only: Det søkes kun i titler, ikke teksten til artikler.
-  informations: Du kan søke etter personer, grupper, selskaper, distrikter og distribusjonsstasjoner.
+  informations: Du kan søke etter personer, grupper, selskaper, distrikter, chatter,
+    tråder og distribusjonsstasjoner.
+  results:
+    region:
+      ambassador_tooltip: Du er en ambassadør for dette distriktet
+      home_region_tooltip: Dette er ditt hjemdistrikt
+      member_tooltip: Du er medlem av dette distriktet
+    working_group:
+      member_tooltip: Du er medlem av denne arbeidsgruppen
+      admin_tooltip: Du er administrator for denne arbeidsgruppen
+    thread:
+      closed_tooltip: Tråden er lukket
+      forum: Forum
+      sticky_tooltip: Tråden er festet
+      ambassador_forum: Forum for ambassadører
+      last_post: siste innlegg
+    in: i
+    chat:
+      chat_with: Chat med {names}
+      chat_with_others: andre
+    user:
+      no_home_region: Ingen hjemdistrikt
+    store:
+      manager_tooltip: Du er ansvarlig for denne bedriften
+      jumper_tooltip: Du er en reserve i teamet for dette bedriften
+      member_tooltip: Du er en del av teamet i dette bedriften
+    from: fra
 profile:
   public:
     mayNot: ikke aktiv
@@ -2476,6 +2502,8 @@ store:
       2: '{actor} har avslått medlemsforespørselen fra {target}.'
       5: '{actor} satte [target} på hoppelisten.'
       9: '{actor} har utnevnt {target} til samarbeidsansvarlig.'
+      14: '{actor} har bekreftet registreringen av {target} for {date}.'
+      15: '{actor} har slettet anslagstavleoppføringen til {target} fra {date}'
 storeview:
   status: Nåværende status
   public_time_at_night: om natten
@@ -3054,6 +3082,8 @@ globals:
     my_mailboxes: Mine postkasser
     buddies: Venner
     my_foodshare_points: Mine distribusjonsstasjoner
+    threads: Tråder
+    chats: Chatter
   show_more: Vis mer
   reset: Tilbakestill
   show_less: Vis mindre
