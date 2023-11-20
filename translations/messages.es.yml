@@ -1300,7 +1300,7 @@ store:
       10: '{actor} ha dado de baja a {target} como responsable de las operaciones.'
       16: '{actor} ha retirado la solicitud de afiliación'
       15: '{actor} ha eliminado la entrada del muro de {target} de {date}'
-      5: '{actor} ha puesto a {target} en la lista de saltadores.'
+      5: '{actor} ha puesto a {target} en la lista de sustitutos.'
     type:
       3: Aceptar las solicitudes de unión
       2: Rechazar las solicitudes de unión
