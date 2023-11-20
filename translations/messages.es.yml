@@ -1300,6 +1300,7 @@ store:
       10: '{actor} ha dado de baja a {target} como responsable de las operaciones.'
       16: '{actor} ha retirado la solicitud de afiliación'
       15: '{actor} ha eliminado la publicación {target} del muro el {date}'
+      5: '{actor} ha puesto a {target} en la lista de saltadores.'
     type:
       3: Aceptar las solicitudes de unión
       2: Rechazar las solicitudes de unión
@@ -1315,6 +1316,7 @@ store:
       9: Indique al responsable
       11: Regístrese para la recogida
       15: Eliminar una entrada del tablón de anuncios
+      13: Firmar para recoger
     max_entries_message: Se mostrará un máximo de 100 entradas. Reduzca el rango de
       la búsqueda.
 pickup:
