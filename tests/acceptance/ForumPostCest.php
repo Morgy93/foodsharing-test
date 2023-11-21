@@ -303,6 +303,11 @@ class ForumPostCest
             $I->click('#send_mail_button');
         }
         $I->click('Anlegen');
+        if ($sendEmail) {
+            $I->waitForElementVisible('.modal-dialog');
+            $I->click('Senden');
+            $I->waitForElementNotVisible('.modal-dialog');
+        }
         $I->waitForPageBody();
     }
 
@@ -409,14 +414,14 @@ class ForumPostCest
     }
 
     /**
-     * @example["foodsaver", "bigTestBezirk"]
+     * @example["foodsaver", "moderatedTestBezirk"]
      */
     public function DeleteLastPostAndGetRedirectedToForum(AcceptanceTester $I, Codeception\Example $example)
     {
         $I->login($this->{$example[0]}['email']);
         $title = 'TestThreadTitleForDeletion';
         $I->deleteAllMails();
-        $this->_createThread($I, $this->{$example[1]}['id'], $title, true, true);
+        $this->_createThread($I, $this->{$example[1]}['id'], $title, false, false);
         $I->amOnPage($I->forumUrl($this->{$example[1]}['id']));
         $I->waitForActiveAPICalls();
 

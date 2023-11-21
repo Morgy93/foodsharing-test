@@ -1245,6 +1245,9 @@ forum:
     success: "Prima, deine Antwort wurde gespeichert."
     error: "Post konnte nicht gespeichert werden."
   not_found: "Dieser Thread ist nicht vorhanden."
+  mail_confirmation:
+    text: "Möchtest du wirklich, dass dieser neue Beitrag als Email an alle Mitglieder dieser AG bzw. dieses Bezirks versendet wird? Das solltest du nur dann tun, wenn dein Anliegen alle betrifft und so wichtig ist, dass es auch alle mitbekommen sollten."
+    title: "Wirklich Email Benachrichtigung versenden?"
 
 chat:
   open_chat: "Nachricht schreiben"

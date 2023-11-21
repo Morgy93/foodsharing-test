@@ -210,6 +210,7 @@ final class RegionControl extends Control
             'id' => $this->region['id'],
             'parent_id' => $this->region['parent_id'],
             'name' => $this->region['name'],
+            'moderated' => $this->region['moderated'],
             'isWorkGroup' => $isWorkGroup,
             'isHomeDistrict' => $isHomeDistrict,
             'stat' => $stat,

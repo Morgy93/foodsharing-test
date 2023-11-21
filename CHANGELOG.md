@@ -10,6 +10,7 @@
 - Members of the Store Coordination GOALS group / ambassadors can add more than 3 storemanagers and remove the last one !2895 @AntonBallmaier
 - Added spanish translation !2892 @irgendwer
 - Made store log accessible by store managers !2902 @AntonBallmaier
+- Added confirmation modal to sending mail when creating a new thread !2877 @AntonBallmaier
 
 ## Changes
 - Changed team state translation from full to closed !2831 @chriswalg
