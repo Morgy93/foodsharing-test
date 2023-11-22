@@ -617,7 +617,8 @@ terminology:
   events: "Termine"
   stores: "Betriebe"
   store: Betrieb
-  pickup: "Abholung"
+  previous_pickups: "Bisherige Abholungen"
+  no_pickups: "keine"
   foodsharer:
     m: "Foodsharer"
     f: "Foodsharerin"
@@ -847,8 +848,10 @@ store:
   teamName: "{storeTitle}-Team"
   memberSince: "Im Team seit: {date}"
   jumperSince: "Springer seit: {date}"
-  lastPickup: "Letzte Abholung: {date}"
+  lastPickup: "Letzte Abholung:"
   lastPickupShort: "zuletzt {date}"
+  signInDateTime: "Eintragungszeitpunkt"
+  slot_state: "Slot Status"
   unknownDate: "unbekannt"
   isManager: "Verantwortlich für diesen Betrieb."
   noPickup: "Hat noch nie hier abgeholt."
@@ -1049,7 +1052,7 @@ pickup:
   confirm: "Bestätigen"
   kick: "Austragen"
   leave: "Austragen"
-  open_profile: "Profil aufrufen"
+  open_profile: "Profil von"
   copyNumber: "Nummer kopieren"
   copiedNumber: "„{number}“ wurde in die Zwischenablage kopiert."
   signout_sure: "Möchtest du dieses Team verlassen?"
@@ -1182,7 +1185,7 @@ calendar:
   export:
     pickup:
       name: "{store} Abholung"
-      unconfirmed: unbestätigt
+      unconfirmed: "unbestätigt"
       description: 'foodsharing-Abholung bei <a href="{url}">{store}</a>'
     event:
       statusUnspecified: Du hast noch nicht angegeben, ob du an diesem Termin teilnimmst. Das kannst du auf der verlinkten Seite tun.
@@ -3145,7 +3148,7 @@ thread:
     rename: "Titel bearbeiten"
     pin: "Beitrag anheften"
     unpin: "Nicht mehr anheften"
-    lock: "Thema schließen" 
+    lock: "Thema schließen"
     unlock: "Thema öffnen"
   rename:
     edit_description: "Titel bearbeiten"
@@ -3167,7 +3170,7 @@ markdown_input:
     hrule: Trennlinie
     preview: Vorschau
   empty_preview_placeholder: "Dies ist die Formatierungsvorschau. Der Text wird hier so formatiert, wie er auch später angezeigt wird.
-    
+
     ---
 
     *Du hast aber noch keinen Text eingegeben, der hier angezeigt werden könnte.*"
