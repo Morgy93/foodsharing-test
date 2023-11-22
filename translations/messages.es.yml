@@ -2232,7 +2232,7 @@ forum:
   not_found: Este hilo no existe.
   deleted_user: usuario eliminad@
   mail_confirmation:
-    title: ¿Realmente quieres enviar una notificación por correo electrónico?
+    title: ¿Realmente quiere enviar una notificación por correo electrónico?
     text: ¿Realmente quieres que este nuevo post sea enviado por correo electrónico
       a todos los miembros de este grupo o distrito? Solo debes hacerlo si tu petición
       afecta a todos y es tan importante que todos deberían saberlo.
