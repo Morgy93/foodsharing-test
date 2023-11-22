@@ -400,6 +400,7 @@ terminology:
   n_foodsaver: 'un(a) rescatista|%count% rescatistas'
   reportAdmins: 'Equipo de manejo de quejas'
   n_home_regions: un@ con distrito de origen|%count% con distrito de origen
+  no_pickups: ''
 groups:
   empty: Aún no estás en ningún grupo de trabajo
 position: Puesto en foodsharing (público)
