@@ -2231,6 +2231,8 @@ forum:
   no_posts: 'Aún no hay publicaciones'
   not_found: Este hilo no existe.
   deleted_user: usuario eliminad@
+  mail_confirmation:
+    title: ¿Realmente quieres enviar una notificación por correo electrónico?
 buddy:
   request_sent: 'Solicitud enviada.'
   request_accepted: 'Ahora son amig@s.'
