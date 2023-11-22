@@ -2780,7 +2780,7 @@ list:
 mailbox_name: Postboksnavn
 message_text_to_group_admin_workgroup: 'Regionen/arbeidsgruppen <b>{groupName}</b>
   har <b>ingen</b> ambassadør/administrator lenger.<br><br><br>Den har følgende ID-struktur:<br>{idStructureList}<br><br>IDen
-  er: {groupId}<br><br>URL: <a href ="/?page=bezirk&bid={groupId}&sub=forum" target="_blank">Klikk
+  er: {groupId}<br><br>URL: <a href ="/region?bid={groupId}&sub=forum" target="_blank">Klikk
   her for å gå til regionen / arbeidsgruppen</a>'
 parent_id: Foreldredistriktet
 food_type: Hvilke typer matvarer er inkludert?

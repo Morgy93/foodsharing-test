@@ -390,7 +390,7 @@ class ForumPostCest
         $mail = $I->getMails()[0];
         $I->assertStringContainsString($title, $mail->text);
         $I->assertStringContainsString('tigt werden', $mail->subject);
-        $I->assertRegExp('/http:\/\/.*bezirk.*&amp;tid=[0-9]+/', $mail->html, 'mail should contain a link to thread');
+        $I->assertRegExp('/http:\/\/.*region.*&amp;tid=[0-9]+/', $mail->html, 'mail should contain a link to thread');
         preg_match('/http:\/\/.*?\/(.*?)"/', $mail->html, $matches);
         $link = html_entity_decode($matches[1]);
         $I->deleteAllMails();
@@ -447,7 +447,9 @@ class ForumPostCest
         $I->click('.forum_threads a');
         $I->waitForPageBody();
 
-        $I->seeCurrentUrlMatches('~' . $I->forumUrl($this->{$example[1]}['id']) . '&tid=(\d+)~');
+        $regexForumUrl = preg_quote($I->forumUrl($this->{$example[1]}['id']));
+        $regex = /* @lang PhpRegExp */ '~' . $regexForumUrl . '&tid=(\d+)~';
+        $I->seeCurrentUrlMatches($regex);
         $I->click('a[title="Beitrag löschen"]');
         $I->wait(1);
         $I->canSee('Beitrag löschen');

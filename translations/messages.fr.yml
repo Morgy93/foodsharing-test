@@ -1090,7 +1090,7 @@ legal:
 message_text_to_group_admin_workgroup: "La région/le groupe de travail<b>{groupName}</b>
   n’a<b>plus</b> d’ambassadeur·ice/d’admin.<br><br><br>Elle possède la structure ID
   ci-contre :<br>{idStructureList}<br><br>l’ID est : {groupId}<br><br>URL : \" <a
-  href=\"/?page=bezirk&bid={groupId}&sub=forum\" target=\"_blank\">Clique ici pour
+  href=\"/region?bid={groupId}&sub=forum\" target=\"_blank\">Clique ici pour
   rejoindre la région/le groupe de travail</a>"
 gender:
   d: les deux ou autre

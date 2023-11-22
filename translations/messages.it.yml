@@ -1091,7 +1091,7 @@ storeview:
   cooperation_status: Stato di cooperazione
 message_text_to_group_admin_workgroup: 'La regione/gruppo di lavoro <b>{groupName}</b>
   non <b>ha più </b> ambasciatori/amministratori.<br><br><br>Ha la seguente struttura
-  ID:<br>{idStructureList}<br><br> L''ID è:{groupId}<br><br>URL: "<a href="/?page=bezirk&bid={groupId}&sub=forum"
+  ID:<br>{idStructureList}<br><br> L''ID è:{groupId}<br><br>URL: "<a href="/region?bid={groupId}&sub=forum"
   target="_blank">Clicca qui per andare alla regione/gruppo di lavoro</a>'
 startpage:
   towns:

@@ -2752,7 +2752,7 @@ home:
   title: Landing page
 message_text_to_group_admin_workgroup: 'The region/group <b>{groupName}</b> does not
   have an ambassador anymore.<br><br><br>It has the following ID-structure:<br>{idStructureList}<br><br>The
-  ID is: {groupId}<br><br>URL: <a href="/?page=bezirk&bid={groupId}&sub=forum" target="_blank">Click
+  ID is: {groupId}<br><br>URL: <a href="/region?bid={groupId}&sub=forum" target="_blank">Click
   here to go to the region/group</a>'
 personal_data:
   label: Contact

@@ -38,6 +38,7 @@
 - Modernized ContentControl to a Symfony controller !2876 @\_fridtjof_
 - Modernized TeamControl to a Symfony contorller !2881 @\_fridtjof_
 - Replaced the maps on basket pages with vue and removed vMap !2880 @alex.simm
+- Modernized RegionControl to a Symfony controller !2741 @\_fridtjof_
 
 ## Dev/Test/CI stuff
 - removed CHANGELOG.md merge=union !2866 @chriswalg
@@ -1094,7 +1095,7 @@ and persistent session disabled after each request, so that LastLogin is set cor
 
 
 # 2020-01-26
-Another release from your lovely dev Team. A lot of changes have been done "under the hood" that will help developers with modernization of the codebase and to improve the website further. A lot of old code has been removed, restructured and database access has been improved. Some nightly maintanance have been optimized. A more user friendly overview of the new improvements can be found here: https://foodsharing.de/?page=bezirk&bid=741&sub=forum&tid=98018 accessable for every foodsaver.
+Another release from your lovely dev Team. A lot of changes have been done "under the hood" that will help developers with modernization of the codebase and to improve the website further. A lot of old code has been removed, restructured and database access has been improved. Some nightly maintanance have been optimized. A more user friendly overview of the new improvements can be found here: https://foodsharing.de/region?bid=741&sub=forum&tid=98018 accessable for every foodsaver.
 
 
 ## Features

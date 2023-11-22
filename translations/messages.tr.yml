@@ -984,7 +984,7 @@ reports:
   message: Açıklama
 message_text_to_group_admin_workgroup: '<b>{groupName}</b> bölgesi/çalışma grubu artık
   <b>herhangi bir</b> Elçiye/Yöneticiye sahip değil.<br><br><br>Şu kimlik yapısına
-  sahip: <br>{idStructureList}<br><br>Kimlik: {groupId}<br><br>URL: <a href="/?page=bezirk&bid={groupId}&sub=forum"
+  sahip: <br>{idStructureList}<br><br>Kimlik: {groupId}<br><br>URL: <a href="/region?bid={groupId}&sub=forum"
   target= "_blank">Bölgeye/çalışma grubuna gitmek için burayı tıklayın</a>'
 success: Başarıyla tamamlandı
 error_ajax: "Bu ne yazık ki işe yaramadı.\nBelki internet bağlantınız şu anda çalışmıyordur.\n
