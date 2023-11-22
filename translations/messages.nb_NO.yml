@@ -2101,6 +2101,12 @@ forum:
     foran den, for eksempel som i han&bsol;*hun.'
   deleted_user: Slettet bruker
   not_found: Denne tråden eksisterer ikke.
+  mail_confirmation:
+    text: Ønsker du virkelig at dette nye innlegget skal sendes som e-post til alle
+      medlemmene i denne arbeidsgruppen eller distriktet? Du bør bare gjøre dette
+      hvis forespørselen din påvirker alle og er så viktig at alle bør være klar over
+      det.
+    title: Sender du virkelig e-postvarsling?
 timepicker:
   labelNowButton: nå
   labelCloseButton: Lukk
