@@ -815,6 +815,12 @@ forum:
   from: de {name}
   deleted_user: utilisateur supprimé
   not_found: Ce fil n’existe pas.
+  mail_confirmation:
+    text: Souhaites-tu vraiment que cette nouvelle contribution soit envoyée par e-mail
+      à tous les membres de ce GT ou de ce district ? Tu ne devrais le faire que si
+      ta demande concerne tout le monde et qu’elle est suffisamment importante pour
+      que tout le monde en soit informé.
+    title: Vraiment envoyer la notification par courriel ?
 fsp:
   info:
     mail: Cloche et notification par courriel
