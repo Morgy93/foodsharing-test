@@ -1121,7 +1121,7 @@ store:
   ownStores: Kendi işletmeleriniz
   teamName: '{storeTitle}-Ekibi'
   memberSince: Şu tarihten beri ekipte {date}
-  lastPickup: 'Son alım tarihi: {date}'
+  lastPickup: 'Son alım tarihi:'
   chat:
     jumper: Yedek listesinde olanlara mesaj
     team: Ekibe mesaj
@@ -1204,6 +1204,8 @@ store:
     search: Seçili eylemleri göster
     selected_log_types: '{amount} işlem türü seçildi'
     title: İşletme Tutanağı
+  signInDateTime: Giriş Tarihi
+  slot_state: Slot durumu
 polls:
   title: Başlık
   new_poll: Yeni Anket oluştur
@@ -2552,6 +2554,7 @@ terminology:
     d: Organizatör
   reports: Raporlama Görünümü (Yerel raporlama grubu)
   n_home_regions: o ana bölgeye sahip bir kişi|İşte %count% kişilik ana bölge
+  previous_pickups: Önceki Alımlar
 legal:
   if_delete:
     this_doesnt_get_deleted: 'Aşağıdaki bilgiler artık aktif sistemde mevcut değildir,
@@ -2887,7 +2890,7 @@ pickup:
   team_message_send_and_leave: Gönder ve çıkış yap
   join_cancel: Yok değil
   take_empty_slot: Buraya yazıl
-  open_profile: Profile git
+  open_profile: Profili
   copiedNumber: '"{number}" panoya kopyalandı.'
   signout_info: Alım randevularınızın tümü silinecektir.
   really_kick_user_info: "{name}'ı {date} tarihindeki alma işleminden çıkarmak istediğinizden
