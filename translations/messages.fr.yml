@@ -1096,8 +1096,8 @@ legal:
 message_text_to_group_admin_workgroup: "La région/le groupe de travail<b>{groupName}</b>
   n’a<b>plus</b> d’ambassadeur·ice/d’admin.<br><br><br>Elle possède la structure ID
   ci-contre :<br>{idStructureList}<br><br>l’ID est : {groupId}<br><br>URL : \" <a
-  href=\"/region?bid={groupId}&sub=forum\" target=\"_blank\">Clique ici pour
-  rejoindre la région/le groupe de travail</a>"
+  href=\"/region?bid={groupId}&sub=forum\" target=\"_blank\">Clique ici pour rejoindre
+  la région/le groupe de travail</a>"
 gender:
   d: les deux ou autre
   f: Femme
@@ -1204,7 +1204,7 @@ store:
   isManager: Responsable pour cette coopération.
   unknownDate: inconnue
   lastPickupShort: dernière collecte le {date}
-  lastPickup: 'Dernière collecte : {date}'
+  lastPickup: 'Dernière collecte :'
   jumperSince: Remplaçant(e) depuis le {date}
   memberSince: Dans l’équipe depuis le {date}
   teamName: Équipe {storeTitle}
@@ -1881,7 +1881,7 @@ pickup:
   signout_sure: Souhaites-tu quitter cette équipe ?
   copiedNumber: '« {number} » a été copié dans le presse-papier.'
   copyNumber: Copier le numéro dans le presse-papier
-  open_profile: Voir le profil
+  open_profile: Profil de
   leave: Se retirer
   kick: Retirer
   confirm: Confirmer
