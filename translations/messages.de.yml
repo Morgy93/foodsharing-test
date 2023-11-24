@@ -3155,6 +3155,10 @@ thread:
     description_modal_text: "Gib einen neuen Titel für diesen Beitrag ein:"
     placeholder: "Titel"
     max_length_info: "Maximale Länge des Titels erreicht (260 Zeichen)"
+  post:
+    options:
+      copy_source: "Quelltext kopieren"
+    copy_source_success: "Quelltext kopiert!"
 
 markdown_input:
   tooltip:

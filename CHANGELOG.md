@@ -10,6 +10,7 @@
 - Members of the Store Coordination GOALS group / ambassadors can add more than 3 storemanagers and remove the last one !2895 @AntonBallmaier
 - Added spanish translation !2892 @irgendwer
 - Made store log accessible by store managers !2902 @AntonBallmaier
+- The source code of forum posts can now be copied !2913 @AntonBallmaier
 - Added confirmation modal to sending mail when creating a new thread !2877 @AntonBallmaier
 
 ## Changes
@@ -20,12 +21,14 @@
 - rework slot dropdown to modal #1228 !2813 @chriswalg
 - Changed behaviour from deleting unconfirmed slots at midnight into keeping them #1707 !2901 @irgendwer
 - Reworked all search functionality !2886 @AntonBallmaier
+- Markdown in forum posts is now rendered in the front end to reduce inconsistencies !2913 @AntonBallmaier
 
 ## Bugfixes
 - Added error handling for cache helper for bell notifications or other requests !2869 @chriswalg
 - Allow adding regular pickups even if there is one for every day already !2897 @AntonBallmaier
 - fix if last activity date is „0000-00-00 00:00:00“ !2853 @chriswalg
 - fix reaction tooltip with deleted users !2909 @AntonBallmaier
+- Controll characters like * can now be escaped using the front end md engine !2913 @AntonBallmaier
 
 ## Refactoring
 - Refactor mailbox modul to vue and rest api !2580 !2870 !2871 @chriswalg @alex.simm
