@@ -770,7 +770,7 @@ pickup:
   signout_sure: Vuoi lasciare questo team?
   copiedNumber: '«{number}» è stato copiato negli appunti.'
   copyNumber: Copiare il numero
-  open_profile: Richiama il profilo
+  open_profile: Profilo di
   leave: cancellare
   kick: Cancellare
   signout_history:
@@ -942,7 +942,7 @@ store:
   actions: Opzioni
   isManager: Responsabile di questa agenzia.
   lastPickupShort: ultimo {data}
-  lastPickup: 'Ultimo recupero: {data}'
+  lastPickup: 'Ultimo recupero:'
   jumperSince: 'Jolly da: {data}'
   memberSince: 'Nel team da: {data}'
   teamName: '{storeTitle}-Team'
