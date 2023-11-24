@@ -865,7 +865,7 @@ calendar:
 pickup:
   signout_confirm: Are you sure?
   copyNumber: Copy phone number
-  open_profile: Open profile
+  open_profile: Profile of
   confirm: Confirm
   call: Call
   team_message_success: Message was successfully sent to the team
@@ -1114,6 +1114,8 @@ terminology:
     "2": Store Coordinator
     "3": Ambassador
     "4": Orga person
+  no_pickups: none
+  previous_pickups: Previous pick-ups
 login:
   pwreset:
     bread: Reset password
@@ -1920,7 +1922,7 @@ store:
     example in food baskets, on Facebook, or in the press).
   memberSince: 'In team since: {date}'
   lastPickupShort: last {date}
-  lastPickup: 'Last pick-up: {date}'
+  lastPickup: 'Last pick-up:'
   jumperSince: 'Standby since: {date}'
   tooltip_managing: You are responsible for this store
   not-in-team: You are not a member of this store’s team yet.
@@ -2057,6 +2059,8 @@ store:
     search: List selected actions
     selected_log_types: '{amount} action types selected'
     title: Store log
+  signInDateTime: Sign-in time
+  slot_state: Slot state
 search:
   mygroups: My groups
   mybuddies: My buddies
