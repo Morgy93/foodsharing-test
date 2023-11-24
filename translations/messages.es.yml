@@ -3395,7 +3395,7 @@ abholmenge: '¿Aproximadamente cuántos kilogramos se toman por recogida?'
 duration: 'Tiempo para responder'
 message_text_to_group_admin_workgroup: 'La región/grupo de trabajo <b>{groupName}</b>
   ya no tiene <b>embajador/administrador</b>.<br><br><br>Tiene la siguiente estructura
-  de ID:<br>{idStructureList}<br><br>El ID es: {groupId}<br><br>URL: "<a href="https://foodsharing.de/region?bid={groupId}&sub=forum"
+  de ID:<br>{idStructureList}<br><br>El ID es: {groupId}<br><br>URL: <a href="/region?bid={groupId}&sub=forum"
   target="_blank">Haga clic aquí para ir a la región/grupo de trabajo</a>'
 ui:
   switch:
