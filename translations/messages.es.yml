@@ -400,7 +400,8 @@ terminology:
   n_foodsaver: 'un(a) rescatista|%count% rescatistas'
   reportAdmins: 'Equipo de manejo de quejas'
   n_home_regions: un@ con distrito de origen|%count% con distrito de origen
-  no_pickups: ''
+  no_pickups: 'ninguna'
+  previous_pickups: Recogidas anteriores
 groups:
   empty: Aún no estás en ningún grupo de trabajo
 position: Puesto en foodsharing (público)
@@ -1336,6 +1337,8 @@ store:
       5: Pasar a la lista de suplentes
     max_entries_message: Se mostrará un máximo de 100 entradas. Reduzca el rango de
       la búsqueda.
+  signInDateTime: Fecha de entrada
+  slot_state: Estado de la ranura
 pickup:
   overview:
     status:
