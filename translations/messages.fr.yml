@@ -956,6 +956,8 @@ terminology:
   pickup: Collecte
   store: 'Magasin'
   n_home_regions: un(e) avec district d’origine|%count% avec district d’origine
+  no_pickups: aucune
+  previous_pickups: Précédentes collectes
 register:
   activation_success: <strong>Activation réussie.</strong> Connecte-toi maintenant
     avec ton adresse courriel et le mot de passe que tu as choisi.
