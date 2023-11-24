@@ -1241,7 +1241,7 @@ store:
   maxchar: '(máx. 180 caracteres)'
   noStores: 'Aún no hay empresas registradas'
   attribution: 'Atribución'
-  lastPickup: 'Última recogida: {date}'
+  lastPickup: 'Última recogida:'
   nochains: '¡Póngase en contacto únicamente con empresas gestionadas por sus propietarios
     con un máximo de tres sucursales, nunca con sucursales de cadenas más grandes!
     ¡Tenga en cuenta las reglas de cooperación con cadenas corporativas!'
