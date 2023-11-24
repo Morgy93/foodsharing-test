@@ -2190,7 +2190,7 @@ pickup:
   really_join_date: Ønsker du å gjøre en bindende påmelding til henting {date}?
   dates: Hentingsdatoere
   kick: kaste ut
-  open_profile: Se profiler
+  open_profile: Profilen til
   really_leave_date_title: Avregistrere {date}?
   really_kick_user_info: "Vil du virkelig avbestille {name} fra å hente den {date}?\n
     {name} vil motta følgende melding om dette:\n"
@@ -2338,7 +2338,7 @@ store:
   address: Adresse
   attribution: Attribusjon
   unknownDate: ukjent
-  lastPickup: 'Siste henting: {date}'
+  lastPickup: 'Siste henting:'
   lastPickupShort: siste {date}
   teamName: '{storeTitle} team'
   actions: Alternativer
@@ -2510,6 +2510,8 @@ store:
       9: '{actor} har utnevnt {target} til samarbeidsansvarlig.'
       14: '{actor} har bekreftet registreringen av {target} for {date}.'
       15: '{actor} har slettet anslagstavleoppføringen til {target} fra {date}'
+  signInDateTime: Tidspunkt for innskrivning
+  slot_state: Status for plass
 storeview:
   status: Nåværende status
   public_time_at_night: om natten
@@ -2700,6 +2702,8 @@ terminology:
   pickup: Plukke opp
   store: Selskapet
   n_home_regions: en med hjemdistrikt|%count% med hjemdistrikt
+  no_pickups: ingen
+  previous_pickups: Tidligere samlinger
 gender:
   d: mangfoldig
   f: Fru
