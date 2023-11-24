@@ -1460,7 +1460,7 @@ pickup:
   signout_confirm: '¿Estas segur@?'
   copiedNumber: '“{number}” se copió en el portapapeles.'
   leave_team_message_title: 'Mensaje al equipo'
-  open_profile: 'Abrir perfil'
+  open_profile: 'Perfil de'
   kick: 'Eliminar'
   kick_message: 'lo eliminamos de la recogida en {storeName} el {date}.'
   leave: 'Dejar'
@@ -3391,7 +3391,9 @@ fpcapital: 'PF'
 abholmenge: '¿Aproximadamente cuántos kilogramos se toman por recogida?'
 duration: 'Tiempo para responder'
 message_text_to_group_admin_workgroup: 'La región/grupo de trabajo <b>{groupName}</b>
-  no tiene ni embajador(-a) ni administrador(-a).<br>'
+  ya no tiene <b>embajador/administrador</b>.<br><br><br>Tiene la siguiente estructura
+  de ID:<br>{idStructureList}<br><br>El ID es: {groupId}<br><br>URL: "<a href="https://foodsharing.de/region?bid={groupId}&sub=forum"
+  target="_blank">Haga clic aquí para ir a la región/grupo de trabajo</a>'
 ui:
   switch:
     off: 'inactivo'
