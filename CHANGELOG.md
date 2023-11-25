@@ -21,7 +21,7 @@
 - rework slot dropdown to modal #1228 !2813 @chriswalg
 - Changed behaviour from deleting unconfirmed slots at midnight into keeping them #1707 !2901 @irgendwer
 - Reworked all search functionality !2886 @AntonBallmaier
-- Markdown in forum posts is now rendered in the front end to reduce inconsistencies !2913 @AntonBallmaier
+- Markdown in forum posts is now rendered in the front end to reduce inconsistencies !2913 !2917 @AntonBallmaier
 
 ## Bugfixes
 - Added error handling for cache helper for bell notifications or other requests !2869 @chriswalg
