@@ -12,6 +12,7 @@
 - Made store log accessible by store managers !2902 @AntonBallmaier
 - The source code of forum posts can now be copied !2913 @AntonBallmaier
 - Added confirmation modal to sending mail when creating a new thread !2877 @AntonBallmaier
+- If youre phone number is invalid, you get informed about that on the dashboard now !2916 @AntonBallmaier
 
 ## Changes
 - Changed team state translation from full to closed !2831 @chriswalg
