@@ -53,7 +53,7 @@
 - Show CS Fixer results in gitlab !2867 @\_fridtjof_
 - Added the Symfony profiler and debug toolbar !1580 @\_fridtjof_
 - Added feature toggles !2633 @martincodes-de
-- The backend now provides the map tile api key for the client #1074 !2621 @alex.simm
+- The backend now provides the map tile api key for the client #1074 !2621 !2925 @alex.simm
 
 ## Development documentation
 
