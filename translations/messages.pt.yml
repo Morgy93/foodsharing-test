@@ -67,3 +67,5 @@ storeview:
   counter: <strong>{count}<span style="white-space:nowrap"> </span>{suffix}</strong>
 calendar:
   locale: pt
+poll:
+  type_description_3: Seleção de avaliações com valores entre -3 (rejeição) e +3 (aprovação)

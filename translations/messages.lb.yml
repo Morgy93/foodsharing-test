@@ -793,7 +793,8 @@ poll:
   type: ''
   type_description_0: ''
   type_description_2: ''
-  type_description_3: ''
+  type_description_3: 'Selektioun vu Bewäertunge mat Wäerter tëscht -3 (Oflehnung)
+    an +3 (Zustimmung)'
   type_2:
     tooltip_negative: ''
     tooltip_neutral: ''

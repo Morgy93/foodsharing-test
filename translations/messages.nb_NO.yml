@@ -198,7 +198,7 @@ poll:
   already_voted: Du har allerede deltatt i denne avstemningen
   not_available: Denne avstemming eksisterer ikke, eller du har ikke tilgang til den.
   submit_vote_question: Virkelig stemme nå? Valget ditt kan ikke endres i etterkant.
-  type_description_3: Score avstemning med verdier mellom +3 (godkjenning) og -3 (avvisning)
+  type_description_3: Score avstemning med verdier mellom -3 (avvisning) og +3 (godkjenning)
   may_not_edit: Enten har du ikke rettighetene til å endre denne avstemningen eller
     tidsperioden for redigering er utløpt.
 polls:
@@ -3279,3 +3279,7 @@ thread:
     placeholder: Tittel
     max_length_info: Maksimal tittellengde er nådd (260 tegn)
     edit_description: Rediger tittel
+  post:
+    options:
+      copy_source: Kopier kildekoden
+    copy_source_success: Kildekoden er kopiert!

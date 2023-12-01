@@ -1307,8 +1307,8 @@ poll:
     tooltip_positive: Consenso
     tooltip_neutral: Astensioni
     tooltip_negative: Rifiuto
-  type_description_3: Scelta di valutazione con valori compresi tra +3 (d'accordo)
-    e -3 (in disaccordo)
+  type_description_3: Scelta di valutazione con valori compresi tra -3 (in disaccordo)
+    e +3 (d’accordo)
   type_description_2: Opzioni in ogni caso consenso / astensione / rifiuto
   type_description_1: Spuntare (si possono selezionare diverse opzioni)
   type_description_0: Selezionare (solo una opzione può essere selezionata)

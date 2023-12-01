@@ -1359,7 +1359,7 @@ poll:
   vote_success: You have successfully voted.
   submit_vote_warning: 'Caution: voting is anonymous. You can not change your choices
     after submitting.'
-  type_description_3: Score voting with values between +3 (approval) and -3 (disapproval)
+  type_description_3: Score voting with values between -3 (disapproval) and +3 (approval)
   type_description_2: Choosing between approval / neutral / disapproval
   scope_description_2: All Store Coordinators in the region, who are currently responsible
     for a store
@@ -3405,3 +3405,7 @@ thread:
     placeholder: Title
     max_length_info: Maximum title length reached (260 characters)
     edit_description: Edit description
+  post:
+    options:
+      copy_source: Copy source code
+    copy_source_success: Source code copied!

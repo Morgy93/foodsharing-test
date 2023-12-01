@@ -505,7 +505,7 @@ poll:
     tooltip_positive: 'Consentimiento'
     tooltip_negative: 'Rechazo'
     tooltip_neutral: 'Abstención'
-  type_description_3: 'Elección con valores entre +3 (aprobación) y -3 (rechazo)'
+  type_description_3: 'Elección con valores entre -3 (rechazo) y +3 (aprobación)'
   scope_description_0: 'Tod@s l@s rescatistas verificad@s y no verificad@s del distrito/grupo'
   in_future: 'no ha comenzado todavía'
   allowed_voters: 'Elegible para votar'
@@ -3503,3 +3503,7 @@ thread:
     placeholder: Título
     max_length_info: Se alcanzó la longitud máxima del título (260 caracteres)
     edit_description: Editar título
+  post:
+    options:
+      copy_source: Copiar código fuente
+    copy_source_success: ¡Código fuente copiado!

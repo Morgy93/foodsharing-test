@@ -1692,7 +1692,7 @@ poll:
   ended_at: ''
   allowed_voters: ''
   scope_description_0: ''
-  type_description_3: ''
+  type_description_3: 'Výběr hodnocení s hodnotami mezi -3 (odmítnutí) a +3 (schválení)'
   vote_success: ''
   untraceable: ''
   submit_vote_question: ''

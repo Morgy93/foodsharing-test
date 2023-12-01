@@ -1282,8 +1282,8 @@ poll:
   scope_description_2: Bölgedeki, şu anda herhangi bir işletmeden sorumlu, işletme
     sorumluları
   type_description_0: Seçin (yalnızca bir seçenek seçilebilir)
-  type_description_3: +3 (katılıyorum) ile -3 (katılmıyorum) arasında değerlere sahip
-    derecelendirme seçeneği
+  type_description_3: -3 (red) ile +3 (onay) arasında ki değerlere sahip derecelendirme
+    seçeneği
   untraceable: Hangi seçeneğe nasıl oy verdiğinize ilişkin bilgiler, geriye doğru
     izlenemez ve bu nedenle artık burada görüntülenemez.
   error_cannot_vote: Bu ankette oy kullanamazsınız
@@ -2134,6 +2134,11 @@ forum:
   new_thread: Yeni bir konu oluştur
   deleted_user: Silinmiş üye
   not_found: Bu konu mevcut değil.
+  mail_confirmation:
+    text: Bu yeni gönderinin bu grubun veya bölgenin tüm üyelerine e-posta olarak
+      gönderilmesini gerçekten istiyor musunuz? Bunu yalnızca Konu herkesi ilgilendiriyorsa
+      ve herkesin bunun farkında olmasını gerektirecek kadar önemliyse yapmalısınız.
+    title: Gerçekten e-posta bildirimleri göndermek istiyor musunuz?
 chat:
   open_chat: Bir mesaj yaz
   new_messages: Yeni Mesajlar
@@ -2555,6 +2560,7 @@ terminology:
   reports: Raporlama Görünümü (Yerel raporlama grubu)
   n_home_regions: o ana bölgeye sahip bir kişi|İşte %count% kişilik ana bölge
   previous_pickups: Önceki Alımlar
+  no_pickups: yok
 legal:
   if_delete:
     this_doesnt_get_deleted: 'Aşağıdaki bilgiler artık aktif sistemde mevcut değildir,
@@ -3285,3 +3291,7 @@ thread:
     placeholder: Başlık
     max_length_info: Maksimum başlık uzunluğuna ulaşıldı (260 karakter)
     edit_description: Başlığı düzenle
+  post:
+    options:
+      copy_source: Kaynak kodunu kopyala
+    copy_source_success: Kaynak kodu kopyalandı!

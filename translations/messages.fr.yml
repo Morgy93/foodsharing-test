@@ -1329,6 +1329,27 @@ store:
     search: Liste des actions sélectionnées
     selected_log_types: '{amount} types d’actions sélectionnés'
     title: Protocole d’actions
+    message:
+      6: '{actor} a pris {thomas} dans l’équipe active.'
+      1: '{actor} veut rejoindre l’équipe.'
+      14: '{actor} a confirmé l’inscription de {target} pour la collecte du {date}.'
+      3: '{actor} a accepté la demande d’adhésion de {target}.'
+      4: '{actor} a ajouté {target} à l’équipe manuellement.'
+      11: '{actor} s’est inscrit pour la collecte du {date}.'
+      7: "{actor} a retiré {target} de l'équipe."
+      13: '{actor} a radié {target} pour la collecte du {date}.'
+      13_with_reason: '{actor} a radié {target} pour la collecte du {date} avec le
+        message suivant'
+      8: '{actor} a quitté l’équipe.'
+      16: '{actor} a retiré sa demande d’adhésion'
+      10: '{actor} a destitué {target} en tant que responsable de la coopération.'
+      12: '{actor} s’est désinscrit pour la collecte du {date}.'
+      2: '{actor} a refusé la demande d’adhésion de {target}.'
+      5: '{actor} a ajouté {target} à la liste des remplaçant(e)s.'
+      9: '{actor} a désigné {target} comme responsable de la coopération.'
+      15: '{actor} a supprimé l’entrée de {target} sur le tableau d’affichage du {date}'
+  signInDateTime: Date d’inscription
+  slot_state: Statut du créneau
 storeview:
   want_to_fetch: J’aimerais m’engager dans cette équipe.
   specials: Particularités
@@ -2806,7 +2827,7 @@ poll:
     tooltip_positive: Consentement
     tooltip_neutral: Abstention
     tooltip_negative: Rejet
-  type_description_3: Vote d’évaluation entre +3 (d’accord) und -3 (pas d’accord)
+  type_description_3: Vote d’évaluation entre -3 (pas d’accord) et +3 (d’accord)
   type_description_2: "Possibilités de vote : accepte-est d’accord / ne se prononce
     pas / refuse-n’est pas d’accord"
   type_description_0: choisir (une seule option possible)
@@ -3396,3 +3417,7 @@ thread:
     placeholder: Titre
     max_length_info: Longueur maximale du titre atteinte (260 caractères)
     edit_description: Modifier le titre
+  post:
+    options:
+      copy_source: Copier le code source
+    copy_source_success: Code source copié !
