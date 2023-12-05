@@ -1,4 +1,5 @@
 when@prod:
+when@dev:
   framework:
     rate_limiter:
       login:
