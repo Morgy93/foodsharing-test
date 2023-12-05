@@ -1,11 +1,12 @@
-when@prod:
-when@dev:
+when@prod: &prod
   framework:
     rate_limiter:
       login:
         policy: 'token_bucket'
         limit: 30
         rate: { interval: '1 second', amount: 1 }
+
+when@dev: *prod
 
 when@test:
   framework:
