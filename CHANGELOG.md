@@ -55,6 +55,7 @@
 - Added the Symfony profiler and debug toolbar !1580 @\_fridtjof_
 - Added feature toggles !2633 @martincodes-de
 - The backend now provides the map tile api key for the client #1074 !2621 !2925 @alex.simm
+- Update PHP deployer to version 7.3.3 !2931 @chriswalg
 - Bump vue-advanced-chat to 2.0.10 !2927 @chriswalg
 - Added a rate limiter to the login endpoint !2672 @alex.simm
 
