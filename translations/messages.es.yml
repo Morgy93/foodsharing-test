@@ -2564,7 +2564,7 @@ mailbox:
     written_text:  
   mark_all: seleccionar todo
   tag_recipient_hint: Destinatari@s (varios separad@s por punto y coma)
-  mailsend_unsuccess: No se pudieron enviar los correos electrónicos. {error}
+  mailsend_unsuccess: No se ha podido enviar el correo electrónico. {error}
   attachment:
     not_found_explanation: El archivo adjunto no se pudo encontrar en el servidor
     not_found: extraviado
@@ -2574,6 +2574,8 @@ mailbox:
   mails: Correos electrónicos
   mark_as_read: Marcar como leído
   unknown_sender: Remitente desconocido
+  less: menos
+  more: más
 settings:
   follow:
     thread: '¿Quiere mantenerse actualizado sobre el tema del foro “{thread}”?'
