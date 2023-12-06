@@ -58,6 +58,7 @@
 - Update PHP deployer to version 7.3.3 !2931 @chriswalg
 - Bump vue-advanced-chat to 2.0.10 !2927 @chriswalg
 - Added a rate limiter to the login endpoint !2672 @alex.simm
+- Added feature toggle for achievement system !2933 @martincodes-de
 
 ## Development documentation
 
