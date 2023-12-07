@@ -9,6 +9,7 @@
 - Exported calendars can be filtered by the invitation status #1535 !2873 @alex.simm
 - Members of the Store Coordination GOALS group / ambassadors can add more than 3 storemanagers and remove the last one !2895 @AntonBallmaier
 - Added spanish translation !2892 @irgendwer
+- Food basked can now be given a location different from the users home address !2906 @AntonBallmaier
 - Made store log accessible by store managers !2902 @AntonBallmaier
 - The source code of forum posts can now be copied !2913 @AntonBallmaier
 - Added confirmation modal to sending mail when creating a new thread !2877 @AntonBallmaier
@@ -45,6 +46,7 @@
 - Use REST for statistic !2879 !2887 @fs_k
 - Modernized ContentControl to a Symfony controller !2876 @\_fridtjof_
 - Modernized TeamControl to a Symfony contorller !2881 @\_fridtjof_
+- Refactor food basked creation to vue and rest api !2906 @AntonBallmaier
 - Replaced the maps on basket pages with vue and removed vMap !2880 @alex.simm
 - Modernized RegionControl to a Symfony controller !2741 @\_fridtjof_
 
