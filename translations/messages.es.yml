@@ -505,7 +505,8 @@ poll:
     tooltip_positive: 'Consentimiento'
     tooltip_negative: 'Rechazo'
     tooltip_neutral: 'Abstención'
-  type_description_3: 'Elección con valores entre -3 (rechazo) y +3 (aprobación)'
+  type_description_3: 'Selección de calificaciones con valores entre -3 (rechazo)
+    y +3 (aprobación)'
   scope_description_0: 'Tod@s l@s rescatistas verificad@s y no verificad@s del distrito/grupo'
   in_future: 'no ha comenzado todavía'
   allowed_voters: 'Elegible para votar'
