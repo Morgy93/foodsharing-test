@@ -1243,7 +1243,7 @@ store:
   maxchar: '(máx. 180 caracteres)'
   noStores: 'Aún no hay empresas registradas'
   attribution: 'Atribución'
-  lastPickup: 'Última recogida:'
+  lastPickup: 'Última recogida: {date}'
   nochains: '¡Póngase en contacto únicamente con empresas gestionadas por sus propietarios
     con un máximo de tres sucursales, nunca con sucursales de cadenas más grandes!
     ¡Tenga en cuenta las reglas de cooperación con cadenas corporativas!'
@@ -1340,6 +1340,8 @@ store:
       la búsqueda.
   signInDateTime: Fecha de entrada
   slot_state: Estado de la ranura
+  lastPickupTitle: Última recogida
+  slotsCurrentlyOccupied: Espacios actualmente ocupados
 pickup:
   overview:
     status:
@@ -1998,8 +2000,7 @@ basket:
     '
   use_home_address: Utilizar el domicilio
   modal_error:
-    no_contact: Por favor seleccione la forma en la que desea que se solicite la canasta
-      de alimentos.
+    no_contact: Elige cómo se debe ordenar la canasta de alimentos.
     no_phone: Indique un número de teléfono.
   contact_types: Opciones de contacto
   delete_confirmation:
