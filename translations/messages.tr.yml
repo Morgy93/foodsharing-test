@@ -1121,7 +1121,7 @@ store:
   ownStores: Kendi işletmeleriniz
   teamName: '{storeTitle}-Ekibi'
   memberSince: Şu tarihten beri ekipte {date}
-  lastPickup: 'Son alım tarihi:'
+  lastPickup: 'Son alım tarihi: {date}'
   chat:
     jumper: Yedek listesinde olanlara mesaj
     team: Ekibe mesaj
@@ -1206,6 +1206,7 @@ store:
     title: İşletme Tutanağı
   signInDateTime: Giriş Tarihi
   slot_state: Slot durumu
+  lastPickupTitle: Son alım tarihi
 polls:
   title: Başlık
   new_poll: Yeni Anket oluştur
@@ -1590,6 +1591,7 @@ basket:
     "3": üç gün
     "14": iki hafta
     "21": üç hafta
+    "5": beş gün
   request-fs: Yemek sepeti başvurusunu foodsharing sayfamızda yapın
   request_close: Yemek sepeti talebini sonuçlandırın
   send_request: Başvuruyu gönderin
