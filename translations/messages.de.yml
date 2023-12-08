@@ -617,6 +617,7 @@ terminology:
   events: "Termine"
   stores: "Betriebe"
   store: Betrieb
+  pickup: "Abholung"
   previous_pickups: "Bisherige Abholungen"
   no_pickups: "keine"
   foodsharer:
@@ -848,9 +849,11 @@ store:
   teamName: "{storeTitle}-Team"
   memberSince: "Im Team seit: {date}"
   jumperSince: "Springer seit: {date}"
-  lastPickup: "Letzte Abholung:"
+  lastPickupTitle: "Letzte Abholung"
+  lastPickup: "Letzte Abholung: {date}"
   lastPickupShort: "zuletzt {date}"
   signInDateTime: "Eintragungszeitpunkt"
+  slotsCurrentlyOccupied: "Aktuell belegte Slots"
   slot_state: "Slot Status"
   unknownDate: "unbekannt"
   isManager: "Verantwortlich für diesen Betrieb."
