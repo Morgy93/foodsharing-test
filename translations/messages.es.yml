@@ -1873,6 +1873,7 @@ basket:
     "14": 'dos semanas'
     "2": 'dos días'
     "21": 'tres semanas'
+    "5": cinco días
   has:
     bread: 'Productos de panadería'
     frozen: 'productos congelados'
@@ -1994,6 +1995,15 @@ basket:
     También puede encontrar otras cestas de alimentos cerca de usted en nuestro mapa.
 
     '
+  use_home_address: Utilizar el domicilio
+  modal_error:
+    no_contact: Por favor seleccione la forma en la que desea que se solicite la canasta
+      de alimentos.
+    no_phone: Indique un número de teléfono.
+  contact_types: Opciones de contacto
+  delete_confirmation:
+    text: ¿Realmente quieres eliminar esta canasta de alimentos?
+    title: ¿Eliminar canasta de alimentos?
 menu:
   entry:
     press: 'Prensa'
@@ -2864,6 +2874,7 @@ globals:
   select: 'Por favor seleccione …'
   reset: 'Reiniciar'
   save: 'Ahorrar'
+  telephone_number: Número de teléfono
 legal:
   acknowledge: '¿Aceptas el acuerdo?'
   dont_agree: 'No estoy de acuerdo con el procesamiento de mis datos y'
