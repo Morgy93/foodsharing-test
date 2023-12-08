@@ -558,7 +558,7 @@ basket:
   no_nearby: Det er ingen matkurver innenfor en radius på {radius} km
   use_home_address: Bruk hjemmeadresse
   modal_error:
-    no_contact: Velg en måte du ønsker at matkurven skal forespørres på.
+    no_contact: Velg hvordan matkurven skal bestilles.
     no_phone: Vennligst oppgi et telefonnummer.
   contact_types: Kontaktmuligheter
   delete_confirmation:
@@ -2349,7 +2349,7 @@ store:
   address: Adresse
   attribution: Attribusjon
   unknownDate: ukjent
-  lastPickup: 'Siste henting:'
+  lastPickup: 'Siste henting: {date}'
   lastPickupShort: siste {date}
   teamName: '{storeTitle} team'
   actions: Alternativer
@@ -2523,6 +2523,8 @@ store:
       15: '{actor} har slettet anslagstavleoppføringen til {target} fra {date}'
   signInDateTime: Tidspunkt for innskrivning
   slot_state: Status for plass
+  lastPickupTitle: Siste henting
+  slotsCurrentlyOccupied: Plasser som for øyeblikket er belagt
 storeview:
   status: Nåværende status
   public_time_at_night: om natten
