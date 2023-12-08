@@ -1934,7 +1934,7 @@ store:
     example in food baskets, on Facebook, or in the press).
   memberSince: 'In team since: {date}'
   lastPickupShort: last {date}
-  lastPickup: 'Last pick-up:'
+  lastPickup: 'Last pick-up: {date}'
   jumperSince: 'Standby since: {date}'
   tooltip_managing: You are responsible for this store
   not-in-team: You are not a member of this store’s team yet.
@@ -2073,6 +2073,8 @@ store:
     title: Store log
   signInDateTime: Sign-in time
   slot_state: Slot state
+  lastPickupTitle: Last pick-up
+  slotsCurrentlyOccupied: Currently occupied slots
 search:
   mygroups: My groups
   mybuddies: My buddies
