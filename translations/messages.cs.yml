@@ -1610,20 +1610,20 @@ basket:
   nearby: ''
   sent_request: ''
   is:
-    vegan: ''
-    organic: ''
-    veggie: ''
-    gf: ''
+    vegan: 'veganské'
+    organic: 'Biopotraviny'
+    veggie: 'vegetariánský'
+    gf: 'bezlepkový'
   error: ''
   description: ''
   has:
     prepared: ''
-    dry: ''
-    frozen: ''
-    bread: ''
-    greens: ''
-    dairy: ''
-    pet: ''
+    dry: 'Suché zboží'
+    frozen: 'Mražené zboží'
+    bread: 'Pekařské produkty'
+    greens: 'Ovoce a zelenina'
+    dairy: 'Mléčné výrobky'
+    pet: 'Krmivo pro zvířata'
   not_withdrawn: ''
   contact:
     write: ''
@@ -1645,12 +1645,13 @@ basket:
   change-state: ''
   image: ''
   valid:
-    "2": ''
-    "7": ''
-    "1": ''
-    "21": ''
-    "14": ''
-    "3": ''
+    "2": 'dva dny'
+    "7": 'týden'
+    "1": 'jeden den'
+    "21": 'tři týdny'
+    "14": 'dva týdny'
+    "3": 'tři dny'
+    "5": pět dní
   no-login: ''
   new: ''
   date: ''
@@ -1690,6 +1691,7 @@ basket:
   edit: ''
   expires: ''
   no_requests: ''
+  use_home_address: Použijte domácí adresu
 menu:
   entry:
     contact: ''
