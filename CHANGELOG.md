@@ -30,7 +30,7 @@
 ## Bugfixes
 - Added error handling for cache helper for bell notifications or other requests !2869 @chriswalg
 - Allow adding regular pickups even if there is one for every day already !2897 @AntonBallmaier
-- fix if last activity date is „0000-00-00 00:00:00“ !2853 @chriswalg
+- fix if last activity date is „0000-00-00 00:00:00“ #1746 !2939 !2853 @chriswalg
 - fix reaction tooltip with deleted users !2909 @AntonBallmaier
 - Controll characters like * can now be escaped using the front end md engine !2913 @AntonBallmaier
 - make relative links generated in the beta-version readable in the prod version !2924 @AntonBallmaier
