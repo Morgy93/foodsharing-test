@@ -37,6 +37,7 @@
 - Controll characters like * can now be escaped using the front end md engine !2913 @AntonBallmaier
 - make relative links generated in the beta-version readable in the prod version !2924 @AntonBallmaier
 - Fix server error when trying to log in on beta @AntonBallmaier
+- Fix security problem #1692 !2940 @AntonBallmaier
 
 ## Refactoring
 - Refactor mailbox modul to vue and rest api !2580 !2870 !2871 !2918 @chriswalg @alex.simm
