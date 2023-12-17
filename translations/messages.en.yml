@@ -1859,7 +1859,7 @@ store:
   all_of_my_stores: All my stores
   bread: All stores
   request:
-    to-jumper: List of standby foodsavers
+    to-jumper: Add as standby foodsaver
     verified: User is verified
     title: Requests for {storeTitle}
     withdraw: Withdraw request
@@ -2045,7 +2045,7 @@ store:
       10: '{actor} removed {target} as store coordinator.'
       12: '{actor} signed out for the pick-up on {date}.'
       2: '{actor} has rejected the membership request from {target}.'
-      5: '{actor} has put {target} on the list of standby foodsavers'
+      5: '{actor} has put {target} on the list of standby foodsavers.'
       9: '{actor} enlisted {target} as store coordinator.'
       15: '{actor} deleted the wall entry of {target} from {date}'
       18: '{actor} created or changed an automated pick-up date [ {weekday} {startTimeOfPickup}
