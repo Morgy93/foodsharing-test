@@ -2464,6 +2464,7 @@ map:
 buddy:
   request_sent: İstek gönderildi.
   request_accepted: Artık birbirinizi tanıyorsunuz.
+  is_buddy: Birbirinizi tanıyorsunuz
 personal_data:
   label: İletişim
   mobile: Cep telefonu numarası
@@ -3179,6 +3180,8 @@ search:
       jumper_tooltip: Bu işletmenin yedek listesindesiniz
       member_tooltip: Bu işletmenin bir üyesisiniz
     from: "'den / 'dan"
+  maxresults: Kategori başına en fazla 30 sonuç görüntülenir. Belki daha spesifik
+    bir arama terimi kullanabilirsiniz.
 language_chooser:
   choose_button: 'Güncelle'
   translation_help_info_text: 'Bu bağlantı tercüme portalına yönlendiriyor, başlamak
