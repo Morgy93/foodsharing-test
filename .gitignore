@@ -35,7 +35,9 @@ phinx/vendor/**
 revision.inc.php
 
 tests/_output
-tests/_support/_generated/
+tests/Support/_generated/
+tests/*.suite.yml
+codeception.yml
 
 dev-assets
 
@@ -94,5 +96,3 @@ dump.sql
 # | this will ignore the content but not the director itself.  |
 # +------------------------------------------------------------+
 !/**/.gitkeep
-
-
