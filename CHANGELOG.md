@@ -15,6 +15,7 @@
 - Added confirmation modal to sending mail when creating a new thread !2877 @AntonBallmaier
 - If youre phone number is invalid, you get informed about that on the dashboard now !2916 @AntonBallmaier
 - When answering posts in the forum, the answered message is now quoted !2937 @AntonBallmaier
+- Provision of RestApi for a foodsharepoint for the map bubble !2946 @BibaltiK
 
 ## Changes
 - Changed team state translation from full to closed !2831 @chriswalg
