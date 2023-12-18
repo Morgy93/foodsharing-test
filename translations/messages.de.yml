@@ -2663,6 +2663,7 @@ email_template:
 buddy:
   request_sent: "Anfrage versendet."
   request_accepted: "Jetzt kennt ihr euch."
+  is_buddy: "Ihr seid Bekannte"
 
 polls:
   hint: "Das Abstimmungsmodul kann in der überregionalen Arbeitsgruppe „Abstimmungen – Test“ getestet werden."
@@ -3084,6 +3085,7 @@ search:
   informations: Du kannst nach Personen, Gruppen, Betrieben, Bezirken, Chats, Forenbeiträgen und Fairteilern suchen.
   forum: Nach Titel suchen …
   noresults: Es konnten keine Ergebnisse gefunden werden
+  maxresults: Pro Kategorie werden max. 30 Ergebnisse angezeigt. Nutze eventuell einen spezifischeren Suchbegriff.
   thread-title-only: Es werden nur Titel durchsucht, nicht der Text von Beiträgen.
   user_search:
     placeholder: Name oder ID

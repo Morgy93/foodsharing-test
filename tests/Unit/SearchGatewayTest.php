@@ -19,6 +19,8 @@ class SearchGatewayTest extends Unit
     protected array $users;
     protected array $groups;
     protected array $stores;
+    protected array $sharePoints;
+    protected array $chats;
 
     final public function _before(): void
     {
@@ -141,7 +143,7 @@ class SearchGatewayTest extends Unit
     public function testSearchChats()
     {
         // Only find chats the users is a member in
-        $this->assertCorrectSearchResult('chats', ['chat1'], $this->gateway->searchChats('Nutzer', $this->users['user-city1']['id'], false));
+        $this->assertCorrectSearchResult('chats', ['chat1'], $this->gateway->searchChats('Nutzer', $this->users['user-city1']['id']));
     }
 
     public function testSearchUsers()
