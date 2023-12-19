@@ -30,6 +30,7 @@
 - Markdown in forum posts is now rendered in the front end to reduce inconsistencies !2913 !2917 @AntonBallmaier
 - Change the direction of score voting !2920 @AntonBallmaier
 - Select no value by default in score voting !2920 @AntonBallmaier
+- Show required label for phone number during register !2964 @thomas.hauschild
 
 ## Bugfixes
 - Added error handling for cache helper for bell notifications or other requests !2869 @chriswalg
