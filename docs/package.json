@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.2.0",
-    "remark-kroki": "^0.2.7"
+    "remark-kroki": "^0.2.12"
   },
   "browserslist": {
     "production": [
